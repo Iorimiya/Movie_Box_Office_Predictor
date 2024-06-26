@@ -389,8 +389,3 @@ class ExpertReview(Review):
             sentiment_score=self.sentiment_score,
             expert_score=self.expert_score
         )
-
-
-# TODO: Review加入sentiment 的 frozen處理(dataclass replace)
-# TODO: review __hash__的修正 and
-#  delete duplicate 的優化

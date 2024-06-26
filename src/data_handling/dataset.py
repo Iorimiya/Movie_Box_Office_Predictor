@@ -134,28 +134,40 @@ class Dataset:
         :param source_csv: A CsvFile instance representing the source CSV file
                            containing at least a 'movie_name' column.
         """
-        logger: Logger = LoggingManager().get_logger('root')
-        logger.info(f"Initializing index file '{self.index_file_path}' for dataset '{self.name}' from source '{source_csv.path}'.")
+        self.__logger.info(
+            f"Initializing index file '{self.index_file_path}' for dataset '{self.name}' from source '{source_csv.path}'.")
         try:
             source_data: list[dict[str, str]] = source_csv.load()
             if not source_data:
-                logger.warning(f"Source CSV file '{source_csv.path}' is empty. Index file will not be initialized with data.")
-                self.index_file.save(data=[]) # Save an empty index file with header if CsvFile handles it
+                self.__logger.warning(
+                    f"Source CSV file '{source_csv.path}' is empty. Index file will not be initialized with data.")
+                self.index_file.save(data=[])
                 return
 
             index_data: list[dict[str, str]] = []
             for index, movie_row in enumerate(source_data):
                 movie_name: Optional[str] = movie_row.get('movie_name')
                 if movie_name is None:
-                    logger.warning(f"Row {index+1} in source CSV '{source_csv.path}' is missing 'movie_name'. Skipping.")
+                    self.__logger.warning(
+                        f"Row {index + 1} in source CSV '{source_csv.path}' is missing 'movie_name'. Skipping.")
                     continue
-                index_data.append({'id': str(index), 'name': movie_name}) # Ensure ID is also string for CSV consistency
+                index_data.append({'id': str(index), 'name': movie_name})
 
             self.index_file.save(data=index_data)
-            logger.info(f"Successfully initialized index file '{self.index_file_path}' with {len(index_data)} entries for dataset '{self.name}'.")
+            self.__logger.info(
+                f"Successfully initialized index file '{self.index_file_path}' with {len(index_data)} entries for dataset '{self.name}'.")
+        except (FileNotFoundError, PermissionError, IOError) as e:
+            self.__logger.error(
+                f"An I/O error occurred during index initialization for dataset '{self.name}' from '{source_csv.path}': {e}",
+                exc_info=True
+            )
+            raise
         except Exception as e:
-            logger.error(f"Failed to initialize index file for dataset '{self.name}' from '{source_csv.path}': {e}", exc_info=True)
-            # Optionally re-raise or handle more gracefully
+            self.__logger.error(
+                f"An unexpected error occurred during index initialization for dataset '{self.name}': {e}",
+                exc_info=True
+            )
+            raise
         return
 
     def load_movie_source_info(self) -> list[MoviePathMetadata]:
@@ -172,18 +184,17 @@ class Dataset:
         :returns: A list of `MoviePathMetadata` objects. If no base metadata is found,
                   an empty list is returned.
         """
-        logger: Logger = LoggingManager().get_logger('root') # Added logger
-        logger.debug(f"Loading movie source info (paths) for dataset '{self.name}'.")
+        self.__logger.debug(f"Loading movie source info (paths) for dataset '{self.name}'.")
         current_movies_metadata: list[MovieMetadata] = self.movies_metadata
         if not current_movies_metadata:
-            logger.info(f"No base movie metadata found for dataset '{self.name}'. Cannot load source info.")
+            self.__logger.info(f"No base movie metadata found for dataset '{self.name}'. Cannot load source info.")
             return []
 
         path_metadata_list: list[MoviePathMetadata] = [
             MoviePathMetadata.from_metadata(source=movie_metadata, dataset_root_path=self.dataset_path)
             for movie_metadata in current_movies_metadata
         ]
-        logger.debug(f"Generated {len(path_metadata_list)} MoviePathMetadata objects for dataset '{self.name}'.")
+        self.__logger.debug(f"Generated {len(path_metadata_list)} MoviePathMetadata objects for dataset '{self.name}'.")
         return path_metadata_list
 
 
@@ -268,7 +279,6 @@ class Dataset:
             self.__logger.debug(
                 f"`movie_data` cache for dataset '{self.name}' was already empty before box office collection.")
 
-            # Load metadata-only MovieData objects to pass to the collector
         movies_to_collect_for: list[MovieData] = self.load_movie_data(mode='META')
 
         if not movies_to_collect_for:
@@ -279,9 +289,8 @@ class Dataset:
         self.__logger.info(
             f"Collecting box office data for {len(movies_to_collect_for)} movies in dataset '{self.name}'.")
         try:
-            # The BoxOfficeCollector will modify the MovieData objects in movies_to_collect_for
-            # and save data to files.
-            with BoxOfficeCollector(download_mode='WEEK') as collector:  # Use context manager for BoxOfficeCollector if it supports it
+
+            with BoxOfficeCollector(download_mode='WEEK') as collector:
                 collector.download_box_office_data_for_movies(multiple_movie_data=movies_to_collect_for,
                                                               data_folder=self.box_office_folder_path)
 
@@ -290,8 +299,6 @@ class Dataset:
         except Exception as e:
             self.__logger.error(f"An error occurred during box office collection for dataset '{self.name}': {e}",
                                 exc_info=True)
-            # Cache is already invalidated, so no further action needed on cache here.
-            # Consider if specific exceptions from collector need different handling.
         return
 
     def collect_public_review(self, target_website:Literal['PTT','DCARD']) -> None:
@@ -340,7 +347,7 @@ class Dataset:
         try:
             collector: ReviewCollector = ReviewCollector(
                 target_website=target_website_enum,
-                review_folder=self.public_review_folder_path  # Pass the correct folder
+                review_folder=self.public_review_folder_path
             )
             collector.collect_reviews_for_movies(movie_list=movies_to_collect_for)
 
@@ -354,7 +361,6 @@ class Dataset:
         return
 
     def collect_expert_review(self) -> None:
-        # TODO waiting for ReviewCollector
         pass
 
     def compute_sentiment(self, model_id: str, model_epoch: int) -> None:
@@ -373,8 +379,7 @@ class Dataset:
         model_folder: Path = ProjectPaths.get_model_root_path(
             model_id=model_id, model_type=ProjectModelType.SENTIMENT
         )
-        # The model file name is assumed to be in the format {model_id}_{epoch}.keras,
-        # which aligns with the saving logic in ReviewSentimentAnalyseModel.
+
         model_file_name: str = f"{model_id}_{model_epoch}.keras"
         model_file_path: Path = model_folder / model_file_name
         tokenizer_path: Path = model_folder / "tokenizer.pickle"
@@ -404,8 +409,5 @@ class Dataset:
                 for review in movie.public_reviews
             ]
 
-            # The MovieData object is not frozen, so we can replace its list of reviews.
             movie.public_reviews = updated_reviews
             movie.save_public_reviews(target_directory=self.public_review_folder_path)
-
-# TODO: Docstring, comment
