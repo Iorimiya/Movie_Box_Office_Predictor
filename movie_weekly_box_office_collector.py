@@ -1,8 +1,8 @@
 from colab_browser import ColabBrowser
 
+import csv
 import time
 import logging
-import csv
 from pathlib import Path
 from selenium.webdriver.common.by import By
 from selenium.common import exceptions as selenium_exceptions
@@ -42,7 +42,7 @@ class MovieWeeklyBoxOfficeCollector:
             return
         buttons = self.__browser.find_elements(
             by=By.XPATH,
-            value=f'//div[@id="film-searcher"]/div[@class="body"]/button/span[@class="name"]'
+            value='//div[@id="film-searcher"]/div[@class="body"]/button/span[@class="name"]'
         )
         target_element = next(
             (
@@ -54,7 +54,7 @@ class MovieWeeklyBoxOfficeCollector:
         )
         try:
             target_element.click()
-            logging.info(msg=f"{target_movie_name} button clicked.")
+            logging.info(msg=f"the drop-down list button of {target_movie_name} is clicked.")
         except selenium_exceptions.ElementClickInterceptedException:
             logging.error(msg=f"Searching failed, the drop-down list button of {target_movie_name} cannot be clicked",
                           exc_info=True)
@@ -65,7 +65,7 @@ class MovieWeeklyBoxOfficeCollector:
         else:
             time.sleep(self.__page_changing_waiting_time)
             if self.__browser.current_url == self.__searching_url:
-                raise AssertionError('No page switching detect.')
+                raise AssertionError("No page changing detect.")
             logging.info(msg=f"goto url: {self.__browser.current_url}")
             return
 
@@ -80,11 +80,11 @@ class MovieWeeklyBoxOfficeCollector:
                 continue
             csv_button = self.__browser.find_element(
                 by=By.XPATH,
-                value=f'//div[@id="export-button-container"]/button[@data-type="CSV"]',
+                value='//div[@id="export-button-container"]/button[@data-type="CSV"]',
             )
             try:
                 csv_button.click()
-                logging.info(msg='csv button clicked.')
+                logging.info(msg="csv button is clicked.")
             except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
                 logging.warning(msg="Download failed, the CSV button cannot be clicked", exc_info=True)
             else:
@@ -92,7 +92,7 @@ class MovieWeeklyBoxOfficeCollector:
                 self.__downloaded_temp_file.replace(
                     self.__weekly_box_office_data_folder.joinpath(f"{movie_name}{self.__downloaded_temp_file.suffix}"))
                 return
-        raise AssertionError(f'Trying {trying_times} times but download box office data.')
+        raise AssertionError(f"Trying {trying_times} times but cannot download box office data.")
 
     @staticmethod
     def get_movie_list_from_file(csv_file_path: Path) -> list[str]:
@@ -109,6 +109,6 @@ class MovieWeeklyBoxOfficeCollector:
             try:
                 self.get_weekly_box_office_data(movie_name=movie)
             except AssertionError:
-                download_fail_movie_list_path = self.__data_path.joinpath('Error_movies.txt')
+                download_fail_movie_list_path = self.__data_path.joinpath("Error_movies.txt")
                 with open(file=download_fail_movie_list_path, mode='a') as file:
-                    print(f'{movie}', file=file)
+                    print(f"{movie}", file=file)

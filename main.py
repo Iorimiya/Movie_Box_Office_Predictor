@@ -1,8 +1,9 @@
 from movie_weekly_box_office_collector import MovieWeeklyBoxOfficeCollector
 
-from datetime import datetime
 import logging
 from pathlib import Path
+from datetime import datetime
+
 
 def set_logging_setting(display_level: int, file_path: Path) -> None:
     if not file_path.parent.exists():
@@ -24,6 +25,6 @@ if __name__ == "__main__":
     )
 
     # unit test
-    input_file_path = 'data/input/the_movie_list_of_box_office_10,000,000.csv'
+    input_file_path = "data/input/the_movie_list_of_box_office_10,000,000.csv"
     with MovieWeeklyBoxOfficeCollector(page_changing_waiting_time=5, download_waiting_time=3) as collector:
         collector.get_weekly_box_office_data_from_file(csv_file_path=Path(input_file_path))
