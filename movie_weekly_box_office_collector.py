@@ -93,11 +93,18 @@ class MovieWeeklyBoxOfficeCollector:
                 try:
                     self.__downloaded_temp_file.replace(self.__weekly_box_office_data_folder.joinpath(
                         f"{movie_name}{self.__downloaded_temp_file.suffix}"))
+                except FileNotFoundError:
+                    logging.warning(f"Download time not enough.")
+                    self.__download_waiting_time = min(self.__download_waiting_time * 2, 120)
+                    continue
                 except OSError:
                     logging.warning(f"The filename \"{movie_name}.csv\" is incorrect.")
                     self.__downloaded_temp_file.unlink()
                     raise AssertionError(f"cannot rename download file to {movie_name}.csv.")
-                return
+                else:
+                    if self.__download_waiting_time != 2:
+                        self.__download_waiting_time = 2
+                    return
         raise AssertionError(f"Trying {trying_times} times but cannot download box office data.")
 
     @staticmethod
