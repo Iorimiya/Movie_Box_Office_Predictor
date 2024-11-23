@@ -21,7 +21,7 @@ class ColabBrowser(webdriver.Chrome):
         download_path = Path(__file__).resolve(strict=True).parent.joinpath("data")
         experimental_option = {"download.default_directory": str(download_path)}
         self.__options.add_experimental_option(name="prefs", value=experimental_option)
-        logging.info(msg=f"download path switch to {download_path}")
+        logging.debug(msg=f"download path switch to {download_path}")
 
         # create web driver and go to base_url
         super().__init__(options=self.__options)
@@ -37,10 +37,11 @@ class ColabBrowser(webdriver.Chrome):
 
     def get(self, url: str, waiting_time: int = 0.05) -> None:
         try:
+            logging.debug(f"trying to go to {url}")
             super().get(url)
         except ReadTimeoutError:
-            logging.error(msg=f"open URL \"{url}\" failed.")
+            logging.debug(msg=f"open URL \"{url}\" failed.")
         else:
-            logging.info(f"goto url \"{self.current_url}\"")
+            logging.debug(f"goto url \"{self.current_url}\"")
         finally:
             time.sleep(waiting_time)

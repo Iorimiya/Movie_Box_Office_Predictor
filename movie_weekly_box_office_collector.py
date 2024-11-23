@@ -23,6 +23,7 @@ class MovieWeeklyBoxOfficeCollector:
 
         # url
         self.__searching_url = "https://boxofficetw.tfai.org.tw/search/0"
+        self.__defaults_url = "https://google.com"
 
         # create path folder
         self.__weekly_box_office_data_folder.mkdir(parents=True, exist_ok=True)
@@ -66,7 +67,7 @@ class MovieWeeklyBoxOfficeCollector:
             time.sleep(self.__page_changing_waiting_time)
             if self.__browser.current_url == self.__searching_url:
                 raise AssertionError("No page changing detect.")
-            logging.info(msg=f"goto url: {self.__browser.current_url}")
+            logging.debug(msg=f"goto url: {self.__browser.current_url}")
             return
 
     def get_weekly_box_office_data(self, movie_name: str, trying_times: int = 10) -> None:
@@ -112,3 +113,5 @@ class MovieWeeklyBoxOfficeCollector:
                 download_fail_movie_list_path = self.__data_path.joinpath("Error_movies.txt")
                 with open(file=download_fail_movie_list_path, mode='a') as file:
                     print(f"{movie}", file=file)
+            finally:
+                self.__browser.get(self.__defaults_url)
