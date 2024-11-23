@@ -57,7 +57,7 @@ class MovieWeeklyBoxOfficeCollector:
             target_element.click()
             logging.info(msg=f"the drop-down list button of {target_movie_name} is clicked.")
         except selenium_exceptions.ElementClickInterceptedException:
-            logging.error(msg=f"Searching failed, the drop-down list button of {target_movie_name} cannot be clicked",
+            logging.error(msg=f"Searching failed, the drop-down list button of {target_movie_name} cannot be clicked.",
                           exc_info=True)
             return
         except AttributeError:
@@ -87,11 +87,16 @@ class MovieWeeklyBoxOfficeCollector:
                 csv_button.click()
                 logging.info(msg="csv button is clicked.")
             except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
-                logging.warning(msg="Download failed, the CSV button cannot be clicked", exc_info=True)
+                logging.warning(msg="Download failed, the CSV button cannot be clicked.", exc_info=True)
             else:
                 time.sleep(self.__download_waiting_time)
-                self.__downloaded_temp_file.replace(
-                    self.__weekly_box_office_data_folder.joinpath(f"{movie_name}{self.__downloaded_temp_file.suffix}"))
+                try:
+                    self.__downloaded_temp_file.replace(self.__weekly_box_office_data_folder.joinpath(
+                        f"{movie_name}{self.__downloaded_temp_file.suffix}"))
+                except OSError:
+                    logging.warning(f"The filename \"{movie_name}.csv\" is incorrect.")
+                    self.__downloaded_temp_file.unlink()
+                    raise AssertionError(f"cannot rename download file to {movie_name}.csv.")
                 return
         raise AssertionError(f"Trying {trying_times} times but cannot download box office data.")
 
