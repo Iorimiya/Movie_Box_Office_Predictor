@@ -67,7 +67,7 @@ class MovieWeeklyBoxOfficeCollector:
             time.sleep(self.__page_changing_waiting_time)
             if self.__browser.current_url == self.__searching_url:
                 raise AssertionError("No page changing detect.")
-            logging.info(msg=f"goto url: {self.__browser.current_url}")
+            logging.debug(msg=f"goto url: {self.__browser.current_url}")
             return
 
     def get_weekly_box_office_data(self, movie_name: str, trying_times: int = 10) -> None:
