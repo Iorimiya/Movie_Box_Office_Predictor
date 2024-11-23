@@ -10,7 +10,7 @@ from urllib3.exceptions import ReadTimeoutError
 
 
 class MovieWeeklyBoxOfficeCollector:
-    def __init__(self, page_changing_waiting_time: int = 1, download_waiting_time: int = 2) -> None:
+    def __init__(self, page_changing_waiting_time: int = 2, download_waiting_time: int = 1) -> None:
         # browser setting
         self.__browser = ColabBrowser()
         self.__page_changing_waiting_time = page_changing_waiting_time
