@@ -95,6 +95,8 @@ class MovieWeeklyBoxOfficeCollector:
                         f"{movie_name}{self.__downloaded_temp_file.suffix}"))
                 except FileNotFoundError:
                     logging.warning(f"Download time not enough.")
+                    time.sleep(30)
+                    self.__downloaded_temp_file.unlink()
                     self.__download_waiting_time = min(self.__download_waiting_time * 2, 120)
                     continue
                 except OSError:
@@ -115,6 +117,7 @@ class MovieWeeklyBoxOfficeCollector:
 
     def get_weekly_box_office_data_from_file(self, csv_file_path: Path):
         movie_list = self.get_movie_list_from_file(csv_file_path=csv_file_path)
+        self.__downloaded_temp_file.unlink(missing_ok=True)
         for movie in movie_list:
             if self.__weekly_box_office_data_folder.joinpath(f"{movie}{self.__downloaded_temp_file.suffix}").exists():
                 logging.info(msg=f"{movie} is searched.")
