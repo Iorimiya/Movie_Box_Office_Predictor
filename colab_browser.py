@@ -37,11 +37,11 @@ class ColabBrowser(webdriver.Chrome):
 
     def get(self, url: str, waiting_time: int = 0.05) -> None:
         try:
-            logging.debug(f"trying to go to {url}")
+            logging.debug(f"trying to go to {url}.")
             super().get(url)
         except ReadTimeoutError:
             logging.debug(msg=f"open URL \"{url}\" failed.")
         else:
-            logging.debug(f"goto url \"{self.current_url}\"")
+            logging.debug(f"goto url \"{self.current_url}\".")
         finally:
             time.sleep(waiting_time)
