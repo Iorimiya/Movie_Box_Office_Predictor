@@ -1,25 +1,28 @@
 import time
 import logging
+from typing import TypeAlias
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from urllib3.exceptions import ReadTimeoutError
+
+ChromeExperimentalOptions: TypeAlias = dict[str:str]
 
 
 class ColabBrowser(webdriver.Chrome):
 
     def __init__(self, target_url: str = None) -> None:
         # options
-        self.__options = Options()
-        self.__options.add_argument("--headless")
-        self.__options.add_argument("--no-sandbox")
-        self.__options.add_argument("--disable-dev-shm-usage")
-        self.__options.add_argument("--disable-gpu")
-        self.__options.add_argument("--window-size=1600,900")
+        self.__options: Options = Options()
+        self.__options.add_argument(argument="--headless")
+        self.__options.add_argument(argument="--no-sandbox")
+        self.__options.add_argument(argument="--disable-dev-shm-usage")
+        self.__options.add_argument(argument="--disable-gpu")
+        self.__options.add_argument(argument="--window-size=1600,900")
 
         # options to change defaults download dir
-        download_path = Path(__file__).resolve(strict=True).parent.joinpath("data")
-        experimental_option = {"download.default_directory": str(download_path)}
+        download_path: Path = Path(__file__).resolve(strict=True).parent.joinpath("data")
+        experimental_option: ChromeExperimentalOptions = {"download.default_directory": str(download_path)}
         self.__options.add_experimental_option(name="prefs", value=experimental_option)
         logging.debug(msg=f"download path switch to {download_path}")
 
@@ -37,11 +40,11 @@ class ColabBrowser(webdriver.Chrome):
 
     def get(self, url: str, waiting_time: int = 0.05) -> None:
         try:
-            logging.debug(f"trying to go to {url}.")
+            logging.debug(msg=f"trying to go to {url}.")
             super().get(url)
         except ReadTimeoutError:
             logging.debug(msg=f"open URL \"{url}\" failed.")
         else:
-            logging.debug(f"goto url \"{self.current_url}\".")
+            logging.debug(msg=f"goto url \"{self.current_url}\".")
         finally:
             time.sleep(waiting_time)

@@ -17,7 +17,7 @@ def set_logging_setting(display_level: int, file_path: Path) -> None:
 
 if __name__ == "__main__":
     # setting logging information
-    logging_level = logging.DEBUG
+    logging_level: int = logging.DEBUG
     set_logging_setting(
         display_level=logging_level,
         file_path=Path(__file__).resolve(strict=True).parent.
@@ -25,6 +25,6 @@ if __name__ == "__main__":
     )
 
     # unit test
-    input_file_path = "data/input/the_movie_list_of_box_office_10,000,000.csv"
+    input_file_path: str = "data/input/the_movie_list_of_box_office_10,000,000.csv"
     with MovieWeeklyBoxOfficeCollector(page_changing_waiting_time=2, download_waiting_time=1) as collector:
         collector.get_weekly_box_office_data(csv_file_path=Path(input_file_path))
