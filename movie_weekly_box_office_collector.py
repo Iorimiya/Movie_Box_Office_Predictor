@@ -117,7 +117,7 @@ class MovieWeeklyBoxOfficeCollector:
             except OSError:
                 self.__downloaded_temp_file.unlink()
                 logging.warning(f"The filename \"{movie_name}.{self.__download_type}\" is incorrect.")
-                raise AssertionError
+                raise
             else:
                 if self.__download_waiting_time != 2:
                     self.__download_waiting_time = 2
@@ -141,12 +141,13 @@ class MovieWeeklyBoxOfficeCollector:
             try:
                 self.download_weekly_box_office_data_from_csv_file(movie_name=movie_name)
             except AssertionError:
-                logging.warning(f"The {index} searching box office data failed.")
+                logging.warning(f"The {index} times of searching box office data failed.")
+            except OSError:
+                break
             else:
                 successful_flag = True
                 break
         if not successful_flag:
-            logging.error(f"Trying {trying_times} times but cannot download box office data.")
             if not self.__file_of_searching_failed_movies.exists():
                 self.initialize_failed_movie_file()
             logging.info(f"Problem occurred when searching data, append movie {movie_name} into failed files.")
