@@ -47,6 +47,7 @@ class MovieWeeklyBoxOfficeCollector:
         # create path folder
         self.__weekly_box_office_data_folder.mkdir(parents=True, exist_ok=True)
         self.__downloaded_temp_file.unlink(missing_ok=True)
+        self.__file_of_searching_failed_movies.unlink(missing_ok=True)
 
     def navigate_to_movie_page(self, target_movie_name: str) -> None:
         searching_url = f"{self.__searching_url}/{target_movie_name}"
@@ -154,6 +155,6 @@ class MovieWeeklyBoxOfficeCollector:
 
     def get_weekly_box_office_data(self, csv_file_path: Path) -> None:
         movie_list = self.get_movie_list_from_file(csv_file_path=csv_file_path)
-        self.initialize_failed_movie_file()
+        self.initialize_path_and_temp_files()
         [self.search_weekly_box_office_data(movie_name=movie) for movie in movie_list]
         return
