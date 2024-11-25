@@ -20,13 +20,21 @@ class MovieWeeklyBoxOfficeCollector:
         self.__data_path = Path("data")
         self.__downloaded_temp_file = self.__data_path.joinpath("各週週末票房資料匯出.csv")
         self.__weekly_box_office_data_folder = self.__data_path.joinpath("weekly_box_office_data", "by_movie_name")
+        self.__error_movie_list_file = self.__data_path.joinpath("error_movie.csv")
 
         # url
         self.__searching_url = "https://boxofficetw.tfai.org.tw/search/0"
         self.__defaults_url = "https://google.com"
 
+        # csv dependent
+        self.__csv_header = '片名'
+
         # create path folder
         self.__weekly_box_office_data_folder.mkdir(parents=True, exist_ok=True)
+        self.__error_movie_list_file.touch(exist_ok=True)
+        with open(self.__error_movie_list_file, mode='w', encoding='utf-8', newline='') as file:
+            writer = csv.DictWriter(file, [self.__csv_header])
+            writer.writeheader()
 
     def __enter__(self) -> any:
         self.__browser = self.__browser.__enter__()
@@ -125,8 +133,7 @@ class MovieWeeklyBoxOfficeCollector:
             try:
                 self.get_weekly_box_office_data(movie_name=movie)
             except AssertionError:
-                download_fail_movie_list_path = self.__data_path.joinpath("Error_movies.txt")
-                with open(file=download_fail_movie_list_path, mode='a') as file:
+                with open(file=self.__error_movie_list_file, mode='a', newline='') as file:
                     print(f"{movie}", file=file)
             finally:
                 self.__browser.get(self.__defaults_url)
