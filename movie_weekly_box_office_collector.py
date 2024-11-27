@@ -14,13 +14,13 @@ class MovieWeeklyBoxOfficeCollector:
     def __init__(self, page_changing_waiting_time: int = 2, download_waiting_time: int = 1) -> None:
         # browser setting
         self.__browser: ColabBrowser = ColabBrowser()
-        self.__page_changing_waiting_time: int = page_changing_waiting_time
-        self.__download_waiting_time: int = download_waiting_time
+        self.__page_changing_waiting_time: float = page_changing_waiting_time
+        self.__download_waiting_time: float = download_waiting_time
 
         # path dependent
         self.__data_path: Path = Path("data")
         self.__download_type: str = 'json'
-        self.__downloaded_temp_file: Path = self.__data_path.joinpath(f"各週週末票房資料匯出.{self.__download_type}")
+        self.__downloaded_temp_file: Path = self.__data_path.joinpath(f"各週票房資料匯出.{self.__download_type}")
         self.__weekly_box_office_data_folder: Path = self.__data_path.joinpath("weekly_box_office_data",
                                                                                "by_movie_name")
         self.__file_of_searching_failed_movies: Path = self.__data_path.joinpath("searching_failed_movies.csv")
@@ -91,6 +91,14 @@ class MovieWeeklyBoxOfficeCollector:
                 selenium_exceptions.ElementClickInterceptedException):
             logging.warning(msg=f"cannot enter to movie page.")
             raise AssertionError
+        week_box_office_button = self.__browser.find_element(by=By.XPATH, value='//button[@id="weeks-tab"]')
+        try:
+            week_box_office_button.click()
+            logging.info(msg=f"weeks-tab button is clicked.")
+        except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
+            logging.warning(msg=f"Download failed, the weeks-tab button cannot be clicked.",
+                            exc_info=True)
+            raise AssertionError
         csv_button: WebElement = self.__browser.find_element(
             by=By.XPATH,
             value=f'//div[@id="export-button-container"]/button[@data-type="{self.__download_type.upper()}"]',
@@ -102,26 +110,23 @@ class MovieWeeklyBoxOfficeCollector:
             logging.warning(msg=f"Download failed, the {self.__download_type.upper()} button cannot be clicked.",
                             exc_info=True)
             raise AssertionError
-        else:
+
+        while not self.__downloaded_temp_file.exists():
             time.sleep(self.__download_waiting_time)
-            try:
-                self.__downloaded_temp_file.replace(self.__weekly_box_office_data_folder.joinpath(
-                    f"{movie_name}.{self.__download_type}"))
-            except FileNotFoundError:
-                while not self.__downloaded_temp_file.exists():
-                    time.sleep(1)
-                self.__downloaded_temp_file.unlink()
-                self.__download_waiting_time = min(self.__download_waiting_time * 2, 120)
-                logging.warning(f"Download time not enough.")
+            self.__download_waiting_time = min(self.__download_waiting_time * 2, 120)
+            logging.warning(f"Download time not enough.")
+            if self.__download_waiting_time == 120:
+                logging.error("waiting too long.")
                 raise AssertionError
-            except OSError:
-                self.__downloaded_temp_file.unlink()
-                logging.warning(f"The filename \"{movie_name}.{self.__download_type}\" is incorrect.")
-                raise
-            else:
-                if self.__download_waiting_time != 2:
-                    self.__download_waiting_time = 2
-                return
+        try:
+            self.__downloaded_temp_file.replace(self.__weekly_box_office_data_folder.joinpath(
+                f"{movie_name}.{self.__download_type}"))
+        except OSError:
+            self.__downloaded_temp_file.unlink()
+            logging.warning(f"The filename \"{movie_name}.{self.__download_type}\" is incorrect.")
+            raise
+        self.__download_waiting_time = 2
+        return
 
     @staticmethod
     def get_movie_list_from_file(csv_file_path: Path) -> list[str]:

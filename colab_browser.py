@@ -38,7 +38,7 @@ class ColabBrowser(webdriver.Chrome):
     def __exit__(self, exc_type, exc_val, exc_tb) -> any:
         super().__exit__(exc_type, exc_val, exc_tb)
 
-    def get(self, url: str, waiting_time: int = 0.05) -> None:
+    def get(self, url: str, waiting_time: float = 0.05) -> None:
         try:
             logging.debug(msg=f"trying to go to {url}.")
             super().get(url)
