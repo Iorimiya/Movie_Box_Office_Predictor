@@ -3,6 +3,7 @@ from colab_browser import ColabBrowser
 import csv
 import time
 import logging
+from enum import Enum
 from pathlib import Path
 from selenium.webdriver.common.by import By
 from selenium.common import exceptions as selenium_exceptions
@@ -11,7 +12,16 @@ from urllib3.exceptions import ReadTimeoutError
 
 
 class MovieWeeklyBoxOfficeCollector:
-    def __init__(self, page_changing_waiting_time: int = 2, download_waiting_time: int = 1) -> None:
+    class DownloadMode(Enum):
+        WEEK = 1
+        WEEKEND = 2
+
+    def __init__(self, page_changing_waiting_time: int = 2, download_waiting_time: int = 1,
+                 download_mode: DownloadMode = DownloadMode.WEEK) -> None:
+
+        self.__download_mode = download_mode
+        logging.info(f"use {self.__download_mode} mode to download data.")
+
         # browser setting
         self.__browser: ColabBrowser = ColabBrowser()
         self.__page_changing_waiting_time: float = page_changing_waiting_time
@@ -20,7 +30,10 @@ class MovieWeeklyBoxOfficeCollector:
         # path dependent
         self.__data_path: Path = Path("data")
         self.__download_type: str = 'json'
-        self.__downloaded_temp_file: Path = self.__data_path.joinpath(f"各週票房資料匯出.{self.__download_type}")
+        self.__downloaded_temp_file: Path = self.__data_path.joinpath(
+            f"各週票房資料匯出.{self.__download_type}"
+            if self.__download_mode == self.DownloadMode.WEEK
+            else f"各週週末票房資料匯出.{self.__download_type}")
         self.__weekly_box_office_data_folder: Path = self.__data_path.joinpath("weekly_box_office_data",
                                                                                "by_movie_name")
         self.__file_of_searching_failed_movies: Path = self.__data_path.joinpath("searching_failed_movies.csv")
@@ -91,14 +104,15 @@ class MovieWeeklyBoxOfficeCollector:
                 selenium_exceptions.ElementClickInterceptedException):
             logging.warning(msg=f"cannot enter to movie page.")
             raise AssertionError
-        week_box_office_button = self.__browser.find_element(by=By.XPATH, value='//button[@id="weeks-tab"]')
-        try:
-            week_box_office_button.click()
-            logging.info(msg=f"weeks-tab button is clicked.")
-        except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
-            logging.warning(msg=f"Download failed, the weeks-tab button cannot be clicked.",
-                            exc_info=True)
-            raise AssertionError
+        if self.__download_mode == self.DownloadMode.WEEK:
+            week_box_office_button = self.__browser.find_element(by=By.XPATH, value='//button[@id="weeks-tab"]')
+            try:
+                week_box_office_button.click()
+                logging.info(msg=f"weeks-tab button is clicked.")
+            except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
+                logging.warning(msg=f"Download failed, the weeks-tab button cannot be clicked.",
+                                exc_info=True)
+                raise AssertionError
         csv_button: WebElement = self.__browser.find_element(
             by=By.XPATH,
             value=f'//div[@id="export-button-container"]/button[@data-type="{self.__download_type.upper()}"]',
