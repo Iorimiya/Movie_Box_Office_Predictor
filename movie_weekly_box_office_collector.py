@@ -16,7 +16,7 @@ class MovieWeeklyBoxOfficeCollector:
         WEEK = 1
         WEEKEND = 2
 
-    def __init__(self, page_changing_waiting_time: int = 2, download_waiting_time: int = 1,
+    def __init__(self, page_changing_waiting_time: float = 2, download_waiting_time: float = 1,
                  download_mode: DownloadMode = DownloadMode.WEEK) -> None:
 
         self.__download_mode = download_mode
@@ -71,7 +71,7 @@ class MovieWeeklyBoxOfficeCollector:
             self.__browser.get(url=searching_url, waiting_time=self.__page_changing_waiting_time)
         except ReadTimeoutError:
             return
-        buttons: list = self.__browser.find_elements(
+        buttons: list[WebElement] = self.__browser.find_elements(
             by=By.XPATH,
             value='//div[@id="film-searcher"]/div[@class="body"]/button/span[@class="name"]'
         )
@@ -98,6 +98,7 @@ class MovieWeeklyBoxOfficeCollector:
             return
 
     def download_weekly_box_office_data_from_csv_file(self, movie_name: str) -> None:
+        self.__browser.get(self.__defaults_url)
         try:
             self.navigate_to_movie_page(target_movie_name=movie_name)
         except (ReadTimeoutError, AssertionError, AttributeError,
@@ -105,7 +106,8 @@ class MovieWeeklyBoxOfficeCollector:
             logging.warning(msg=f"cannot enter to movie page.")
             raise AssertionError
         if self.__download_mode == self.DownloadMode.WEEK:
-            week_box_office_button = self.__browser.find_element(by=By.XPATH, value='//button[@id="weeks-tab"]')
+            week_box_office_button: WebElement = self.__browser.find_element(by=By.XPATH,
+                                                                             value='//button[@id="weeks-tab"]')
             try:
                 week_box_office_button.click()
                 logging.info(msg=f"weeks-tab button is clicked.")
@@ -156,11 +158,11 @@ class MovieWeeklyBoxOfficeCollector:
         logging.info("Searching box office data from browser.")
         successful_flag: bool = False
 
-        for index in range(trying_times):
+        for current_trying_times in range(trying_times):
             try:
                 self.download_weekly_box_office_data_from_csv_file(movie_name=movie_name)
             except AssertionError:
-                logging.warning(f"The {index} times of searching box office data failed.")
+                logging.warning(f"The {current_trying_times} times of searching box office data failed.")
             except OSError:
                 break
             else:
@@ -172,7 +174,6 @@ class MovieWeeklyBoxOfficeCollector:
             logging.info(f"Problem occurred when searching data, append movie {movie_name} into failed files.")
             with open(file=self.__file_of_searching_failed_movies, mode='a', newline='') as file:
                 print(f"{movie_name}", file=file)
-        self.__browser.get(self.__defaults_url)
         return
 
     def get_weekly_box_office_data(self, csv_file_path: Path) -> None:
