@@ -3,11 +3,13 @@
 # conda environment
 
 name: thesis_for_zt
+channels:
+  - defaults
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+  - https://repo.anaconda.com/pkgs/msys2
 dependencies:
-# python
-  - defaults::python=3.10.4
-  - defaults::ipython
-  - defaults::pip
-  - pip:
-    - "selenium==4.26.1"
+  - defaults::python=3.10.15
+  - defaults::pip=24.2
+  - defaults::selenium=4.24.0
 
