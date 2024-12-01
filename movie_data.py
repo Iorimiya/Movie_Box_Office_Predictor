@@ -1,10 +1,19 @@
-from typing import TypeAlias
+from typing import TypeAlias, TypedDict
 from datetime import date
-BOX_OFFICE: TypeAlias = list[int]
+
+
+class WeeklyBoxOfficeData(TypedDict):
+    start_date: date
+    end_date: date
+    box_office: int
+
+
+BoxOfficeData: TypeAlias = list[WeeklyBoxOfficeData]
 
 
 class MovieData:
-    def __init__(self, movie_name: str, box_office:BOX_OFFICE, init_date: date):
-        self.movie_name = movie_name
-        self.box_office = box_office
-        self.init_date = init_date
+    def __init__(self, movie_name: str, box_office: BoxOfficeData):
+        self.movie_name: str = movie_name
+        self.box_offices: BoxOfficeData = box_office
+        self.init_date: date = self.box_offices[0]['start_date']
+        self.week_lens: int = len(self.box_offices)
