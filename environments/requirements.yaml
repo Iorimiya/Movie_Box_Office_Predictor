@@ -9,7 +9,10 @@ channels:
   - https://repo.anaconda.com/pkgs/r
   - https://repo.anaconda.com/pkgs/msys2
 dependencies:
+# python
   - defaults::python=3.10.15
+  - defaults::ipython
   - defaults::pip=24.2
-  - defaults::selenium=4.24.0
-
+  - pip:
+    - "selenium==4.26.1"
+    - "PyYAML==6.0.2"
