@@ -10,4 +10,4 @@ dependencies:
   - defaults::pip
   - pip:
     - "selenium==4.26.1"
-
+    - "PyYAML==6.0.2"
