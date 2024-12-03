@@ -42,7 +42,7 @@ class FormatTransferTool:
     def write_to_yaml_file(self, data: list[MovieData]):
         yaml.Dumper.ignore_aliases = lambda self, data: True
         with open(self.output_file_path, mode='w', encoding=self.output_encoding) as file:
-            yaml.dump(data, file, allow_unicode=True)
+            yaml.dump_all(data, file, allow_unicode=True)
 
     def transfer_data(self):
         movie_data_list: list[MovieData] = [self.read_json_data(input_file) for input_file in self.input_file_list]
