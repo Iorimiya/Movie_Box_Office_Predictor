@@ -12,8 +12,17 @@ BoxOfficeData: TypeAlias = list[WeeklyBoxOfficeData]
 
 
 class MovieData:
-    def __init__(self, movie_name: str, box_office: BoxOfficeData):
+    def __init__(self, movie_id: int, movie_name: str, box_office: BoxOfficeData | None = None) -> None:
         self.movie_name: str = movie_name
-        self.box_offices: BoxOfficeData = box_office
-        self.init_date: date = self.box_offices[0]['start_date']
+        self.movie_id: int = movie_id
+        self.box_offices: BoxOfficeData | None = None
+        self.init_date: date | None = None
+        self.week_lens: int = 0
+        if box_office:
+            self.update_box_office_data(box_office)
+
+    def update_box_office_data(self, box_offices: BoxOfficeData) -> None:
+        self.box_offices: BoxOfficeData | None = box_offices
+        self.init_date: date | None = self.box_offices[0]['start_date']
         self.week_lens: int = len(self.box_offices)
+        return
