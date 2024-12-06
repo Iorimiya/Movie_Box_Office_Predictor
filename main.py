@@ -28,4 +28,4 @@ if __name__ == "__main__":
     input_file_path: str = "data/input/the_movie_list_of_box_office_10,000,000.csv"
     with MovieWeeklyBoxOfficeCollector(page_changing_waiting_time=2, download_waiting_time=1,
                                        download_mode=MovieWeeklyBoxOfficeCollector.DownloadMode.WEEK) as collector:
-        collector.get_weekly_box_office_data(csv_file_path=Path(input_file_path))
+        collector.get_box_office_data()
