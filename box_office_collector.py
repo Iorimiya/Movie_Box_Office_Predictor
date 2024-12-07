@@ -9,7 +9,6 @@ import logging
 from enum import Enum
 from math import log10
 from pathlib import Path
-from ast import literal_eval
 from selenium.webdriver.common.by import By
 from selenium.common import exceptions as selenium_exceptions
 from selenium.webdriver.remote.webelement import WebElement
@@ -17,7 +16,7 @@ from urllib3.exceptions import ReadTimeoutError
 
 
 # noinspection PyTypeChecker
-class MovieWeeklyBoxOfficeCollector:
+class BoxOfficeCollector:
     class DownloadMode(Enum):
         WEEK = 1
         WEEKEND = 2
@@ -30,7 +29,7 @@ class MovieWeeklyBoxOfficeCollector:
                  download_mode: DownloadMode = DownloadMode.WEEK) -> None:
 
         # download mode amd type settings
-        self.__download_mode: MovieWeeklyBoxOfficeCollector.DownloadMode = download_mode
+        self.__download_mode: BoxOfficeCollector.DownloadMode = download_mode
         self.__download_type: str = 'json'
         logging.info(f"use {self.__download_mode} mode to download data.")
 
