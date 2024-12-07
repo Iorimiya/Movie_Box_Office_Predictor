@@ -11,7 +11,7 @@ ChromeExperimentalOptions: TypeAlias = dict[str:str]
 
 class ColabBrowser(webdriver.Chrome):
 
-    def __init__(self, target_url: str = None) -> None:
+    def __init__(self,download_path: Path, target_url: str = None) -> None:
         # options
         self.__options: Options = Options()
         self.__options.add_argument(argument="--headless")
@@ -21,7 +21,6 @@ class ColabBrowser(webdriver.Chrome):
         self.__options.add_argument(argument="--window-size=1600,900")
 
         # options to change defaults download dir
-        download_path: Path = Path(__file__).resolve(strict=True).parent.joinpath("data")
         experimental_option: ChromeExperimentalOptions = {"download.default_directory": str(download_path)}
         self.__options.add_experimental_option(name="prefs", value=experimental_option)
         logging.debug(msg=f"download path switch to {download_path}")
