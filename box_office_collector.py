@@ -17,19 +17,19 @@ from urllib3.exceptions import ReadTimeoutError
 
 # noinspection PyTypeChecker
 class BoxOfficeCollector:
-    class DownloadMode(Enum):
+    class Mode(Enum):
         WEEK = 1
         WEEKEND = 2
 
-    class ProgressUpdateType(Enum):
+    class UpdateType(Enum):
         URL = 1
         FILE_PATH = 2
 
     def __init__(self, page_changing_waiting_time: float = 2, download_waiting_time: float = 1,
-                 download_mode: DownloadMode = DownloadMode.WEEK) -> None:
+                 download_mode: Mode = Mode.WEEK) -> None:
 
         # download mode amd type settings
-        self.__download_mode: BoxOfficeCollector.DownloadMode = download_mode
+        self.__download_mode: BoxOfficeCollector.Mode = download_mode
         self.__download_type: str = 'json'
         logging.info(f"use {self.__download_mode} mode to download data.")
 
@@ -42,7 +42,7 @@ class BoxOfficeCollector:
         self.__index_file_path: Path = self.__data_path.joinpath("index.csv")
         self.__progress_file_path: Path = self.__box_office_data_folder.joinpath("download_progress.csv")
         self.__temporary_file_downloaded_path: Path = self.__data_path.joinpath(
-            f"各週{'' if self.__download_mode == self.DownloadMode.WEEK else '週末'}票房資料匯出.{self.__download_type}")
+            f"各週{'' if self.__download_mode == self.Mode.WEEK else '週末'}票房資料匯出.{self.__download_type}")
 
         # initialize path before browser create to avoid resolve error
         self.__initialize_paths()
@@ -116,13 +116,13 @@ class BoxOfficeCollector:
                                  header=self.__progress_file_header)
         return
 
-    def __update_progress_information(self, index: int, update_type: ProgressUpdateType, new_data_value: Path | str):
+    def __update_progress_information(self, index: int, update_type: UpdateType, new_data_value: Path | str):
         # read progress data from csv file
         progress_data = self.__read_data_from_csv(self.__progress_file_path)
         # overwrite new data
-        if update_type == self.ProgressUpdateType.URL:
+        if update_type == self.UpdateType.URL:
             progress_data[index][self.__progress_file_header[1]] = new_data_value
-        elif update_type == self.ProgressUpdateType.FILE_PATH:
+        elif update_type == self.UpdateType.FILE_PATH:
             progress_data[index][self.__progress_file_header[2]] = new_data_value
         # save new data to the same csv file
         self.__write_data_to_csv(path=self.__progress_file_path, header=self.__progress_file_header,
@@ -168,13 +168,13 @@ class BoxOfficeCollector:
         logging.debug(msg=f"goto url: {self.__browser.current_url}")
         #
         self.__update_progress_information(index=movie_data.movie_id,
-                                           update_type=self.ProgressUpdateType.URL,
+                                           update_type=self.UpdateType.URL,
                                            new_data_value=self.__browser.current_url)
         return True
 
     def __click_download_button(self) -> bool:
         # by defaults, the page is show the weekend data
-        if self.__download_mode == self.DownloadMode.WEEK:
+        if self.__download_mode == self.Mode.WEEK:
             # to use week mode, the additional step is click the "本週" button
             week_box_office_button: WebElement = self.__browser.find_element(by=By.XPATH,
                                                                              value='//button[@id="weeks-tab"]')
@@ -213,7 +213,7 @@ class BoxOfficeCollector:
         if target_file_path.exists():
             # update progress with the path and downloaded flag
             self.__update_progress_information(index=movie_id,
-                                               update_type=self.ProgressUpdateType.FILE_PATH,
+                                               update_type=self.UpdateType.FILE_PATH,
                                                new_data_value=target_file_path)
             return True
         return False

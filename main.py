@@ -27,5 +27,5 @@ if __name__ == "__main__":
     # unit test
     input_file_path: str = "data/input/the_movie_list_of_box_office_10,000,000.csv"
     with BoxOfficeCollector(page_changing_waiting_time=2, download_waiting_time=1,
-                            download_mode=BoxOfficeCollector.DownloadMode.WEEK) as collector:
+                            download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
         collector.get_box_office_data()
