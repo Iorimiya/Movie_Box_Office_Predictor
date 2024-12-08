@@ -9,7 +9,7 @@ def set_logging_setting(display_level: int, file_path: Path) -> None:
     if not file_path.parent.exists():
         file_path.parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
-        level=display_level, format="%(asctime)s %(filename)s %(levelname)s:%(message)s",
+        level=display_level, format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s",
         filename=file_path, filemode='w', encoding='utf-8'
     )
     return
