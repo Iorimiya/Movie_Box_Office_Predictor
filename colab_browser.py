@@ -4,6 +4,7 @@ from typing import TypeAlias
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.common import exceptions as selenium_exceptions
 from urllib3.exceptions import ReadTimeoutError
 
 ChromeExperimentalOptions: TypeAlias = dict[str:str]
@@ -42,7 +43,11 @@ class ColabBrowser(webdriver.Chrome):
             logging.debug(msg=f"trying to go to {url}.")
             super().get(url)
         except ReadTimeoutError:
-            logging.debug(msg=f"open URL \"{url}\" failed.")
+            logging.warning(msg=f"Read Timeout Error on {url} caught.")
+            logging.debug(msg='', exc_info=True)
+        except selenium_exceptions.UnexpectedAlertPresentException:
+            logging.warning(msg="Unexpected Alert Caught,")
+            logging.debug(msg='',exc_info=True)
         else:
             logging.debug(msg=f"goto url \"{self.current_url}\".")
         finally:

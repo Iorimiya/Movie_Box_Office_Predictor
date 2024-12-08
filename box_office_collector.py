@@ -1,5 +1,3 @@
-from multiprocessing.util import debug
-
 from colab_browser import ColabBrowser
 from movie_data import MovieData
 
@@ -51,7 +49,7 @@ class BoxOfficeCollector:
         self.__browser: ColabBrowser = ColabBrowser(download_path=self.__data_path.resolve(strict=True))
         self.__page_changing_waiting_time: float = page_changing_waiting_time
         self.__download_waiting_time: float = download_waiting_time
-        self.__defaults_download_waiting_time:float = download_waiting_time
+        self.__defaults_download_waiting_time: float = download_waiting_time
 
         # url
         self.__searching_url: str = "https://boxofficetw.tfai.org.tw/search/0"
@@ -135,8 +133,7 @@ class BoxOfficeCollector:
         try:
             # go to search page
             self.__browser.get(url=searching_url, waiting_time=self.__page_changing_waiting_time)
-        except ReadTimeoutError:
-            logging.debug(f"Read Timeout Error on {searching_url} caught.")
+        except (ReadTimeoutError, selenium_exceptions.UnexpectedAlertPresentException):
             return False
         # find the drop-down list element from page
         buttons: list[WebElement] = self.__browser.find_elements(
@@ -150,20 +147,20 @@ class BoxOfficeCollector:
             None,
         )
         if target_element is None:
-            logging.debug(msg=f"Searching {movie_name} failed, none movie title drop-down list found.")
+            logging.warning(msg=f"Searching {movie_name} failed, none movie title drop-down list found.")
+            logging.debug(msg='', exc_info=True)
             return False
         try:
             target_element.click()
             logging.info(msg=f"the drop-down list button of {movie_name} is clicked.")
         except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
-            logging.debug(
-                msg=f"Searching failed, the drop-down list button of {movie_name} cannot be clicked.",
-                exc_info=True)
+            logging.warning(msg=f"Searching failed, the drop-down list button of {movie_name} cannot be clicked.")
+            logging.debug(msg='', exc_info=True)
             return False
         # waiting for the page changing
         time.sleep(self.__page_changing_waiting_time)
         if self.__browser.current_url == self.__searching_url:  # if page not changed
-            logging.debug("No page changing detect.")
+            logging.warning(msg="No page changing detect.")
             return False
         logging.debug(msg=f"goto url: {self.__browser.current_url}")
         #
@@ -176,35 +173,43 @@ class BoxOfficeCollector:
         # by defaults, the page is show the weekend data
         if self.__download_mode == self.Mode.WEEK:
             # to use week mode, the additional step is click the "本週" button
-            week_box_office_button: WebElement = self.__browser.find_element(by=By.XPATH,
-                                                                             value='//button[@id="weeks-tab"]')
+            try:
+                week_box_office_button: WebElement = self.__browser.find_element(by=By.XPATH,
+                                                                                 value='//button[@id="weeks-tab"]')
+            except selenium_exceptions.NoSuchElementException:
+                logging.warning(msg="cannot find week-tab button.")
+                logging.debug(msg='', exc_info=True)
+                return False
             try:
                 week_box_office_button.click()
                 logging.info(msg=f"weeks-tab button is clicked.")
             except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
-                logging.debug(msg=f"Download failed, the weeks-tab button cannot be clicked.",
-                              exc_info=True)
+                logging.warning(msg=f"Download failed, the weeks-tab button cannot be clicked.")
+                logging.debug(msg=f'', exc_info=True)
                 return False
         # find button to download file
-        file_download_button: WebElement = self.__browser.find_element(
-            by=By.XPATH,
-            value=f'//div[@id="export-button-container"]/button[@data-ext="{self.__download_type}"]',
-        )
+        try:
+            file_download_button: WebElement = self.__browser.find_element(
+                by=By.XPATH,
+                value=f'//div[@id="export-button-container"]/button[@data-ext="{self.__download_type}"]', )
+        except selenium_exceptions.NoSuchElementException:
+            logging.warning(msg="cannot find download button.")
+            logging.debug(msg='', exc_info=True)
+            return False
         try:
             file_download_button.click()
             logging.info(msg=f"{self.__download_type.upper()} button is clicked.")
         except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
-            logging.debug(
-                msg=f"Download failed, the {self.__download_type.upper()} button cannot be clicked.",
-                exc_info=True)
+            logging.warning(msg=f"Download failed, the {self.__download_type.upper()} button cannot be clicked.")
+            logging.debug(msg='', exc_info=True)
             return False
         # waiting until the file downloaded
         time.sleep(self.__download_waiting_time)
         if not self.__temporary_file_downloaded_path.exists():
-            logging.debug(f"Download time not enough.")
+            logging.debug(msg=f"Download time not enough.")
             time.sleep(30)
             if not self.__temporary_file_downloaded_path.exists():
-                logging.debug("waiting time too long.")
+                logging.warning(msg="waiting time too long.")
                 return False
         return True
 
@@ -222,7 +227,7 @@ class BoxOfficeCollector:
                                  max_digit: int = 0) -> None:
         movie_name = movie_data.movie_name
         movie_id = movie_data.movie_id
-        logging.info(f"Searching box office of {movie_name}.")
+        logging.info(msg=f"Searching box office of {movie_name}.")
         download_target_file_path = self.__download_target_folder.joinpath(
             f"{movie_id:0{max_digit}}.{self.__download_type}")
 
@@ -230,7 +235,7 @@ class BoxOfficeCollector:
             if progress[self.__progress_file_header[1]]:
                 logging.info(msg=f"movie url, data file and record in progress correct, skip to next movie,")
             else:
-                logging.info(f"movie url not found, search it,")
+                logging.info(msg=f"movie url not found, search it,")
                 self.__navigate_to_movie_page(movie_data)
             return
 
@@ -239,24 +244,23 @@ class BoxOfficeCollector:
             # to avoid the strange error when page switching, go to defaults url for the start
             try:
                 self.__browser.get(self.__defaults_url)
-            except selenium_exceptions.UnexpectedAlertPresentException:
-                logging.debug("Unexpected Alert Caught,")
+            except (ReadTimeoutError, selenium_exceptions.UnexpectedAlertPresentException):
                 continue
             # if progress shows the url has been recorded, skip navigating and get it from file.
             if progress[self.__progress_file_header[1]]:
                 logging.info(msg=f"only movie url found, download again,")
                 self.__browser.get(progress[self.__progress_file_header[1]])
             else:
-                logging.info(f"none data found, search and download")
+                logging.info(msg=f"none data found, search and download")
                 self.__navigate_to_movie_page(movie_data)
             if not self.__click_download_button():
-                logging.warning(f"The {current_trying_times} times of searching box office data failed.")
+                logging.warning(msg=f"The {current_trying_times} times of searching box office data failed.")
                 continue
             if self.__rename_downloaded_file(download_target_file_path, movie_id=movie_id):
                 break
             else:
-                logging, debug("rename error"),
-                logging.info(f"The {current_trying_times} times of searching box office data failed.")
+                logging.debug(msg="rename error"),
+                logging.warning(msg=f"The {current_trying_times} times of searching box office data failed.")
         return
 
     def get_box_office_data(self, input_csv_path: str | None = None) -> None:
