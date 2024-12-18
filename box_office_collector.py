@@ -8,8 +8,8 @@ from enum import Enum
 from math import log10
 from pathlib import Path
 from selenium.webdriver.common.by import By
-from selenium.common import exceptions as selenium_exceptions
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.common import exceptions as selenium_exceptions
 from urllib3.exceptions import ReadTimeoutError
 
 
@@ -29,7 +29,7 @@ class BoxOfficeCollector:
         # download mode amd type settings
         self.__download_mode: BoxOfficeCollector.Mode = download_mode
         self.__download_type: str = 'json'
-        logging.info(f"use {self.__download_mode} mode to download data.")
+        logging.info(f"use {self.__download_mode.name} mode to download data.")
 
         # path of folders
         self.__data_path: Path = Path("data")
@@ -137,18 +137,17 @@ class BoxOfficeCollector:
             return False
         # find the drop-down list element from page
         buttons: list[WebElement] = self.__browser.find_elements(
-            by=By.XPATH,
-            value='//div[@id="film-searcher"]/div[@class="body"]/button/span[@class="name"]'
+            by=By.CSS_SELECTOR,
+            value='#film-searcher button.result-item'
         )
         # compare the text of each element and pick the first one matched the movie name
         target_element: WebElement | None = next(
-            (button.find_element(by=By.XPATH, value=f"./..") for button in buttons if
-             button.text == movie_name),
+            (button for button in buttons if
+             button.find_element(by=By.CSS_SELECTOR, value="span.name").text == movie_name),
             None,
         )
         if target_element is None:
             logging.warning(msg=f"Searching {movie_name} failed, none movie title drop-down list found.")
-            logging.debug(msg='', exc_info=True)
             return False
         try:
             target_element.click()
@@ -173,35 +172,12 @@ class BoxOfficeCollector:
         # by defaults, the page is show the weekend data
         if self.__download_mode == self.Mode.WEEK:
             # to use week mode, the additional step is click the "本週" button
-            try:
-                week_box_office_button: WebElement = self.__browser.find_element(by=By.XPATH,
-                                                                                 value='//button[@id="weeks-tab"]')
-            except selenium_exceptions.NoSuchElementException:
-                logging.warning(msg="cannot find week-tab button.")
-                logging.debug(msg='', exc_info=True)
-                return False
-            try:
-                week_box_office_button.click()
-                logging.info(msg=f"weeks-tab button is clicked.")
-            except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
-                logging.warning(msg=f"Download failed, the weeks-tab button cannot be clicked.")
-                logging.debug(msg=f'', exc_info=True)
+            if not self.__browser.click(button_name="weeks-tab button", button_selector_path="button#weeks-tab"):
                 return False
         # find button to download file
-        try:
-            file_download_button: WebElement = self.__browser.find_element(
-                by=By.XPATH,
-                value=f'//div[@id="export-button-container"]/button[@data-ext="{self.__download_type}"]', )
-        except selenium_exceptions.NoSuchElementException:
-            logging.warning(msg="cannot find download button.")
-            logging.debug(msg='', exc_info=True)
-            return False
-        try:
-            file_download_button.click()
-            logging.info(msg=f"{self.__download_type.upper()} button is clicked.")
-        except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
-            logging.warning(msg=f"Download failed, the {self.__download_type.upper()} button cannot be clicked.")
-            logging.debug(msg='', exc_info=True)
+        if not self.__browser.click(button_name=f"the {self.__download_type.upper()} download button",
+                                    button_selector_path=f"div#export-button-container "
+                                                         f"button[data-ext='{self.__download_type}']"):
             return False
         # waiting until the file downloaded
         time.sleep(self.__download_waiting_time)
