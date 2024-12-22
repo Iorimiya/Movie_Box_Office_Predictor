@@ -63,13 +63,15 @@ class ReviewCollector:
         else:
             raise ValueError
 
-    def __get_movie_search_keys(self, movie_name:str) -> list[str]:
+    @staticmethod
+    def __get_movie_search_keys(movie_name: str) -> list[str]:
         output = list()
         # these elements need to change to space, comma, etc
         separator_format = ["([\"＂／\/。]|[^\d]?[:：][^\d])+"]
         # these elements need to be deleted first
         delete_format = "[\(（]((數位)?\s?(修復)?\s?(IMAX|A)?\s?((日|英|國)(文|語))?\s?((2|3)D)?\s?版?)+[\)）]$"
         if re.search(pattern=f"", string=movie_name):
-            movie_name = re.split(pattern=delete_format, string=movie_name)[0]
-        pass
-        return list("")
+            movie_name = re.sub(pattern=delete_format, repl='', string=movie_name)
+        output.append(movie_name)
+
+        return output
