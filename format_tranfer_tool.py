@@ -47,10 +47,3 @@ class FormatTransferTool:
     def transfer_data(self):
         movie_data_list: list[MovieData] = [self.read_json_data(input_file) for input_file in self.input_file_list]
         self.write_to_yaml_file(movie_data_list)
-
-
-if __name__ == '__main__':
-    input_path = 'data/weekly_box_office_data/by_movie_name'
-    output_path = 'data/weekly_box_office_data/all_data.yaml'
-    ftt = FormatTransferTool(input_path, output_path)
-    ftt.transfer_data()
