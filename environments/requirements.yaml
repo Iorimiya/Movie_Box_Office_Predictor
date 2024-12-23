@@ -13,6 +13,9 @@ dependencies:
   - defaults::python=3.10.15
   - defaults::ipython
   - defaults::pip=24.2
+  - defaults::beautifulsoup4=4.12.3
+  - defaults::lxml=5.3.0
+  - defaults::requests=2.32.3
   - pip:
     - "selenium==4.26.1"
     - "PyYAML==6.0.2"

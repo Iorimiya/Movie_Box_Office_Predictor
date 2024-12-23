@@ -1,5 +1,6 @@
 from box_office_collector import BoxOfficeCollector
 from format_tranfer_tool import FormatTransferTool
+from review_collector import ReviewCollector
 
 import logging
 from enum import Enum
@@ -39,7 +40,9 @@ if __name__ == "__main__":
                                 download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
             collector.get_box_office_data()
     elif operation_mode == Mode.COLLECT_REVIEW:
-        pass
+        input_title = '阿凡達'
+        ptt_searcher = ReviewCollector(search_mode=ReviewCollector.Mode.PPT)
+        print(ptt_searcher.get_review_urls(search_key=input_title))
 
     elif operation_mode == Mode.TRANSFER_BOX_OFFICE_DATA_FORMAT:
         input_path = 'data/weekly_box_office_data/by_movie_name'
