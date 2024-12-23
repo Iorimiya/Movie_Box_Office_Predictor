@@ -55,11 +55,13 @@ class ReviewCollector:
             search_url: str = self.__get_search_page_url(search_key)
             max_page_number: int = self.__get_largest_result_page_number(self.__get_xpath_element(search_url))
             url_search_xpath = "//*[@id='main-container']//*[contains(@class, 'r-list-container')]//div[@class='title']/a/@href"
-            base_url = re.search(pattern='^[^:\/]+:\/\/[^\/]+',string=self.__base_url[self.__download_mode.value]).group(0)
+            domain_pattern = '^[^:\/]+:\/\/[^\/]+'
+            base_url = re.search(pattern=domain_pattern, string=self.__base_url[self.__download_mode.value]).group(0)
 
             return [base_url + review
-                for current_page_number in range(1, max_page_number + 1)
-                for review in self.__get_xpath_element(f"{search_url}&page={current_page_number}").xpath(url_search_xpath)]
+                    for current_page_number in range(1, max_page_number + 1)
+                    for review in
+                    self.__get_xpath_element(f"{search_url}&page={current_page_number}").xpath(url_search_xpath)]
         else:
             raise ValueError
 
