@@ -19,8 +19,22 @@ class MovieReview:
         if url or title or content or time or replies:
             self.update_information(title=title, content=content, time=time, replies=replies)
 
+    def __key(self):
+        return self.url
+
+    def __hash__(self):
+        return hash(self.__key())
+
     def __eq__(self, other):
-        return self.url == other.url
+        if isinstance(other, A):
+            return self.__key() == other.__key()
+        return NotImplemented
+
+    def __str__(self):
+        return self.url.__str__()
+
+    def __repr__(self):
+        return self.url.__repr__()
 
     def update_information(self,
                            title: str | None = None,

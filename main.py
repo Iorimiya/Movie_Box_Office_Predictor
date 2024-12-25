@@ -42,8 +42,8 @@ if __name__ == "__main__":
     elif operation_mode == Mode.COLLECT_REVIEW:
         input_title = '阿凡達'
         ptt_searcher = ReviewCollector(search_mode=ReviewCollector.Mode.PPT)
-        print(ptt_searcher.get_review_urls(search_key=input_title))
-
+        search_keys = ptt_searcher.get_movie_search_keys(movie_name=input_title)
+        print(ptt_searcher.search_ptt_review(search_keys=search_keys))
     elif operation_mode == Mode.TRANSFER_BOX_OFFICE_DATA_FORMAT:
         input_path = 'data/weekly_box_office_data/by_movie_name'
         output_path = 'data/weekly_box_office_data/all_data.yaml'
