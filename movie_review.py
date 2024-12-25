@@ -26,7 +26,7 @@ class MovieReview:
         return hash(self.__key())
 
     def __eq__(self, other):
-        if isinstance(other, A):
+        if isinstance(other, MovieReview):
             return self.__key() == other.__key()
         return NotImplemented
 
