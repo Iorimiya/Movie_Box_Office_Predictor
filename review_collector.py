@@ -1,24 +1,17 @@
-from movie_review import MovieReview
+from movie_review import MovieReview, ReviewInformation
 
 import re
 import logging
 import requests
 from enum import Enum
 from requests import Response
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
 from datetime import datetime
 from bs4 import BeautifulSoup, NavigableString
 
 Url: TypeAlias = str
 RegularExpressionPattern: TypeAlias = str
 Selector: TypeAlias = str
-
-
-class ReviewInformation(TypedDict):
-    title: str | None
-    content: str | None
-    time: datetime | None
-    replies: list[str] | None
 
 
 class ReviewCollector:
@@ -60,10 +53,12 @@ class ReviewCollector:
             output.append(re.sub(pattern=separator_pattern, repl=empty, string=movie_name))
             output.append(re.sub(pattern=separator_pattern, repl=space, string=movie_name))
             output.append(re.sub(pattern=separator_pattern, repl=dash, string=movie_name))
-            output.append(re.split(pattern=separator_pattern,string=movie_name)[1])
+            output.append(re.split(pattern=separator_pattern, string=movie_name)[1])
         if re.search(pattern=double_quotation, string=movie_name) is not None:
             if re.search(pattern=dual_double_quotation_pattern, string=movie_name) is not None:
-                temp2 = re.sub(pattern=end_with_double_quotation_pattern, repl=empty, string=re.sub(pattern=start_with_double_quotation_pattern, repl=empty, string=movie_name))
+                temp2 = re.sub(pattern=end_with_double_quotation_pattern, repl=empty,
+                               string=re.sub(pattern=start_with_double_quotation_pattern, repl=empty,
+                                             string=movie_name))
                 output.append(re.sub(pattern=dual_double_quotation_pattern, repl=double_quotation,
                                      string=temp2))
                 output.append(re.sub(pattern=dual_double_quotation_pattern, repl=space,
@@ -153,12 +148,7 @@ class ReviewCollector:
 
     def __get_reviews(self, search_key: str):
         urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-        reviews = [MovieReview(url) for url in urls]
-        for review in reviews:
-            review_information: ReviewInformation = self.__get_review_information(url=review.url)
-            review.update_information(title=review_information['title'], content=review_information['content'],
-                                      time=review_information['time'], replies=review_information['replies'])
-        return reviews
+        return [MovieReview.from_information(url, self.__get_review_information(url=url)) for url in urls]
 
     __delete_duplicate_review = lambda self, input_reviews: list(set(input_reviews))
 

@@ -1,7 +1,14 @@
-from typing import TypeAlias
+from typing import TypeAlias, TypedDict
 from datetime import datetime
 
 Replies: TypeAlias = list[str]
+
+
+class ReviewInformation(TypedDict):
+    title: str | None
+    content: str | None
+    time: datetime | None
+    replies: list[str] | None
 
 
 class MovieReview:
@@ -18,6 +25,11 @@ class MovieReview:
         self.replies: Replies | None = None
         if url or title or content or time or replies:
             self.update_information(title=title, content=content, time=time, replies=replies)
+
+    @classmethod
+    def from_information(cls, url: str, movie_information: ReviewInformation):
+        return MovieReview(url=url, title=movie_information['title'], content=movie_information['content'],
+                           time=movie_information['time'], replies=movie_information['replies'])
 
     def __key(self):
         return self.url
