@@ -1,5 +1,6 @@
 from box_office_collector import BoxOfficeCollector
 from format_tranfer_tool import FormatTransferTool
+from movie_review import MovieReview
 from review_collector import ReviewCollector
 
 import logging
@@ -40,10 +41,11 @@ if __name__ == "__main__":
                                 download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
             collector.get_box_office_data()
     elif operation_mode == Mode.COLLECT_REVIEW:
-        input_title = '阿凡達'
+        input_title:str = '航海王劇場版 : 紅髮歌姬'
         ptt_searcher = ReviewCollector(search_mode=ReviewCollector.Mode.PPT)
-        search_keys = ptt_searcher.get_movie_search_keys(movie_name=input_title)
-        print(ptt_searcher.search_ptt_review(search_keys=search_keys))
+        search_keys:list[str] = ptt_searcher.get_movie_search_keys(movie_name=input_title)
+        ptt_reviews:list[MovieReview] = ptt_searcher.search_ptt_review(search_keys=search_keys)
+        print(ptt_reviews)
     elif operation_mode == Mode.TRANSFER_BOX_OFFICE_DATA_FORMAT:
         input_path = 'data/weekly_box_office_data/by_movie_name'
         output_path = 'data/weekly_box_office_data/all_data.yaml'
