@@ -1,19 +1,23 @@
-from colab_browser import ColabBrowser
+from browser import Browser, TimeoutType
 from movie_data import MovieData
 
 import csv
-import time
 import logging
 from enum import Enum
 from math import log10
 from pathlib import Path
+from typing import TypeAlias
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.common import exceptions as selenium_exceptions
+from selenium.webdriver.support import expected_conditions as ec
 from urllib3.exceptions import ReadTimeoutError
 
+DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
+PageChangeCondition: TypeAlias = Browser.PageChangeCondition
+WaitingMethodSetting: TypeAlias = Browser.WaitingMethodSetting
 
-# noinspection PyTypeChecker
+
 class BoxOfficeCollector:
     class Mode(Enum):
         WEEK = 1
@@ -23,8 +27,8 @@ class BoxOfficeCollector:
         URL = 1
         FILE_PATH = 2
 
-    def __init__(self, page_changing_waiting_time: float = 2, download_waiting_time: float = 1,
-                 download_mode: Mode = Mode.WEEK) -> None:
+    def __init__(self, download_mode: Mode = Mode.WEEK, page_loading_timeout: float = 30,
+                 download_timeout: float = 60) -> None:
 
         # download mode amd type settings
         self.__download_mode: BoxOfficeCollector.Mode = download_mode
@@ -46,11 +50,8 @@ class BoxOfficeCollector:
         self.__initialize_paths()
 
         # browser setting
-        self.__browser: ColabBrowser = ColabBrowser(download_path=self.__data_path.resolve(strict=True))
-        self.__page_changing_waiting_time: float = page_changing_waiting_time
-        self.__download_waiting_time: float = download_waiting_time
-        self.__defaults_download_waiting_time: float = download_waiting_time
-
+        self.__browser: Browser = Browser(download_path=self.__data_path.resolve(strict=True),
+                                          page_loading_timeout=page_loading_timeout, download_timeout=download_timeout)
         # url
         self.__searching_url: str = "https://boxofficetw.tfai.org.tw/search/0"
         self.__defaults_url: str = "https://google.com"
@@ -132,62 +133,58 @@ class BoxOfficeCollector:
         searching_url: str = f"{self.__searching_url}/{movie_name}"
         try:
             # go to search page
-            self.__browser.get(url=searching_url, waiting_time=self.__page_changing_waiting_time)
-        except (ReadTimeoutError, selenium_exceptions.UnexpectedAlertPresentException):
+            self.__browser.get(url=searching_url)
+        except selenium_exceptions.TimeoutException:
+            logging.warning("navigate to search url failed.")
             return False
-        # find the drop-down list element from page
-        buttons: list[WebElement] = self.__browser.find_elements(
-            by=By.CSS_SELECTOR,
-            value='#film-searcher button.result-item'
-        )
-        # compare the text of each element and pick the first one matched the movie name
-        target_element: WebElement | None = next(
-            (button for button in buttons if
-             button.find_element(by=By.CSS_SELECTOR, value="span.name").text == movie_name),
-            None,
-        )
+        # find the drop-down list element from page and compare the text of each element and pick the first one matched the movie name
+        logging.info(
+            f"trying to find the button element which displayed the movie name {movie_name} in drop-down list.")
+        target_element = next((button for button in
+                               self.__browser.find_elements(by=By.CSS_SELECTOR,
+                                                            value='#film-searcher button.result-item') if
+                               button.find_element(by=By.CSS_SELECTOR, value="span.name").text == movie_name), None)
+
         if target_element is None:
-            logging.warning(msg=f"Searching {movie_name} failed, none movie title drop-down list found.")
+            logging.warning(f"Searching {movie_name} failed, none movie title drop-down list found.")
             return False
-        try:
-            target_element.click()
-            logging.info(msg=f"the drop-down list button of {movie_name} is clicked.")
-        except (selenium_exceptions.ElementClickInterceptedException, AttributeError):
-            logging.warning(msg=f"Searching failed, the drop-down list button of {movie_name} cannot be clicked.")
-            logging.debug(msg='', exc_info=True)
+        logging.info(f"button element of movie {movie_name} found.")
+        if not self.__browser.click(button_locator=target_element,
+                                    post_method=WaitingMethodSetting(
+                                        method=PageChangeCondition(searching_url=searching_url),
+                                        error_message="No page changing detect.", timeout=0,
+                                        timeout_type=TimeoutType.PAGE_LOADING)):
             return False
-        # waiting for the page changing
-        time.sleep(self.__page_changing_waiting_time)
-        if self.__browser.current_url == self.__searching_url:  # if page not changed
-            logging.warning(msg="No page changing detect.")
-            return False
-        logging.debug(msg=f"goto url: {self.__browser.current_url}")
-        #
+        logging.debug(f"goto url: {self.__browser.current_url}")
         self.__update_progress_information(index=movie_data.movie_id,
                                            update_type=self.UpdateType.URL,
                                            new_data_value=self.__browser.current_url)
         return True
 
-    def __click_download_button(self) -> bool:
+    def __click_download_button(self, trying_times: int) -> bool:
         # by defaults, the page is show the weekend data
         if self.__download_mode == self.Mode.WEEK:
             # to use week mode, the additional step is click the "本週" button
-            if not self.__browser.click(button_name="weeks-tab button", button_selector_path="button#weeks-tab"):
+            logging.info(f"with download mode is \"WEEK\" mode, trying to click \"本週\" button.")
+            week_button_selector = "button#weeks-tab"
+            if not self.__browser.click(button_locator=week_button_selector,
+                                        pre_method=WaitingMethodSetting(
+                                            method=ec.element_to_be_clickable((By.CSS_SELECTOR, week_button_selector)),
+                                            error_message="", timeout=0, timeout_type=TimeoutType.PAGE_LOADING)):
+                logging.warning("click \"本週\" button failed.")
                 return False
-        # find button to download file
-        if not self.__browser.click(button_name=f"the {self.__download_type.upper()} download button",
-                                    button_selector_path=f"div#export-button-container "
-                                                         f"button[data-ext='{self.__download_type}']"):
-            return False
-        # waiting until the file downloaded
-        time.sleep(self.__download_waiting_time)
-        if not self.__temporary_file_downloaded_path.exists():
-            logging.debug(msg=f"Download time not enough.")
-            time.sleep(30)
-            if not self.__temporary_file_downloaded_path.exists():
-                logging.warning(msg="waiting time too long.")
-                return False
-        return True
+        button: WebElement = self.__browser.find_button(
+            button_selector_path=f"div#export-button-container button[data-ext='{self.__download_type}']")
+        logging.info(f"trying to search download button with {self.__download_type} format.")
+        if button:
+            if self.__browser.click(
+                    button_locator=button,
+                    post_method=WaitingMethodSetting(
+                        method=DownloadFinishCondition(download_file_path=self.__temporary_file_downloaded_path),
+                        error_message="waiting time too long.", timeout=float(3 * trying_times),
+                        timeout_type=TimeoutType.DOWNLOAD)):
+                return True
+        return False
 
     def __rename_downloaded_file(self, target_file_path: Path, movie_id: int) -> bool:
         self.__temporary_file_downloaded_path.replace(target_file_path)
@@ -203,16 +200,18 @@ class BoxOfficeCollector:
                                  max_digit: int = 0) -> None:
         movie_name = movie_data.movie_name
         movie_id = movie_data.movie_id
-        logging.info(msg=f"Searching box office of {movie_name}.")
+        logging.info(f"Searching box office of {movie_name}.")
         download_target_file_path = self.__download_target_folder.joinpath(
             f"{movie_id:0{max_digit}}.{self.__download_type}")
 
         if progress[self.__progress_file_header[2]] and download_target_file_path.exists():
             if progress[self.__progress_file_header[1]]:
-                logging.info(msg=f"movie url, data file and record in progress correct, skip to next movie,")
+                logging.info(f"movie url, data file and record in progress correct, skip to next movie,")
             else:
-                logging.info(msg=f"movie url not found, search it,")
-                self.__navigate_to_movie_page(movie_data)
+                logging.info(f"movie url not found, search it,")
+                for trying_index in range(trying_times):
+                    if self.__navigate_to_movie_page(movie_data):
+                        break
             return
 
         for trying_index in range(trying_times):
@@ -224,19 +223,20 @@ class BoxOfficeCollector:
                 continue
             # if progress shows the url has been recorded, skip navigating and get it from file.
             if progress[self.__progress_file_header[1]]:
-                logging.info(msg=f"only movie url found, download again,")
+                logging.info(f"only movie url found, download again,")
                 self.__browser.get(progress[self.__progress_file_header[1]])
             else:
-                logging.info(msg=f"none data found, search and download")
-                self.__navigate_to_movie_page(movie_data)
-            if not self.__click_download_button():
-                logging.warning(msg=f"The {current_trying_times} times of searching box office data failed.")
+                logging.info(f"none data found, search and download")
+                if not self.__navigate_to_movie_page(movie_data):
+                    continue
+            if not self.__click_download_button(trying_times=trying_index):
+                logging.warning(f"The {current_trying_times} times of searching box office data failed.")
                 continue
             if self.__rename_downloaded_file(download_target_file_path, movie_id=movie_id):
                 break
             else:
-                logging.debug(msg="rename error"),
-                logging.warning(msg=f"The {current_trying_times} times of searching box office data failed.")
+                logging.debug("rename error"),
+                logging.warning(f"The {current_trying_times} times of searching box office data failed.")
         return
 
     def get_box_office_data(self, input_csv_path: str | None = None) -> None:
