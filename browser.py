@@ -41,7 +41,7 @@ class Browser(webdriver.Chrome):
         timeout_type: TimeoutType
 
     @override
-    def __init__(self, download_path: Path, page_loading_timeout: float = 0,
+    def __init__(self, download_path: Path | None = None, page_loading_timeout: float = 0,
                  download_timeout: float = 0, target_url: str | None = None) -> None:
         # driver options
         self.__download_path = download_path
@@ -57,10 +57,11 @@ class Browser(webdriver.Chrome):
         self.__options.add_argument(argument="--disable-gpu")
         self.__options.add_argument(argument="--window-size=1600,900")
 
-        # options to change defaults download dir
-        experimental_option: ChromeExperimentalOptions = {"download.default_directory": str(self.__download_path)}
-        self.__options.add_experimental_option(name="prefs", value=experimental_option)
-        logging.info(f"download path switch to \"{download_path}\".")
+        if self.__download_path:
+            # options to change defaults download dir
+            experimental_option: ChromeExperimentalOptions = {"download.default_directory": str(self.__download_path)}
+            self.__options.add_experimental_option(name="prefs", value=experimental_option)
+            logging.info(f"download path switch to \"{download_path}\".")
 
         # create web driver
         super().__init__(options=self.__options)

@@ -1,3 +1,4 @@
+from browser import Browser
 from movie_review import MovieReview, ReviewInformation
 
 import re
@@ -7,6 +8,7 @@ from enum import Enum
 from requests import Response
 from typing import TypeAlias
 from datetime import datetime
+from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup, NavigableString
 
 Url: TypeAlias = str
@@ -25,6 +27,7 @@ class ReviewCollector:
         self.__search_target: ReviewCollector.Mode = search_mode
         self.__base_url: list[Url | None] = [None, 'https://www.ptt.cc/bbs/movie/', 'https://www.dcard.tw/',
                                              'https://www.imdb.com/', 'https://www.rottentomatoes.com/']
+        self.__browser: Browser | None = None
         logging.info(f"download {self.__search_target.name} data.")
 
     @staticmethod
@@ -118,6 +121,20 @@ class ReviewCollector:
                         for current_page_number in range(1, max_page_number + 1)
                         for review in
                         self.__get_bs_element(f"{search_url}&page={current_page_number}").select(selector)]
+            case ReviewCollector.Mode.DCARD:
+                self.__browser.get(search_url)
+                scroll_height: int = int(
+                    self.__browser.find_element(by=By.CSS_SELECTOR, value="body").get_attribute("scrollHeight"))
+                selector: Selector = "div#__next div[role='main'] div[data-key] article[role='article'] h2 a[href]"
+                urls = list()
+                for current_height in range(0, scroll_height, 100):
+                    self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
+                    new_urls = [self.__base_url[self.__search_target.value] + element.get_attribute("href") for element
+                                in self.__browser.find_elements(by=By.CSS_SELECTOR, value=selector)]
+                    urls.extend(url for url in new_urls)
+                urls = self.__delete_duplicate_review(urls)
+                return urls
+
             case _:
                 raise ValueError
 
@@ -147,8 +164,16 @@ class ReviewCollector:
         return ReviewInformation(title=title, content=content, time=post_time, replies=replies)
 
     def __get_reviews(self, search_key: str):
-        urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-        return [MovieReview.from_information(url, self.__get_review_information(url=url)) for url in urls]
+        match self.__search_target:
+            case ReviewCollector.Mode.PPT:
+                urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
+                return [MovieReview.from_information(url, self.__get_review_information(url=url)) for url in urls]
+            case ReviewCollector.Mode.DCARD:
+                with Browser() as self.__browser:
+                    urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
+                    return [MovieReview.from_information(url, self.__get_review_information(url=url)) for url in urls]
+            case _:
+                raise ValueError
 
     __delete_duplicate_review = lambda self, input_reviews: list(set(input_reviews))
 
