@@ -127,12 +127,12 @@ class ReviewCollector:
                     self.__browser.find_element(by=By.CSS_SELECTOR, value="body").get_attribute("scrollHeight"))
                 selector: Selector = "div#__next div[role='main'] div[data-key] article[role='article'] h2 a[href]"
                 urls = list()
-                for current_height in range(0, scroll_height, 100):
+                for current_height in range(0, scroll_height, 150):
                     self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
-                    new_urls = [self.__base_url[self.__search_target.value] + element.get_attribute("href") for element
+                    new_urls = [element.get_attribute("href") for element
                                 in self.__browser.find_elements(by=By.CSS_SELECTOR, value=selector)]
                     urls.extend(url for url in new_urls)
-                urls = self.__delete_duplicate_review(urls)
+                urls = self.__delete_duplicate(urls)
                 return urls
 
             case _:
@@ -142,26 +142,36 @@ class ReviewCollector:
         title: str | None = None
         content: str | None = None
         replies: list[str] | None = None
-        post_time: datetime | None = None
+        posted_time: datetime | None = None
         match self.__search_target:
             case ReviewCollector.Mode.PPT:
                 key_words: list[str] = ['標題', '時間']
                 content_base_element: BeautifulSoup | None = self.__get_bs_element(url=url).select_one(
                     selector='#main-content')
-                for article_meta in content_base_element.select(selector='.article-metaline'):
-                    if article_meta.select_one(selector='.article-meta-tag').text == key_words[0]:
-                        title = article_meta.select_one(selector='.article-meta-value').text
-                    elif article_meta.select_one(selector='.article-meta-tag').text == key_words[1]:
-                        post_time = datetime.strptime(
-                            article_meta.select_one(selector='.article-meta-value').text,
+                for article_meta_element in content_base_element.select(selector='.article-metaline'):
+                    if article_meta_element.select_one(selector='.article-meta-tag').text == key_words[0]:
+                        title = article_meta_element.select_one(selector='.article-meta-value').text
+                    elif article_meta_element.select_one(selector='.article-meta-tag').text == key_words[1]:
+                        posted_time = datetime.strptime(
+                            article_meta_element.select_one(selector='.article-meta-value').text,
                             '%a %b %d %H:%M:%S %Y')
 
                 content = ''.join(
                     [element for element in content_base_element if
                      isinstance(element, NavigableString)]).strip()
                 replies = [reply.text for reply in content_base_element.select(selector='.push .push-content')]
-
-        return ReviewInformation(title=title, content=content, time=post_time, replies=replies)
+            case ReviewCollector.Mode.DCARD:
+                selector_base = "div#__next div[role='main']"
+                selector_title = selector_base + " article h1"
+                selector_time = selector_base + " article time"
+                selector_content = selector_base + " article span"
+                selector_reply = selector_base + " section div[data-key^='comment'] span:not[class]"
+                title=self.__browser.find_element(by=By.CSS_SELECTOR, value=selector_title).text
+                posted_time = datetime.strptime(self.__browser.find_element(by=By.CSS_SELECTOR, value=selector_time).text,'%Y 年 %m 月 %d 日 %H:%M')
+                content = self.__browser.find_element(by=By.CSS_SELECTOR, value=selector_content).text
+                replies = [reply_element.text for reply_element in self.__browser.find_elements(by=By.CSS_SELECTOR, value=selector_reply)]
+        
+        return ReviewInformation(title=title, content=content, time=posted_time, replies=replies)
 
     def __get_reviews(self, search_key: str):
         match self.__search_target:
@@ -175,8 +185,26 @@ class ReviewCollector:
             case _:
                 raise ValueError
 
-    __delete_duplicate_review = lambda self, input_reviews: list(set(input_reviews))
+    __delete_duplicate = lambda self, input_reviews: list(set(input_reviews))
 
-    def search_ptt_review(self, search_keys: list[str]):
-        return self.__delete_duplicate_review(
-            review for search_key in search_keys for review in self.__get_reviews(search_key=search_key))
+    def search_review(self, movie_name:str)-> list[MovieReview]:
+        search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
+        match self.__search_target:
+            case ReviewCollector.Mode.PPT:
+                reviews: list[MovieReview] = [review for search_key in search_keys for review in self.__get_reviews(search_key=search_key)]
+                reviews = self.__delete_duplicate(reviews)
+                return reviews
+            case ReviewCollector.Mode.DCARD:
+                with Browser() as self.__browser:
+                    urls: list[str] = [url for search_key in search_keys for url in self.__get_review_urls(search_key=search_key)]
+
+                print(urls)
+            case ReviewCollector.Mode.IMDB:
+                pass
+            case ReviewCollector.Mode.ROTTEN_TOMATO:
+                pass
+            case _:
+                raise ValueError
+
+
+

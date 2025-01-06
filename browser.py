@@ -51,7 +51,7 @@ class Browser(webdriver.Chrome):
 
         # options
         self.__options: Options = Options()
-        self.__options.add_argument(argument="--headless")
+        # self.__options.add_argument(argument="--headless")
         self.__options.add_argument(argument="--no-sandbox")
         self.__options.add_argument(argument="--disable-dev-shm-usage")
         self.__options.add_argument(argument="--disable-gpu")
