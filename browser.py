@@ -48,6 +48,7 @@ class Browser(webdriver.Chrome):
         self.__defaults_timeout = 120
         self.__page_loading_timeout = page_loading_timeout if page_loading_timeout else self.__defaults_timeout
         self.__download_timeout = download_timeout if download_timeout else self.__defaults_timeout
+        self.__home_url: str = "chrome://newtab"
 
         # options
         self.__options: Options = Options()
@@ -88,6 +89,10 @@ class Browser(webdriver.Chrome):
                                                error_message=f"Read Timeout Error on {url} caught.",
                                                timeout_type=TimeoutType.PAGE_LOADING)):
             logging.debug(f"navigate to url \"{self.current_url}\" success..")
+        return
+
+    def home(self) -> None:
+        self.get(self.__home_url)
         return
 
     def find_button(self, button_selector_path: str) -> WebElement | bool:

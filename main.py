@@ -41,7 +41,7 @@ if __name__ == "__main__":
             collector.get_box_office_data()
     elif operation_mode == Mode.COLLECT_REVIEW:
         input_title: str = '一級玩家'
-        searcher = ReviewCollector(search_mode=ReviewCollector.Mode.DCARD)
+        searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
         reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
         print(reviews)
     elif operation_mode == Mode.TRANSFER_BOX_OFFICE_DATA_FORMAT:

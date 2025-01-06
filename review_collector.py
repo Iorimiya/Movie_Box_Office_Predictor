@@ -17,14 +17,14 @@ Selector: TypeAlias = str
 
 
 class ReviewCollector:
-    class Mode(Enum):
+    class TargetWebsite(Enum):
         PPT = 1
         DCARD = 2
         IMDB = 3
         ROTTEN_TOMATO = 4
 
-    def __init__(self, search_mode: Mode):
-        self.__search_target: ReviewCollector.Mode = search_mode
+    def __init__(self, target_website: TargetWebsite):
+        self.__search_target: TargetWebsite = target_website
         self.__base_url: list[Url | None] = [None, 'https://www.ptt.cc/bbs/movie/', 'https://www.dcard.tw/',
                                              'https://www.imdb.com/', 'https://www.rottentomatoes.com/']
         self.__browser: Browser | None = None
@@ -73,13 +73,13 @@ class ReviewCollector:
 
     def __get_search_page_url(self, search_key: str) -> str:
         match self.__search_target:
-            case ReviewCollector.Mode.PPT:
+            case TargetWebsite.PPT:
                 search_url_part: str = "search?q="
-            case ReviewCollector.Mode.DCARD:
+            case TargetWebsite.DCARD:
                 search_url_part: str = "search?query="
-            case ReviewCollector.Mode.IMDB:
+            case TargetWebsite.IMDB:
                 search_url_part: str = "find/?q="
-            case ReviewCollector.Mode.ROTTEN_TOMATO:
+            case TargetWebsite.ROTTEN_TOMATO:
                 search_url_part: str = "search?search="
             case _:
                 raise ValueError
@@ -88,7 +88,7 @@ class ReviewCollector:
     def __get_bs_element(self, url: str) -> BeautifulSoup:
         # PTT在特定的板中需要over18=1這個cookies
         match self.__search_target:
-            case ReviewCollector.Mode.PPT:
+            case TargetWebsite.PPT:
                 response: Response = requests.get(url=url, cookies={'over18': '1'})
             case _:
                 response: Response = requests.get(url=url)
@@ -97,7 +97,7 @@ class ReviewCollector:
 
     def __get_largest_result_page_number(self, bs_root_element: BeautifulSoup) -> int:
         match self.__search_target:
-            case ReviewCollector.Mode.PPT:
+            case TargetWebsite.PPT:
                 re_pattern: RegularExpressionPattern = "page=(\d+)"
                 key_word: str = '最舊'
                 selector: Selector = "#action-bar-container a"
@@ -110,7 +110,7 @@ class ReviewCollector:
     def __get_review_urls(self, search_key: str) -> list[str]:
         search_url: Url = self.__get_search_page_url(search_key)
         match self.__search_target:
-            case ReviewCollector.Mode.PPT:
+            case TargetWebsite.PPT:
                 max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(search_url))
                 logging.info(f"find {max_page_number} pages of result.")
                 domain_pattern: RegularExpressionPattern = '^[^:\/]+:\/\/[^\/]+'
@@ -121,7 +121,7 @@ class ReviewCollector:
                         for current_page_number in range(1, max_page_number + 1)
                         for review in
                         self.__get_bs_element(f"{search_url}&page={current_page_number}").select(selector)]
-            case ReviewCollector.Mode.DCARD:
+            case TargetWebsite.DCARD:
                 self.__browser.get(search_url)
                 scroll_height: int = int(
                     self.__browser.find_element(by=By.CSS_SELECTOR, value="body").get_attribute("scrollHeight"))
@@ -144,7 +144,7 @@ class ReviewCollector:
         replies: list[str] | None = None
         posted_time: datetime | None = None
         match self.__search_target:
-            case ReviewCollector.Mode.PPT:
+            case TargetWebsite.PPT:
                 key_words: list[str] = ['標題', '時間']
                 content_base_element: BeautifulSoup | None = self.__get_bs_element(url=url).select_one(
                     selector='#main-content')
@@ -160,25 +160,30 @@ class ReviewCollector:
                     [element for element in content_base_element if
                      isinstance(element, NavigableString)]).strip()
                 replies = [reply.text for reply in content_base_element.select(selector='.push .push-content')]
-            case ReviewCollector.Mode.DCARD:
+            case TargetWebsite.DCARD:
                 selector_base = "div#__next div[role='main']"
                 selector_title = selector_base + " article h1"
                 selector_time = selector_base + " article time"
                 selector_content = selector_base + " article span"
                 selector_reply = selector_base + " section div[data-key^='comment'] span:not[class]"
-                title=self.__browser.find_element(by=By.CSS_SELECTOR, value=selector_title).text
-                posted_time = datetime.strptime(self.__browser.find_element(by=By.CSS_SELECTOR, value=selector_time).text,'%Y 年 %m 月 %d 日 %H:%M')
+                self.__browser.home()
+                self.__browser.get(url=url)
+                title = self.__browser.find_element(by=By.CSS_SELECTOR, value=selector_title).text
+                posted_time = datetime.strptime(
+                    self.__browser.find_element(by=By.CSS_SELECTOR, value=selector_time).text,
+                    '%Y 年 %m 月 %d 日 %H:%M')
                 content = self.__browser.find_element(by=By.CSS_SELECTOR, value=selector_content).text
-                replies = [reply_element.text for reply_element in self.__browser.find_elements(by=By.CSS_SELECTOR, value=selector_reply)]
-        
+                replies = [reply_element.text for reply_element in
+                           self.__browser.find_elements(by=By.CSS_SELECTOR, value=selector_reply)]
+
         return ReviewInformation(title=title, content=content, time=posted_time, replies=replies)
 
     def __get_reviews(self, search_key: str):
         match self.__search_target:
-            case ReviewCollector.Mode.PPT:
+            case TargetWebsite.PPT:
                 urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
                 return [MovieReview.from_information(url, self.__get_review_information(url=url)) for url in urls]
-            case ReviewCollector.Mode.DCARD:
+            case TargetWebsite.DCARD:
                 with Browser() as self.__browser:
                     urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
                     return [MovieReview.from_information(url, self.__get_review_information(url=url)) for url in urls]
@@ -187,24 +192,20 @@ class ReviewCollector:
 
     __delete_duplicate = lambda self, input_reviews: list(set(input_reviews))
 
-    def search_review(self, movie_name:str)-> list[MovieReview]:
+    def search_review(self, movie_name: str) -> list[MovieReview]:
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
         match self.__search_target:
-            case ReviewCollector.Mode.PPT:
-                reviews: list[MovieReview] = [review for search_key in search_keys for review in self.__get_reviews(search_key=search_key)]
+            case TargetWebsite.PPT | TargetWebsite.DCARD:
+                reviews: list[MovieReview] = [review for search_key in search_keys for review in
+                                              self.__get_reviews(search_key=search_key)]
                 reviews = self.__delete_duplicate(reviews)
                 return reviews
-            case ReviewCollector.Mode.DCARD:
-                with Browser() as self.__browser:
-                    urls: list[str] = [url for search_key in search_keys for url in self.__get_review_urls(search_key=search_key)]
-
-                print(urls)
-            case ReviewCollector.Mode.IMDB:
+            case TargetWebsite.IMDB:
                 pass
-            case ReviewCollector.Mode.ROTTEN_TOMATO:
+            case TargetWebsite.ROTTEN_TOMATO:
                 pass
             case _:
                 raise ValueError
 
 
-
+TargetWebsite: TypeAlias = ReviewCollector.TargetWebsite

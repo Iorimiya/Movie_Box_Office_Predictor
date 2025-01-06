@@ -54,7 +54,6 @@ class BoxOfficeCollector:
                                           page_loading_timeout=page_loading_timeout, download_timeout=download_timeout)
         # url
         self.__searching_url: str = "https://boxofficetw.tfai.org.tw/search/0"
-        self.__defaults_url: str = "https://google.com"
 
         # csv
         self.__input_csv_file_header: str = '片名'
@@ -218,7 +217,7 @@ class BoxOfficeCollector:
             current_trying_times = trying_index + 1
             # to avoid the strange error when page switching, go to defaults url for the start
             try:
-                self.__browser.get(self.__defaults_url)
+                self.__browser.home()
             except (ReadTimeoutError, selenium_exceptions.UnexpectedAlertPresentException):
                 continue
             # if progress shows the url has been recorded, skip navigating and get it from file.
