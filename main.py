@@ -11,8 +11,10 @@ from datetime import datetime
 
 class Mode(Enum):
     COLLECT_BOX_OFFICE = 1
-    COLLECT_REVIEW = 2
-    TRANSFER_BOX_OFFICE_DATA_FORMAT = 3
+    TRANSFER_BOX_OFFICE_DATA_FORMAT = 2
+    COLLECT_REVIEW = 3
+    COLLECT_NUM_OF_REVIEW = 4
+
 
 
 def set_logging_setting(display_level: int, file_path: Path) -> None:
@@ -33,18 +35,23 @@ if __name__ == "__main__":
         file_path=Path(__file__).resolve(strict=True).parent.
         joinpath("log", f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}_{logging.getLevelName(logging_level)}.log"),
     )
-    operation_mode: Mode = Mode.COLLECT_REVIEW
+    operation_mode: Mode = Mode.COLLECT_NUM_OF_REVIEW
     # unit test
     if operation_mode == Mode.COLLECT_BOX_OFFICE:
         input_file_path: str = "data/input/the_movie_list_of_box_office_10,000,000.csv"
         with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
             collector.get_box_office_data()
+    elif operation_mode == Mode.TRANSFER_BOX_OFFICE_DATA_FORMAT:
+        input_path = 'data/weekly_box_office_data/by_movie_name'
+        output_path = 'data/weekly_box_office_data/all_data.yaml'
+        FormatTransferTool(input_path, output_path).transfer_data()
     elif operation_mode == Mode.COLLECT_REVIEW:
         input_title: str = '一級玩家'
         searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
         reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
         print(reviews)
-    elif operation_mode == Mode.TRANSFER_BOX_OFFICE_DATA_FORMAT:
-        input_path = 'data/weekly_box_office_data/by_movie_name'
-        output_path = 'data/weekly_box_office_data/all_data.yaml'
-        FormatTransferTool(input_path, output_path).transfer_data()
+    elif operation_mode == Mode.COLLECT_NUM_OF_REVIEW:
+        input_title: str = '一級玩家'
+        searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
+        print(searcher.get_num_of_review(movie_name=input_title))
+
