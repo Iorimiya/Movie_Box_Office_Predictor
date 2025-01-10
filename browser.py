@@ -41,26 +41,28 @@ class Browser(webdriver.Chrome):
         timeout_type: TimeoutType
 
     @override
-    def __init__(self, download_path: Path, page_loading_timeout: float = 0,
+    def __init__(self, download_path: Path | None = None, page_loading_timeout: float = 0,
                  download_timeout: float = 0, target_url: str | None = None) -> None:
         # driver options
         self.__download_path = download_path
         self.__defaults_timeout = 120
         self.__page_loading_timeout = page_loading_timeout if page_loading_timeout else self.__defaults_timeout
         self.__download_timeout = download_timeout if download_timeout else self.__defaults_timeout
+        self.__home_url: str = "chrome://newtab"
 
         # options
         self.__options: Options = Options()
-        self.__options.add_argument(argument="--headless")
+        # self.__options.add_argument(argument="--headless")
         self.__options.add_argument(argument="--no-sandbox")
         self.__options.add_argument(argument="--disable-dev-shm-usage")
         self.__options.add_argument(argument="--disable-gpu")
         self.__options.add_argument(argument="--window-size=1600,900")
 
-        # options to change defaults download dir
-        experimental_option: ChromeExperimentalOptions = {"download.default_directory": str(self.__download_path)}
-        self.__options.add_experimental_option(name="prefs", value=experimental_option)
-        logging.info(f"download path switch to \"{download_path}\".")
+        if self.__download_path:
+            # options to change defaults download dir
+            experimental_option: ChromeExperimentalOptions = {"download.default_directory": str(self.__download_path)}
+            self.__options.add_experimental_option(name="prefs", value=experimental_option)
+            logging.info(f"download path switch to \"{download_path}\".")
 
         # create web driver
         super().__init__(options=self.__options)
@@ -87,6 +89,10 @@ class Browser(webdriver.Chrome):
                                                error_message=f"Read Timeout Error on {url} caught.",
                                                timeout_type=TimeoutType.PAGE_LOADING)):
             logging.debug(f"navigate to url \"{self.current_url}\" success..")
+        return
+
+    def home(self) -> None:
+        self.get(self.__home_url)
         return
 
     def find_button(self, button_selector_path: str) -> WebElement | bool:
