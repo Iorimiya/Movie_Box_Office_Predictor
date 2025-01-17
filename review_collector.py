@@ -207,5 +207,11 @@ class ReviewCollector:
             case _:
                 raise ValueError
 
+    def get_num_of_review(self,movie_name: str) -> int:
+        search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
+        with Browser() as self.__browser:
+            review_urls:list[Url] = [url for search_key in search_keys for url in self.__get_review_urls(search_key=search_key)]
+        review_urls = self.__delete_duplicate(review_urls)
+        return len(review_urls)
 
 TargetWebsite: TypeAlias = ReviewCollector.TargetWebsite
