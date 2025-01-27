@@ -10,12 +10,15 @@ channels:
   - https://repo.anaconda.com/pkgs/msys2
 dependencies:
 # python
-  - defaults::python=3.10.15
+  - defaults::python=3.11
   - defaults::ipython
-  - defaults::pip=24.2
+  - defaults::pip
+  - defaults::tqdm
   - defaults::beautifulsoup4=4.12.3
-  - defaults::lxml=5.3.0
   - defaults::requests=2.32.3
+  - defaults::numpy=1.26.4
+  - defaults::selenium=4.24.0
+  - defaults::pyyaml
   - pip:
-    - "selenium==4.26.1"
-    - "PyYAML==6.0.2"
+    - "tensorflow==2.18"
+
