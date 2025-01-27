@@ -1,20 +1,26 @@
 from box_office_collector import BoxOfficeCollector
 from review_collector import ReviewCollector
-from format_tranfer_tool import FormatTransferTool
 from movie_review import MovieReview
 
 import logging
-from enum import Enum
+from argparse import ArgumentParser, Namespace
 from pathlib import Path
 from datetime import datetime
 
 
-class Mode(Enum):
-    COLLECT_BOX_OFFICE = 1
-    TRANSFER_BOX_OFFICE_DATA_FORMAT = 2
-    COLLECT_REVIEW = 3
-    COLLECT_NUM_OF_REVIEW = 4
+def set_argument_parser()-> Namespace:
+    parser:ArgumentParser = ArgumentParser(prog=None, usage=None, description=None, epilog=None)
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("-u", "--user", action="store_true", help="execute program as a user.")
+    group.add_argument("-d", "--developer", action="store_true", help="execute program as a developer.")
+    group.add_argument("-t", "--test", type=str,
+                       choices=["collect_box_office", "collect_ptt_review", "collect_dcard_review"],
+                       help="unit test with procedure for testing")
+    parser.add_argument("-n", "--name", type=str, required=False,
+                        help="the movie name that user want to get rating result.")
+    parser.add_argument("-i", "--input", type=str, required=False, help="the input of unit test.")
 
+    return parser.parse_args()
 
 
 def set_logging_setting(display_level: int, file_path: Path) -> None:
@@ -33,25 +39,40 @@ if __name__ == "__main__":
     set_logging_setting(
         display_level=logging_level,
         file_path=Path(__file__).resolve(strict=True).parent.
-        joinpath("log", f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}_{logging.getLevelName(logging_level)}.log"),
+        joinpath("log", f"{datetime.now().strftime('%Y-%m-%dT%H：%M：%S%Z')}_{logging.getLevelName(logging_level)}.log"),
     )
-    operation_mode: Mode = Mode.COLLECT_NUM_OF_REVIEW
-    # unit test
-    if operation_mode == Mode.COLLECT_BOX_OFFICE:
-        input_file_path: str = "data/input/the_movie_list_of_box_office_10,000,000.csv"
-        with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
-            collector.get_box_office_data()
-    elif operation_mode == Mode.TRANSFER_BOX_OFFICE_DATA_FORMAT:
-        input_path = 'data/weekly_box_office_data/by_movie_name'
-        output_path = 'data/weekly_box_office_data/all_data.yaml'
-        FormatTransferTool(input_path, output_path).transfer_data()
-    elif operation_mode == Mode.COLLECT_REVIEW:
-        input_title: str = '一級玩家'
-        searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
-        reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
-        print(reviews)
-    elif operation_mode == Mode.COLLECT_NUM_OF_REVIEW:
-        input_title: str = '一級玩家'
-        searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
-        print(searcher.get_num_of_review(movie_name=input_title))
 
+    args = set_argument_parser()
+
+    if args.user:
+        if args.name:
+            pass
+        else:
+            raise AttributeError("You must specify a movie name.")
+    elif args.developer:
+        pass
+    elif args.test:
+        if args.input:
+            match args.test:
+                case "collect_box_office":
+                    input_file_path:str = args.input
+                    with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
+                        collector.get_box_office_data()
+                case "collect_ptt_review":
+                    input_title: str = args.input
+                    target_website:ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PPT
+                    searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
+                    reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
+                    print(reviews)
+                case "collect_dcard_review":
+                    input_title: str = args.input
+                    target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
+                    searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
+                    reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
+                    print(reviews)
+                case _:
+                    raise ValueError
+        else:
+            raise ValueError("argumant \"test\" need \"input\" for parameter. ")
+    else:
+        raise ValueError("Argument error.")
