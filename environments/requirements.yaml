@@ -5,20 +5,22 @@
 name: thesis_for_zt
 channels:
   - defaults
+  - conda-forge
+  - nvidia
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/r
   - https://repo.anaconda.com/pkgs/msys2
 dependencies:
 # python
   - defaults::python=3.11
-  - defaults::ipython
-  - defaults::pip
-  - defaults::tqdm
-  - defaults::beautifulsoup4=4.12.3
-  - defaults::requests=2.32.3
-  - defaults::numpy=1.26.4
-  - defaults::selenium=4.24.0
-  - defaults::pyyaml
-  - pip:
-    - "tensorflow==2.18"
-
+  - defaults::ipython>=8.0
+  - defaults::pip>=25.0
+  - defaults::tqdm>=4.66
+  - defaults::beautifulsoup4>=4.12
+  - defaults::requests>=2.32
+  - defaults::numpy>=1.26
+  - defaults::selenium>=4.24
+  - defaults::pyyaml>=0.2
+  - defaults::cuda-toolkit=12.4
+  - defaults::cudnn=9.1
+  - defaults::tensorflow=2.17=cuda*
