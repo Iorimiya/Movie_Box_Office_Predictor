@@ -27,7 +27,7 @@ class BoxOfficeCollector:
         URL = 1
         FILE_PATH = 2
 
-    def __init__(self, download_mode: Mode = Mode.WEEK, page_loading_timeout: float = 30,
+    def __init__(self, input_index_path:str| None = None, download_mode: Mode = Mode.WEEK, page_loading_timeout: float = 30,
                  download_timeout: float = 60) -> None:
 
         # download mode amd type settings
@@ -41,7 +41,7 @@ class BoxOfficeCollector:
         self.__download_target_folder: Path = self.__box_office_data_folder.joinpath("by_id")
 
         # path of files
-        self.__index_file_path: Path = self.__data_path.joinpath("index.csv")
+        self.__index_file_path: Path = self.__data_path.joinpath("index.csv") if not input_index_path else Path(input_index_path)
         self.__progress_file_path: Path = self.__box_office_data_folder.joinpath("download_progress.csv")
         self.__temporary_file_downloaded_path: Path = self.__data_path.joinpath(
             f"各週{'' if self.__download_mode == self.Mode.WEEK else '週末'}票房資料匯出.{self.__download_type}")

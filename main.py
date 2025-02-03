@@ -8,8 +8,8 @@ from pathlib import Path
 from datetime import datetime
 
 
-def set_argument_parser()-> Namespace:
-    parser:ArgumentParser = ArgumentParser(prog=None, usage=None, description=None, epilog=None)
+def set_argument_parser() -> Namespace:
+    parser: ArgumentParser = ArgumentParser(prog=None, usage=None, description=None, epilog=None)
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("-u", "--user", action="store_true", help="execute program as a user.")
     group.add_argument("-d", "--developer", action="store_true", help="execute program as a developer.")
@@ -55,12 +55,13 @@ if __name__ == "__main__":
         if args.input:
             match args.test:
                 case "collect_box_office":
-                    input_file_path:str = args.input
-                    with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
+                    input_file_path: str = args.input
+                    with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK,
+                                            input_index_path=input_file_path) as collector:
                         collector.get_box_office_data()
                 case "collect_ptt_review":
                     input_title: str = args.input
-                    target_website:ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PPT
+                    target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PPT
                     searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
                     reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
                     print(reviews)
