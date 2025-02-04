@@ -260,5 +260,5 @@ class BoxOfficeCollector:
         [self.__search_box_office_data(movie_data=movie,
                                        progress=progress,
                                        max_digit=int(log10(len(movie_data))) + 1)
-         for movie, progress in tqdm(zip(movie_data, current_progress))]
+         for movie, progress in tqdm(zip(movie_data, current_progress), total=len(movie_data))]
         return
