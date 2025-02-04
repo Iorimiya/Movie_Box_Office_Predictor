@@ -55,7 +55,7 @@ if __name__ == "__main__":
         if args.input:
             match args.test:
                 case "collect_box_office":
-                    input_file_path: str = args.input
+                    input_file_path: Path = Path(args.input)
                     with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
                         collector.get_box_office_data(input_file_path=input_file_path)
                 case "collect_ptt_review":

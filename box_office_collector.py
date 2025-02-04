@@ -239,14 +239,14 @@ class BoxOfficeCollector:
                 logging.warning(f"The {current_trying_times} times of searching box office data failed.")
         return
 
-    def get_box_office_data(self, input_file_path: str | None = None) -> None:
+    def get_box_office_data(self, input_file_path: Path | None = None) -> None:
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
         # read index data
         # if not exist, create it from input file
         if not self.__index_file_path.exists():
             if input_file_path:
-                self.__initialize_index_file(Path(input_file_path))
+                self.__initialize_index_file(input_file_path)
             else:
                 logging.error("no previous index file, please enter input file path.")
                 exit(1)
