@@ -4,6 +4,7 @@ from movie_data import MovieData
 import csv
 import logging
 from enum import Enum
+from tqdm import tqdm
 from math import log10
 from pathlib import Path
 from typing import TypeAlias
@@ -259,5 +260,5 @@ class BoxOfficeCollector:
         [self.__search_box_office_data(movie_data=movie,
                                        progress=progress,
                                        max_digit=int(log10(len(movie_data))) + 1)
-         for movie, progress in zip(movie_data, current_progress)]
+         for movie, progress in tqdm(zip(movie_data, current_progress))]
         return
