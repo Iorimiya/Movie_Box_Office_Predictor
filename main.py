@@ -35,7 +35,7 @@ def set_logging_setting(display_level: int, file_path: Path) -> None:
 
 if __name__ == "__main__":
     # setting logging information
-    logging_level: int = logging.INFO
+    logging_level: int = logging.DEBUG
     set_logging_setting(
         display_level=logging_level,
         file_path=Path(__file__).resolve(strict=True).parent.
@@ -56,9 +56,8 @@ if __name__ == "__main__":
             match args.test:
                 case "collect_box_office":
                     input_file_path: str = args.input
-                    with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK,
-                                            input_index_path=input_file_path) as collector:
-                        collector.get_box_office_data()
+                    with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
+                        collector.get_box_office_data(input_file_path=input_file_path)
                 case "collect_ptt_review":
                     input_title: str = args.input
                     target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PPT

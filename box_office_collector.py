@@ -4,6 +4,7 @@ from movie_data import MovieData
 import csv
 import logging
 from enum import Enum
+from tqdm import tqdm
 from math import log10
 from pathlib import Path
 from typing import TypeAlias
@@ -27,7 +28,7 @@ class BoxOfficeCollector:
         URL = 1
         FILE_PATH = 2
 
-    def __init__(self, input_index_path:str| None = None, download_mode: Mode = Mode.WEEK, page_loading_timeout: float = 30,
+    def __init__(self, download_mode: Mode = Mode.WEEK, page_loading_timeout: float = 30,
                  download_timeout: float = 60) -> None:
 
         # download mode amd type settings
@@ -41,7 +42,7 @@ class BoxOfficeCollector:
         self.__download_target_folder: Path = self.__box_office_data_folder.joinpath("by_id")
 
         # path of files
-        self.__index_file_path: Path = self.__data_path.joinpath("index.csv") if not input_index_path else Path(input_index_path)
+        self.__index_file_path: Path = self.__data_path.joinpath("index.csv")
         self.__progress_file_path: Path = self.__box_office_data_folder.joinpath("download_progress.csv")
         self.__temporary_file_downloaded_path: Path = self.__data_path.joinpath(
             f"各週{'' if self.__download_mode == self.Mode.WEEK else '週末'}票房資料匯出.{self.__download_type}")
@@ -56,7 +57,7 @@ class BoxOfficeCollector:
         self.__searching_url: str = "https://boxofficetw.tfai.org.tw/search/0"
 
         # csv
-        self.__input_csv_file_header: str = '片名'
+        self.__input_csv_file_header: str = 'movie_name'
         self.__index_file_header: list[str] = ['id', 'name']
         self.__progress_file_header: list[str] = ['id', 'movie_page_url', 'file_path']
         return
@@ -87,9 +88,9 @@ class BoxOfficeCollector:
         self.__download_target_folder.mkdir(parents=True, exist_ok=True)
         return
 
-    def __initialize_index_file(self, input_csv_path: Path) -> None:
+    def __initialize_index_file(self, input_file_path: Path) -> None:
         # get movie names from input csv
-        with open(file=input_csv_path, mode='r', encoding='utf-8') as file:
+        with open(file=input_file_path, mode='r', encoding='utf-8') as file:
             movie_names: list[str] = [row[self.__input_csv_file_header] for row in csv.DictReader(file)]
         # create index file
         self.__index_file_path.touch()
@@ -238,13 +239,17 @@ class BoxOfficeCollector:
                 logging.warning(f"The {current_trying_times} times of searching box office data failed.")
         return
 
-    def get_box_office_data(self, input_csv_path: str | None = None) -> None:
+    def get_box_office_data(self, input_file_path: str | None = None) -> None:
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
         # read index data
         # if not exist, create it from input file
         if not self.__index_file_path.exists():
-            self.__initialize_index_file(Path(input_csv_path))
+            if input_file_path:
+                self.__initialize_index_file(Path(input_file_path))
+            else:
+                logging.error("no previous index file, please enter input file path.")
+                exit(1)
         movie_data = self.__get_movie_data()
 
         # read_download progress
@@ -255,5 +260,5 @@ class BoxOfficeCollector:
         [self.__search_box_office_data(movie_data=movie,
                                        progress=progress,
                                        max_digit=int(log10(len(movie_data))) + 1)
-         for movie, progress in zip(movie_data, current_progress)]
+         for movie, progress in tqdm(zip(movie_data, current_progress))]
         return
