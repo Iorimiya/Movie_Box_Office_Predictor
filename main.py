@@ -1,7 +1,7 @@
 from box_office_collector import BoxOfficeCollector
 from review_collector import ReviewCollector
 from movie_review import MovieReview
-from emotion_analyse_model import EmotionAnalyzer
+from emotion_analyser import EmotionAnalyser
 
 import logging
 from argparse import ArgumentParser, Namespace
@@ -75,10 +75,10 @@ if __name__ == "__main__":
                 case "train_emotion_analysis":
                     input_epoch: int = int(args.input)
                     defaults_model_save_folder: Path = Path("./data/emotion_analysis/model")
-                    defaults_model_save_name: str = "emotion_model"
+                    defaults_model_save_name: str = "emotion_analysis_model"
                     defaults_tokenizer_save_folder: Path = Path("./data/emotion_analysis/dataset")
                     defaults_tokenizer_save_name: str = "tokenizer.pickle"
-                    EmotionAnalyzer().train(
+                    EmotionAnalyser().train(
                         data_path=Path("./data/emotion_analysis/dataset/emotion_analyse_dataset.csv"),
                         tokenizer_save_folder=defaults_tokenizer_save_folder,
                         tokenizer_save_name=defaults_tokenizer_save_name,
@@ -87,14 +87,14 @@ if __name__ == "__main__":
                         epoch=input_epoch)
                 case "test_emotion_analysis":
                     input_review = args.input
-                    default_model_path = Path("./data/emotion_analysis/model/emotion_model_10.keras")
+                    default_model_path = Path("./data/emotion_analysis/model/emotion_analysis_model_1000.keras")
                     defaults_tokenizer_path = Path("./data/emotion_analysis/dataset/tokenizer.pickle")
-                    print(EmotionAnalyzer(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
+                    print(EmotionAnalyser(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
                         input_review))
 
                 case _:
                     raise ValueError
         else:
-            raise ValueError("argumant \"test\" need \"input\" for parameter. ")
+            raise ValueError("Argument \"test\" need \"input\" for parameter. ")
     else:
         raise ValueError("Argument error.")
