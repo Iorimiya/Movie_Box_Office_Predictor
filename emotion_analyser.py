@@ -14,16 +14,16 @@ from numpy import ndarray
 from sklearn.model_selection import train_test_split
 
 
-class EmotionAnalyzer:
+class EmotionAnalyser:
     def __init__(self, model_path: Path | None = None, tokenizer_path: Path | None = None, num_words: int = 5000,
-                 review_max_langth: int = 100):
+                 review_max_length: int = 100):
         self.__model: Sequential | None = \
             load_model(model_path) if isinstance(model_path, Path) and model_path.exists() else None
         self.__tokenizer: Tokenizer | None = \
             self.__load_tokenizer(tokenizer_path) if isinstance(model_path, Path) and tokenizer_path.exists() else None
 
         self.__num_words = num_words  # 詞彙表大小
-        self.__review_max_len = review_max_langth  # 每條影評的最大長度
+        self.__review_max_len = review_max_length  # 每條影評的最大長度
         return
 
 
