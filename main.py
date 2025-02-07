@@ -1,6 +1,7 @@
 from box_office_collector import BoxOfficeCollector
 from review_collector import ReviewCollector
 from movie_review import MovieReview
+from emotion_analyse_model import EmotionAnalyzer
 
 import logging
 from argparse import ArgumentParser, Namespace
@@ -14,7 +15,8 @@ def set_argument_parser() -> Namespace:
     group.add_argument("-u", "--user", action="store_true", help="execute program as a user.")
     group.add_argument("-d", "--developer", action="store_true", help="execute program as a developer.")
     group.add_argument("-t", "--test", type=str,
-                       choices=["collect_box_office", "collect_ptt_review", "collect_dcard_review"],
+                       choices=["collect_box_office", "collect_ptt_review", "collect_dcard_review",
+                                "train_emotion_analysis", "test_emotion_analysis"],
                        help="unit test with procedure for testing")
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result.")
@@ -70,6 +72,26 @@ if __name__ == "__main__":
                     searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
                     reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
                     print(reviews)
+                case "train_emotion_analysis":
+                    input_epoch: int = int(args.input)
+                    defaults_model_save_folder: Path = Path("./data/emotion_analysis/model")
+                    defaults_model_save_name: str = "emotion_model"
+                    defaults_tokenizer_save_folder: Path = Path("./data/emotion_analysis/dataset")
+                    defaults_tokenizer_save_name: str = "tokenizer.pickle"
+                    EmotionAnalyzer().train(
+                        data_path=Path("./data/emotion_analysis/dataset/emotion_analyse_dataset.csv"),
+                        tokenizer_save_folder=defaults_tokenizer_save_folder,
+                        tokenizer_save_name=defaults_tokenizer_save_name,
+                        model_save_folder=defaults_model_save_folder,
+                        model_save_name=defaults_model_save_name,
+                        epoch=input_epoch)
+                case "test_emotion_analysis":
+                    input_review = args.input
+                    default_model_path = Path("./data/emotion_analysis/model/emotion_model_10.keras")
+                    defaults_tokenizer_path = Path("./data/emotion_analysis/dataset/tokenizer.pickle")
+                    print(EmotionAnalyzer(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
+                        input_review))
+
                 case _:
                     raise ValueError
         else:
