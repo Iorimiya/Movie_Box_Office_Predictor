@@ -79,7 +79,7 @@ if __name__ == "__main__":
                     defaults_tokenizer_save_folder: Path = Path("./data/emotion_analysis/dataset")
                     defaults_tokenizer_save_name: str = "tokenizer.pickle"
                     EmotionAnalyzer().train(
-                        data_path=Path("./emotion_analysis/dataset/emotion_analyse_dataset.csv"),
+                        data_path=Path("./data/emotion_analysis/dataset/emotion_analyse_dataset.csv"),
                         tokenizer_save_folder=defaults_tokenizer_save_folder,
                         tokenizer_save_name=defaults_tokenizer_save_name,
                         model_save_folder=defaults_model_save_folder,

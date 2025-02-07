@@ -28,7 +28,7 @@ class EmotionAnalyzer:
 
 
     def __text_to_sequences(self, texts: list[str] | str) -> ndarray:
-        sequence = self.__tokenizer.texts_to_sequences([texts])  # 轉為數字序列
+        sequence = self.__tokenizer.texts_to_sequences(texts if isinstance(texts,list) else [texts])  # 轉為數字序列
         return pad_sequences(sequence, maxlen=self.__review_max_len)  # 填充序列
 
     def __save_tokenizer(self, file_path: Path = 'tokenizer.pickle') -> None:
