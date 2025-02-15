@@ -13,7 +13,7 @@ from datetime import datetime
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.common.exceptions import *
-from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.expected_conditions import visibility_of_element_located,element_to_be_clickable
 from urllib3.exceptions import ReadTimeoutError
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
@@ -91,7 +91,7 @@ class BoxOfficeCollector:
         except TimeoutException:
             logging.warning("navigate to search url failed.", exc_info=True)
             raise InvalidSwitchToTargetException
-        self.__browser.wait(WaitingCondition(condition=ec.visibility_of_element_located(
+        self.__browser.wait(WaitingCondition(condition=visibility_of_element_located(
             locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')), timeout=5,
             error_message="Searching {movie_name} failed, none movie title drop-down list found."))
         # find the drop-down list element from page and compare the text of each element and pick the first one matched the movie name
@@ -130,7 +130,7 @@ class BoxOfficeCollector:
             try:
                 self.__browser.click(button_locator=week_button_selector,
                                      pre_method=WaitingCondition(
-                                         condition=ec.element_to_be_clickable(
+                                         condition=element_to_be_clickable(
                                              (By.CSS_SELECTOR, week_button_selector)),
                                          error_message="", timeout=self.__page_loading_timeout))
             except NoSuchElementException:
