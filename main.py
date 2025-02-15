@@ -37,7 +37,7 @@ def set_logging_setting(display_level: int, file_path: Path) -> None:
 
 if __name__ == "__main__":
     # setting logging information
-    logging_level: int = logging.DEBUG
+    logging_level: int = logging.INFO
     set_logging_setting(
         display_level=logging_level,
         file_path=Path(__file__).resolve(strict=True).parent.
