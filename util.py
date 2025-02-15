@@ -4,18 +4,22 @@ from pathlib import Path
 from typing import TypedDict
 
 
-class DefaultsPath(Enum):
-    PROJECT_FOLDER:Path = Path(__file__).parent
-    DATA_FOLDER = PROJECT_FOLDER.value.joinpath('data')
-    BOX_OFFICE_FOLDER = DATA_FOLDER.value.joinpath('web_scraping_data', 'box_office')
-    PUBLIC_REVIEW_FOLDER = DATA_FOLDER.value.joinpath('web_scraping_data', 'public_review')
-    EXPERT_REVIEW_FOLDER = DATA_FOLDER.value.joinpath('web_scraping_data', 'expert_review')
-    INDEX_PATH = DATA_FOLDER.value.joinpath('web_scraping_data', 'index.csv')
+class Constant(Enum):
+    STATUS_BAR_FORMAT:str = '{desc}: {percentage:3.2f}%|{bar}{r_bar}'
 
-class DefaultsHeader(Enum):
-    INDEX_HEADER = ['id', 'name']
-    INPUT_MOVIE_LIST_HEADER = 'movie_name'
-    BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER = ['id', 'movie_page_url', 'file_path']
+    class Headers(Enum):
+        INDEX_HEADER: list[str] = ['id', 'name']
+        INPUT_MOVIE_LIST_HEADER: str = 'movie_name'
+        BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER: list[str] = ['id', 'movie_page_url', 'file_path']
+
+    class Paths(Enum):
+        PROJECT_FOLDER: Path = Path(__file__).parent
+        DATA_FOLDER: Path = PROJECT_FOLDER.value.joinpath('data')
+        BOX_OFFICE_FOLDER: Path = DATA_FOLDER.value.joinpath('web_scraping_data', 'box_office')
+        PUBLIC_REVIEW_FOLDER: Path = DATA_FOLDER.value.joinpath('web_scraping_data', 'public_review')
+        EXPERT_REVIEW_FOLDER: Path = DATA_FOLDER.value.joinpath('web_scraping_data', 'expert_review')
+        INDEX_PATH: Path = DATA_FOLDER.value.joinpath('web_scraping_data', 'index.csv')
+
 
 
 class CSVFileData(TypedDict):
@@ -39,7 +43,7 @@ def write_data_to_csv(path: Path, data: list[dict], header: list) -> None:
 def initialize_index_file(input_file: CSVFileData, index_file: CSVFileData | None = None) -> None:
     # get movie names from input csv
     if index_file is None:
-        index_file = CSVFileData(path=DefaultsPath.INDEX_PATH.value, header=DefaultsHeader.INDEX_HEADER.value)
+        index_file = CSVFileData(path=Constant.Paths.INDEX_PATH.value, header=Constant.Headers.INDEX_HEADER.value)
     with open(file=input_file['path'], mode='r', encoding='utf-8') as file:
         movie_names: list[str] = [row[input_file['header']] for row in csv.DictReader(file)]
     # create index file

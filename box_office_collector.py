@@ -30,8 +30,8 @@ class BoxOfficeCollector:
         URL = 1
         FILE_PATH = 2
 
-    def __init__(self, index_file_path: Path = DefaultsPath.INDEX_PATH,
-                 box_office_data_folder: Path = DefaultsPath.BOX_OFFICE_FOLDER,
+    def __init__(self, index_file_path: Path = Constant.Paths.INDEX_PATH,
+                 box_office_data_folder: Path = Constant.Paths.BOX_OFFICE_FOLDER,
                  download_mode: Mode = Mode.WEEK, page_loading_timeout: float = 30) -> None:
 
         # download mode amd type settings
@@ -43,8 +43,8 @@ class BoxOfficeCollector:
         self.__store_file_extension: str = 'yaml'
         self.__page_loading_timeout = page_loading_timeout
         self.__searching_url: str = "https://boxofficetw.tfai.org.tw/search/0"
-        self.__index_file_header: list[str] = DefaultsHeader.INDEX_HEADER.value
-        self.__progress_file_header: list[str] = DefaultsHeader.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER.value
+        self.__index_file_header: list[str] = Constant.Headers.INDEX_HEADER.value
+        self.__progress_file_header: list[str] = Constant.Headers.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER.value
 
         # path
         self.__box_office_data_folder: Path = box_office_data_folder
@@ -244,7 +244,7 @@ class BoxOfficeCollector:
         raise AssertionError
 
     def get_box_office_data(self, input_file_path: Path | None = None,
-                            input_csv_file_header: str = DefaultsHeader.INPUT_MOVIE_LIST_HEADER) -> None:
+                            input_csv_file_header: str = Constant.Headers.INPUT_MOVIE_LIST_HEADER) -> None:
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
         # read index data
@@ -272,7 +272,7 @@ class BoxOfficeCollector:
                               header=self.__progress_file_header)
         current_progress = read_data_from_csv(self.__progress_file_path)
         for movie, progress in tqdm(zip(movie_data, current_progress), total=len(movie_data),
-                                    bar_format='{desc}: {percentage:3.2f}%|{bar}{r_bar}'):
+                                    bar_format=Constant.STATUS_BAR_FORMAT.value):
             try:
                 self.__search_box_office_data(movie_data=movie, progress=progress)
             except AssertionError:
