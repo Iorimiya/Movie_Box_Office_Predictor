@@ -6,7 +6,6 @@ name: thesis_for_zt
 channels:
   - defaults
   - conda-forge
-  - nvidia
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/r
   - https://repo.anaconda.com/pkgs/msys2
@@ -21,11 +20,11 @@ dependencies:
   - defaults::selenium>=4.24
 # compute
   - defaults::numpy>=1.26
-  - defaults::pandas
+  - defaults::pandas>=2.2
 # tensorflow
-  - defaults::cuda-toolkit=12.4
-  - defaults::cudnn=9.1
-  - defaults::tensorflow=2.17=cuda*
+#  - defaults::cuda-toolkit=12.4
+#  - defaults::cudnn=9.1
+  - defaults::tensorflow=2.17
   - defaults::scikit-learn>=1.6
   - conda-forge::keras-preprocessing>=1.1
 # others
