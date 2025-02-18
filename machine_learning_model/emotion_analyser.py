@@ -3,15 +3,15 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 import pickle
-
+from numpy import ndarray
+from sklearn.model_selection import train_test_split
 from keras_preprocessing.text import Tokenizer
 from keras_preprocessing.sequence import pad_sequences
 from keras.src.models import Sequential
 from keras.src.layers import Embedding, LSTM, Dense, Dropout
 from keras.api.models import load_model
 
-from numpy import ndarray
-from sklearn.model_selection import train_test_split
+
 
 
 class EmotionAnalyser:
@@ -26,9 +26,8 @@ class EmotionAnalyser:
         self.__review_max_len = review_max_length  # 每條影評的最大長度
         return
 
-
     def __text_to_sequences(self, texts: list[str] | str) -> ndarray:
-        sequence = self.__tokenizer.texts_to_sequences(texts if isinstance(texts,list) else [texts])  # 轉為數字序列
+        sequence = self.__tokenizer.texts_to_sequences(texts if isinstance(texts, list) else [texts])  # 轉為數字序列
         return pad_sequences(sequence, maxlen=self.__review_max_len)  # 填充序列
 
     def __save_tokenizer(self, file_path: Path = 'tokenizer.pickle') -> None:
@@ -42,8 +41,7 @@ class EmotionAnalyser:
         self.__tokenizer = tokenizer
 
     def train(self, data_path: Path, tokenizer_save_folder: Path, tokenizer_save_name: str,
-                 model_save_folder: Path, model_save_name: str, epoch: int = 10) -> None:
-
+              model_save_folder: Path, model_save_name: str, epoch: int = 10) -> None:
         # load words from file
         data_frame = pd.read_csv(data_path)
         positive_words = data_frame[data_frame['is_positive']].dropna().loc[:, 'word']
