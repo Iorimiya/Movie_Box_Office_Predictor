@@ -1,12 +1,12 @@
-from box_office_collector import BoxOfficeCollector
-from review_collector import ReviewCollector
-from movie_review import MovieReview
-from emotion_analyser import EmotionAnalyser
-
 import logging
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
 from datetime import datetime
+
+from web_scraper.box_office_collector import BoxOfficeCollector
+from web_scraper.review_collector import ReviewCollector
+from machine_learning_model.emotion_analyser import EmotionAnalyser
+
 
 
 def set_argument_parser() -> Namespace:
@@ -63,15 +63,11 @@ if __name__ == "__main__":
                 case "collect_ptt_review":
                     input_title: str = args.input
                     target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PPT
-                    searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
-                    reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
-                    print(reviews)
+                    ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD).scrap_train_review_data()
                 case "collect_dcard_review":
                     input_title: str = args.input
                     target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
-                    searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
-                    reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
-                    print(reviews)
+                    ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD).scrap_train_review_data()
                 case "train_emotion_analysis":
                     input_epoch: int = int(args.input)
                     defaults_model_save_folder: Path = Path("./data/emotion_analysis/model")
