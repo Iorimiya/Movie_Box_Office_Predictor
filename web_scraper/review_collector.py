@@ -1,18 +1,17 @@
-import re
 import logging
-import requests
-from enum import Enum
-from pathlib import Path
-from requests import Response
-from typing import TypeAlias, Optional, Final
+import re
 from datetime import datetime
-from selenium.webdriver.common.by import By
-from bs4 import BeautifulSoup, NavigableString
+from enum import Enum
+from typing import TypeAlias, Optional, Final
 
-from browser import Browser
-from movie_data import MovieData, PublicReview
+import requests
+from bs4 import BeautifulSoup, NavigableString
+from requests import Response
+from selenium.webdriver.common.by import By
+
+from web_scraper.browser import Browser
+from movie_data import PublicReview
 from tools.util import *
-from tools.constant import Constants
 
 Url: TypeAlias = str
 RegularExpressionPattern: TypeAlias = str

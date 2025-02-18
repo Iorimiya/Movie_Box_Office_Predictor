@@ -1,21 +1,20 @@
-import re
 import json
 import logging
-from enum import Enum
-from tqdm import tqdm
-from pathlib import Path
-from typing import TypeAlias, Final
+import re
 from datetime import datetime
+from enum import Enum
+from typing import TypeAlias, Final
+
+from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.common.exceptions import *
 from selenium.webdriver.support.expected_conditions import visibility_of_element_located, element_to_be_clickable
+from tqdm import tqdm
 from urllib3.exceptions import ReadTimeoutError
 
-from browser import Browser
+from web_scraper.browser import Browser
 from movie_data import BoxOffice
 from tools.util import *
-from tools.constant import Constants
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
 PageChangeCondition: TypeAlias = Browser.PageChangeCondition
@@ -269,10 +268,14 @@ class BoxOfficeCollector:
                                      self.__progress_file_header[2]: ''} for single_movie_data in movie_data],
                               header=self.__progress_file_header)
         current_progress: list = read_data_from_csv(self.__progress_file_path)
-        for movie, progress in tqdm(zip(movie_data, current_progress), total=len(movie_data),
-                                    bar_format=Constants.STATUS_BAR_FORMAT):
-            try:
-                self.__search_box_office_data(movie_data=movie, progress=progress)
-            except AssertionError:
-                continue
+
+        with tqdm(total=len(current_progress), bar_format=Constants.STATUS_BAR_FORMAT) as pbar:
+            for movie,progress in zip(movie_data, current_progress):
+                try:
+                    self.__search_box_office_data(movie_data=movie, progress=progress)
+                except AssertionError:
+                    pbar.update(1)
+                    continue
+                else:
+                    pbar.update(1)
         return
