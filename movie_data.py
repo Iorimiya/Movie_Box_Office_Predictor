@@ -39,11 +39,19 @@ class Review:
 @dataclass(kw_only=True)
 class ExpertReview(Review):
     score: float
+    def __hash__(self):
+        return super().__hash__()
+    def __eq__(self, other):
+        return super().__eq__(other=other)
 
 
 @dataclass(kw_only=True)
 class PublicReview(Review):
     reply_count:int
+    def __hash__(self):
+        return super().__hash__()
+    def __eq__(self, other):
+        return super().__eq__(other=other)
 
 
 class MovieData:
