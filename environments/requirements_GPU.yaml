@@ -17,7 +17,6 @@ dependencies:
 # web scraping
   - defaults::requests>=2.32
   - defaults::beautifulsoup4>=4.12
-  - defaults::selenium>=4.24
 # compute
   - defaults::numpy>=1.26
   - defaults::pandas>=2.2
@@ -33,3 +32,4 @@ dependencies:
   - defaults::pyyaml>=0.2
   - pip:
     - "jieba>=0.42"
+    - "seleniumbase>=4.34.16"
