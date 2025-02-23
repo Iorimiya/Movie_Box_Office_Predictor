@@ -39,17 +39,21 @@ class Review:
 @dataclass(kw_only=True)
 class ExpertReview(Review):
     score: float
+
     def __hash__(self):
         return super().__hash__()
+
     def __eq__(self, other):
         return super().__eq__(other=other)
 
 
 @dataclass(kw_only=True)
 class PublicReview(Review):
-    reply_count:int
+    reply_count: int
+
     def __hash__(self):
         return super().__hash__()
+
     def __eq__(self, other):
         return super().__eq__(other=other)
 
@@ -69,16 +73,17 @@ class MovieData:
 
         if box_office:
             self.update_data(box_offices=box_office)
+
     @property
-    def box_office_week_lens(self):
+    def box_office_week_lens(self) -> int:
         return len(self.box_office) if self.box_office else 0
 
     @property
-    def public_reply_count(self):
+    def public_reply_count(self) -> int:
         return sum(public_review.reply_count for public_review in self.public_reviews)
 
     @property
-    def public_review_count(self):
+    def public_review_count(self) -> int:
         return len(self.public_reviews) if self.public_reviews else 0
 
     def update_data(self,
@@ -112,22 +117,24 @@ class MovieData:
             data = [data for data in yaml.safe_load_all(file)]
         return data
 
-    def save_box_office(self, save_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING):
+    def save_box_office(self, save_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.__save(file_path=save_folder_path.joinpath(f"{self.movie_id}.{file_extension}"), data=self.box_office,
                     encoding=encoding)
 
-    def load_box_office(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING):
+    def load_box_office(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.box_office = self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                       encoding=encoding)
 
-    def save_public_review(self, save_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING):
+    def save_public_review(self, save_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
-        self.__save(file_path=save_folder_path.joinpath(f"{self.movie_id}.{file_extension}"), data=self.public_reviews,
-                    encoding=encoding)
+        save_path = save_folder_path.joinpath(f"{self.movie_id}.{file_extension}")
+        self.__save(file_path=save_path, data=self.public_reviews,
+                    encoding=encoding) if self.public_review_count else save_path.touch(exist_ok=True)
+        return
 
-    def load_public_review(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING):
+    def load_public_review(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.public_reviews = self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
-                                      encoding=encoding)
+                                          encoding=encoding)
