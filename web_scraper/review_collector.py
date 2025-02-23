@@ -123,14 +123,20 @@ class ReviewCollector:
             case TargetWebsite.DCARD:
                 self.__browser.get(search_url)
                 selector: Selector = "div#__next div[role='main'] div[data-key] article[role='article'] h2 a[href]"
-                body_element =  self.__browser.find_element(selector="body")
-                height_value = body_element.get_attribute("scrollHeight")
-                scroll_height: int = int(height_value)
+                scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
                 urls = list()
                 for current_height in range(0, scroll_height, 150):
                     self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
-                    new_urls = [element.get_attribute("href") for element
-                                in self.__browser.find_elements(selector=selector)]
+                    #　selenium.common.exceptions.StaleElementReferenceException
+                    new_urls = list()
+                    try:
+
+                        for element in self.__browser.find_elements(selector=selector):
+                            href = element.get_attribute("href")
+                            new_urls.append(href)
+                    except StaleElementReferenceException:
+                        a=1
+                        raise
                     urls.extend(url for url in new_urls)
                 urls = self.__delete_duplicate(urls)
 
@@ -175,17 +181,30 @@ class ReviewCollector:
                 selector_title:Final[Selector] = selector_base + " article h1"
                 selector_time:Final[Selector] = selector_base + " article time"
                 selector_content:Final[Selector] = selector_base + " article span"
-                selector_reply:Final[Selector] = selector_base + " section div[data-key^='comment'] span:not[class]"
+                selector_reply:Final[Selector] = selector_base + " section div[data-key^='comment'] span:not([class])"
                 time_format: Final[str] ='%Y 年 %m 月 %d 日 %H:%M'
+
                 self.__browser.home()
                 self.__browser.get(url=url)
+
                 title = self.__browser.find_element(selector=selector_title).text
                 posted_time = datetime.strptime(
                     self.__browser.find_element(selector=selector_time).text,
                     time_format)
                 content = self.__browser.find_element(selector=selector_content).text
-                replies = [reply_element.text for reply_element in
-                           self.__browser.find_elements(selector=selector_reply)]
+                # selenium.common.exceptions.InvalidSelectorException
+                scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
+                replies = list()
+                for current_height in range(0, scroll_height, 150):
+                    self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
+                    #　selenium.common.exceptions.StaleElementReferenceException
+                    try:
+                        repliess = [reply_element.text for reply_element in
+                                   self.__browser.find_elements(selector=selector_reply)]
+                    except (StaleElementReferenceException,InvalidSelectorException):
+                        a=1
+                        raise
+                    replies.extend(repliess)
 
         return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies))
 

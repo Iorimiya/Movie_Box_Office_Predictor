@@ -147,11 +147,10 @@ class Browser(webdriver.Chrome):
 
 
 class CaptchaBrowser:
-    def __init__(self, uc: bool = True, headless: bool = False, no_sandbox: bool = True, incognito: bool = True,
-                 size: tuple[int, int] = (1600, 900)) -> None:
+    def __init__(self, no_sandbox: bool = True, incognito: bool = True, size: tuple[int, int] = (1600, 900)) -> None:
         self.__driver: Optional[sel_undef.Chrome] = None
-        self.__uc: Final[bool] = uc
-        self.__headless: Final[bool] = headless
+        self.__uc: Final[bool] = True
+        self.__headless: Final[bool] = False
         self.__no_sandbox: Final[bool] = no_sandbox
         self.__incognito: Final[bool] = incognito
         self.__size: Final[tuple[int, int]] = size
@@ -175,15 +174,17 @@ class CaptchaBrowser:
         self.__driver.uc_activate_cdp_mode(url)
         self.wait(5)
         self.__driver.uc_gui_click_captcha()
+        self.__driver.connect()
 
     def find_element(self, selector: str) -> WebElement:
-        self.__driver.wait_for_element(selector)
         return self.__driver.find_element(selector)
 
-    def find_elements(self,  selector: str) -> list[WebElement]:
-        self.__driver.wait_for_element(selector)
+    def find_elements(self, selector: str) -> list[WebElement]:
         return self.__driver.find_elements(selector)
-    def home(self)-> None:
+
+    def execute_script(self, script: str) -> None:
+        self.__driver.execute_script(script=script)
+
+    def home(self) -> None:
         self.__driver.get(self.__home_url)
         return
-
