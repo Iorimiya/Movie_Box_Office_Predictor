@@ -1,20 +1,20 @@
-from browser import Browser
-from movie_data import MovieData
-from util import *
-
-import re
 import json
 import logging
-from enum import Enum
-from tqdm import tqdm
-from pathlib import Path
-from typing import TypeAlias
+import re
 from datetime import datetime
+from enum import Enum
+from typing import TypeAlias, Final
+
+from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.common.exceptions import *
-from selenium.webdriver.support.expected_conditions import visibility_of_element_located,element_to_be_clickable
+from selenium.webdriver.support.expected_conditions import visibility_of_element_located, element_to_be_clickable
+from tqdm import tqdm
 from urllib3.exceptions import ReadTimeoutError
+
+from web_scraper.browser import Browser
+from movie_data import BoxOffice
+from tools.util import *
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
 PageChangeCondition: TypeAlias = Browser.PageChangeCondition
@@ -35,22 +35,22 @@ class BoxOfficeCollector:
                  download_mode: Mode = Mode.WEEK, page_loading_timeout: float = 30) -> None:
 
         # download mode amd type settings
-        self.__download_mode: BoxOfficeCollector.Mode = download_mode
+        self.__download_mode: Final[BoxOfficeCollector.Mode] = download_mode
         logging.info(f"use {self.__download_mode.name} mode to download data.")
 
         # constants
-        self.__scrap_file_extension: str = 'json'
-        self.__store_file_extension: str = 'yaml'
-        self.__page_loading_timeout = page_loading_timeout
-        self.__searching_url: str = "https://boxofficetw.tfai.org.tw/search/0"
-        self.__index_file_header: list[str] = Constants.INDEX_HEADER
-        self.__progress_file_header: list[str] = Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER
+        self.__scrap_file_extension: Final[str] = 'json'
+        self.__store_file_extension: Final[str] = Constants.DEFAULT_SAVE_FILE_EXTENSION
+        self.__page_loading_timeout: Final[float] = page_loading_timeout
+        self.__searching_url: Final[str] = "https://boxofficetw.tfai.org.tw/search/0"
+        self.__index_file_header: Final[tuple[str]] = Constants.INDEX_HEADER
+        self.__progress_file_header: Final[tuple[str]] = Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER
 
         # path
-        self.__box_office_data_folder: Path = box_office_data_folder
-        self.__index_file_path: Path = index_file_path
-        self.__progress_file_path: Path = self.__box_office_data_folder.joinpath("download_progress.csv")
-        self.__temporary_file_downloaded_path: Path = self.__box_office_data_folder.joinpath(
+        self.__box_office_data_folder: Final[Path] = box_office_data_folder
+        self.__index_file_path: Final[Path] = index_file_path
+        self.__progress_file_path: Final[Path] = self.__box_office_data_folder.joinpath("download_progress.csv")
+        self.__temporary_file_downloaded_path: Final[Path] = self.__box_office_data_folder.joinpath(
             f"各週{'' if self.__download_mode == self.Mode.WEEK else '週末'}票房資料匯出.{self.__scrap_file_extension}")
 
         # initialize path before browser create to avoid resolve error
@@ -155,26 +155,24 @@ class BoxOfficeCollector:
             return
 
     def __load_box_office_data_from_json_file(self, movie_data: MovieData) -> MovieData:
-        date_format = '%Y-%m-%d'
-        date_split_pattern = '~'
-        input_encoding = 'utf-8-sig'
+        date_format: Final[str] = '%Y-%m-%d'
+        date_split_pattern: Final[str] = '~'
+        input_encoding: Final[str] = 'utf-8-sig'
         with open(self.__temporary_file_downloaded_path, mode='r', encoding=input_encoding) as file:
             json_data = json.load(file)
         try:
-            weekly_box_office_data = [{
-                'start_date': datetime.strptime(re.split(date_split_pattern, week_data["Date"])[0],
-                                                date_format).date(),
-                'end_date': datetime.strptime(re.split(date_split_pattern, week_data["Date"])[1],
-                                              date_format).date(),
-                'box_office': int(week_data["Amount"]) if week_data["Amount"] is not None else 0} for week_data in
-                json_data['Rows']]
+            weekly_box_office_data: list[BoxOffice] = [BoxOffice(
+                start_date=datetime.strptime(re.split(date_split_pattern, week_data["Date"])[0], date_format).date(),
+                end_date=datetime.strptime(re.split(date_split_pattern, week_data["Date"])[1], date_format).date(),
+                box_office=int(week_data["Amount"]) if week_data["Amount"] is not None else 0)
+                for week_data in json_data['Rows']]
         except TypeError:
             logging.debug("An Error Occurred. See Below.", exc_info=True)
             raise
         if not weekly_box_office_data:
             logging.debug("box_office_data is None")
             raise ValueError
-        movie_data.box_office = weekly_box_office_data
+        movie_data.update_data(box_offices=weekly_box_office_data)
         return movie_data
 
     def __search_box_office_data(self, movie_data: MovieData, progress: dict, trying_times: int = 10) -> None:
@@ -243,7 +241,7 @@ class BoxOfficeCollector:
                 return
         raise AssertionError
 
-    def get_box_office_data(self, input_file_path: Path | None = None,
+    def get_box_office_data(self, input_file_path: Optional[Path] = None,
                             input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
@@ -257,9 +255,8 @@ class BoxOfficeCollector:
                 logging.error("no previous index file, please enter input file path.")
                 exit(1)
 
-        movie_data = [
-            MovieData(movie_id=int(movie[self.__index_file_header[0]]), movie_name=movie[self.__index_file_header[1]])
-            for movie in read_data_from_csv(self.__index_file_path)]
+        movie_data: list[MovieData] = read_index_file(file_path=self.__index_file_path,
+                                                      index_header=self.__index_file_header)
 
         # read_download progress
         # if not exist, create it.
@@ -270,11 +267,15 @@ class BoxOfficeCollector:
                                      self.__progress_file_header[1]: '',
                                      self.__progress_file_header[2]: ''} for single_movie_data in movie_data],
                               header=self.__progress_file_header)
-        current_progress = read_data_from_csv(self.__progress_file_path)
-        for movie, progress in tqdm(zip(movie_data, current_progress), total=len(movie_data),
-                                    bar_format=Constants.STATUS_BAR_FORMAT):
-            try:
-                self.__search_box_office_data(movie_data=movie, progress=progress)
-            except AssertionError:
-                continue
+        current_progress: list = read_data_from_csv(self.__progress_file_path)
+
+        with tqdm(total=len(current_progress), bar_format=Constants.STATUS_BAR_FORMAT) as pbar:
+            for movie,progress in zip(movie_data, current_progress):
+                try:
+                    self.__search_box_office_data(movie_data=movie, progress=progress)
+                except AssertionError:
+                    pbar.update(1)
+                    continue
+                else:
+                    pbar.update(1)
         return

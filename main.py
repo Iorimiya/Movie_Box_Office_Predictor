@@ -1,12 +1,11 @@
-from box_office_collector import BoxOfficeCollector
-from review_collector import ReviewCollector
-from movie_review import MovieReview
-from emotion_analyser import EmotionAnalyser
-
 import logging
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
 from datetime import datetime
+
+from web_scraper.box_office_collector import BoxOfficeCollector
+from web_scraper.review_collector import ReviewCollector
+from machine_learning_model.emotion_analyser import EmotionAnalyser
 
 
 def set_argument_parser() -> Namespace:
@@ -54,47 +53,43 @@ if __name__ == "__main__":
     elif args.developer:
         pass
     elif args.test:
-        if args.input:
-            match args.test:
-                case "collect_box_office":
-                    input_file_path: Path = Path(args.input)
-                    with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
-                        collector.get_box_office_data(input_file_path=input_file_path)
-                case "collect_ptt_review":
-                    input_title: str = args.input
-                    target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PPT
-                    searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
-                    reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
-                    print(reviews)
-                case "collect_dcard_review":
-                    input_title: str = args.input
-                    target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
-                    searcher = ReviewCollector(target_website=ReviewCollector.TargetWebsite.DCARD)
-                    reviews: list[MovieReview] = searcher.search_review(movie_name=input_title)
-                    print(reviews)
-                case "train_emotion_analysis":
-                    input_epoch: int = int(args.input)
-                    defaults_model_save_folder: Path = Path("./data/emotion_analysis/model")
-                    defaults_model_save_name: str = "emotion_analysis_model"
-                    defaults_tokenizer_save_folder: Path = Path("./data/emotion_analysis/dataset")
-                    defaults_tokenizer_save_name: str = "tokenizer.pickle"
-                    EmotionAnalyser().train(
-                        data_path=Path("./data/emotion_analysis/dataset/emotion_analyse_dataset.csv"),
-                        tokenizer_save_folder=defaults_tokenizer_save_folder,
-                        tokenizer_save_name=defaults_tokenizer_save_name,
-                        model_save_folder=defaults_model_save_folder,
-                        model_save_name=defaults_model_save_name,
-                        epoch=input_epoch)
-                case "test_emotion_analysis":
-                    input_review = args.input
-                    default_model_path = Path("./data/emotion_analysis/model/emotion_analysis_model_1000.keras")
-                    defaults_tokenizer_path = Path("./data/emotion_analysis/dataset/tokenizer.pickle")
-                    print(EmotionAnalyser(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
-                        input_review))
+        match args.test:
+            case "collect_box_office":
+                with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
+                    collector.get_box_office_data(input_file_path=Path(args.input) if args.input else None)
+            case "collect_ptt_review":
+                target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PPT
+                if args.input:
+                    print(ReviewCollector(target_website=target_website).search_review(args.input))
+                else:
+                    ReviewCollector(target_website=target_website).scrap_train_review_data()
+            case "collect_dcard_review":
+                target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
+                if args.input:
+                    print(ReviewCollector(target_website=target_website).search_review(args.input))
+                else:
+                    ReviewCollector(target_website=target_website).scrap_train_review_data()
+            case "train_emotion_analysis":
+                input_epoch: int = int(args.input)
+                defaults_model_save_folder: Path = Path("./data/emotion_analysis/model")
+                defaults_model_save_name: str = "emotion_analysis_model"
+                defaults_tokenizer_save_folder: Path = Path("./data/emotion_analysis/dataset")
+                defaults_tokenizer_save_name: str = "tokenizer.pickle"
+                EmotionAnalyser().train(
+                    data_path=Path("./data/emotion_analysis/dataset/emotion_analyse_dataset.csv"),
+                    tokenizer_save_folder=defaults_tokenizer_save_folder,
+                    tokenizer_save_name=defaults_tokenizer_save_name,
+                    model_save_folder=defaults_model_save_folder,
+                    model_save_name=defaults_model_save_name,
+                    epoch=input_epoch)
+            case "test_emotion_analysis":
+                input_review = args.input
+                default_model_path = Path("./data/emotion_analysis/model/emotion_analysis_model_1000.keras")
+                defaults_tokenizer_path = Path("./data/emotion_analysis/dataset/tokenizer.pickle")
+                print(EmotionAnalyser(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
+                    input_review))
 
-                case _:
-                    raise ValueError
-        else:
-            raise ValueError("Argument \"test\" need \"input\" for parameter. ")
+            case _:
+                raise ValueError
     else:
         raise ValueError("Argument error.")

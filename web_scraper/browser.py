@@ -1,8 +1,10 @@
+import time
 import logging
-from enum import Enum
 from pathlib import Path
+from typing import TypeAlias, Callable, Final
+
 from typing_extensions import override
-from typing import TypeAlias, Callable, TypedDict
+from dataclasses import dataclass
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -11,12 +13,10 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webelement import WebElement
 
+from seleniumbase import Driver
+from seleniumbase import undetected as sel_undef
+
 ChromeExperimentalOptions: TypeAlias = dict[str:str]
-
-
-class TimeoutType(Enum):
-    PAGE_LOADING = 1
-    DOWNLOAD = 2
 
 
 class Browser(webdriver.Chrome):
@@ -34,19 +34,19 @@ class Browser(webdriver.Chrome):
         def __call__(self, driver: webdriver.Chrome) -> bool:
             return driver.current_url != self.__old_url
 
-    class WaitingCondition(TypedDict):
+    @dataclass(kw_only=True)
+    class WaitingCondition:
         condition: Callable[[any], bool | WebElement]
-        timeout: float | None
+        timeout: Optional[float]
         error_message: str
 
     @override
-    def __init__(self, download_path: Path | None = None, page_loading_timeout: float = 0,
-                 target_url: str | None = None) -> None:
+    def __init__(self, download_path: Optional[Path] = None, page_loading_timeout: float = 120,
+                 target_url: Optional[str] = None) -> None:
         # driver options
-        self.__download_path = download_path
-        self.__defaults_timeout = 120
-        self.__page_loading_timeout = page_loading_timeout if page_loading_timeout else self.__defaults_timeout
-        self.__home_url: str = "chrome://newtab"
+        self.__download_path: Final[Path] = download_path
+        self.__page_loading_timeout: Final[float] = page_loading_timeout
+        self.__home_url: Final[str] = "chrome://newtab"
 
         # options
         self.__options: Options = Options()
@@ -77,13 +77,13 @@ class Browser(webdriver.Chrome):
     def __exit__(self, exc_type, exc_val, exc_tb) -> any:
         super().__exit__(exc_type, exc_val, exc_tb)
 
-    def wait(self, method_setting: WaitingCondition) -> None:
+    def wait(self, method_setting: WaitingCondition, defaults_timeout: float = 120) -> None:
         try:
-            WebDriverWait(self, timeout=method_setting['timeout'] if method_setting[
-                'timeout'] else self.__defaults_timeout).until(method_setting['condition'], message='')
+            WebDriverWait(self, timeout=method_setting.timeout if method_setting.timeout else defaults_timeout).until(
+                method_setting.condition, message='')
         except TimeoutException:
-            if method_setting['error_message']:
-                logging.warning(method_setting['error_message'])
+            if method_setting.error_message:
+                logging.warning(method_setting.error_message)
         return
 
     @override
@@ -144,3 +144,46 @@ class Browser(webdriver.Chrome):
             return
         else:
             raise NoSuchElementException
+
+
+class CaptchaBrowser:
+    def __init__(self, uc: bool = True, headless: bool = False, no_sandbox: bool = True, incognito: bool = True,
+                 size: tuple[int, int] = (1600, 900)) -> None:
+        self.__driver: Optional[sel_undef.Chrome] = None
+        self.__uc: Final[bool] = uc
+        self.__headless: Final[bool] = headless
+        self.__no_sandbox: Final[bool] = no_sandbox
+        self.__incognito: Final[bool] = incognito
+        self.__size: Final[tuple[int, int]] = size
+        self.__home_url: Final[str] = "chrome://newtab"
+
+    def __enter__(self) -> any:
+        self.__driver = Driver(uc=self.__uc, headless=self.__headless, no_sandbox=self.__no_sandbox,
+                               incognito=self.__incognito)
+        self.__driver.set_window_size(self.__size[0], self.__size[1])
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> any:
+        self.__driver.quit()
+        return
+
+    @staticmethod
+    def wait(sec: float = 5) -> None:
+        time.sleep(sec)
+
+    def get(self, url: str) -> None:
+        self.__driver.uc_activate_cdp_mode(url)
+        self.wait(5)
+        self.__driver.uc_gui_click_captcha()
+
+    def find_element(self, selector: str) -> WebElement:
+        self.__driver.wait_for_element(selector)
+        return self.__driver.find_element(selector)
+
+    def find_elements(self,  selector: str) -> list[WebElement]:
+        self.__driver.wait_for_element(selector)
+        return self.__driver.find_elements(selector)
+    def home(self)-> None:
+        self.__driver.get(self.__home_url)
+        return
+
