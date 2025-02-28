@@ -109,7 +109,10 @@ class ReviewCollector:
         search_url: Url = self.__get_search_page_url(search_key)
         match self.__search_target:
             case TargetWebsite.PPT:
-                max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(search_url))
+                try:
+                    max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(search_url))
+                except IndexError:
+                    return list()
                 logging.info(f"find {max_page_number} pages of result.")
                 domain_pattern: Final[RegularExpressionPattern] = '^[^:\/]+:\/\/[^\/]+'
                 base_url = re.search(pattern=domain_pattern, string=self.__base_url[self.__search_target.value]).group(
@@ -157,25 +160,28 @@ class ReviewCollector:
                 meta_tag_selector:Final[Selector] = '.article-meta-tag'
                 meta_value_selector:Final[Selector] = '.article-meta-value'
                 time_format:Final[str] = '%a %b %d %H:%M:%S %Y'
-                key_words: Final[list[str]] = ['標題', '時間']
-                content_base_element: BeautifulSoup | None = self.__get_bs_element(url=url).select_one(
-                    selector='#main-content')
-                article_meta_elements = content_base_element.select(selector=meta_element_selector)
-                if not article_meta_elements:
-                    return None
-                else:
+                key_words: Final[tuple[str]] = ('標題', '時間')
+                try:
+                    content_base_element: BeautifulSoup | None = self.__get_bs_element(url=url).select_one(
+                        selector='#main-content')
+                    article_meta_elements = content_base_element.select(selector=meta_element_selector)
                     for article_meta_element in article_meta_elements:
                         if article_meta_element.select_one(selector=meta_tag_selector).text == key_words[0]:
                             title = article_meta_element.select_one(selector=meta_value_selector).text
                         elif article_meta_element.select_one(selector=meta_tag_selector).text == key_words[1]:
-                            posted_time = datetime.strptime(
-                                article_meta_element.select_one(selector=meta_value_selector).text,
-                                time_format)
-
+                                posted_time = datetime.strptime(
+                                    article_meta_element.select_one(selector=meta_value_selector).text,
+                                    time_format)
                     content = ''.join(
                         [element for element in content_base_element if
                         isinstance(element, NavigableString)]).strip()
                     replies = [reply.text for reply in content_base_element.select(selector='.push .push-content')]
+                    if not (title and posted_time and content and replies):
+                        return None
+                except Exception as e:
+                    logging.warning(f"cannot search element in url:\"{url}\".")
+                    logging.error(f"Error message: {e}")
+                    return None
             case TargetWebsite.DCARD:
                 selector_base:Final[Selector] = "div#__next div[role='main']"
                 selector_title:Final[Selector] = selector_base + " article h1"
@@ -239,6 +245,7 @@ class ReviewCollector:
     def scrap_train_review_data(self, index_path: Path = Constants.INDEX_PATH,
                                 save_folder_path: Path = Constants.PUBLIC_REVIEW_FOLDER):
         movie_data: list[MovieData] = read_index_file(file_path=index_path)
+        movie_data = list(filter(lambda movie:not save_folder_path.joinpath(f"{movie.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(),movie_data))
         for movie in tqdm(movie_data,bar_format = Constants.STATUS_BAR_FORMAT):
             movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
             movie.save_public_review(save_folder_path=save_folder_path)
