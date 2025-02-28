@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 from tools.constant import Constants
 from movie_data import MovieData
+from machine_learning_model.emotion_analyser import EmotionAnalyser
 
 @dataclass
 class CSVFileData:
@@ -46,3 +47,13 @@ def read_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None) -
         index_header = Constants.INDEX_HEADER
     return [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]]) for movie in
             read_data_from_csv(path=file_path)]
+
+
+def analyse_review(id: int) -> None:
+    movie_data:MovieData = next(filter(lambda movie:movie.movie_id == id,read_index_file()),None)
+    movie_data.load_public_review(load_folder_path=Constants.PUBLIC_REVIEW_FOLDER)
+    analyzer: EmotionAnalyser = EmotionAnalyser(model_path = Constants.DATA_FOLDER.joinpath('emotion_analysis','model','emotion_analysis_model_1000.keras'), tokenizer_path=Constants.DATA_FOLDER.joinpath('emotion_analysis','dataset','tokenizer.pickle'))
+    for review in movie_data.public_reviews:
+        print(review)
+        print(analyzer.test(review))
+        
