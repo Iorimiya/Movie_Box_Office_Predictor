@@ -23,7 +23,7 @@ Selector: TypeAlias = str
 
 class ReviewCollector:
     class TargetWebsite(Enum):
-        PPT = 0
+        PTT = 0
         DCARD = 1
         IMDB = 2
         ROTTEN_TOMATO = 3
@@ -86,7 +86,7 @@ class ReviewCollector:
     def __get_bs_element(self, url: str) -> BeautifulSoup:
         # PTT在特定的板中需要over18=1這個cookies
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT:
                 response: Response = requests.get(url=url, cookies={'over18': '1'})
             case _:
                 response: Response = requests.get(url=url)
@@ -95,7 +95,7 @@ class ReviewCollector:
 
     def __get_largest_result_page_number(self, bs_root_element: BeautifulSoup) -> int:
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT:
                 re_pattern: Final[RegularExpressionPattern] = "page=(\d+)"
                 key_word: Final[str] = '最舊'
                 selector: Final[Selector] = "#action-bar-container a"
@@ -108,7 +108,7 @@ class ReviewCollector:
     def __get_review_urls(self, search_key: str) -> list[str]:
         search_url: Url = self.__get_search_page_url(search_key)
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT:
                 try:
                     max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(search_url))
                 except IndexError:
@@ -155,7 +155,7 @@ class ReviewCollector:
         replies: list[str] | None = None
         posted_time: datetime | None = None
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT:
                 meta_element_selector:Final[Selector] = '.article-metaline'
                 meta_tag_selector:Final[Selector] = '.article-meta-tag'
                 meta_value_selector:Final[Selector] = '.article-meta-value'
@@ -216,7 +216,7 @@ class ReviewCollector:
 
     def __get_reviews(self, search_key: str) -> list[PublicReview]:
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT:
                 logging.info(f"start search reviews with search key \"{search_key}.")
                 urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
                 return list(filter(lambda x:x,[self.__get_review_information(url=url) for url in tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]))
@@ -232,7 +232,7 @@ class ReviewCollector:
     def search_review(self, movie_name: str) -> list[PublicReview] | None:
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
         match self.__search_target:
-            case TargetWebsite.PPT | TargetWebsite.DCARD:
+            case TargetWebsite.PTT | TargetWebsite.DCARD:
                 reviews: list[PublicReview] = [review for search_key in search_keys for review in
                                                self.__get_reviews(search_key=search_key)]
                 logging.info("trying to delete duplicate reviews.")
