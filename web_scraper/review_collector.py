@@ -137,8 +137,8 @@ class ReviewCollector:
                         for element in self.__browser.find_elements(selector=selector):
                             href = element.get_attribute("href")
                             new_urls.append(href)
-                    except StaleElementReferenceException:
-                        a=1
+                    except StaleElementReferenceException as e:
+                        logging.error("",exc_info=True)
                         raise
                     urls.extend(url for url in new_urls)
                 urls = self.__delete_duplicate(urls)
@@ -160,7 +160,7 @@ class ReviewCollector:
                 meta_tag_selector:Final[Selector] = '.article-meta-tag'
                 meta_value_selector:Final[Selector] = '.article-meta-value'
                 time_format:Final[str] = '%a %b %d %H:%M:%S %Y'
-                key_words: Final[tuple[str]] = ('標題', '時間')
+                key_words: Final[tuple[str,str]] = ('標題', '時間')
                 try:
                     content_base_element: BeautifulSoup | None = self.__get_bs_element(url=url).select_one(
                         selector='#main-content')
@@ -193,24 +193,26 @@ class ReviewCollector:
                 self.__browser.home()
                 self.__browser.get(url=url)
 
-                title = self.__browser.find_element(selector=selector_title).text
-                posted_time = datetime.strptime(
-                    self.__browser.find_element(selector=selector_time).text,
-                    time_format)
-                content = self.__browser.find_element(selector=selector_content).text
-                # selenium.common.exceptions.InvalidSelectorException
-                scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
-                replies = list()
-                for current_height in range(0, scroll_height, 150):
-                    self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
-                    #　selenium.common.exceptions.StaleElementReferenceException
-                    try:
-                        repliess = [reply_element.text for reply_element in
+                try:
+
+                    title = self.__browser.find_element(selector=selector_title).text
+                    posted_time = datetime.strptime(
+                        self.__browser.find_element(selector=selector_time).text,
+                        time_format)
+                    content = self.__browser.find_element(selector=selector_content).text
+                    # selenium.common.exceptions.InvalidSelectorException
+                    scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
+                    replies_list = list()
+                    for current_height in range(0, scroll_height, 150):
+                        self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
+                        #　selenium.common.exceptions.StaleElementReferenceException
+                        replies = [reply_element.text for reply_element in
                                    self.__browser.find_elements(selector=selector_reply)]
-                    except (StaleElementReferenceException,InvalidSelectorException):
-                        a=1
-                        raise
-                    replies.extend(repliess)
+                        replies_list.extend(replies)
+                except Exception as e:
+                    logging.warning(f"cannot search element in url:\"{url}\".")
+                    logging.error(f"Error message: {e}")
+                    return None
 
         return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies))
 
@@ -243,9 +245,11 @@ class ReviewCollector:
                 raise ValueError
 
     def scrap_train_review_data(self, index_path: Path = Constants.INDEX_PATH,
-                                save_folder_path: Path = Constants.PUBLIC_REVIEW_FOLDER):
+                                save_folder_path: Path = None):
+        if save_folder_path is None:
+            save_folder_path = Constants.PUBLIC_REVIEW_FOLDER.rename(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_{self.__search_target.name}")
         movie_data: list[MovieData] = read_index_file(file_path=index_path)
-        movie_data = list(filter(lambda movie:not save_folder_path.joinpath(f"{movie.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(),movie_data))
+        movie_data = list(filter(lambda movie_:not save_folder_path.joinpath(f"{movie_.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(), movie_data))
         for movie in tqdm(movie_data,desc='movies',bar_format = Constants.STATUS_BAR_FORMAT):
             movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
             movie.save_public_review(save_folder_path=save_folder_path)
