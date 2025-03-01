@@ -118,28 +118,28 @@ class ReviewCollector:
                 base_url = re.search(pattern=domain_pattern, string=self.__base_url[self.__search_target.value]).group(
                     0)
                 selector: Selector = "#main-container div.r-list-container div.title a"
-                urls:list[str] = [base_url + review['href']
-                        for current_page_number in range(1, max_page_number + 1)
-                        for review in
-                        self.__get_bs_element(f"{search_url}&page={current_page_number}").select(selector)]
-                
+                urls: list[str] = [base_url + review['href']
+                                   for current_page_number in range(1, max_page_number + 1)
+                                   for review in
+                                   self.__get_bs_element(f"{search_url}&page={current_page_number}").select(selector)]
+
             case TargetWebsite.DCARD:
-                self.__browser.get(search_url)
+                self.__browser.get(search_url,captcha=True)
                 selector: Selector = "div#__next div[role='main'] div[data-key] article[role='article'] h2 a[href]"
                 scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
                 urls = list()
                 for current_height in range(0, scroll_height, 150):
                     self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
-                    #　selenium.common.exceptions.StaleElementReferenceException
                     new_urls = list()
-                    try:
-
-                        for element in self.__browser.find_elements(selector=selector):
+                    for element in self.__browser.find_elements(selector=selector):
+                        try:
+                            # selenium.common.exceptions.StaleElementReferenceException
                             href = element.get_attribute("href")
+                        except StaleElementReferenceException:
+                            logging.error(f"cannot locale element on {search_key}, height {current_height}",
+                                          exc_info=True)
+                        else:
                             new_urls.append(href)
-                    except StaleElementReferenceException as e:
-                        logging.error("",exc_info=True)
-                        raise
                     urls.extend(url for url in new_urls)
                 urls = self.__delete_duplicate(urls)
 
@@ -156,11 +156,11 @@ class ReviewCollector:
         posted_time: datetime | None = None
         match self.__search_target:
             case TargetWebsite.PTT:
-                meta_element_selector:Final[Selector] = '.article-metaline'
-                meta_tag_selector:Final[Selector] = '.article-meta-tag'
-                meta_value_selector:Final[Selector] = '.article-meta-value'
-                time_format:Final[str] = '%a %b %d %H:%M:%S %Y'
-                key_words: Final[tuple[str,str]] = ('標題', '時間')
+                meta_element_selector: Final[Selector] = '.article-metaline'
+                meta_tag_selector: Final[Selector] = '.article-meta-tag'
+                meta_value_selector: Final[Selector] = '.article-meta-value'
+                time_format: Final[str] = '%a %b %d %H:%M:%S %Y'
+                key_words: Final[tuple[str, str]] = ('標題', '時間')
                 try:
                     content_base_element: BeautifulSoup | None = self.__get_bs_element(url=url).select_one(
                         selector='#main-content')
@@ -169,12 +169,12 @@ class ReviewCollector:
                         if article_meta_element.select_one(selector=meta_tag_selector).text == key_words[0]:
                             title = article_meta_element.select_one(selector=meta_value_selector).text
                         elif article_meta_element.select_one(selector=meta_tag_selector).text == key_words[1]:
-                                posted_time = datetime.strptime(
-                                    article_meta_element.select_one(selector=meta_value_selector).text,
-                                    time_format)
+                            posted_time = datetime.strptime(
+                                article_meta_element.select_one(selector=meta_value_selector).text,
+                                time_format)
                     content = ''.join(
                         [element for element in content_base_element if
-                        isinstance(element, NavigableString)]).strip()
+                         isinstance(element, NavigableString)]).strip()
                     replies = [reply.text for reply in content_base_element.select(selector='.push .push-content')]
                     if not (title and posted_time and content and replies):
                         return None
@@ -183,15 +183,15 @@ class ReviewCollector:
                     logging.error(f"Error message: {e}")
                     return None
             case TargetWebsite.DCARD:
-                selector_base:Final[Selector] = "div#__next div[role='main']"
-                selector_title:Final[Selector] = selector_base + " article h1"
-                selector_time:Final[Selector] = selector_base + " article time"
-                selector_content:Final[Selector] = selector_base + " article span"
-                selector_reply:Final[Selector] = selector_base + " section div[data-key^='comment'] span:not([class])"
-                time_format: Final[str] ='%Y 年 %m 月 %d 日 %H:%M'
+                selector_base: Final[Selector] = "div#__next div[role='main']"
+                selector_title: Final[Selector] = selector_base + " article h1"
+                selector_time: Final[Selector] = selector_base + " article time"
+                selector_content: Final[Selector] = selector_base + " article span"
+                selector_reply: Final[Selector] = selector_base + " section div[data-key^='comment'] span:not([class])"
+                time_format: Final[str] = '%Y 年 %m 月 %d 日 %H:%M'
 
                 self.__browser.home()
-                self.__browser.get(url=url)
+                self.__browser.get(url=url,captcha=True)
 
                 try:
 
@@ -205,7 +205,7 @@ class ReviewCollector:
                     replies_list = list()
                     for current_height in range(0, scroll_height, 150):
                         self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
-                        #　selenium.common.exceptions.StaleElementReferenceException
+                        # 　selenium.common.exceptions.StaleElementReferenceException
                         replies = [reply_element.text for reply_element in
                                    self.__browser.find_elements(selector=selector_reply)]
                         replies_list.extend(replies)
@@ -221,11 +221,14 @@ class ReviewCollector:
             case TargetWebsite.PTT:
                 logging.info(f"start search reviews with search key \"{search_key}.")
                 urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-                return list(filter(lambda x:x,[self.__get_review_information(url=url) for url in tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]))
+                return list(filter(lambda x: x, [self.__get_review_information(url=url) for url in
+                                                 tqdm(urls, desc='review urls',
+                                                      bar_format=Constants.STATUS_BAR_FORMAT)]))
             case TargetWebsite.DCARD:
                 with CaptchaBrowser() as self.__browser:
                     urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-                    return [self.__get_review_information(url=url) for url in tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]
+                    return [self.__get_review_information(url=url) for url in
+                            tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]
             case _:
                 raise ValueError
 
@@ -247,12 +250,14 @@ class ReviewCollector:
     def scrap_train_review_data(self, index_path: Path = Constants.INDEX_PATH,
                                 save_folder_path: Path = None):
         if save_folder_path is None:
-            save_folder_path = Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_{self.__search_target.name}")
+            save_folder_path = Constants.PUBLIC_REVIEW_FOLDER.with_name(
+                f"{Constants.PUBLIC_REVIEW_FOLDER.name}_{self.__search_target.name}")
             if not save_folder_path.exists():
                 save_folder_path.mkdir(parents=True)
         movie_data: list[MovieData] = read_index_file(file_path=index_path)
-        movie_data = list(filter(lambda movie_:not save_folder_path.joinpath(f"{movie_.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(), movie_data))
-        for movie in tqdm(movie_data,desc='movies',bar_format = Constants.STATUS_BAR_FORMAT):
+        movie_data = list(filter(lambda movie_: not save_folder_path.joinpath(
+            f"{movie_.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(), movie_data))
+        for movie in tqdm(movie_data, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
             movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
             movie.save_public_review(save_folder_path=save_folder_path)
 
