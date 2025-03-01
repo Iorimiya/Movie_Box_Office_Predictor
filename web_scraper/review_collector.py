@@ -219,11 +219,11 @@ class ReviewCollector:
             case TargetWebsite.PPT:
                 logging.info(f"start search reviews with search key \"{search_key}.")
                 urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-                return list(filter(lambda x:x,[self.__get_review_information(url=url) for url in tqdm(urls)]))
+                return list(filter(lambda x:x,[self.__get_review_information(url=url) for url in tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]))
             case TargetWebsite.DCARD:
                 with CaptchaBrowser() as self.__browser:
                     urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-                    return [self.__get_review_information(url=url) for url in tqdm(urls)]
+                    return [self.__get_review_information(url=url) for url in tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]
             case _:
                 raise ValueError
 
@@ -246,7 +246,7 @@ class ReviewCollector:
                                 save_folder_path: Path = Constants.PUBLIC_REVIEW_FOLDER):
         movie_data: list[MovieData] = read_index_file(file_path=index_path)
         movie_data = list(filter(lambda movie:not save_folder_path.joinpath(f"{movie.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(),movie_data))
-        for movie in tqdm(movie_data,bar_format = Constants.STATUS_BAR_FORMAT):
+        for movie in tqdm(movie_data,desc='movies',bar_format = Constants.STATUS_BAR_FORMAT):
             movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
             movie.save_public_review(save_folder_path=save_folder_path)
 
