@@ -49,11 +49,14 @@ def read_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None) -
             read_data_from_csv(path=file_path)]
 
 
-def analyse_review(id: int) -> None:
-    movie_data:MovieData = next(filter(lambda movie:movie.movie_id == id,read_index_file()),None)
-    movie_data.load_public_review(load_folder_path=Constants.PUBLIC_REVIEW_FOLDER)
+def analyse_review(movie_id: int) -> None:
+    movie_data:MovieData = next(filter(lambda movie:movie.movie_id == movie_id,read_index_file()),None)
+    movie_data.load_public_review(load_folder_path=Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_PTT"))
     analyzer: EmotionAnalyser = EmotionAnalyser(model_path = Constants.DATA_FOLDER.joinpath('emotion_analysis','model','emotion_analysis_model_1000.keras'), tokenizer_path=Constants.DATA_FOLDER.joinpath('emotion_analysis','dataset','tokenizer.pickle'))
     for review in movie_data.public_reviews:
-        print(review)
-        print(analyzer.test(review))
+        print(f"{review} | {analyzer.test(review)}")
         
+
+if __name__ == '__main__':
+    for i in range(len(read_index_file())):
+        analyse_review(i)
