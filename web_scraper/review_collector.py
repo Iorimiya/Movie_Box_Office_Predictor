@@ -23,7 +23,7 @@ Selector: TypeAlias = str
 
 class ReviewCollector:
     class TargetWebsite(Enum):
-        PPT = 0
+        PTT = 0
         DCARD = 1
         IMDB = 2
         ROTTEN_TOMATO = 3
@@ -86,7 +86,7 @@ class ReviewCollector:
     def __get_bs_element(self, url: str) -> BeautifulSoup:
         # PTT在特定的板中需要over18=1這個cookies
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT:
                 response: Response = requests.get(url=url, cookies={'over18': '1'})
             case _:
                 response: Response = requests.get(url=url)
@@ -95,7 +95,7 @@ class ReviewCollector:
 
     def __get_largest_result_page_number(self, bs_root_element: BeautifulSoup) -> int:
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT:
                 re_pattern: Final[RegularExpressionPattern] = "page=(\d+)"
                 key_word: Final[str] = '最舊'
                 selector: Final[Selector] = "#action-bar-container a"
@@ -108,7 +108,7 @@ class ReviewCollector:
     def __get_review_urls(self, search_key: str) -> list[str]:
         search_url: Url = self.__get_search_page_url(search_key)
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT:
                 try:
                     max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(search_url))
                 except IndexError:
@@ -118,28 +118,28 @@ class ReviewCollector:
                 base_url = re.search(pattern=domain_pattern, string=self.__base_url[self.__search_target.value]).group(
                     0)
                 selector: Selector = "#main-container div.r-list-container div.title a"
-                urls:list[str] = [base_url + review['href']
-                        for current_page_number in range(1, max_page_number + 1)
-                        for review in
-                        self.__get_bs_element(f"{search_url}&page={current_page_number}").select(selector)]
-                
+                urls: list[str] = [base_url + review['href']
+                                   for current_page_number in range(1, max_page_number + 1)
+                                   for review in
+                                   self.__get_bs_element(f"{search_url}&page={current_page_number}").select(selector)]
+
             case TargetWebsite.DCARD:
-                self.__browser.get(search_url)
+                self.__browser.get(search_url,captcha=True)
                 selector: Selector = "div#__next div[role='main'] div[data-key] article[role='article'] h2 a[href]"
                 scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
                 urls = list()
                 for current_height in range(0, scroll_height, 150):
                     self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
-                    #　selenium.common.exceptions.StaleElementReferenceException
                     new_urls = list()
-                    try:
-
-                        for element in self.__browser.find_elements(selector=selector):
+                    for element in self.__browser.find_elements(selector=selector):
+                        try:
+                            # selenium.common.exceptions.StaleElementReferenceException
                             href = element.get_attribute("href")
+                        except StaleElementReferenceException:
+                            logging.error(f"cannot locale element on {search_key}, height {current_height}",
+                                          exc_info=True)
+                        else:
                             new_urls.append(href)
-                    except StaleElementReferenceException:
-                        a=1
-                        raise
                     urls.extend(url for url in new_urls)
                 urls = self.__delete_duplicate(urls)
 
@@ -155,12 +155,12 @@ class ReviewCollector:
         replies: list[str] | None = None
         posted_time: datetime | None = None
         match self.__search_target:
-            case TargetWebsite.PPT:
-                meta_element_selector:Final[Selector] = '.article-metaline'
-                meta_tag_selector:Final[Selector] = '.article-meta-tag'
-                meta_value_selector:Final[Selector] = '.article-meta-value'
-                time_format:Final[str] = '%a %b %d %H:%M:%S %Y'
-                key_words: Final[tuple[str]] = ('標題', '時間')
+            case TargetWebsite.PTT:
+                meta_element_selector: Final[Selector] = '.article-metaline'
+                meta_tag_selector: Final[Selector] = '.article-meta-tag'
+                meta_value_selector: Final[Selector] = '.article-meta-value'
+                time_format: Final[str] = '%a %b %d %H:%M:%S %Y'
+                key_words: Final[tuple[str, str]] = ('標題', '時間')
                 try:
                     content_base_element: BeautifulSoup | None = self.__get_bs_element(url=url).select_one(
                         selector='#main-content')
@@ -169,12 +169,12 @@ class ReviewCollector:
                         if article_meta_element.select_one(selector=meta_tag_selector).text == key_words[0]:
                             title = article_meta_element.select_one(selector=meta_value_selector).text
                         elif article_meta_element.select_one(selector=meta_tag_selector).text == key_words[1]:
-                                posted_time = datetime.strptime(
-                                    article_meta_element.select_one(selector=meta_value_selector).text,
-                                    time_format)
+                            posted_time = datetime.strptime(
+                                article_meta_element.select_one(selector=meta_value_selector).text,
+                                time_format)
                     content = ''.join(
                         [element for element in content_base_element if
-                        isinstance(element, NavigableString)]).strip()
+                         isinstance(element, NavigableString)]).strip()
                     replies = [reply.text for reply in content_base_element.select(selector='.push .push-content')]
                     if not (title and posted_time and content and replies):
                         return None
@@ -183,72 +183,92 @@ class ReviewCollector:
                     logging.error(f"Error message: {e}")
                     return None
             case TargetWebsite.DCARD:
-                selector_base:Final[Selector] = "div#__next div[role='main']"
-                selector_title:Final[Selector] = selector_base + " article h1"
-                selector_time:Final[Selector] = selector_base + " article time"
-                selector_content:Final[Selector] = selector_base + " article span"
-                selector_reply:Final[Selector] = selector_base + " section div[data-key^='comment'] span:not([class])"
-                time_format: Final[str] ='%Y 年 %m 月 %d 日 %H:%M'
+                selector_base: Final[Selector] = "div#__next div[role='main']"
+                selector_title: Final[Selector] = selector_base + " article h1"
+                selector_time: Final[Selector] = selector_base + " article time"
+                selector_content: Final[Selector] = selector_base + " article span"
+                selector_reply: Final[Selector] = selector_base + " section div[data-key^='comment'] span:not([class])"
+                time_format: Final[str] = '%Y 年 %m 月 %d 日 %H:%M'
 
                 self.__browser.home()
-                self.__browser.get(url=url)
+                self.__browser.get(url=url,captcha=True)
 
-                title = self.__browser.find_element(selector=selector_title).text
-                posted_time = datetime.strptime(
-                    self.__browser.find_element(selector=selector_time).text,
-                    time_format)
-                content = self.__browser.find_element(selector=selector_content).text
-                # selenium.common.exceptions.InvalidSelectorException
-                scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
-                replies = list()
-                for current_height in range(0, scroll_height, 150):
-                    self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
-                    #　selenium.common.exceptions.StaleElementReferenceException
-                    try:
-                        repliess = [reply_element.text for reply_element in
+                try:
+
+                    title = self.__browser.find_element(selector=selector_title).text
+                    posted_time = datetime.strptime(
+                        self.__browser.find_element(selector=selector_time).text,
+                        time_format)
+                    content = self.__browser.find_element(selector=selector_content).text
+                    # selenium.common.exceptions.InvalidSelectorException
+                    scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
+                    replies_list = list()
+                    for current_height in range(0, scroll_height, 150):
+                        self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
+                        # 　selenium.common.exceptions.StaleElementReferenceException
+                        replies = [reply_element.text for reply_element in
                                    self.__browser.find_elements(selector=selector_reply)]
-                    except (StaleElementReferenceException,InvalidSelectorException):
-                        a=1
-                        raise
-                    replies.extend(repliess)
+                        replies_list.extend(replies)
+                except Exception as e:
+                    logging.warning(f"cannot search element in url:\"{url}\".")
+                    logging.error(f"Error message: {e}")
+                    return None
 
         return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies))
 
-    def __get_reviews(self, search_key: str) -> list[PublicReview]:
+    def __get_reviews_by_keyword(self, search_key: str) -> list[PublicReview]:
         match self.__search_target:
-            case TargetWebsite.PPT:
+            case TargetWebsite.PTT | TargetWebsite.DCARD:
                 logging.info(f"start search reviews with search key \"{search_key}.")
                 urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-                return list(filter(lambda x:x,[self.__get_review_information(url=url) for url in tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]))
-            case TargetWebsite.DCARD:
-                with CaptchaBrowser() as self.__browser:
-                    urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-                    return [self.__get_review_information(url=url) for url in tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]
+                return list(filter(lambda x: x, [self.__get_review_information(url=url) for url in
+                                                 tqdm(urls, desc='review urls',
+                                                      bar_format=Constants.STATUS_BAR_FORMAT)]))
             case _:
                 raise ValueError
 
     __delete_duplicate = lambda self, input_reviews: list(set(input_reviews))
 
-    def search_review(self, movie_name: str) -> list[PublicReview] | None:
+    def __get_reviews_by_name(self, movie_name:str)->list[PublicReview] | None:
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
+        reviews: list[PublicReview] = [review for search_key in search_keys for review in
+                                       self.__get_reviews_by_keyword(search_key=search_key)]
+        logging.info("trying to delete duplicate reviews.")
+        reviews = self.__delete_duplicate(reviews)
+        logging.info("deletion of duplicate reviews finished.")
+        return reviews
+
+    def search_review(self, movie_name: str) -> list[PublicReview] | None:
         match self.__search_target:
-            case TargetWebsite.PPT | TargetWebsite.DCARD:
-                reviews: list[PublicReview] = [review for search_key in search_keys for review in
-                                               self.__get_reviews(search_key=search_key)]
-                logging.info("trying to delete duplicate reviews.")
-                reviews = self.__delete_duplicate(reviews)
-                logging.info("deletion of duplicate reviews finished.")
-                return reviews
+            case TargetWebsite.PTT:
+                return self.__get_reviews_by_name(movie_name=movie_name)
+            case TargetWebsite.DCARD:
+                with CaptchaBrowser() as self.__browser:
+                    return self.__get_reviews_by_name(movie_name=movie_name)
             case _:
                 raise ValueError
 
     def scrap_train_review_data(self, index_path: Path = Constants.INDEX_PATH,
-                                save_folder_path: Path = Constants.PUBLIC_REVIEW_FOLDER):
+                                save_folder_path: Path = None):
+        # with CaptchaBrowser() as self.__browser:
+        if save_folder_path is None:
+            save_folder_path = Constants.PUBLIC_REVIEW_FOLDER.with_name(
+                f"{Constants.PUBLIC_REVIEW_FOLDER.name}_{self.__search_target.name}")
+            if not save_folder_path.exists():
+                save_folder_path.mkdir(parents=True)
         movie_data: list[MovieData] = read_index_file(file_path=index_path)
-        movie_data = list(filter(lambda movie:not save_folder_path.joinpath(f"{movie.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(),movie_data))
-        for movie in tqdm(movie_data,desc='movies',bar_format = Constants.STATUS_BAR_FORMAT):
-            movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
-            movie.save_public_review(save_folder_path=save_folder_path)
+        movie_data = list(filter(lambda movie_: not save_folder_path.joinpath(
+            f"{movie_.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(), movie_data))
+        match self.__search_target:
+            case TargetWebsite.PTT:
+                for movie in tqdm(movie_data, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
+                    movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
+                    movie.save_public_review(save_folder_path=save_folder_path)
+            case TargetWebsite.DCARD:
+                with CaptchaBrowser() as self.__browser:
+                    for movie in tqdm(movie_data, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
+                        movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
+                        movie.save_public_review(save_folder_path=save_folder_path)
 
 
 TargetWebsite: TypeAlias = ReviewCollector.TargetWebsite

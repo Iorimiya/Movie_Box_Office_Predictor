@@ -15,6 +15,7 @@ from selenium.webdriver.remote.webelement import WebElement
 
 from seleniumbase import Driver
 from seleniumbase import undetected as sel_undef
+from urllib3.exceptions import MaxRetryError
 
 ChromeExperimentalOptions: TypeAlias = dict[str:str]
 
@@ -160,6 +161,7 @@ class CaptchaBrowser:
         self.__driver = Driver(uc=self.__uc, headless=self.__headless, no_sandbox=self.__no_sandbox,
                                incognito=self.__incognito)
         self.__driver.set_window_size(self.__size[0], self.__size[1])
+        # self.__driver.minimize_window()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> any:
@@ -170,11 +172,18 @@ class CaptchaBrowser:
     def wait(sec: float = 5) -> None:
         time.sleep(sec)
 
-    def get(self, url: str) -> None:
-        self.__driver.uc_activate_cdp_mode(url)
-        self.wait(5)
-        self.__driver.uc_gui_click_captcha()
-        self.__driver.connect()
+    def get(self, url: str, captcha:bool) -> None:
+        if captcha:
+            self.__driver.uc_activate_cdp_mode(url)
+            self.wait(5)
+            self.__driver.uc_gui_click_captcha()
+            self.__driver.connect()
+        else:
+            try:
+                self.__driver.get(url)
+            except MaxRetryError:
+                self.__driver.reconnect()
+        return
 
     def find_element(self, selector: str) -> WebElement:
         return self.__driver.find_element(selector)
@@ -186,5 +195,5 @@ class CaptchaBrowser:
         self.__driver.execute_script(script=script)
 
     def home(self) -> None:
-        self.__driver.get(self.__home_url)
+        self.get(self.__home_url,captcha=False)
         return

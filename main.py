@@ -58,7 +58,7 @@ if __name__ == "__main__":
                 with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
                     collector.get_box_office_data(input_file_path=Path(args.input) if args.input else None)
             case "collect_ptt_review":
-                target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PPT
+                target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PTT
                 if args.input:
                     print(ReviewCollector(target_website=target_website).search_review(args.input))
                 else:
