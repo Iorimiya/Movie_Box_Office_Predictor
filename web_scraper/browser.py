@@ -161,6 +161,7 @@ class CaptchaBrowser:
         self.__driver = Driver(uc=self.__uc, headless=self.__headless, no_sandbox=self.__no_sandbox,
                                incognito=self.__incognito)
         self.__driver.set_window_size(self.__size[0], self.__size[1])
+        self.__driver.minimize_window()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> any:
