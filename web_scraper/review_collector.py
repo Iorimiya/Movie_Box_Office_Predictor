@@ -216,39 +216,41 @@ class ReviewCollector:
 
         return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies))
 
-    def __get_reviews(self, search_key: str) -> list[PublicReview]:
+    def __get_reviews_by_keyword(self, search_key: str) -> list[PublicReview]:
         match self.__search_target:
-            case TargetWebsite.PTT:
+            case TargetWebsite.PTT | TargetWebsite.DCARD:
                 logging.info(f"start search reviews with search key \"{search_key}.")
                 urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
                 return list(filter(lambda x: x, [self.__get_review_information(url=url) for url in
                                                  tqdm(urls, desc='review urls',
                                                       bar_format=Constants.STATUS_BAR_FORMAT)]))
-            case TargetWebsite.DCARD:
-                with CaptchaBrowser() as self.__browser:
-                    urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-                    return [self.__get_review_information(url=url) for url in
-                            tqdm(urls, desc='review urls', bar_format=Constants.STATUS_BAR_FORMAT)]
             case _:
                 raise ValueError
 
     __delete_duplicate = lambda self, input_reviews: list(set(input_reviews))
 
-    def search_review(self, movie_name: str) -> list[PublicReview] | None:
+    def __get_reviews_by_name(self, movie_name:str)->list[PublicReview] | None:
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
+        reviews: list[PublicReview] = [review for search_key in search_keys for review in
+                                       self.__get_reviews_by_keyword(search_key=search_key)]
+        logging.info("trying to delete duplicate reviews.")
+        reviews = self.__delete_duplicate(reviews)
+        logging.info("deletion of duplicate reviews finished.")
+        return reviews
+
+    def search_review(self, movie_name: str) -> list[PublicReview] | None:
         match self.__search_target:
-            case TargetWebsite.PTT | TargetWebsite.DCARD:
-                reviews: list[PublicReview] = [review for search_key in search_keys for review in
-                                               self.__get_reviews(search_key=search_key)]
-                logging.info("trying to delete duplicate reviews.")
-                reviews = self.__delete_duplicate(reviews)
-                logging.info("deletion of duplicate reviews finished.")
-                return reviews
+            case TargetWebsite.PTT:
+                return self.__get_reviews_by_name(movie_name=movie_name)
+            case TargetWebsite.DCARD:
+                with CaptchaBrowser() as self.__browser:
+                    return self.__get_reviews_by_name(movie_name=movie_name)
             case _:
                 raise ValueError
 
     def scrap_train_review_data(self, index_path: Path = Constants.INDEX_PATH,
                                 save_folder_path: Path = None):
+        # with CaptchaBrowser() as self.__browser:
         if save_folder_path is None:
             save_folder_path = Constants.PUBLIC_REVIEW_FOLDER.with_name(
                 f"{Constants.PUBLIC_REVIEW_FOLDER.name}_{self.__search_target.name}")
@@ -257,9 +259,16 @@ class ReviewCollector:
         movie_data: list[MovieData] = read_index_file(file_path=index_path)
         movie_data = list(filter(lambda movie_: not save_folder_path.joinpath(
             f"{movie_.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(), movie_data))
-        for movie in tqdm(movie_data, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
-            movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
-            movie.save_public_review(save_folder_path=save_folder_path)
+        match self.__search_target:
+            case TargetWebsite.PTT:
+                for movie in tqdm(movie_data, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
+                    movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
+                    movie.save_public_review(save_folder_path=save_folder_path)
+            case TargetWebsite.DCARD:
+                with CaptchaBrowser() as self.__browser:
+                    for movie in tqdm(movie_data, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
+                        movie.update_data(public_reviews=self.search_review(movie_name=movie.movie_name))
+                        movie.save_public_review(save_folder_path=save_folder_path)
 
 
 TargetWebsite: TypeAlias = ReviewCollector.TargetWebsite
