@@ -6,6 +6,7 @@ from datetime import datetime
 from web_scraper.box_office_collector import BoxOfficeCollector
 from web_scraper.review_collector import ReviewCollector
 from machine_learning_model.emotion_analyser import EmotionAnalyser
+from tools.util import *
 
 
 def set_argument_parser() -> Namespace:
@@ -83,11 +84,15 @@ if __name__ == "__main__":
                     model_save_name=defaults_model_save_name,
                     epoch=input_epoch)
             case "test_emotion_analysis":
-                input_review = args.input
-                default_model_path = Path("./data/emotion_analysis/model/emotion_analysis_model_1000.keras")
-                defaults_tokenizer_path = Path("./data/emotion_analysis/dataset/tokenizer.pickle")
-                print(EmotionAnalyser(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
-                    input_review))
+                if args.input:
+                    input_review = args.input
+                    default_model_path = Path("./data/emotion_analysis/model/emotion_analysis_model_1000.keras")
+                    defaults_tokenizer_path = Path("./data/emotion_analysis/dataset/tokenizer.pickle")
+                    print(EmotionAnalyser(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
+                        input_review))
+                else:
+                    for i in range(len(read_index_file())):
+                        analyse_review(i)
 
             case _:
                 raise ValueError
