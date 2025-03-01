@@ -247,7 +247,9 @@ class ReviewCollector:
     def scrap_train_review_data(self, index_path: Path = Constants.INDEX_PATH,
                                 save_folder_path: Path = None):
         if save_folder_path is None:
-            save_folder_path = Constants.PUBLIC_REVIEW_FOLDER.rename(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_{self.__search_target.name}")
+            save_folder_path = Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_{self.__search_target.name}")
+            if not save_folder_path.exists():
+                save_folder_path.mkdir(parents=True)
         movie_data: list[MovieData] = read_index_file(file_path=index_path)
         movie_data = list(filter(lambda movie_:not save_folder_path.joinpath(f"{movie_.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists(), movie_data))
         for movie in tqdm(movie_data,desc='movies',bar_format = Constants.STATUS_BAR_FORMAT):
