@@ -107,7 +107,7 @@ class MovieData:
             file_path.parent.mkdir(parents=True)
         yaml.Dumper.ignore_aliases = lambda self, _: True
         with open(file_path, mode='w', encoding=encoding) as file:
-            yaml.dump_all(data, file, allow_unicode=True)
+            yaml.safe_dump_all(data, file, allow_unicode=True)
 
     @staticmethod
     def __load(file_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> list[dict]:
