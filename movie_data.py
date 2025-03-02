@@ -16,10 +16,11 @@ class BoxOffice:
 
 @dataclass(kw_only=True)
 class Review:
-    url: str | None
-    title: str | None
+    url: Optional[str]
+    title: Optional[str]
     content: str
     date: date
+    emotion_analyse: Optional[bool]
 
     def __key(self):
         if self.url:
