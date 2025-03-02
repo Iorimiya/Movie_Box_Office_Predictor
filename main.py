@@ -6,7 +6,7 @@ from datetime import datetime
 from web_scraper.box_office_collector import BoxOfficeCollector
 from web_scraper.review_collector import ReviewCollector
 from machine_learning_model.emotion_analyser import EmotionAnalyser
-from movie_data import load_index_file
+from movie_data import load_index_file, PublicReview
 from tools.util import *
 
 
@@ -92,9 +92,14 @@ if __name__ == "__main__":
                     print(EmotionAnalyser(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
                         input_review))
                 else:
-                    pass
-                    # for i in range(len(read_index_file())):
-                    #     analyse_review(i)
+                    analyzer: EmotionAnalyser = EmotionAnalyser(
+                        model_path=Constants.EMOTION_ANALYSER_MODEL_PATH,
+                        tokenizer_path=Constants.EMOTION_ANALYSER_TOKENIZER_PATH)
+                    for movie in load_index_file():
+                        movie.load_public_review()
+                        for review in movie.public_reviews:
+                            review.emotion_analyse = analyzer.test(review)
+                        print(movie.public_reviews)
 
             case "load_data":
                 movie_list = load_index_file()
