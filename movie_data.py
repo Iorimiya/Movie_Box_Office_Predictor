@@ -122,7 +122,7 @@ class MovieData:
         self.__save(file_path=save_folder_path.joinpath(f"{self.movie_id}.{file_extension}"), data=self.box_office,
                     encoding=encoding)
 
-    def load_box_office(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
+    def load_box_office(self, load_folder_path: Path = Constants.BOX_OFFICE_FOLDER, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.box_office = self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                       encoding=encoding)
@@ -134,7 +134,7 @@ class MovieData:
                     encoding=encoding) if self.public_review_count else save_path.touch(exist_ok=True)
         return
 
-    def load_public_review(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
+    def load_public_review(self, load_folder_path: Path = Constants.PUBLIC_REVIEW_FOLDER, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.public_reviews = self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                           encoding=encoding)
