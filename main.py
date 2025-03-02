@@ -95,10 +95,14 @@ if __name__ == "__main__":
                         analyse_review(i)
 
             case "load_data":
-                test_m :MovieData = MovieData(movie_id=2,movie_name="")
-                test_m.load_box_office()
-                test_m.load_public_review(Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_PTT"))
-                a=1
+                movie_list = read_index_file()
+                for movie in movie_list:
+                    movie.load_box_office()
+                    movie.load_public_review(Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_PTT"))
+                    movie.save_box_office(
+                        Constants.BOX_OFFICE_FOLDER.with_name(f"{Constants.BOX_OFFICE_FOLDER.name}_2"))
+                    movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_PTT2"))
+                    a=1
             case _:
                 raise ValueError
     else:
