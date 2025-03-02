@@ -24,10 +24,11 @@ class BoxOffice:
 
 @dataclass(kw_only=True)
 class Review:
-    url: str | None
-    title: str | None
+    url: Optional[str]
+    title: Optional[str]
     content: str
     date: date
+    emotion_analyse: Optional[bool]
 
     def __key(self):
         if self.url:
@@ -153,6 +154,7 @@ class MovieData:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.__save(file_path=save_folder_path.joinpath(f"{self.movie_id}.{file_extension}"), data=self.box_office,
                     encoding=encoding)
+        return
 
     def load_box_office(self, load_folder_path: Path = Constants.BOX_OFFICE_FOLDER,
                         encoding: str = Constants.DEFAULT_ENCODING) -> None:
@@ -160,6 +162,7 @@ class MovieData:
         self.box_office = [BoxOffice.from_dict(data) for data in
                            self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                        encoding=encoding)]
+        return
 
     def save_public_review(self, save_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
@@ -174,6 +177,7 @@ class MovieData:
         self.public_reviews = [PublicReview.from_dict(data) for data in
                                self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                            encoding=encoding)]
+        return
 
 
 def load_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None) -> list[MovieData]:
