@@ -12,7 +12,7 @@ from requests import Response
 
 from selenium.common.exceptions import *
 
-from movie_data import PublicReview
+from movie_data import MovieData, PublicReview, load_index_file
 from tools.util import *
 from web_scraper.browser import CaptchaBrowser
 
@@ -261,7 +261,7 @@ class ReviewCollector:
             save_folder_path = Constants.PUBLIC_REVIEW_FOLDER
         if not save_folder_path.exists():
             save_folder_path.mkdir(parents=True)
-        movie_data: list[MovieData] = read_index_file(file_path=index_path)
+        movie_data: list[MovieData] = load_index_file(file_path=index_path)
         match self.__search_target:
             case TargetWebsite.PTT:
                 self.__search_review_and_store_into_file(movie_list=movie_data, save_folder_path=save_folder_path)

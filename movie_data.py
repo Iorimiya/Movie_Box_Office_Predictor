@@ -5,7 +5,7 @@ from dataclasses import dataclass, asdict
 import yaml
 
 from tools.constant import Constants
-from tools.util import delete_duplicate
+from tools.util import read_data_from_csv, delete_duplicate
 
 
 @dataclass(kw_only=True)
@@ -174,3 +174,10 @@ class MovieData:
         self.public_reviews = [PublicReview.from_dict(data) for data in
                                self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                            encoding=encoding)]
+
+
+def load_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None) -> list[MovieData]:
+    if index_header is None:
+        index_header = Constants.INDEX_HEADER
+    return [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]]) for movie in
+            read_data_from_csv(path=file_path)]

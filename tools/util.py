@@ -3,8 +3,7 @@ from pathlib import Path
 from dataclasses import dataclass
 
 from tools.constant import Constants
-from movie_data import MovieData
-from machine_learning_model.emotion_analyser import EmotionAnalyser
+
 
 @dataclass
 class CSVFileData:
@@ -29,8 +28,8 @@ def initialize_index_file(input_file: CSVFileData, index_file: CSVFileData | Non
     # get movie names from input csv
     if index_file is None:
         index_file = CSVFileData(path=Constants.INDEX_PATH, header=Constants.INDEX_HEADER)
-    with open(file=input_file['path'], mode='r', encoding='utf-8') as file:
-        movie_names: list[str] = [row[input_file['header']] for row in csv.DictReader(file)]
+    with open(file=input_file.path, mode='r', encoding='utf-8') as file:
+        movie_names: list[str] = [row[input_file.header] for row in csv.DictReader(file)]
     # create index file
     if not index_file.path.exists():
         index_file.path.parent.mkdir(parents=True, exist_ok=True)
@@ -42,18 +41,14 @@ def initialize_index_file(input_file: CSVFileData, index_file: CSVFileData | Non
     return
 
 
-def read_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None) -> list[MovieData]:
-    if index_header is None:
-        index_header = Constants.INDEX_HEADER
-    return [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]]) for movie in
-            read_data_from_csv(path=file_path)]
 
 
-def analyse_review(movie_id: int) -> None:
-    movie_data:MovieData = next(filter(lambda movie:movie.movie_id == movie_id,read_index_file()),None)
-    movie_data.load_public_review(load_folder_path=Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}"))
-    analyzer: EmotionAnalyser = EmotionAnalyser(model_path = Constants.DATA_FOLDER.joinpath('emotion_analysis','model','emotion_analysis_model_1000.keras'), tokenizer_path=Constants.DATA_FOLDER.joinpath('emotion_analysis','dataset','tokenizer.pickle'))
-    for review in movie_data.public_reviews:
-        print(f"{review} | {analyzer.test(review)}")
+
+# def analyse_review(movie_id: int) -> None:
+#     movie_data:MovieData = next(filter(lambda movie:movie.movie_id == movie_id,read_index_file()),None)
+#     movie_data.load_public_review(load_folder_path=Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}"))
+#     analyzer: EmotionAnalyser = EmotionAnalyser(model_path = Constants.DATA_FOLDER.joinpath('emotion_analysis','model','emotion_analysis_model_1000.keras'), tokenizer_path=Constants.DATA_FOLDER.joinpath('emotion_analysis','dataset','tokenizer.pickle'))
+#     for review in movie_data.public_reviews:
+#         print(f"{review} | {analyzer.test(review)}")
 
 delete_duplicate = lambda item: list(set(item))
