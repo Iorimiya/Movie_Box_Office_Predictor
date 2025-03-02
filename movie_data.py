@@ -59,7 +59,8 @@ class ExpertReview(Review):
     def from_dict(cls, dictionary):
         date_format: str = '%Y-%m-%d'
         return cls(url=dictionary["url"], title=dictionary["title"], content=dictionary["content"],
-                   date=datetime.strptime(dictionary['date'], date_format).date(), score=float(dictionary["score"]))
+                   date=datetime.strptime(dictionary['date'], date_format).date(), score=float(dictionary["score"]),
+                   emotion_analyse=bool(dictionary["emotion_analyse"]))
 
 
 @dataclass(kw_only=True)
@@ -77,7 +78,7 @@ class PublicReview(Review):
         date_format: str = '%Y-%m-%d'
         return cls(url=dictionary["url"], title=dictionary["title"], content=dictionary["content"],
                    date=datetime.strptime(dictionary['date'], date_format).date(),
-                   reply_count=int(dictionary["reply_count"]))
+                   reply_count=int(dictionary["reply_count"]), emotion_analyse=bool(dictionary["emotion_analyse"]))
 
 
 class MovieData:
