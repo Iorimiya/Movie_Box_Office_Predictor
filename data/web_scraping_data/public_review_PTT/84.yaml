@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '《哈勇家》和《一家子兒咕咕叫》這兩部觀看前，
 
   有從新聞看到標題，前者入圍六項金馬、後者好像十幾項，但沒細看入圍獎項
@@ -177,7 +176,7 @@ date: 2022-11-19
 reply_count: 11
 title: '[好無雷]《哈勇家》和《一家子》出戲院後立刻確'
 url: https://www.ptt.cc/bbs/movie/M.1668858832.A.796.html
---- !!python/object:movie_data.PublicReview
+---
 content: "哈勇家帶金馬獎回宜蘭 林姿妙力推\n\n2022-11-30 01:43 聯合報／ 記者林佳彣／宜蘭報導\n\n\n導演陳潔瑤（左三）昨與監製瞿友寧（左），以及演員洪金輝（左二）、林孟君（右二）\n\
   、李瑄（右一），帶著金馬獎座回宜蘭，縣長林姿妙恭賀。記者林佳彣／攝影\n\n電影「哈勇家」在第59屆金馬獎勇奪最佳導演獎、最佳女配角獎，全片在大同鄉南山部落\n\
   取景拍攝，一半以上演員是宜蘭子弟，南澳人的導演陳潔瑤昨與劇中演員帶著金馬獎座回\n宜蘭，希望年輕人走進戲院，縣長林姿妙承諾全力推廣宜蘭好片。\n\n縣府指出，陳潔瑤出生宜蘭南澳，迄今影像作品充滿原住民族濃厚情感，新片不只羅葉尾\n\
@@ -190,7 +189,7 @@ date: 2022-11-30
 reply_count: 13
 title: '[新聞] 哈勇家帶金馬獎回宜蘭 林姿妙力推'
 url: https://www.ptt.cc/bbs/movie/M.1669822330.A.A95.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《哈勇家》獲國際獎 陳潔瑤樂收生日禮\n\n04:10 2022/12/06 中國時報 李承陽\n\n\n《哈勇家》導演陳潔瑤（左）獲評審瑞芮圖莎琳頒發最佳導演獎。（華映提供）\n\
   \n陳潔瑤執導電影《哈勇家》，由黃瀞怡（小薰）、陳宇、林亭莉和黃信赫及許多素人演員\n共同演出，繼獲得金馬最佳導演及最佳女配角二項大獎肯定後，4日公布的新加坡國際電\n\
   影節「亞洲長片競賽」中，陳潔瑤再次獲得最佳導演肯定，5日適逢陳潔瑤生日，獎項成\n為她最棒的生日禮物。\n\n電影《哈勇家》獲國際肯定，獲選新加坡國際電影節的「亞洲長片競賽」，和來自南韓、\n\
@@ -202,7 +201,7 @@ date: 2022-12-06
 reply_count: 4
 title: '[新聞] 《哈勇家》獲國際獎 陳潔瑤樂收生日禮'
 url: https://www.ptt.cc/bbs/movie/M.1670342147.A.29D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~
 
 
@@ -395,7 +394,7 @@ date: 2022-11-16
 reply_count: 9
 title: '[好雷] 哈勇家'
 url: https://www.ptt.cc/bbs/movie/M.1668608307.A.28E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "10影評人投票金馬　《哈勇家》壓倒性贏得最佳影片\n  TVBS 記者 張哲鳴\n\n第59屆金馬獎19日頒獎，今年入圍作品各擅勝場，戰況仍顯膠著。《TVBS新聞網》邀集10\n\
   位影評人針對最佳劇情長片、導演、男主角及女主角4個項目投票，本篇先揭開前2項結果\n，\n\n\n陳潔瑤執導的台灣家庭電影《哈勇家》目前各方呼聲皆高。認為，這部片不只是原\n\
   住民部落的縮影，也是許多家庭共同面臨的命運，陳潔瑤拍出小人物的暖流，「從生活淬\n鍊醍醐味的真家族故事」。\n\n表示此片讓他想到當年《爸媽不在家》，電影本身是清新感人的家庭題材，卻在一\n\
@@ -416,7 +415,7 @@ date: 2022-11-16
 reply_count: 35
 title: 'Fw: [新聞] 10影評人投票金馬　《哈勇家》壓倒性贏得'
 url: https://www.ptt.cc/bbs/movie/M.1668607224.A.7A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在盲測之前，對這部電影的印象只有海報，
 
   原以為是部原民主題的輕鬆家庭喜劇，但事
@@ -487,7 +486,7 @@ date: 2022-10-25
 reply_count: 23
 title: '[好雷] 《哈勇家GAGA》自然純樸的優秀作品'
 url: https://www.ptt.cc/bbs/movie/M.1666710682.A.E47.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《哈勇家》I''m "恭喜" today.
 
 
@@ -595,7 +594,7 @@ date: 2022-11-13
 reply_count: 25
 title: '[好雷] 《哈勇家》質樸可愛的一家人'
 url: https://www.ptt.cc/bbs/movie/M.1668305283.A.165.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果你最近剛好有看一部電影的扣打，誠心推薦你分給哈勇家。
 
 
@@ -639,7 +638,7 @@ date: 2022-11-22
 reply_count: 45
 title: '[ 好無雷] 哈勇家'
 url: https://www.ptt.cc/bbs/movie/M.1669131306.A.46C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -740,7 +739,7 @@ date: 2022-11-21
 reply_count: 17
 title: '[好雷] 哈勇家 GAGA，2022台灣電影'
 url: https://www.ptt.cc/bbs/movie/M.1669021285.A.BF4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
   國影中心2024偏鄉放映計畫起跑 《哈勇家》、《魔法阿媽》露天電影限定放映
@@ -797,7 +796,7 @@ date: 2024-07-18
 reply_count: 21
 title: '[新聞] 國影中心2024偏鄉放映計畫起跑 《哈勇家'
 url: https://www.ptt.cc/bbs/movie/M.1721265498.A.261.html
---- !!python/object:movie_data.PublicReview
+---
 content: "年度最受矚目台片+1 《哈勇家》金馬6項入圍\n\n2022/09/28 16:50\n\n〔記者許世穎／台北報導〕第59屆金馬獎昨（27）天公布入圍名單，電影《哈勇家》入圍\n\
   最佳劇情片、導演、女配角、新演員等6項大獎，成為今年最受矚目的電影之一，全片除\n了小薰等少數專業演員、主角多由素人演出，在導演陳潔瑤的鏡頭下，以自然純樸的表現\n\
   獲得評審青睞。\n\n\n《哈勇家》中的阿嬤林詹珍妹（左）和孫子張祖鈞入圍最佳女配角和新演員。\n（華映提供）\n\n陳潔瑤表示，得知入圍當下正在準備一個國際視訊會議，加上先前車禍，左手骨折開刀，\n\
@@ -817,7 +816,7 @@ date: 2022-09-28
 reply_count: 2
 title: '[新聞] 年度最受矚目台片+1 《哈勇家》金馬6項入圍'
 url: https://www.ptt.cc/bbs/movie/M.1664375983.A.DA7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -982,7 +981,7 @@ date: 2022-11-03
 reply_count: 10
 title: '[好雷]【哈勇家】樂天善良家族面對現實的無力 '
 url: https://www.ptt.cc/bbs/movie/M.1667457022.A.AFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文網誌：\n\n【哈勇家】：選舉只有一時，家人陪你一世\n\n上映時間：2022/11/11　　導演：陳潔瑤\n\n觀看時間：2022/11/13\n\
   \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n　　近期密集地看了四部不怎麼樣的國片，嚴重消耗了我對國片的耐性，加上【哈勇家】\n\
   \n的海報實在太不吸引我，原本是沒打算看這部電影的，但在同事的推薦下，還是決定在周\n\n末給這部電影一個機會。看完感想：故事也許稍嫌平淡，但確實好看。\n\n\
@@ -1004,7 +1003,7 @@ date: 2022-11-19
 reply_count: 22
 title: '[普好雷] 哈勇家:選舉只有一時，家人陪你一世 '
 url: https://www.ptt.cc/bbs/movie/M.1668787415.A.5DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '少見的描寫原住民家族的電影
 
   電影裡請了不少素人演員 但每個人都表現的很好
@@ -1151,7 +1150,7 @@ date: 2022-11-15
 reply_count: 15
 title: '[好雷] 哈勇家'
 url: https://www.ptt.cc/bbs/movie/M.1668491963.A.1F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可能自己有點原住民血統
 
   所以看完特別有點感觸
@@ -1410,7 +1409,7 @@ date: 2022-12-08
 reply_count: 43
 title: '[好雷] 哈勇家帶金馬獎回宜蘭 林姿妙力推'
 url: https://www.ptt.cc/bbs/movie/M.1670441655.A.F30.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天 Disney+  21:00 即將上線 哈勇家！
 
   之前看到入圍很多金馬獎，受到滿多肯定，就很想看
@@ -1425,7 +1424,7 @@ date: 2023-06-02
 reply_count: 5
 title: '[情報] 哈勇家 6/3 上架 Disney+'
 url: https://www.ptt.cc/bbs/movie/M.1685690769.A.DD2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說無雷心得：\n\n題材蠻特別，劇情蠻順的、台詞也自然生活化\n\n角色演出相當好，尤其兒子的角色相當討喜\n\n而金馬最佳女配也真的實至名歸、非常出色\n\
   \n畫面很美、配樂舒服\n\n片尾「烤火的房」由AKB48TTP林亭莉演唱也相當好聽\n\n林亭莉IG \n\n演弟弟的張祖鈞 \n\n\n\n\n雷文防雷資訊頁\n\
   \n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
@@ -1442,7 +1441,7 @@ date: 2022-12-05
 reply_count: 11
 title: '[好雷] 哈勇家 Gaga'
 url: https://www.ptt.cc/bbs/movie/M.1670176603.A.6E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影播完時，發現自己臉上掛著淚
 
   有股暖流從胸口冒出來
@@ -1576,7 +1575,7 @@ date: 2022-11-23
 reply_count: 11
 title: '[好雷]《哈勇家》愈看愈想家的電影'
 url: https://www.ptt.cc/bbs/movie/M.1669214103.A.8E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "預告：\n\n\n　　　　本文涉及劇情，且具個人觀點，建議觀影後再讀。\n\n\n　　　　圖文網頁版：\n\n\n　　　　\n\n\n\n\n\n\
   ~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\n\n沒事，不要擔心：《哈勇家（ＧＡＧＡ）》\n\
   \n\n\n\n\n　　看完《哈勇家》，對貫串全影的「ＧＡＧＡ」，感動之餘，感受也很複\n\n雜。什麼是ＧＡＧＡ？據導演陳潔瑤在《報導者》的訪談解釋：「《哈勇家》\n\
@@ -1609,7 +1608,7 @@ date: 2022-11-16
 reply_count: 4
 title: '[好雷] 沒事，不要擔心：《哈勇家》'
 url: https://www.ptt.cc/bbs/movie/M.1668564651.A.106.html
---- !!python/object:movie_data.PublicReview
+---
 content: '跟上次看起來像純喜劇的超前導預告比起來，這次前導預告就可以看見哈勇他們家因為語
 
   言隔閡、文化差異和原住民新舊價值觀所產生的衝突，也逐漸能看出電影所想要講的故事
@@ -1630,7 +1629,7 @@ date: 2022-10-03
 reply_count: 14
 title: '[情報] 《哈勇家》前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1664775943.A.CC1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1703,7 +1702,7 @@ date: 2022-11-25
 reply_count: 18
 title: '[好雷]哈勇家GAGA '
 url: https://www.ptt.cc/bbs/movie/M.1669342472.A.EC0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1873,7 +1872,7 @@ date: 2022-11-08
 reply_count: 18
 title: '[好雷] 哈勇家'
 url: https://www.ptt.cc/bbs/movie/M.1667893324.A.D3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '哈勇家3/3上架MOD/Hami Video！！
 
 
@@ -1895,7 +1894,7 @@ date: 2023-03-02
 reply_count: 18
 title: '[情報] 哈勇家 即將上架串流'
 url: https://www.ptt.cc/bbs/movie/M.1677751849.A.A2F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如標題
 
   這兩部都蠻多人討論

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '這個禮拜上映的中國電影(中國與日本夫妻共同執導編劇)
 
 
@@ -82,7 +81,7 @@ date: 2024-01-21
 reply_count: 1
 title: '[微好雷] 《石門》- 稍嫌失望的金馬最佳劇情片 '
 url: https://www.ptt.cc/bbs/movie/M.1705845798.A.EA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '金馬獎最佳劇情片
 
 
@@ -115,14 +114,14 @@ date: 2023-11-29
 reply_count: 47
 title: '[討論] 石門'
 url: https://www.ptt.cc/bbs/movie/M.1701241366.A.783.html
---- !!python/object:movie_data.PublicReview
+---
 content: "榮獲第60屆金馬獎 #最佳劇情片 #最佳剪輯 【石門】\n\n                大銀幕上映確定！！\n　　金馬影展錯過的朋友有福啦這次千萬別錯過！\n\
   \n-----\n\n傳影互動方才公佈 第60屆金馬獎最佳劇情片《石門》將由他們代理上映\n\n排映日期請關注傳影互動粉專\n\n--"
 date: 2023-12-10
 reply_count: 45
 title: '[情報] 金馬60最佳劇情片《石門》台灣確認上映'
 url: https://www.ptt.cc/bbs/movie/M.1702215855.A.D10.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去年金馬最佳電影
 
 

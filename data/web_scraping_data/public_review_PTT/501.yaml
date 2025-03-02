@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -112,7 +111,7 @@ date: 2024-05-16
 reply_count: 8
 title: '[新聞] 麥可基頓睽違16年自導自演【失憶殺神】'
 url: https://www.ptt.cc/bbs/movie/M.1715861157.A.F67.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   目前這兩部在猶豫中
@@ -127,7 +126,7 @@ date: 2024-06-01
 reply_count: 22
 title: '[選片] 怒火狂猴 or 失憶殺神'
 url: https://www.ptt.cc/bbs/movie/M.1717230861.A.159.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《失憶殺神》 (Knox Goes Away)\n\n\n（以下有提及些許劇情，但沒有爆雷）\n\n\n受到「采昌國際」的邀約，去大直美麗華觀\n\
   賞這部由老蝙蝠俠麥可基頓 (Michael\nKeaton) 自製自導自演的懸疑劇情片《失憶\n殺神》。雖然片商沒有要求寫一篇回饋，但\n我還是簡單地小推一下這部片。\n\
   \n\n主角 John Knox 是一名得了「急性失智症」\n庫賈氏病的資深殺手。經醫生診斷，他將\n在幾週內退化成沒有行為能力的廢人。而\n他在最後一次暗殺任務中突然發病，意外\n\
@@ -148,7 +147,7 @@ date: 2024-05-29
 reply_count: 7
 title: '[雷] 失憶殺神 Knox Goes Away'
 url: https://www.ptt.cc/bbs/movie/M.1716958853.A.477.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "即刻起至10/29(四) 12：00，推文留言簡單回答一個問題\n\n『你看過最好看的韓國電影』\n\n\n例如:我看過最好看的韓國電影是【殺人回憶】\n\
   就有機會獲得10/30(五) 12:30試片(一人中獎,兩人同行)\n\n活動場次：\n《綠洲：數位經典版》搶先試片場 (一人2張，抽10組)\n時間：10月30日(五)\
   \ 12:30\n地點：台北真善美劇院《台北市漢中街116號一樓》\n\n\n\n搶先看活動時間：即刻起至10/29(四) 12：00\n（10/29（四)中午12:30\
@@ -14,7 +13,7 @@ date: 2020-10-27
 reply_count: 91
 title: '[贈票]十八週年經典回歸【綠洲：數位經典版】快'
 url: https://www.ptt.cc/bbs/movie/M.1603786316.A.FB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下得獎者
 
 
@@ -49,7 +48,7 @@ date: 2022-05-15
 reply_count: 12
 title: 'Re: [贈票]十五週年經典回歸《愛在暹邏：數位經典版'
 url: https://www.ptt.cc/bbs/movie/M.1652607059.A.717.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下得獎者
 
 
@@ -86,7 +85,7 @@ date: 2020-10-29
 reply_count: 1
 title: 'Re: [贈票]十八週年經典回歸【綠洲：數位經典版】快'
 url: https://www.ptt.cc/bbs/movie/M.1603942138.A.F9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '留言「印象最深刻的泰國電影」，送你看《愛在暹邏：數位經典版》
 
 

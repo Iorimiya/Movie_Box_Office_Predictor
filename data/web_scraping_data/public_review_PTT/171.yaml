@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '【影片】飆破11億票房 「信徒」有望成上半年最賣座韓片
 
 
@@ -50,7 +49,7 @@ date: 2018-06-28
 reply_count: 8
 title: '[新聞] 飆破11億票房 「信徒」有望成上半年最賣'
 url: https://www.ptt.cc/bbs/movie/M.1530144368.A.895.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年秋天的五十年前，影史最可怕駭人的恐怖片首度登上大銀幕，驚嚇了全球無數的觀眾
 
   。
@@ -72,7 +71,7 @@ date: 2023-07-25
 reply_count: 40
 title: '[情報] 大法師：信徒 首支預告 今年10月上映'
 url: https://www.ptt.cc/bbs/movie/M.1690297799.A.395.html
---- !!python/object:movie_data.PublicReview
+---
 content: '特映會場次（一人得獎兩人同行）
 
 
@@ -102,7 +101,7 @@ date: 2023-09-25
 reply_count: 467
 title: '[贈票] 【大法師:信徒】驚悚特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1695637962.A.A33.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完蠻生氣的，我懶得去查誰是編劇，但我只想說，混蛋，你毀掉一部好故事。
 
 
@@ -255,7 +254,7 @@ date: 2023-11-23
 reply_count: 21
 title: '[負雷] 信徒2'
 url: https://www.ptt.cc/bbs/movie/M.1700686577.A.7AA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.
 
   本片的故事流程就像大多數驅魔電影一樣，能輕易猜到後續發展。氛圍上能感受到導演想
@@ -292,7 +291,7 @@ date: 2023-10-11
 reply_count: 15
 title: '[無雷] 大法師：信徒 '
 url: https://www.ptt.cc/bbs/movie/M.1697034523.A.F8F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2015-12-19 22:02 聯合報 記者蘇詠智／綜合報導
 
 
@@ -388,7 +387,7 @@ date: 2015-12-21
 reply_count: 28
 title: '[新聞] 「星戰」傳奇風靡38年 親子兩代都成信徒'
 url: https://www.ptt.cc/bbs/movie/M.1450629601.A.7DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之一
 
   看完這預告後去查一些消息，大部分的宣傳都放在Ellen Burstyn回來演，但有些
@@ -462,7 +461,7 @@ date: 2023-08-31
 reply_count: 3
 title: 'Re: [情報] 大法師：信徒 首支預告 今年10月上映'
 url: https://www.ptt.cc/bbs/movie/M.1693423282.A.4E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '服務業難得休假日
 
   所以打算又要從埔里跑到台中看電影了
@@ -542,7 +541,7 @@ date: 2023-10-13
 reply_count: 30
 title: '[選片] 大法師：信徒VS笨錢效應'
 url: https://www.ptt.cc/bbs/movie/M.1697187861.A.20C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這集看完真的滿滿失望= =\n\n到底看了什麼鬼= =\n\n撇開劇情不說= =\n\n想說應該有不錯的動作戲= =\n\n沒想到連能看的武打都沒有=\
   \ =\n\n就連槍戰也不怎樣= =\n\n然後大刀這角色....阿怎麼一下就爆頭了= =\n\n最最最讓人失望了是= =\n\n柳俊烈人呢= =?\n\n怎麼變成了一個路人=\
   \ =\n\n這人到底誰啦= =\n\n然後原來第一集的結局就是第二集的結局= =\n\n終於知道到底誰死了= =\n\n最後就是布萊恩坐收漁翁之利= =\n\n\
@@ -551,7 +550,7 @@ date: 2023-11-23
 reply_count: 31
 title: '[  雷] 信徒2   = ='
 url: https://www.ptt.cc/bbs/movie/M.1700673061.A.B2F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我只服超人鋼鐵英雄，
 
   當時看到這部時跟以往超人的形象差好多，
@@ -580,7 +579,7 @@ date: 2024-03-13
 reply_count: 98
 title: '[討論] 所以查導有什麼神片值的擁有信徒的嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1710313602.A.9F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "信徒這次的翻拍，真的很精彩，每幾分鐘就有爆點，\n不會讓人想滑手機。 XD\n\n其實之前也看過港版毒戰，但是這次看信徒的時候，\n在假冒交易人的橋段，不知道為什麼，\n\
   第一印象只想到阿湯哥在杜拜那一段戲，\n沒有連結到港版的印象。\n\n最想吐槽的點是：\n劇中被揍臉的人，事後都會青一塊紫一塊，或貼紗布，\n只有柳俊烈被揍之後，完全沒事，臉總是乾淨得像剛上好妝，\n\
   這偶像包袱是不是太重了？\n\n--\n\n鳴人終歸是要選擇雛田。\n\n        男人都愛巨乳啊!!!!!!!!!!!!!!!!!!\n\n--"
@@ -588,7 +587,7 @@ date: 2019-07-24
 reply_count: 2
 title: '[討論] 信徒(港版毒戰)的小小吐槽'
 url: https://www.ptt.cc/bbs/movie/M.1563937575.A.EE2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，韓國電影:信徒
 
   我自己看完是還滿過癮的，這部片有爽度也有深度。
@@ -618,7 +617,7 @@ date: 2018-07-01
 reply_count: 33
 title: '[討論] 信徒怎麼那麼少人討論?'
 url: https://www.ptt.cc/bbs/movie/M.1530408663.A.5BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該說是 大負雷
 
   衝著大法師系列IP
@@ -682,7 +681,7 @@ date: 2023-10-11
 reply_count: 15
 title: '[負雷] 大法師-信徒'
 url: https://www.ptt.cc/bbs/movie/M.1697035407.A.7E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片長約兩小時，前面90分鐘大約相同，但場景人物的深度，廣度，韓不如中，原本以為會
 
   像麥特戴蒙拍無間道一樣無趣，誰知最後半小時完全逆轉結局，中國找了一堆港星，製造
@@ -699,7 +698,7 @@ date: 2018-10-16
 reply_count: 21
 title: '[討論] 重拍中片「毒戰」的韓片——「信徒」'
 url: https://www.ptt.cc/bbs/movie/M.1539689160.A.ECE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大爛片，真的是大爛片。
 
   先不論大法師的電視電影續作如何，膽敢拿著這個經典IP，怎麼說都是讓人期待的。
@@ -782,7 +781,7 @@ date: 2023-10-20
 reply_count: 21
 title: '[負雷]《大法師：信徒》誒你怎麼袖手旁觀啊 '
 url: https://www.ptt.cc/bbs/movie/M.1697808541.A.8D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版，有附圖，歡迎支持→
 
   以下無劇透
@@ -939,7 +938,7 @@ date: 2018-06-25
 reply_count: 12
 title: '[好雷]《信徒》　跳脫出《毒戰》的框架 '
 url: https://www.ptt.cc/bbs/movie/M.1529931474.A.438.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -997,7 +996,7 @@ date: 2023-09-30
 reply_count: 1
 title: '[新聞] 致敬原作！《大法師：信徒》帶領觀眾深入'
 url: https://www.ptt.cc/bbs/movie/M.1696036564.A.D9B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先無雷碎碎念一下
 
   這部不管是上映前或上映後 口碑評價都相當之糟糕
@@ -1265,7 +1264,7 @@ date: 2022-08-13
 reply_count: 31
 title: '[好雷] 雷神索爾4最虔誠的信徒屠神者'
 url: https://www.ptt.cc/bbs/movie/M.1660405926.A.261.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最後結局在房子裡的槍聲是誰殺了誰呢?
 
   總覺得都有可能
@@ -1277,7 +1276,7 @@ date: 2018-06-24
 reply_count: 22
 title: '[好雷] 信徒疑問'
 url: https://www.ptt.cc/bbs/movie/M.1529803298.A.1B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（本文有《毒戰》與《信徒》劇情雷，未看慎入）
 
 
@@ -1390,7 +1389,7 @@ date: 2018-06-17
 reply_count: 11
 title: '[好雷] 毒戰drug war（兼論韓片《信徒》之改編）'
 url: https://www.ptt.cc/bbs/movie/M.1529245220.A.9F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部是幾年前電影台看到的
 
   不過我老媽一下就轉台了所以不知道片名。
@@ -1417,7 +1416,7 @@ date: 2015-05-13
 reply_count: 27
 title: '[問片] 警察和信徒互殺的香港恐怖片'
 url: https://www.ptt.cc/bbs/movie/M.1431495237.A.6F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n大法師-信徒 (The Exorcist: Believer)\n電影-靈異驚悚-英美\n08-17(六) 21:00~22:50\n\
   08-21(三) 00:45~02:35\n08-21(三) 21:00~22:50\n\n演員:\n艾倫波士汀 (Ellen Burstyn)\n安道得 (Ann\
   \ Dowd)\n小萊斯利奧多姆 (Leslie Odom Jr.)\n導演:\n大衛高登格林\n\n\n------------------------------------------------------------------------------------------\n\
@@ -1427,7 +1426,7 @@ date: 2024-08-17
 reply_count: 18
 title: '[LIVE] HBO 21:00 大法師-信徒'
 url: https://www.ptt.cc/bbs/movie/M.1723885548.A.F04.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下得獎者獲得搶先看
 
   得獎者請於10/2 10:00前主動站內信回覆領票者資料，恕不接受逾期回覆
@@ -1481,7 +1480,7 @@ date: 2023-09-28
 reply_count: 32
 title: 'Re: [贈票] 【大法師:信徒】驚悚特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1695870858.A.7B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一路順風是一部對台灣女人血淚控訴的電影.
 
 
@@ -1615,7 +1614,7 @@ date: 2016-11-21
 reply_count: 25
 title: '[好雷] 一路順風-原來鍾孟宏是OO教信徒'
 url: https://www.ptt.cc/bbs/movie/M.1479712797.A.93B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這把槍應該不會太爛
 
 
@@ -1644,7 +1643,7 @@ date: 2024-03-19
 reply_count: 62
 title: 'Re: [  雷] 周處除三害 對於信徒的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1710830155.A.19C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "借這篇負雷文章跟大家閒聊跟討論吐槽\n\n以下有雷\n\n信徒1當初第一次看真的是滿滿的好評+驚艷\n\n最經典的就是陳河霖超強的氣場跟演技\n\
   \n還有趙鎮雄吸毒後的慘狀\n\n假扮黑道哪一個橋段真的讓人從頭到尾都屏氣凝神的觀賞 太精彩了\n\n雖然個人覺得柳俊烈長的實在不好看 很像唐老鴨 但他演的角色最後的反轉還蠻精彩\n\
   的\n萊卡-毒品-密碼-狗 會讓人拍案叫絕\n\n雖然李老師=柳俊烈的設定 會讓人覺得柳這個年輕人太強了 但還算是合理的解釋\n\n最後的開放式結局也蠻有韻味的\n\
@@ -1660,7 +1659,7 @@ date: 2023-11-23
 reply_count: 20
 title: 'Re: [負雷] 信徒2'
 url: https://www.ptt.cc/bbs/movie/M.1700716197.A.B5F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -1696,7 +1695,7 @@ date: 2024-03-18
 reply_count: 68
 title: '[  雷] 周處除三害 對於信徒的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1710774072.A.615.html
---- !!python/object:movie_data.PublicReview
+---
 content: '死的是警察的可能性比較大, 或者是死的是警察的身分, 又或者誰都沒死
 
 
@@ -1721,7 +1720,7 @@ date: 2018-07-31
 reply_count: 9
 title: 'Re: [好雷] 信徒疑問'
 url: https://www.ptt.cc/bbs/movie/M.1532981819.A.689.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n\n2023-10-05 11:04:02\n\n\n由《月光光新慌慌》（Halloween）續集三部曲導演-大衛高登葛林（David\
   \ Gordon Green\n）執導的《大法師》（The Exorcist）系列全新續作《大法師：信徒》（The Exorcist：\nBeliever）台美將在明天同步上映，英美地區的媒體則於今日率先刊出影評文章，而各家\n\
   \n，更浪費了特別回歸再度飾演首集女主角「克莉絲」的老牌影后-艾倫鮑絲汀（Ellen\nBurstyn）。\n\n\n以下簡短節錄自部份外媒發表的《大法師：信徒》評論：\n\
@@ -1746,7 +1745,7 @@ date: 2023-10-05
 reply_count: 66
 title: '[新聞]《大法師：信徒》負評如潮！外媒狂轟:根本不恐怖、驅魔橋段爛到笑'
 url: https://www.ptt.cc/bbs/movie/M.1696485049.A.5AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '趙震雄在問柳俊烈誰才是李先生時
 
   柳俊烈一直裝死不回答
@@ -1779,7 +1778,7 @@ date: 2018-06-23
 reply_count: 5
 title: '[負雷] 抄襲姜維克的信徒?'
 url: https://www.ptt.cc/bbs/movie/M.1529741960.A.1F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷頁\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n這段其實認真說不能叫「屠殺」，比較像「自殺」\n\
   \n主角一開始主動殺的是教主。被動開了一槍小教徒。\n\n下樓後復返\n\n\n給了信徒們一分鐘的時間，其中跑掉的人主角沒有任何動作\n\n留下來的人，主角開始殺，\n\
   一槍一個，有的因為卡彈沒殺\n\n被卡彈的信徒分為兩種，一種是繼續等死，一種是覺得死裡逃生突然醒悟快跑\n\n\n主角甚至一派悠閒的停下來裝子彈，也不見留下來的信徒們逃跑或有任何動作\n\
@@ -1789,7 +1788,7 @@ date: 2024-03-20
 reply_count: 33
 title: 'Re: [  雷] 周處除三害 對於信徒的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1710900758.A.86E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '--------------雷------------------------
 
 
@@ -1918,7 +1917,7 @@ date: 2018-06-26
 reply_count: 10
 title: '[好雷] 《信徒》節奏快速、情感簡潔用力的追案片'
 url: https://www.ptt.cc/bbs/movie/M.1529942977.A.AB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '更，手機排版偏亂請見諒
 
 

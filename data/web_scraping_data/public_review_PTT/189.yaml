@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '去年《屍殺列車》大受香港人歡迎，其製作班底最近炮製了連場血戰秒殺的新作(The
 
   Villainess)《惡女》，早前在康城(坎城)午夜特別放映大放異采，獲得觀眾及影評人一致
@@ -86,7 +85,7 @@ date: 2017-06-11
 reply_count: 17
 title: '[新聞] 《屍殺列車》製作班底 《惡女》連場血戰'
 url: https://www.ptt.cc/bbs/movie/M.1497171047.A.144.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -125,7 +124,7 @@ date: 2023-10-26
 reply_count: 33
 title: '[新聞] 林襄激烈床戰影片流出！【惡女】挺超巨 '
 url: https://www.ptt.cc/bbs/movie/M.1698335828.A.BB9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '那個...
 
 
@@ -146,7 +145,7 @@ date: 2015-05-17
 reply_count: 24
 title: '[問片] 惡女羅曼死'
 url: https://www.ptt.cc/bbs/movie/M.1431850358.A.449.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -206,7 +205,7 @@ date: 2021-11-28
 reply_count: 35
 title: '[好雷] 時尚惡女庫依拉'
 url: https://www.ptt.cc/bbs/movie/M.1638029719.A.A21.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年的迪士尼經典反派起源大片《時尚惡女：庫伊拉》終於也上了各大 VOD平台，久仰它很時尚很倫敦很七零很前衛叛逆更是很「Prada 惡魔」，我就興奮地花了一張兌換券看了！只可惜，也許是看前期待過高，看了倒覺得有點言過其實，它是有許多有潛力的元素安排也有些重要的題旨，但繼前
   1/3令人揪心地一一鋪陳出來後，在後 2/3片裡我覺得都有點雷聲大雨點小...
 
@@ -289,7 +288,7 @@ date: 2021-09-22
 reply_count: 14
 title: '[普雷] 時尚惡女：庫伊拉 Cruella '
 url: https://www.ptt.cc/bbs/movie/M.1632291476.A.2A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '.
 
   .
@@ -378,7 +377,7 @@ date: 2016-04-27
 reply_count: 11
 title: '[請益] [有雷] 惡女訂製服'
 url: https://www.ptt.cc/bbs/movie/M.1461706654.A.4E8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "片  名：惡女花魁\n　　導  演：蜷川實花\n　　演  員：土屋安娜、椎名桔平、菅野美穗、\n　　　　　　安藤政信、木村佳乃、成宮寬貴\n　\n\
   　\n簡　介：\n\n      　　　天生反骨叛逆的女主角清葉在八歲時被賣入妓院玉菊屋，因為不\n　　　　想成為妓女而逃跑卻被抓回。在花魁妝日的激將法之下，決心成為花\n\
   　　　　魁並依靠自己的力量離開玉菊屋。\n　\n　　　　　　憑著天生的美貌，清葉日漸走紅，卻在此時愛上一名恩客，進而\n　　　　得罪有權有勢的大名恩客。看著心上人卻因為害怕而逃離的身影，清\n\
@@ -420,7 +419,7 @@ date: 2007-09-01
 reply_count: 10
 title: '[好雷] 惡女花魁－－蜷川實花'
 url: https://www.ptt.cc/bbs/movie/M.1188588738.A.3FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2015-11-10 20:31:18 聯合報 記者項貽斐／綜合報導
 
 
@@ -465,7 +464,7 @@ date: 2015-11-12
 reply_count: 4
 title: '[新聞] 「惡女訂製服」凱特溫絲蕾再戰影后'
 url: https://www.ptt.cc/bbs/movie/M.1447257702.A.8D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '壞壞惹人愛的反派角色！《時尚惡女：庫伊拉》續集確認開發中！
 
 
@@ -512,7 +511,7 @@ date: 2021-06-07
 reply_count: 37
 title: '[新聞] 《時尚惡女：庫伊拉》續集確認開發中！'
 url: https://www.ptt.cc/bbs/movie/M.1623032995.A.2C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文出處:西西漫走筆記
 
 
@@ -580,7 +579,7 @@ date: 2015-01-02
 reply_count: 7
 title: '[好雷]瞞天殺機Serena惡女蛇蠍力道不足!'
 url: https://www.ptt.cc/bbs/movie/M.1420181710.A.9DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "艾瑪史東47套戲服拚小金人！《時尚惡女》搶奧斯卡入圍門票\n\n\n 葛大維\n\n準備再度「衣」鳴驚人！美國影視媒體「綜藝報」（Variety）報導：艾瑪史東主演《時\n\
   尚惡女：庫伊拉》（以下簡稱《時尚惡女》）將是角逐明年奧斯卡最佳服裝設計的大熱門\n之一。\n\n據報導盤點：以1970年代為背景的《時尚惡女》，片中艾瑪史東的戲服多達47套，艾瑪湯\n\
   普遜的戲服沒艾瑪史東多但也有33套，非常吸睛，而且凸顯服裝設計團隊的才華，應該不\n會是明年奧斯卡入圍名單上的遺珠。\n\n不過「綜藝報」報導：和《時尚惡女》搶奧斯卡入圍門票的強片包括：甜茶的《沙丘》，\n\
@@ -597,7 +596,7 @@ date: 2021-11-07
 reply_count: 10
 title: '[新聞] 艾瑪史東47套戲服拚小金人！《時尚惡女》'
 url: https://www.ptt.cc/bbs/movie/M.1636300579.A.2F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《時尚惡女：庫伊拉》正視本性的貪婪與瘋狂
 
 
@@ -732,7 +731,7 @@ date: 2021-08-17
 reply_count: 3
 title: '[好雷]《時尚惡女庫伊拉》正視本性的貪婪與瘋狂'
 url: https://www.ptt.cc/bbs/movie/M.1629164313.A.1DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '60秒精彩片段搶先看
 
 
@@ -768,7 +767,7 @@ date: 2021-03-15
 reply_count: 8
 title: '[情報] 《時尚惡女：庫伊拉》預告 華麗登場 '
 url: https://www.ptt.cc/bbs/movie/M.1615813769.A.47C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -832,7 +831,7 @@ date: 2024-02-13
 reply_count: 34
 title: '[新聞] 《惡女》傳捷報Netflix霸榜日韓　邵雨薇'
 url: https://www.ptt.cc/bbs/movie/M.1707794877.A.05D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完網飛上的【惡女】一片，覺得題材相當引人入勝
 
 
@@ -972,7 +971,7 @@ date: 2024-04-15
 reply_count: 17
 title: '[普雷] 惡女-題材有意思但劇情刻劃不足'
 url: https://www.ptt.cc/bbs/movie/M.1713164807.A.C18.html
---- !!python/object:movie_data.PublicReview
+---
 content: '立美一開始想阻止父親與何秀蘭結婚，
 
 
@@ -996,7 +995,7 @@ date: 2024-03-31
 reply_count: 6
 title: '[請益] 關於惡女的問題（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1711899454.A.0D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '為什麼大叔一開始要收留女主角
 
   然後訓練她成為殺手 目的是什麼？
@@ -1009,7 +1008,7 @@ date: 2017-11-03
 reply_count: 8
 title: '[請益] 惡女疑問（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1509720025.A.58F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '轉 迪士尼影業 粉專
 
 
@@ -1034,7 +1033,7 @@ date: 2021-02-17
 reply_count: 13
 title: '[討論] 時尚惡女：庫伊拉 (Cruella) 首曝海報'
 url: https://www.ptt.cc/bbs/movie/M.1613492583.A.CD0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "影評來源:\n\n卡優新聞網電影影評\n\n連結:\n\n\n內文:\n\n作者 柿子 報導 2016/1/14\n\n  在所有的戲劇元素中，「復仇」對柿子最有吸引力，不用被編劇玩弄在股掌間，為了男\n\
   女主角的愛情哭得死去活來，也不用動太多腦筋，被層層堆疊的劇情搞得頭昏眼花，只要\n看著主角精心布局，然後把可惡的壞蛋整慘，大快人心，叫人怎能不喜歡。\n\n　　既然要看主角報仇，不僅要讓壞蛋死得愈慘愈好，最後的手段還要很華麗，做得愈「\n\
   囂張」，觀眾就能看得愈開心，《惡女訂製服》就把這一點做得恰到好處。故事慢慢鋪陳\n小鎮居民的可惡，讓主角一而再、再而三地讓步，最後一鼓作氣大報復一場。雖然整個結\n\
@@ -1054,7 +1053,7 @@ date: 2016-01-15
 reply_count: 15
 title: '[影評]柿子影言》惡女回歸小鎮，訂製時尚復仇 '
 url: https://www.ptt.cc/bbs/movie/M.1452830279.A.E2E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者姜遠珍首爾24日專電）南韓電影片商NEW今天表示，入圍第70屆法國坎城國
 
   際影展的南韓動作電影「惡女」，已預售至台灣、法國、德國、西班牙、義大利、澳洲以
@@ -1092,7 +1091,7 @@ date: 2017-05-24
 reply_count: 7
 title: '[新聞] 坎城影展加持 韓電影惡女熱銷115國'
 url: https://www.ptt.cc/bbs/movie/M.1495637679.A.08F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部在版上好像沒什麼心得
 
   剛看完走出戲院整部動作戲真的拍的很不錯
@@ -1129,14 +1128,14 @@ date: 2017-06-18
 reply_count: 1
 title: '[ 好雷] 殺好殺滿的惡女'
 url: https://www.ptt.cc/bbs/movie/M.1497780153.A.C5C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這問題想問很久了\n\n整容後是金玉彬\n\n那整容前是哪位演員？\n\n找不到這演員的資訊\n\n有另一說法是兩個都是金玉彬？\n\n-----\n\
   Sent from JPTT on my Sony XQ-AT52.\n\n--\n \n \n \n \n \n \n\n--"
 date: 2021-05-17
 reply_count: 1
 title: '[請益] 惡女主角整容前後'
 url: https://www.ptt.cc/bbs/movie/M.1621218111.A.B5F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蜷川?花 是一位十分具有個人風格的當代女性攝影師， 惡女花魁是她導演的第一部
 
   電影，改編自安野???的漫畫????，片中請來一堆大牌演員，女主角是土屋Anna但其他演
@@ -1224,7 +1223,7 @@ date: 2007-08-19
 reply_count: 12
 title: '[好雷] 惡女花魁'
 url: https://www.ptt.cc/bbs/movie/M.1187457253.A.A68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -1362,7 +1361,7 @@ date: 2024-01-24
 reply_count: 6
 title: '[好雷] 惡女'
 url: https://www.ptt.cc/bbs/movie/M.1706081245.A.3AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說，電影是在北京看的
 
   所以，有些翻譯可能不太統一
@@ -1456,7 +1455,7 @@ date: 2021-06-13
 reply_count: 7
 title: '[有雷] 時尚惡女：庫伊拉心得'
 url: https://www.ptt.cc/bbs/movie/M.1623599505.A.5F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《幸福路上》的宋欣穎導演推出首部真人劇情長片《惡女》，會在台北跟高雄舉行兩場創
 
   作分享的講座，同時也會提供參與講座的朋友10分鐘搶先看！資訊提供給大家參考。
@@ -1519,7 +1518,7 @@ date: 2023-10-02
 reply_count: 1
 title: '[情報] 《幸福路上》《惡女》宋欣穎導演講座'
 url: https://www.ptt.cc/bbs/movie/M.1696220820.A.905.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本只是想說進場看武打.
 
   結果卻大大的超乎預期.
@@ -1582,7 +1581,7 @@ date: 2017-06-26
 reply_count: 14
 title: '[好雷] 惡女 運鏡太神'
 url: https://www.ptt.cc/bbs/movie/M.1498446075.A.016.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
   \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
   \ \n \n \n \n \n \n \n \n這部電影的漏洞好幾個而且肉眼可見\n但我還是蠻喜歡的,邵雨薇從哪裡看都是女神（愛心\n表現不到驚為天人也還算中規中矩\n\
@@ -1595,7 +1594,7 @@ date: 2024-03-21
 reply_count: 7
 title: '[  雷] 惡女'
 url: https://www.ptt.cc/bbs/movie/M.1711015762.A.C07.html
---- !!python/object:movie_data.PublicReview
+---
 content: '參考資料之後的簡易版本
 
 
@@ -1754,7 +1753,7 @@ date: 2007-12-02
 reply_count: 1
 title: 'Re: [請益] 惡女花魁一問'
 url: https://www.ptt.cc/bbs/movie/M.1196607218.A.23D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1829,7 +1828,7 @@ date: 2024-09-11
 reply_count: 24
 title: '[好雷] 時尚惡女庫伊拉'
 url: https://www.ptt.cc/bbs/movie/M.1726037844.A.A9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在今年上映的《阿拉丁》、《獅子王》創下好成績後，迪士尼接下來的真人版電影備受影
 
   迷期待，其中便包括由艾瑪史東（Emma Stone）主演的《庫伊拉》（Cruella），現在終
@@ -1869,14 +1868,14 @@ date: 2019-08-25
 reply_count: 104
 title: '[新聞] 《庫伊拉》真人版 艾瑪史東「惡女」造型'
 url: https://www.ptt.cc/bbs/movie/M.1566723282.A.430.html
---- !!python/object:movie_data.PublicReview
+---
 content: "老公是不是也被他掛了？\n本來結局他回家，是回老公家，背後是模型之類的\n客廳很亂，他跑去搞鰹魚\n結果烤的時候，已經變成在女主買的新家\n沒有很亂的客廳，是白色系的餐桌\n\
   是不是她老公也被他掛了？然後他又賺了一筆?\n\n\n\n\n\n\n\n\n--\n┬\n   ┴  \n ┬\n ◤  \n  \n \n\n--"
 date: 2024-02-13
 reply_count: 13
 title: 'Re: [請益] netflix 惡女的幾個問題 (好看有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1707831278.A.6B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '衝著雨薇在上映前就打定主意去看了
 
   一方面也是支持一下國片
@@ -1979,7 +1978,7 @@ date: 2023-11-05
 reply_count: 16
 title: '[好雷] 對於「惡女」的定義'
 url: https://www.ptt.cc/bbs/movie/M.1699189004.A.84B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，
 
   小弟今晚想看《惡女》，但是看預告片發現有些部分很像超狂亨利。所以想問大家這樣看
@@ -1997,7 +1996,7 @@ date: 2017-06-17
 reply_count: 8
 title: '[請益] 看惡女會不會頭很暈'
 url: https://www.ptt.cc/bbs/movie/M.1497692474.A.33E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天平日想跟朋友一起看電影
 
 
@@ -2024,7 +2023,7 @@ date: 2016-01-10
 reply_count: 78
 title: '[選片] 神鬼獵人V.S惡女訂製服 您選哪一部'
 url: https://www.ptt.cc/bbs/movie/M.1452431889.A.E8A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本文同步刊於：
 
 
@@ -2241,7 +2240,7 @@ date: 2016-04-15
 reply_count: 48
 title: '[好雷]惡女訂製服：一件禮服是改變不了什麼的'
 url: https://www.ptt.cc/bbs/movie/M.1460731346.A.675.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -2319,7 +2318,7 @@ date: 2021-01-24
 reply_count: 11
 title: '[好雷] 惡女訂製服'
 url: https://www.ptt.cc/bbs/movie/M.1611471418.A.887.html
---- !!python/object:movie_data.PublicReview
+---
 content: '此篇絕對無雷 也絕對不是甚麼國片工讀生
 
 
@@ -2376,7 +2375,7 @@ date: 2023-10-29
 reply_count: 15
 title: '[好無雷] "惡女"  有點意思'
 url: https://www.ptt.cc/bbs/movie/M.1698513150.A.5DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "上週當兵的男友放假，一起去長春國賓看了《惡女訂製服》\n\n電影院的海報看板好像是很少在宣傳上看到的版本，\n個人覺得超美！！\n\n\n小妹個人非常喜歡凱特溫絲蕾，\n\
   幾年下來他每次在大螢幕上都讓人驚艷，\n從鐵達尼號到王牌冤家、真愛旅程、為愛朗讀，\n都讓人覺得她越演越有韻味\n（相較之下，就希望李奧納多被冰凍在鐵達尼號的冰山裡就好了。）\n\
   \n回到電影，\n五零年代裡在澳洲一個偏遠的小鎮，\n凱特溫絲蕾主演的緹莉，是個從小被霸凌的醜小鴨女孩，\n從倫敦、米蘭、法國時裝界回來以後，帶著一身技能回到老家。\n\
@@ -2394,7 +2393,7 @@ date: 2016-02-01
 reply_count: 15
 title: '[好雷]惡女訂製服 如舞台劇般的小品'
 url: https://www.ptt.cc/bbs/movie/M.1454329961.A.B7D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本片改編自暢銷小說，由奧斯卡影后凱特溫絲蕾、《V怪客》雨果威明、《飢餓遊戲》系
 
   列 連恩漢斯沃斯、莎拉史努克、金球獎影后朱蒂戴維斯主演。描繪一位心機美人，要用
@@ -2485,7 +2484,7 @@ date: 2015-12-31
 reply_count: 12
 title: '[好雷] 《惡女訂製服》最美麗的復仇 最寫實的鬧劇'
 url: https://www.ptt.cc/bbs/movie/M.1451550499.A.D33.html
---- !!python/object:movie_data.PublicReview
+---
 content: "內文有雷且具個人觀點，推薦觀影後再讀。\n\n\n\n　　　　圖文網頁完整版（期間公開）\n\n　　　　\n\n\n　　　　預告片：\n\n　　　　\n\
   \n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\n\n是「善男」，故為：《惡女》\n\
   \n\n\n　　在父權未卸、且時有男性試圖鞏固的社會，仍舊不時對女性進行束縛與\n\n雙重標準，對符合標準與規範的予以肯定與獎勵，不符合規範的即遭貶抑、\n\n\
@@ -2512,7 +2511,7 @@ date: 2023-11-17
 reply_count: 18
 title: '[好雷] 是「善男」，故為：《惡女》'
 url: https://www.ptt.cc/bbs/movie/M.1700180295.A.75E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -2579,7 +2578,7 @@ date: 2017-06-18
 reply_count: 6
 title: '[普好雷] 動作戲很強的惡女'
 url: https://www.ptt.cc/bbs/movie/M.1497776302.A.AE0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先先推一下 這部太好看了
 
   但實在不明白男主為什麼死?
@@ -2599,7 +2598,7 @@ date: 2016-03-13
 reply_count: 14
 title: '[請益] 惡女訂製服男主'
 url: https://www.ptt.cc/bbs/movie/M.1457801858.A.598.html
---- !!python/object:movie_data.PublicReview
+---
 content: "#惡女訂製服 ker 2016/1/8\nIMDB:7.5/10\n\n前陣子重溫了凱特溫絲蕾和金凱瑞主演的王牌冤家，這次衝著凱特溫絲蕾獻給自己從影20\n\
   年的禮物,來看了the dressmaker。\n  故事以一句「我回來了，你們這些混蛋們。」做為這部片的開場，劇情主要描述五○年\n代巴黎時尚界闖出名堂的服裝設計師緹莉，毅然決然地帶著縫紉機回到澳洲小鎮。除了要\n\
   照料疑似失智、藉酒裝瘋的老母，她也決心調查出當年被遣送出境的真正原因。然而，人\n云亦云的小鎮愚民，面對緹莉的回鄉猶如驚弓之鳥，又愛又懼。女人們因她的巧手而脫胎\n\
@@ -2611,7 +2610,7 @@ date: 2016-02-03
 reply_count: 15
 title: '[討論] 惡女訂製服'
 url: https://www.ptt.cc/bbs/movie/M.1454508114.A.194.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前陣子不經意瞥見一部片的介紹
 
   關鍵字：台劇、殺人、灌水泥、台灣老派女星
@@ -2679,7 +2678,7 @@ date: 2024-05-02
 reply_count: 42
 title: '[爛雷] 找錯電影意外看到的惡女'
 url: https://www.ptt.cc/bbs/movie/M.1714650046.A.6A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由澳洲女導演喬瑟琳穆豪斯所執導的新作《惡女訂製服》，找來了凱特溫絲蕾、茱蒂戴維
 
   斯、雨果威明和連恩漢斯沃等大牌卡司共同出演，講述一個在澳洲偏鄉發生的女孩復仇記
@@ -2767,7 +2766,7 @@ date: 2016-01-15
 reply_count: 13
 title: '[普雷]《惡女訂製服》女性終究只能穿的美美的'
 url: https://www.ptt.cc/bbs/movie/M.1452849377.A.3A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請問在惡女訂製服中
 
   其中一幕
@@ -2787,7 +2786,7 @@ date: 2016-02-08
 reply_count: 5
 title: '[請益] 問惡女訂製服裡面的音樂'
 url: https://www.ptt.cc/bbs/movie/M.1454941105.A.2D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防個雷
 
   防個雷
@@ -2865,7 +2864,7 @@ date: 2018-01-14
 reply_count: 38
 title: '[好雷] 惡女訂製服'
 url: https://www.ptt.cc/bbs/movie/M.1515911051.A.D47.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得當松本蒼之助大人向花魁日暮表態願為她贖身的時候，日暮說了一句：
 
   「奴家無時無刻都想離開這裡(指吉原)，但是想靠自己的雙腳走出去。」
@@ -3064,7 +3063,7 @@ date: 2007-08-27
 reply_count: 18
 title: '[好雷]惡女花魁--傾聽自己內心的聲音 '
 url: https://www.ptt.cc/bbs/movie/M.1188148308.A.78F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好奇問一下
 
 
@@ -3149,7 +3148,7 @@ date: 2024-02-11
 reply_count: 80
 title: '[請益] netflix 惡女的幾個問題 (好看有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1707620571.A.1F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -3374,7 +3373,7 @@ date: 2019-04-23
 reply_count: 8
 title: '[普雷] 惡女 - 神作運鏡，糞作劇情'
 url: https://www.ptt.cc/bbs/movie/M.1555952589.A.257.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天有空來看了一下，
 
   老實說題材微妙，
@@ -3579,7 +3578,7 @@ date: 2024-02-13
 reply_count: 14
 title: 'Re: [請益] netflix 惡女的幾個問題 (好看有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1707766153.A.15D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者姜遠珍首爾30日專電）南韓電影製作兼發行商NEW今天表示，由女演員金玉
 
   彬主演韓片「惡女」榮獲第16屆紐約亞洲影展「最佳動作片獎」，同時還被遴選為影展閉
@@ -3624,7 +3623,7 @@ date: 2017-06-30
 reply_count: 10
 title: '[新聞] 惡女榮獲紐約亞洲影展最佳動作片獎'
 url: https://www.ptt.cc/bbs/movie/M.1498838150.A.FD2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《惡女》 正式海報 大！公！開！
 
   聰明女生 ×上位守則
@@ -3663,7 +3662,7 @@ date: 2023-09-02
 reply_count: 36
 title: '[情報] 【惡女】正式預告，10/27上映'
 url: https://www.ptt.cc/bbs/movie/M.1693626320.A.92B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3851,7 +3850,7 @@ date: 2017-04-21
 reply_count: 6
 title: '[新聞] 坎城影展入選快報！《屍速列車》接棒之作《惡女》入選午夜'
 url: https://www.ptt.cc/bbs/movie/M.1492745359.A.85B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "電影一開始就帶給我很大的震撼，一場開無雙的大亂鬥揭開序幕\n\n罕見地使用第一人稱視角運鏡，非常有臨場感。(很像射擊遊戲XD)\n\n大亂鬥的末段，運鏡漸漸改為近身運鏡，讓我的眼睛稍微有喘息的機會。\n\
   \n\n故事用幾個不同的時間軸去描寫一個平凡少女為了復仇成為殺手的故事。\n\n女主角並不具有什麼殺人天賦，僅僅只是為了生存而殺人。\n\n很多時候，當她卸下心防就能看見柔弱女性的一面。\n\
   \n故事尾聲，女主角得知各種真相後，虐心啊...\n\n\n整部電影，劇情燒腦又很緊奏，2小時絕無冷場。\n\n不論是打鬥、槍戰的畫面呈現都非常寫實、刺激。\n\
@@ -3861,7 +3860,7 @@ date: 2017-07-12
 reply_count: 15
 title: '[微好雷]惡女 刺激，劇情有深度 '
 url: https://www.ptt.cc/bbs/movie/M.1499789290.A.4DC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '場次已經變成一天一場，趁著下檔前來看這部版上評價不錯但心得數不多的國片。
 
 
@@ -3921,7 +3920,7 @@ date: 2023-11-25
 reply_count: 6
 title: '[可惜雷] 惡女，與她沒扔掉的老公'
 url: https://www.ptt.cc/bbs/movie/M.1700907215.A.6E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4016,7 +4015,7 @@ date: 2024-03-01
 reply_count: 6
 title: '[好雷] 惡女：最佳自殺防治電影？ '
 url: https://www.ptt.cc/bbs/movie/M.1709223439.A.8E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天要去看二輪
 
 
@@ -4047,7 +4046,7 @@ date: 2016-04-18
 reply_count: 34
 title: '[選片] 惡女訂製服和瞎趴姐妹'
 url: https://www.ptt.cc/bbs/movie/M.1460945670.A.718.html
---- !!python/object:movie_data.PublicReview
+---
 content: '全台上映戲院
 
 
@@ -4081,7 +4080,7 @@ date: 2023-10-26
 reply_count: 8
 title: '[情報] 邵雨薇《惡女》全台上映戲院列表'
 url: https://www.ptt.cc/bbs/movie/M.1698316602.A.FA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '<無音樂有圖好讀網誌版>
 
 
@@ -4270,7 +4269,7 @@ date: 2016-01-08
 reply_count: 28
 title: '[好雷] 惡女訂製服~就用高級訂製服決勝負吧!~ '
 url: https://www.ptt.cc/bbs/movie/M.1452261541.A.0A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果是以電影院的標準，要花錢買票的話
 
   我給負雷
@@ -4366,7 +4365,7 @@ date: 2024-02-16
 reply_count: 90
 title: '[ 普負雷] 《惡女》劇情滿爛的懸疑片'
 url: https://www.ptt.cc/bbs/movie/M.1708077000.A.083.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到摩托車追逐戰有一種既視感
 
 
@@ -4395,7 +4394,7 @@ date: 2019-05-16
 reply_count: 12
 title: '[負雷] 捍衛任務3抄襲惡女??'
 url: https://www.ptt.cc/bbs/movie/M.1558020850.A.2B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "片 名：惡女花魁\n　　導 演：蜷川實花\n　　演 員：土屋安娜、椎名桔平、菅野美穗、\n　　　　　　安藤政信、木村佳乃、成宮寬貴\n　\n　\n\
   簡　介：\n\n　　天生反骨叛逆的女主角清葉在八歲時被賣入妓院玉菊屋，因為不\n想成為妓女而逃跑卻被抓回。在花魁妝日的激將法之下，決心成為花\n魁並依靠自己的力量離開玉菊屋。\n\
   　\n　　憑著天生的美貌，清葉日漸走紅，卻在此時愛上一名恩客，進而\n得罪有權有勢的大名恩客。看著心上人卻因為害怕而逃離的身影，清\n葉終於對男人死了心，逐將服待男人當成一門專業的技巧，重新擄獲\n\
@@ -4428,7 +4427,7 @@ date: 2007-09-14
 reply_count: 14
 title: '[好雷] 惡女花魁'
 url: https://www.ptt.cc/bbs/movie/M.1189763058.A.E7C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '目前評價似乎都偏向中等
 
   就是有很明顯缺點但可以娛樂的片
@@ -4441,7 +4440,7 @@ date: 2021-05-27
 reply_count: 33
 title: '[討論] 時尚惡女:庫伊拉 爛番茄開盤均分6.7 73%'
 url: https://www.ptt.cc/bbs/movie/M.1622056500.A.6CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷資訊頁
 
 
@@ -4533,7 +4532,7 @@ date: 2023-10-18
 reply_count: 18
 title: '[新聞] 邵雨薇床戲外加碼情欲自我安慰，《惡女》'
 url: https://www.ptt.cc/bbs/movie/M.1697612094.A.2BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【 iTunes 特價報】
 
   托爾金傳 / 惡女花魁 / 暫時停止呼吸
@@ -4713,7 +4712,7 @@ date: 2020-05-08
 reply_count: 2
 title: '[情報] iTunes 特價報 托爾金傳 / 惡女花魁 / '
 url: https://www.ptt.cc/bbs/movie/M.1588940055.A.F0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '週日晚上看了朋友推薦的惡女，
 
   本來看名字覺得有點俗氣，海報有點韓風但又看不出到底要走什麼路線
@@ -4819,7 +4818,7 @@ date: 2023-10-31
 reply_count: 24
 title: '[好雷] 不懂惡女討論度不高 根本黑色幽默懸疑片'
 url: https://www.ptt.cc/bbs/movie/M.1698683294.A.E31.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4905,7 +4904,7 @@ date: 2023-11-16
 reply_count: 19
 title: '[普雷] 惡女訂製服'
 url: https://www.ptt.cc/bbs/movie/M.1700107661.A.0E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看預告以為這部是雙女主耍心機互鬥
 
 
@@ -5062,7 +5061,7 @@ date: 2023-10-30
 reply_count: 39
 title: '[好雷] 惡女 和預期不同但意外好看 '
 url: https://www.ptt.cc/bbs/movie/M.1698674410.A.E56.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -5205,14 +5204,14 @@ date: 2016-01-09
 reply_count: 46
 title: '[好雷]《惡女訂製服》，我回來了，混蛋們。'
 url: https://www.ptt.cc/bbs/movie/M.1452326850.A.298.html
---- !!python/object:movie_data.PublicReview
+---
 content: "申河均殺死女主角的老爸\n主因是什麼?為了帶走女主角?\n\n為什麼中途申河均詐死?\n純粹要金玉彬把對手滅團?\n\n--\n \n \n \n\
   \ \n \n \n\n--"
 date: 2021-11-12
 reply_count: 2
 title: '[請益] 惡女的劇情'
 url: https://www.ptt.cc/bbs/movie/M.1636721279.A.B68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我對凱特布蘭琪的印象一直停留在魔戒哈比人6部曲的精靈女王，還有2部伊麗莎白女王。
 
 
@@ -5260,7 +5259,7 @@ date: 2018-01-08
 reply_count: 233
 title: '[討論] 凱特布蘭琪，不適合演惡女角色？'
 url: https://www.ptt.cc/bbs/movie/M.1515397992.A.7CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【特價片報】瞎趴姐妹 iTunes 特價 NT$90\n\n☆ 強打低價\n\n《瞎趴姐妹》\niTunes NT$90\n>> \n\n喜劇大咖克莉絲汀薇格、安妮瑪莫羅聯手打造歡樂冒險片！隨兩人多年以\n\
   來的交情，和針對周遭女性長輩的觀察，結合憑《伴娘我最大》榮受奧斯\n卡提名的寫本能力，上演專門為他們忘卻挫折、放鬆自我的私人旅程，帶\n出如《脫線總動員》這類搞笑片的復古韻味。\n\
   \n《惡女》\niTunes NT$90\n>> \n\n《殺人告白》大鐘認證導演鄭秉吉獻上情報動作力作！由實力派金玉彬扮\n演被迫成國家殺人工具的特務，仰賴她善於跆拳道、合氣道的基礎，打出\n\
@@ -5273,7 +5272,7 @@ date: 2022-10-27
 reply_count: 1
 title: '[討論] 瞎趴姐妹/惡女 iTunes 特價中'
 url: https://www.ptt.cc/bbs/movie/M.1666801926.A.F95.html
---- !!python/object:movie_data.PublicReview
+---
 content: "嚴格說來算是普雷，有好有壞吧，防雷頁\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   \n要說好雷的話，大概是林美秀演這個角色真的入木三分\n你會覺得「這樣子外表的女性能夠得到那麼多男性的歡心?」\n而且劇中林美秀的角色的名言幾乎沒有破綻\n\n\
   「我幫他作了那麼多，付出了那麼多，拿錢不應該嗎」\n(對啊，上班族不也是這樣)\n\n「我沒有殺人」\n\n她學習如何討好男性，取得他們的信任，並且對方願意給她錢。\n\
@@ -5292,7 +5291,7 @@ date: 2024-02-24
 reply_count: 17
 title: 'Re: [ 普負雷] 《惡女》劇情滿爛的懸疑片'
 url: https://www.ptt.cc/bbs/movie/M.1708762509.A.5F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不負責任影評－曾以為的獨一無二＜對面的惡女看過來＞
 
 
@@ -5428,7 +5427,7 @@ date: 2018-08-20
 reply_count: 15
 title: '[好雷]不負責任影評－＜對面的惡女看過來＞'
 url: https://www.ptt.cc/bbs/movie/M.1534698427.A.046.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中國時報【許世穎╱綜合報導】
 
 
@@ -5463,7 +5462,7 @@ date: 2015-06-24
 reply_count: 6
 title: '[新聞] 珊卓布拉克代言惡女 比裝乖爽多了'
 url: https://www.ptt.cc/bbs/movie/M.1435154162.A.9D6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5509,7 +5508,7 @@ date: 2021-05-29
 reply_count: 26
 title: '[普雷] 時尚惡女:庫伊拉 冗長的時裝秀'
 url: https://www.ptt.cc/bbs/movie/M.1622253721.A.EB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天下午剛好有個空檔想要去看電影
 
 
@@ -5530,7 +5529,7 @@ date: 2016-01-18
 reply_count: 33
 title: '[選片] 惡女訂製服 V.S 女權之聲:無懼年代'
 url: https://www.ptt.cc/bbs/movie/M.1453124614.A.C2E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在下女的誘惑之後我很久沒有這麼想要按鈕轉身給一部電影滿分了。
 
 
@@ -5603,7 +5602,7 @@ date: 2018-01-17
 reply_count: 10
 title: '[好雷] 惡女訂製服 (The Dressmaker, 2015)'
 url: https://www.ptt.cc/bbs/movie/M.1516131047.A.587.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從《幸福路上》之後成為宋欣穎導演的粉絲ＸＤ
 
   導演的新作《惡女》真的是各方面顛覆我的想像，但真的很喜歡種種翻轉，無論是選角翻
@@ -5724,7 +5723,7 @@ date: 2023-10-28
 reply_count: 8
 title: '[好無雷]'
 url: https://www.ptt.cc/bbs/movie/M.1698481654.A.A9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家安安
 
 
@@ -5817,7 +5816,7 @@ date: 2017-09-26
 reply_count: 6
 title: '[微好雷] 惡女 '
 url: https://www.ptt.cc/bbs/movie/M.1506406821.A.606.html
---- !!python/object:movie_data.PublicReview
+---
 content: '惡女訂製服
 
 
@@ -5880,7 +5879,7 @@ date: 2019-01-20
 reply_count: 51
 title: '[好無雷] 惡女訂製服'
 url: https://www.ptt.cc/bbs/movie/M.1547997066.A.EAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第四權的棄子《惡女》
 
 
@@ -6036,7 +6035,7 @@ date: 2023-10-31
 reply_count: 7
 title: '[微好雷] 第四權的棄子《惡女》 '
 url: https://www.ptt.cc/bbs/movie/M.1698744635.A.77E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -6253,7 +6252,7 @@ date: 2015-12-31
 reply_count: 7
 title: '[新聞] 看【惡女訂製服】要注意的五個特點'
 url: https://www.ptt.cc/bbs/movie/M.1451524879.A.965.html
---- !!python/object:movie_data.PublicReview
+---
 content: '公司年終的員工福利是威秀電影券，由於只有一張、故想請問
 
   1.惡女訂製服
@@ -6281,7 +6280,7 @@ date: 2016-02-02
 reply_count: 18
 title: '[選片] 惡女訂製服/賈伯斯'
 url: https://www.ptt.cc/bbs/movie/M.1454384692.A.F13.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去看了《惡女》，私心以為是很好看的國片，
 
   雖然我的心得文 應該 是沒有劇透，
@@ -6443,7 +6442,7 @@ date: 2023-11-03
 reply_count: 6
 title: '[好雷] 「惡女」你的愛情不是你的愛情'
 url: https://www.ptt.cc/bbs/movie/M.1699002518.A.CB8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原訂將於 6 月初在台上映的迪士尼反派角色改編真人電影《時尚惡女：庫伊拉》，日前
 
   宣布因應中央流行疫情指揮中心防疫警戒公告將延期上映。而在今（24）日，官方則是正
@@ -6471,7 +6470,7 @@ date: 2021-06-24
 reply_count: 47
 title: '[情報] 《時尚惡女：庫伊拉》台灣上映檔期取消 '
 url: https://www.ptt.cc/bbs/movie/M.1624521149.A.D54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '迪士尼狂妄反派真人版電影
 
   時尚界即將掀起大風暴！
@@ -6527,7 +6526,7 @@ date: 2021-02-17
 reply_count: 108
 title: '[情報] 艾瑪史東《時尚惡女：庫伊拉》預告與劇照'
 url: https://www.ptt.cc/bbs/movie/M.1613567015.A.248.html
---- !!python/object:movie_data.PublicReview
+---
 content: "$90 托爾金傳 : \n\n4K畫質+花絮，尼可拉斯霍特主演，魔戒作者的傳記電影。\n\n-\n\n$90 頭號公敵 : \n\n烈火悍將導演麥可曼恩電影，整體來說很硬派紮實的黑道犯罪片，感覺已經很難再看到\n\
   強尼戴普/克里斯汀貝爾 這組合\n\n-\n\n$150 惡女花魁 : \n\n蜷川實花經典，題材實在太適合電影中艷麗奇幻的風格，土屋安娜菅 / 野美穗主演。\n\
   \n-\n\n$15 (出租) 萌牛費迪南 : \n\n意外的挺好看，當年還雙雙入圍金球獎/奧斯卡最佳動畫\n\n--"
@@ -6535,7 +6534,7 @@ date: 2020-05-08
 reply_count: 1
 title: '[情報] iTunes $90起 托爾金傳.惡女花魁'
 url: https://www.ptt.cc/bbs/movie/M.1588902147.A.A39.html
---- !!python/object:movie_data.PublicReview
+---
 content: '臨時起意決定看這部電影，
 
 
@@ -6870,7 +6869,7 @@ date: 2017-06-16
 reply_count: 26
 title: '[好雷] 刀刀見血搔到癢處非常痛快的惡女'
 url: https://www.ptt.cc/bbs/movie/M.1497626872.A.0C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '龍貓大王通信 @ 電影神搜
 
 
@@ -7059,7 +7058,7 @@ date: 2023-10-26
 reply_count: 10
 title: '[影評] 《惡女》: 愛情不過是一場等價交換的遊戲'
 url: https://www.ptt.cc/bbs/movie/M.1698292457.A.41D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '迪士尼《時尚惡女：庫伊拉》
 
   2021.5.28 華麗登場
@@ -7127,7 +7126,7 @@ date: 2021-04-07
 reply_count: 14
 title: '[情報] 《時尚惡女：庫伊拉》正式預告、海報'
 url: https://www.ptt.cc/bbs/movie/M.1617799420.A.8B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '光看頭尾兩場動作戲就絕對值回票價！
 
   開頭的第一人稱視角毫無冷場！
@@ -7164,7 +7163,7 @@ date: 2017-06-18
 reply_count: 4
 title: '[ 爽無雷] 惡女 殺很大！！！'
 url: https://www.ptt.cc/bbs/movie/M.1497783488.A.51C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影中那個大叔最後敗亡是自找的吧
 
   大叔為何要派人去殺賢洙和恩惠
@@ -7184,7 +7183,7 @@ date: 2017-06-23
 reply_count: 4
 title: '[請益] 電影惡女的疑問?'
 url: https://www.ptt.cc/bbs/movie/M.1498192537.A.971.html
---- !!python/object:movie_data.PublicReview
+---
 content: '心得
 
 
@@ -7282,7 +7281,7 @@ date: 2017-10-25
 reply_count: 6
 title: '[好雷] 惡女The Villainess'
 url: https://www.ptt.cc/bbs/movie/M.1508940737.A.A5E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '辣妹過招》重製版9角色曝光！新惡女「瑞吉娜」是她　兩元老演員回歸
 
 
@@ -7399,7 +7398,7 @@ date: 2023-12-11
 reply_count: 56
 title: '[新聞] 《辣妹過招》重製版9角色曝光！新惡女「'
 url: https://www.ptt.cc/bbs/movie/M.1702297598.A.B48.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據外媒的報導，《迷離夜蘇活》紐西蘭女演員 Thomasin McKenzie 與《女巫們》奧斯卡
 
   得主 Anne Hathaway 將共同主演新片《Eileen》。
@@ -7459,7 +7458,7 @@ date: 2022-01-11
 reply_count: 22
 title: '[情報] 湯瑪遜麥肯錫、安海瑟薇將主演《惡女馬克白》導演新片'
 url: https://www.ptt.cc/bbs/movie/M.1641834428.A.322.html
---- !!python/object:movie_data.PublicReview
+---
 content: '找老婆當然選林襄
 
   但看電影會選邵雨薇

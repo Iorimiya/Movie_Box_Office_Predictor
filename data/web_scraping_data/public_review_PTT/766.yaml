@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '跟第一集一樣，去電影院看完了，
 
 
@@ -55,7 +54,7 @@ date: 2024-12-03
 reply_count: 7
 title: '[負雷] 神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1733231588.A.83D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完 大螢幕看這種真的蠻爽的
 
 
@@ -178,7 +177,7 @@ date: 2024-11-14
 reply_count: 22
 title: '[血腥雷] 神鬼戰士2-普雷 偏血腥'
 url: https://www.ptt.cc/bbs/movie/M.1731562671.A.C76.html
---- !!python/object:movie_data.PublicReview
+---
 content: '欺騙我的感情，大爛片
 
 
@@ -325,7 +324,7 @@ date: 2024-11-16
 reply_count: 25
 title: 'Re: [大負雷] 餵老觀眾一坨答辯之 神鬼戰士2 '
 url: https://www.ptt.cc/bbs/movie/M.1731739054.A.173.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一集太過經典，導致第二集被大家賦予太高期望，畫面，劇情，角色，第一集是90分以上
 
   的話，第二集只有畫面到水準，其實大概就是看變形金剛的感覺
@@ -351,7 +350,7 @@ date: 2024-11-26
 reply_count: 10
 title: '[雷] 普雷-神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1732555833.A.8FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可能編劇上會採用 改寫 或照史實拍
 
 
@@ -431,7 +430,7 @@ date: 2024-07-02
 reply_count: 14
 title: 'Re: [情報］神鬼戰士2定裝照'
 url: https://www.ptt.cc/bbs/movie/M.1719900634.A.304.html
---- !!python/object:movie_data.PublicReview
+---
 content: '丹佐華盛頓飾演黑人羅馬皇帝？
 
 
@@ -443,7 +442,7 @@ date: 2024-07-02
 reply_count: 97
 title: '[新聞] 神鬼戰士2定裝照'
 url: https://www.ptt.cc/bbs/movie/M.1719851014.A.DCE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -512,7 +511,7 @@ date: 2024-06-13
 reply_count: 86
 title: '[新聞] 缺席神鬼戰士2 羅素克洛:對此有點不是滋味'
 url: https://www.ptt.cc/bbs/movie/M.1718291970.A.9C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '導演確定開發《神鬼戰士 2》，
 
 
@@ -629,7 +628,7 @@ date: 2021-10-08
 reply_count: 53
 title: '[新聞] 導演確定開發《神鬼戰士 2》網友：可是'
 url: https://www.ptt.cc/bbs/movie/M.1633623684.A.3C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這邊先講無雷的結論:\n\n1. 本片劇情轉折走向毫無邏輯，讓人傻眼\n\n2. 羅馬競技場沒有像第一集戰車那樣有像樣的大會戰\n\n3. 本片一定要看完第一集否則不了解劇情\n\
   \n   對新觀眾非常不友善\n\n   但對有情懷的老觀眾，這部無疑是餵了一坨答辯\n\n\n\n\n防雷頁\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n神鬼戰士續集原本要求不高\n\n可惜讓人印象深刻的只有大白鯊在古羅馬競技場吃人\n\n其他毫無亮點，且劇情承接各種瑕疵\n\n\n1. 打地區型競技場\n\
@@ -645,7 +644,7 @@ date: 2024-11-16
 reply_count: 42
 title: '[大負雷] 餵老觀眾一坨答辯之 神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1731735864.A.207.html
---- !!python/object:movie_data.PublicReview
+---
 content: "羅素克洛對《神鬼戰士 2》很反感！嘆自己「死了沒有決定權」、也稱拍漫威電影「就只\n是工作而已」\n\n\n\n由（Ridley Scott）執導的《》（Gladiator）即將推出續集，不過\n\
   首集中已經戰死的主角 （Russell Crowe）想當然耳將不會回歸，將交由新生代\n男主角 （Paul Mescal，下圖）接替主演。\n\n\n\n對此，近期在\
   \ Podcast 節目上表示，他對於繼續拍攝《》續集的想法\n「」：\n\n「就因為我死了，所以我對一切都沒有話語權了。當我聽到續集的一些事的時候，我會覺\n\
@@ -660,7 +659,7 @@ date: 2024-06-16
 reply_count: 22
 title: '[新聞] 羅素克洛對《神鬼戰士2》很反感 嘆自己'
 url: https://www.ptt.cc/bbs/movie/M.1718525373.A.511.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片頭前言那裡，翻譯字幕寫的是皇帝死後”六十”年......，害我觀影前段預設是新世代角鬥士的故事，但是又看到舊角色，搞得我剛開始時間線變得好混亂，有人看到過嗎？還是我眼殘呢？
 
 
@@ -672,7 +671,7 @@ date: 2024-11-27
 reply_count: 5
 title: '[討論] 神鬼戰士2 翻譯問題'
 url: https://www.ptt.cc/bbs/movie/M.1732718339.A.354.html
---- !!python/object:movie_data.PublicReview
+---
 content: '兩個半小時的片長 但內容跟流水帳一樣
 
 
@@ -872,7 +871,7 @@ date: 2024-11-17
 reply_count: 92
 title: '[負雷] 神鬼戰士2 結構鬆散 莫名其妙'
 url: https://www.ptt.cc/bbs/movie/M.1731844894.A.CB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -916,7 +915,7 @@ date: 2023-02-04
 reply_count: 45
 title: '[新聞] 雷利史考特回歸執導"神鬼戰士2" 檔期敲定'
 url: https://www.ptt.cc/bbs/movie/M.1675525386.A.36E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '準備迎接史詩鉅作
 
 
@@ -957,7 +956,7 @@ date: 2024-07-08
 reply_count: 85
 title: '[情報] 《神鬼戰士2》首張海報發布！'
 url: https://www.ptt.cc/bbs/movie/M.1720450456.A.A66.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這幾天去看神鬼戰士2
 
 
@@ -1014,7 +1013,7 @@ date: 2024-11-27
 reply_count: 19
 title: '[請益] 神鬼戰士2 劇情設定請教'
 url: https://www.ptt.cc/bbs/movie/M.1732700125.A.01B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '24年前去看電影院看這片，整場豪無冷場，續集實在是差強人意。
 
 
@@ -1078,7 +1077,7 @@ date: 2024-11-27
 reply_count: 7
 title: '[普無雷] 神鬼戰士2 - 劇情平淡的爽片'
 url: https://www.ptt.cc/bbs/movie/M.1732689815.A.C51.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷利史考特力挺「神鬼戰士2」 將有「史上最大動作戲」
 
 
@@ -1133,7 +1132,7 @@ date: 2024-06-23
 reply_count: 14
 title: '[新聞] 雷利史考特力挺 神鬼戰士2將有史上最大'
 url: https://www.ptt.cc/bbs/movie/M.1719149143.A.CB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '還好沒聽負評浪潮跑去看
 
   我真的覺得超好看的
@@ -1261,7 +1260,7 @@ date: 2024-11-20
 reply_count: 23
 title: '[好雷] 神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1732080816.A.78E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1359,7 +1358,7 @@ date: 2024-11-20
 reply_count: 37
 title: '[負雷] 神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1732114782.A.3BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我看板上討論餘燼的戾氣很重
 
   我的問題是 從電影角度來說
@@ -1414,7 +1413,7 @@ date: 2024-11-17
 reply_count: 60
 title: '[選片] 餘燼 or 神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1731854023.A.902.html
---- !!python/object:movie_data.PublicReview
+---
 content: '建議看過第一集再去看
 
   不然看到一堆回顧和對話腦中只會出現….蛤
@@ -1459,7 +1458,7 @@ date: 2024-11-19
 reply_count: 12
 title: '[普雷] 神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1732011193.A.0CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '漢斯季默無緣回歸《神鬼戰士 2》！續集配樂大任交由「他的這位徒弟」接手
 
 
@@ -1520,7 +1519,7 @@ date: 2024-01-06
 reply_count: 23
 title: '[新聞] 漢斯季默無緣回歸《神鬼戰士 2》 '
 url: https://www.ptt.cc/bbs/movie/M.1704521194.A.C47.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1571,7 +1570,7 @@ date: 2024-11-14
 reply_count: 22
 title: '[普雷] 神鬼戰士2:太虎頭蛇尾了'
 url: https://www.ptt.cc/bbs/movie/M.1731590827.A.E3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《神鬼戰士2》預告片遭狂灌倒讚！網友抱怨：「硬塞饒舌音樂」、「這部片從來就不需
 
   要續集」
@@ -1683,7 +1682,7 @@ date: 2024-07-14
 reply_count: 94
 title: '[新聞] 神鬼戰士2預告片遭狂灌倒讚！網友抱怨：'
 url: https://www.ptt.cc/bbs/movie/M.1720954151.A.16A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1746,7 +1745,7 @@ date: 2023-01-07
 reply_count: 72
 title: '[新聞] 《神鬼戰士2》羅素克洛不回歸！'
 url: https://www.ptt.cc/bbs/movie/M.1673080375.A.E14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然「神鬼戰士2」這片被笑稱是最不該有續集的電影，看好的人也不多。但這片已經有
 
   了首場試映，而且多數影評人給予好評～
@@ -1765,7 +1764,7 @@ date: 2024-10-28
 reply_count: 41
 title: '[討論] 神鬼戰士2 初步評價似乎還不錯？'
 url: https://www.ptt.cc/bbs/movie/M.1730114994.A.254.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛看完第一手心得，總結是一部劇情轉折有點發散，賣情懷的續集，跟阿凡達2 有點雷同。\n\n\n\n以下有雷\n以下有雷\n以下有雷（怕雷別看喔）\n\
   \n\n\n\n1. 盧修斯是麥克希穆斯兒子這件事\n\n這在第一集就有很明顯的暗示了，這只是做實猜想而已。\n\n第一集老麥跟公主就前男女友關係，加上盧修斯明顯比老麥孩子大幾歲。\n\
   \n叫他們分手後，公主發現懷上了，但礙於身分又不可能公開，在加上後來老麥有了家室，這\n件事情塵封心裡是很邏輯的事情。\n\n第二集公主沒了其他罣礙，而且兒子下一場搞不好就掰了。這時認祖歸宗也算合理，不懂為\n\
@@ -1781,7 +1780,7 @@ date: 2024-11-16
 reply_count: 28
 title: '[雷] 中規中矩只能看一次的神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1731749276.A.63D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '未訂到羅馬大製片廠 《神鬼戰士2》覓非洲搭景
 
 
@@ -1854,7 +1853,7 @@ date: 2024-07-24
 reply_count: 5
 title: '[新聞] 未訂到羅馬大製片廠 《神鬼戰士2》覓非洲'
 url: https://www.ptt.cc/bbs/movie/M.1721781766.A.DA1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在神鬼戰士2已經上映了，
 
 
@@ -1889,7 +1888,7 @@ date: 2025-01-02
 reply_count: 23
 title: 'Re: [新聞] 缺席神鬼戰士2 羅素克洛:對此有點不是滋味'
 url: https://www.ptt.cc/bbs/movie/M.1735812430.A.EE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下全是雷，不喜請自行跳出，謝謝。
 
 
@@ -1976,7 +1975,7 @@ date: 2024-11-24
 reply_count: 1
 title: '[普雷]神鬼戰士2，特效有餘，劇情空洞。'
 url: https://www.ptt.cc/bbs/movie/M.1732407618.A.A4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '#內容涉及《神鬼戰士》劇情
 
 
@@ -2056,7 +2055,7 @@ date: 2020-05-24
 reply_count: 45
 title: '[新聞] 康妮尼爾森：《神鬼戰士2》端視雷利史考'
 url: https://www.ptt.cc/bbs/movie/M.1590250431.A.D7D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《不可能的任務 8》《神鬼戰士 2》《猛毒 3》等片全停拍！《哥吉拉大戰金剛 2》暫停\n宣傳\n\n\n\n美國演員工會昨日宣佈罷工，頓時讓好萊塢多部影視作品的拍攝及宣傳工作不得不臨時喊\n\
   停，因為在罷工期間，所有超過 16 萬名的工會成員都得遵循罷工規定，不能履行參與宣\n傳、試鏡、排練、洽談或簽定合約，當然更不能參與電影和電視劇的拍攝與配音。\n\
   \n據《好萊塢記者報》（THR）的了解，目前已經停拍的電影包括：《神鬼戰士》（\nGladiator）第二集、《死侍》（Deadpool）第三集、《猛毒》（Venom）第三集、《星際\n\
@@ -2073,7 +2072,7 @@ date: 2023-07-15
 reply_count: 23
 title: '[新聞] 《不可能的任務 8》《神鬼戰士 2》《猛 '
 url: https://www.ptt.cc/bbs/movie/M.1689400786.A.FD9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒有暴雷
 
 
@@ -2127,7 +2126,7 @@ date: 2024-11-23
 reply_count: 38
 title: '[ 負雷] 神鬼戰士2  如影隨形的尷尬感'
 url: https://www.ptt.cc/bbs/movie/M.1732303680.A.FE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n2021/09/30｜新聞快訊\nby hsphere\n\n\n縱然已經 83 歲的高齡，英國著名導演雷利史考特（Ridley\
   \ Scott）的創作力與動能依舊\n相當旺盛，除了即將在 10 月 15 日上映的《最後的決鬥》（The Last Duel）外，11 月\n還有一部由女神卡卡（Lady\
   \ Gaga）主演的真實改編作品《Gucci：豪門謀殺案》（House\nof Gucci），手邊還有一堆監製、導演計畫準備執行，不過其中最讓人關注的無非是傳了\n\
@@ -2144,7 +2143,7 @@ date: 2021-09-30
 reply_count: 148
 title: '[新聞] 雷利史考特透露"神鬼戰士2"進度:準備啟動'
 url: https://www.ptt.cc/bbs/movie/M.1632985481.A.C6C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知不覺已經掉到76%了
 
 
@@ -2185,7 +2184,7 @@ date: 2024-11-12
 reply_count: 35
 title: 'Re: [討論] 神鬼戰士2 爛番茄84'
 url: https://www.ptt.cc/bbs/movie/M.1731404544.A.541.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2334,7 +2333,7 @@ date: 2024-12-02
 reply_count: 10
 title: '[沒有第二集雷] 神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1733100063.A.4BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文中爆雷，不喜勿入
 
 
@@ -2426,7 +2425,7 @@ date: 2024-11-23
 reply_count: 5
 title: '[ 好雷] 神鬼戰士2, Make Rome Great Again'
 url: https://www.ptt.cc/bbs/movie/M.1732297965.A.E9B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n第一次電影版發文。\n\n身為一代老粉，看了不下十次，只能說走出戲院的時候既憤怒又感傷，真的是被餵了一大\n坨。\n\n整部電影的劇情、人設、動作完全讓人摸不著頭緒：\n\
   \n1. 電影全程強調“力量與榮譽”，但男主角卻是最沒有力量和榮譽的那個。說到力量，\n連七旬老漢（雖然他是前中情局特工）單挑都打得滿頭大汗，最後還是靠偷襲才贏。多打\n\
@@ -2438,7 +2437,7 @@ date: 2024-11-16
 reply_count: 69
 title: '[  大負雷]'
 url: https://www.ptt.cc/bbs/movie/M.1731739883.A.416.html
---- !!python/object:movie_data.PublicReview
+---
 content: '製片透露【神鬼戰士2】的劇情時間軸
 
 
@@ -2476,7 +2475,7 @@ date: 2019-06-13
 reply_count: 45
 title: '[新聞] 製片透露【神鬼戰士2】的劇情時間軸'
 url: https://www.ptt.cc/bbs/movie/M.1560422130.A.DDA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最難接沒受的就是，
 
   麥斯穆斯原來是個出軌仔?
@@ -2524,7 +2523,7 @@ date: 2024-11-23
 reply_count: 6
 title: '[普好有雷] 神鬼2  第1集100分這集約80分'
 url: https://www.ptt.cc/bbs/movie/M.1732361566.A.75A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《神鬼戰士2》票房還在追成本 導演要拍第三部
 
 
@@ -2595,7 +2594,7 @@ date: 2024-12-02
 reply_count: 34
 title: '[新聞] 《神鬼戰士2》票房還在追成本 導演要拍'
 url: https://www.ptt.cc/bbs/movie/M.1733150843.A.29A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2647,7 +2646,7 @@ date: 2024-12-08
 reply_count: 23
 title: '[普狂雷]神鬼戰士2最大的敗筆是主角吧! '
 url: https://www.ptt.cc/bbs/movie/M.1733618463.A.A97.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛大致看了一下英語預告片的評論區，不少負評都是衝著黑人文化元素而來的。
 
   有的人針對那首歌「No Church in the Wild」，有的人針對Danzel Washington。
@@ -2687,7 +2686,7 @@ date: 2024-07-19
 reply_count: 61
 title: 'Re: [新聞] 神鬼戰士2預告片遭狂灌倒讚！網友抱怨：'
 url: https://www.ptt.cc/bbs/movie/M.1721348455.A.268.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -3022,7 +3021,7 @@ date: 2024-11-24
 reply_count: 30
 title: '[ 微好雷] 神鬼戰士2 - 宮鬥精彩但收尾不佳'
 url: https://www.ptt.cc/bbs/movie/M.1732433575.A.1E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "預告看到在羅馬競技場內打海戰就決定要進電影院看這部了\n劇情確實有些瑕疵\n但我覺得戰鬥場面很適合在大銀幕觀看\n開場羅馬將軍阿卡修斯率領戰艦進攻努米底亞最為盛大\n\
   展現攻城守城雙方的戰術手段\n再來是主角漢諾被俘\n在地方的競技場對上狒狒\n導演說靈感來自他看到真實紀錄南非遊客被狒狒群攻擊的影片\n但這狒狒怎麼看都像是異形啊\n\
   之後在羅馬競技場的幾場戰鬥也很精彩\n漢諾打犀牛騎士、海戰都有運用到一些謀略很有看頭\n阿卡修斯電光火石間放倒四人也很厲害\n但結尾的對決就有點可惜\n原本預期漢諾決戰阿卡修斯會是最後一戰\n\
@@ -3034,7 +3033,7 @@ date: 2024-11-18
 reply_count: 32
 title: '[好微雷] 神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1731860306.A.784.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在點進去好像看不到
 
   不過剛剛看到是85%約50人評價
@@ -3053,7 +3052,7 @@ date: 2024-11-12
 reply_count: 96
 title: '[討論] 神鬼戰士2 爛番茄84'
 url: https://www.ptt.cc/bbs/movie/M.1731340937.A.9D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3160,7 +3159,7 @@ date: 2024-11-21
 reply_count: 18
 title: '[普雷]  歷史宅看神鬼戰士2'
 url: https://www.ptt.cc/bbs/movie/M.1732185292.A.2B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《神鬼戰士2》片場驚傳意外！6人緊急送醫治療\n\n2023/06/11 14:18\n\n〔記者廖俐惠／綜合報導〕由雷利史考特回歸執導《神鬼戰士》（Gladiator）續集，日\n\
   前傳出片場發生意外，有幾位工作人員在拍攝特技鏡頭時受傷，所幸並無大礙。\n\n\n2000年推出的電影《神鬼戰士》，暌違20多年將推出續集。（翻攝自imdb）\n\
   \n根據《綜藝報》報導，《神鬼戰士2》在本月7日於摩洛哥進行拍攝時，有幾位劇組工作人\n員受傷，據悉有6人送醫，2人已出院，其中4人仍在醫院觀察。據一名知情人士指出，受\n\
@@ -3173,7 +3172,7 @@ date: 2023-06-11
 reply_count: 23
 title: '[新聞] 《神鬼戰士2》片場驚傳意外！6人緊急送醫治療'
 url: https://www.ptt.cc/bbs/movie/M.1686484849.A.363.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   最後為啥黑人奴隸主要跟男主單挑
@@ -3192,7 +3191,7 @@ date: 2024-11-15
 reply_count: 25
 title: '[討論] 神鬼戰士2 最後單挑疑問'
 url: https://www.ptt.cc/bbs/movie/M.1731644564.A.1A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '喵希穆斯防雷一下
 
 
@@ -3251,7 +3250,7 @@ date: 2024-11-15
 reply_count: 13
 title: '[好雷] 神鬼戰士2  雲霄飛車式的體驗（4DX)'
 url: https://www.ptt.cc/bbs/movie/M.1731633316.A.462.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《神鬼戰士 2》成本嚴重超支、被爆目前總預算已飆破 3 億美元！電影公司很頭痛
 
 
@@ -3319,7 +3318,7 @@ date: 2024-02-24
 reply_count: 108
 title: '[新聞] 《神鬼戰士2》成本失控超支！已飆破3億'
 url: https://www.ptt.cc/bbs/movie/M.1708750746.A.BDC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情基本上就是只是在講著有點偏向宿命論的命題
 
   但又不完全像是王子復仇記的故事
@@ -3381,7 +3380,7 @@ date: 2024-11-14
 reply_count: 10
 title: '[有雷]《神鬼戰士2》你以為史詩，結果是政治劇'
 url: https://www.ptt.cc/bbs/movie/M.1731572119.A.4E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '要說什麼意象貫穿整部神鬼戰士2
 
   我覺得是被母狼養大的羅穆盧斯與羅姆斯兄弟
@@ -3454,7 +3453,7 @@ date: 2024-11-20
 reply_count: 9
 title: '[ 好雷] 神鬼戰士2 緊扣羅馬建城神話的故事'
 url: https://www.ptt.cc/bbs/movie/M.1732097361.A.50B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就黑人的部分說明一下好了，
 
   這些資訊維基百科都查得到，
@@ -3513,7 +3512,7 @@ date: 2024-07-19
 reply_count: 26
 title: 'Re: [新聞] 神鬼戰士2預告片遭狂灌倒讚！網友抱怨：'
 url: https://www.ptt.cc/bbs/movie/M.1721368030.A.DFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "丹佐華盛頓驚喜參演《神鬼戰士 2》！雷利史考特導演為他「量身打造」新角色\n\n\n\n（圖片來源：Pinterest、夢工廠）\n\n開拍在即的《神鬼戰士》（Gladiator）未定名續集，這兩個多月以來已陸續鎖定保羅梅\n\
   斯卡（Paul Mescal）、貝瑞柯根（Barry Keoghan）兩位愛爾蘭男星加入演出，而今天外\n媒《Deadline》則再度獨家爆料，與本次回歸執導的雷利史考特（Ridley\
   \ Scott）合作過\n《美國黑幫》（American Gangster）的奧斯卡影帝-丹佐華盛頓（Denzel Washington）\n也已應邀參演。\n\
@@ -3527,7 +3526,7 @@ date: 2023-03-19
 reply_count: 16
 title: '[新聞] 丹佐華盛頓驚喜參演《神鬼戰士 2》！'
 url: https://www.ptt.cc/bbs/movie/M.1679156090.A.F64.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最後面兩軍對陣
 
   我原本很期待可以打起來

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "對! 沒看錯XD\n是在景美佳佳戲院喔!\n\n佳佳戲院也是導演林書宇求學時常泡整天看電影的秘密基地。\n*戲院:景美佳佳戲院\n*出席:導演林書宇\n\
   \n\n官方FB連結:\n縮網址:\n\n繼板橋林園，今天新竹新復珍也宣布2/13即將退場了\n二輪戲院難得有特別的活動\n喜歡這片的有機會的可以去佳佳二刷參加映後\n\
   景美佳佳的最後一場晚場票，百元即可二刷\n\n\n\n\n--\n--\n◥\n◤    ◤ \n  \n  \n ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n\
@@ -7,7 +6,7 @@ date: 2025-01-09
 reply_count: 23
 title: '[情報] 小雁與吳愛麗 景美佳佳林書宇映後'
 url: https://www.ptt.cc/bbs/movie/M.1736409095.A.45A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩部都是最近感到有興趣的國片，而且都上映一段時間，所以場次都變得很少
 
   但還是想趁下檔前去看一下
@@ -33,7 +32,7 @@ date: 2024-12-25
 reply_count: 34
 title: '[選片] 小雁與吳愛麗or女兒的女兒'
 url: https://www.ptt.cc/bbs/movie/M.1735091341.A.306.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -155,7 +154,7 @@ date: 2024-10-10
 reply_count: 34
 title: '[好雷] 小雁與吳愛麗 可能只有林書宇粉會看'
 url: https://www.ptt.cc/bbs/movie/M.1728559534.A.005.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情簡介:
 
   小雁與Allie，兩位長相一樣的女人。小雁為了保護母親而過失弒父，被關八年之後，回
@@ -197,7 +196,7 @@ date: 2024-10-03
 reply_count: 39
 title: '[討論] 小雁與吳愛麗正式預告 國慶上映'
 url: https://www.ptt.cc/bbs/movie/M.1727945293.A.CB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "林書宇「小雁與吳愛麗」入圍釜山影展 角逐金智奭獎\n\n\n釜山國際影展今天公布新浪潮及智奭等2項競賽單元入選片單，其中\n\n第29屆釜山國際影展（BIFF）將在10月2日至11日登場，大會今天公布2項競賽單元入圍片\n\
   單，林書宇作品「小雁與吳愛麗」入選的。\n\n「小雁與吳愛麗」由影后主演，演繹一對母女錯綜複雜的關係，並找來同台飆戲，除了囊括多位曾獲金馬獎肯定電影人才的團隊，也請來日本知名\n\
   配樂家林正樹參與電影製作。\n\n獲知入圍消息的林書宇透過新聞稿表示，已故釜山影展創始人金智奭一直是台灣電影與他\n的貴人，很榮幸這次能入圍以他為名的影展單元。\n\
@@ -210,7 +209,7 @@ date: 2024-08-27
 reply_count: 18
 title: '[新聞] 林書宇「小雁與吳愛麗」入圍釜山影展 角逐'
 url: https://www.ptt.cc/bbs/movie/M.1724751698.A.9A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台片揚威釜山影展！《小雁與吳愛麗》獲金智奭大獎
 
 
@@ -301,7 +300,7 @@ date: 2024-10-11
 reply_count: 20
 title: '[新聞] 台片揚威釜山影展！《小雁與吳愛麗》獲'
 url: https://www.ptt.cc/bbs/movie/M.1728629037.A.DF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n\n\n\n\n\n拜《大佛普拉斯》所賜，很喜歡黑白電影\n\n講述黑白人生的故事時用黑白色調呈現真的再適合不過\n\n\n\n進電影院前對這部電影完全不了解，甚至連片名都不知道\n\
@@ -320,7 +319,7 @@ date: 2024-11-02
 reply_count: 7
 title: '[好雷] 小雁與吳愛麗 黑白人生就該用黑白色調'
 url: https://www.ptt.cc/bbs/movie/M.1730483505.A.27E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「我覺得女性在任何時代都是比男人堅強的生物」
 
 
@@ -470,7 +469,7 @@ date: 2024-10-28
 reply_count: 15
 title: '[普雷] 小雁與吳愛麗：愛與恨的灰色地帶'
 url: https://www.ptt.cc/bbs/movie/M.1730130418.A.B26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說好雷
 
 
@@ -514,7 +513,7 @@ date: 2024-10-13
 reply_count: 4
 title: '[好雷]神選角的小雁與吳愛麗'
 url: https://www.ptt.cc/bbs/movie/M.1728786578.A.6EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有事先看過影評
 
   知道整部是以黑白色調做呈現
@@ -551,7 +550,7 @@ date: 2024-10-23
 reply_count: 11
 title: '[討論] 小雁與吳愛麗的黑白色調影像'
 url: https://www.ptt.cc/bbs/movie/M.1729679409.A.8E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -712,7 +711,7 @@ date: 2024-10-11
 reply_count: 11
 title: '[好雷] 《小雁與吳愛麗》，瘋子與我愛你。'
 url: https://www.ptt.cc/bbs/movie/M.1728618551.A.816.html
---- !!python/object:movie_data.PublicReview
+---
 content: '場景在高雄美濃
 
   美濃粄條客家人的地盤
@@ -781,7 +780,7 @@ date: 2025-01-20
 reply_count: 19
 title: '[好雷] 小雁與吳愛麗'
 url: https://www.ptt.cc/bbs/movie/M.1737372236.A.312.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看影片很怕說教，還有太文青。
 
 
@@ -853,7 +852,7 @@ date: 2024-10-13
 reply_count: 30
 title: '[好雷]小雁與吳愛麗 真的很好看..'
 url: https://www.ptt.cc/bbs/movie/M.1728780969.A.830.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《小雁與吳愛麗》影評：夏于喬迎來演技巔峰，楊貴媚、曾國城動人傳神\n   朱哲輝Alan\n\n甫獲金馬獎最佳女主角等八項入圍的《小雁與吳愛麗》，是導演林書宇執導的第五部劇情\n\
   長片，描寫小雁為了保護母親而過失弒父，被關八年之後成為更生人，出獄後回到小鎮上\n與母親相依為命。另一面一個叫Allie 的女子則是在城市裡試圖用表演課面對自己。\n\
   \n電影初看前半會以為是類似《雙面薇若妮卡》（The Double Life of Véronique）的面\n貌類似的雙生劇情架構，但這部片跟《雙面薇若妮卡》完全不一樣（先不爆雷）。因為《\n\

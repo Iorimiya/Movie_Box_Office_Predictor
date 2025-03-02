@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '在年假期間，終於有幸觀賞到了去年在金馬影展上錯過的一部法國片，《進化症候群》：
 
 
@@ -54,7 +53,7 @@ date: 2024-02-28
 reply_count: 9
 title: '[好雷] 進化症候群 零特效的奇幻版日麗'
 url: https://www.ptt.cc/bbs/movie/M.1709113328.A.857.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《進化症候群》稱霸凱薩獎 橫掃12項提名\n\n2024/01/26 05:30\n\n\n奇幻電影《進化症候群》以最佳影片、導演等12項大獎成為本屆凱薩獎入圍大贏家，片中\n\
   父子羅曼杜里斯（左）和保羅基歇爾分別角逐影帝和最佳新人男演員。\n（CATCHPLAY+提供）\n\n〔記者許世穎／綜合報導〕第49屆法國凱薩獎前天公布入圍名單，導演托馬斯卡耶執導的\n\
   奇幻電影《進化症候群》以最佳影片、導演等12項大獎成為入圍大贏家，片中飾演父子的\n男星羅曼杜里斯和保羅基歇爾分別入圍最佳男主角及最佳新人男演員。羅曼開心表示：「\n\
@@ -65,7 +64,7 @@ date: 2024-01-26
 reply_count: 4
 title: '[新聞] 《進化症候群》稱霸凱薩獎 橫掃12項提名'
 url: https://www.ptt.cc/bbs/movie/M.1706280969.A.2A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '11.24上映那天還有在威秀官網看到桃園統領有場次
 
   今天再看已沒有了 整部電影都看不到

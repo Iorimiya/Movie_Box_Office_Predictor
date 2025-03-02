@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '前文刪除部分雷
 
   中間還有一篇的推文超好笑，阿杜跟車底XD
@@ -34,7 +33,7 @@ date: 2023-11-26
 reply_count: 8
 title: ［閒聊］車頂上的玄天上帝
 url: https://www.ptt.cc/bbs/movie/M.1700997233.A.532.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -96,7 +95,7 @@ date: 2023-11-11
 reply_count: 2
 title: '[新聞] 「車頂上的玄天上帝」嘉義首映，9 神尊進'
 url: https://www.ptt.cc/bbs/movie/M.1699698962.A.A96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請教各位，
 
   《車頂上的玄天上帝》轉眼已經半年多了，
@@ -111,7 +110,7 @@ date: 2024-07-16
 reply_count: 16
 title: '[請益] 《車頂上的玄天上帝》的觀賞平台？'
 url: https://www.ptt.cc/bbs/movie/M.1721108192.A.EAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -196,7 +195,7 @@ date: 2023-12-21
 reply_count: 9
 title: '[負雷]車頂上的玄天上帝'
 url: https://www.ptt.cc/bbs/movie/M.1703170785.A.B3B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -286,7 +285,7 @@ date: 2023-11-29
 reply_count: 16
 title: '[負雷] 車頂上的玄天上帝 '
 url: https://www.ptt.cc/bbs/movie/M.1701264576.A.339.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -361,7 +360,7 @@ date: 2023-11-23
 reply_count: 99
 title: '[雷] 車頂上的玄天上帝'
 url: https://www.ptt.cc/bbs/movie/M.1700668978.A.380.html
---- !!python/object:movie_data.PublicReview
+---
 content: "金馬60／《車頂上的玄天上帝》首映 阮經天周渝民林依晨現身粉絲樂\n   江昭倫\n\n電影美術大師黃文英首部執導的電影作品《車頂上的玄天上帝》，9日在金馬影展舉行開\n\
   幕首映，黃文英偕同主角林依晨、阮經天、周渝民一起出席，惹來粉絲不少尖叫聲。黃文\n英表示，這是一部跨三代信仰傳承的故事，也有她自己家族的經歷在其中，希望帶給觀眾\n\
   遇見更好的自己。\n\n《車頂上的玄天上帝》是導演侯孝賢御用美術指導黃文英首部自編自導的電影長片，描寫\n一名徬徨於情場與職場、家庭之間的女子，在返鄉照顧病重父親，回憶起兒時與阿公相處\n\
@@ -379,7 +378,7 @@ date: 2023-11-10
 reply_count: 24
 title: '[新聞] 金馬60／《車頂上的玄天上帝》首映周渝民'
 url: https://www.ptt.cc/bbs/movie/M.1699581981.A.B3B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -444,7 +443,7 @@ date: 2022-08-18
 reply_count: 47
 title: '[新聞] 林依晨《車頂上的玄天上帝》爆欠薪　監製'
 url: https://www.ptt.cc/bbs/movie/M.1660807730.A.BE0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '身為一個家裡有供奉帝爺公的嘉義人，當初看到這個部片多半皆在嘉義取景以及片名時就
 
   非常有興趣，還特地安排在回嘉義時進電影院觀賞。
@@ -545,7 +544,7 @@ date: 2023-12-25
 reply_count: 45
 title: '[ 雷] 車頂上的玄天上帝'
 url: https://www.ptt.cc/bbs/movie/M.1703476831.A.23E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我本來很不想看這片的
 
   要不是中山73有免費場

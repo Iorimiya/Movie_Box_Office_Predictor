@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "山崎艾瑪臥底小學 揭露《日本人的養成》\n\n04:10 2024/09/18 中國時報 李承陽\n\n\n導演山崎艾瑪本身是英日混血，對日本社會的獨特性十分感興趣。（海鵬提供）\n\
   \n紀錄電影《日本人的養成》是日本女導演山崎艾瑪的最新作品，由於對日本人的性格特質\n感到強烈興趣，山崎艾瑪鎖定了日本最大公立小學、全校擁有將近1000名學生的東京塚戶\n\
   小學進行拍攝，並以1整個學年的時間，親密捕捉該校一年級和六年級學生的童年魔力，\n觀察他們是如何學習並開始具備成為日本社會一份子應有的特質。\n\n從小在大阪長大的山崎艾瑪，本身是英日混血，她對日本社會的獨特性十分感興趣，認為\n\
@@ -10,7 +9,7 @@ date: 2024-09-18
 reply_count: 7
 title: '[新聞] 山崎艾瑪臥底小學 揭露《日本人的養成》'
 url: https://www.ptt.cc/bbs/movie/M.1726671951.A.420.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從學校開始的小社會，日本小學的教育探索
 
 
@@ -261,7 +260,7 @@ date: 2024-11-03
 reply_count: 3
 title: '[普雷]《日本人的養成》日本小學教育紀實'
 url: https://www.ptt.cc/bbs/movie/M.1730649344.A.D25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

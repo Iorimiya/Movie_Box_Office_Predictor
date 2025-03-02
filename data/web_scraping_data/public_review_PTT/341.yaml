@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '短評：可愛繪本畫風，全片無台詞，注重於描述情感
 
   評分：★★★ 7 / 10
@@ -63,7 +62,7 @@ date: 2024-03-20
 reply_count: 7
 title: '[好雷] 《再見機器人》：無台詞的情感描繪'
 url: https://www.ptt.cc/bbs/movie/M.1710918621.A.15C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【再見機器人】講述狗狗不耐寂寞，買了一隻機器人作伴。兩人一起度過快樂時光，卻因
 
   為一場意外被迫分離。他們在無盡的等待中期盼著重逢的一天。
@@ -186,7 +185,7 @@ date: 2024-03-03
 reply_count: 28
 title: '[好雷] 【再見機器人】真的是心臟爆擊'
 url: https://www.ptt.cc/bbs/movie/M.1709454734.A.72C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '友誼的盡頭？狗狗與他的機器人朋友
 
 
@@ -419,7 +418,7 @@ date: 2024-02-22
 reply_count: 4
 title: '[好雷] 《再見機器人》再見／再也不見'
 url: https://www.ptt.cc/bbs/movie/M.1708607100.A.FFA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '■ 再見機器人
 
 
@@ -547,7 +546,7 @@ date: 2024-02-23
 reply_count: 20
 title: '[ 好雷] 《再見機器人》只為成就更好的我們'
 url: https://www.ptt.cc/bbs/movie/M.1708685274.A.61F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '相遇、離別與祝福—再見機器人
 
 
@@ -706,7 +705,7 @@ date: 2024-05-04
 reply_count: 17
 title: '[感動雷] 再見機器人 robot dreams'
 url: https://www.ptt.cc/bbs/movie/M.1714829691.A.CE4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -804,7 +803,7 @@ date: 2024-03-11
 reply_count: 16
 title: '[好雷] 再見機器人'
 url: https://www.ptt.cc/bbs/movie/M.1710114282.A.7EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《再見機器人》8/10分 無雷心得
 
 
@@ -895,7 +894,7 @@ date: 2024-03-01
 reply_count: 17
 title: '[好無雷] 再見機器人 - 請找人一起陪你看吧 :''('
 url: https://www.ptt.cc/bbs/movie/M.1709273384.A.910.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒有想到一部沒台詞的電影，帶來的感受卻如同千言萬語般，那些放心裡的回憶，已經被
 
   它悄悄地轉譯成幸福。
@@ -1030,7 +1029,7 @@ date: 2024-03-02
 reply_count: 3
 title: '[好雷] 《再見機器人》得到幸福前，得先學會祝'
 url: https://www.ptt.cc/bbs/movie/M.1709354346.A.C87.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌版
 
 
@@ -1079,7 +1078,7 @@ date: 2024-06-26
 reply_count: 16
 title: '[好雷] Robot Dreams 再見機器人'
 url: https://www.ptt.cc/bbs/movie/M.1719354601.A.510.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n《再見機器人》 有雷影評\n\
   \n▋愛情？友情？機器人跟狗狗之間難以定義的一段情\n\n除了「很好哭」之外，電影到底講述的是哪一種關係，是最大的討論重點。我認為本片單\n純的在講一種「依賴」關係，如果用愛情三元素來分析，那大概就是有承諾、親密的「友\n\
@@ -1106,7 +1105,7 @@ date: 2024-03-06
 reply_count: 10
 title: '[好雷]《再見機器人》除了很好哭之外'
 url: https://www.ptt.cc/bbs/movie/M.1709734838.A.A65.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看再見機器人，意外發現因為6/1是海灘開放的日子，所以買票有送可愛的小卡片
 
   ！
@@ -1132,7 +1131,7 @@ date: 2024-06-01
 reply_count: 26
 title: '[討論] 再見機器人劇情討論'
 url: https://www.ptt.cc/bbs/movie/M.1717251387.A.FA0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在颱風天的晚上，
 
   跟孩子們一起看了這部，
@@ -1302,7 +1301,7 @@ date: 2024-07-26
 reply_count: 4
 title: '[雷] 再見機器人'
 url: https://www.ptt.cc/bbs/movie/M.1721995951.A.7CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1536,7 +1535,7 @@ date: 2024-12-12
 reply_count: 43
 title: '[普雷] 再見機器人 - 自己也沒付出那麼多就別哭'
 url: https://www.ptt.cc/bbs/movie/M.1734014378.A.CCE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以前皮克斯電影開始之前，都會有一段小短片，和正片內容未必相關，甚至畫風也大相徑
 
   庭，但非常真誠可愛，不用 10 分鐘就能說好一個故事，《再見機器人》讓我想起這種純
@@ -1670,7 +1669,7 @@ date: 2024-03-25
 reply_count: 12
 title: '[好雷] 再見機器人'
 url: https://www.ptt.cc/bbs/movie/M.1711375908.A.762.html
---- !!python/object:movie_data.PublicReview
+---
 content: '翻到相簿發現再見機器人上映快滿一週年
 
   當時得知這是一部沒有任何一句台詞的動畫 猶豫了一下
@@ -1733,7 +1732,7 @@ date: 2025-02-07
 reply_count: 21
 title: '[心得] 再見機器人'
 url: https://www.ptt.cc/bbs/movie/M.1738910999.A.FAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《再見機器人》（Robot Dreams）由西班牙及法國團隊共製，是一部充滿細節的動畫電影
 
   ，在2022年11月於金馬影展首次上映時，在影迷間蔚為風潮、有口皆碑，並由片商「 東
@@ -1986,7 +1985,7 @@ date: 2024-03-01
 reply_count: 34
 title: '[好雷] 討論《再見機器人》中所隱含的一些巧思'
 url: https://www.ptt.cc/bbs/movie/M.1709276110.A.6E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是
 
   再見，機器人
@@ -2302,7 +2301,7 @@ date: 2024-03-04
 reply_count: 11
 title: '[好雷] 再見機器人'
 url: https://www.ptt.cc/bbs/movie/M.1709487891.A.1A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2453,7 +2452,7 @@ date: 2025-01-24
 reply_count: 2
 title: '[心得雷]《再見機器人》 '
 url: https://www.ptt.cc/bbs/movie/M.1737706887.A.FA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -2583,7 +2582,7 @@ date: 2024-02-23
 reply_count: 10
 title: '[好雷]《再見機器人》，緣分是遇時說感謝，散긠'
 url: https://www.ptt.cc/bbs/movie/M.1708665926.A.605.html
---- !!python/object:movie_data.PublicReview
+---
 content: "內文有雷且具個人觀點，推薦觀影後再讀。\n\n　　　　本片目前場次有限，有意還請把握。\n\n\n\n　　　　圖文網頁版：\n\n　　　　\n\n\
   \n　　　　預告片：\n\n　　　　\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n最終是漫長的告別：《再見機器人》\n\n\n\n\n\n　　動畫電影《再見機器人》（英文原名《Robot Dreams》）改編自兒童圖\n\n文作家莎拉．維倫（Sara\
@@ -2606,7 +2605,7 @@ date: 2024-03-21
 reply_count: 37
 title: '[好雷] 最終是漫長的告別：《再見機器人》'
 url: https://www.ptt.cc/bbs/movie/M.1711032770.A.5EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "與網路上很多的分享不同的是，在看這部電影的過程中，鬱悶感揮之不去，一路陪伴我到演\n員名單，這種不適感也許比機器人陪伴狗還久還深刻。\n（以下有雷）\n\
   \ \n（以下有雷）\n \n（以下有雷）\n \n在看電影前，我抱持著很大的期待，正值跟朋友分離的季節，我帶足面紙準備好好感受一下\n，但事情跟我在網路上看看影評標題所預期的不同。\n\
   一直以為這是一部描寫一對朋友經歷刻骨回憶後，遭遇客觀無法挽回（例如機器老舊）的事\n實，不得不在耗盡辦法後仍得放手的故事。\n \n但是事情就是有個but…\n\
@@ -2628,7 +2627,7 @@ date: 2024-04-07
 reply_count: 9
 title: '[好雷] 「再見機器人」 人的感情來自選擇'
 url: https://www.ptt.cc/bbs/movie/M.1712468012.A.21B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天聽人家說再見機器人很好看
 
   很感人，很多人看到哭
@@ -2706,7 +2705,7 @@ date: 2024-09-19
 reply_count: 10
 title: '[普雷]  再見機器人'
 url: https://www.ptt.cc/bbs/movie/M.1726748922.A.3A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '——————以下無雷———————
 
   沒想到2024年
@@ -3051,7 +3050,7 @@ date: 2024-05-16
 reply_count: 8
 title: '[雷] #好雷 再見機器人：我們都在道別中學會長'
 url: https://www.ptt.cc/bbs/movie/M.1715801635.A.BFB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: bestcheer (原諒我飛) 看板: Lifeismoney\n標題: [情報] 線上免費看再見機器人親愛的房客等五部\n時間: Tue\
   \ Nov  5 15:37:15 2024\n\n\n\nFacebook看到與Giloo合作的活動：\n\ndato 策展：「這個片名有聲音」\n\n懶人包：點以下連結之後可以兌換五部電影免費30天觀賞（需有Giloo會員）\n\
   兌換期限：即起至 2025-5-31\n\n再見機器人、燕尾蝶、親愛的房客、東尼瀧谷：數位經典版、愛在暹羅\n\n\n\n\n\n\nFacebook粉專原文連結：\n\
@@ -3075,7 +3074,7 @@ date: 2024-11-05
 reply_count: 12
 title: 'Fw: [情報] 線上免費看再見機器人親愛的房客等五部'
 url: https://www.ptt.cc/bbs/movie/M.1730796972.A.896.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3164,7 +3163,7 @@ date: 2024-07-30
 reply_count: 19
 title: '[好雷] 再見機器人 會分開是不是因為不夠努力'
 url: https://www.ptt.cc/bbs/movie/M.1722319319.A.782.html
---- !!python/object:movie_data.PublicReview
+---
 content: '再見機器人其實去年就上映了
 
   9/21內惟電影院有特別放映場

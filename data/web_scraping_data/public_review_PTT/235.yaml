@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -198,7 +197,7 @@ date: 2023-12-10
 reply_count: 41
 title: '[好雷]小曉'
 url: https://www.ptt.cc/bbs/movie/M.1702195998.A.878.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -267,7 +266,7 @@ date: 2024-03-05
 reply_count: 1
 title: 'Re: [負雷] 小曉 太刻板'
 url: https://www.ptt.cc/bbs/movie/M.1709628209.A.7BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我要來逆風發負雷
 
   雖然想了很久，是得感謝製片方完成了這部電影
@@ -810,7 +809,7 @@ date: 2023-12-14
 reply_count: 199
 title: '[負雷] 小曉 太刻板'
 url: https://www.ptt.cc/bbs/movie/M.1702496170.A.67A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文吃光
 
 
@@ -868,7 +867,7 @@ date: 2023-12-10
 reply_count: 10
 title: 'Re: [  雷] 小曉裡面的小小疑惑'
 url: https://www.ptt.cc/bbs/movie/M.1702216984.A.906.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看旺卡的時候看到小曉的預告片
 
 
@@ -913,7 +912,7 @@ date: 2023-12-07
 reply_count: 24
 title: '[討論] 鄉民會去看小曉嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1701952447.A.7F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有別於近期幾部上映的華語片，
 
   或多或少都能在結尾留下救贖/希望，
@@ -945,7 +944,7 @@ date: 2023-12-09
 reply_count: 22
 title: '[無雷] 小曉'
 url: https://www.ptt.cc/bbs/movie/M.1702136071.A.7E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去年底沒有到戲院看小曉，直到這周才用Hami Video看。有個地方看不太懂，就是保羅老
 
   師叫小曉不要綁紫色髮帶玩騷癢的那段，讓我覺得是不是母女都愛上老師，還是老師愛上
@@ -963,7 +962,7 @@ date: 2024-05-11
 reply_count: 5
 title: '[請益] 小曉的保羅老師到底是什麼樣的人'
 url: https://www.ptt.cc/bbs/movie/M.1715422575.A.DBD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1004,7 +1003,7 @@ date: 2023-12-10
 reply_count: 37
 title: '[  雷] 小曉裡面的小小疑惑'
 url: https://www.ptt.cc/bbs/movie/M.1702208685.A.425.html
---- !!python/object:movie_data.PublicReview
+---
 content: '週日抽空去看了小曉本來還要看老狐狸的
 
 
@@ -1085,7 +1084,7 @@ date: 2023-12-12
 reply_count: 3
 title: '[好雷] 小曉'
 url: https://www.ptt.cc/bbs/movie/M.1702381665.A.078.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1546,7 +1545,7 @@ date: 2023-12-20
 reply_count: 21
 title: '[有雷] 長篇心得 富都/小曉/年少日記/老狐狸/BIG'
 url: https://www.ptt.cc/bbs/movie/M.1703087344.A.EBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1696,7 +1695,7 @@ date: 2023-12-10
 reply_count: 41
 title: '[雷] 小曉'
 url: https://www.ptt.cc/bbs/movie/M.1702142024.A.F14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文吃掉
 
 
@@ -1757,7 +1756,7 @@ date: 2023-12-11
 reply_count: 16
 title: 'Re: [  雷] 小曉裡面的小小疑惑'
 url: https://www.ptt.cc/bbs/movie/M.1702274714.A.1F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '主角小曉是過動兒
 
   注意力不易集中、活動量過多、行為衝動
@@ -1864,7 +1863,7 @@ date: 2023-12-10
 reply_count: 1
 title: '[好雷] 小曉 '
 url: https://www.ptt.cc/bbs/movie/M.1702222587.A.E74.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1974,7 +1973,7 @@ date: 2022-11-17
 reply_count: 1
 title: '[新聞] 煞塵爆 小曉 CATCHPLAY 項目發表會新作'
 url: https://www.ptt.cc/bbs/movie/M.1668666312.A.7A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '曉珊當時應該不知道保羅老師住小曉家吧？我想也無從陷害起。
 
 
@@ -1992,7 +1991,7 @@ date: 2023-12-11
 reply_count: 33
 title: 'Re: [  雷] 小曉裡面的小小疑惑'
 url: https://www.ptt.cc/bbs/movie/M.1702281655.A.B62.html
---- !!python/object:movie_data.PublicReview
+---
 content: "內文有雷且具個人觀點，推薦觀影後再讀。\n\n　　　　本片目前場次極少，有意還請把握。\n\n\n\n　　　　圖文網頁版：\n\n　　　　\n\n\
   \n　　　　預告片：\n\n　　　　\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\
   \n\n\n\n當自由成為囹圄：《小曉》\n\n\n\n　　《老狐狸》的廖界夾在父親與謝老闆兩種不同的關愛與價值觀之間，他\n\n能有所選擇；由靳家驊自編自導的台灣電影《小曉》裡，主角周小曉（林品\n\
@@ -2039,7 +2038,7 @@ date: 2024-02-18
 reply_count: 10
 title: '[好雷] 當自由成為囹圄：《小曉》'
 url: https://www.ptt.cc/bbs/movie/M.1708229774.A.955.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【系列講座】首部電影長片之路
 
 
@@ -2081,7 +2080,7 @@ date: 2024-06-02
 reply_count: 2
 title: '[情報] 首部電影長片之路講座：《小曉》《小藍》'
 url: https://www.ptt.cc/bbs/movie/M.1717329255.A.AAE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2138,7 +2137,7 @@ date: 2024-05-15
 reply_count: 19
 title: '[好雷]小曉：家長該如何做才是最好的？'
 url: https://www.ptt.cc/bbs/movie/M.1715765471.A.3BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《小曉》《年少》同檔上映 林品彤對決黃梓樂\n\n04:10 2023/12/07 中國時報 李承陽\n\n\n12歲林品彤在電影《小曉》裡表現精采，一舉奪下金馬影后。（CATCHPLAY提供）\n\
   \n\n11歲黃梓樂主演《年少日記》入圍金馬獎最佳男配角獎。（光年映畫提供）\n\n12歲林品彤打破金馬影史紀錄，主演電影《小曉》成為新科金馬影后，電影8日上映，與\n\
   另1部奪下金馬獎最佳新導演的香港電影《年少日記》同檔對決，《年少日記》由「香港\n最強童星」黃梓樂主演，不僅上演天才小演員的演技比拚，兩部片也都深刻探討家庭議題\n\
@@ -2152,7 +2151,7 @@ date: 2023-12-07
 reply_count: 19
 title: '[新聞] 《小曉》《年少》同檔上映 林品彤對決黃梓樂'
 url: https://www.ptt.cc/bbs/movie/M.1701962640.A.830.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》正式預告\n\n\n\n你以為你是誰啊，為什麼全世界都要這樣陪你玩\n\n金馬獎７項大獎  提名\n\n最佳原著劇本\n最佳女主角－\n最佳女配角－\n\
   \n金獎監製  金獎新銳導演 \n\n聯手打造剖析女性心理最細膩的電影\n\n《》故事描述小曉( 飾)是一位活在自己世界的女孩，因為一個令人揪心的秘\n密，她在學校被同學霸凌孤立，媽媽薇芳(\
   \ 飾)也視她為麻煩，在國外長期工作的\n爸爸更像既熟悉又遙遠的陌生人，唯有班導保羅( 飾)彷彿能理解並舒緩她的情緒\n。\n\n一次颱風天下課，小曉目睹了媽媽與班導的秘密，困惑的她不僅必須強迫自己適應這個複\n\
@@ -2162,7 +2161,7 @@ date: 2023-10-04
 reply_count: 9
 title: '[情報] 陳意涵 林品彤 劉俊謙《小曉》正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1696420775.A.504.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新 增 上 映 戲 院
 
 
@@ -2207,7 +2206,7 @@ date: 2023-12-16
 reply_count: 2
 title: '[情報] 《小曉》全台新增８家上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1702741904.A.4C9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2312,7 +2311,7 @@ date: 2023-12-11
 reply_count: 4
 title: '[普偏好雷] 小曉Trouble Girl'
 url: https://www.ptt.cc/bbs/movie/M.1702262872.A.957.html
---- !!python/object:movie_data.PublicReview
+---
 content: "好看 教育發人省思 影后實至名歸\n\n老師的教育技巧好棒\n\n亦是最大的苦主\n\n在母女吵架時他先在媽媽權威管教小曉\n\n再軟化安撫\n\
   \n在恐龍家長面前 稱讚對方女兒優秀 不用管教 家長馬上開心起來\n\n\n其中比較不懂的是聰明的女學生 突然翻臉的時間線 是小曉告密前 還是後\n\n比較合裡的是\
   \ 小曉還是比較喜歡父親 不希望跟他分離 所以告密學校在先\n\n然後保羅就被學校處置了 聰明喜歡保羅而假意接近小曉的女同學\n\n知曉保羅要離校後 就直接跟小曉翻臉了\
@@ -2325,7 +2324,7 @@ date: 2024-05-12
 reply_count: 7
 title: '[好雷] 小曉 時間線的問題 '
 url: https://www.ptt.cc/bbs/movie/M.1715502633.A.CE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -2478,7 +2477,7 @@ date: 2023-12-12
 reply_count: 19
 title: '[普雷] 《小曉》，好想好好愛妳。'
 url: https://www.ptt.cc/bbs/movie/M.1702348548.A.BA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首爾之春 小曉 飢餓遊戲
 
   想選一片看
@@ -2511,7 +2510,7 @@ date: 2023-12-17
 reply_count: 63
 title: '[選片] 首爾之春 小曉 飢餓遊戲'
 url: https://www.ptt.cc/bbs/movie/M.1702772581.A.CB9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '時間有限，無法三部都進戲院～
 
 
@@ -2527,7 +2526,7 @@ date: 2023-12-11
 reply_count: 113
 title: '[選片] 小曉、富都青年、老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1702261525.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

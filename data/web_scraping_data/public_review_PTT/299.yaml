@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -116,7 +115,7 @@ date: 2024-01-04
 reply_count: 7
 title: '[新聞] 米高肯恩透過【一個人的逃亡】息影吐心聲'
 url: https://www.ptt.cc/bbs/movie/M.1704383009.A.9B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛剛看完電影，\n亞瑟跟伯納在巴約公墓時所唸的詩，\n有沒有人知道那首詩的標題是什麼？\n想知道全文但是搜尋不到QQ\n也忘記詩人名字是什麼，\n\
   求大神解惑QAQ\n \n題外\n這部片真的很吃觀眾水準\n每每劇情高潮\n堆疊起的情感準備拿衛生紙哭時\n就聽到其他觀眾聊天的聲音\n重點聊天內容還跟電影無關\n\
   氣死= =\n情緒一直被打斷\n超想站起來罵人\n看電影不說話就那麼要命嗎\n我在台南真善美影院看的\n \n--\n\n\n謝謝你!!!!!\n我看17:25的場\
@@ -126,7 +125,7 @@ date: 2024-01-27
 reply_count: 12
 title: '[請益] 《一個人的逃亡》當真的詩？'
 url: https://www.ptt.cc/bbs/movie/M.1706360505.A.375.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -287,7 +286,7 @@ date: 2024-01-19
 reply_count: 14
 title: '[好雷]《一個人的逃亡》，偉大的逃亡者與他的愛'
 url: https://www.ptt.cc/bbs/movie/M.1705636164.A.481.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -459,7 +458,7 @@ date: 2024-01-26
 reply_count: 21
 title: '[好雷] 一個人的逃亡'
 url: https://www.ptt.cc/bbs/movie/M.1706245223.A.8FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '板上已經有兩篇文筆優美的分享
 
   有關劇情內容就不贅述
@@ -622,7 +621,7 @@ date: 2024-01-26
 reply_count: 9
 title: '[好雷] 一個人的逃亡'
 url: https://www.ptt.cc/bbs/movie/M.1706255422.A.154.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -742,7 +741,7 @@ date: 2024-01-17
 reply_count: 1
 title: '[新聞] 金獎男女得主【一個人的逃亡】47年再結緣'
 url: https://www.ptt.cc/bbs/movie/M.1705501028.A.F2A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一趟48小時的出走，見證感人至深的相守
 
   【一個人的逃亡】2024年1月19日 感動上映

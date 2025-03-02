@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '最新動作電影《》
 
 
@@ -33,7 +32,7 @@ date: 2024-06-05
 reply_count: 10
 title: '[情報] 河正宇 最新動作電影 亡命機劫 正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1717542778.A.D12.html
---- !!python/object:movie_data.PublicReview
+---
 content: "第三部進電影院看的韓國電影\n撇除類型，單看個人滿足度的話\n破墓>白頭山>亡命機劫\n\n首先想提一個小疑問\n大家看的片頭韓文字卡是不是都沒有中文字幕？\n\
   我這場看是沒有的\n所以我直到片尾才知道這是真人真事改編\n如果提早知道的話，我覺得觀影的氛圍會更好一點\n\n會這樣說主要是針對情節編排\n我覺得短促或重複的事件太多了\n\
   然後一些危機事件的後續影響有點小（EX:人物受傷）\n感覺好像拿東西綁一綁就沒事了\n\n但如果有先知道是史實改編\n那為了把實際的事件串起來，就有可能這樣安排\n\
@@ -44,7 +43,7 @@ date: 2024-06-23
 reply_count: 69
 title: '[普微雷] 亡命機劫'
 url: https://www.ptt.cc/bbs/movie/M.1719115776.A.983.html
---- !!python/object:movie_data.PublicReview
+---
 content: "亡命機劫：\n1.改編自韓國航空真實故事。\n2.標準的劫機劇情片，沒有太大的爆點，但也不會沉悶，還是有合理的劇情主軸。\n3.飛機盤旋、戰鬥的畫面做得很流暢，不會讓人感到CG動畫的虛假感。韓國電影產業技術確實成熟。\n\
   4.喜歡河正宇，不知道看什麼電影？亡命機劫是可以選擇的劫機劇情片。\n-----\nSent from JPTT on my iPhone\n\n--\n  \
   \   女生走路要慢慢走 搖曳生姿\n\n                       那遇到趕火車怎麼辦\n\n                      \
@@ -53,7 +52,7 @@ date: 2024-06-21
 reply_count: 47
 title: '[無雷] 亡命機劫'
 url: https://www.ptt.cc/bbs/movie/M.1718972725.A.244.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'RT
 
 
@@ -80,7 +79,7 @@ date: 2024-06-22
 reply_count: 23
 title: '[選片] 黑水巷vs亡命機劫vs救援生死線'
 url: https://www.ptt.cc/bbs/movie/M.1718987442.A.B44.html
---- !!python/object:movie_data.PublicReview
+---
 content: "已看完覺得不錯\n\n雖然整體劇情如同預告片一樣\n\n但他可不是簡單的劫機\n\n人物的描述，該有的都有點到為止\n\n真人真事改編，如果副機長真的是\n\
   \n用肉身擋炸彈的話，不得不佩服他\n\n我還以為這只是美國隊長才會有\n\n還有一點點空戰感，推薦大家可以看\n\n\n\n\n--\nTo 沉默的小天使:\
   \ 哈囉  沉默小天使 [08/30/2022 17:33:23]\n [08/30/2022 17:33:28]\nTo 沉默的小天使: 你不能回我啊  你要沉默\
@@ -89,7 +88,7 @@ date: 2024-06-22
 reply_count: 6
 title: '[ 好雷] 玩命機劫'
 url: https://www.ptt.cc/bbs/movie/M.1719052831.A.4E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'F-5 老虎 在台海上空捍衛近60年
 
 
@@ -150,7 +149,7 @@ date: 2024-06-22
 reply_count: 19
 title: '[  好雷]  亡命機劫'
 url: https://www.ptt.cc/bbs/movie/M.1719032161.A.277.html
---- !!python/object:movie_data.PublicReview
+---
 content: '全能歐爸 最新動作電影【】
 
 

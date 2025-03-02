@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -116,7 +115,7 @@ date: 2024-05-30
 reply_count: 4
 title: '[新聞] 【分期付款愛上你】觀眾盛讚「超出預期」'
 url: https://www.ptt.cc/bbs/movie/M.1717071847.A.810.html
---- !!python/object:movie_data.PublicReview
+---
 content: '情報出處：
 
 
@@ -220,7 +219,7 @@ date: 2024-06-12
 reply_count: 1
 title: '[情報]【分期付款愛上你】學生搶先看浪漫登場 '
 url: https://www.ptt.cc/bbs/movie/M.1718206811.A.109.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 

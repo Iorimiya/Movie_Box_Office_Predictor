@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '吳宇森把太平輪拍的有些無語
 
   相較於鐵達尼號
@@ -39,7 +38,7 @@ date: 2017-06-05
 reply_count: 5
 title: 'Re: [討論] 大家期待蔡康永第二部電影拍哪種片型??'
 url: https://www.ptt.cc/bbs/movie/M.1496650860.A.7DC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -79,7 +78,7 @@ date: 2023-07-26
 reply_count: 8
 title: '[新聞] 罷工持續進行！《沙丘：第二部》再傳考慮'
 url: https://www.ptt.cc/bbs/movie/M.1690384991.A.990.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我對星際大戰當中原力的使用 覺得蠻納悶的一點
 
 
@@ -106,7 +105,7 @@ date: 2015-12-25
 reply_count: 53
 title: 'Re: [討論] 星戰第二部劇末對決橋段 (雷)'
 url: https://www.ptt.cc/bbs/movie/M.1451014497.A.DB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "果然其他地方的imax還是跟美麗華差太多\n2024的第一個遺憾：沒能去美麗華看沙丘第二部\n \n \n \n防雷\n \n \n \n \n\
   \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
   \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n首先恭喜丹尼哥又完成人生一大成就\n無論如何能把重磅級的小說成功改造成電影\n\
@@ -127,7 +126,7 @@ date: 2024-03-02
 reply_count: 71
 title: '[  雷] 沙丘：第二部 弗瑞曼人 我的超人'
 url: https://www.ptt.cc/bbs/movie/M.1709347899.A.BDF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇場版動畫《妄想學生會》第二部制作確定！2020年7月日本上映
 
 
@@ -178,7 +177,7 @@ date: 2019-12-08
 reply_count: 3
 title: '[情報] 劇場版動畫《妄想學生會》第二部制作確定'
 url: https://www.ptt.cc/bbs/movie/M.1575817284.A.B65.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果不是他們在那邊補完各自的背景故事
 
   我都忘掉他們誰是誰了
@@ -335,7 +334,7 @@ date: 2024-04-20
 reply_count: 26
 title: '[有雷] 反叛之月  第二部分嗯.....'
 url: https://www.ptt.cc/bbs/movie/M.1713616986.A.49A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "威秀資訊\n吉娃娃沙蟲．重返ＩＭＡＸ\n為大銀幕而生的【 #沙丘：第二部】\n 04/03起～ #IMAX 限量重映\n美麗華資訊\n【沙丘：第二部】\
   \ 04月03日起\n重返 IMAX挺v廳\n    場次今晚18點後開賣\n    實際開放場次以影城現場公告為主\n威秀要重新上映沙丘imax金剛沒有賣得那麼好嗎？\n\
   \n--"
@@ -343,7 +342,7 @@ date: 2024-04-01
 reply_count: 29
 title: '[討論] 沙丘：第二部威秀imax重新上映'
 url: https://www.ptt.cc/bbs/movie/M.1711946138.A.9F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "首先  這部有雷1跟2  劇透注意  沒看過2怕劇透也請先離開\n\n\n警告區  警告區  警告區\n\n警告區  警告區  警告區\n\n\
   警告區  警告區  警告區\n\n\n------------------------------------------\n\n\n真的是複製貼上的電影  超厲害XD\
   \  每一個片段都照抄\n\n但是第二集被第一集屌打到爆\n\n都是樂樂當主角然後被踢出  然後塑造一個北爛情緒  第一集是憂憂  第二集是焦焦\n\n然後接下來就是想辦法拖戲看怎麼扯\
@@ -388,7 +387,7 @@ date: 2024-06-29
 reply_count: 80
 title: '[微微好雷] 腦筋急轉彎1-比第二部好看0.03吧笑死'
 url: https://www.ptt.cc/bbs/movie/M.1719666908.A.8BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "首先，我是純電影觀眾，僅探討電影設定\n \n \n1）為什麼保羅沒有利用男爵？2）武力是否可以取得帝位？\n \n兩個問題一起講\n \n沙丘世界觀類似於中世紀，皇帝（或國王）的權威很大程度來源於貴族的承認\n\
   這也是為什麼皇帝必須有私軍薩督卡的原因，保護自己威懾貴族嘛\n平常皇帝貴族互不越線，貴族們承認皇帝統治的合法性，皇帝保證貴族們的利益和存續\n \n但今天你皇帝偷偷派私軍搞掉了一個公爵，其他貴族們（大氏族）會想，下一個是不是就是\n\
   我？\n一旦這件事被捅出來，貴族們會立刻不承認皇帝，然後發兵討伐，成功後就互打爭帝位\n \n和皇帝對峙時，保羅要葛尼發給大氏族們的訊息就是皇帝派私軍搞掉亞崔迪的事\n\
@@ -412,7 +411,7 @@ date: 2024-02-27
 reply_count: 28
 title: 'Re: [好雷] 沙丘：第二部  DUNE：PART TWO'
 url: https://www.ptt.cc/bbs/movie/M.1709042610.A.44C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '為什麼大衛芬奇經典電影《火線追緝令》(Se7en) 沒有續集？其實原本有第二部「Ei8ht
 
   」的計畫──
@@ -580,7 +579,7 @@ date: 2020-07-22
 reply_count: 35
 title: '[新聞] 大衛芬奇火線追緝令Se7en原有第二部Ei8ht'
 url: https://www.ptt.cc/bbs/movie/M.1595396991.A.431.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -706,7 +705,7 @@ date: 2024-03-10
 reply_count: 12
 title: '[普雷]《沙丘：第二部》集震撼與乏力'
 url: https://www.ptt.cc/bbs/movie/M.1710055005.A.4E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》
 
 
@@ -733,7 +732,7 @@ date: 2023-12-04
 reply_count: 69
 title: '[情報] 《沙丘：第二部》角色海報公布'
 url: https://www.ptt.cc/bbs/movie/M.1701623408.A.23E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -799,7 +798,7 @@ date: 2023-05-04
 reply_count: 8
 title: '[新聞] 《沙丘：第二部》釋出正式預告影片 今年 '
 url: https://www.ptt.cc/bbs/movie/M.1683132233.A.DB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛查了一下第一部分好歹還有21
 
   第二部分直接剩下17
@@ -814,7 +813,7 @@ date: 2024-04-19
 reply_count: 161
 title: '[討論] 反叛之月第二部 爛番茄17'
 url: https://www.ptt.cc/bbs/movie/M.1713520861.A.195.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘：第二部》 8/10分
 
 
@@ -924,7 +923,7 @@ date: 2024-02-27
 reply_count: 77
 title: '[好無雷] 《沙丘：第二部》磅礡場面教科書叻'
 url: https://www.ptt.cc/bbs/movie/M.1709032039.A.7A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好 最近看電影發覺很多三部曲系列電影
 
 
@@ -969,7 +968,7 @@ date: 2018-12-30
 reply_count: 307
 title: '[討論] 有哪些三部曲系列是第二部最佳的'
 url: https://www.ptt.cc/bbs/movie/M.1546139174.A.BB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網頁版點這裡：
 
 
@@ -1079,7 +1078,7 @@ date: 2024-04-01
 reply_count: 1
 title: '[好雷] 七重點再續科幻史詩鉅作《沙丘：第二部》'
 url: https://www.ptt.cc/bbs/movie/M.1711974048.A.4B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我應該也算投好雷\n\n但美中不足的部分就是 後段節奏太緊了\n\n我沒看過小說但有補油管上的劇情解說\n\n不確定電影改編多少\n\n================================\n\
   \n\n\n\n劇情缺憾\n1 準男爵反派鋪成蠻不夠的 \n除了更變態嗜血以外 實在看不出他有什麼資格\n取代拉班 （競技場三個亞崔迪兵 \n選一個最老最瘦弱的不下藥\
   \ 我有點傻眼）\n或是成為另一個奎薩茲哈德拉跟保羅競爭\n就是以優秀遺傳因子來看的話\n\n然後最後一場打鬥戲我也看不出保羅怎麼打贏的\n\n2 保羅的戰略看不懂\n\
@@ -1091,7 +1090,7 @@ date: 2024-02-27
 reply_count: 39
 title: 'Re: [好雷] 沙丘：第二部  DUNE：PART TWO'
 url: https://www.ptt.cc/bbs/movie/M.1709035743.A.03D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中國的商業大片「封神第二部」台灣已經有發行商～ “鴻聯國際” ，臉書上有消息說封
 
   神第一部會在1月3日在各大串流平台上架，而第二部也會安排戲院上映？？
@@ -1112,7 +1111,7 @@ date: 2024-12-26
 reply_count: 56
 title: '[討論] 封神第二部 台灣上映有望？'
 url: https://www.ptt.cc/bbs/movie/M.1735171325.A.210.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1158,7 +1157,7 @@ date: 2016-05-27
 reply_count: 4
 title: '[新聞] 湯姆福特第二部導演作品《夜行動物》上映'
 url: https://www.ptt.cc/bbs/movie/M.1464354775.A.C9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "★ 改編自法蘭克赫伯特備受讚譽的暢銷小說《沙丘》\n★ 萬眾矚目的史詩續作\n★ 電影預告：\n★【沙丘：第二部】[保護級] 2月27日 (週二)\
   \ 搶先口碑場 2月28日 (週三) 大銀幕敬\n請 期待\n2D·3D·IMAX·D-BOX·4DX·MX4D·Atmos·Dolby Cinema 同步上映\n\
   \n隨著獲獎無數的導演丹尼維勒納夫，著手拍攝改編自法蘭克赫伯特著名小說《沙丘》後，\n【沙丘：第二部】將繼續述說這個傳奇故事，並且擴大網羅全球知名演員陣容。這部由華\n\
@@ -1176,7 +1175,7 @@ date: 2024-02-20
 reply_count: 1483
 title: '[贈票] 【沙丘：第二部】 特映會搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1708437532.A.438.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為杜酷很強
 
   片中兩人打到一半
@@ -1225,7 +1224,7 @@ date: 2015-12-26
 reply_count: 4
 title: 'Re: [討論] 星戰第二部劇末對決橋段 (雷)'
 url: https://www.ptt.cc/bbs/movie/M.1451065642.A.C59.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這陣子因為星戰7的關係, 特地又再看了前6部.\n昨天看完第二部複製人, 在劇末尤達大師和杜庫男爵的對決有一些疑問...\n\n對決橋段最後,\
   \ 杜庫試圖使用原力讓重物落下, 攻擊倒地不起的歐比王和安納金,\n尤達為了保護他們2個, 錯失阻止杜酷離開的機會.\n\n但這邊有幾個奇怪的點:\n\n1.\
   \ 該橋段不久前, 歐比王、安納金、佩咪因追擊杜庫, 佩咪摔到地面,\n   安納金本想降落救佩咪, 被歐比王曉以大義說服追殺杜庫為重而作罷.\n   表示歐比王認為追擊杜庫比什麼都重要.\n\
@@ -1239,7 +1238,7 @@ date: 2015-12-25
 reply_count: 24
 title: '[討論] 星戰第二部劇末對決橋段 (雷)'
 url: https://www.ptt.cc/bbs/movie/M.1451012264.A.EE6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘第一部是很棒的電影，唯一讓我覺得有點遺憾的是，飾演荃妮的千黛亞表現出戲。
 
   千黛亞(辛蒂亞)在第一部最後才出現，她的表現與戲中其他人相較，有些格格不入。
@@ -1277,7 +1276,7 @@ date: 2023-07-04
 reply_count: 66
 title: 'Re: [新聞] 《沙丘：第二部》史詩級復仇之戰即將開打'
 url: https://www.ptt.cc/bbs/movie/M.1688441962.A.A69.html
---- !!python/object:movie_data.PublicReview
+---
 content: "恭喜以下幸運得獎人，可以搶先看【沙丘：第二部】試映會。\n將以站內信通知領獎事宜，請各位得獎者收到通知信後\n務必於2月23日12:00前回覆聯絡領獎事項，恕不接受逾期回覆。\n\
   \n 台北場\nCottonz\nbbhorse1131\nlilybeian\nderyi\nRikkaPoP\nyggdrasils\nchiyogga\n\
   bb901\nmiya0327\nMaInGou\n\n\n台中場\nqoo2002s\nvasknight\ntomedc14\nu981336\nnoahalice\n\
@@ -1288,7 +1287,7 @@ date: 2024-02-22
 reply_count: 90
 title: 'Re: [贈票] 【沙丘：第二部】 特映會搶先看 '
 url: https://www.ptt.cc/bbs/movie/M.1708532650.A.533.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n先講結論\n\n第二部比第一部好看\n\
   \n如果第一部是我會在電視上邊滑手機邊看的程度\n\n那第二部就是電視轉到會叫家人朋友一起來觀賞\n\n這樣的差異\n\n\n場面依然宏大，導演擅長的攝影依舊滿分\n\
@@ -1306,7 +1305,7 @@ date: 2024-02-27
 reply_count: 18
 title: '[好雷] 超出期待的沙丘第二部'
 url: https://www.ptt.cc/bbs/movie/M.1708971789.A.AF5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1424,7 +1423,7 @@ date: 2024-02-16
 reply_count: 172
 title: '[新聞]《沙丘:第二部》外媒好評爆棚：戰爭戲媲美《雙城奇謀》'
 url: https://www.ptt.cc/bbs/movie/M.1708055230.A.CF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1481,7 +1480,7 @@ date: 2024-09-02
 reply_count: 12
 title: '[普雷] 沙丘第二部'
 url: https://www.ptt.cc/bbs/movie/M.1725262300.A.67A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1526,7 +1525,7 @@ date: 2023-07-01
 reply_count: 62
 title: '[新聞] 《沙丘：第二部》史詩級復仇之戰即將開打'
 url: https://www.ptt.cc/bbs/movie/M.1688190244.A.61E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1622,7 +1621,7 @@ date: 2024-02-26
 reply_count: 34
 title: '[好雷] 沙丘第二部 北美口碑場'
 url: https://www.ptt.cc/bbs/movie/M.1708927784.A.E8E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "青埔新光參戰\n\n《沙丘：第二部》限時重返 Dolby Cinema\n4/3~4/11 每天一場\n\n立即購票 \n全台唯一 最頂尖影廳Dolby\
   \ Cinema就在 桃園青埔新光影城\n\n「Dolby Vision杜比視界」4K雙雷射HDR放映系統+「Dolby Atmos杜比全景聲」\n對比度高達驚人的100萬:1，相當於一般影院的500倍，\n\
   呈現從未曾在大銀幕上出現過的鮮明色彩。\n你手上的iPhone都已經有Dolby Vision杜比視界了，\n看電影為什麼不選一樣有杜比視界的「DolbyCinema杜比影院」。\n\
@@ -1632,7 +1631,7 @@ date: 2024-04-02
 reply_count: 3
 title: 'Re: [討論] 沙丘：第二部威秀美麗華imax重新上映'
 url: https://www.ptt.cc/bbs/movie/M.1712044185.A.B9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'The Hunger Games: Mockingjay Part 2 Official Trailer – “Welcome To The 76th
 
   Hunger Games”
@@ -1655,7 +1654,7 @@ date: 2015-10-07
 reply_count: 11
 title: '[新聞] 飢餓遊戲 最終章 正式版預告第二部'
 url: https://www.ptt.cc/bbs/movie/M.1444201674.A.DBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '英文
 
 
@@ -1677,7 +1676,7 @@ date: 2023-05-03
 reply_count: 72
 title: '[情報] 【沙丘：第二部】海報釋出'
 url: https://www.ptt.cc/bbs/movie/M.1683064459.A.E02.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《黑暗騎士》成《超人》後第二部獲美國電影保護局指定典藏英雄片！
 
 
@@ -1814,7 +1813,7 @@ date: 2020-12-16
 reply_count: 64
 title: '[新聞] 《黑暗騎士》成第二部美國電影保護局指定'
 url: https://www.ptt.cc/bbs/movie/M.1608048109.A.39A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '命運將至
 
 
@@ -1842,7 +1841,7 @@ date: 2024-01-25
 reply_count: 32
 title: '[情報] 【沙丘：第二部】 2/27搶先口碑場'
 url: https://www.ptt.cc/bbs/movie/M.1706155218.A.0F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -1930,7 +1929,7 @@ date: 2024-02-27
 reply_count: 40
 title: '[好雷] 沙丘：第二部  DUNE：PART TWO'
 url: https://www.ptt.cc/bbs/movie/M.1709008818.A.70B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '哇噢
 
   這是我看完的最直接心得
@@ -2162,7 +2161,7 @@ date: 2024-08-06
 reply_count: 20
 title: '[查克雷] 反逆之月 第二部導剪版'
 url: https://www.ptt.cc/bbs/movie/M.1722955500.A.E19.html
---- !!python/object:movie_data.PublicReview
+---
 content: "CINEMAX\n蝙蝠俠：漫長萬聖節第二部曲\n02-25(五) 22:00~23:30\n\n導演:\nChris Palmer\n配音:\n\
   傑森艾克斯 (Jensen Ackles)\n喬許杜哈莫 (Josh Duhamel)\nNaya Rivera\n\n\n----------------------------------------------------------------------------\n\
   CINEMAX\n黑暗騎士\n02-25(五) 23:30~01:55\n02-26(六) 11:25~13:50\n03-03(四) 00:20~02:45\n\
@@ -2174,7 +2173,7 @@ date: 2022-02-25
 reply_count: 4
 title: '[LIVE] 蝙蝠俠：漫長萬聖節_第二部曲'
 url: https://www.ptt.cc/bbs/movie/M.1645797216.A.CCB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n沙丘-第二部 (DUNE: PART TWO)\n電影-科幻神怪-英美\n08-31(六) 21:00~23:45\n09-01(日)\
   \ 08:55~11:35\n\n演員:\n提摩西夏勒梅 (Timothee Chalamet)\n辛蒂亞柯爾曼 (Zendaya Coleman)\n蕾貝卡弗格森\
   \ (Rebecca Ferguson)\n喬許布洛林 (Josh Brolin)\n奥斯汀巴特勒 (Austin Butler)\n佛蘿倫絲普伊 (Florence\
@@ -2185,7 +2184,7 @@ date: 2024-08-31
 reply_count: 109
 title: '[LIVE] HBO 21:00 沙丘-第二部 (DUNE: PART TWO)'
 url: https://www.ptt.cc/bbs/movie/M.1725096877.A.487.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一早投下震撼彈，
 
   原本佔盡IMAX檔期優勢，
@@ -2223,7 +2222,7 @@ date: 2023-08-25
 reply_count: 105
 title: '[情報]沙丘:第二部延期至2024年3月'
 url: https://www.ptt.cc/bbs/movie/M.1692916746.A.A45.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【沙丘】第二部
 
   蟬聯四週票房冠軍
@@ -2264,7 +2263,7 @@ date: 2024-03-25
 reply_count: 20
 title: '[分享] 【沙丘】第二部全台票房突破2億大關'
 url: https://www.ptt.cc/bbs/movie/M.1711333816.A.A26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【沙丘：第二部】全台票房突破一億
 
 
@@ -2297,7 +2296,7 @@ date: 2024-03-07
 reply_count: 27
 title: '[分享] 【沙丘：第二部】全台票房突破一億'
 url: https://www.ptt.cc/bbs/movie/M.1709798016.A.014.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完迫不及待來寫負評
 
   -
@@ -2407,7 +2406,7 @@ date: 2022-07-14
 reply_count: 15
 title: '[負雷] 魔女第二部曲 尷尬又拖戲'
 url: https://www.ptt.cc/bbs/movie/M.1657796333.A.514.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -2480,7 +2479,7 @@ date: 2021-08-13
 reply_count: 67
 title: 'Re: [新聞] 《黑暗騎士》成第二部美國電影保護局指定'
 url: https://www.ptt.cc/bbs/movie/M.1628846045.A.3F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "第一集《沙丘》上映時，影迷與書迷既期待又怕受傷害，一邊對 1984 年《沙丘魔堡》的\n窘境歷歷在目，明白這個 IP 太難駕馭，名導大衛林區也只能低頭、一邊對丹尼維勒納夫\n\
   改編文本的功力深具信心，拍攝融合科幻與人文的題材更是從未失手。\n\n.\n結果證明華納賭對了，丹尼維勒納夫道出屬於自己版本的《沙丘》，無懼疫情於全球寫下\n\
   \ 4.3 億美金的亮眼票房；《沙丘：第二部》儘管遭遇美國編劇與演員工會罷工、硬是延\n後半年才登場，仍收穫廣大好評，更盛讚本片足以名列影史偉大的第二集之林，宛如這個\n\
@@ -2506,7 +2505,7 @@ date: 2024-03-04
 reply_count: 56
 title: '[普雷] 沙丘：第二部'
 url: https://www.ptt.cc/bbs/movie/M.1709526521.A.B55.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧斯卡最佳影片通常都是歷史、傳記、戰爭、愛情、家庭片獲獎居多，很難得有奇幻/科幻電影獲最佳影片，記得上一部是魔戒3！！希望未來有更多類型的電影能獲獎。不知道英雄片會不會等到？！
 
   -----
@@ -2519,7 +2518,7 @@ date: 2018-03-06
 reply_count: 13
 title: '[討論] 90屆以來第二部奇幻/科幻奪最佳影片'
 url: https://www.ptt.cc/bbs/movie/M.1520273960.A.F75.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2566,7 +2565,7 @@ date: 2024-02-09
 reply_count: 60
 title: '[新聞] 春節後最大片！《沙丘：第二部》北美預售'
 url: https://www.ptt.cc/bbs/movie/M.1707466187.A.532.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在 2017 年以《樂來越愛你》獲得奧斯卡二度提名的加拿大演員 Ryan Gosling 在近年可
 
   以說是身價水漲船高，原本就已經擁有高度知名度的他接演了《銀翼殺手》睽違 35 年的
@@ -2648,7 +2647,7 @@ date: 2018-09-19
 reply_count: 9
 title: '[情報] 雷恩葛斯林已開始籌備第二部導演電影、Netflix 有意出資製作'
 url: https://www.ptt.cc/bbs/movie/M.1537365960.A.3A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好想在院線看一次4K修復1984年版
 
   不過應該沒希望了  Q Q
@@ -2710,7 +2709,7 @@ date: 2024-04-01
 reply_count: 12
 title: 'Re: [討論] 沙丘：第二部威秀美麗華imax重新上映'
 url: https://www.ptt.cc/bbs/movie/M.1711966644.A.8AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前導預告
 
 
@@ -2748,7 +2747,7 @@ date: 2023-05-03
 reply_count: 165
 title: '[情報]【沙丘：第二部】 預告片釋出'
 url: https://www.ptt.cc/bbs/movie/M.1683128817.A.33E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天下班跟同事挑了這部很紅的片看
 
 
@@ -2781,7 +2780,7 @@ date: 2017-06-03
 reply_count: 21
 title: '[無言負雷] 第二部看到睡著的電影-台北物語'
 url: https://www.ptt.cc/bbs/movie/M.1496468911.A.C86.html
---- !!python/object:movie_data.PublicReview
+---
 content: "基本上，第一部還挺適合沒看過漫畫的觀眾看的，不過第二部就不太行了。\n\n\n\n為什麼呢？\n\n我這樣說好了──改編自體對電影的完整性沒有瑕疵，甚至讓故事流暢性提高很多；\n\
   \n但是人物的靈魂就沒了描寫的時間。\n\n\n\n舉幾個例子，像是漫畫家角田、阿區、神仙、仁谷神父等人。\n\n少了他們背後的那一段背景，這些東西在兩小時塞滿的尺之內還是放不進去。\n\
   \n\n常盤莊的三位漫畫家一但沒了那份描寫，角田就只是個路過一起逃出去的犯人而已。\n\n阿區的泰國行本來就不太可能放進去，但這樣就讓阿區那份飽經風霜顯得減弱不少。\n\
@@ -2803,7 +2802,7 @@ date: 2009-05-28
 reply_count: 10
 title: '[好雷] 二十世紀少年 第二部──最後的希望'
 url: https://www.ptt.cc/bbs/movie/M.1243493521.A.485.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘：第二部】全新預告，今年11月 大銀幕敬請期待
 
 
@@ -2821,7 +2820,7 @@ date: 2023-06-30
 reply_count: 96
 title: '[情報] 沙丘：第二部全新預告，今年11月上映'
 url: https://www.ptt.cc/bbs/movie/M.1688055496.A.FC1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '繼先前的Rakka，尼爾的Oats Studios製作的同系列短片發表了第二部作品
 
 
@@ -2842,7 +2841,7 @@ date: 2017-06-29
 reply_count: 2
 title: '[情報] 尼爾布朗坎普第二部短片"Firebase"'
 url: https://www.ptt.cc/bbs/movie/M.1498746746.A.D4D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3023,7 +3022,7 @@ date: 2024-03-07
 reply_count: 115
 title: '[心得負雷] 《沙丘：第二部》'
 url: https://www.ptt.cc/bbs/movie/M.1709805265.A.FBE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好像沒有中文版的預告片。
 
 
@@ -3038,7 +3037,7 @@ date: 2022-11-22
 reply_count: 68
 title: '[討論] 阿凡達：水之道 第二部預告片'
 url: https://www.ptt.cc/bbs/movie/M.1669101896.A.12C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原文恕刪\n\n這個問題不要想得太複雜，\n純粹只是盧卡斯在前傳想要致敬/對應舊傳456集\n\n第2集尤達用原力阻止重物壓死歐比王跟安納金\n\
   對應\n第5集路克的X-WING沉沒，尤達用原力撈起來\n\n就這麼簡單\n相信很多橋段很明顯，\n\n比如第6集伊娃族對上帝國風暴兵 第1集就用剛狄族對上機器人大軍\n\
   \    第4集頒獎典禮收尾         第1集就用頒獎典禮收尾\n    第6集路克對上藍恐獸       第2集三人競技場鬥獸\n    第5集韓蘇洛利用倒垃圾逃脫\
@@ -3051,7 +3050,7 @@ date: 2015-12-25
 reply_count: 6
 title: 'Re: [討論] 星戰第二部劇末對決橋段 (雷)'
 url: https://www.ptt.cc/bbs/movie/M.1451023134.A.746.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蔡康永的第一部電影作品在台灣上映後，迅速成為今年華語片冠軍
 
 
@@ -3081,7 +3080,7 @@ date: 2017-06-05
 reply_count: 41
 title: '[討論] 蔡康永第二部電影適合拍哪種片型??'
 url: https://www.ptt.cc/bbs/movie/M.1496648939.A.6F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【沙丘：第二部】登上全台票房冠軍\n\n【沙丘：第二部】打破多項票房紀錄\n開片日票房破2800萬\n創下IMAX在台開片日票房新高\n\n打破導演#丹尼維勒納夫\n\
   #提摩西夏勒梅 #奧斯汀巴特勒\n 生涯最高開片紀錄\n\n華納兄弟創下繼【神力女超人】後\n最高開片日票房\n\n資訊來源：華納兄弟台灣FB\n\n\n--"
 date: 2024-02-29

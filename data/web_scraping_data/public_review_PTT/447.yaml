@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '這部劇情和敘事方式個人覺得不差，但預告片和海報圖都包裝的像大場面戰爭片，實際上就
 
   是一群記者的公路之旅和路上的所見所聞
@@ -28,7 +27,7 @@ date: 2024-05-09
 reply_count: 9
 title: '[雷] 美國內戰 不是戰爭片的戰爭片'
 url: https://www.ptt.cc/bbs/movie/M.1715242524.A.7CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部就是精彩片段都在預告
 
   差不多有50分鐘都很悶
@@ -76,7 +75,7 @@ date: 2024-05-01
 reply_count: 203
 title: '[大負雷] 帝國浩劫 美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1714559616.A.4FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: h2030625 (雙重人格) 看板: SuperHeroes\n標題: [討論] 幻視內戰到底跑去哪裡了?\n時間: Sat May\
   \ 28 16:07:57 2016\n\n\n\n此篇嚴重劇透\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n他開戰的時候\
   \ 完全沒有目標 他還煞車\n\n\n\n然後一開始被鷹眼射了一箭\n\n\n\n整整消失了6分鐘\n\n才出來幫忙擋公車 WTF??? 然後放隊友 被一打二\n\
@@ -92,7 +91,7 @@ date: 2016-05-28
 reply_count: 106
 title: 'Fw: [討論] 美國內戰3 幻視做多少事? 分析 (嚴重劇透)'
 url: https://www.ptt.cc/bbs/movie/M.1464422932.A.16B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -172,7 +171,7 @@ date: 2024-09-16
 reply_count: 19
 title: '[好雷] 和我想像中不同的美國內戰 : 帝國浩劫'
 url: https://www.ptt.cc/bbs/movie/M.1726423200.A.6F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來想說就電影名稱而言
 
   題材少見似乎蠻有意思的
@@ -194,7 +193,7 @@ date: 2024-05-08
 reply_count: 3
 title: '[普無雷]帝國浩劫：美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1715100748.A.1CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '帝國浩劫：美國內戰
 
   先別被片名騙了
@@ -258,7 +257,7 @@ date: 2024-05-03
 reply_count: 86
 title: '[無雷] 帝國浩劫：美國內戰 不錯看其實'
 url: https://www.ptt.cc/bbs/movie/M.1714669842.A.1D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果很多人批過的
 
 
@@ -330,7 +329,7 @@ date: 2024-05-11
 reply_count: 31
 title: '[普好雷] 美國內戰 屁孩滾啦!'
 url: https://www.ptt.cc/bbs/movie/M.1715441315.A.B2B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '美國內戰在42個評分中取得93%新鮮度
 
   這部應該很多人期待吧?
@@ -343,7 +342,7 @@ date: 2024-04-08
 reply_count: 27
 title: '[討論] 美國內戰 爛番茄93'
 url: https://www.ptt.cc/bbs/movie/M.1712588474.A.806.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -469,7 +468,7 @@ date: 2024-04-16
 reply_count: 14
 title: '[好雷] 美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1713234226.A.5B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為它不說教XD
 
 
@@ -530,7 +529,7 @@ date: 2024-05-07
 reply_count: 28
 title: '[好雷] 帝國浩劫：美國內戰--也算是爽片'
 url: https://www.ptt.cc/bbs/movie/M.1715077178.A.D83.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一場沒告訴你為什麼開始
 
 
@@ -597,7 +596,7 @@ date: 2024-05-08
 reply_count: 17
 title: '[好雷] 帝國浩劫: 美國內戰  美國人臭自己? '
 url: https://www.ptt.cc/bbs/movie/M.1715098621.A.338.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部只能在電影院看 因為他的音效有著非常誇張的 dynamic range
 
 
@@ -637,7 +636,7 @@ date: 2024-04-23
 reply_count: 8
 title: 'Re: [負雷] 美國內戰：別浪費時間看'
 url: https://www.ptt.cc/bbs/movie/M.1713806494.A.069.html
---- !!python/object:movie_data.PublicReview
+---
 content: '美國內戰,完全看不懂的一部片
 
 
@@ -667,7 +666,7 @@ date: 2024-06-06
 reply_count: 51
 title: '[  雷] 美國內戰,完全看不懂的一部片'
 url: https://www.ptt.cc/bbs/movie/M.1717637726.A.012.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雖然美國人自己也在comment吐槽CA和TX聯手很搞笑 但從預告看起來也不是完全說不通啦\n\n   把自動產生的字幕打開\n\n它有提到 \"\
   The three-term president assured....\"\n\n眾所周知 美國總統最多只能擔任兩任 (by 美國憲法修正案第22條)\n\n\
   \n雖然目前不知道劇情 但推測應該是這個原因吧 違反憲法夠大條了 被最大的兩個州圍剿\n\n也不是完全說不過去啦 XDD\n\n--"
@@ -675,7 +674,7 @@ date: 2024-04-09
 reply_count: 16
 title: 'Re: [討論] 美國內戰 爛番茄93'
 url: https://www.ptt.cc/bbs/movie/M.1712633300.A.0A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者 Nemo
 
 
@@ -750,7 +749,7 @@ date: 2014-11-11
 reply_count: 5
 title: '[新聞] 馬修麥康納 將主演美國內戰電影'
 url: https://www.ptt.cc/bbs/movie/M.1415640547.A.B76.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看這部之前，有稍微爬文看了某篇評論，知道這是部反戰的劇情片。沒有大場面戰爭，所
 
   以已經打預防針把這部當劇情片看。
@@ -794,7 +793,7 @@ date: 2024-05-13
 reply_count: 29
 title: '[  負雷] 美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1715571704.A.A2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有劇情雷
 
   =========================
@@ -941,7 +940,7 @@ date: 2024-05-13
 reply_count: 21
 title: '[詭雷] 帝國浩劫 美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1715586798.A.699.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前兩天去看完這部爛番茄評價很高的
 
   只能說基本上只要幹美國政府的電影
@@ -1138,7 +1137,7 @@ date: 2024-04-22
 reply_count: 120
 title: '[負雷] 美國內戰：別浪費時間看'
 url: https://www.ptt.cc/bbs/movie/M.1713733565.A.EBA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蠻喜歡導演用這種公路旅行的方式拍攝
 
   尤其像美國這種地廣人稀的地方發生戰爭
@@ -1264,7 +1263,7 @@ date: 2024-10-30
 reply_count: 7
 title: '[好雷] 地國浩劫：美國內戰 諷刺感滿滿的公路片'
 url: https://www.ptt.cc/bbs/movie/M.1730265150.A.645.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1315,7 +1314,7 @@ date: 2024-01-12
 reply_count: 55
 title: '[新聞] 《帝國浩劫：美國內戰》德州加州結盟鬧獨'
 url: https://www.ptt.cc/bbs/movie/M.1705069719.A.6EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '同意，可能很多人被帝國浩劫、美國內戰騙進去以為是什麼宏大敘事
 
   美軍互幹、愛國心大爆發、滿滿爆破打爽爽的好萊烏式爆米花片
@@ -1367,7 +1366,7 @@ date: 2024-05-04
 reply_count: 14
 title: 'Re: [無雷] 帝國浩劫：美國內戰 不錯看其實'
 url: https://www.ptt.cc/bbs/movie/M.1714762042.A.C12.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1460,7 +1459,7 @@ date: 2024-06-01
 reply_count: 6
 title: '[ 微雷] 美國內戰該有情還是無情？'
 url: https://www.ptt.cc/bbs/movie/M.1717208170.A.70F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "因為想寫的跟原Po那篇文章&留言的主軸不太有關\n\n所以另寫一篇\n\n啊這篇跟電影的關係...大概就只是從學理上補充背景一些的合理性啦...\n\
   \n\n----\n\n\n\n\n關於E大寫的這點，\n\n我相信部分州聯合對抗聯邦一事，大家不太有爭議，畢竟歷史上就有發生\n\n主要會引起討論的是加州跟德州聯合一事\n\
   \n\n從現在看來，認為非常荒謬/好笑很合理，\n\n畢竟這便是2000年到現在，美國總統大選的格局——關鍵在搖擺州\n\n只不過呢...歷史上並不一直是這樣的\n\
@@ -1481,7 +1480,7 @@ date: 2024-05-05
 reply_count: 21
 title: 'Re: [負雷] 美國內戰：別浪費時間看'
 url: https://www.ptt.cc/bbs/movie/M.1714923152.A.6A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片的主軸是美國在打內戰，勢力很強大的叛軍，正在跟美國正規軍打仗
 
 
@@ -1522,7 +1521,7 @@ date: 2024-05-09
 reply_count: 31
 title: '[無雷] 評價兩極的帝國浩劫：美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1715185725.A.015.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1541,7 +1540,7 @@ date: 2024-04-27
 reply_count: 36
 title: '[情報] 車庫發行帝國浩劫：美國內戰加入國賓體系'
 url: https://www.ptt.cc/bbs/movie/M.1714216245.A.EE0.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'A24史上最高成本的《帝國浩劫：美國內戰》（Civil War），
 
   是我今年看過最精彩震撼的作品之一，個人大愛。
@@ -1616,7 +1615,7 @@ date: 2024-05-06
 reply_count: 65
 title: '[好雷] 帝國浩劫：美國內戰─真的不是戰爭爽片'
 url: https://www.ptt.cc/bbs/movie/M.1714968318.A.BC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來看預告片一個多月
 
 
@@ -1658,7 +1657,7 @@ date: 2024-05-05
 reply_count: 22
 title: '[  雷] 帝國浩劫：美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1714889374.A.C0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '個人無雷心得：
 
 
@@ -1690,7 +1689,7 @@ date: 2024-05-07
 reply_count: 14
 title: '[好無雷] 帝國浩劫：美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1715089791.A.1CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為美國為什麼會內戰根本不重要。
 
 
@@ -1837,7 +1836,7 @@ date: 2024-05-05
 reply_count: 64
 title: 'Re: [負雷] 美國內戰：別浪費時間看'
 url: https://www.ptt.cc/bbs/movie/M.1714845227.A.181.html
---- !!python/object:movie_data.PublicReview
+---
 content: "~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n美國內戰\
   \ Civil War\n就像做了一場戰地記者的夢\n女主一樣用SONY A7\n卻是在生死瞬間追逐快門瞬間\n華盛頓大戰就像Call of Duty\n最終戰的關卡氛圍\n\
   抑或是這樣的超現實\n斬首總統的行動\n以往只有3A遊戲呈現得出來\n片尾西軍在總統Body前開心合照\n用底片曝光地緩慢成像出細節\n年輕女主用底片拍攝這樣的生死瞬間\n\
@@ -1853,7 +1852,7 @@ date: 2024-08-30
 reply_count: 44
 title: '[好雷] 帝國浩劫：美國內戰 Civil War'
 url: https://www.ptt.cc/bbs/movie/M.1724996033.A.F5E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n帝國浩劫-美國內戰 (Civil War)\n電影-動作冒險-英美\n09-14(六) 21:00~22:50\n09-18(三) 21:00~22:50\n\
   \n演員:\n克絲汀鄧斯特\n卡莉史派妮\n華格納莫拉\n導演:\n艾力克斯嘉蘭\n\n----------------------------------------------------------------------------\n\
   CatchPlay電影\n環南時候\n電影-偶像青春-國語\n09-14(六) 21:00~00:00\n\n好萊塢電影\n奇門異人\n電影-動作冒險-大陸\n\
@@ -1864,7 +1863,7 @@ date: 2024-09-14
 reply_count: 77
 title: '[LIVE] HBO 21:00 帝國浩劫-美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1726302021.A.D00.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1911,7 +1910,7 @@ date: 2024-04-12
 reply_count: 26
 title: '[笑雷] 美國內戰:還蠻好笑的'
 url: https://www.ptt.cc/bbs/movie/M.1712913205.A.0EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "儘管國內外評價都褒貶不一, 挾著強勢的話題性跟討論度\n\n1. 長腿票房超車美國內戰, 正式成為年度獨立製片最高票房\n\n2. 美國國內票房6800w,\
   \ 海外1200w, 累積八千萬票房, 最終全球可能約收在9000w\n   *長腿是Ｒ級恐怖片, 成本不到1000w\n\n3. 美國國內票房超越Mad Max\
   \ Sega: 芙利歐莎(6700w)\n\n4. Neon製片公司最賣座的電影(超越寄生上流)\n\n5. 票房超越A24恐怖片頭牌宿怨(總共累計票房8000w)\n\
@@ -1922,7 +1921,7 @@ date: 2024-08-08
 reply_count: 21
 title: '[情報] Longlegs長腿票房超車美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1723092064.A.FBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1985,7 +1984,7 @@ date: 2024-04-20
 reply_count: 20
 title: '[ 普好雷] 美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1713561702.A.43C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2105,7 +2104,7 @@ date: 2024-05-15
 reply_count: 12
 title: '[普雷] 帝國浩劫：美國內戰-不是你想看的戰爭片'
 url: https://www.ptt.cc/bbs/movie/M.1715757457.A.1F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "金獎品牌鉅資打造年度大作\n\n 《》(暫譯)\n\n\n\n2024 全台大銀幕震撼上映 敬請期待！\n\n\n\n距今不遠的未來，\n\n\
   美國爆發史上最嚴重的內戰，戰火蔓延全國……\n\n\n《》(暫譯) 2024 震撼全球\n\n  《》《》《》編劇全新力作\n\n《》《》導演\n\n自編自導\n\
   \n《媽的多重宇宙》金獎品牌鉅資打造年度重量級大作\n\n《貓王與我(暫譯)》威尼斯影后\n\n領銜主演\n\n《》奧斯卡提名 再創演技巔峰\n\n #車庫娛樂\
@@ -2115,7 +2114,7 @@ date: 2023-12-14
 reply_count: 49
 title: '[情報] 《美國內戰》CIVIL WAR 電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1702495235.A.128.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看預告片的時候，還在推測說影片的內核敘事是反戰？團結？或者是以政治人物切入？\n\n看完之後真相大白。\n\n如果你期待的是動作片，動作場景並不夠優秀。\n\
   \n如果你期待的是劇情片，劇情可以說是漏洞百出。\n\n如果你期待的是戰爭片，確實有沾到一點邊。\n\n我會將這部片分類到公路喜劇片的範疇，而且可以打上7/10分。\n\
   \n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
@@ -2137,7 +2136,7 @@ date: 2024-05-04
 reply_count: 21
 title: '[好雷] 帝國浩劫：美國內戰'
 url: https://www.ptt.cc/bbs/movie/M.1714814589.A.588.html
---- !!python/object:movie_data.PublicReview
+---
 content: '亞歷克斯 加蘭 (Alex Garland) 的《內戰》首映，
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -46,7 +45,7 @@ date: 2024-03-10
 reply_count: 9
 title: '[好無雷] 功夫熊貓4:沒想像中難看'
 url: https://www.ptt.cc/bbs/movie/M.1710038061.A.EB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情上來講就是一部小孩觀看的動畫片的劇情編排
 
 
@@ -89,7 +88,7 @@ date: 2024-04-08
 reply_count: 24
 title: '[普雷] 就很普的功夫熊貓4'
 url: https://www.ptt.cc/bbs/movie/M.1712580202.A.441.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《功夫熊貓4》再戰銀幕 3動畫片陪度周末\n\n04:10 2024/04/06 中國時報 孫伊萱\n\n\n《功夫熊貓4》再次開啟熊貓阿波精采刺激、幽默逗趣的全新旅程。（UIP提供）\n\
   \n\n《GIVEN被贈與的未來劇場版：柊mix》中大量的演奏場面，都是運用3D動態捕捉技術來呈\n現。（采昌提供）\n\n\n《排球少年!! 垃圾場的決戰》在日本上映超過1個月仍持續熱映中。（羚邦提供）\n\
   \n適逢清明連假，除了與家人團聚或安排出遊外，也不妨進戲院看部好電影，近期上映的新\n片中正好有3部動畫片《功夫熊貓4》、《GIVEN被贈與的未來劇場版：柊mix》與《排球少\n\
@@ -104,7 +103,7 @@ date: 2024-04-06
 reply_count: 1
 title: '[新聞] 《功夫熊貓4》再戰銀幕 3動畫片陪度周末'
 url: https://www.ptt.cc/bbs/movie/M.1712418328.A.16B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下得獎者獲得搶先看【功夫熊貓4】特映票兩張
 
   得獎者請於3月19日18:00前回覆主動站內信回覆領票者資料，恕不接受逾期回覆
@@ -184,7 +183,7 @@ date: 2024-03-18
 reply_count: 28
 title: 'Re: [贈票] 【功夫熊貓4】北中南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1710730618.A.9CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看完中配對版
 
   覺得劇情普
@@ -248,7 +247,7 @@ date: 2024-04-05
 reply_count: 11
 title: '[雷] 功夫熊貓4 老粉絲看得很開心'
 url: https://www.ptt.cc/bbs/movie/M.1712298611.A.278.html
---- !!python/object:movie_data.PublicReview
+---
 content: "陳美鳳驚喜聲演《功夫熊貓4》\n\n進軍國際配音初體驗\n\n04:10 2024/03/16 中國時報 翁紫曦\n\n\n陳美鳳談配音初體驗，驚訝「台灣國語也可以進軍國際」。（UIP提供）\n\
   \n超賣座動畫《功夫熊貓》將迎來第4集！英文版配音仍由「喜劇天王」傑克布萊克4度聲演\n，中文配音版則邀「台灣尚水ㄟ歐巴桑」陳美鳳獻聲「反派女王」變色龍，陳美鳳表示，\n\
   「首度參與好萊塢動畫配音就演出反派女王，心情又驚又喜。」\n\n出道47年首度參與動畫配音的陳美鳳，坦言試音時很擔心是否能勝任，「我從沒想過台灣\n國語也可以進軍國際配音。」且從影多年，從沒挑戰過大壞蛋角色，私底下個性更是不曾\n\
@@ -261,7 +260,7 @@ date: 2024-03-16
 reply_count: 6
 title: '[新聞] 陳美鳳驚喜聲演《功夫熊貓4》'
 url: https://www.ptt.cc/bbs/movie/M.1710604451.A.EFB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然很久以前就看過功夫熊貓這部動畫電影，可惜直到第三部下檔之後才喜歡上這系列，
 
 
@@ -339,7 +338,7 @@ date: 2024-04-11
 reply_count: 36
 title: '[好雷] 一人包場之功夫熊貓4'
 url: https://www.ptt.cc/bbs/movie/M.1712793317.A.7B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '精湛獻聲 不容錯過:傑克布萊克、薇拉戴維斯、奧卡菲娜
 
   達斯汀霍夫曼、吳漢章、布萊恩克萊斯頓、伊恩麥克夏恩、關繼威
@@ -384,7 +383,7 @@ date: 2024-03-13
 reply_count: 640
 title: '[贈票] 【功夫熊貓4】北中南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1710306364.A.B21.html
---- !!python/object:movie_data.PublicReview
+---
 content: '轉自台灣環球影業官方粉專
 
 
@@ -406,7 +405,7 @@ date: 2024-03-02
 reply_count: 13
 title: ' [情報] 陳美鳳獻聲《功夫熊貓4》'
 url: https://www.ptt.cc/bbs/movie/M.1709382158.A.CEE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《功夫熊貓4》共同導演：好萊塢不知如何應對動畫熱潮
 
 
@@ -502,7 +501,7 @@ date: 2024-04-16
 reply_count: 19
 title: '[新聞] 功夫熊貓4共同導演：好萊塢不知如何應對'
 url: https://www.ptt.cc/bbs/movie/M.1713199821.A.D5E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台灣上映還要拖很久
 
   這個分數算是系列最差的
@@ -515,7 +514,7 @@ date: 2024-03-07
 reply_count: 21
 title: '[討論] 功夫熊貓4 爛番茄81'
 url: https://www.ptt.cc/bbs/movie/M.1709754914.A.537.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -590,7 +589,7 @@ date: 2024-04-04
 reply_count: 11
 title: '[普雷] 功夫熊貓4 '
 url: https://www.ptt.cc/bbs/movie/M.1712226860.A.61F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個系列拍到4真是不簡單
 
   夢工廠系列也剩沒幾個搖錢樹了
@@ -605,7 +604,7 @@ date: 2023-12-14
 reply_count: 62
 title: '[討論] 功夫熊貓4 預告'
 url: https://www.ptt.cc/bbs/movie/M.1702483264.A.D2F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小朋友一個8歲一個5歲，會不會看得很無聊，還是等
 
 
@@ -622,7 +621,7 @@ date: 2024-04-05
 reply_count: 23
 title: '[請益] 功夫熊貓4適合小朋友嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1712321206.A.4DD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "陳美鳳獻聲《功夫熊貓4》 不認撞臉王心凌\n\n2024/04/01 05:30\n\n\n陳美鳳擔任《功夫熊貓4》中文配音，聲演變色龍女王。\n\
   （記者陳逸寬攝）\n\n〔記者廖俐惠／台北報導〕動畫電影《功夫熊貓4》在4日上映，陳美鳳受邀擔任中文配音\n，昨天參加一日店長活動，吸引許多大朋友、小朋友共襄盛舉。\n\
   \n陳美鳳聲演的變色龍女王會突然發飆或狂笑，與性格溫和的她大不同，就連好友藍心湄都\n說「妳可以嗎？」不過陳美鳳感謝導演的指導，讓她漸入佳境，給自己的動畫配音處女秀\n\
@@ -634,7 +633,7 @@ date: 2024-04-01
 reply_count: 8
 title: '[新聞] 陳美鳳獻聲《功夫熊貓4》 不認撞臉王心凌'
 url: https://www.ptt.cc/bbs/movie/M.1711981876.A.492.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -720,7 +719,7 @@ date: 2024-04-06
 reply_count: 5
 title: '[普雷]《功夫熊貓4》有續作中難得的新鮮感，然而缺乏細節'
 url: https://www.ptt.cc/bbs/movie/M.1712388624.A.118.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 

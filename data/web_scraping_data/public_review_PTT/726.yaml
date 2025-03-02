@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "【劊樂小丑3】也許會是砍殺電影史上評價最高的前幾名\n目前imdb6.9、爛番茄新鮮76%、觀眾評價86%\n\n嗯沒錯這種「砍殺電影」已經量多到自成一個類別，但這種電影大多劇情薄弱，重點都是\n\
   在砍殺過程，邏輯通不通順、劇情合不合理，這個類型是不太管這個的，也因此這種片通\n常評分不會太高，但還是很多觀眾獨愛這種片，所以才能一直拍一直拍一直拍，很有市場\n\
   \n我已經看了二十幾年的恐怖片，不敢說看很多，但絕對是不算少，而劊樂小丑2和3真的是\n我看過最血腥、最噁爛、最喪心病狂的電影\n\n劊樂小丑這個系列，擺明了就是要來挑戰觀眾忍耐極限的，前兩集沒什麼劇情，沒來由的\n\
@@ -15,7 +14,7 @@ date: 2024-10-26
 reply_count: 35
 title: '[爽無雷]劊樂小丑3 噁心至極喪盡天良的小丑'
 url: https://www.ptt.cc/bbs/movie/M.1729880607.A.EBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完媲美「歡樂歌舞秀」的小丑2後，心裏總對於小丑少了些什麼…然後看到新聞說居然
 
   有一個關於小丑的電影，可以在試映會讓觀眾瘋狂嘔吐or逃出電影院，本身又是cult片的
@@ -76,7 +75,7 @@ date: 2024-10-25
 reply_count: 50
 title: '[ 好無雷] 劊樂小丑3 : 這才是真正的小丑'
 url: https://www.ptt.cc/bbs/movie/M.1729848122.A.4A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看到車庫娛樂的Po文
 
 
@@ -106,7 +105,7 @@ date: 2024-10-13
 reply_count: 41
 title: '[情報] 《劊樂小丑3》即將在台灣正式上映'
 url: https://www.ptt.cc/bbs/movie/M.1728803686.A.247.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前陣子媒體及片商宣傳有國外觀眾看不到10分鐘就嘔吐離場，雖然誇大了點，但開場前10
 
   分鐘的快節奏砍殺橋段，沒經歷過【劊樂小丑】系列洗禮的觀眾，可能真的還是會反胃連
@@ -203,14 +202,14 @@ date: 2024-10-27
 reply_count: 5
 title: '[普雷] 【劊樂小丑3】小丑 ：雙排上分！看得我'
 url: https://www.ptt.cc/bbs/movie/M.1729959402.A.334.html
---- !!python/object:movie_data.PublicReview
+---
 content: "怎麼不到一個禮拜就要上映了\n我看過版友貼的1&2的部分劇情的連結 \n真的太可怕太噁心了 有可能也是我目前看過最噁心的片吧\n\n\n另外1&2也會在台灣上映\n\
   \n--\n\n那個....那個.....實現我的夢想(小聲)  摸你的頭  欺負你到哭\n\n--"
 date: 2024-10-19
 reply_count: 19
 title: '[討論] 劊樂小丑3 10/25 上映'
 url: https://www.ptt.cc/bbs/movie/M.1729270004.A.BA6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '史上最恐怖電影？《劊樂小丑3》首映會11人離場、1人狂吐
 
 
@@ -268,7 +267,7 @@ date: 2024-10-05
 reply_count: 46
 title: '[新聞] 史上最恐怖電影？《劊樂小丑3》首映會11'
 url: https://www.ptt.cc/bbs/movie/M.1728134530.A.D1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '平心而論~宣傳太誇張了
 
   前面好雷幾十年最佳也是
@@ -330,7 +329,7 @@ date: 2024-10-31
 reply_count: 14
 title: '[好雷] 劊樂小丑3，在現代已經不錯'
 url: https://www.ptt.cc/bbs/movie/M.1730387646.A.458.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上一次看到類似新聞是
 
   拉斯馮提爾拍的傑克蓋的房子
@@ -356,7 +355,7 @@ date: 2024-10-07
 reply_count: 9
 title: 'Re: [新聞] 史上最恐怖電影？《劊樂小丑3》首映會11'
 url: https://www.ptt.cc/bbs/movie/M.1728276832.A.2C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從駭靈夜到劊樂小丑1、2、3
 
   這個系列一步步踏上商業上的成功
@@ -433,7 +432,7 @@ date: 2024-12-02
 reply_count: 9
 title: '[負雷] 劊樂小丑3 商業成功的取捨'
 url: https://www.ptt.cc/bbs/movie/M.1733118269.A.226.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情有雷
 
 
@@ -455,7 +454,7 @@ date: 2024-10-26
 reply_count: 25
 title: '[討論] 劊樂小丑3劇情疑問'
 url: https://www.ptt.cc/bbs/movie/M.1729941222.A.7B1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -532,7 +531,7 @@ date: 2024-10-17
 reply_count: 58
 title: '[新聞] 《劊樂小丑3》美國票房踢下《小丑2》奪冠'
 url: https://www.ptt.cc/bbs/movie/M.1729178661.A.F1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前發過劊樂小丑1&2心得
 
   我是給好雷
@@ -675,7 +674,7 @@ date: 2024-11-02
 reply_count: 19
 title: '[負雷] 劊樂小丑3'
 url: https://www.ptt.cc/bbs/movie/M.1730555044.A.034.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到《劊樂小丑3》能登上大銀幕，實在令人驚訝！畢竟這種小成本、血腥恐怖片通常只能侷
 
   限在小眾影迷間流傳。
@@ -721,7 +720,7 @@ date: 2024-10-26
 reply_count: 3
 title: ［無雷］ 劊樂小丑3
 url: https://www.ptt.cc/bbs/movie/M.1729880066.A.C38.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

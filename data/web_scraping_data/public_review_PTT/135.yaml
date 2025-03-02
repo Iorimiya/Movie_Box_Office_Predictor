@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '想請問版友們，週末只能選一部電影觀看，奧本海默與水泥烏托邦會選擇哪一部？
 
 
@@ -18,7 +17,7 @@ date: 2023-08-19
 reply_count: 16
 title: '[選片]'
 url: https://www.ptt.cc/bbs/movie/M.1692430603.A.FA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天終於看了奧本海默
 
   諾蘭的非線性敘事可以在傳記電影依然如此信手拈來
@@ -62,7 +61,7 @@ date: 2023-08-13
 reply_count: 34
 title: '[請益] 奧本海默片末的一個小問題'
 url: https://www.ptt.cc/bbs/movie/M.1691930958.A.EAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭的《》將在和舉行試映會
 
 
@@ -78,7 +77,7 @@ date: 2024-03-02
 reply_count: 198
 title: '[情報] 奧本海默將在日本廣島和長崎舉行試映會'
 url: https://www.ptt.cc/bbs/movie/M.1709385114.A.AA7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -353,7 +352,7 @@ date: 2023-07-21
 reply_count: 34
 title: '[好雷]《奧本海默》像是一場VJing的Audiovisual '
 url: https://www.ptt.cc/bbs/movie/M.1689950823.A.1DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -386,7 +385,7 @@ date: 2024-02-11
 reply_count: 10
 title: '[新聞]「奧本海默」諾蘭獲美導演工會獎'
 url: https://www.ptt.cc/bbs/movie/M.1707655360.A.301.html
---- !!python/object:movie_data.PublicReview
+---
 content: "在一篇最新的訪談中，《哥吉拉-1.0》導演山崎貴說到他曾為了觀看在日無法放映的《奧本\n海默》一片，專程飛來台灣看中文字幕版的，並提到奧本海默與該片的一些關係，以下節錄\n\
   該段問答的機器翻譯：\n\nJoshua Encinias：你有看過《奧本海默》嗎？你對它的觀點有何看法？\n\n山崎貴：實際上，我非常想看《奧本海默》，但它在日本還沒有上映。但因為我真的非常想\n\
   看，所以我飛到台灣，用中文字幕觀看了這部電影。話雖如此，我的英語當然不是很好。我\n不認為我完全理解了電影中發生的細微之處。但即便如此，我確實感受到了這部電影所代表\n\
@@ -410,7 +409,7 @@ date: 2024-01-29
 reply_count: 37
 title: '[討論] 《哥吉拉-1.0》曾來台看奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1706459287.A.BED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞來源：綜藝報 Variety
 
 
@@ -486,7 +485,7 @@ date: 2023-07-19
 reply_count: 122
 title: '[新聞] 《奧本海默》是本世紀最好、最重要的電影'
 url: https://www.ptt.cc/bbs/movie/M.1689742057.A.003.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（有雷）
 
 
@@ -586,7 +585,7 @@ date: 2023-09-03
 reply_count: 179
 title: '[討論] 奧本海默 - 麥卡錫主義根本是白色恐怖'
 url: https://www.ptt.cc/bbs/movie/M.1693714551.A.2A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '日版預告發佈了
 
 
@@ -601,7 +600,7 @@ date: 2024-02-01
 reply_count: 10
 title: 'Re: [新聞] 「奧本海默」日本將上映 不畏原子彈爭議'
 url: https://www.ptt.cc/bbs/movie/M.1706789743.A.FEF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '芭比海默強碰！瑪格羅比：《奧本海默》製片曾叫我們改檔期
 
 
@@ -750,7 +749,7 @@ date: 2023-12-07
 reply_count: 64
 title: '[新聞] 瑪格羅比：奧本海默製片曾叫我們改檔期'
 url: https://www.ptt.cc/bbs/movie/M.1701880436.A.AEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '果然不用等太久就回歸了
 
   可以想見《藍甲蟲》和《逃出寧靜海》的IMAX票房大概都不怎樣
@@ -772,7 +771,7 @@ date: 2023-08-21
 reply_count: 12
 title: 'Re: [討論] 奧本海默imax不會下映這麼快吧'
 url: https://www.ptt.cc/bbs/movie/M.1692612651.A.753.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一幕的弦跟原子
 
 
@@ -802,7 +801,7 @@ date: 2023-07-25
 reply_count: 4
 title: 'Re: [微雷] 奧本海默 - 覺得是傳記片包裝的諷刺片'
 url: https://www.ptt.cc/bbs/movie/M.1690297093.A.62D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，電影最後一幕揭露愛因斯坦跟奧本海默的談話，討論到原子彈是否會點燃大氣層毀
 
   滅世界
@@ -830,7 +829,7 @@ date: 2023-07-23
 reply_count: 215
 title: '[請益] 奧本海默結局（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1690077656.A.150.html
---- !!python/object:movie_data.PublicReview
+---
 content: '關於這點，我第一刷奧本時覺得最精彩就是三位一體核試爆，後面就覺得很悶
 
 
@@ -851,7 +850,7 @@ date: 2023-08-14
 reply_count: 20
 title: 'Re: [討論] 是不是只有PTT鄉民說奧本海默很悶'
 url: https://www.ptt.cc/bbs/movie/M.1692014794.A.036.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為我還沒看過奧本海默
 
 
@@ -924,7 +923,7 @@ date: 2023-07-29
 reply_count: 28
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690618793.A.B8B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看完
 
 
@@ -1078,7 +1077,7 @@ date: 2023-08-03
 reply_count: 83
 title: '[普雷] 奧本海默IMAX'
 url: https://www.ptt.cc/bbs/movie/M.1691052167.A.78D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "試映看完久久無法自已，興奮、感動與悲傷的情緒交加，\n\n    興奮的點是看到今年目前為止最佳電影，個人認為海放最近的 MI7，\n    \n\
   \n\n    感動的點是對這種全部的人同心協力完成一件事的劇情抗點很低，\n\n    就好像當年看《阿波羅13》最後成功返回地球真的會一起拍手。\n\n \
   \   悲傷的點如同普羅米修斯之罪，這個無解。\n\n\n\n    想像一下，有一部人物傳記電影，充滿了諾蘭完美的鏡頭語言和敘事手法，\n\n    如《敦克爾克》還原在史實的描述，如《星際效應》中走鋼索般的艱難任務，\n\
@@ -1132,7 +1131,7 @@ date: 2023-07-20
 reply_count: 222
 title: '[無雷推]《奧本海默》'
 url: https://www.ptt.cc/bbs/movie/M.1689791108.A.C87.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有看過YT介紹奧本海默
 
 
@@ -1199,7 +1198,7 @@ date: 2023-07-22
 reply_count: 48
 title: '[好無雷] 看完心情沈重的奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690038010.A.3B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '主要原因還是3小時片長 一天排不了幾場
 
   加上暑假大片太多，多排幾場阿湯哥可能還比奧本海默賺
@@ -1220,7 +1219,7 @@ date: 2023-07-21
 reply_count: 17
 title: 'Re: [討論] 奧本海默 排片怎麼那麼少'
 url: https://www.ptt.cc/bbs/movie/M.1689911171.A.446.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先附上人權 (首映日的首映場)\n \n \n \n \n \n \n---------防雷---------\n \n \n \n \n \n\
   \ \n片頭\n奧本被導師霸凌\n在導師的蘋果中放氰化鉀(報復心)\n然後在冷靜過後又後悔\n匆匆忙忙搶下蘋果湮滅證據\n \n片中\n因為瓊(前任&砲友)情緒勒索\n\
   所以決定不和她繼續聯絡\n然後對方自殺了\n又後悔自己沒陪伴對方導致她輕生\n還要妻子安慰= =\n \n片尾\n因為自己的同胞被納粹和日本人屠殺\n決定做原子彈(報復心)\n\
@@ -1232,7 +1231,7 @@ date: 2023-07-24
 reply_count: 149
 title: '[討論] [有雷]奧本海默報復心強卻容易後悔？'
 url: https://www.ptt.cc/bbs/movie/M.1690164412.A.738.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1274,7 +1273,7 @@ date: 2023-05-15
 reply_count: 14
 title: '[新聞] 《奧本海默》重現原子彈之父史實 諾蘭找'
 url: https://www.ptt.cc/bbs/movie/M.1684153533.A.059.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1381,7 +1380,7 @@ date: 2023-07-21
 reply_count: 359
 title: '[負雷] 奧本海默v2'
 url: https://www.ptt.cc/bbs/movie/M.1689933465.A.E1F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1666,7 +1665,7 @@ date: 2023-09-13
 reply_count: 26
 title: '[好雷] 奧本海默-後原子時代'
 url: https://www.ptt.cc/bbs/movie/M.1694600998.A.79B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "不知道版友們有沒有注意到，其實在電影中，它本身也有一段關於「奧本海默」or「歐本海\n默」的事情。\n\n這段發生在 奧本海默 （或 歐本海默）和\
   \ Lewis Strauss 第一次碰面時，後者特別糾正了\n 奧本海默 關於他名字的發音；而這個環節甚至其實也發生在 諾蘭 本人上一個節目宣傳《\n奧本海默》時，該主持人詢問「為什麼諾蘭的弟弟沒有『口音』，而諾蘭本人卻有『口音』\n\
   ？」。\n\n此時諾蘭特別糾正了主持人說：「這種問題只會出現在美國人，因為所謂的口音，實際上是\n指「為什麼沒有『美國口音』？而是『英國口音』？」\n\n那麼回到電影中，當\
@@ -1679,7 +1678,7 @@ date: 2023-07-28
 reply_count: 140
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690554413.A.874.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1728,7 +1727,7 @@ date: 2023-05-21
 reply_count: 8
 title: '[新聞] 奧本海默曝新劇照！神導諾蘭親解黑白彩色'
 url: https://www.ptt.cc/bbs/movie/M.1684659821.A.61E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1781,7 +1780,7 @@ date: 2023-12-02
 reply_count: 6
 title: '[新聞] 奧本海默全球猛破296億元！諾蘭獲科學家'
 url: https://www.ptt.cc/bbs/movie/M.1701531660.A.590.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷\n\n1.奧本海默  片中有勾搭人妻？\n\n  台詞有說但沒演出來？還是純開玩笑？\n\n\n2.最後幾個鏡頭年老接受頒獎時\n\n  \
   \ 有一幕 奧的友人和奧的妻子握手\n\n   妻子表情 複雜還有照到那個友人的戒指\n\n   是暗示他們有一腿嗎？片中看不出來欸\n\n   還是三小時太長漏看…...\n\
   \n\n--"
@@ -1789,7 +1788,7 @@ date: 2024-03-23
 reply_count: 15
 title: '[請益] 奧本海默 兩個問題？  雷'
 url: https://www.ptt.cc/bbs/movie/M.1711159996.A.B6D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '基本同意
 
 
@@ -1921,7 +1920,7 @@ date: 2023-07-24
 reply_count: 126
 title: 'Re: [負雷] 奧本海默 - 諾蘭被捧太高的作品'
 url: https://www.ptt.cc/bbs/movie/M.1690205523.A.10E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前天看完這部
 
   這幾天都在回想
@@ -1974,7 +1973,7 @@ date: 2023-08-11
 reply_count: 131
 title: '[討論] 奧本海默在丟兩顆當時，態度是自豪還自責'
 url: https://www.ptt.cc/bbs/movie/M.1691753035.A.D01.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下得獎者獲得【奧本海默】IMAX搶先看(一人中獎兩人同行)
 
   請於7/17 10:00 站內信提供現場領票者姓名與電話，逾時回覆恕不受理
@@ -2009,7 +2008,7 @@ date: 2023-07-16
 reply_count: 74
 title: 'Re: [贈票] 【奧本海默】台北IMAX搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1689479540.A.237.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n很久沒寫心得文了\n\n剛剛看到有人在比模仿遊戲跟奧本海默\n\
   又看了版上對這片心得文不多 來稍微寫一點\n\n這部片如果從傳統人物傳記片的角度來看 無疑是部很糟糕的片\n剪接瑣碎 太多意義不明的鏡頭 對話蒼白無力\n\n\
@@ -2044,7 +2043,7 @@ date: 2023-12-02
 reply_count: 13
 title: '[好雷] 奧本海默-其實並不那麼炫技 '
 url: https://www.ptt.cc/bbs/movie/M.1701487714.A.352.html
---- !!python/object:movie_data.PublicReview
+---
 content: '敲定是明年
 
 
@@ -2064,7 +2063,7 @@ date: 2023-12-07
 reply_count: 95
 title: '[情報] 奧本海默 日本上映決定'
 url: https://www.ptt.cc/bbs/movie/M.1701914208.A.027.html
---- !!python/object:movie_data.PublicReview
+---
 content: '找不到適合的分類
 
 
@@ -2147,7 +2146,7 @@ date: 2023-08-17
 reply_count: 47
 title: '[好雷] 奧本海默  有人看到哭嗎？ '
 url: https://www.ptt.cc/bbs/movie/M.1692260337.A.DEA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》諾蘭無CGI神話破滅？部分國家版本用特效遮蔽了裸露畫面！
 
 
@@ -2234,7 +2233,7 @@ date: 2023-07-30
 reply_count: 50
 title: '[新聞]《奧本海默》諾蘭無CGI神話破滅？部分國家'
 url: https://www.ptt.cc/bbs/movie/M.1690710137.A.EAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【Barbie芭比】對決【奧本海默】！諾蘭真實反應曝光
 
 
@@ -2300,7 +2299,7 @@ date: 2023-07-13
 reply_count: 36
 title: '[新聞] 【Barbie芭比】對決【奧本海默】！諾蘭 '
 url: https://www.ptt.cc/bbs/movie/M.1689246394.A.A65.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭的全球試爆實驗，目前看來是成功的
 
 
@@ -2333,7 +2332,7 @@ date: 2023-08-20
 reply_count: 206
 title: '[情報] 《奧本海默》全球票房正式突破七億美金'
 url: https://www.ptt.cc/bbs/movie/M.1692463047.A.5CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【號外特價報！暑期特價開跑，奧本海默／芭比$150特價中！】
 
   奧本海默／芭比／我的鯨魚老爸／五月的你，十二月的她／小小兵+神偷奶爸 5部電影套
@@ -2451,7 +2450,7 @@ date: 2024-06-27
 reply_count: 28
 title: '[討論] Apple TV 暑期特價開跑！ 奧本海默/芭比'
 url: https://www.ptt.cc/bbs/movie/M.1719448307.A.F91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2520,7 +2519,7 @@ date: 2024-03-14
 reply_count: 27
 title: '[新聞] 諾蘭執導《奧本海默》片酬近31億'
 url: https://www.ptt.cc/bbs/movie/M.1710425287.A.9FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -2545,7 +2544,7 @@ date: 2023-12-01
 reply_count: 182
 title: '[討論] 奧本海默 vs 模仿遊戲'
 url: https://www.ptt.cc/bbs/movie/M.1701420861.A.036.html
---- !!python/object:movie_data.PublicReview
+---
 content: '身為諾蘭粉，這次選擇7/21上午早場進IMAX戲院看完了
 
 
@@ -2606,7 +2605,7 @@ date: 2023-07-26
 reply_count: 125
 title: '[好雷] 奧本海默觀後的連鎖反應'
 url: https://www.ptt.cc/bbs/movie/M.1690381882.A.763.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為對劇情內容有點疑問，
 
   發個好雷順便請益一下
@@ -2720,7 +2719,7 @@ date: 2023-07-23
 reply_count: 5
 title: '[好雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690076621.A.02A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文恕刪
 
 
@@ -2908,7 +2907,7 @@ date: 2023-07-26
 reply_count: 84
 title: 'Re: [請益] 奧本海默結局（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1690302094.A.E65.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原本以為這部只有前二十分鐘完全沒有女性台詞這種歧視\n\n沒想到實際看了以後發覺問題嚴重很多\n\n包括為什麼總統不是找黑人女性扮演\n總統只能是傳統白人男性\n\
   \n整部片裡面幾乎都是白人男性\n女性科學家完全沒有過半\n女性政客、女性法官、女性檢察官通通沒有看到\n\n而且整部影片裡完全沒有放體型豐腴的女性\n像是這種\n\
   \n\n\n\n仍然是用父權去定義傳統女性的外表\n如果小三的裸戲可以用上面這種女性來演\n相信可以更為平權\n\n總之整部片不要說是歷史傳記電影\n就拿來當成父權、歧視女性的藉口\n\
@@ -2918,7 +2917,7 @@ date: 2023-07-31
 reply_count: 43
 title: '[負雷]  奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690811819.A.E47.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我比較在意的是直到現在還是沒有台灣人願意為Cillian Murphy正名
 
   不管是中國還是香港的譯名都比台灣妖魔鬼怪的“席尼”墨菲正確多了
@@ -2938,7 +2937,7 @@ date: 2023-07-30
 reply_count: 52
 title: '[新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690718224.A.150.html
---- !!python/object:movie_data.PublicReview
+---
 content: '截至8/5週五，
 
   預計本週末結束可以達到，超越《敦克爾克大行動》5.27億
@@ -2976,7 +2975,7 @@ date: 2023-08-06
 reply_count: 137
 title: '[討論] 《奧本海默》全球票房突破5億美元'
 url: https://www.ptt.cc/bbs/movie/M.1691262188.A.455.html
---- !!python/object:movie_data.PublicReview
+---
 content: '詳細的好雷負雷文很多
 
   發個無雷心得文
@@ -3037,7 +3036,7 @@ date: 2023-07-30
 reply_count: 24
 title: '[無雷] 奧本海默-對白有夠多的XDD後面很好看'
 url: https://www.ptt.cc/bbs/movie/M.1690675904.A.176.html
---- !!python/object:movie_data.PublicReview
+---
 content: '北美週一時間一到就有更精確的票房數據了
 
 
@@ -3057,7 +3056,7 @@ date: 2023-07-24
 reply_count: 14
 title: 'Re: [討論] 奧本海默 全球首週票房1.742億美金'
 url: https://www.ptt.cc/bbs/movie/M.1690211812.A.BA2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雖然其實應該沒有要爆什麼雷但還是放一下的防雷頁\n\n\n\n\n\n\n\n\n\n\n\n\n這大概是一篇很奇怪的電影心得文，\n因為我是個認不出任何演員的臉盲，然後也不是諾蘭粉、也不是衝著諾蘭來看電影的。\n\
   \n我只是因為我是Linkin Park的粉絲，\n然後因為Linkin Park而喜歡上了奧本海默，於是單純衝著奧本海默來看電影的。\n\n因此這篇心得文沒有什麼雷（但還是有一點點劇透）\n\
   因為我本來就知道奧本海默的生平，所以沒辦法很客觀地去評價電影本身\n\n只是單純地做個分享\n好奇有沒有跟我一樣，是因為聯合公園而認識奧本海默，並因此而決定進電影院的...\n\
@@ -3102,7 +3101,7 @@ date: 2023-08-02
 reply_count: 318
 title: '[普雷] 我是因為聯合公園來看《奧本海默》的'
 url: https://www.ptt.cc/bbs/movie/M.1690972265.A.51E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《奧本海默》不呈現日本被原子彈炸 諾蘭講原因\n\n圖片：\n《奧本海默》( Oppenheimer )片場照，大導演克里斯托弗·諾蘭。（UIP提供）\n\
   \n【大紀元2023年11月10日訊】（大紀元記者葉子杰編譯報導）《奧本海默》全球票房收入\n近9.5億美元，不過，該片因為沒有呈現廣島原子彈爆炸與其造成的恐懼感而受到質疑。8\n\
   日，大導演克里斯托弗·諾蘭解釋，因為這是一部以奧本海默為視角的電影。\n\n據《Variety》報導，《奧本海默》呈現緊張的三位一體的核彈試驗細節，奧本海默在新\n\
@@ -3120,7 +3119,7 @@ date: 2023-11-11
 reply_count: 51
 title: '[新聞] 《奧本海默》不呈現日本被原子彈炸 諾蘭講'
 url: https://www.ptt.cc/bbs/movie/M.1699705741.A.15E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完了
 
   一大早杜比，晚上IMAX
@@ -3182,7 +3181,7 @@ date: 2023-07-22
 reply_count: 26
 title: '[討論] 奧本海默 杜比/IMAX (無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1689958008.A.64D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3388,7 +3387,7 @@ date: 2024-01-11
 reply_count: 20
 title: '[好雷]  奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1704962829.A.484.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我看不少人說進場前要先做功課再進場
 
   不然會看不懂
@@ -3493,7 +3492,7 @@ date: 2023-07-31
 reply_count: 67
 title: '[好雷]奧本海默 諾蘭不愧是收尾大師'
 url: https://www.ptt.cc/bbs/movie/M.1690814397.A.204.html
---- !!python/object:movie_data.PublicReview
+---
 content: "跟幾個朋友一起看了IMAX\n手速慢只能看午夜場\n中間還夾一個情侶\n\n但午夜場有午夜場的好處，雖然看完很累\n觀眾真的都是High sense\n\
   而且這部真的爆搶手，連第一排都有人\n\n觀影體驗真的極好\n而且我很久沒看完一部電影，全場鼓掌的\n蜘蛛人2的時候我滿想鼓掌的，但不想太高調\n\n但這部是一跑片尾就全場鼓掌\n\
   美麗華IMAX\n7/22 23:15-2:30的場\n看的真的好爽\n\n- - - - - -心得\n\n零功課去看的\n（看這部電影前我一直以為愛因斯坦有參與曼哈頓）\n\
@@ -3516,7 +3515,7 @@ date: 2023-07-23
 reply_count: 48
 title: '[極好雷] 微雷-奧本海默IMAX'
 url: https://www.ptt.cc/bbs/movie/M.1690096788.A.6D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
   *
@@ -3659,7 +3658,7 @@ date: 2023-07-22
 reply_count: 83
 title: '[雷] 奧本海默-人性的原子彈'
 url: https://www.ptt.cc/bbs/movie/M.1689956986.A.039.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影中段
 
   主角抬頭望向天空說還有1小時58分鐘要試爆了
@@ -3680,7 +3679,7 @@ date: 2023-07-24
 reply_count: 10
 title: '[討論] 奧本海默小彩蛋'
 url: https://www.ptt.cc/bbs/movie/M.1690201908.A.E2E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完奧本海默，沒有抱期待也沒做功課去看，意外的很喜歡，三線交錯也不會搞混，人性
 
   張力非常的足，真的是諾蘭式宏觀敘事。
@@ -3696,7 +3695,7 @@ date: 2023-08-03
 reply_count: 9
 title: '[請益] 關於奧本海默形容恆星的台詞'
 url: https://www.ptt.cc/bbs/movie/M.1691074636.A.CDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中國對絕對實力的精英是很青睞的
 
 
@@ -3727,7 +3726,7 @@ date: 2023-07-20
 reply_count: 36
 title: '[討論] 中國確定引進奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689825103.A.16C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我寫的，雖然有刊登在其他媒體，並不是去搬移人家的文章
 
 
@@ -4009,7 +4008,7 @@ date: 2023-08-07
 reply_count: 42
 title: '[討論] 這樣拍《奧本海默》　諾蘭真有種'
 url: https://www.ptt.cc/bbs/movie/M.1691391688.A.466.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -4036,7 +4035,7 @@ date: 2023-07-21
 reply_count: 94
 title: '[請益] 奧本海默有必要看IMAX嗎'
 url: https://www.ptt.cc/bbs/movie/M.1689923132.A.73A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《奧本海默》首波評價解禁！影評大讚「諾蘭至今最令人印象深刻的電影」，震撼而令人\n敬畏\n\n\n\n克里斯多福諾蘭最新力作《奧本海默》在法國巴黎舉行了一場世界首映，而這部長達三小\n\
   時的傳記電影也在目前公開的首波評價中獲得了許多好評，不少影評將本片形容為「壯麗\n的成就」或「極為大膽」。\n\n來自《洛杉磯時報》的編輯兼前影評人 Kenneth\
   \ Turan 表示，《奧本海默》毫無疑問是\n諾蘭至今最令人印象深刻的作品，同時結合了他對於視覺掌控的知識，並帶來了美國近代\n電影史上最深刻的角色剖析。\n\
@@ -4058,7 +4057,7 @@ date: 2023-07-12
 reply_count: 166
 title: '[新聞] 《奧本海默》首波評價解禁'
 url: https://www.ptt.cc/bbs/movie/M.1689132887.A.2CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4131,7 +4130,7 @@ date: 2023-08-08
 reply_count: 57
 title: '[新聞] 音效太大聲！影迷怨聽不清《奧本海默》'
 url: https://www.ptt.cc/bbs/movie/M.1691502191.A.352.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟在號稱奧地利最大？的IMAX廳觀影；但是有一個小疑問
 
 
@@ -4168,7 +4167,7 @@ date: 2023-08-02
 reply_count: 69
 title: '[請益] 關於奧本海默的音效疑問'
 url: https://www.ptt.cc/bbs/movie/M.1690939365.A.69D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4327,7 +4326,7 @@ date: 2023-08-06
 reply_count: 289
 title: '[負雷] 奧本海默 - 主角消失的傳記片'
 url: https://www.ptt.cc/bbs/movie/M.1691289233.A.E14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4391,7 +4390,7 @@ date: 2023-07-24
 reply_count: 4
 title: '[雷] 奧本海默觀看建議'
 url: https://www.ptt.cc/bbs/movie/M.1690209269.A.590.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》在週五時全球票房為9.03億美金，正式突破9億美金里程碑
 
   預計週末結束會達到9.12億美金，超越《波希米亞狂想曲》成為史上票房最高的傳記電影
@@ -4412,7 +4411,7 @@ date: 2023-09-17
 reply_count: 180
 title: '[討論] 《奧本海默》全球票房突破9億美金'
 url: https://www.ptt.cc/bbs/movie/M.1694881791.A.0B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4485,7 +4484,7 @@ date: 2023-07-14
 reply_count: 36
 title: '[新聞] 神導諾蘭《奧本海默》來真的！席尼墨菲合'
 url: https://www.ptt.cc/bbs/movie/M.1689268593.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完後的感想
 
 
@@ -4521,7 +4520,7 @@ date: 2023-07-31
 reply_count: 4
 title: 'Re: [好雷] 奧本海默 的確改變了世界'
 url: https://www.ptt.cc/bbs/movie/M.1690792235.A.D94.html
---- !!python/object:movie_data.PublicReview
+---
 content: '平常不怎麼寫文章，寫了也不知道給誰看，就以雜記的方式記錄自己的觀後感，讀起來可
 
   能很多、很亂，也帶有主觀意識，還請見諒。
@@ -4655,14 +4654,14 @@ date: 2023-07-23
 reply_count: 19
 title: '[好雷] 奧本海默 Oppenheimer 觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1690063288.A.F0B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昆丁的電影只看過八惡人\n\n明明整部戲幾乎都在一棟房子內完成\n\n劇情簡單也都一直講話\n\n但卻一點也不無聊\n\n同樣也是一直都在講話的奧本海默\n\
   \n若是昆丁會如何執導?\n\n\n--\n \n \n \n \n \n \n\n--"
 date: 2023-07-24
 reply_count: 20
 title: '[請益] 昆丁塔倫提會如何執導奧本海默?'
 url: https://www.ptt.cc/bbs/movie/M.1690131974.A.14D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n先放有微雷但不會講太多劇情：\n\n\
   - 有裸露片段但很少，尤其第二次出現比較偏象徵意義\n\n- 核彈試爆是較遠的看，但這部試爆我覺得不是重點(下面說明)\n\n- 很多熟片孔演員出現(不過沒有米高肯恩)、化妝(老妝)技術不錯\n\
   \n- 有諾蘭常用的多線時間交錯，但這部並不難懂\n\n- 個人覺得配樂很吵\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
@@ -4679,7 +4678,7 @@ date: 2023-07-24
 reply_count: 20
 title: '[微雷] 奧本海默 - 覺得是傳記片包裝的諷刺片'
 url: https://www.ptt.cc/bbs/movie/M.1690132710.A.09B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好不好看單純就跟若蘭以前的片來比較
 
 
@@ -4739,7 +4738,7 @@ date: 2023-08-19
 reply_count: 62
 title: '[討論] 奧本海默好不好看?'
 url: https://www.ptt.cc/bbs/movie/M.1692437482.A.2B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先，這部電影資訊量龐大，強烈建議先對歷史背景與人物做些基本查證。
 
 
@@ -4866,7 +4865,7 @@ date: 2023-07-21
 reply_count: 36
 title: '[好微雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689932443.A.D62.html
---- !!python/object:movie_data.PublicReview
+---
 content: "itunes熱門度排行，高畫質玉蒲團2玉女心經特價銷售，熱門度打敗奧本海默\n登上第一，以下是1-20\n\n\n\n\n1.玉蒲團2玉女心經\n\
   2.奧本海默\n3.2012\n4.黑金\n5.旺卡\n6.摩登如來神掌\n7.五億探長雷洛傳\n8.鈴芽之旅\n9.與龍共舞\n10.浴血任務4\n11.五億探長雷洛傳2父子情仇\n\
   12.拿破崙\n13.哈利波特神秘的魔法石\n14.從前有個好萊塢\n15.不可能任務致命清算\n16.芭比\n17.驚奇隊長2\n18.之前的我們\n19.GT跨界玩家\n\
@@ -4875,7 +4874,7 @@ date: 2024-01-24
 reply_count: 74
 title: '[討論] 玉女心經打敗奧本海默登上 itunes第一'
 url: https://www.ptt.cc/bbs/movie/M.1706069556.A.E8A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這位是前風傳媒擔任執行副總編輯 前中國時報國際新聞中心主任\n\n閻紀宇\n\n不妨看看他的說法 連他都懷疑這種翻譯違反音譯原則 是不是要和中國學界一致\n\
   \n\n\n閻紀宇\n\n一樁小事。J. Robert Oppenheimer，台灣物理學界（以及物理學教科書）向來譯為「歐\n本海默」，不知為何近年硬要改成不符音譯原則的「奧本海默」（連「阿本海默」都比「\n\
   奧本海默」恰當）？希望原因不是要與中國學界一致。\n順帶一提。男主角Cillian Murphy台灣譯為「席尼墨菲」也是亂來。「Cillian」源自七\n世紀愛爾蘭天主教聖徒Saint\
@@ -4896,7 +4895,7 @@ date: 2023-07-28
 reply_count: 120
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690539430.A.D96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4928,7 +4927,7 @@ date: 2024-02-20
 reply_count: 29
 title: '[新聞] bafta奧本海默領獎時遭人闖上台'
 url: https://www.ptt.cc/bbs/movie/M.1708423128.A.7B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -4948,7 +4947,7 @@ date: 2023-07-21
 reply_count: 84
 title: '[討論] 奧本海默IMDB首波評價出爐'
 url: https://www.ptt.cc/bbs/movie/M.1689898215.A.B4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默身處的年代美國盛行「麥卡錫主義」，
 
 
@@ -5024,7 +5023,7 @@ date: 2023-07-27
 reply_count: 12
 title: 'Re: [新聞] 前20分鐘無女性台詞…「奧本海默」遭女'
 url: https://www.ptt.cc/bbs/movie/M.1690445653.A.FBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛好看完想到
 
 
@@ -5062,7 +5061,7 @@ date: 2023-08-08
 reply_count: 71
 title: '[討論]奧本海默的愛因斯坦根本沒存在感？'
 url: https://www.ptt.cc/bbs/movie/M.1691504563.A.2BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '再次親眼目睹，震撼人心的神級鉅作！
 
 
@@ -5090,7 +5089,7 @@ date: 2024-01-17
 reply_count: 70
 title: '[討論] 【奧本海默】1/26重返大銀幕'
 url: https://www.ptt.cc/bbs/movie/M.1705493157.A.AE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本文無雷，強烈建議想看奧本海默一片的觀眾可以先看這篇\n不會影響任何觀賞樂趣(應該吧)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   \n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文\
   \ 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n1、雖然宣傳都說這是奧本海默的傳記，但是其實三個小時的片長只有\n\
@@ -5109,7 +5108,7 @@ date: 2023-07-24
 reply_count: 15
 title: '[無雷] 你在看奧本海默前應該知道跟不應該知道的'
 url: https://www.ptt.cc/bbs/movie/M.1690162238.A.1F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5178,7 +5177,7 @@ date: 2023-07-22
 reply_count: 26
 title: '[普雷]奧本海默毫無冷場，但無餘裕感同身受'
 url: https://www.ptt.cc/bbs/movie/M.1690031426.A.6C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5227,7 +5226,7 @@ date: 2023-07-22
 reply_count: 22
 title: '[普雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689964226.A.201.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《奧本海默》全球破307億登年度第3！IMAX版榮耀回歸北美戲院\n\n由大導演克里斯多夫諾蘭執導的電影《奧本海默》映期突破3個月，全球票房高達9.46億美\n\
   金（約台幣307.16億元），登上年度第3名，已寫下包括影史最賣座傳記類電影、影史二戰\n題材電影冠軍，更成為諾蘭職業生涯最賣座的非續集電影。外媒也宣布本週五（3日）起將\n\
   進行為期一週的重返IMAX放映，包括先前搶破頭、放映IMAX 70mm膠捲版的6家電影院。\n\n《奧本海默》北美票房目前為3.24億美金（約台幣105.2億元），也讓諾蘭目前執導的12部\n\
@@ -5240,7 +5239,7 @@ date: 2023-11-01
 reply_count: 102
 title: '[新聞] 奧本海默》全球破307億登年度第3！IMAX '
 url: https://www.ptt.cc/bbs/movie/M.1698806223.A.071.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5430,7 +5429,7 @@ date: 2023-07-26
 reply_count: 20
 title: '[好雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690367434.A.831.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5663,7 +5662,7 @@ date: 2023-07-23
 reply_count: 13
 title: '[好雷]【奧本海默】智者內心的深層恐懼 '
 url: https://www.ptt.cc/bbs/movie/M.1690088587.A.481.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今夏核爆神作《奧本海默》：本世紀能一直救好萊塢的導演，或許只剩下諾蘭了\n\nr Nolan 2023-07-07\n\n好萊塢大導 Christopher\
   \ Nolan 的第 12 部劇情長片《奧本海默》（Oppenheimer）將於\n 7 月 21 日上映，電影劇本改編自 Kai Brid 和 Martin\
   \ J. Sherwin 合著普立茲獲獎書\n籍，透過三小時的片長，講述原子彈之父 Robert Oppenheimer 發明第一顆原子彈的過程\n。\n\n\
@@ -5697,7 +5696,7 @@ date: 2023-07-07
 reply_count: 245
 title: '[新聞]今夏核爆神作《奧本海默》：本世紀能一直救'
 url: https://www.ptt.cc/bbs/movie/M.1688732847.A.91F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實那一幕，奧比也許反應沒有給足，但導演的畫面已經把訊息給足了，奧比沒有說話，而是牽起太太的手走回家，鏡頭已經說明一切，與其說是贖罪，我覺得更貼近是他希望自己在尖酸刻薄中受到批判從而重新審視自己的內心，而不是在如雷貫耳的掌聲與腳踏聲中被仇恨與勝利的喜悅沖洗後說著違心之論，更重要的是透過這樣的過程，重新喚醒大眾對於使用核武器的審思檢討，從而制訂制約的規則
 
 
@@ -5706,7 +5705,7 @@ date: 2023-08-07
 reply_count: 17
 title: 'Re: [負雷] 奧本海默 - 主角消失的傳記片'
 url: https://www.ptt.cc/bbs/movie/M.1691366243.A.0F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '金獎導演 ＃奧立佛史東 於推特（現改名：X）發文點評《奧本海默》：
 
   .
@@ -5815,7 +5814,7 @@ date: 2023-08-02
 reply_count: 9
 title: '[討論] 奧利佛史東點評《奧本海默》'
 url: https://www.ptt.cc/bbs/movie/M.1690972804.A.B9B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '席尼墨菲，小勞勃道尼兩個殺爛整場
 
 
@@ -5840,7 +5839,7 @@ date: 2023-07-25
 reply_count: 72
 title: '[討論] 有哪片的卡司能跟奧本海默比？'
 url: https://www.ptt.cc/bbs/movie/M.1690283508.A.8C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5902,7 +5901,7 @@ date: 2023-07-21
 reply_count: 9
 title: '[普雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689928003.A.290.html
---- !!python/object:movie_data.PublicReview
+---
 content: "小勞勃道尼「奧本海默」想到老婆！放閃謝愛妻\n\n2023-11-03 00:14\n\n聯合報 記者黃保慧／即時報導\n\n\n「奧本海默」全球大賣台幣300億。圖／MyVideo提供\n\
   \nMyVideo影音平台11月電影強檔片單出爐！除了有名導克里斯多夫諾蘭執導大片「奧本海\n默」將上架；還有改編自阿嘉莎克莉絲蒂推理小說的「威尼斯魅影謀殺案「、拿下金馬4\n\
   項大獎的港片「智齒」、蟬聯日本5週票房冠軍「電影哆啦A夢：大雄與天空的理想鄉」、\n熱血動畫神作「BLUE GIANT 藍色巨星」等片。\n\n名導諾蘭執導的「奧本海默」以二次大戰人物「原子彈之父」為題材，找來頂級卡司陣容\n\
@@ -5920,7 +5919,7 @@ date: 2023-11-03
 reply_count: 6
 title: '[新聞] 小勞勃道尼「奧本海默」想到老婆！放閃謝愛妻'
 url: https://www.ptt.cc/bbs/movie/M.1699023885.A.9AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最新的印地安納瓊斯5的大壞蛋就是在影射馮布朗啊，
 
 
@@ -5959,7 +5958,7 @@ date: 2023-08-09
 reply_count: 8
 title: 'Re: [請益] 奧本海默對氫彈的態度（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1691547606.A.038.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨晚去看奧本海默
 
   第一任女友有跟他的床戲
@@ -6011,7 +6010,7 @@ date: 2023-08-16
 reply_count: 75
 title: '[討論] 奧本海默的三段戀情裡怎麼只有一個床戲'
 url: https://www.ptt.cc/bbs/movie/M.1692131740.A.D6C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6214,7 +6213,7 @@ date: 2023-07-21
 reply_count: 33
 title: '[普負雷] 奧本海默 麻瓜心得'
 url: https://www.ptt.cc/bbs/movie/M.1689948917.A.751.html
---- !!python/object:movie_data.PublicReview
+---
 content: '完成《奧本海默》後、克里斯多夫諾蘭未來想拍什麼電影？他喊話：我想拍恐怖片！
 
 
@@ -6272,7 +6271,7 @@ date: 2024-02-17
 reply_count: 43
 title: '[新聞] 完成《奧本海默》後、克里斯多夫諾蘭未'
 url: https://www.ptt.cc/bbs/movie/M.1708181181.A.2DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '人權證明
 
 
@@ -6457,7 +6456,7 @@ date: 2023-08-15
 reply_count: 38
 title: '[普偏好雷] 奧本海默-諾蘭最佳之一 但看得好累'
 url: https://www.ptt.cc/bbs/movie/M.1692113518.A.38B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看完
 
 
@@ -6513,7 +6512,7 @@ date: 2023-07-29
 reply_count: 87
 title: '[請益] 奧本海默跟愛因斯坦對話的意思'
 url: https://www.ptt.cc/bbs/movie/M.1690618931.A.B28.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -6609,7 +6608,7 @@ date: 2023-07-20
 reply_count: 10
 title: '[新聞] 艾蜜莉拍《奧本海默》把諾蘭當爹！爆與麥'
 url: https://www.ptt.cc/bbs/movie/M.1689866027.A.D25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '口碑盛讚、震撼人心之作 !
 
   感謝全台觀眾支持！賀【#奧本海默】全台票房破億！
@@ -6634,7 +6633,7 @@ date: 2023-08-01
 reply_count: 121
 title: '[情報] 奧本海默全台票房破億'
 url: https://www.ptt.cc/bbs/movie/M.1690860655.A.565.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上映三個禮拜
 
   現在評分快30萬筆
@@ -6654,7 +6653,7 @@ date: 2023-08-07
 reply_count: 72
 title: 'Re: [討論] 奧本海默IMDB首波評價出爐'
 url: https://www.ptt.cc/bbs/movie/M.1691388066.A.38B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這次諾蘭在對白寫作上比以前好很多，沒有再出現像「愛是唯一能穿越時間和空間的事物」
 
   這種媲美瑪莎的低能糞台詞。
@@ -6707,7 +6706,7 @@ date: 2023-09-09
 reply_count: 51
 title: '[討論] 奧本海默的一句台詞（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1694271564.A.295.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6783,7 +6782,7 @@ date: 2023-07-21
 reply_count: 36
 title: '[普雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689918160.A.038.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》性愛過程「朗誦印度經典」！印度官員點名諾蘭發聲了
 
 
@@ -6840,7 +6839,7 @@ date: 2023-07-24
 reply_count: 106
 title: '[新聞] 奧本海默性愛過程朗誦印度經典!印度官員'
 url: https://www.ptt.cc/bbs/movie/M.1690209854.A.EFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '等了一年多終於在日本上映了，上週末特地帶日本老婆去看，觀影人數比想像中的還少，
 
   一個大廳可能1/3都沒有滿，有可能大家都在等下週的柯南。
@@ -6874,7 +6873,7 @@ date: 2024-04-08
 reply_count: 279
 title: '[ 雷]人在日本的奧本海默觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1712556178.A.7BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '繼《奧本海默》又一核彈大片！《沙丘》名導丹尼維勒納夫籌拍「核戰題材」新作
 
 
@@ -6916,7 +6915,7 @@ date: 2024-04-05
 reply_count: 9
 title: '[新聞] 繼《奧本海默》又一核彈大片！《沙丘》名'
 url: https://www.ptt.cc/bbs/movie/M.1712323121.A.457.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -7091,7 +7090,7 @@ date: 2023-07-24
 reply_count: 237
 title: '[負雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690190460.A.997.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟我經營了一個歷史的Podcast，也有自己的粉絲專頁，最近剛看完了奧本海默，正好
 
   和我以前研究過的美國史有關，努力查資料寫了一篇算是補充資料的影評，給大家參考看
@@ -7503,7 +7502,7 @@ date: 2023-07-31
 reply_count: 163
 title: '[好雷]奧本海默(歷史+劇情討論)'
 url: https://www.ptt.cc/bbs/movie/M.1690816218.A.F91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默結局有一幕，是科學家們一一接受表揚那段
 
 
@@ -7537,7 +7536,7 @@ date: 2023-07-28
 reply_count: 74
 title: '[請益] 奧本海默結局'
 url: https://www.ptt.cc/bbs/movie/M.1690551338.A.6CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下是我的觀點
 
 
@@ -7594,7 +7593,7 @@ date: 2023-08-16
 reply_count: 12
 title: 'Re: [討論] 奧本海默的三段戀情裡怎麼只有一個床戲'
 url: https://www.ptt.cc/bbs/movie/M.1692155845.A.EB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7677,7 +7676,7 @@ date: 2023-07-27
 reply_count: 4
 title: '[好雷] 奧本海默Oppenheimer'
 url: https://www.ptt.cc/bbs/movie/M.1690423695.A.F7E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原子彈之父的類紀錄片電影
 
   因為歷史的淵源
@@ -7701,7 +7700,7 @@ date: 2023-05-12
 reply_count: 85
 title: '[討論] 奧本海默在日本會上映嗎 ？ '
 url: https://www.ptt.cc/bbs/movie/M.1683876275.A.17F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實原子彈做出來是一回事
 
   真正讓核子武器應用更方便的是
@@ -7782,7 +7781,7 @@ date: 2023-08-08
 reply_count: 50
 title: 'Re: [請益] 奧本海默對氫彈的態度（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1691432755.A.44A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我知道來這裡會被砲轟到死
 
   但我還是想試試看
@@ -7907,7 +7906,7 @@ date: 2023-07-27
 reply_count: 306
 title: 'Re: [新聞] 前20分鐘無女性台詞…「奧本海默」遭女'
 url: https://www.ptt.cc/bbs/movie/M.1690431457.A.6AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下無雷觀影心得\n\n\n\n1、[我是看一般廳非 imax\n但如果只想看特效跟動作的人真的不用看IMAX]\n\n有人說看IMAX\n更有張力更有渲染力，根本廢話\n\
   任何片用IMAX看當然都更有張力\nA片用IMAX放放看絕對張力更猛\n直接爆表\n\n[有人認為我是看一般廳憑什麼不推,我是通靈喔\n我請問\n我看阿凡達 2\
   \ 是看一般廳但也推去看 imax,你會覺得我憑什麼推 imax 嗎？還會覺得我通\n靈嗎？]\n\n2、台詞超過10句的演員絕對超過40個\n提到的人名更可能超過60個\n\
@@ -7922,7 +7921,7 @@ date: 2023-07-23
 reply_count: 391
 title: '[ 負雷] 奧本海默-無雷'
 url: https://www.ptt.cc/bbs/movie/M.1690055516.A.E10.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天去看了奧本海默，我沈默了，看不懂。但我發現幾個道理，.以後3小時以上的片子，乖乖去買按摩座吧，起碼坐起來，舒服多了。
 
 
@@ -7972,7 +7971,7 @@ date: 2023-08-23
 reply_count: 37
 title: '[討論] 奧本海默心得'
 url: https://www.ptt.cc/bbs/movie/M.1692783474.A.85D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '然後美國新一輪麥卡錫主義開始了，
 
 
@@ -8019,7 +8018,7 @@ date: 2023-09-09
 reply_count: 16
 title: 'Re: [討論] 奧本海默 - 麥卡錫主義根本是白色恐怖'
 url: https://www.ptt.cc/bbs/movie/M.1694232061.A.69D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你可以想像在一個眼球和注意力幾乎被短影音霸佔的時代
 
   一個三小時的傳記電影會是一個很大的挑戰
@@ -8106,7 +8105,7 @@ date: 2023-07-20
 reply_count: 67
 title: '[ 極好無雷] 《奧本海默》無雷心得'
 url: https://www.ptt.cc/bbs/movie/M.1689867029.A.CBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '又到了諾蘭的炫技片
 
   這次台中有什麼好選擇嗎？
@@ -8127,7 +8126,7 @@ date: 2023-07-17
 reply_count: 44
 title: '[請益] 奧本海默 台中觀影選擇'
 url: https://www.ptt.cc/bbs/movie/M.1689567687.A.C1F.html
---- !!python/object:movie_data.PublicReview
+---
 content: ':
 
   :
@@ -8778,7 +8777,7 @@ date: 2023-08-08
 reply_count: 73
 title: 'Re: [請益] 奧本海默對氫彈的態度（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1691496283.A.B3C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部把諾蘭的強項發揮到極致
 
   多線、非線性敘事、精湛的剪接和節奏編排
@@ -8826,7 +8825,7 @@ date: 2023-07-23
 reply_count: 11
 title: '[好雷]  奧本海默—諾蘭巔峰大師之作  預定奧'
 url: https://www.ptt.cc/bbs/movie/M.1690097905.A.5CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是不是太笨了
 
   看不懂奧本海默
@@ -8848,7 +8847,7 @@ date: 2023-09-11
 reply_count: 47
 title: 有沒有人跟我一樣看不懂奧本海默
 url: https://www.ptt.cc/bbs/movie/M.1694422850.A.DC7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -9032,7 +9031,7 @@ date: 2023-08-08
 reply_count: 132
 title: '[普雷] 奧本海默：不是你想像的IMAX片'
 url: https://www.ptt.cc/bbs/movie/M.1691508185.A.21D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在短視頻、短影音充斥著Tiktok Youtube
 
   連播放速度都要調成1.5倍的速食年代
@@ -9126,7 +9125,7 @@ date: 2023-07-25
 reply_count: 107
 title: '[ 極好雷] 今年選一部進戲院 只能是奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690253693.A.93F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -9168,7 +9167,7 @@ date: 2023-07-21
 reply_count: 17
 title: '[普雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689929561.A.F0E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前陣子剛釋出劇照
 
   今天釋出新的電影海報
@@ -9182,7 +9181,7 @@ date: 2022-12-14
 reply_count: 11
 title: '[情報] 《奧本海默》最新電影海報'
 url: https://www.ptt.cc/bbs/movie/M.1671027138.A.095.html
---- !!python/object:movie_data.PublicReview
+---
 content: "身為諾蘭粉，我不會說奧本海默是本世紀至今的最佳電影\n\n但以個人而言，卻是諾蘭從全面啟動後最好的作品\n\n\n少了那些炫炮的動作畫面、醉心發想的特效場景\n\
   \n換個題材，自我挑戰\n\n諾蘭以成熟的執導功力，繳出了一部精彩絕倫的傳記片\n\n尤其最後半小時，簡直是一齣迷你的政治驚悚劇\n\n\n\n防個雷\n\n\
   --------------------------\n\n\n\n\n\n\n\n\n\n\n\n\n\n(幾點感想)\n\n\n1.席尼墨菲:跟諾蘭第六次合作，終於當上男主角的墨菲，無疑是貫穿整部片的重中之重\n\
@@ -9229,7 +9228,7 @@ date: 2023-07-21
 reply_count: 40
 title: '[好雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689948531.A.A81.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了一下排片
 
 
@@ -9253,7 +9252,7 @@ date: 2023-07-21
 reply_count: 67
 title: '[討論] 奧本海默 排片怎麼那麼少'
 url: https://www.ptt.cc/bbs/movie/M.1689909746.A.1F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -9330,7 +9329,7 @@ date: 2023-07-23
 reply_count: 14
 title: '[討論] 關於奧本海默的鋼鐵人的個性'
 url: https://www.ptt.cc/bbs/movie/M.1690095788.A.26F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '兩大金獎級導演讚【奧本海默】
 
 
@@ -9405,7 +9404,7 @@ date: 2023-09-20
 reply_count: 5
 title: '[新聞] 兩大金獎級導演讚【奧本海默】 '
 url: https://www.ptt.cc/bbs/movie/M.1695199066.A.223.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n奧本海默\nOppenheimer\n2023美國電影\n\n\nBB%E5%BD%B1)\n\n一部2023年美英合拍的傳記驚悚片，劇情講述了美國理論物理學家羅伯特奥本海默研製原\n\
   子彈的過程。\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n毫無疑問，這是具有挑戰性的觀賞之影片（片長三小時，及劇情涉及的人事物之資訊量超\n\
@@ -9443,7 +9442,7 @@ date: 2023-08-03
 reply_count: 7
 title: '[好雷] 奧本海默 Oppenheimer'
 url: https://www.ptt.cc/bbs/movie/M.1691065504.A.8ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: "網誌圖文版\n\n\n\n\n\n\n\n--------------\n\n\n\n\n\n[旅行] 2023年7月韓日跨國行：長崎，伏流傷痕之河的城市（20230731-0801）\n\
   \n長崎原爆中心點\n\n胖子原子彈\n\n    今天是八月九日，人類最近一次也是最後一次投放核武器的日子：1945年8\n月9日，上午11時2分，胖子原子彈在長崎上空爆炸，造成80000人當場死亡，\n\
   後續仍有數萬至十數萬人，在幾天至幾年後因輻射而亡。\n    這回旅行到了長崎，有個一定要走的地方，那就是長崎平和公園和原爆資料\n館，因為這是核武器唯二在地球上留下的爪痕，永遠警醒對於戰爭還有莫名幻想\n\
@@ -9478,7 +9477,7 @@ date: 2023-08-09
 reply_count: 6
 title: '[好雷] 我的長崎之旅與奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1691567469.A.759.html
---- !!python/object:movie_data.PublicReview
+---
 content: '金球獎新增 2 座獎項！《芭比》《奧本海默》《瑪利歐兄弟》等 8 片可角逐「票房成就
 
   」獎
@@ -9535,7 +9534,7 @@ date: 2023-09-27
 reply_count: 48
 title: '[新聞] 金球獎新增 2 座獎項！《芭比》《奧本海默》《瑪利歐兄弟》'
 url: https://www.ptt.cc/bbs/movie/M.1695819944.A.911.html
---- !!python/object:movie_data.PublicReview
+---
 content: "發現有一些字幕是斜體字，但雖然看了兩次，還是沒有理出個頭緒到底斜體的含意是什麼\n\n目前有幾個猜測方向：\n\n1. 小說中或是現實中原句引用，比較常出現的都是在Strauss的聽證會上，對話內容\n\
   \n   沒意外應該都是公開資訊，故有此猜測，但也有一些私人場合的對話，或許是當事人\n\n   事後訪問轉述的原話?\n\n2. 當作段落的引言，類似有些小說會在章節開頭有簡短引言或是預告。\n\
   \n3. 純粹技術失誤，因為我實在很難找到使用場合的共通點XDD\n\n想問問有沒有大大對此小小細節有多一點了解的?\n\n--"
@@ -9543,7 +9542,7 @@ date: 2023-08-01
 reply_count: 8
 title: '[請益] 奧本海默的字幕疑惑'
 url: https://www.ptt.cc/bbs/movie/M.1690829197.A.354.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網頁裡面有一個標籤 tag 也可以說是element
 
 
@@ -9715,7 +9714,7 @@ date: 2023-07-28
 reply_count: 48
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690550009.A.FC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》本週北美票房突破3億，正式超車《全面啟動》的2.93億，
 
   也擠下了《小美人魚》成為今年北美票房第五名
@@ -9741,7 +9740,7 @@ date: 2023-08-28
 reply_count: 33
 title: 'Re: [情報] 《奧本海默》全球票房正式突破七億美金'
 url: https://www.ptt.cc/bbs/movie/M.1693159474.A.95E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部就是傳記電影
 
   整部從頭講話講到結束
@@ -9782,7 +9781,7 @@ date: 2023-07-21
 reply_count: 21
 title: '[普無雷] 奧本海默（傳記）'
 url: https://www.ptt.cc/bbs/movie/M.1689933883.A.728.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -9839,7 +9838,7 @@ date: 2023-07-26
 reply_count: 206
 title: '[請益] 奧本海默演技最好是小勞勃道尼嗎(雷）'
 url: https://www.ptt.cc/bbs/movie/M.1690346211.A.423.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原子彈太敏感？《奧本海默》尚未敲定日本檔期
 
 
@@ -9940,7 +9939,7 @@ date: 2023-07-03
 reply_count: 124
 title: '[新聞] 原子彈太敏感？奧本海默未敲定日本檔期'
 url: https://www.ptt.cc/bbs/movie/M.1688315790.A.21A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -10075,7 +10074,7 @@ date: 2023-08-07
 reply_count: 23
 title: '[極好雷] 奧本海默-令人驚艷的歷史大片'
 url: https://www.ptt.cc/bbs/movie/M.1691340181.A.993.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天又心血來潮想訂票（我知道我太晚訂了）
 
   果難諾蘭不虧是諾蘭 imax熱門時段好位置幾乎都沒了
@@ -10109,7 +10108,7 @@ date: 2023-07-20
 reply_count: 113
 title: '[討論] 奧本海默IMax廳好搶手'
 url: https://www.ptt.cc/bbs/movie/M.1689833968.A.3C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '官網
 
 
@@ -10139,7 +10138,7 @@ date: 2022-07-28
 reply_count: 44
 title: '[情報] 《奧本海默》 前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1659008496.A.46D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n原標題:\n\n2022/12/13｜新聞快訊\n\n\n克里斯多福諾蘭（Christopher Nolan）執導的新作《奧本海默》（Oppenheimer）將以原\n\
   子彈之父羅伯特奧本海默（J. Robert Oppenheimer）為故事主軸，消息一出讓不少影迷\n開玩笑表示，難不成生涯總是避免特效後製、進而種出一大片玉米田、直接撞毀一台\n\
   \ 747 飛機的的諾蘭，這次也不例外？\n\n\n\n」諾蘭在接受 Total FIlm 訪問時透露，「安德魯傑克遜、我的視覺主管，我很早就讓他\n加入劇組中，正在研究我們如何實際地製作電影的許多視覺元素，從表現量子動力學和量\n\
@@ -10160,7 +10159,7 @@ date: 2022-12-13
 reply_count: 129
 title: '[新聞] 諾蘭《奧本海默》以不用特效方式重現核爆'
 url: https://www.ptt.cc/bbs/movie/M.1670902457.A.BF5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -10215,7 +10214,7 @@ date: 2023-07-27
 reply_count: 11
 title: '[請益] 奧本海默 台詞'
 url: https://www.ptt.cc/bbs/movie/M.1690465805.A.A47.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看奧本海默很累，但沒辦法，他的人生涉及到的人事物跟事件很多\n  如果只拍他的話，又沒辦法表現他的人生\n\n  我看的時候，是不停的在開維基百科\n\
   \  裡面每一個人都是好傢伙，連奧本海默他老婆跟那位瓊塔特洛克都很有來頭\n  而且在相關計畫裡出現的人都是有名的物理學家\n  每個人在自己的研究領域裡都有世界級的貢獻\n\
   \n  我是建議第一次看的時候要邊看邊查\n  然後看第二次的時候對人物關係清楚了，就會比較有感覺\n  像是他跟愛因斯坦的關係\n\n  沒辦法，諾蘭的東西本來就適合看兩次以上\n\
@@ -10224,7 +10223,7 @@ date: 2023-11-14
 reply_count: 18
 title: 'Re: [討論] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1699932696.A.9CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -10417,7 +10416,7 @@ date: 2024-04-08
 reply_count: 143
 title: '[新聞] 《奧本海默》在日本上映，引發爭議與反思'
 url: https://www.ptt.cc/bbs/movie/M.1712549052.A.B6E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有提及奧本海默的劇情，雖然不多，但如果覺得會影響到觀影樂趣就自行斟酌觀看。
 
 
@@ -10505,7 +10504,7 @@ date: 2023-08-15
 reply_count: 37
 title: '[討論] 從奧本海默看諾蘭的節奏把控（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1692090544.A.7B1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就那個藕斷絲連的情人
 
   最後看來是服藥然後把自己淹死自殺
@@ -10531,7 +10530,7 @@ date: 2023-07-31
 reply_count: 46
 title: '[討論] 奧本海默的情人有一幕（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1690763977.A.31B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   這部叫做奧本海默
@@ -10580,7 +10579,7 @@ date: 2023-07-23
 reply_count: 15
 title: '[雷] 奧本海默 很棒的傳記電影'
 url: https://www.ptt.cc/bbs/movie/M.1690061764.A.8E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "關於這個黑白與彩色的差別，為什麼我感覺到一部分的違和感?\n\n下面有雷\n\n\n\n本作的「彩色」主要是以奧本海默的視角去看故事，內容集中在他的回憶及週邊\n\
   \n而「黑白」則集中在1959年的國會任命聽證會上\n\n\n對，因為國會任命聽證會主要是講史特勞斯的部分\n其實奧本海默本人並沒有參加這個聽證會\n\n但是裡面有一段描述，很明顯是史特勞斯個人對於奧本海默的評價\n\
   \n而那跟我們在彩色片段看到的顯然不同。\n\n\n\n彩色部分: 奧本海默在原子彈投下後，懊惱、悔恨、痛苦，掙扎著\n一方面投彈代表他的事業、計劃、國家的大成功。\n\
@@ -10591,7 +10590,7 @@ date: 2023-07-24
 reply_count: 20
 title: 'Re: [新聞] 奧本海默曝新劇照！神導諾蘭親解黑白彩色'
 url: https://www.ptt.cc/bbs/movie/M.1690170712.A.C4E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "Haakon Chevalier: Do stars die?\n\nJ. Robert Oppenheimer: Well, if they\
   \ do, they'd cool, then collapse. In fact,\n\nthe bigger the star, the more violent\
   \ its demise. Their gravity gets so\n\nconcentrated, it swallows everything.\n\n\
@@ -10601,7 +10600,7 @@ date: 2023-08-04
 reply_count: 19
 title: 'Re: [請益] 關於奧本海默形容恆星的台詞'
 url: https://www.ptt.cc/bbs/movie/M.1691161488.A.F02.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -10739,7 +10738,7 @@ date: 2023-07-27
 reply_count: 66
 title: '[好雷] 奧本海默 模仿遊戲 之比較'
 url: https://www.ptt.cc/bbs/movie/M.1690391219.A.61A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -10836,7 +10835,7 @@ date: 2023-07-22
 reply_count: 63
 title: '[好雷]奧本海默，科研同路人的矛盾 '
 url: https://www.ptt.cc/bbs/movie/M.1689989510.A.063.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這次來看奧本海默除了為了諾蘭和知名演員以外
 
 
@@ -10861,7 +10860,7 @@ date: 2023-08-05
 reply_count: 89
 title: '[討論] 奧本海默配樂vs星際效應配樂'
 url: https://www.ptt.cc/bbs/movie/M.1691236302.A.F58.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我是諾蘭迷 也是個中年大叔\n\n早上在板橋大遠百看了早場\n\n想紀錄一些自己的感想\n\n\n\n雷文防雷資訊頁\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n1. 本片時常雖然高達三小時  但幾乎沒有一幕是你想錯過的\n\n\n2. 性愛場面並不會讓人興奮  反而有沉重的感覺\n   黑寡婦2代的身材只能說普通\
@@ -10876,7 +10875,7 @@ date: 2023-07-21
 reply_count: 71
 title: '[ 好雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689918774.A.48D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '環球《奧本海默》與華納《芭比》打對台...華納兄弟端出 7 位數獎金求諾蘭回歸
 
 
@@ -10977,7 +10976,7 @@ date: 2023-06-15
 reply_count: 76
 title: '[新聞] 環球《奧本海默》與華納《芭比》打對台 '
 url: https://www.ptt.cc/bbs/movie/M.1686801514.A.1EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很多人說後半段都聽證會文戲很無聊
 
   但我反而覺得後半段才是這部的靈魂
@@ -11014,7 +11013,7 @@ date: 2023-07-23
 reply_count: 69
 title: '[討論] 奧本海默的後半段才是本片靈魂(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1690107420.A.762.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本奧本和戲院談好獨佔三週IMAX檔期，
 
 
@@ -11053,7 +11052,7 @@ date: 2023-08-08
 reply_count: 79
 title: '[情報]奧本海默IMAX檔期延長'
 url: https://www.ptt.cc/bbs/movie/M.1691490222.A.FA1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看起來像來亂的，不過
 
 
@@ -11103,7 +11102,7 @@ date: 2023-07-29
 reply_count: 27
 title: 'Re: [請益] 奧本海默跟愛因斯坦對話的意思'
 url: https://www.ptt.cc/bbs/movie/M.1690624340.A.2E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n《芭比》《奧本海默》掀熱潮 \n\n記者郭采縈／綜合報導\n\n好萊塢巨星湯姆克魯斯（Tom Cruise）籌備已久的新作《不可能的任務：致命清算\
   \ 第一\n章》，7月起在全球上映，\n\n\n\n\n\n湯姆克魯斯2022年以《捍衛戰士：獨行俠》在全球拿下14.96億美元（約468.7億台幣）的\n驚人票房，穩坐冠軍寶座，今年則推出《不可能的任務》最新續集，成績備受看好。然而\n\
   綜合外媒報導，在近日《芭比》和《奧本海默》上映後，似乎對該片帶來明顯衝擊。\n\n\n\n《芭比》和《奧本海默》兩部電影在票房上表現出色，尤其\n而原本認為競爭較小的\n\
@@ -11114,7 +11113,7 @@ date: 2023-07-30
 reply_count: 85
 title: '[新聞] 《芭比》《奧本海默》掀熱潮 阿湯哥「'
 url: https://www.ptt.cc/bbs/movie/M.1690731621.A.8B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感恩諾蘭！《奧本海默》是幫助IMAX利潤成長50%的大功臣
 
 
@@ -11247,7 +11246,7 @@ date: 2023-11-08
 reply_count: 13
 title: '[新聞] 奧本海默是幫助IMAX利潤成長50的大功臣'
 url: https://www.ptt.cc/bbs/movie/M.1699405643.A.724.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Christopher Nolan’s ‘OPPENHEIMER’ debuts with a 96% score on Rotten Tomatoe
 
   s.
@@ -11299,7 +11298,7 @@ date: 2023-07-20
 reply_count: 95
 title: '[情報] 《奧本海默》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1689784412.A.D90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -11331,7 +11330,7 @@ date: 2023-07-24
 reply_count: 47
 title: '[請益] 日本有可能進奧本海默嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1690159708.A.4BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -11373,7 +11372,7 @@ date: 2023-07-22
 reply_count: 8
 title: '[好雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690018435.A.553.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -11474,7 +11473,7 @@ date: 2023-07-21
 reply_count: 79
 title: '[普雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689938947.A.E42.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -11524,7 +11523,7 @@ date: 2023-12-17
 reply_count: 55
 title: '[請益] 奧本海默算歷史冷澀片嗎'
 url: https://www.ptt.cc/bbs/movie/M.1702794706.A.401.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -11565,7 +11564,7 @@ date: 2023-07-25
 reply_count: 601
 title: '[新聞] 前20分鐘無女性台詞…「奧本海默」遭女'
 url: https://www.ptt.cc/bbs/movie/M.1690260533.A.C63.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Yahoo奇摩  文／血紅蘭姆
 
 
@@ -11635,7 +11634,7 @@ date: 2023-07-25
 reply_count: 51
 title: '[新聞] 只列27人！《奧本海默》片尾名單漏列特效'
 url: https://www.ptt.cc/bbs/movie/M.1690284520.A.91C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在大直美麗華預購MI7時就把奧本海默的票也買下來。
 
 
@@ -11700,7 +11699,7 @@ date: 2023-07-21
 reply_count: 17
 title: '[好無雷] 奧本海默 Oppenheimer IMAX 小感 '
 url: https://www.ptt.cc/bbs/movie/M.1689917956.A.728.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部真有趣
 
 
@@ -11727,7 +11726,7 @@ date: 2023-07-16
 reply_count: 134
 title: '[討論] 為什麼這麼多大咖願意去奧本海默當配角'
 url: https://www.ptt.cc/bbs/movie/M.1689513263.A.83F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -11818,7 +11817,7 @@ date: 2023-07-23
 reply_count: 111
 title: '[請益] 奧本海默 關於希爾'
 url: https://www.ptt.cc/bbs/movie/M.1690098148.A.5F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '任何一個有看電影的人都不會糾結這個
 
 
@@ -11842,7 +11841,7 @@ date: 2023-07-29
 reply_count: 10
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690608300.A.E61.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -11942,7 +11941,7 @@ date: 2023-07-21
 reply_count: 59
 title: '[普雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689911604.A.4F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默在片尾思考的問題其實很好說明一切
 
 
@@ -12084,7 +12083,7 @@ date: 2023-08-02
 reply_count: 31
 title: 'Re: [討論] 論《奧本海默》與台灣政治現況的相似處'
 url: https://www.ptt.cc/bbs/movie/M.1690968299.A.CA7.html
---- !!python/object:movie_data.PublicReview
+---
 content: ":\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n:\n\
   :\n:\n\n\n  你沒有搞清楚狀況!  當初搞麥卡錫主義是一種因應手段!!!!!!!!!!!!!!!!!!!!!!!\n\n  基本上 之前的確是有東德間諜去偷原子彈設計圖\n\
   \n  後來蘇聯也真的有做出核武裝置!!!!!!!!!!!!!!!!!!!!!!!!!\n\n  東德間諜有承認他偷了原子彈設計圖\n\n  所以事先蘇聯有間諜去偷竊設計圖\n\
@@ -12101,7 +12100,7 @@ date: 2023-09-09
 reply_count: 24
 title: 'Re: [討論] 奧本海默 - 麥卡錫主義根本是白色恐怖'
 url: https://www.ptt.cc/bbs/movie/M.1694219894.A.DC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當
 
   淚
@@ -12129,7 +12128,7 @@ date: 2023-07-12
 reply_count: 145
 title: 'Re: [新聞] 《奧本海默》首波評價解禁'
 url: https://www.ptt.cc/bbs/movie/M.1689134070.A.874.html
---- !!python/object:movie_data.PublicReview
+---
 content: '印象最深刻的，是主角與杜魯門總統的對談
 
 
@@ -12258,7 +12257,7 @@ date: 2023-07-23
 reply_count: 53
 title: '[討論] 奧本海默(有雷)-印象深刻的幾幕'
 url: https://www.ptt.cc/bbs/movie/M.1690049999.A.919.html
---- !!python/object:movie_data.PublicReview
+---
 content: '，
 
   龜
@@ -12348,7 +12347,7 @@ date: 2023-07-27
 reply_count: 52
 title: 'Re: [新聞] 前20分鐘無女性台詞…「奧本海默」遭女'
 url: https://www.ptt.cc/bbs/movie/M.1690443562.A.D46.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》「核爆戲」遭視覺特效師殘酷評論：這太糟糕了，一點都不真實！專家這麼
 
   說
@@ -12478,7 +12477,7 @@ date: 2024-02-10
 reply_count: 168
 title: '[新聞] 奧本海默核爆戲 遭視覺特效師殘酷評論'
 url: https://www.ptt.cc/bbs/movie/M.1707499182.A.8A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天直接衝家裡附近影廳的最早場
 
 
@@ -12516,7 +12515,7 @@ date: 2023-07-21
 reply_count: 17
 title: '[好無雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689933193.A.A63.html
---- !!python/object:movie_data.PublicReview
+---
 content: '難怪列為限制級！《奧本海默》席尼墨菲、佛蘿倫絲普伊全裸上陣
 
 
@@ -12596,7 +12595,7 @@ date: 2023-07-09
 reply_count: 81
 title: '[新聞] 難怪列為限制級！《奧本海默》席尼墨菲'
 url: https://www.ptt.cc/bbs/movie/M.1688897903.A.545.html
---- !!python/object:movie_data.PublicReview
+---
 content: ':
 
 
@@ -12659,7 +12658,7 @@ date: 2023-08-02
 reply_count: 106
 title: 'Re: [討論] 論《奧本海默》與台灣政治現況的相似處'
 url: https://www.ptt.cc/bbs/movie/M.1690956313.A.53F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -12710,7 +12709,7 @@ date: 2024-01-25
 reply_count: 305
 title: '[新聞] 「奧本海默」日本將上映 不畏原子彈爭議 '
 url: https://www.ptt.cc/bbs/movie/M.1706197727.A.43A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於看完奧本海默了。
 
   先說會去看這部片最大的原因是席尼墨菲，
@@ -12804,7 +12803,7 @@ date: 2023-08-06
 reply_count: 38
 title: '[好雷] 奧本海默 一窺天才的心靈視野'
 url: https://www.ptt.cc/bbs/movie/M.1691309816.A.483.html
---- !!python/object:movie_data.PublicReview
+---
 content: "其實你們都注意錯人惹\n\n就像阿甘正傳一樣\n\n穿插各種歷史人物\n\n只是提醒你\n\n電影拍的是哪個時代\n\n讓你有回到過去的錯覺\n\
   \n該注意的人物其實是\n\n最大的反派\n\n就是小勞勃道尼演的\n\n史特勞斯\n\n\n那這個人出惹什麼問題呢？\n\n維基百科都有寫\n\n這人原本在自己的家族企業中賣鞋\n\
   \n\n但他自從幫美國政府做事升官發大財之後\n\n就再也不想回去民間當個平凡人賣鞋\n\n這有什麼問題嗎？\n\n當然有\n\n根據彼得原理\n\n\n這個平庸的凡人\n\
@@ -12816,7 +12815,7 @@ date: 2023-07-24
 reply_count: 3
 title: 'Re: [討論] 奧本海默 - 人物討論'
 url: https://www.ptt.cc/bbs/movie/M.1690147407.A.0BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道我是不是看錯了
 
 
@@ -12840,7 +12839,7 @@ date: 2023-07-23
 reply_count: 3
 title: '[討論] 奧本海默 曼哈頓計劃有人在流column嗎'
 url: https://www.ptt.cc/bbs/movie/M.1690104941.A.27B.html
---- !!python/object:movie_data.PublicReview
+---
 content: 're "好萊塢何時要歌頌一下這位NASA之父"
 
 
@@ -12886,7 +12885,7 @@ date: 2023-08-08
 reply_count: 7
 title: 'Re: [請益] 奧本海默對氫彈的態度（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1691450061.A.188.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在觀影前對《奧本海默》都是期待與純粹信任諾蘭的參半心情，因為對於這類題材覺得太
 
   過嚴酷冷冽所以興緻很有限。而觀影的過程中，感受了許多難以言喻的衝擊，就像電影說
@@ -13014,7 +13013,7 @@ date: 2023-07-23
 reply_count: 21
 title: '[ 好雷] 奧本海默 理論創造真實 真實帶來重量'
 url: https://www.ptt.cc/bbs/movie/M.1690052231.A.9AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'IMAX官方推特今日上傳了一張SYNCOPY製作公司傳送的圖
 
   SYNCOPY為諾蘭夫妻開設的製作公司
@@ -13052,7 +13051,7 @@ date: 2022-12-14
 reply_count: 21
 title: '[情報] 奧本海默&MI7片花將於阿凡達正片前播'
 url: https://www.ptt.cc/bbs/movie/M.1671003598.A.50A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '趁昨天颱風假看完了奧本海默
 
   蠻慶幸自己是在上到串流後才看的
@@ -13149,7 +13148,7 @@ date: 2024-07-25
 reply_count: 27
 title: '[好雷] 奧本海默 整部電影就像顆原子彈'
 url: https://www.ptt.cc/bbs/movie/M.1721894043.A.BC9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -13201,7 +13200,7 @@ date: 2024-01-24
 reply_count: 48
 title: '[新聞] 奧本海默獎季獲成功諾蘭沒想過 席尼墨'
 url: https://www.ptt.cc/bbs/movie/M.1706103398.A.7D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好萊塢大罷工！麥特戴蒙《奧本海默》首映提早走…奧斯卡女星表態
 
 
@@ -13294,7 +13293,7 @@ date: 2023-07-14
 reply_count: 54
 title: '[新聞] 好萊塢大罷工！麥特戴蒙《奧本海默》首映'
 url: https://www.ptt.cc/bbs/movie/M.1689304794.A.D61.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是看英文無字幕版本，所以很多對白聽不懂。
 
 
@@ -13322,7 +13321,7 @@ date: 2023-08-16
 reply_count: 2
 title: 'Re: [討論] 奧本海默的三段戀情裡怎麼只有一個床戲'
 url: https://www.ptt.cc/bbs/movie/M.1692158998.A.80B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》導演諾蘭12部電影評分排名！
 
   這部超越《黑暗騎士》居冠 《天能》《星際效應》吊車尾有原因
@@ -13545,7 +13544,7 @@ date: 2023-07-29
 reply_count: 98
 title: '[新聞] 《奧本海默》導演諾蘭12部電影評分排名'
 url: https://www.ptt.cc/bbs/movie/M.1690640081.A.856.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟非常喜歡諾蘭的記憶拼圖 頂尖對決
 
 
@@ -13593,7 +13592,7 @@ date: 2023-07-24
 reply_count: 107
 title: '[請益] 這次奧本海默時間軸玩的漂亮嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1690175080.A.8BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原文43\n\n爭論那麼多\n\n我發現沒有一個人去實際考察\n\n本人只好用歷史學所受訓練來獻醜一下了\n\n我先把時間設定在1945年前後\n\
   \n因為投下原子彈促使日本投降\n\n從而結束了中日之間長達八年的戰爭\n\n對中方意義甚大\n\n中國媒體和知識分子不可能不關注\n\n極大可能從其撰述的文章中得知Oppenheimer的譯名\n\
   \n而且此時是中華民國統治時期，沒有\"中國翻譯\"的問題在\n\n\n剛剛好有找到四篇談到他的\n\n首先第一篇翻譯美國學者揭露原子彈誕生秘辛的文章〈原子彈與世界政治:原子彈的誕生〉\n\
@@ -13609,7 +13608,7 @@ date: 2023-07-28
 reply_count: 46
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690541181.A.5F7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為之前看到很多討論都有提到日本作為全世界唯二的原子彈受害者，好奇究竟是否會進這
 
   部，或它們怎麼看待這部片，所以想到有一個本片的醍醐味，似乎滿少在板上看見，因此想
@@ -13671,7 +13670,7 @@ date: 2023-07-24
 reply_count: 15
 title: 'Re: [請益] 日本有可能進奧本海默嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1690178787.A.65E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭鼓吹大家買《奧本海默》藍光：萬惡串流平台就偷不走它！
 
 
@@ -13795,7 +13794,7 @@ date: 2023-11-18
 reply_count: 102
 title: '[新聞] 諾蘭鼓吹大家買奧本海默藍光：萬惡串流'
 url: https://www.ptt.cc/bbs/movie/M.1700295749.A.FFB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '史特勞斯將軍竟然是小勞勃道尼
 
   WTFFFFFFF
@@ -13835,7 +13834,7 @@ date: 2023-07-30
 reply_count: 125
 title: '[ 好雷]  看完奧本海默最震驚的事'
 url: https://www.ptt.cc/bbs/movie/M.1690681911.A.7EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "陷宗教爭議 奧本海默在印度仍大賣\n\n2023/7/25 17:34\n\n（中央社記者林行健新德里25日專電）好萊塢大片「奧本海默」因男主角在床戲場景朗誦\n\
   印度教經典「薄伽梵歌」詩句，引起部分印度教徒憤怒，但票房收入依然亮麗。印媒解讀\n，這意味著大部分民眾對此並不介意。\n\n「奧本海默」（Oppenheimer）21日在印度上映，加上周末計放映1900多場，即使午夜零\n\
   時到3時場次的電影票都售罄，票房收入直逼5億盧比（新台幣1億9100萬元），排名全球\n第3，僅次於美國及英國。\n\n雖然昨天的票房收入和21日相比下滑5成，但仍達7000萬盧比。業界人士估計，第一週票\n\
@@ -13855,7 +13854,7 @@ date: 2023-07-25
 reply_count: 7
 title: '[新聞] 陷宗教爭議 奧本海默在印度仍大賣'
 url: https://www.ptt.cc/bbs/movie/M.1690292924.A.AD8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "金球獎／「奧本海默」、「可憐的東西」大獎眾望所歸\n\n2024-01-08 12:18\n\n聯合報 記者陳建嘉／即時報導\n\n\n席尼墨菲主演「奧本海默」拿下劇情類最佳影片、最佳男主角、最佳男配角與最佳導演以\n\
   及最佳原創配樂，是本屆大贏家。圖／UIP提供\n\n2024年金球獎揭曉，兩座最佳影片獎項分別頒給去年全球賣座9.53億美元（約298億元台\n幣）的傳記史詩電影「奧本海默」以及榮獲威尼斯影展金獅獎的「可憐的東西」，兩片氣\n\
   勢同樣強健，也將於奧斯卡獎上再度一決雌雄。\n\n「奧本海默」講述原子彈發明者奧本海默的生平事蹟，講述他如何從旁結束第二次世界大\n戰的始末，更體驗到戰爭的殘酷與虛無，最終獲得最佳影片大獎，由導演克里斯多夫諾蘭\n\
@@ -13867,7 +13866,7 @@ date: 2024-01-08
 reply_count: 6
 title: '[新聞] 金球獎／「奧本海默」、「可憐的東西」大獎眾望所歸'
 url: https://www.ptt.cc/bbs/movie/M.1704728241.A.2BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好像還沒有版友分享，截至8/10
 
 
@@ -13891,7 +13890,7 @@ date: 2023-08-12
 reply_count: 66
 title: 'Re:  [討論] 《奧本海默》全球票房突破6億美元'
 url: https://www.ptt.cc/bbs/movie/M.1691844106.A.864.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年夏天，電影院裡充滿了精彩的電影。
 
   恭喜哈里森福特，祝賀印第 40 週年，並成為歷史上最具標誌性的人物之一。
@@ -13917,7 +13916,7 @@ date: 2023-06-29
 reply_count: 91
 title: '[情報] 阿湯哥：我喜歡奧本海默跟芭比雙片'
 url: https://www.ptt.cc/bbs/movie/M.1687968897.A.0A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -13999,7 +13998,7 @@ date: 2023-07-14
 reply_count: 21
 title: '[新聞] 小勞勃道尼:奧本海默是我演過最好一部片'
 url: https://www.ptt.cc/bbs/movie/M.1689347582.A.770.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「芭比海默」太驚人！《奧本海默》多1.5億票房竟要謝《Barbie 芭比》賣太好！
 
 
@@ -14100,7 +14099,7 @@ date: 2023-07-27
 reply_count: 23
 title: '[新聞] 芭比海默太驚人！《奧本海默》多1.5億'
 url: https://www.ptt.cc/bbs/movie/M.1690424496.A.1A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防
 
 
@@ -14209,7 +14208,7 @@ date: 2023-07-21
 reply_count: 34
 title: '[好亮雷] 奧本海默。窩的老天。'
 url: https://www.ptt.cc/bbs/movie/M.1689916834.A.2F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -14288,7 +14287,7 @@ date: 2023-07-27
 reply_count: 718
 title: '[新聞] 電影「奧本海默」是中國譯名與用語！網質疑︰翻譯幫中共文化統戰？'
 url: https://www.ptt.cc/bbs/movie/M.1690466932.A.882.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -14327,7 +14326,7 @@ date: 2023-07-27
 reply_count: 29
 title: '[討論] 奧本海默相似電影（微雷）'
 url: https://www.ptt.cc/bbs/movie/M.1690390577.A.0C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n \n \n \n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n \n\
   \ \n \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n \n \n \n\
   先說可能都是我自己腦補多想的，但有幾個我覺得蠻有趣的地方，a了一下，沒看到有人講\n手機發文選不到好雷，整部電影我是相當喜歡的\n \n \n1.聲波的傳遞距離\n\
@@ -14339,7 +14338,7 @@ date: 2023-07-23
 reply_count: 20
 title: '[  雷] 奧本海默有趣的幾個點'
 url: https://www.ptt.cc/bbs/movie/M.1690127595.A.598.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大量新畫面，一些演員亮相(傑森克拉克、喬西佩克、奧莉薇瑟爾比等)
 
 
@@ -14366,7 +14365,7 @@ date: 2023-07-14
 reply_count: 44
 title: '[情報] 奧本海默5分鐘片段'
 url: https://www.ptt.cc/bbs/movie/M.1689291123.A.088.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -14391,7 +14390,7 @@ date: 2023-08-09
 reply_count: 88
 title: '[新聞] 奧本海默成為最賣座的二戰電影'
 url: https://www.ptt.cc/bbs/movie/M.1691589656.A.D5C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》首週末多撿到 500 萬美元票房…因為《芭比》的票賣光了
 
 
@@ -14447,7 +14446,7 @@ date: 2023-07-25
 reply_count: 16
 title: '[新聞] 《奧本海默》首週末多撿到 500 萬美元票房'
 url: https://www.ptt.cc/bbs/movie/M.1690292016.A.177.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來是想看奧本海默
 
 
@@ -14468,7 +14467,7 @@ date: 2023-07-21
 reply_count: 98
 title: '[選片] 芭比還是奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689921846.A.91E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -14546,7 +14545,7 @@ date: 2023-08-21
 reply_count: 42
 title: '[好雷] 奧本海默-看不懂卻覺得很好看'
 url: https://www.ptt.cc/bbs/movie/M.1692608328.A.A32.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -14719,7 +14718,7 @@ date: 2023-07-21
 reply_count: 225
 title: '[負雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689928746.A.053.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n透露部分劇情，文長，請小心閱讀\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n從知道諾蘭將拍攝奧本海默後，基於對奧本海默的悲劇一生，\n\n大概就知道這齣戲是個文戲，但沒想到是將近3小時的文戲。\n\n--\n\n奧本海默親共形象，在麥卡錫時代遭受政治迫害，\n\
   \n為何諾蘭要在這個要求政治正確的時代，拍出如此政治不正確的影片，\n\n頗耐人尋味。\n\n--\n\n但可以肯定的是，片中氫彈之父泰勒(Edward Teller)與奧本海默的對比演得恰恰好，\n\
@@ -14744,7 +14743,7 @@ date: 2023-07-22
 reply_count: 22
 title: '[微雷]《奧本海默》物理學大師們齊聚的劇場'
 url: https://www.ptt.cc/bbs/movie/M.1689959010.A.5AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭新作奧本海默發佈第二支預告，更多演員登場
 
 
@@ -14764,7 +14763,7 @@ date: 2023-05-08
 reply_count: 105
 title: '[情報] 奧本海默預告2'
 url: https://www.ptt.cc/bbs/movie/M.1683531006.A.E73.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《奧本海默》 看到變阿茲海默 6/10分\n\n我是站在低評價的那邊\n\n即使沒有抱著娛樂片的期待\n已經做好看傳記片的準備\n還是覺得\n\n\
   怎麼可以這麼普通？\n\n奧本海默為什麼歷史留名\n就是因為原子彈\n\n他老婆是誰 你在乎嗎？\n他共不共產黨 我在乎嗎？\n他晚節不保 觀眾在乎嗎？\n\n\
   除非要跟原子彈有關\n雖然故事從開始到結束\n都是因發明原子彈而有了始末跟因果\n\n但已經偏離太多了\n雖然這是奧本海默的傳記電影\n但也挑些跟原子彈比較有關的部分吧\n\
@@ -14784,7 +14783,7 @@ date: 2023-07-28
 reply_count: 139
 title: '[普無雷]  《奧本海默》看到變阿茲海默'
 url: https://www.ptt.cc/bbs/movie/M.1690483215.A.36A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -14924,7 +14923,7 @@ date: 2023-07-22
 reply_count: 5
 title: '[好雷]奧本海默-American Prometheus'
 url: https://www.ptt.cc/bbs/movie/M.1689963725.A.776.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一刷看完覺得意猶未盡
 
 
@@ -15014,7 +15013,7 @@ date: 2023-07-31
 reply_count: 28
 title: '[好雷] 二刷奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690814204.A.287.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下心得有雷
 
   --------------------------
@@ -15093,7 +15092,7 @@ date: 2023-08-06
 reply_count: 28
 title: '[普雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1691325986.A.17E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先給個個人觀影背景，給還沒看的人當參考。
 
 
@@ -15210,7 +15209,7 @@ date: 2023-07-23
 reply_count: 137
 title: '[好雷] 奧本海默 沒做功課文組仔IMAX無雷心得'
 url: https://www.ptt.cc/bbs/movie/M.1690086540.A.88F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -15273,7 +15272,7 @@ date: 2023-07-22
 reply_count: 50
 title: '[好雷]奧本海默 相互毀滅 '
 url: https://www.ptt.cc/bbs/movie/M.1689964550.A.4CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -15322,7 +15321,7 @@ date: 2023-09-09
 reply_count: 64
 title: '[負雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1694245912.A.544.html
---- !!python/object:movie_data.PublicReview
+---
 content: '接近尾聲的聽證會橋段，有一段檢察官質問奧本，大意是「你當初大力反對開發氫彈，為什
 
   麼當XX試驗成功後，又轉為支持？」
@@ -15368,7 +15367,7 @@ date: 2023-08-06
 reply_count: 85
 title: '[請益] 奧本海默對氫彈的態度（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1691336953.A.799.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -15687,7 +15686,7 @@ date: 2023-07-22
 reply_count: 36
 title: '[ 好雷] 奧本海默IMAX'
 url: https://www.ptt.cc/bbs/movie/M.1690011227.A.99A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在電影裡
 
   奥本海默有講過兩次梵歌名言：
@@ -15721,7 +15720,7 @@ date: 2023-07-31
 reply_count: 23
 title: '[請益] 奧本海默電影中梵歌名言'
 url: https://www.ptt.cc/bbs/movie/M.1690737764.A.DFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》心得分享
 
 
@@ -15808,7 +15807,7 @@ date: 2023-07-23
 reply_count: 95
 title: '[討論] 奧本海默—成了死神怎麼辦？'
 url: https://www.ptt.cc/bbs/movie/M.1690064347.A.B53.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -15868,7 +15867,7 @@ date: 2023-06-02
 reply_count: 64
 title: '[新聞] 21年來首次！「神導」諾蘭新片《奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1685698225.A.DC5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -15922,7 +15921,7 @@ date: 2024-03-08
 reply_count: 66
 title: '[新聞]《奧本海默》席尼墨菲有望接演新一代007'
 url: https://www.ptt.cc/bbs/movie/M.1709873581.A.43C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防\n\n個\n\n雷\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~\n\n\n一些比較有感覺的點:\n\n1. 電影如同標題,\
   \ 主要是環繞著歐本海默這個 \"人\",\n   而不光是講 \"the making of the atomic bomb\"\n\n2. 原子彈的畫面比想像的少,\
   \ 不過那些光點和線條的抽象畫面也很好看.\n\n3. 性愛場面引不起什麼慾望, 其實也不見得要露點.\n   我甚至懷疑導演是不是故意用露點來提高觀眾年齡的門檻了...\n\
@@ -15937,7 +15936,7 @@ date: 2023-07-22
 reply_count: 117
 title: '[好雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689964510.A.2AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '手機不太會發文，連發了第三次sorry，
 
 
@@ -16071,7 +16070,7 @@ date: 2023-08-10
 reply_count: 26
 title: '[好雷] 奧本海默觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1691656355.A.9E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '安安
 
 
@@ -16117,7 +16116,7 @@ date: 2023-07-26
 reply_count: 45
 title: '[討論] 環球有權開發奧本海默環球影城設施嗎'
 url: https://www.ptt.cc/bbs/movie/M.1690342029.A.C6B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭為何要在《奧本海默》堅持採用「真正的爆炸」？
 
 
@@ -16199,7 +16198,7 @@ date: 2023-06-17
 reply_count: 70
 title: '[新聞] 諾蘭為何要在《奧本海默》堅持採用真正的'
 url: https://www.ptt.cc/bbs/movie/M.1686993239.A.240.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天把奧本海默看完了
 
 
@@ -16230,7 +16229,7 @@ date: 2023-11-14
 reply_count: 23
 title: '[討論] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1699930988.A.134.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該不算有雷
 
   都真人歷史跟wiki查得到
@@ -16304,7 +16303,7 @@ date: 2023-08-02
 reply_count: 52
 title: '[討論] 奧本海默的一個問題'
 url: https://www.ptt.cc/bbs/movie/M.1690988475.A.EE6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '隨著檔期接近，FB上出現越來越多加強推廣的奧本海默相關貼文
 
   一堆不管是知識型還是娛樂型Youtuber也在上映前一天"不約而同"上架例如「看奧本海默前你必須知道的事」的影片
@@ -16412,7 +16411,7 @@ date: 2023-07-21
 reply_count: 167
 title: '[討論] 奧本海默為何需要這麼多行銷？'
 url: https://www.ptt.cc/bbs/movie/M.1689871605.A.88D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: Prof68 (veritas) 看板: movie
 
   標題: Re: [負雷] 奧本海默v2
@@ -16507,7 +16506,7 @@ date: 2023-07-22
 reply_count: 59
 title: 'Re: [負雷] 奧本海默v2'
 url: https://www.ptt.cc/bbs/movie/M.1689955207.A.4ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '震撼人心、口碑爆棚！
 
   賀 !  ! 【#奧本海默】票房飆破2億大關
@@ -16533,7 +16532,7 @@ date: 2023-08-27
 reply_count: 36
 title: '[情報] 奧本海默 全台票房飆破2億大關'
 url: https://www.ptt.cc/bbs/movie/M.1693120910.A.8D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -16594,7 +16593,7 @@ date: 2023-07-25
 reply_count: 11
 title: '[新聞] 「芭比海默」發威！《芭比》、《奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690279072.A.7EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "戲院果然還是要賺錢的\n\n連續幾部IMAX新片都賣座不佳\n\n美麗華這禮拜開始重新放映奧本（每天1場），\n\n和跨界玩家、藍甲蟲、逃出寧靜海共4部輪播\n\
   \n【奧本海默】正式回歸\n\n8月23日起\n#奧本海默 重返 IMAX®影廳\n\n  8月21日18點後開放售票\n\n\n\n#轉自美麗華臉書\n\n\
   ----\nSent from  on my Realme RMX2144\n\n--"
@@ -16602,7 +16601,7 @@ date: 2023-08-21
 reply_count: 58
 title: '[情報]奧本海默重返IMAX'
 url: https://www.ptt.cc/bbs/movie/M.1692612673.A.081.html
---- !!python/object:movie_data.PublicReview
+---
 content: "名導諾蘭：電影《奧本海默》是對矽谷 AI 發展的示警\n\n\n電影《奧本海默》導演克里斯多福· 諾蘭在一次座談會中表示，希望矽谷能從電影中學到責\n\
   任的概念，並指出如果有天 AI 被視為獨立於人的個體就很危險了。\n\n聚焦在物理學家朱利葉斯· 歐本海默在研發原子彈所扮演之角色的電影《奧本海默》（Oppe\n\
   \ mheimer）即將上映，而近期導演克里斯多福· 諾蘭（Christopher Nolan）在座談會上被\n問希望矽谷能從這部片中學到什麼，他回答是「責任的概念」，表示當藉由科技在創新時，\n\
@@ -16615,7 +16614,7 @@ date: 2023-07-19
 reply_count: 31
 title: '[新聞] 名導諾蘭：電影《奧本海默》是對矽谷 A'
 url: https://www.ptt.cc/bbs/movie/M.1689697002.A.4D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷 只是想討論一下標題那一幕的問題
 
 
@@ -16666,7 +16665,7 @@ date: 2023-08-13
 reply_count: 40
 title: '[有雷]奧本海默 試爆前的一場戲'
 url: https://www.ptt.cc/bbs/movie/M.1691927314.A.5FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -16734,7 +16733,7 @@ date: 2023-07-23
 reply_count: 66
 title: '[請益] 奧本海默劇情一問'
 url: https://www.ptt.cc/bbs/movie/M.1690089368.A.DF1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -16790,7 +16789,7 @@ date: 2023-07-29
 reply_count: 16
 title: '[好雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690634118.A.3DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天終於去看了奧本海默，天啊，真的他X的好看阿！
 
   其實上映前就滿懷期待，
@@ -16844,7 +16843,7 @@ date: 2023-08-13
 reply_count: 133
 title: '[討論] 是不是只有PTT鄉民說奧本海默很悶'
 url: https://www.ptt.cc/bbs/movie/M.1691938423.A.659.html
---- !!python/object:movie_data.PublicReview
+---
 content: '筆者上週看完奧本海默
 
   電影中的情節到現在仍揮之不去
@@ -16900,7 +16899,7 @@ date: 2023-08-02
 reply_count: 179
 title: '[討論] 論《奧本海默》與台灣政治現況的相似處'
 url: https://www.ptt.cc/bbs/movie/M.1690943116.A.B5C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為大直美麗華imax總是搶不到假日好位子
 
   想說過一陣子再看
@@ -16936,7 +16935,7 @@ date: 2023-08-17
 reply_count: 83
 title: '[討論] 奧本海默imax不會下映這麼快吧'
 url: https://www.ptt.cc/bbs/movie/M.1692263916.A.A41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以政府立場來說 他的確很有問題
 
 
@@ -17064,7 +17063,7 @@ date: 2023-07-26
 reply_count: 28
 title: 'Re: [請益] 奧本海默結局（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1690357096.A.94B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '晚上跑完步坐在客廳沒事亂按電視看YT, 結果演算法推給我一個講歷史的頻道,
 
 
@@ -17139,7 +17138,7 @@ date: 2023-07-14
 reply_count: 119
 title: '[討論] 你們看奧本海默之前會不會先做個功課?'
 url: https://www.ptt.cc/bbs/movie/M.1689268226.A.EC3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "〈電影《奧本海默》中的真與假〉\n\n昨天在 科學人辦的《奧本海默》電影包場映後座談會中，主持人問到電影是否都符合實際\n歷史，由於時間的關係，當下只能簡短回答，現在我再補充如下。（本文因涉及電影情節，\n\
   僅適合已看過電影者。）\n\n諾蘭這部電影主要是根據 ”American Prometheus: The Triumph and Tragedy of J. Robe\n\
   rt Oppenheimer” 這本書（中譯本書名和電影相同也叫《奧本海默》，由 時報出版發行）\n。這本書的兩位作者蒐集了數千份記錄、信件和大量的機密文件，並採訪近百位奧本海默的\n\
@@ -17161,7 +17160,7 @@ date: 2023-08-01
 reply_count: 54
 title: '[討論] 電影《奧本海默》中的真與假'
 url: https://www.ptt.cc/bbs/movie/M.1690869715.A.6A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
   v
@@ -17314,7 +17313,7 @@ date: 2023-07-23
 reply_count: 104
 title: '[負雷] 熟悉的諾蘭不對味'
 url: https://www.ptt.cc/bbs/movie/M.1690101594.A.5A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默整部片對話太多，雖然有很多知名科學家登場，但名字和長相常常對不起來。
 
 
@@ -17341,7 +17340,7 @@ date: 2023-07-23
 reply_count: 176
 title: '[問雷] 奧本海默中的愛因斯坦'
 url: https://www.ptt.cc/bbs/movie/M.1690100372.A.033.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -17584,7 +17583,7 @@ date: 2023-08-07
 reply_count: 11
 title: '[好雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1691381010.A.692.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說本片一定要精神好的時候去看
 
   不用特別去看IMAX
@@ -17626,7 +17625,7 @@ date: 2023-07-22
 reply_count: 14
 title: '[ 好無雷] 奧本海默值得一看'
 url: https://www.ptt.cc/bbs/movie/M.1690029373.A.3EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來還有點猶豫看不看，但是現在是我心目中諾蘭作品的前三名。
 
   事前一點功課也沒做，我完全不懂物理學，這段歷史也就是課堂上聽過的程度，但是個人
@@ -17698,7 +17697,7 @@ date: 2023-07-22
 reply_count: 38
 title: '[好雷] 奧本海默，看完心情都憂鬱了'
 url: https://www.ptt.cc/bbs/movie/M.1690028250.A.962.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭的《奧本海默》片酬公開：他一人大賺 8500 萬美元！拿到的票房分紅比例還超越阿
 
   湯哥
@@ -17790,7 +17789,7 @@ date: 2024-03-10
 reply_count: 168
 title: '[新聞] 諾蘭《奧本海默》片酬公開：8500萬美元'
 url: https://www.ptt.cc/bbs/movie/M.1710009048.A.8B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該是3小時“9秒“，不是3小時9分鐘。前陣子看諾蘭宣傳的時候也是說3小時9秒，不知道
 
   是誰去IMDb亂改成9分鐘的XD
@@ -17811,7 +17810,7 @@ date: 2023-07-11
 reply_count: 43
 title: 'Re: [討論] 奧本海默總片長189分鐘'
 url: https://www.ptt.cc/bbs/movie/M.1689069579.A.B7D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默在日本怎麼會「不可能上映」？別的不說，日本連《八佰》都上映過了，而且還打
 
   廣告說什麼是2020年世界票房冠軍，這個中國的新聞都有：
@@ -17849,7 +17848,7 @@ date: 2023-08-05
 reply_count: 1
 title: 'Re: [討論] 所以奧本海默日本不可能上映了吧'
 url: https://www.ptt.cc/bbs/movie/M.1691249447.A.4A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '下面都是用ipa 但是這裡打不了嚴式 就簡單用寬式
 
   現代標準漢語（國語）歐ou/oʊ/ 奧au/ɑʊ/
@@ -17922,7 +17921,7 @@ date: 2023-07-29
 reply_count: 134
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690598499.A.3CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默只能說另人失望
 
   這是一部乍看之下非常精美
@@ -18038,7 +18037,7 @@ date: 2023-07-24
 reply_count: 77
 title: '[ 負無雷] 奧本海默 頂級食材卻難以下嚥'
 url: https://www.ptt.cc/bbs/movie/M.1690208919.A.8EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -18164,7 +18163,7 @@ date: 2023-07-24
 reply_count: 119
 title: '[負雷] 奧本海默 - 諾蘭被捧太高的作品'
 url: https://www.ptt.cc/bbs/movie/M.1690201084.A.E82.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默曾經擔憂:
 
 
@@ -18241,7 +18240,7 @@ date: 2023-07-30
 reply_count: 12
 title: '[好雷] 奧本海默 的確改變了世界'
 url: https://www.ptt.cc/bbs/movie/M.1690722885.A.6E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n若要一句話來形容看了《奧本海默》的觀後感，我會如此說：\n\
   「共同參與人類歷史存亡的理科白噪音」。\n\n\n\n 印象猶新看了克里斯多福·諾蘭電影還不停地反覆思考的作品是《全面啟動》，而《奧\n本海默》似乎也不遑多讓。卡司陣容也十分堅強，包括飾演主角奧本海默的席尼墨菲（\n\
@@ -18263,7 +18262,7 @@ date: 2023-08-12
 reply_count: 9
 title: '[好雷] 奧本海默：理科白噪音'
 url: https://www.ptt.cc/bbs/movie/M.1691832518.A.F17.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾日分享完觀影心得後，不由自主的開始回想角色間的關係，也開始查詢相關的資料。
 
 
@@ -18380,7 +18379,7 @@ date: 2023-07-24
 reply_count: 20
 title: '[討論] 奧本海默 - 人物討論'
 url: https://www.ptt.cc/bbs/movie/M.1690139114.A.A96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -18507,7 +18506,7 @@ date: 2023-08-17
 reply_count: 3
 title: '[  雷] [  雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1692238592.A.14D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《芭比》在全球累積票房已達到13.65億美元，
 
   正式超越《超級瑪利歐兄弟》成為全球年度票房冠軍
@@ -18536,7 +18535,7 @@ date: 2023-09-03
 reply_count: 67
 title: '[討論] 芭比全球年度票房冠軍，奧本海默第三名'
 url: https://www.ptt.cc/bbs/movie/M.1693680704.A.581.html
---- !!python/object:movie_data.PublicReview
+---
 content: '評價《奧本海默》導演諾蘭？艾蜜莉布朗「他很幽默像家人」麥特戴蒙「他滿嚴格的…」
 
 
@@ -18748,7 +18747,7 @@ date: 2023-07-22
 reply_count: 7
 title: '[新聞] 評價《奧本海默》導演諾蘭？艾蜜莉布朗「'
 url: https://www.ptt.cc/bbs/movie/M.1690035744.A.91B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧斯卡完整得獎名單／《奧本海默》奪最佳影片！　拿回7大獎成大贏家
 
 
@@ -19007,7 +19006,7 @@ date: 2024-03-11
 reply_count: 42
 title: '[新聞] 奧斯卡完整得獎名單《奧本海默》奪最佳'
 url: https://www.ptt.cc/bbs/movie/M.1710124066.A.81F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -19077,7 +19076,7 @@ date: 2023-06-29
 reply_count: 24
 title: '[新聞] 神導諾蘭最高規格拍攝《奧本海默》！鋼鐵'
 url: https://www.ptt.cc/bbs/movie/M.1688046032.A.08E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默那個年代
 
   麥卡錫主義  吊路燈
@@ -19104,7 +19103,7 @@ date: 2023-07-22
 reply_count: 343
 title: '[討論] 奧本海默是不是就像台灣反對黨被抹紅'
 url: https://www.ptt.cc/bbs/movie/M.1690020343.A.29D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '[！！！有雷！！！]
 
 
@@ -19179,7 +19178,7 @@ date: 2023-07-25
 reply_count: 116
 title: '[討論] 奧本海默是不是諾蘭少有的幽默橋段'
 url: https://www.ptt.cc/bbs/movie/M.1690265076.A.0C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《奧本海默》12位演員和真實人物對比照：除了席尼墨菲還有「愛因斯坦」還原度超高\n\n － 諾蘭導演的大作《奧本海默》票房破5億美金，成為影史上最賣座的二戰電影！\n\
   \nBY SYLVIA CHENG 與 EMILY BURACK (TOWN & COUNTRY) 2023/08/14\n\n\n環球影業《奧本海默》Getty\
   \ Images\n\n由克里斯多福諾蘭執導的《奧本海默》（Oppenheimer）塞滿了眾多一線明星，而他們飾\n演的全是真實歷史人物：席尼墨菲（Cillian\
@@ -19212,7 +19211,7 @@ date: 2023-08-14
 reply_count: 51
 title: '[新聞] 《奧本海默》12位演員和真實人物對比照：'
 url: https://www.ptt.cc/bbs/movie/M.1692028799.A.0C9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以前資訊流通不發達
 
   兩岸三地很多譯名都不一樣
@@ -19282,7 +19281,7 @@ date: 2023-07-28
 reply_count: 137
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690497984.A.97B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "The Late Show主持人Stephen Colbert最近專訪諾蘭\n\n特地拍了一個奧本海默結局的搞笑版\n\n覺得滿有趣的，放上來分享給喜歡這兩位的人\n\
   \n\n  拍攝現場\n\n  成品片段\n\n  訪談\n\n\n\n\n\n*感覺諾蘭跟小勞勃合作後，好像打開了歡樂開關\n\n 第一次看他幹這種事，呵\n\
   \n\n--"
@@ -19290,7 +19289,7 @@ date: 2024-02-10
 reply_count: 7
 title: '[分享] Stephen Colbert重現奧本海默結尾橋段'
 url: https://www.ptt.cc/bbs/movie/M.1707533353.A.FE1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -19349,7 +19348,7 @@ date: 2023-07-29
 reply_count: 73
 title: '[負雷] 奧本海默 效果比Stilnox還好'
 url: https://www.ptt.cc/bbs/movie/M.1690566053.A.450.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網紅假冒《奧本海默》演員！「英國奧斯卡」跟著上台　還站C位領獎
 
 
@@ -19420,7 +19419,7 @@ date: 2024-02-21
 reply_count: 68
 title: '[新聞] 網紅假冒《奧本海默》演員！「英國奧斯卡'
 url: https://www.ptt.cc/bbs/movie/M.1708454978.A.0A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上一次發文居然已經是寫《銀翼殺手:2049》了。
 
 
@@ -19524,7 +19523,7 @@ date: 2023-08-21
 reply_count: 2
 title: '[好雷]創世與毀滅：Oppenheimer的坦達瓦之舞'
 url: https://www.ptt.cc/bbs/movie/M.1692587050.A.331.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭威力不只台灣難搶，人在美國一樣難搶...
 
 
@@ -19549,7 +19548,7 @@ date: 2023-07-22
 reply_count: 76
 title: 'Re: [討論] 奧本海默IMax廳好搶手'
 url: https://www.ptt.cc/bbs/movie/M.1690009414.A.280.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（有劇情討論，未看者左轉）
 
 
@@ -19666,7 +19665,7 @@ date: 2023-07-21
 reply_count: 18
 title: '[普雷] （劇透）沒有經驗也不失望的《奧本海默》'
 url: https://www.ptt.cc/bbs/movie/M.1689924937.A.F76.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址
 
 
@@ -19714,7 +19713,7 @@ date: 2023-11-08
 reply_count: 12
 title: '[新聞] 芭比與奧本海默融合成真  芭本海默明年拍'
 url: https://www.ptt.cc/bbs/movie/M.1699410738.A.7B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '覺青就是這麼無聊，
 
 
@@ -19766,7 +19765,7 @@ date: 2023-07-28
 reply_count: 277
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！網質疑︰翻譯幫中'
 url: https://www.ptt.cc/bbs/movie/M.1690509630.A.9AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中文
 
 
@@ -19788,7 +19787,7 @@ date: 2022-07-21
 reply_count: 150
 title: '[情報] 諾蘭新片 奧本海默 首張海報釋出'
 url: https://www.ptt.cc/bbs/movie/M.1658403891.A.048.html
---- !!python/object:movie_data.PublicReview
+---
 content: "其實這例子還真有 而且還不限於 美音英音\n\n例如JOHN\n\n在中文中 約翰還是若望的問題 牽扯希伯來語 拉丁語 希臘語\n\n這中間就牽扯複雜的語言發音演變\n\
   \n所以到底該叫約翰還是若望... 我覺得 看心情\n\n\n而中文到外國 會不會有同樣的狀況\n\n也會有\n\n例如茶葉\n\n如果是經海洋運輸的國家 會發中國南方茶的音/te/\
   \ 例如西班牙文 Té\n\n但經荷蘭傳到英國 因為發音規則 tea變成/踢/\n\n而如果是經由陸路絲綢之路的國家 會發中國北方茶的音 例如土耳其的/çay/\n\
@@ -19800,7 +19799,7 @@ date: 2023-07-30
 reply_count: 32
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690705634.A.9EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你搞錯重點了。
 
 
@@ -19880,7 +19879,7 @@ date: 2023-07-28
 reply_count: 387
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690543938.A.FD0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本要演芭比！艾咪舒默朝聖「芭比海默」笑稱：奧本海默老婆該找我演！
 
 
@@ -19927,7 +19926,7 @@ date: 2023-07-25
 reply_count: 83
 title: '[新聞]原本要演芭比！艾咪舒默朝聖「芭比海默」笑稱：奧本海默老婆'
 url: https://www.ptt.cc/bbs/movie/M.1690289880.A.8FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -20094,7 +20093,7 @@ date: 2023-07-23
 reply_count: 13
 title: '[好雷]《奧本海默》打破類型框架並重新定義「感同身受」'
 url: https://www.ptt.cc/bbs/movie/M.1690118812.A.1A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -20141,7 +20140,7 @@ date: 2023-07-22
 reply_count: 4
 title: '[無雷] 奧本海默  '
 url: https://www.ptt.cc/bbs/movie/M.1689955228.A.21C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完奧本後
 
   很多相關的原子彈製作以及為何要投擲的看法
@@ -20169,7 +20168,7 @@ date: 2023-07-25
 reply_count: 86
 title: '[片單] 看完奧本海默想找二戰時間鏈的相關電影'
 url: https://www.ptt.cc/bbs/movie/M.1690299311.A.43A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -20229,7 +20228,7 @@ date: 2023-07-08
 reply_count: 64
 title: '[新聞] 諾蘭新作《奧本海默》來真的 三位一體核'
 url: https://www.ptt.cc/bbs/movie/M.1688776875.A.39B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒有要討論這部電影好不好
 
   只是想分享一個不怎麼重要的小段落
@@ -20265,7 +20264,7 @@ date: 2023-07-23
 reply_count: 17
 title: '[雷] 奧本海默的一個小段落'
 url: https://www.ptt.cc/bbs/movie/M.1690056808.A.412.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n這好像是我第一次來這裡寫雷文\n\
   \n所以昨天看完電影後, 腦袋中最大的問號是,\n\n\"這玩意是怎樣拿下台灣電影票房冠軍的?\"\n\n同行友人一個提早離場、\n一個看完的感想是「難共鳴,畢竟離我們太遙遠」\n\
@@ -20278,7 +20277,7 @@ date: 2023-08-06
 reply_count: 24
 title: '[普雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1691312454.A.CD3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -20420,7 +20419,7 @@ date: 2023-07-22
 reply_count: 90
 title: '[有雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690007577.A.5CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《奧本海默》獎不完 獲英國奧斯卡13項提名\n\n04:10 2024/01/20 中國時報 翁紫曦\n\n\n影后艾瑪史東在《可憐的東西》中飾演主角貝拉，個性自由奔放。（探照燈影業提供）\n\
   \n\n《奧本海默》成本次入圍大贏家，以領跑之姿再度成獎季焦點。（美聯社）\n\n被視為「英國奧斯卡」的英國影藝學院電影獎（BAFTA）18日晚間公布入圍名單。最大贏\n\
   家揭曉為《奧本海默》，共獲13項提名，《可憐的東西》11項居次，而《花月殺手》和代\n表英國出征奧斯卡的《夢想集中營》則分獲9項入圍。\n\n入圍名單公布後，顯見歐洲及北美的評審口味十分不同。獎季收穫頗豐的《Barbie芭比》\n\
@@ -20434,7 +20433,7 @@ date: 2024-01-20
 reply_count: 5
 title: '[新聞] 《奧本海默》獎不完 獲英國奧斯卡13項提名'
 url: https://www.ptt.cc/bbs/movie/M.1705763688.A.B8E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前天獨自一人去看了這部，
 
 
@@ -20488,7 +20487,7 @@ date: 2023-07-24
 reply_count: 28
 title: '[極 好 無 雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1690212574.A.316.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -20542,7 +20541,7 @@ date: 2023-08-27
 reply_count: 81
 title: '[新聞] 《奧本海默》南韓觀影人數破200萬！韓媒'
 url: https://www.ptt.cc/bbs/movie/M.1693101502.A.FBA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這邊就是用不公開的方式來批鬥奧本
 
   因為那時美國風聲鶴唳抓共產黨間諜
@@ -20608,7 +20607,7 @@ date: 2023-08-07
 reply_count: 52
 title: 'Re: [請益] 奧本海默對氫彈的態度（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1691380097.A.0D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說結論，讓猶豫不決的觀眾做個參考，\n盡量不雷，但是關於劇情多少會提到一點，\n以下是主觀意見，我不是諾粉也不是影評，看的電影可能沒有你多，用詞也不專業\n\
   只是一篇簡單的心得，也可能跟大家的感受都不同，僅供參考而已\n\n˙這部片好看嗎：是好看的，但要說是本世紀最佳的話，還不至於\n˙這部片會悶嗎：節奏很快，不會悶，但請不要期待有任何災難動作片的成分\n\
   ˙需要看IMAX嗎：沒有必要，看個人喜好\n\n                我知道有些人會反對\"文藝片不應該看IMAX\"這個說法，\n        \
@@ -20636,7 +20635,7 @@ date: 2023-07-22
 reply_count: 48
 title: '[普微雷] 奧本海默：中上之作'
 url: https://www.ptt.cc/bbs/movie/M.1689997243.A.86B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '要吵架之前，先把功課做好
 
   把題目釐清好好嗎？
@@ -20709,7 +20708,7 @@ date: 2023-07-28
 reply_count: 473
 title: 'Re: [新聞] 電影「奧本海默」是中國譯名與用語！'
 url: https://www.ptt.cc/bbs/movie/M.1690551440.A.AA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '單純就電影題材跟電影演出表現來看，奧本海默無疑是部成功的商業片，如果你心中有某
 
   種正義對二戰有英雄情結的崇拜，那電影裡奧本海默的魔幻身影表現，無疑是可以大大滿
@@ -20814,7 +20813,7 @@ date: 2023-08-13
 reply_count: 8
 title: '[好雷]簡化的偶像奧本海默─世俗的正確性論述(雷'
 url: https://www.ptt.cc/bbs/movie/M.1691938912.A.237.html
---- !!python/object:movie_data.PublicReview
+---
 content: "你的評論老實說矛盾挺多的\n \n \n奧本海默是一部講述一個人的傳記片\n如果要描述一個人，我們會從這個人的出身、少時經歷\n引出他的價值觀、對事物的看法，再引出他的行為\n\
   而他的行為又會影響他周遭的世界和他身邊的人\n這些被他影響到的人事物的反應，又會回過頭來影響到他自己\n進而引出他對他自己的審視和評價\n \n所以歐本海默周遭的人重不重要？當然重要\n\
   \ \n其實我自己其實也不太明白兩位女角呈現在片中的用意是什麼\n如果有理解的人能解釋給我聽嗎，感激不盡\n \n \n再者，核爆之所以重要，是因為對歐本海默來說很重要\n\
@@ -20846,7 +20845,7 @@ date: 2023-08-07
 reply_count: 42
 title: 'Re: [負雷] 奧本海默 - 主角消失的傳記片'
 url: https://www.ptt.cc/bbs/movie/M.1691343350.A.7B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n奧本海默 (Oppenheimer)\n電影-歷史傳記-英美\n07-20(六) 22:00~01:00\n07-24(三) 00:45~03:45\n\
   07-24(三) 21:00~23:55\n\n演員:\n席尼墨菲 (Cillian Murphy)\n艾蜜莉邦特 (Emily Blunt)\n麥特戴蒙 (Matt\
   \ Damon)\n小勞勃道尼 (Robert Downey Jr.)\n導演:\n克里斯多佛諾蘭 (Christopher Nolan)\n\n\n------------------------------------------------------------------------------------------\n\
@@ -20855,7 +20854,7 @@ date: 2024-07-20
 reply_count: 98
 title: '[LIVE] HBO 22:00 奧本海默 (Oppenheimer)'
 url: https://www.ptt.cc/bbs/movie/M.1721465026.A.5CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -20911,7 +20910,7 @@ date: 2023-07-21
 reply_count: 3
 title: '[好雷] 奧本海默 '
 url: https://www.ptt.cc/bbs/movie/M.1689954232.A.E14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影中，歐本海默做了三件事讓史特勞斯不爽，決定密謀摧毀他的聲譽
 
 
@@ -20942,7 +20941,7 @@ date: 2023-08-18
 reply_count: 60
 title: '[討論] 奧本海默  史特勞斯動機（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1692326854.A.8D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '卡司超強的諾蘭新片《奧本海默》今天釋出第一波劇照
 
   諾蘭描述這是一部範圍廣泛，規模宏大的作品
@@ -20965,7 +20964,7 @@ date: 2022-12-13
 reply_count: 26
 title: '[討論] 諾蘭新片《奧本海默》 劇照釋出'
 url: https://www.ptt.cc/bbs/movie/M.1670865133.A.0DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這沒什麼隱喻啊
 
   就是回應了這個按鈕按下去，
@@ -21010,7 +21009,7 @@ date: 2023-07-29
 reply_count: 4
 title: 'Re: [請益] 奧本海默跟愛因斯坦對話的意思'
 url: https://www.ptt.cc/bbs/movie/M.1690627776.A.D1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '非諾粉，但他的每部都是完食狀態。以往一直覺得諾蘭缺乏靈氣，匠氣比靈氣多得多，這部看完完全改觀。
 
 
@@ -21034,7 +21033,7 @@ date: 2023-07-21
 reply_count: 21
 title: '[好無雷] 諾蘭成熟之作 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689954195.A.BC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '芭比海默是當前最流行的電影迷因，我也做過
 
 
@@ -21063,7 +21062,7 @@ date: 2023-08-03
 reply_count: 149
 title: '[討論] 所以奧本海默日本不可能上映了吧'
 url: https://www.ptt.cc/bbs/movie/M.1691014878.A.884.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天看完，
 
 
@@ -21114,7 +21113,7 @@ date: 2023-07-31
 reply_count: 60
 title: 'Re: [好雷] 奧本海默 的確改變了世界'
 url: https://www.ptt.cc/bbs/movie/M.1690807701.A.6EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 2萬噸TNT雷 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\n\n\n\n\
   \n\n\n\n電影《獵殺紅色十月》裡，政委\"普丁\"偷翻艦長史恩康納萊藏書，看到這段話被劃線-\n\n                「現在我成了死神，世界的毀滅者」\n\
@@ -21132,7 +21131,7 @@ date: 2023-08-06
 reply_count: 15
 title: '[好雷] 《奧本海默》(Oppen小將)'
 url: https://www.ptt.cc/bbs/movie/M.1691324328.A.0D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片長長達三小時、艱澀的物理名詞、龐雜的出場人物與穿插的黑白片段，《奧本海默》具
 
   備一切嚇跑觀眾的元素，但只需要一個原因就足夠讓人走進戲院 – 克里斯多夫諾蘭。
@@ -21311,7 +21310,7 @@ date: 2023-07-24
 reply_count: 17
 title: '[好雷] 奧本海默：再次被諾蘭征服'
 url: https://www.ptt.cc/bbs/movie/M.1690200079.A.FB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實原本標題是要打奧本海默 盜火的普羅米修斯 抑或是不小心打開災難之盒的
 
   潘朵拉
@@ -21641,7 +21640,7 @@ date: 2023-08-13
 reply_count: 26
 title: '[好雷] 奧本海默-也許是潘朵拉之盒'
 url: https://www.ptt.cc/bbs/movie/M.1691911992.A.5AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這邊主要是對以科學家與科學的悖論（paradox）
 
   以及大篇幅的審訊場面像是精神分析式的告解（confession）
@@ -21797,7 +21796,7 @@ date: 2023-08-02
 reply_count: 8
 title: '[好雷] 奧本海默 - 悖論與告解 '
 url: https://www.ptt.cc/bbs/movie/M.1690949743.A.7BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '強烈建議現在yt上看過奧本海默的生平之後再決定要不要進場
 
 
@@ -21844,7 +21843,7 @@ date: 2023-07-21
 reply_count: 6
 title: ［好無雷］奧本海默
 url: https://www.ptt.cc/bbs/movie/M.1689932336.A.E85.html
---- !!python/object:movie_data.PublicReview
+---
 content: ":\n\n真的好多蠻眼熟的影星!\n\n以下應該是不算爆雷吧\n\n但還是防一下\n\n\n\n\n\n\n                 \
   \                     奧斯卡   諾蘭   知名作\n\n奧本海默-奇利安墨菲                             v\
   \     28天毀滅倒數、冥王星早餐\n                                                      諾蘭常合作、赤眼玄機\n\
@@ -21876,7 +21875,7 @@ date: 2023-07-25
 reply_count: 8
 title: 'Re: [討論] 有哪片的卡司能跟奧本海默比？'
 url: https://www.ptt.cc/bbs/movie/M.1690286723.A.96B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最新花絮:
 
 
@@ -21910,7 +21909,7 @@ date: 2023-07-11
 reply_count: 1493
 title: '[贈票] 【奧本海默】台北IMAX搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1689065989.A.2A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "辱提\n\n我也是一看完就想到模仿遊戲\n\n\n\n\n\n\n\n\n\n\n\n防\n  雷\n   空\n    間\n\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n二戰\n\n盟軍\n\n猶太人\n\n氰化物蘋果\n\n曼哈頓核武和圖靈機\n\n鋼鐵人跟奇異果博士\n\n——————\n\
   \n個人偏好模仿遊戲\n\n原因是配角人物相對比較完整\n\n奧本海默由於要過水的世紀名人太多，導致都只沾到一點邊\n\n而模仿遊戲本就不新，舊得很流暢；反而穿插黑白畫面的奧本海默還有點故意仿舊的感覺\n\
@@ -21922,7 +21921,7 @@ date: 2023-07-28
 reply_count: 6
 title: 'Re: [好雷] 奧本海默 模仿遊戲 之比較'
 url: https://www.ptt.cc/bbs/movie/M.1690541687.A.816.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -22043,7 +22042,7 @@ date: 2023-07-21
 reply_count: 22
 title: '[好有雷] 奧本海默'
 url: https://www.ptt.cc/bbs/movie/M.1689949308.A.5E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '克里斯多福·諾蘭生涯執導電影票房前五名
 
 
@@ -22077,7 +22076,7 @@ date: 2023-07-24
 reply_count: 76
 title: '[討論] 奧本海默最終票房能到多少?'
 url: https://www.ptt.cc/bbs/movie/M.1690189502.A.E47.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《奧本海默》橫掃獎季 奧斯卡呼聲高\n\n席尼墨菲強勢爭帝 艾瑪史東硬拚莉莉葛萊史東\n\n04:10 2024/03/09 中國時報 翁紫曦\n\
   \n\n席尼墨菲獎季收穫頗豐，奧斯卡宛若囊中之物。（美聯社）\n\n\n艾瑪史東7年後再次入圍影后，拿獎機率很高。（美聯社）\n\n\n布萊德利庫柏人生第12次入圍，遇上強敵席尼墨菲。（美聯社）\n\
   \n\n莉莉葛萊史東有望成第一位北美原住民影后。（美聯社）\n\n\n《奧本海默》包辦獎季諸多大獎，有望成奧斯卡最大贏家。（資料照片）\n\n\n《Barbie芭比》為去年票房最亮眼的電影，入圍最佳影片頗有看頭。（美聯社）\n\
@@ -22102,7 +22101,7 @@ date: 2024-03-09
 reply_count: 2
 title: '[新聞] 《奧本海默》橫掃獎季 奧斯卡呼聲高'
 url: https://www.ptt.cc/bbs/movie/M.1709997341.A.636.html
---- !!python/object:movie_data.PublicReview
+---
 content: "裡面很多劇情交雜著美國右派政治與左派科學家的爭論，\n但蘇聯其實也全非美國想像中那樣不理性。\n\n蘇聯氫彈之父沙卡洛夫跟奧本海默一樣，希望透過談判來約束各國的核武發展，\n\
   推動禁止在地表核試驗，也反對美蘇競相發展反彈道系統，\n最後也在1975年得到諾貝爾和平獎，但沙卡洛夫也因為強烈的政治批判性格，\n以及爭取蘇聯人權，最後遭到長期軟禁。\n\
   歐盟為了紀念沙卡列夫，還將歐盟人權最高榮譽取名為沙卡列夫人權思想獎。\n\n我覺得奧本海默與沙卡洛夫一樣，都是從純粹的科學家角度來推動核子物理發展，\n他們或許興奮於自己的成就，\n\
@@ -22115,7 +22114,7 @@ date: 2023-07-23
 reply_count: 4
 title: 'Re: [請益] 奧本海默結局（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1690097590.A.BEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -22171,7 +22170,7 @@ date: 2024-03-14
 reply_count: 73
 title: '[新聞] 《奧本海默》廣島試映 前市長批：未充分'
 url: https://www.ptt.cc/bbs/movie/M.1710422677.A.DDB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「奧本海默」出現爭議對白 導演坦言「劇本裡沒有」\n\n2023/08/13 聯合報／ 記者陳建嘉／即時報導\n\n 克里斯多夫諾蘭執導，席尼墨菲、艾蜜莉布朗特主演驚悚歷史傳記電影「奧本海默」票\n\
   房屢創佳績，全球票房已達5.529億美金（約新台幣168.68億元），登上年度票房第9名，\n正式成為影史二戰題材電影冠軍，近期導演克里斯多夫諾蘭也積極受訪，接受「紐約時報\n\
   」訪問時，提到片中曾有一段討論要轟炸日本哪座城市的對白，當時引起些許爭議，而這\n一大段對白其實在劇本裡面沒有。\n\n諾蘭透露其中有段對白，飾演國防部長史汀生的資深演員詹姆斯雷馬爾提到他不要轟炸京\n\
@@ -22184,7 +22183,7 @@ date: 2023-08-13
 reply_count: 7
 title: '[新聞] 「奧本海默」出現爭議對白 導演坦言「劇'
 url: https://www.ptt.cc/bbs/movie/M.1691936762.A.0BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧本海默全球首週票房開出1.742億美金的大好成績
 
 
@@ -22216,7 +22215,7 @@ date: 2023-07-23
 reply_count: 215
 title: '[討論] 奧本海默 全球首週票房1.742億美金'
 url: https://www.ptt.cc/bbs/movie/M.1690125866.A.DA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奧本海默》目前全球票房來到5.53億美金
 
 
@@ -22240,7 +22239,7 @@ date: 2023-08-07
 reply_count: 33
 title: '[討論] 《奧本海默》挑戰傳記片票房第一?'
 url: https://www.ptt.cc/bbs/movie/M.1691385809.A.39C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭幾乎每部片都是非線性敘事，但我以前都不覺得有什麼問題，
 
 
@@ -22276,7 +22275,7 @@ date: 2023-11-21
 reply_count: 77
 title: '[普雷] 奧本海默：非線性敘事玩到走火入魔'
 url: https://www.ptt.cc/bbs/movie/M.1700548111.A.D42.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《芭比》力壓《奧本海默》首週旋即賣破 3 億美元！阿湯哥、閃電俠、唐老大票房全被\n打趴\n\n備受觀眾期待的《芭比》（Barbie）與《奧本海默》（Oppeheimer），早在上映之前就十\n\
   分被看好能夠振興今年票房表現萎靡的暑假檔。兩者因為片型截然不同，但在北美地區卻\n是同天上映，而從此被大批影迷統一戲稱為「芭本海默（Barbeheimer）」，這波意外的\n\
   大肆炒作更是讓電影的討論度不但攀高，而果不其然，兩片最終開出的票房數字也確實相\n當漂亮。\n\n\n《芭比》上映首週，光在北美就賣出 1.55 億美元，海外則賣出\
@@ -22295,7 +22294,7 @@ date: 2023-07-24
 reply_count: 15
 title: '[新聞]芭比力壓《奧本海默》首週旋即賣破 3 億美元！阿湯哥、閃電俠'
 url: https://www.ptt.cc/bbs/movie/M.1690208538.A.D99.html
---- !!python/object:movie_data.PublicReview
+---
 content: '遲到十分鐘進場
 
   有兩條線
@@ -22377,7 +22376,7 @@ date: 2023-07-31
 reply_count: 67
 title: '[好雷] 奧本海默 沒看過這麼特別的傳記電影'
 url: https://www.ptt.cc/bbs/movie/M.1690781342.A.15D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近在飛機上看了奧本海默，中間睡著2次還3次吧，雖然也有太早出門沒睡飽的關係，但我
 
   覺得片子本身又臭又長也有關係。時間線亂跳和類似幻覺的表現手法都很令人煩躁，聽證會

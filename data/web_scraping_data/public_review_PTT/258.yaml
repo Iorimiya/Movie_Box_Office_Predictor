@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '完美並不美，但就因不美才完全
 
 
@@ -236,7 +235,7 @@ date: 2024-03-16
 reply_count: 5
 title: '[普雷]《我的完美日常》孤單是個人的狂歡'
 url: https://www.ptt.cc/bbs/movie/M.1710521226.A.125.html
---- !!python/object:movie_data.PublicReview
+---
 content: '故事就是一個在東京掃廁所的老人
 
   如何平淡的過自己的生活
@@ -290,7 +289,7 @@ date: 2024-03-11
 reply_count: 14
 title: '[好無雷] 我的完美日常-我那徬徨生活的浮木'
 url: https://www.ptt.cc/bbs/movie/M.1710121913.A.46B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【我的完美日常】描述東京一位公廁清潔工的日常生活。
 
 
@@ -394,7 +393,7 @@ date: 2024-03-27
 reply_count: 6
 title: '[超好雷] 我的完美日常'
 url: https://www.ptt.cc/bbs/movie/M.1711535968.A.BB8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '■ 我的完美日常
 
 
@@ -488,7 +487,7 @@ date: 2024-03-30
 reply_count: 6
 title: '[好雷] 《我的完美日常》生於影子重疊之時'
 url: https://www.ptt.cc/bbs/movie/M.1711775343.A.964.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請簡述自身需求片單理由 或 欲尋找電影的類型：
 
 
@@ -514,7 +513,7 @@ date: 2024-09-24
 reply_count: 18
 title: '[片單] 我的完美日常 這種生活感滿滿的片'
 url: https://www.ptt.cc/bbs/movie/M.1727183212.A.185.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我的完美日常是部很私人的電影
 
   這是我看完最直覺的感想
@@ -680,7 +679,7 @@ date: 2024-03-23
 reply_count: 29
 title: '[好雷] 我的完美日常 何謂完美'
 url: https://www.ptt.cc/bbs/movie/M.1711207606.A.34F.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'KOMOREBI-木漏れ日-
 
   透過樹葉植芽洩出的陽光。
@@ -761,7 +760,7 @@ date: 2024-03-18
 reply_count: 4
 title: '[微好雷］我的完美日常心得'
 url: https://www.ptt.cc/bbs/movie/M.1710776319.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "預告片\n\n\n\n聽了役所廣司來台的演講跑去看這片\n從周房正行的我們來跳舞認識役所廣司\n之後看他的每部片都感覺他在日本影壇地位崇高\n\
   感覺就像香港的周潤發，中國的陳道明\n韓國的安聖基和美國兩位教父一樣備受尊重的影帝\n在他之前的日本最強影帝是三船敏郎跟緒形拳\n他等於是三船敏郎跟緒形拳的第三代接班人\n\
   能接他們三個班的人，我想會是妻夫木聰吧\n\n這片是特地把文溫德斯請來日本拍日片\n一部很安靜舒服的影展文藝片\n因為文溫德斯讓役所廣司拿到坎城影帝\n\n這片役所廣司演東京公廁清潔工\n\
@@ -785,7 +784,7 @@ date: 2023-12-17
 reply_count: 3
 title: '[好雷] 我的完美日常 (完美的日子)'
 url: https://www.ptt.cc/bbs/movie/M.1702765694.A.255.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Medium好讀版:
 
 
@@ -905,7 +904,7 @@ date: 2024-08-18
 reply_count: 9
 title: '[好雷]我的完美日常:貫徹選擇，即是自由'
 url: https://www.ptt.cc/bbs/movie/M.1723985533.A.961.html
---- !!python/object:movie_data.PublicReview
+---
 content: '滿開心即便是小廳還是來了很多人
 
 
@@ -958,7 +957,7 @@ date: 2024-03-31
 reply_count: 4
 title: '[好雷] 我的完美日常 疏遠不了的疼痛'
 url: https://www.ptt.cc/bbs/movie/M.1711820199.A.61B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -999,7 +998,7 @@ date: 2024-12-03
 reply_count: 49
 title: '[ 好雷 ] 我的完美日常'
 url: https://www.ptt.cc/bbs/movie/M.1733241207.A.2AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '呼朋癮伴 朋の影癮
 
 
@@ -1040,7 +1039,7 @@ date: 2024-04-09
 reply_count: 8
 title: '[  雷] 我的完美日常   觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1712592716.A.9EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我的完美日常刷了兩遍
 
   覺得是部輕鬆小品
@@ -1113,7 +1112,7 @@ date: 2024-03-31
 reply_count: 23
 title: '[微好雷] 我的完美日常'
 url: https://www.ptt.cc/bbs/movie/M.1711874339.A.74E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本人對電影類型種類沒有特定喜好
 
   對於一些燒腦或是劇情反轉再翻轉的片很喜歡
@@ -1134,7 +1133,7 @@ date: 2024-03-16
 reply_count: 63
 title: '[選片] 墜惡真相跟我的完美日常'
 url: https://www.ptt.cc/bbs/movie/M.1710556449.A.C05.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文>>>
 
 
@@ -1261,7 +1260,7 @@ date: 2024-03-23
 reply_count: 4
 title: '[好雷] 《我的完美日常》來自於生活態度'
 url: https://www.ptt.cc/bbs/movie/M.1711202078.A.38B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -1484,7 +1483,7 @@ date: 2024-10-16
 reply_count: 6
 title: '[好雷] 我的完美日常'
 url: https://www.ptt.cc/bbs/movie/M.1729063650.A.1C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '—————————以下有雷—————————
 
   -
@@ -1566,7 +1565,7 @@ date: 2024-03-23
 reply_count: 2
 title: ［微好雷］矛盾地孤單著—我的完美日常
 url: https://www.ptt.cc/bbs/movie/M.1711197854.A.A47.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今天上映\n本來有點期待掃公廁的無聊感\n但沒想到拍得有點文青品味，但還是值得一看\n\n\n\n\n雷文防雷資訊頁\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n （刊登於方格子的原文）\n\
   \n\n\n雖因Tokyo Toilet Project（東京廁所的改造計畫）為基礎的日本政府觀光式宣傳下，\n打造有點過於日本民族（職人-美學）的想像。同時明顯導演在角色設定上呈現憑弔過往\n\
@@ -1586,7 +1585,7 @@ date: 2024-03-08
 reply_count: 18
 title: '[微好雷] 《我的完美日常》-不完美才是日常 '
 url: https://www.ptt.cc/bbs/movie/M.1709897401.A.E84.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昨天去看了文溫德斯的片我的完美日常\n \n畫面拍得很美\n情境氛圍的劇本醞釀得很好\n略帶禪意\n \n一個離家的大叔\n找了份掃廁所的工作\n\
   生活就是去挖別人不要的幼苗回家種\n看看書，聽聽音樂，拿著底片相機盲拍\n上同一間飯館、澡堂\n過著斷捨離的極簡主義生活和自己的生活哲學\n可能讓不少人頗為嚮往吧\n\
   \ \n但其實仔細分析\n一個五六十歲的老人\n身體一定是各種慢性疾病\n有在玩攝影的也一定都知道\n底片這玩意現在價格有多高\n \n這一切的興趣，都是要靠賺取貨幣來維持的\n\
@@ -1601,7 +1600,7 @@ date: 2024-09-28
 reply_count: 52
 title: '[普雷] 我的完美日常，無法於現實複製的人生'
 url: https://www.ptt.cc/bbs/movie/M.1727490483.A.5E8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "因為最近在追奧斯卡入圍電影，所以看了這部入圍最佳國際電影的\"我的完美日常\"，\n內容的確很影展片的風格，廁所清潔工日復一日的生活，並不特別熱鬧，卻很能引發思考\n\
   ，每個外人看覺得乏味無趣的日子，卻是主角最自在的時刻，男主角生活東京市區，所以\n電影中帶到不少東京的景色，也讓人看到觀光客平時看不到東京沒那麼亮麗光鮮的另一面\n\
   ，雖然說是拍攝日本的電影，但導演文溫德斯是德國人，所以難免會有外國人眼中的日本\n的感覺，在電影的節奏跟氛圍很明顯可以察覺不同於一般日本電影。\n\n\n  \

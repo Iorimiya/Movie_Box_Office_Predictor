@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '台北金馬影展執行委員會  公告
 
 
@@ -18,7 +17,7 @@ date: 2022-09-29
 reply_count: 24
 title: '[情報] 金馬59 《窄路微塵》原創歌曲入圍資格取消'
 url: https://www.ptt.cc/bbs/movie/M.1664464822.A.90C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在疫情背景底下的故事，看似充滿壓力卻又治癒，把簡單基礎的故事拍得好看就不錯，演
 
   員表現的流暢自然，角色各有特點，尤其是男女主角的互動是一大亮點看完還是會回味一
@@ -74,7 +73,7 @@ date: 2022-11-11
 reply_count: 94
 title: '[好雷] 《窄路微塵》疫情下給香港的一封家書'
 url: https://www.ptt.cc/bbs/movie/M.1668172410.A.89C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《窄路微塵》台灣將由佳映娛樂代理發行
 
 
@@ -104,7 +103,7 @@ date: 2023-01-17
 reply_count: 15
 title: '[情報] 《窄路微塵》台灣將由佳映娛樂代理發行'
 url: https://www.ptt.cc/bbs/movie/M.1673956256.A.5CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來只是想朝聖一下袁澧林的美貌，
 
   看完確認她真的有入圍影后的水準；
@@ -181,7 +180,7 @@ date: 2023-04-29
 reply_count: 5
 title: '[ 好微雷]  窄路微塵要看快看'
 url: https://www.ptt.cc/bbs/movie/M.1682701253.A.A78.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: elvayanzimei (柏C) 看板: HK-movie
 
   標題: [心得] 《窄路微塵》如微塵般希微，因彼此而溫暖

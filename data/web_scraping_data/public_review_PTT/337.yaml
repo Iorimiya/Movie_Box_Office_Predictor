@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '金馬影展一票難求，爛番茄觀眾評分93%，
 
   台灣未上映就讓影迷敲破碗《可憐的東西》來了！
@@ -95,7 +94,7 @@ date: 2024-01-19
 reply_count: 607
 title: '[贈票]奧斯卡大熱門《可憐的東西》台北場特映會'
 url: https://www.ptt.cc/bbs/movie/M.1705658052.A.9C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近難得年假有空去電影院看了尤格蘭西莫的新電影《可憐的東西》
 
   一直都有耳聞這位導演畫面安排的方式令人印象深刻
@@ -187,7 +186,7 @@ date: 2024-02-10
 reply_count: 4
 title: '[心得] 可憐的東西 鏡頭語言展現的極致'
 url: https://www.ptt.cc/bbs/movie/M.1707578865.A.1AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感謝你寫的劇情
 
   我實在看不懂這種敘事方式
@@ -237,7 +236,7 @@ date: 2024-02-15
 reply_count: 19
 title: 'Re: [好雷]可憐的東西 Poor Things'
 url: https://www.ptt.cc/bbs/movie/M.1707960571.A.83D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '艾瑪史東✕威廉達佛✕《可憐的東西》導演R級新片《善良的種類》多張角色海報釋出
 
 
@@ -297,7 +296,7 @@ date: 2024-05-12
 reply_count: 18
 title: '[新聞] 艾瑪史東 威廉達佛《可憐的東西》導演'
 url: https://www.ptt.cc/bbs/movie/M.1715508988.A.DC3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -424,7 +423,7 @@ date: 2024-04-29
 reply_count: 29
 title: '[ 微好雷] 可憐的東西是在諷刺女權?'
 url: https://www.ptt.cc/bbs/movie/M.1714325649.A.92B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '能在IMDB評分上拿到超過8以上的，大致都是有可觀之處的電影；同時，於奧斯卡
 
   入圍導演/演員等11項，製作上的精良程度也大抵可期。
@@ -488,7 +487,7 @@ date: 2024-02-24
 reply_count: 7
 title: '[普雷] 可憐的東西 | 景觀餐廳'
 url: https://www.ptt.cc/bbs/movie/M.1708761015.A.9CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '轟動威尼斯影展 驚世鉅作《#可憐的東西》 前導海報登場
 
   艾瑪史東 突破尺度大膽之作  農曆新年 2月8日 (四) 大膽解放
@@ -520,7 +519,7 @@ date: 2023-11-24
 reply_count: 56
 title: '[情報] 《可憐的東西》2024.2.8上映'
 url: https://www.ptt.cc/bbs/movie/M.1700817975.A.2B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "金球獎／「奧本海默」、「可憐的東西」大獎眾望所歸\n\n2024-01-08 12:18\n\n聯合報 記者陳建嘉／即時報導\n\n\n席尼墨菲主演「奧本海默」拿下劇情類最佳影片、最佳男主角、最佳男配角與最佳導演以\n\
   及最佳原創配樂，是本屆大贏家。圖／UIP提供\n\n2024年金球獎揭曉，兩座最佳影片獎項分別頒給去年全球賣座9.53億美元（約298億元台\n幣）的傳記史詩電影「奧本海默」以及榮獲威尼斯影展金獅獎的「可憐的東西」，兩片氣\n\
   勢同樣強健，也將於奧斯卡獎上再度一決雌雄。\n\n「奧本海默」講述原子彈發明者奧本海默的生平事蹟，講述他如何從旁結束第二次世界大\n戰的始末，更體驗到戰爭的殘酷與虛無，最終獲得最佳影片大獎，由導演克里斯多夫諾蘭\n\
@@ -532,7 +531,7 @@ date: 2024-01-08
 reply_count: 6
 title: '[新聞] 金球獎／「奧本海默」、「可憐的東西」大獎眾望所歸'
 url: https://www.ptt.cc/bbs/movie/M.1704728241.A.2BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
   超級無敵好雷
@@ -639,7 +638,7 @@ date: 2024-02-08
 reply_count: 52
 title: '[超好雷] 可憐的東西 可愛的電影'
 url: https://www.ptt.cc/bbs/movie/M.1707385547.A.5D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -683,7 +682,7 @@ date: 2024-02-27
 reply_count: 16
 title: '[好雷] 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1709035426.A.C29.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前本來計畫要去電影院看的，結果因為太忙，沒想到D+竟然上了，就趁假日看完。
 
 
@@ -724,7 +723,7 @@ date: 2024-04-29
 reply_count: 2
 title: '[ 好雷] 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1714368799.A.3E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '三部片的劇情都很吸引我，
 
   但家有幼兒幾乎沒有自己的時間可以去電影院，只能三擇一。
@@ -743,7 +742,7 @@ date: 2024-02-28
 reply_count: 77
 title: '[選片] 可憐的東西、墜惡真相、夢想集中營'
 url: https://www.ptt.cc/bbs/movie/M.1709091040.A.FF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天和朋友一起去看可憐的東西，聽說是得很多獎的文藝片
 
   原本以為會看得很悶，沒想到出乎意料的好看，劇情張力和娛樂感很足
@@ -867,7 +866,7 @@ date: 2024-02-09
 reply_count: 29
 title: '[好雷] 可憐的東西 幽默又殘酷 '
 url: https://www.ptt.cc/bbs/movie/M.1707484884.A.502.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   要跟女友看電影
@@ -890,7 +889,7 @@ date: 2024-02-14
 reply_count: 46
 title: '[選片] 跟女友看鬼太郎、可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1707921642.A.042.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -957,7 +956,7 @@ date: 2024-02-15
 reply_count: 43
 title: '[雷] 可憐的東西最後一段是不是多餘？'
 url: https://www.ptt.cc/bbs/movie/M.1707972053.A.064.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1003,7 +1002,7 @@ date: 2024-01-31
 reply_count: 17
 title: '[新聞] 艾瑪史東露3點 《可憐的東西》贏口碑'
 url: https://www.ptt.cc/bbs/movie/M.1706665039.A.49E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感謝大家熱烈的參與，也同時恭喜可憐的東西獲得奧斯卡11項大獎提名！
 
 
@@ -1074,7 +1073,7 @@ date: 2024-01-24
 reply_count: 31
 title: 'Re: [贈票]奧斯卡大熱門《可憐的東西》台北場特映會'
 url: https://www.ptt.cc/bbs/movie/M.1706107283.A.310.html
---- !!python/object:movie_data.PublicReview
+---
 content: "好讀Medium版: \n\n恭喜可憐的東西奪下小金人不少獎項、石頭二度封后，我的心得也終於寫完了(?)~\n\n\n＊以下含電影雷，請斟酌閱讀\n\
   \n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n看完尤格藍西默的新作，最近討論度頗高的《可憐的東西》，我想起以前看過的一個國外\n\
   廣告，大意如下：\n導演請幾個成人／男性在鏡頭前示範什麼叫「像個女生一樣跑步」(Run like a girl），\n他們理所當然的做出有些扭捏的姿勢 （可能沒有惡意，只是順著言語的暗示，做出性別\n\
@@ -1103,7 +1102,7 @@ date: 2024-03-12
 reply_count: 25
 title: '[好雷] 可憐的東西:什麼叫「像個女人般活著」?'
 url: https://www.ptt.cc/bbs/movie/M.1710229901.A.B7F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鑒於本片對於「性」(包含器官 行為 方式等)對於心靈影響的重筆描寫
 
   我覺得「可憐的東西」可視為芭比的延續作品
@@ -1238,7 +1237,7 @@ date: 2024-02-16
 reply_count: 1
 title: '[好雷] 續芭比 -- 可憐的東西 '
 url: https://www.ptt.cc/bbs/movie/M.1708017017.A.DB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '環
 
 
@@ -1301,7 +1300,7 @@ date: 2024-02-24
 reply_count: 4
 title: 'Re: [好微雷] 觀影心得《可憐的東西》，學學貝拉'
 url: https://www.ptt.cc/bbs/movie/M.1708714301.A.04A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完這部片內心還是頗受震撼的
 
   有雷
@@ -1404,7 +1403,7 @@ date: 2024-02-10
 reply_count: 21
 title: '[好雷] 可憐的東西 如果我是貝拉'
 url: https://www.ptt.cc/bbs/movie/M.1707564961.A.8EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原文 \n\n在看過《單身動物園》和《聖鹿之死》後，就開始期待尤格藍西莫接下來的作品，又會有\n什麼離經叛道的大膽新想法。在相對平淡的《真寵》之後，這次《可憐的東西》一樣是語\n\
   不驚人死不休，在我高度的期待下，仍有感受到符合期待的震撼。\n\n劇情講述人造人貝拉在科學家的照護下，慢慢學習如何成為一個「真正的人」，在貝拉與\n科學家的學徒訂婚後，卻決定和前來擬定婚姻契約的律師私奔，展開一段探索世界的旅程\n\
   。\n\n這絕對會是一部有爭議的電影，但放在這個許多觀念正在重建的年代，卻顯得再合理不過\n。說真的，這部電影可以討論的事情太多，功力不足的我寫不出一篇有主題性的文章，只\n\
@@ -1426,7 +1425,7 @@ date: 2024-02-24
 reply_count: 2
 title: '[好雷] 《可憐的東西》覺得有趣的一些觀點'
 url: https://www.ptt.cc/bbs/movie/M.1708749706.A.EF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -1451,7 +1450,7 @@ date: 2024-03-30
 reply_count: 26
 title: '[問片] 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1711763808.A.D01.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部看完很久了 憑印象打 有錯請指正
 
 
@@ -1552,7 +1551,7 @@ date: 2024-02-14
 reply_count: 56
 title: 'Re: [負雷] 可憐的東西  了無新意的女性一生'
 url: https://www.ptt.cc/bbs/movie/M.1707874709.A.1A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '心得內文對於性描述比較直白
 
   不習慣的可以跳過喔
@@ -1977,7 +1976,7 @@ date: 2024-02-12
 reply_count: 35
 title: '[好雷] 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1707722724.A.70D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2043,7 +2042,7 @@ date: 2024-04-24
 reply_count: 10
 title: '[  雷] 可憐的東西Poor Things'
 url: https://www.ptt.cc/bbs/movie/M.1713926311.A.C59.html
---- !!python/object:movie_data.PublicReview
+---
 content: '女主角去繞了世界一圈之後
 
 
@@ -2072,7 +2071,7 @@ date: 2024-09-09
 reply_count: 9
 title: '[討論] 可憐的東西的結尾也太刺激了吧xD'
 url: https://www.ptt.cc/bbs/movie/M.1725855843.A.E41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '話說，
 
   有智慧老奶奶這種象徵嗎？哈哈哈
@@ -2105,7 +2104,7 @@ date: 2024-03-02
 reply_count: 2
 title: '[討論] 可憐的東西中的郵輪之旅'
 url: https://www.ptt.cc/bbs/movie/M.1709381876.A.BBD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原文恕刪，本來想自己發一篇，直接藉這篇回覆\n看了一些版友的分享，真的很有意思\n\n撇開獨樹一格的鏡頭跟畫面風格\n這個故事很奇幻，除了背景可以推敲出是19~20世紀\n\
   很多設定跟科技都與現實不一樣\n(我原本以為只有腦移植那塊是為了故事而必要的設定)\n\n「可憐的東西」，它作了很多大膽的創新和嘗試\n我想從眾多角色與女主的考驗/成長來分享\n\
   \n劇情中男性角色很多，多到即便不出鏡也有相對的影響力\n\n1.上帝/威廉達佛\n無疑是劇中核心角色，推動了整個故事的發展\n我看到最後超愛他\n他算是家庭暴力或科學發展下的犧牲品\n\
@@ -2136,7 +2135,7 @@ date: 2024-02-11
 reply_count: 17
 title: 'Re: [討論] 可憐的東西 背後含義'
 url: https://www.ptt.cc/bbs/movie/M.1707655670.A.A90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作為筆者在金馬影展的第一部影片，《可憐的東西（Poor Things）》真是非常的
 
   驚喜。當然，如果知道了本片剛奪下2023年威尼斯影展金獅獎，也就不意外了。
@@ -2436,7 +2435,7 @@ date: 2023-11-13
 reply_count: 22
 title: '[好雷] 可憐的東西：可憐的不是我 是社會'
 url: https://www.ptt.cc/bbs/movie/M.1699807443.A.F8B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "前言:\n\n這部是臨時起意去看\n\n事前並不知道這是一部怎麼樣的片 只有被告知是劇情片\n\n以下會用一個完全狀況外的觀點去描述影評\n\n\
   \n\n雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n一開始採用歐式古典風格的畫面配合那詭異老派的音樂\n\n加上怪臉科學家跟一個不被允許出門的女人\n\
@@ -2456,7 +2455,7 @@ date: 2024-02-18
 reply_count: 9
 title: '[普雷] 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1708189979.A.E66.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2586,7 +2585,7 @@ date: 2024-02-17
 reply_count: 3
 title: '[好雷] 《可憐的東西》'
 url: https://www.ptt.cc/bbs/movie/M.1708162959.A.01D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '比較偏可憐的東西一點
 
 
@@ -2610,7 +2609,7 @@ date: 2024-02-23
 reply_count: 62
 title: '[選片] 可憐的東西、天眼救援、愛愛愛上你'
 url: https://www.ptt.cc/bbs/movie/M.1708624286.A.23D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '預告片剪得讓人不期不待，
 
   但本片居然還能更無趣。
@@ -2914,7 +2913,7 @@ date: 2024-02-13
 reply_count: 187
 title: '[負雷] 可憐的東西  了無新意的女性一生'
 url: https://www.ptt.cc/bbs/movie/M.1707758407.A.C38.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片尾這配樂放下去直接被定在座位上
 
   腦中閃回貝拉在外面冒險的劇情 直接想再二刷
@@ -2927,7 +2926,7 @@ date: 2024-02-16
 reply_count: 25
 title: '[討論] 可憐的東西 片尾配樂是不是有點猛'
 url: https://www.ptt.cc/bbs/movie/M.1708074278.A.30E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《Poor Things》(可憐的東西)★★★★☆
 
 
@@ -3075,7 +3074,7 @@ date: 2024-02-07
 reply_count: 8
 title: '[好雷]可憐的東西 Poor Things'
 url: https://www.ptt.cc/bbs/movie/M.1707275450.A.DFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有人也覺得「可憐的東西」這部片中的性愛有點無聊的嗎？
 
   因為本片對於性愛的描寫篇幅滿多的
@@ -3210,7 +3209,7 @@ date: 2024-02-18
 reply_count: 80
 title: '[討論] 可憐的東西中的性愛 有點無聊'
 url: https://www.ptt.cc/bbs/movie/M.1708194231.A.E91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果要用一句話總結這部片我會說：
 
   風格及演出令人印象深刻，但觀念上乏善可陳。
@@ -3399,7 +3398,7 @@ date: 2024-02-18
 reply_count: 75
 title: '[雷] [負雷］可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1708199879.A.61B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3471,7 +3470,7 @@ date: 2024-04-20
 reply_count: 3
 title: '[好雷]  可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1713624232.A.D5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問這部電影需要動腦嗎? 看了一些推文 好像說資訊量過大 需要二刷
 
   看了片長有141分鐘
@@ -3495,7 +3494,7 @@ date: 2024-02-12
 reply_count: 20
 title: '[請益] 可憐的東西 (無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1707752105.A.4BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷資訊頁
 
 
@@ -3616,7 +3615,7 @@ date: 2023-10-15
 reply_count: 16
 title: '[新聞] 《可憐的東西》導演：艾瑪史東的Ｒ級性愛'
 url: https://www.ptt.cc/bbs/movie/M.1697302915.A.AD4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《可憐的東西》\n\n\n    很久沒寫觀影長文，單純就依以前看教育心理學一些理論的印象、以及對達利超\n現實主義風格的喜愛綜述這些內容寫下觀影文，如有錯誤請指正。\n\
   \n---------------防雷-------------------\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    這海報那種不協調的感覺總覺得看過，一時之間又想不起來，直到各種超現實的\n\
   拼接生物出現在畫面（鵝頭狗、狗頭雞、只有馬首與脖子部位的「馬車」），再到走出影院\n回想裡面最震撼的那幕：以手術刀狂戳眼窩---幹，這個致敬《安達魯之犬》的畫面不就達\n\
@@ -3643,7 +3642,7 @@ date: 2024-02-15
 reply_count: 73
 title: 可憐的東西
 url: https://www.ptt.cc/bbs/movie/M.1707940136.A.F26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '自從看了真寵以後完全被尤格藍西莫的風格圈粉
 
   終於找到時間來朝聖可憐的東西，真的是集大成之作
@@ -3724,7 +3723,7 @@ date: 2024-02-11
 reply_count: 11
 title: '[討論] 可憐的東西 尤格藍西莫太神了'
 url: https://www.ptt.cc/bbs/movie/M.1707656867.A.6D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先恭喜各位開始放年假了，感覺今年過年有一堆強檔片
 
   目前有兩部還錢跟可憐的東西想要看
@@ -3757,7 +3756,7 @@ date: 2024-02-08
 reply_count: 69
 title: '[選片] 看還錢or可憐的東西？'
 url: https://www.ptt.cc/bbs/movie/M.1707397357.A.767.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3861,7 +3860,7 @@ date: 2024-03-26
 reply_count: 4
 title: '[極好雷] 可憐的東西——活在當下'
 url: https://www.ptt.cc/bbs/movie/M.1711390072.A.DED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4133,7 +4132,7 @@ date: 2024-07-23
 reply_count: 2
 title: '[心得好雷] 《可憐的東西》'
 url: https://www.ptt.cc/bbs/movie/M.1721721822.A.6A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4228,7 +4227,7 @@ date: 2024-05-03
 reply_count: 7
 title: '[好雷] 可憐的東西結局大快人心'
 url: https://www.ptt.cc/bbs/movie/M.1714705977.A.078.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據 Variety 的獨家報導指出，甫以《可憐的東西》再度入圍奧斯卡的希臘導演
 
   Yorgos Lanthimos 將翻拍韓國邪典電影《拯救綠色星球!》（Save The Green Planet!）
@@ -4293,14 +4292,14 @@ date: 2024-02-20
 reply_count: 3
 title: '[情報] 《可憐的東西》尤格藍西莫將翻拍韓國電影《拯救綠色星球!》'
 url: https://www.ptt.cc/bbs/movie/M.1708359399.A.A80.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《可憐的東西》 | 最新預告 | 4 月 19 日 Disney+ 精彩上線\n\n奧斯卡二度封后 #艾瑪史東，生涯代表作！\n\n 一場因換腦而起的科學怪談\
   \ 卻以超現實的方式開啟了「她」前衛又不受拘束的哲學思辯\n之旅……\n\n\n\n\n--"
 date: 2024-04-14
 reply_count: 50
 title: '[情報] 《可憐的東西》4月19日Disney+精彩上線'
 url: https://www.ptt.cc/bbs/movie/M.1713069302.A.531.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到前面有篇說過年沒好片
 
   只好發篇文來推薦了
@@ -4366,7 +4365,7 @@ date: 2024-02-10
 reply_count: 16
 title: '[好雷] 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1707565479.A.34B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4430,7 +4429,7 @@ date: 2024-02-20
 reply_count: 3
 title: '[好微雷] 觀影心得《可憐的東西》，學學貝拉'
 url: https://www.ptt.cc/bbs/movie/M.1708363804.A.5BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情不予置評
 
 
@@ -4448,7 +4447,7 @@ date: 2024-02-25
 reply_count: 28
 title: '[討論] 可憐的東西最神的是配樂吧'
 url: https://www.ptt.cc/bbs/movie/M.1708829063.A.85D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這篇想跟大家討論一下 可憐的東西 裡面的劇情
 
   因為我不太確定自己有沒有看懂
@@ -4525,13 +4524,13 @@ date: 2024-02-11
 reply_count: 8
 title: '[討論] 可憐的東西 背後含義'
 url: https://www.ptt.cc/bbs/movie/M.1707645628.A.12F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "請問如果只有沙丘2和可憐的東西可以選 ,哪片比較好看 ?\n\n 沙丘2片長165分, 會不會耐不住?\n\n--"
 date: 2024-05-31
 reply_count: 38
 title: '[選片] 沙丘2 和 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1717139869.A.0D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "免責聲明(?)\n標題說的沒營養指的是本人，我很少看劇情片，也不是說排斥，但我看電影的主要需求\n還是娛樂，不會自己主動想要燒腦。因此也寫不出有營養的內容，敬請見諒。\n\
   \n劇情跟角色安排:\n或許是我的標準有點奇怪，老實說我覺得劇情普通，甚至有點乏善可陳的感覺。\n這並不是說我認為本片劇情很糟、沒有可談之處，而是沒有意外。\n\
   \n在觀影之前，我對本片的認知是 \"受到科學怪人啟發，探討女性自我的相關議題\"。\n根據這個認知猜想了一下可能的劇情安排，實際觀看之後 \"啊，果然跟我想的差不多\"\
@@ -4551,7 +4550,7 @@ date: 2024-02-20
 reply_count: 55
 title: '[普雷] 沒營養的 "可憐的東西" 觀影感'
 url: https://www.ptt.cc/bbs/movie/M.1708395789.A.E8A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "院線熱映中，昨日情人節場次蠻多情侶觀賞，別有銀幕內外對照關係\n\n好評居多，這裡稍微談一下比較不一樣的看法\n\n\n\n\n\n\n\n雷文防雷資訊頁\n\
   \n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n  (刊登於網誌的含照片 原文)\n\n\n\n融合科學怪人與19世紀浪漫主義文學背景的歷史切片改編而成的古典科幻寓言，一位跳到\n\
@@ -4582,7 +4581,7 @@ date: 2024-02-15
 reply_count: 9
 title: '[普雷] 可憐的東西 - 演給大人看的動物性 '
 url: https://www.ptt.cc/bbs/movie/M.1707972090.A.2B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我本來以為貝拉會把醫生爸爸的腦移植到壞軍官前夫的頭上
 
   再把壞軍官的腦移植到羊身上
@@ -4609,7 +4608,7 @@ date: 2024-02-25
 reply_count: 29
 title: '[討論] 可憐的東西的結局（大雷）'
 url: https://www.ptt.cc/bbs/movie/M.1708859481.A.653.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷.
 
 
@@ -4708,7 +4707,7 @@ date: 2024-02-16
 reply_count: 18
 title: 'Re: [雷] 可憐的東西最後一段是不是多餘？'
 url: https://www.ptt.cc/bbs/movie/M.1708019145.A.3FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論，這是我去年金馬影展看過最喜歡的電影。撕去政治正確的無謂標籤、無懼世俗
 
   眼光顛覆性別、再理直氣壯建立起真正平等的秩序，身為有幸提前欣賞的影迷，為導演尤
@@ -4869,7 +4868,7 @@ date: 2024-02-12
 reply_count: 17
 title: '[好雷] 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1707707442.A.A3A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為很喜歡Emma Stone，可憐的東西一上映就進戲院支持
 
   光是畫面跟風格就讓我覺得很值得票價，也許是太被視覺所吸引，對於劇情部分理解的不
@@ -4956,7 +4955,7 @@ date: 2024-04-20
 reply_count: 6
 title: '[好雷] 可憐的東西 這次我看懂了'
 url: https://www.ptt.cc/bbs/movie/M.1713590123.A.A64.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好大家早安
 
 
@@ -5101,7 +5100,7 @@ date: 2024-03-27
 reply_count: 57
 title: '[可憐雷] 可憐的東西 艾瑪史東是欠多少錢'
 url: https://www.ptt.cc/bbs/movie/M.1711504121.A.EAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天看完
 
 
@@ -5148,7 +5147,7 @@ date: 2024-02-29
 reply_count: 12
 title: 'Re: [討論] 可憐的東西的結局（大雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709215020.A.BA5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '肯定是我今年看過最讚電影：《可憐的東西》（Poor Things），明年2/8農曆春節上院線
 
 
@@ -5195,7 +5194,7 @@ date: 2023-12-12
 reply_count: 2
 title: '[選片] 金球獎入圍公布，可憐的東西入圍七項'
 url: https://www.ptt.cc/bbs/movie/M.1702349629.A.42E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '女主角演過其他好的電影
 
   之前的電影也都很吸引人

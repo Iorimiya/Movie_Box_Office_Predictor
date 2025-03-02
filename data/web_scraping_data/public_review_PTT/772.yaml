@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '由日本名紀錄片導演「森達也」執導，井浦新、田中麗奈等人主演的歷史電影《福田村事
 
   件》釋出了正式海報與預告。
@@ -60,7 +59,7 @@ date: 2023-08-01
 reply_count: 1
 title: '[情報] 井浦新、田中麗奈主演《福田村事件》正式預告公開！'
 url: https://www.ptt.cc/bbs/movie/M.1690885000.A.B45.html
---- !!python/object:movie_data.PublicReview
+---
 content: '田中麗奈將攜《福田村事件》登台
 
 

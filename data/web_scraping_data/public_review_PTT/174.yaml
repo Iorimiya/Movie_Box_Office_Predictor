@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '附上人權
 
 
@@ -37,7 +36,7 @@ date: 2023-10-07
 reply_count: 126
 title: '[ 極負無雷]  周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1696662235.A.A1F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前的查無此心看完覺得小天演技大增
 
   今天看了周處才驚覺查無此心只是小兒科
@@ -88,7 +87,7 @@ date: 2023-10-10
 reply_count: 19
 title: '[好雷] 周處除三害-東西風格一起來'
 url: https://www.ptt.cc/bbs/movie/M.1696872170.A.6BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '覺青：這不是要我跪著嗎？
 
 
@@ -116,7 +115,7 @@ date: 2024-03-04
 reply_count: 7
 title: 'Re: [討論] 周處除三害證明不能失去中國電影市場'
 url: https://www.ptt.cc/bbs/movie/M.1709539856.A.FC1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天229非假日，周處除三害光靠點映就拿到了上海地區的票房日冠軍。明天正式上映。
 
 
@@ -143,7 +142,7 @@ date: 2024-03-01
 reply_count: 64
 title: '[討論] 周處除三害得到上海票房日冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1709229163.A.1B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有2幕很奇怪
 
 
@@ -178,7 +177,7 @@ date: 2024-03-01
 reply_count: 154
 title: '[討論] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1709292953.A.087.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟我的感覺啦～
 
   陳桂林在入邪教的洗禮，那段大喊我是罪人的時刻，才明白了自己前面所作所為多麼糟糕
@@ -210,7 +209,7 @@ date: 2024-03-23
 reply_count: 2
 title: 'Re: [普負雷] 要cult不cult的周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1711205323.A.70A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昨天看完後，去水管上找影評來看\n  台灣影評跟中國影評評倫重點完全不同\n  中國大概因為很多事不能說不能做,所以只能暗喻\n  剛好這部電影讓他們可以很好發揮藍色窗簾的聯想力了\n\
   \  所以才會那麼火爆!\n\n  例如有個博主說陳灰在只能在\"忠誠\"小隊做到分隊長\n  是在暗喻你再忠誠,職位天花板也只是小隊長而已\n  這真的很藍色窗簾!\n\
   \  還有蠻多地方都說在暗喻\n  我只是覺得,想太多了吧!\n\n  不過有個博主碧樹西風解析邪教這一段,個人覺得解析得相當精彩\n  可以找來看看\n\n\
@@ -219,7 +218,7 @@ date: 2024-03-06
 reply_count: 64
 title: 'Re: [討論] 周處除三害在台灣不火在中國超火'
 url: https://www.ptt.cc/bbs/movie/M.1709690399.A.830.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大陸春節檔都是闔家歡電影，只有張藝謀的沉重一些
 
 
@@ -264,7 +263,7 @@ date: 2024-03-05
 reply_count: 74
 title: 'Re: [討論] 周處除三害在台灣不火在中國超火'
 url: https://www.ptt.cc/bbs/movie/M.1709634525.A.E0B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前被講爆雷
 
 
@@ -341,7 +340,7 @@ date: 2024-03-03
 reply_count: 20
 title: 'Re: [好雷]周處除三害~後面看的很爽快~'
 url: https://www.ptt.cc/bbs/movie/M.1709468836.A.566.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -370,7 +369,7 @@ date: 2023-10-08
 reply_count: 98
 title: '[討論] 周處除三害的問題（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1696770818.A.252.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -453,7 +452,7 @@ date: 2023-10-10
 reply_count: 24
 title: '[好雷] 周處除三害-袁富華與陳以文可惜之處'
 url: https://www.ptt.cc/bbs/movie/M.1696939642.A.DD4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片名：周處除三害
 
 
@@ -484,7 +483,7 @@ date: 2024-03-06
 reply_count: 146
 title: '[討論] 周處除三害如果換片名是否更好賣？'
 url: https://www.ptt.cc/bbs/movie/M.1709728955.A.546.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我覺得蠻好看的 誘使我去二刷的 當然是 第三段的邪教橋段XD\n\n第一段 就一般的警匪追逐 殺老大 秀身手 跑天台 撞個車 標準格式\n\n\
   第二段 當然就是 香港仔 的兩場飆戲現場\n\n       比較厲害的第二場剃鬍子 我也在納悶他怎麼知道 陳在對面盯他一整晚\n\n       是不是對面旅社老闆娘也是香港仔的暗樁\
   \ 專門幫他注意有無可疑人等接近\n\n       演技很好 震攝力很夠 緊張了一下 最後載著小美 解決兩個手下畫面很帥\n\n第三段 我相信觀眾一開始應該都會猜\
@@ -503,7 +502,7 @@ date: 2023-10-09
 reply_count: 47
 title: '[好雷] 周處除三害 - 我忍不住去二刷了XD'
 url: https://www.ptt.cc/bbs/movie/M.1696782387.A.7B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '啊就大家對國片成見很深啊
 
   當初看完來板上發第一篇心得文就被洗成工讀生
@@ -524,7 +523,7 @@ date: 2024-03-23
 reply_count: 38
 title: 'Re: [討論] 周處除三害在台灣紅不起來的原因？'
 url: https://www.ptt.cc/bbs/movie/M.1711202214.A.4EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部在台灣好多人嫌到爛掉
 
   當初看的時候也沒幾隻小貓
@@ -550,7 +549,7 @@ date: 2024-03-05
 reply_count: 168
 title: '[討論] 周處除三害在台灣不火在中國超火'
 url: https://www.ptt.cc/bbs/movie/M.1709631537.A.FF8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《周處除三害》考倒陸網友「為何台灣禁帶百香果探監」 矯正署給答案
 
 
@@ -609,7 +608,7 @@ date: 2024-03-23
 reply_count: 11
 title: '[新聞] 《周處除三害》考倒陸網友 為何台灣禁帶'
 url: https://www.ptt.cc/bbs/movie/M.1711180312.A.CDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '-----------防雷頁------------
 
 
@@ -653,7 +652,7 @@ date: 2024-03-04
 reply_count: 27
 title: '[討論] 周處除三害-有關自首'
 url: https://www.ptt.cc/bbs/movie/M.1709534829.A.F76.html
---- !!python/object:movie_data.PublicReview
+---
 content: '阮經天主演的台灣電影《周處除三害》
 
 
@@ -674,7 +673,7 @@ date: 2025-02-13
 reply_count: 139
 title: '[討論] 周處除三害 將翻拍成韓國版'
 url: https://www.ptt.cc/bbs/movie/M.1739407147.A.722.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完了整部電影
 
 
@@ -749,7 +748,7 @@ date: 2024-03-13
 reply_count: 65
 title: '[討論] 為什麼周處除三害在中國爆紅?'
 url: https://www.ptt.cc/bbs/movie/M.1710340410.A.7FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '跟大家討論一下
 
 
@@ -814,7 +813,7 @@ date: 2024-03-25
 reply_count: 18
 title: '[討論] 周處除三害的那把槍'
 url: https://www.ptt.cc/bbs/movie/M.1711365707.A.D0D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -852,7 +851,7 @@ date: 2024-03-05
 reply_count: 61
 title: '[討論] 周處除三害-小胖怎麼辦？'
 url: https://www.ptt.cc/bbs/movie/M.1709599772.A.75A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這把槍應該不會太爛
 
 
@@ -881,7 +880,7 @@ date: 2024-03-19
 reply_count: 62
 title: 'Re: [  雷] 周處除三害 對於信徒的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1710830155.A.19C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完這部
 
   導演、男主角都有入圍
@@ -906,7 +905,7 @@ date: 2024-03-09
 reply_count: 88
 title: '[討論] 周處除三害  為何沒入圍金馬最佳影片？'
 url: https://www.ptt.cc/bbs/movie/M.1709916921.A.B33.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老實說去年在電影院有打算看過
 
 
@@ -1010,7 +1009,7 @@ date: 2024-03-04
 reply_count: 63
 title: '[好雷] 周處除三害 往韓國片的方向走還不錯'
 url: https://www.ptt.cc/bbs/movie/M.1709561376.A.F4D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是說 這兩天看到一些媒體 說周處除三害是將港片DNA完美移植到台灣 但是我仔細思索 裡
 
   面有什麼港片成分 有點想不出來
@@ -1030,7 +1029,7 @@ date: 2024-03-14
 reply_count: 26
 title: '[請益] 跟周處除三害最接近的港片'
 url: https://www.ptt.cc/bbs/movie/M.1710410161.A.76E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本篇主旨在核心討論:版上一堆人[近乎瘋狂在問的]為什麼此片在大陸爆紅?\n只是很簡單的陳述在大陸爆紅的環境原因\n\n\n其實原因非常簡單  [而且白癡都知道]\n\
   \n因為就是本片[在表層阿共看待宗教勢力的看法某些層面上大都一致]\n\n換句話說 會有本片主打就是[抱阿共大腿或為了抱阿共韭菜群體大腿所產出來的劇本]\n\n\
   \n       所以表層阿共瘋狂的透過[行之有年的動員手法支持]這部片\n   是這樣才大紅的  對於了解地球是虛擬世界級數的存在們要設定票房虛擬數值並不難\n\
@@ -1058,7 +1057,7 @@ date: 2024-03-06
 reply_count: 36
 title: '[討論] ===周處除三害為什麼在大陸會紅 到底演啥'
 url: https://www.ptt.cc/bbs/movie/M.1709725148.A.F02.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷討論
 
 
@@ -1105,14 +1104,14 @@ date: 2023-10-10
 reply_count: 19
 title: '[討論] 有雷討論 周處除三害結局這樣拍會變神劇'
 url: https://www.ptt.cc/bbs/movie/M.1696916906.A.920.html
---- !!python/object:movie_data.PublicReview
+---
 content: "不知道大家有沒有注意到\n\n一開始桂林仔闖入洪爺的喪禮\n\n花圈上洪爺的名字是洪仁就\n\n（就是本片導演黃精甫曾執導的電影\n 江湖裡 劉德華飾演的角色）\n\
   \n然後小弟口述說桂林仔是任因九的手下\n\n真的是裡面都還是有一些能看到港片的元素XD\n\n--"
 date: 2023-10-08
 reply_count: 7
 title: '[雷] 周處除三害的彩蛋'
 url: https://www.ptt.cc/bbs/movie/M.1696757376.A.0A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看最近周處在對岸爆紅
 
 
@@ -1152,7 +1151,7 @@ date: 2024-03-03
 reply_count: 127
 title: '[討論] 周處除三害的女醫生'
 url: https://www.ptt.cc/bbs/movie/M.1709464330.A.EB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -1211,7 +1210,7 @@ date: 2024-03-06
 reply_count: 50
 title: '[討論] 周處除三害是因為反政治正確才爆紅？'
 url: https://www.ptt.cc/bbs/movie/M.1709738480.A.850.html
---- !!python/object:movie_data.PublicReview
+---
 content: '20萬美元就有點低了
 
   跟本來傳說的1000萬人民幣差了七八倍
@@ -1275,7 +1274,7 @@ date: 2024-03-10
 reply_count: 55
 title: 'Re: [新聞] 《周處除三害》中國大賣　傳李烈賺不到'
 url: https://www.ptt.cc/bbs/movie/M.1710068161.A.F40.html
---- !!python/object:movie_data.PublicReview
+---
 content: '獨家｜《周處除三害》中國大賣　傳李烈賺不到分潤內幕曝
 
 
@@ -1310,7 +1309,7 @@ date: 2024-03-10
 reply_count: 271
 title: '[新聞] 《周處除三害》中國大賣　傳李烈賺不到'
 url: https://www.ptt.cc/bbs/movie/M.1710062673.A.FAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我覺得這部片，刻意被壓制了
 
 
@@ -1373,7 +1372,7 @@ date: 2024-03-06
 reply_count: 66
 title: 'Re: [討論] 周處除三害在台灣不火在中國超火'
 url: https://www.ptt.cc/bbs/movie/M.1709705296.A.028.html
---- !!python/object:movie_data.PublicReview
+---
 content: '觀影的時候看到陳桂琳從精明ㄧ街開始追香港仔的路線，剛好是台中人覺得莫名熟悉
 
   加上精明ㄧ街就在我家附近竟然沒發現有拍電影
@@ -1401,7 +1400,7 @@ date: 2023-10-07
 reply_count: 18
 title: 'Re: [雷] 極好雷—周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1696671426.A.F2A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去參加了台北in89的三害生肖場
 
 
@@ -1504,7 +1503,7 @@ date: 2023-10-02
 reply_count: 41
 title: '[請益] 《周處除三害》開場劇情（有雷慎入）'
 url: https://www.ptt.cc/bbs/movie/M.1696261163.A.C86.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1582,7 +1581,7 @@ date: 2024-03-20
 reply_count: 19
 title: '[  雷] 周處除三害心得'
 url: https://www.ptt.cc/bbs/movie/M.1710945417.A.7AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1675,7 +1674,7 @@ date: 2024-04-06
 reply_count: 10
 title: '[好雷] 周處除三害：人怕出名豬怕肥？'
 url: https://www.ptt.cc/bbs/movie/M.1712397766.A.D41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '關於結局我想講一下我的想法
 
   以下可能有小雷
@@ -1759,7 +1758,7 @@ date: 2023-10-07
 reply_count: 39
 title: 'Re: [ 極負無雷]  周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1696691366.A.765.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中國網友喊「台灣會禁《周處除三害》」 台灣網友笑：你們是看二輪的
 
 
@@ -1819,7 +1818,7 @@ date: 2024-03-22
 reply_count: 361
 title: '[新聞] 中國網友喊「台灣會禁《周處除三害》」'
 url: https://www.ptt.cc/bbs/movie/M.1711048788.A.B71.html
---- !!python/object:movie_data.PublicReview
+---
 content: '阮經天《周處除三害》第一個影帝入袋！　陳意涵演活厭世媽封后
 
 
@@ -1938,7 +1937,7 @@ date: 2024-05-22
 reply_count: 5
 title: '[新聞] 阮經天《周處除三害》第一個影帝入袋！'
 url: https://www.ptt.cc/bbs/movie/M.1716310291.A.F1D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -2141,7 +2140,7 @@ date: 2024-05-26
 reply_count: 16
 title: '[  雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1716712353.A.0CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -2186,7 +2185,7 @@ date: 2024-03-03
 reply_count: 25
 title: '[請益] 周處除三害預告片胯下壓頭在幹什麼?'
 url: https://www.ptt.cc/bbs/movie/M.1709470405.A.F4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.cult片沒有定義啦
 
   很多電影是後來才被大家認定是cult片
@@ -2337,7 +2336,7 @@ date: 2024-03-24
 reply_count: 13
 title: 'Re: [普負雷] 要cult不cult的周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1711285886.A.3DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '純粹有趣分享，勿認真勿引戰
 
 
@@ -2395,7 +2394,7 @@ date: 2023-10-29
 reply_count: 7
 title: '[討論] 周處除三害小分享（有雷慎入）'
 url: https://www.ptt.cc/bbs/movie/M.1698587205.A.40B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有可能哦
 
 
@@ -2422,7 +2421,7 @@ date: 2024-03-06
 reply_count: 8
 title: 'Re: [討論] 周處除三害該不會在台灣電影院再上映吧？'
 url: https://www.ptt.cc/bbs/movie/M.1709683639.A.3F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天剛看完對這段特別有感
 
 
@@ -2491,7 +2490,7 @@ date: 2023-10-24
 reply_count: 20
 title: 'Re: [有雷] 周處除三害，教堂片段'
 url: https://www.ptt.cc/bbs/movie/M.1698146832.A.55B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我覺得你根本搞不清楚
 
   對岸演員 搶資源有多競爭
@@ -2659,7 +2658,7 @@ date: 2024-03-04
 reply_count: 95
 title: 'Re: [討論] 周處除三害證明不能失去中國電影市場'
 url: https://www.ptt.cc/bbs/movie/M.1709534973.A.DA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷資訊頁
 
 
@@ -2779,7 +2778,7 @@ date: 2023-10-17
 reply_count: 12
 title: '[新聞] 《周處除三害》熱映！陳桂林、香港仔原型'
 url: https://www.ptt.cc/bbs/movie/M.1697519363.A.C89.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷雷雷～\n被雷到我不管了\n以下空白\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     很久沒看過國片好看到會上來發文了，其實從劇本來看，邏輯前後呼應，寫的很縝密\n\
   ，是不錯的劇本，不是單純的爽片，劇情轉折不錯，裡面也幾乎沒有多餘的角色和片段，\n例如：\n一開頭認識的路邊吃飯的兄弟，邊吃飯攀關係，本以為是帶過，後來也真的請他幫忙;\n\
   得了肺癌末期，逃命還可以跑那麼快？結尾才轉折出來根本沒生病;\n和警察陳輝的多年糾葛，讓陳桂琳自首時，第一個想到的是他;\n在邪教時，真的徹底醒悟時，讓我感同身受，大概類似遁入佛門清修，忽然一個轉折，白的\n\
@@ -2791,7 +2790,7 @@ date: 2023-10-29
 reply_count: 1
 title: '[雷] 周處除三害-好雷分享'
 url: https://www.ptt.cc/bbs/movie/M.1698546177.A.4F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3087,7 +3086,7 @@ date: 2024-03-13
 reply_count: 18
 title: '[新聞] 台灣電影《周處除三害》為何在中國大陸'
 url: https://www.ptt.cc/bbs/movie/M.1710304545.A.D07.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -3171,7 +3170,7 @@ date: 2024-03-02
 reply_count: 48
 title: '[ 好雷]  周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1709367622.A.F84.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影版就一堆人嘴硬
 
 
@@ -3199,7 +3198,7 @@ date: 2024-03-24
 reply_count: 61
 title: 'Re: [討論] 周處除三害在台灣紅不起來的原因？'
 url: https://www.ptt.cc/bbs/movie/M.1711251724.A.8EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小美房間四面牆都藏了不同迷因貓
 
 
@@ -3225,7 +3224,7 @@ date: 2024-03-24
 reply_count: 10
 title: '[討論]  周處除三害的彩蛋可能有雷'
 url: https://www.ptt.cc/bbs/movie/M.1711234147.A.AC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《周處除三害》 懸疑、過癮、寧靜 9/10分
 
 
@@ -3339,7 +3338,7 @@ date: 2023-10-09
 reply_count: 4
 title: '[好無雷] 周處除三害 -  懸疑、過癮、寧靜'
 url: https://www.ptt.cc/bbs/movie/M.1696863108.A.D3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '此片是近期國片的上乘！
 
 
@@ -3373,7 +3372,7 @@ date: 2023-10-09
 reply_count: 9
 title: '[討論] 周處除三害陳桂林（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1696836626.A.A95.html
---- !!python/object:movie_data.PublicReview
+---
 content: '10月初的時候剛好在YT上瞄到周處的預告
 
   看到那種狂氣角色真的相當喜愛就約了朋友一起去看
@@ -3478,7 +3477,7 @@ date: 2023-10-09
 reply_count: 7
 title: '[好雷] 周處除三害觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1696855980.A.AFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來一直不看好這部一直以為是很普通的黑道片
 
   剛好朋友有約就跟他一起去看
@@ -3538,7 +3537,7 @@ date: 2023-10-27
 reply_count: 8
 title: '[好雷] 周處除三害 好還可以更好 十足爽片'
 url: https://www.ptt.cc/bbs/movie/M.1698405806.A.502.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在台上映後 幾個月來都紅不起來
 
   也沒啥討論度
@@ -3565,7 +3564,7 @@ date: 2024-03-22
 reply_count: 299
 title: '[討論] 周處除三害在台灣紅不起來的原因？'
 url: https://www.ptt.cc/bbs/movie/M.1711115766.A.07D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3676,7 +3675,7 @@ date: 2024-03-10
 reply_count: 28
 title: '[新聞] 「周處除三害」中國票房達16億 不同族群'
 url: https://www.ptt.cc/bbs/movie/M.1710070791.A.40A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '篤定不進戲院看國片的我為了妹子還是破功了
 
   唉……..
@@ -3821,7 +3820,7 @@ date: 2023-10-09
 reply_count: 72
 title: '[負雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1696854697.A.CEF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實有黃金公式耶
 
 
@@ -3851,7 +3850,7 @@ date: 2024-03-14
 reply_count: 3
 title: 'Re: [討論] 周處除三害在對面爆紅的原因'
 url: https://www.ptt.cc/bbs/movie/M.1710388690.A.6E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該是佛堂吧
 
   覺得這段最荒謬，有點黑色喜劇
@@ -3888,7 +3887,7 @@ date: 2023-10-25
 reply_count: 5
 title: 'Re: [有雷] 周處除三害，教堂片段'
 url: https://www.ptt.cc/bbs/movie/M.1698197199.A.219.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3941,7 +3940,7 @@ date: 2024-03-03
 reply_count: 219
 title: '[新聞] 阮經天登中國票房一哥！《周處除三害》破'
 url: https://www.ptt.cc/bbs/movie/M.1709439641.A.3F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完一直有個疑問..
 
   就是電影中提到十多年前林祿和從黑道醫生處寫信給他母親那段
@@ -3962,7 +3961,7 @@ date: 2024-03-04
 reply_count: 11
 title: '[請益] 周處除三害一問（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709483713.A.9FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天剛看完晚場，純粹就電影內容做分享，希望大家能理性討論，以下會有劇情雷不想被
 
   爆的請自己斟酌，那就先從優點開始
@@ -4020,7 +4019,7 @@ date: 2023-10-07
 reply_count: 52
 title: '[普偏好雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1696608755.A.7DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '認同啊
 
   看完覺得就那個神棍演的最像神棍
@@ -4104,7 +4103,7 @@ date: 2024-03-18
 reply_count: 37
 title: 'Re: [負雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1710776926.A.4E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當初上映時朋友就狂推，不過我對黑道片缺乏興趣一直放置，最近上串流大家都在討論加上
 
   衍生的迷因都很好笑就來補這部片，隨性寫寫，手機排版請見諒
@@ -4200,7 +4199,7 @@ date: 2024-03-25
 reply_count: 30
 title: '[雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1711334251.A.F6F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先無雷結論
 
 
@@ -4396,7 +4395,7 @@ date: 2023-10-10
 reply_count: 7
 title: '[微好雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1696874062.A.ECE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在台灣通緝犯這麼好躲嗎？
 
 
@@ -4427,7 +4426,7 @@ date: 2024-03-11
 reply_count: 248
 title: '[討論] 周處除三害 通緝犯這麼自由嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1710089960.A.758.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完整部，那個新心靈舍大成這樣，加上信徒
 
 
@@ -4448,7 +4447,7 @@ date: 2025-02-11
 reply_count: 40
 title: '[討論] 周處除三害也太好躲?'
 url: https://www.ptt.cc/bbs/movie/M.1739261007.A.0E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論：浪費我兩個多小時
 
 
@@ -4578,7 +4577,7 @@ date: 2024-03-15
 reply_count: 90
 title: '[負雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1710480856.A.F5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '周處除三害的陳桂林 原型很明顯就是劉煥榮
 
 
@@ -4650,7 +4649,7 @@ date: 2024-03-04
 reply_count: 102
 title: '[討論] 周處除三害其實給了國片一個榜樣吧'
 url: https://www.ptt.cc/bbs/movie/M.1709540093.A.27E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '周處除三害的英文片名是 豬 蛇 鴿
 
 
@@ -4673,7 +4672,7 @@ date: 2024-03-03
 reply_count: 12
 title: '[討論] 周處除三害讓我想到刀見笑'
 url: https://www.ptt.cc/bbs/movie/M.1709400786.A.04C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4791,7 +4790,7 @@ date: 2024-03-23
 reply_count: 82
 title: '[普負雷] 要cult不cult的周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1711184244.A.410.html
---- !!python/object:movie_data.PublicReview
+---
 content: "黃精甫跟我在2006年認識。\n\n2006年我前往香港發展。\n10月1日當天在曾監製介紹下認識黃，他是「江湖」的導演，但我看過韓國電影「朋友」\n\
   。\n他事後也跟我承認在拍攝時確實借鑑了「朋友」的畫面，照現在他的說法應該一樣屬於「\n雖然高度類似」但算「獨立創作」吧。\n當天還有正籌備江湖二的陳導演，麥編劇，錢姓監製（女）後來幫電影鈕扣人寫過非常精\n\
   闢的口白\n\n有些事，也許黃導演忘了，我提醒你。\n當晚我帶了「地下秩序」的光碟片花、「不死」、「無法無天」的紙本大綱，當時「狗咬\n狗」正在香港上映。\n\
@@ -4813,7 +4812,7 @@ date: 2023-10-16
 reply_count: 62
 title: 'Re: [新聞] 《周處除三害》遭暗指抄襲　導演千字聲明'
 url: https://www.ptt.cc/bbs/movie/M.1697438972.A.94E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小雷喔
 
 
@@ -4885,7 +4884,7 @@ date: 2024-03-07
 reply_count: 7
 title: 'Re: [討論] 周處除三害是因為反政治正確才爆紅？'
 url: https://www.ptt.cc/bbs/movie/M.1709748882.A.BB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不斷更新／阮經天《周處除三害》奪北影影帝！李烈幫念越洋簡訊
 
 
@@ -5165,7 +5164,7 @@ date: 2024-07-06
 reply_count: 70
 title: '[新聞] 阮經天《周處除三害》奪北影影帝！李烈'
 url: https://www.ptt.cc/bbs/movie/M.1720273584.A.082.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5290,7 +5289,7 @@ date: 2023-10-10
 reply_count: 54
 title: '[ 好雷] 周處除三害-台灣最好看的武打片'
 url: https://www.ptt.cc/bbs/movie/M.1696877726.A.B0F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台灣電影全球票房TOP10！《周處除三害》持續狂飆，《比悲傷》48億第二，冠軍高達68
 
   億
@@ -5576,7 +5575,7 @@ date: 2024-03-07
 reply_count: 29
 title: '[新聞] 台灣電影全球票房TOP10！《周處除三害》'
 url: https://www.ptt.cc/bbs/movie/M.1709742362.A.E4D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -5631,7 +5630,7 @@ date: 2024-05-30
 reply_count: 49
 title: '[新聞] 朱延平:周處除三害在中國成功 是兩岸交流好結果'
 url: https://www.ptt.cc/bbs/movie/M.1717047561.A.9C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看了周處除三害
 
 
@@ -5679,7 +5678,7 @@ date: 2023-10-09
 reply_count: 13
 title: '[無雷] 周處除三害 格局有點小 不夠爽'
 url: https://www.ptt.cc/bbs/movie/M.1696784157.A.DE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為好奇 剛在Netflix 上看完了
 
   這部優缺點很明顯 版上很多篇都說得很好
@@ -5729,7 +5728,7 @@ date: 2024-03-14
 reply_count: 83
 title: '[討論] 周處除三害在對面爆紅的原因'
 url: https://www.ptt.cc/bbs/movie/M.1710354791.A.7B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -5827,7 +5826,7 @@ date: 2025-02-12
 reply_count: 27
 title: '[新聞] 《周處除三害》著作權風波案外案 法院裁'
 url: https://www.ptt.cc/bbs/movie/M.1739338000.A.F3C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下幸運得獎人，可以搶先看【周處除三害】試映會。
 
   將以站內信通知領獎事宜，請各位得獎者收到通知信後，務必於9月28日 (四)18:00前回
@@ -5887,7 +5886,7 @@ date: 2023-09-26
 reply_count: 27
 title: 'Re: [贈票] 【周處除三害】特映會搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1695738628.A.A38.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5936,7 +5935,7 @@ date: 2024-03-04
 reply_count: 43
 title: '[普偏好雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1709519698.A.65C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '推薦一部
 
 
@@ -5984,7 +5983,7 @@ date: 2024-03-02
 reply_count: 6
 title: '[好雷] Netflix 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1709360871.A.AC8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有軍武大神看得出來片中陳桂林用的鎗是哪個型號嗎？我粗淺目測兩種可能：
 
 
@@ -6014,7 +6013,7 @@ date: 2023-10-25
 reply_count: 12
 title: 'Re: [有雷] 周處除三害，教堂片段'
 url: https://www.ptt.cc/bbs/movie/M.1698231520.A.5A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '————————部分劇情防雷———————
 
 
@@ -6113,7 +6112,7 @@ date: 2023-10-09
 reply_count: 26
 title: '[ 微好雷] 周處除三害：觀賞性佳但還能更好'
 url: https://www.ptt.cc/bbs/movie/M.1696786948.A.BFA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在Netflix上出現一陣子了
 
   但是看到阮經天就感覺很無聊，完全不想點
@@ -6264,7 +6263,7 @@ date: 2024-03-13
 reply_count: 186
 title: '[普雷] 《周處除三害》難怪在台灣不紅'
 url: https://www.ptt.cc/bbs/movie/M.1710324130.A.6FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -6307,7 +6306,7 @@ date: 2024-03-09
 reply_count: 113
 title: '[請益] 周處除三害 結局問題 雷'
 url: https://www.ptt.cc/bbs/movie/M.1709917765.A.086.html
---- !!python/object:movie_data.PublicReview
+---
 content: '三 害 不 除 ，何 樂 之 有 ？
 
 
@@ -6341,7 +6340,7 @@ date: 2023-09-08
 reply_count: 133
 title: '[情報] 阮經天《周處除三害》電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1694105261.A.A2C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '周處除三害真是超好看，突然很想在電影院用大銀幕再看一次，
 
 
@@ -6368,7 +6367,7 @@ date: 2024-03-09
 reply_count: 3
 title: '[請益] 周處除三害的鐵頭哥是誰演的？'
 url: https://www.ptt.cc/bbs/movie/M.1709978658.A.B1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -6485,7 +6484,7 @@ date: 2023-10-17
 reply_count: 44
 title: '[新聞] 《周處除三害》遭影射抄襲　導演發文澄清'
 url: https://www.ptt.cc/bbs/movie/M.1697510729.A.716.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6551,7 +6550,7 @@ date: 2024-03-09
 reply_count: 17
 title: '[好雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1709970061.A.16C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6596,7 +6595,7 @@ date: 2024-03-04
 reply_count: 31
 title: '[  雷] 周處除三害 主角為何要丟槍、再搶別的槍'
 url: https://www.ptt.cc/bbs/movie/M.1709534350.A.6E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說整體還是很好看
 
   動作武打與氣氛都很到位
@@ -6708,7 +6707,7 @@ date: 2023-10-17
 reply_count: 46
 title: '[有雷] 周處除三害想吐槽的點'
 url: https://www.ptt.cc/bbs/movie/M.1697481000.A.ADA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看《周處除三害》太入戲？中國網友嘆：台灣太亂了 趕快回歸祖國吧
 
 
@@ -6769,7 +6768,7 @@ date: 2024-03-08
 reply_count: 219
 title: '[新聞] 看周處除三害太入戲？中國網友嘆：台灣'
 url: https://www.ptt.cc/bbs/movie/M.1709828983.A.D60.html
---- !!python/object:movie_data.PublicReview
+---
 content: '兩個小時多一下就過去了 也至少了解刑場是在幹些什麼
 
   而且我和陳桂林也有共通點 都戴著過世奶奶的手錶
@@ -6799,7 +6798,7 @@ date: 2024-03-09
 reply_count: 14
 title: 〔好無雷] 周處除三害 真的很好看
 url: https://www.ptt.cc/bbs/movie/M.1709985363.A.C76.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6973,7 +6972,7 @@ date: 2023-10-09
 reply_count: 9
 title: '[好雷]《周處除三害》經典文本的混血新詮 '
 url: https://www.ptt.cc/bbs/movie/M.1696860527.A.B00.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下防雷
 
 
@@ -7058,7 +7057,7 @@ date: 2023-10-26
 reply_count: 17
 title: '[討論] 周處除三害  癌症的藥可以亂吃？'
 url: https://www.ptt.cc/bbs/movie/M.1698284941.A.A49.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -7085,7 +7084,7 @@ date: 2024-03-09
 reply_count: 113
 title: '[討論] 周處除三害是諷刺台灣宗教與刑法嗎'
 url: https://www.ptt.cc/bbs/movie/M.1709944236.A.96D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -7166,7 +7165,7 @@ date: 2024-03-19
 reply_count: 66
 title: '[新聞] 《周處除三害》阮經天嗑便當太香了！盤點'
 url: https://www.ptt.cc/bbs/movie/M.1710796253.A.985.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影院看電影相對而言是社交要求高的
 
   通常不是跟熟悉的朋友
@@ -7289,7 +7288,7 @@ date: 2024-03-06
 reply_count: 77
 title: 'Re: [討論] 周處除三害在台灣不火在中國超火'
 url: https://www.ptt.cc/bbs/movie/M.1709707988.A.095.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網路很多人討論，就在Netflix 看完「周處除三害」，坦白說，覺得蠻難看的，蠻多片段
 
   用快轉帶過。阮經天的演技非常好，是本片亮點。
@@ -7330,7 +7329,7 @@ date: 2024-03-09
 reply_count: 49
 title: '[討論] 周處除三害（無雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709995576.A.86B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -7449,7 +7448,7 @@ date: 2024-10-29
 reply_count: 147
 title: '[討論] 周處除三害算是神作嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1730204644.A.96A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷頁\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n這段其實認真說不能叫「屠殺」，比較像「自殺」\n\
   \n主角一開始主動殺的是教主。被動開了一槍小教徒。\n\n下樓後復返\n\n\n給了信徒們一分鐘的時間，其中跑掉的人主角沒有任何動作\n\n留下來的人，主角開始殺，\n\
   一槍一個，有的因為卡彈沒殺\n\n被卡彈的信徒分為兩種，一種是繼續等死，一種是覺得死裡逃生突然醒悟快跑\n\n\n主角甚至一派悠閒的停下來裝子彈，也不見留下來的信徒們逃跑或有任何動作\n\
@@ -7459,7 +7458,7 @@ date: 2024-03-20
 reply_count: 33
 title: 'Re: [  雷] 周處除三害 對於信徒的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1710900758.A.86E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7858,7 +7857,7 @@ date: 2023-10-04
 reply_count: 16
 title: '[好雷]周處除三害-台南特映場 '
 url: https://www.ptt.cc/bbs/movie/M.1696428543.A.1FE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這片在對岸贏過沙丘
 
   真的算是奇蹟吧
@@ -7888,7 +7887,7 @@ date: 2024-03-14
 reply_count: 38
 title: 'Re: [討論] 周處除三害在對面爆紅的原因'
 url: https://www.ptt.cc/bbs/movie/M.1710360960.A.99F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完《周處除三害》，整體劇情流暢不枯燥，給普雷。
 
   也因為這部片，才認識主角的原型「劉煥榮」，一個奇妙的人物。
@@ -7929,7 +7928,7 @@ date: 2024-03-25
 reply_count: 68
 title: '[討論] 《周處除三害》裡的媽媽'
 url: https://www.ptt.cc/bbs/movie/M.1711332101.A.991.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -8030,7 +8029,7 @@ date: 2023-10-14
 reply_count: 15
 title: '[爽雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1697286852.A.EF5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我是工讀生我就去死
 
 
@@ -8161,7 +8160,7 @@ date: 2023-10-07
 reply_count: 57
 title: '[雷] 極好雷—周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1696613523.A.0D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -8218,7 +8217,7 @@ date: 2024-03-17
 reply_count: 22
 title: '[新聞] 《周處除三害》賣破21億！阮經天被敲碗'
 url: https://www.ptt.cc/bbs/movie/M.1710660412.A.06F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "緯來電影台\n1/28(二)除夕 21:00 周處除三害\n\n導演 黃精甫\n編劇 黃精甫\n主演 阮經天 袁富華 陳以文 王淨 李李仁 謝瓊煖\
   \ 曾珮瑜\n\n《周處除三害》（英語：The Pig, The Snake and The Pigeon[註 1]）是一部2023年台\n灣犯罪劇情片，香港導演黃精甫的首部台灣作品，由阮經天主演。2023年10月6日在台灣\n\
   上映，2024年3月1日在中國大陸上映。電影引用「周處除三害」的古文典故，結合黑幫復\n仇、犯罪動作、暴力美學。\n------------------------------------------------------------------------------\n\
@@ -8230,7 +8229,7 @@ date: 2025-01-28
 reply_count: 61
 title: '[LIVE] 緯來電影 21:00 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1738051515.A.7DC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '更，手機排版偏亂請見諒
 
 
@@ -8337,7 +8336,7 @@ date: 2024-03-20
 reply_count: 34
 title: 'Re: [  雷] 周處除三害 對於信徒的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1710925617.A.7E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '邪典電影（英語：Cult Film）即邪門經典電影，又稱Cult片、靠片，是指那些在小圈子
 
   內被支持者喜愛及推崇膜拜的電影，也可稱為非主流電影或另類電影。這種電影通常未獲
@@ -8385,7 +8384,7 @@ date: 2024-03-23
 reply_count: 18
 title: 'Re: [普負雷] 要cult不cult的周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1711196011.A.738.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這就是市場的影響力啊
 
 
@@ -8493,7 +8492,7 @@ date: 2024-03-04
 reply_count: 94
 title: 'Re: [討論] 周處除三害證明不能失去中國電影市場'
 url: https://www.ptt.cc/bbs/movie/M.1709551352.A.1B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "陳桂林在台灣不太紅\n去對岸直接飛天\n一堆up主要沾光\n所以很多影評都出自對岸\n其中一個覺得蠻不錯\n\n把劇中很多不合邏輯的地方昇華成為隱喻\n\
   給出新的視野\n\n【【青蒜】我拿的不是枪，而是天命！真·深度解读《周处除三害》-哔哩哔哩】 \n\n希望出自台灣的好東西不要因為不是自己人吹捧就被打壓，更該出力吹上天讓他登上國際，就像台南小吃一樣，只要有人質疑就是直接幹到底\n\
   \n--"
@@ -8501,7 +8500,7 @@ date: 2024-03-06
 reply_count: 10
 title: '[討論] 從藝文片角度剖析周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1709681113.A.5D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【記者黃閔／台北報導】導演錢人豪日前在臉書發文指控，現正上映中的某部電影，
 
   涉嫌抄襲他籌備多年的劇本《無法無天》，種種線索都指向阮經天主演的電影《
@@ -8610,7 +8609,7 @@ date: 2023-10-16
 reply_count: 36
 title: '[新聞] 《周處除三害》遭暗指抄襲　導演千字聲明'
 url: https://www.ptt.cc/bbs/movie/M.1697386569.A.ED6.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Question
 
   如果密醫和小美要換角的話大家覺得有什麼人選呢？
@@ -8646,7 +8645,7 @@ date: 2023-10-11
 reply_count: 11
 title: 'Re: [ 好雷] 周處除三害-台灣最好看的武打片'
 url: https://www.ptt.cc/bbs/movie/M.1696961034.A.D57.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為要帶外國友人去看
 
   可是網路查到的資料都寫中文字幕
@@ -8659,7 +8658,7 @@ date: 2023-11-17
 reply_count: 6
 title: '[問片] 周處除三害有英文字幕嗎'
 url: https://www.ptt.cc/bbs/movie/M.1700229246.A.291.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為導演的功力有限
 
   對劇情編排和鏡頭運用都不夠好
@@ -8748,7 +8747,7 @@ date: 2024-03-25
 reply_count: 3
 title: 'Re: [普雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1711308970.A.536.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟王淨腦粉，一開始看預告就被王淨這造型給吸引住。但正片沒這畫面。（其他角色在此預告也都有獨立的正面鏡頭，但看來只是單純拿來預告片使用而已。
 
 
@@ -8765,7 +8764,7 @@ date: 2023-10-07
 reply_count: 8
 title: '[] ［好雷］周處除三害預告片畫面'
 url: https://www.ptt.cc/bbs/movie/M.1696685029.A.443.html
---- !!python/object:movie_data.PublicReview
+---
 content: '錢人豪導演又在臉書回應了，以下全文：
 
 
@@ -8927,7 +8926,7 @@ date: 2023-10-16
 reply_count: 18
 title: 'Re: [新聞] 《周處除三害》遭暗指抄襲　導演千字聲明'
 url: https://www.ptt.cc/bbs/movie/M.1697425783.A.5D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -9094,7 +9093,7 @@ date: 2023-10-27
 reply_count: 69
 title: '[負雷] 周處除三害 - 總體來說負大於正'
 url: https://www.ptt.cc/bbs/movie/M.1698404686.A.E51.html
---- !!python/object:movie_data.PublicReview
+---
 content: '阮經天《周處除三害》血腥尺度突破天花板　中國上映被要求「二次閹割」
 
 
@@ -9151,7 +9150,7 @@ date: 2024-02-29
 reply_count: 10
 title: '[新聞] 阮經天《周處除三害》血腥尺度突破天花板 中國上映被要求'
 url: https://www.ptt.cc/bbs/movie/M.1709214635.A.952.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《周處除三害》處女作暴紅！遊戲龍頭「網銀」拍電影、買威秀…跨足實體娛樂，背後盤算
 
   是什麼？
@@ -9280,7 +9279,7 @@ date: 2024-12-05
 reply_count: 39
 title: '[新聞] 《周處除三害》處女作暴紅！遊戲龍頭「'
 url: https://www.ptt.cc/bbs/movie/M.1733369956.A.A0B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如題，最近鬧得沸沸揚揚《周處除三害》是不是很不純啊？\n首先，最近新聞吵來吵去的國片《周處除三害》，本來我是沒什麼興趣\n但因為牽涉到劇本抄襲、剽竊的議題，瞬間讓我感到好奇\n\
   同時我也曬出票根以茲證明確實已看過此片，所以上來跟鄉民們討論近期發生的爭議\n\n以下除了雙方爭議，也包含部分劇情爆雷，因此尚未看過電影的，請斟酌往下觀賞\n\
   ------------------防雷線-------------------------------------------------\n首先針對電影的部分，我個人是給予滿分100分的話，高達90分的評價。的確，《周處除\n\
@@ -9304,7 +9303,7 @@ date: 2023-10-17
 reply_count: 268
 title: '[討論] 《周處除三害》是不是很不純啊？'
 url: https://www.ptt.cc/bbs/movie/M.1697534879.A.4B1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天去看了周處 意外的爽片一部
 
 
@@ -9343,7 +9342,7 @@ date: 2023-10-26
 reply_count: 62
 title: '[好雷] 周處除三害 阮經天一個人撐整部片'
 url: https://www.ptt.cc/bbs/movie/M.1698259763.A.DB4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -9437,7 +9436,7 @@ date: 2023-10-17
 reply_count: 6
 title: '[好雷] 周處除三害 '
 url: https://www.ptt.cc/bbs/movie/M.1697473939.A.A81.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在網飛上勉強看完了，感想是很普的一部片，然後看了才發現王淨的奶還蠻大的
 
 
@@ -9457,7 +9456,7 @@ date: 2024-03-10
 reply_count: 27
 title: '[請益] 周處除三害  桂林仔怎麼知道（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1710073115.A.4A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實還有諷刺醫療(安樂死)&老人化社會議題
 
 
@@ -9497,7 +9496,7 @@ date: 2024-03-09
 reply_count: 11
 title: 'Re: [討論] 周處除三害是諷刺台灣宗教與刑法嗎'
 url: https://www.ptt.cc/bbs/movie/M.1709997949.A.F95.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -9742,7 +9741,7 @@ date: 2023-10-14
 reply_count: 33
 title: '[好雷]【周處除三害】突破溫良恭儉讓的國片'
 url: https://www.ptt.cc/bbs/movie/M.1697276505.A.290.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -9794,7 +9793,7 @@ date: 2023-11-11
 reply_count: 11
 title: '[ 好 雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1699664282.A.3C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '周處除三害在中國紅的跟什麼一樣
 
 
@@ -9815,7 +9814,7 @@ date: 2024-03-05
 reply_count: 143
 title: '[討論] 周處除三害該不會在台灣電影院再上映吧？'
 url: https://www.ptt.cc/bbs/movie/M.1709641887.A.695.html
---- !!python/object:movie_data.PublicReview
+---
 content: '簡單說
 
 
@@ -9860,7 +9859,7 @@ date: 2024-03-01
 reply_count: 12
 title: 'Re: [討論] 周處除三害得到上海票房日冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1709261117.A.37C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -9896,7 +9895,7 @@ date: 2024-03-18
 reply_count: 68
 title: '[  雷] 周處除三害 對於信徒的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1710774072.A.615.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前面那篇無法順利編輯，只好自刪= =\
 
 
@@ -10023,7 +10022,7 @@ date: 2023-10-15
 reply_count: 29
 title: '[好雷]《周處除三害》只想給你感官刺激 '
 url: https://www.ptt.cc/bbs/movie/M.1697364979.A.D5A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文好讀：
 
 
@@ -10220,7 +10219,7 @@ date: 2023-11-14
 reply_count: 13
 title: '[好雷] 周處除三害 極致爽快的頂級動作大片！'
 url: https://www.ptt.cc/bbs/movie/M.1699894622.A.714.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先回一下第一點
 
 
@@ -10269,7 +10268,7 @@ date: 2024-03-23
 reply_count: 6
 title: 'Re: [普負雷] 要cult不cult的周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1711201897.A.BBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -10510,7 +10509,7 @@ date: 2024-05-28
 reply_count: 3
 title: '[好雷] 周處除三害 - 歌很好聽 但不要再唱了'
 url: https://www.ptt.cc/bbs/movie/M.1716899865.A.C6F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '★年度罪大惡極黑幫警匪動作鉅片，刷新台灣動作片新高度
 
   ★金獎影帝阮經天大開殺戒，出道以來最巔瘋之作
@@ -10582,7 +10581,7 @@ date: 2023-09-20
 reply_count: 413
 title: '[贈票] 【周處除三害】特映會搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1695218886.A.0C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '下午剛看完
 
 
@@ -10831,7 +10830,7 @@ date: 2023-10-14
 reply_count: 12
 title: '[好雷]  周處除三害，爽片無誤'
 url: https://www.ptt.cc/bbs/movie/M.1697295693.A.BC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '周處算是很好的商業片
 
   就算不能像鬼家人那樣賣到3.6億
@@ -10905,7 +10904,7 @@ date: 2024-03-04
 reply_count: 368
 title: '[討論] 周處除三害證明不能失去中國電影市場'
 url: https://www.ptt.cc/bbs/movie/M.1709528874.A.C90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部戲題材說真的蠻「單純的」，說穿了就是一個殺手想殺了其他通緝犯，達到揚名立萬
 
   的效果，類似劇情不少電影都有。
@@ -10945,7 +10944,7 @@ date: 2024-03-10
 reply_count: 38
 title: '[討論] 周處除三害心得'
 url: https://www.ptt.cc/bbs/movie/M.1710034925.A.35F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先講講常見人家批評的點
 
 
@@ -11004,7 +11003,7 @@ date: 2024-03-03
 reply_count: 60
 title: '[好雷] 周處除三害 '
 url: https://www.ptt.cc/bbs/movie/M.1709475415.A.C84.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前就聽聞這部票房不錯, 以及相關爭議.
 
   結果前2天看到N飛上了, 立馬點來看~
@@ -11120,7 +11119,7 @@ date: 2024-03-03
 reply_count: 111
 title: '[好雷]周處除三害~後面看的很爽快~'
 url: https://www.ptt.cc/bbs/movie/M.1709447299.A.274.html
---- !!python/object:movie_data.PublicReview
+---
 content: '周處除三害的三害香港仔、尊者、陳桂林到底代表的是那三害？
 
 
@@ -11219,7 +11218,7 @@ date: 2024-03-16
 reply_count: 21
 title: '[  普雷] 周處除三害'
 url: https://www.ptt.cc/bbs/movie/M.1710573924.A.E0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -11421,7 +11420,7 @@ date: 2023-10-06
 reply_count: 154
 title: '[好雷] 《周處除三害》，一失足成千古恨，再回頭'
 url: https://www.ptt.cc/bbs/movie/M.1696567586.A.811.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《周處除三害》中國票房破7億台幣 中網分析陳桂林「8美德」成為過審關鍵\n\n華視\n\n2024年3月5日 週二 下午2:35\n\n中國 /\
   \ 林彥廷 綜合報導\n\n電影《》於去年上映，上映後口碑不斷，而電影近日也登上影音串流平台 \n，並於3月1日在中國上映，目前票房已經突破1.6億人民幣（約7億新台幣）。\n\
   \n不過因中國電影沒有分級制，因此將電影中的血腥鏡頭進行刪減，也引發中國網友熱議。\n\n《》在中國上映後引發熱議，不少網友看完後直呼「好看」、「爽片」、「小鮮肉演\n\
@@ -11434,7 +11433,7 @@ date: 2024-03-07
 reply_count: 18
 title: '[新聞] 《周處除三害》中國票房破7億台幣 中網'
 url: https://www.ptt.cc/bbs/movie/M.1709748704.A.FE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -11492,7 +11491,7 @@ date: 2023-10-16
 reply_count: 38
 title: '[有雷] 周處除三害，教堂片段'
 url: https://www.ptt.cc/bbs/movie/M.1697418367.A.B17.html
---- !!python/object:movie_data.PublicReview
+---
 content: '獨》大陸市場大補帖《周處除三害》賺回來 分潤多少月底揭曉
 
 

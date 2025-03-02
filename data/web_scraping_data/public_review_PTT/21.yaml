@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '《盛夏光年：15 週年 4K 數位修復版》｜8.27 重返光年
 
 
@@ -63,7 +62,7 @@ date: 2021-08-05
 reply_count: 14
 title: '[情報]《盛夏光年 15週年4K數位修復版》8/27上映'
 url: https://www.ptt.cc/bbs/movie/M.1628171371.A.136.html
---- !!python/object:movie_data.PublicReview
+---
 content: '話說春節連假上班最終日，老闆來公佈一個隱藏許久好消息，4年前一部經典動畫讓光年
 
   映畫一戰成名，又繼續讓公司走下去。
@@ -99,7 +98,7 @@ date: 2024-02-07
 reply_count: 59
 title: '[情報] 今敏《藍色恐懼：4K數位修復版》'
 url: https://www.ptt.cc/bbs/movie/M.1707280887.A.9E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "一生必看！鬼才導演大衛林區顛峰之作【穆荷蘭大道 4K數位修復版】Mulholland Drive\n電影預告 2月7日(五) 經典重現\n\n\n\
   \n\n\n\nBBC評選百大電影第一名！鬼才名導大衛林區生涯代表作！\n BBC評選21世紀百大電影第1名\n 榮獲 坎城影展 最佳導演，橫掃全球各項大獎與入圍肯定\n\
   \ 2001 坎城影展 最佳導演\n 2001 坎城影展 競賽片\n 2002 奧斯卡 最佳導演 提名\n 2002 金球獎 戲劇類最佳影片等4項大獎 提名\n\
@@ -108,14 +107,14 @@ date: 2025-02-09
 reply_count: 5
 title: '[情報] 穆荷蘭大道 4K數位修復版 2/7重映'
 url: https://www.ptt.cc/bbs/movie/M.1739088181.A.FC8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "恭喜以下 15 位中獎者，請收站內信&回覆！\n趕快通知跟你去的同伴，今晚8點松仁威秀見喔！\n\n\n  \n\n\n除了本場次外，本週五上映當天，還有另一場專門給第一次收看《感官世界》的朋友準備的初體驗場喔！\n\
   購票請洽誠品電影院XDD\n\n\n\n\n--"
 date: 2020-10-28
 reply_count: 13
 title: 'Re: [贈票] 今晚《感官世界》4K數位修復版巨幕特映'
 url: https://www.ptt.cc/bbs/movie/M.1603876275.A.A80.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《薄荷糖》4K數位修復版 全台上映戲院公告\n\n\n\n一起把握重新開始的機會！\n限量A3原文海報繼續送，數量有限-送完為止！\n大家手腳要快喔！\n\
   \n【薄荷糖】4K數位修復版｜8.6正式上映\n\n  正式預告：\n\n上 映 場 次 請 以 戲 院 現 場 為 主\n\n#韓國電影大師 #李滄東\n#綠色三部曲之一\n\
   #20大韓國經典電影\n#韓國影史百大電影\n#大鐘獎最佳影片等五項大獎\n#坎城影展導演雙週入選影片\n\n資料來源：甲上娛樂粉絲專頁\n\n--\n期待\n\
@@ -124,7 +123,7 @@ date: 2021-08-05
 reply_count: 8
 title: '[情報] 薄荷糖4K數位修復版全台上映戲院公告'
 url: https://www.ptt.cc/bbs/movie/M.1628165245.A.D64.html
---- !!python/object:movie_data.PublicReview
+---
 content: "網友列為「世界十大禁片」！《》\n\n金獎名導代表作【】\n\nRequiem for a Dream \n\n\n3/17 (五)台灣院線首度上映\n\
   \n長年列為「世界十大禁片」！\n\n、轉型演技派代表作\n絕對不可錯過的 大銀幕 震撼體驗！\n\n\n《》\n3月17日 (五) 台灣首度院線上映\n\n\
   《》《》\n金獎名導成名代表作\n\n《大法師》奧斯卡影后再創演技新巔峰\n\n《》、《》超尺度演出\n\n2001 奧斯卡金像獎 最佳女主角 入圍\n2001\
@@ -136,7 +135,7 @@ date: 2023-02-27
 reply_count: 23
 title: '[情報] 《噩夢輓歌 4K數位修復版》電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1677506917.A.D47.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【新片特報】美國舞孃 數位修復版 Google Play 開價 NT$350\n新片精選片單\n\n☆☆☆《美國舞孃 數位修復版》☆☆☆\n◎\
   \ iTunes 立即看 NT$390 (4K) >> \n◎ Google Play 立即看 NT$350 >> \n\n☆☆☆《從前有個美國舞孃》☆☆☆\n\
   ◎ iTunes 立即看 NT$390 >> \n◎ Google Play 立即看 NT$350 >> \n\n前者由名導保羅范赫文、編劇喬伊斯特哈茲採訪超過二百名拉斯維加斯嫵\n\
@@ -154,7 +153,7 @@ date: 2022-09-19
 reply_count: 3
 title: '[討論] 美國舞孃 4K數位修復版 iTunes 新上架'
 url: https://www.ptt.cc/bbs/movie/M.1663588668.A.8D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '人在成為人之前，我們都是野獸......
 
 
@@ -176,7 +175,7 @@ date: 2024-03-13
 reply_count: 6
 title: '[情報] 《非普通教慾：4K數位修復版》近期上映'
 url: https://www.ptt.cc/bbs/movie/M.1710321481.A.024.html
---- !!python/object:movie_data.PublicReview
+---
 content: "光年映畫第14部經典重現| 正式定檔\n影史最會得獎導演，《爸爸出差時》、《地下社會》兩屆坎城影展金棕櫚獎得主庫斯\n杜力卡九十年代經典代表作\n\
   1998年威尼斯影展最佳導演銀獅獎等三項大獎\n24週年全新4K數位修復亞洲首映，引領觀眾一窺魔幻寫實人間喜劇\n         《黑貓白貓：4K數位修復版》\n\
   \                     Black Cat White Cat\n                     8/12(五) 我們戲院見\n\
@@ -186,7 +185,7 @@ date: 2022-06-29
 reply_count: 3
 title: '[情報] 庫斯杜力卡 黑貓白貓：4K數位修復版上映'
 url: https://www.ptt.cc/bbs/movie/M.1656512906.A.9A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '·傳說中的謎片，問世45年從未在台院線上映
 
   ·真實事件改編 挑戰日本電檢尺度
@@ -227,7 +226,7 @@ date: 2020-10-28
 reply_count: 119
 title: '[贈票] 今晚《感官世界》4K數位修復版巨幕特映'
 url: https://www.ptt.cc/bbs/movie/M.1603860246.A.818.html
---- !!python/object:movie_data.PublicReview
+---
 content: '05/17《》
 
 
@@ -316,7 +315,7 @@ date: 2024-05-06
 reply_count: 15
 title: '[情報] 《藍色恐懼：4K數位修復版》上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1714980307.A.C0F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【巴黎德州】是由文溫德斯執導，於1984年上映的經典公路電影。這次修復版本由導演親
 
   自監督，電影播放前也加了一段導演對觀眾說的話，加上首兩週送的海報都很好看！可謂
@@ -405,7 +404,7 @@ date: 2024-08-08
 reply_count: 15
 title: '[好雷] 巴黎德州4K數位修復版'
 url: https://www.ptt.cc/bbs/movie/M.1723129318.A.3D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '情報網址：
 
 
@@ -424,14 +423,14 @@ date: 2020-07-23
 reply_count: 37
 title: '[情報]詭絲4K數位修復版威秀影城獨家上映 '
 url: https://www.ptt.cc/bbs/movie/M.1595483530.A.ED5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "4年前，一生必看神作全台首度上映\n\n4年後，「4K數位修復版」全新版本大銀幕限定\n\n     《#千年女優》。《#東京教父》。《#盜夢偵探》\n\
   \        一代動畫大師 今敏驚人首部作再度回歸\n\n《#藍色恐懼：4K數位修復版》。05/17朝聖經典\n\n#光年映畫\n#今敏\ne\n\n--"
 date: 2024-03-26
 reply_count: 38
 title: '[情報] 《藍色恐懼：4K數位修復版》05/17上映'
 url: https://www.ptt.cc/bbs/movie/M.1711426096.A.383.html
---- !!python/object:movie_data.PublicReview
+---
 content: '角川官網
 
 
@@ -470,7 +469,7 @@ date: 2017-08-27
 reply_count: 13
 title: '[情報] 黑澤明《亂》4K數位修復版 9/29上映'
 url: https://www.ptt.cc/bbs/movie/M.1503842186.A.954.html
---- !!python/object:movie_data.PublicReview
+---
 content: "薔薇的葬禮\n\n日本新浪潮導演先驅－松本俊夫\n首部的劇情長片\n極具實驗性風格的前衛電影\n同時也是日本同志電影的先鋒之作\n\n在電影前段\n\
   我一直想拼湊出故事\n但內容真的太破碎了\n根本就難以看清楚劇情的完貌\n然而在劇中角色的一串對話後\n『你看得懂你們拍的(藝術)電影嗎？』\n角色/演員 笑說『看不懂啊~』\n\
   我才明白了些什麼(笑)\n\n然後看到電影當中\n快轉動作/畫面 搭配上音樂\n我驚覺原來庫柏力克\n也被這部作品影響之深\n***\n前衛的電影語言\n刻意誇張的表演演出\n\

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '#普無雷
 
 
@@ -64,7 +63,7 @@ date: 2024-03-19
 reply_count: 1
 title: '[普無雷] 北極百貨的秋乃小姐'
 url: https://www.ptt.cc/bbs/movie/M.1710826353.A.96C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '短評： 手繪畫風細膩、對於工作的反思，是值得一看的作品
 
   評分： ★★ 8  / 10
@@ -138,7 +137,7 @@ date: 2024-03-17
 reply_count: 1
 title: '[好雷]《北極百貨的秋乃小姐》：手繪畫風細膩 '
 url: https://www.ptt.cc/bbs/movie/M.1710665702.A.921.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 

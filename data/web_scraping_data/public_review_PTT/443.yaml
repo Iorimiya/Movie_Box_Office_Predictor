@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '《》
 
 
@@ -94,7 +93,7 @@ date: 2024-04-22
 reply_count: 3
 title: '[情報] 《邪厄恩典》全台正式上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1713776763.A.995.html
---- !!python/object:movie_data.PublicReview
+---
 content: '世界知名奇幻影展爭先邀請，嚇破SXSW影展勇奪評審團大獎
 
 

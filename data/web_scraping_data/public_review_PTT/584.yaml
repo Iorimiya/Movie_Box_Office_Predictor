@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '根據日媒的報導指出，《剛好想起你》導演「松居大悟」執導的最新作品《不死戀人》（
 
   不死身ラヴァーズ）釋出首支電影預告！
@@ -55,7 +54,7 @@ date: 2024-03-07
 reply_count: 2
 title: '[情報] 漫畫《不死戀人》改編電影預告釋出！見上愛、佐藤寛太主演'
 url: https://www.ptt.cc/bbs/movie/M.1709807713.A.E96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看過不死戀人的漫畫原作
 
 

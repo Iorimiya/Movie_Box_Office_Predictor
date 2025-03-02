@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '拿到金球獎，
 
 
@@ -41,7 +40,7 @@ date: 2024-01-09
 reply_count: 167
 title: '[討論] 蒼鷺與少年拿金球獎你覺得OK？'
 url: https://www.ptt.cc/bbs/movie/M.1704772753.A.517.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下都是我個人自己的理解
 
   歡迎一起討論
@@ -154,7 +153,7 @@ date: 2023-10-10
 reply_count: 36
 title: 'Re: [請益] 蒼鷺與少年的十個問號（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1696871655.A.292.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Hayao Miyazaki’s ‘THE BOY AND THE HERON’ has passed $100M worldwide.
 
 
@@ -257,7 +256,7 @@ date: 2023-12-19
 reply_count: 140
 title: 'Re: [情報]蒼鷺與少年 全球票房破一億美金'
 url: https://www.ptt.cc/bbs/movie/M.1702995369.A.9FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於去看蒼鷺與少年了～
 
   觀影有幾次的感動點都不是因為劇情
@@ -296,7 +295,7 @@ date: 2023-11-17
 reply_count: 12
 title: '[好雷]蒼鷺與少年，請幫畫師加菜'
 url: https://www.ptt.cc/bbs/movie/M.1700188467.A.1C9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '為什麼知道吉卜力明明也就給個月薪2X萬日幣就算待遇不錯，就得知道日本動畫產業的血汗
 
   ，
@@ -392,7 +391,7 @@ date: 2023-12-17
 reply_count: 18
 title: 'Re: [情報]蒼鷺與少年 全球票房破一億美金'
 url: https://www.ptt.cc/bbs/movie/M.1702827162.A.9C9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我在看的過程中一直想到黑暗靈魂的繪畫世界
 
   主角到一個陌生以及充滿神秘的古老大宅
@@ -430,7 +429,7 @@ date: 2023-10-22
 reply_count: 3
 title: '[微妙偏好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1697955367.A.431.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前半段最印象深刻
 
   是新媽媽見到真人時
@@ -478,7 +477,7 @@ date: 2024-11-03
 reply_count: 6
 title: '[討論] 蒼鷺與少年(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1730603684.A.9B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -653,7 +652,7 @@ date: 2023-10-06
 reply_count: 64
 title: '[超負雷] 蒼鷺與少年= ='
 url: https://www.ptt.cc/bbs/movie/M.1696601737.A.697.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好，這裡是純感覺影評
 
 
@@ -787,7 +786,7 @@ date: 2023-10-07
 reply_count: 32
 title: '[好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696683748.A.151.html
---- !!python/object:movie_data.PublicReview
+---
 content: '板上負評滿多的，也感受得出來有些人怨氣很重XD
 
   即便是宮粉，也沒有辦法毫不猶豫地給好評
@@ -890,7 +889,7 @@ date: 2023-10-07
 reply_count: 47
 title: '[無雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696661508.A.97F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當我看到蒼鷺與少年上映的消息
 
   二話不說直接等到上映日
@@ -951,7 +950,7 @@ date: 2023-10-24
 reply_count: 17
 title: '[微好雷] 蒼鷺與少年(裕隆城威秀)'
 url: https://www.ptt.cc/bbs/movie/M.1698126764.A.C19.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蒼鷺與少年》5/10分
 
 
@@ -1007,7 +1006,7 @@ date: 2023-10-19
 reply_count: 22
 title: '[普無雷] 蒼鷺與少年-本體好看再來講什麼窗簾啦'
 url: https://www.ptt.cc/bbs/movie/M.1697722499.A.375.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1109,7 +1108,7 @@ date: 2023-10-07
 reply_count: 44
 title: '[負雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696644955.A.EBE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -1145,7 +1144,7 @@ date: 2023-10-19
 reply_count: 29
 title: '[討論] 蒼鷺與少年 票房 9987 萬'
 url: https://www.ptt.cc/bbs/movie/M.1697685688.A.E62.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1186,7 +1185,7 @@ date: 2023-10-17
 reply_count: 24
 title: '[新聞] 「蒼鷺與少年」全台票房10天破億 宮崎駿'
 url: https://www.ptt.cc/bbs/movie/M.1697554005.A.CC7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '傻眼
 
 
@@ -1209,7 +1208,7 @@ date: 2024-03-11
 reply_count: 108
 title: '[討論] 傻眼 蒼鷺與少年拿奧斯卡'
 url: https://www.ptt.cc/bbs/movie/M.1710128725.A.048.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\n\n\n\
   \n\n\n\n\n\n\n\n\n如果今天你是一位爺爺，年歲已長，而你想要傳遞給孩子們，在你一生中寶貴的人生觀，\n\n你會用什麼方式去表達？\n\n\n\n\
@@ -1240,7 +1239,7 @@ date: 2023-10-08
 reply_count: 41
 title: '[好雷] 君たちはどう生きるか(少年與蒼鷺)'
 url: https://www.ptt.cc/bbs/movie/M.1696695406.A.AF1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.《你想活出怎樣的人生》這本書在本作的意義？
 
 
@@ -1438,7 +1437,7 @@ date: 2023-10-09
 reply_count: 22
 title: '[請益] 蒼鷺與少年的十個問號（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1696862198.A.61D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛才在駁二in89看完
 
 
@@ -1619,7 +1618,7 @@ date: 2023-10-18
 reply_count: 16
 title: '[好雷] 蒼鷺與少年-老先生多年後再講一次的想法'
 url: https://www.ptt.cc/bbs/movie/M.1697559620.A.D33.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1723,7 +1722,7 @@ date: 2023-10-13
 reply_count: 42
 title: '[ 好雷] 蒼鷺與少年 觀後心得'
 url: https://www.ptt.cc/bbs/movie/M.1697212235.A.240.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2022,7 +2021,7 @@ date: 2023-10-16
 reply_count: 8
 title: '[好雷]蒼鷺與少年，關於塔的一些想法 '
 url: https://www.ptt.cc/bbs/movie/M.1697459601.A.241.html
---- !!python/object:movie_data.PublicReview
+---
 content: '- -
 
 
@@ -2312,7 +2311,7 @@ date: 2023-10-14
 reply_count: 96
 title: '[好雷]  蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1697294133.A.55E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -2564,7 +2563,7 @@ date: 2023-10-07
 reply_count: 122
 title: '[負雷] 蒼鷺與少年-冗長'
 url: https://www.ptt.cc/bbs/movie/M.1696694288.A.ED2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '近期去電影院發現這部打很兇
 
 
@@ -2724,7 +2723,7 @@ date: 2023-10-03
 reply_count: 2
 title: '[討論] 關於電影預告～宮崎駿《蒼鷺與少年》'
 url: https://www.ptt.cc/bbs/movie/M.1696345633.A.696.html
---- !!python/object:movie_data.PublicReview
+---
 content: '餓死抬頭
 
 
@@ -2740,7 +2739,7 @@ date: 2023-10-18
 reply_count: 4
 title: '[請益] 蒼鷺與少年有中英文字幕嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1697626880.A.5CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感覺這部片,就是宮﨑駿最後一部片了
 
   不管接下來還有沒有下一部。
@@ -2941,7 +2940,7 @@ date: 2023-10-07
 reply_count: 1
 title: '[雷]蒼鷺與少年(君たちはどう生きるか)'
 url: https://www.ptt.cc/bbs/movie/M.1696615682.A.FCC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '安安，跟朋友去看完了。整體來說呢，就是像看了一部電影。不過對於片中有一個橋段我
 
   非常的不明白。就是主角被再三警告不要去觸碰小玩偶。結果主角手癢去碰了一下。但後
@@ -2954,7 +2953,7 @@ date: 2023-10-12
 reply_count: 29
 title: '[討論] 蒼鷺與少年最大未解謎團（雷'
 url: https://www.ptt.cc/bbs/movie/M.1697099764.A.8FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2997,7 +2996,7 @@ date: 2023-08-30
 reply_count: 7
 title: '[新聞] 宮﨑駿《蒼鷺與少年》中文海報藏巧思　獻'
 url: https://www.ptt.cc/bbs/movie/M.1693395504.A.300.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3089,7 +3088,7 @@ date: 2023-10-19
 reply_count: 18
 title: '[好雷] 蒼鷺與少年 超越期待'
 url: https://www.ptt.cc/bbs/movie/M.1697729041.A.B1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3180,7 +3179,7 @@ date: 2023-10-08
 reply_count: 8
 title: '[無雷]  蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696752262.A.056.html
---- !!python/object:movie_data.PublicReview
+---
 content: "影城點數還差幾點可以換票 除了預計想看的兩部外,要再選一部..\n所以窩挑了以下三部 打算三選一,來看 本人喜歡:劇情 推理 喜劇 動畫等等的片型\n\
   \n蒼鷺與少年-宮崎駿大師再次退休前的作品\n飢餓遊戲:鳴鳥與游蛇之歌-飢餓遊戲的前傳,三部曲都看過\n旺卡-也是前傳,可是本傳窩沒看過..\n\n請問各位電影眾,會建議選哪部呢?\n\
   \n--\n小人說過：，\n\n不知 把小加蛋養到出鍋的老加蛋人，看到這話做何感想....\n                                \
@@ -3189,7 +3188,7 @@ date: 2023-12-21
 reply_count: 14
 title: '[選片] 蒼鷺與少年vs飢餓遊戲:鳥與蛇vs旺卡'
 url: https://www.ptt.cc/bbs/movie/M.1703174127.A.DAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌：
 
 
@@ -3358,7 +3357,7 @@ date: 2023-10-08
 reply_count: 52
 title: '[普負雷] 蒼鷺與少年:很鳥的設定，很鳥的故事 '
 url: https://www.ptt.cc/bbs/movie/M.1696745967.A.79B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '重磅消息！重磅消息！
 
   #宮﨑駿 全新動畫片 ＃台灣搶先全球  10月 6日上映
@@ -3383,7 +3382,7 @@ date: 2023-08-15
 reply_count: 100
 title: '[討論] 宮崎駿《蒼鷺與少年》台灣定檔10/8'
 url: https://www.ptt.cc/bbs/movie/M.1692070908.A.6EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影其實就我常年做夢的經驗來說非常的感動宮佬可以把這部拍出
 
   來，我小時候呢，不知道為甚麼，很常夢到很多奇奇怪怪的夢，像是一群人抬著棺材往樹
@@ -3421,7 +3420,7 @@ date: 2023-10-07
 reply_count: 7
 title: '[雷] 蒼鷺與少年(無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1696614253.A.CEE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3467,7 +3466,7 @@ date: 2023-10-06
 reply_count: 57
 title: '[ 好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696590411.A.E99.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一刷了
 
   確實如各位所述
@@ -3529,7 +3528,7 @@ date: 2023-11-09
 reply_count: 50
 title: '[討論] 蒼鷺與少年到底在演什麼？'
 url: https://www.ptt.cc/bbs/movie/M.1699505508.A.81C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '此處無雷
 
 
@@ -3839,7 +3838,7 @@ date: 2023-10-07
 reply_count: 53
 title: '[好雷] <蒼鷺與少年> 如夢遊一般的劇情'
 url: https://www.ptt.cc/bbs/movie/M.1696691449.A.F20.html
---- !!python/object:movie_data.PublicReview
+---
 content: '他發現到那隻他發現到那隻蒼鷺怪怪的，也很針對他，
 
   片頭初次見面時蒼鷺就故意飛進屋子挑釁他，夏子有說通常這隻蒼鷺不會飛進屋子裡，
@@ -3904,7 +3903,7 @@ date: 2023-10-12
 reply_count: 73
 title: 'Re: [超級負雷] 蒼鷺與少年?????'
 url: https://www.ptt.cc/bbs/movie/M.1697082194.A.723.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3979,7 +3978,7 @@ date: 2023-10-07
 reply_count: 26
 title: '[雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696609089.A.3F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蒼鷺與少年》美國票房創紀錄！《哥吉拉-1.0》繼續攻佔前三名
 
 
@@ -4025,7 +4024,7 @@ date: 2023-12-11
 reply_count: 42
 title: '[新聞] 《蒼鷺與少年》美國票房創紀錄！《哥吉'
 url: https://www.ptt.cc/bbs/movie/M.1702284042.A.79C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '宮﨑駿《蒼鷺與少年》狂飆6800萬創影史新高！全新特典曝光
 
 
@@ -4064,7 +4063,7 @@ date: 2023-10-11
 reply_count: 21
 title: '[新聞] 宮﨑駿《蒼鷺與少年》狂飆6800萬創影史新'
 url: https://www.ptt.cc/bbs/movie/M.1697013680.A.AAE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '真人搬到母親家族所在的鄉間，一隻連接著生死兩界的蒼鷺引領他展開冒險，踏入未知的
 
   迷幻世界。
@@ -4080,7 +4079,7 @@ date: 2024-09-09
 reply_count: 10
 title: '[情報] Netflix 蒼鷺與少年 正式預告10/7上架'
 url: https://www.ptt.cc/bbs/movie/M.1725842774.A.A4C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了很多解析
 
   比較喜歡那塔裡就是冥界這種說法
@@ -4193,7 +4192,7 @@ date: 2023-10-22
 reply_count: 1
 title: '[討論] 蒼鷺與少年 塔的猜想'
 url: https://www.ptt.cc/bbs/movie/M.1697919813.A.F09.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我覺得本片藝術呈現真的很頂級\n很多轉場都別出心裁\n畫面美風景美建築美\n很值得一看\n\n不過總覺得宮崎駿似乎有一點受到新海誠的影響\n蒼鷺與少年有些地方讓人想到「你的名字」和「鈴芽之旅」\n\
   \n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n但我真正好奇的是宮崎駿想暗示什麼？\n因為蒼鷺與少年中的老舅公塔主\n\
@@ -4212,7 +4211,7 @@ date: 2024-10-13
 reply_count: 20
 title: '[好雷] 蒼鷺與少年的隱喻有沒有八卦？'
 url: https://www.ptt.cc/bbs/movie/M.1728802442.A.55C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防一下雷
 
 
@@ -4265,7 +4264,7 @@ date: 2024-06-28
 reply_count: 2
 title: '[普  雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1719579545.A.81F.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Studio Ghibli VP Junichi Nishioka says ‘THE BOY AND THE HERON’ will no longer
 
   be Hayao Miyazaki’s final movie.
@@ -4291,7 +4290,7 @@ date: 2023-09-09
 reply_count: 116
 title: '[情報] 蒼鷺與少年不是宮崎駿最後一部作品'
 url: https://www.ptt.cc/bbs/movie/M.1694191501.A.9B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -4362,7 +4361,7 @@ date: 2023-10-07
 reply_count: 11
 title: 'Re: [好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696688013.A.B3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4481,7 +4480,7 @@ date: 2023-10-06
 reply_count: 29
 title: '[負雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696594303.A.9EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下大雷：\n\n\n 網路上蒐集到比較確切的資料是故事來自失物之書這本小說，\n 看起來宮老是拿失物之書當開頭然後發展自己的故事，比起軍\n\
   \ 國論我個人覺得這部電影是宮老在談自己與動畫的關係，或許\n 還放進了他更私密的經驗，那麼解讀就更不可能了，連他自己\n 都搞不懂的話，還有誰能搞懂呢？不過如果他不懂，別人能搞\n\
   \ 懂嗎？這個問題不在這裡討論了。\n\n\n 塔\n\n 塔看起來應該是吉普力或是動畫的象徵，從塔主數十年前被吸\n 引走進去，家人都找不到，這是宮老的自嘲吧。塔不是這個世\n\
@@ -4502,7 +4501,7 @@ date: 2023-10-10
 reply_count: 22
 title: '[好雷]蒼鷺與少年越想越有趣'
 url: https://www.ptt.cc/bbs/movie/M.1696913435.A.5FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n手機發文請見諒 \n睡前想到啥就打啥\
   \ 可能有點胡言亂語\n\n\n\n\n創傷後壓力症候群與人生觀點一體兩面\n\n\n母親死於火災的記憶是真人無法直面碰觸的傷痛記憶，炙熱到融化空氣的火焰藏在每個陰影\n\
@@ -4520,7 +4519,7 @@ date: 2023-10-09
 reply_count: 47
 title: '[雷] 蒼鷺與少年觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1696790968.A.DAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "曾敬驊嘴塞衛生紙 奇想配音蒼鷺與少年\n\n2023/10/07 05:30\n\n\n曾敬驊稱「喘氣聲」很有挑戰性，被要求現場示範相當害羞。\n\
   （甲上娛樂提供）\n\n〔記者廖俐惠／台北報導〕宮﨑駿新作《蒼鷺與少年》昨在台上映，曾敬驊擔綱男主角「\n真人」中文配音，坦言接到邀約後非常期待，因為他從小就常用薩克斯風吹奏宮﨑駿的電\n\
   影音樂，如今能成為配音員，曾敬驊笑說：「我姊姊都很羨慕，她們過去都是接觸音樂的\n。」\n\n曾敬驊昨受訪表示自己不到1天就配完音了，雖然角色僅有10歲，但並沒有刻意裝嫩聲音\n\
@@ -4531,7 +4530,7 @@ date: 2023-10-07
 reply_count: 4
 title: '[新聞] 曾敬驊嘴塞衛生紙 奇想配音蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696683877.A.BDF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蒼鷺與少年》
 
   你看得懂嗎？應該看不懂吧？
@@ -4572,7 +4571,7 @@ date: 2024-01-09
 reply_count: 27
 title: 'Re: [討論] 蒼鷺與少年拿金球獎你覺得OK？'
 url: https://www.ptt.cc/bbs/movie/M.1704796650.A.E4B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【《蒼鷺與少年》｜中文版配音明星陣容大公開】\n Greg Han 化聲靈魂人物「」！磁性嗓自帶魔力堪稱「被演戲耽誤的配音員」\n。\n\n \
   \ 擔綱「」獻聲優初體驗，少年感十足的聲音，金馬影后李心潔聽他配音感動\n到情緒差點hold不住。\n\n Sinje Lee 挑戰一人，演繹動人母愛。\n\n\
   《 #蒼鷺與少年 》10.6全台正式上映\n\n\n至少是演員不是網紅、youtuber？\n\n--"
@@ -4580,7 +4579,7 @@ date: 2023-09-25
 reply_count: 55
 title: '[討論] 《蒼鷺與少年》中文版配音公開'
 url: https://www.ptt.cc/bbs/movie/M.1695637364.A.979.html
---- !!python/object:movie_data.PublicReview
+---
 content: "蒼鷺與少年揚威金球 力拚兩大獎\n\n2023/12/13 05:30\n\n\n《蒼鷺與少年》強勢入圍金球獎最佳動畫片、原創配樂兩獎。（甲上提供）\n\
   \n〔記者鍾志均／綜合報導〕日本動畫在第81屆金球獎「最佳動畫片」提名大放異彩，宮﨑\n駿奇幻鉅作《蒼鷺與少年》和新海誠《鈴芽之旅》雙雙入圍，是史上首次有兩部日片獲該\n\
   獎提名，其中《蒼鷺》還入圍最佳原創配樂共兩項大獎，實力堅強。\n\n《蒼鷺與少年》上週五在美國上映，首週票房開出1280萬美元（約台幣4億元）登冠，超\n越《神隱少女》成為吉卜力動畫在美國的最佳成績，獲業界看好奪獎希望濃厚，更可望進\n\
@@ -4591,7 +4590,7 @@ date: 2023-12-13
 reply_count: 1
 title: '[新聞] 蒼鷺與少年揚威金球 力拚兩大獎'
 url: https://www.ptt.cc/bbs/movie/M.1702482842.A.CFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影作為宮崎駿的退休之作
 
   甚至連宣傳都不用
@@ -4652,7 +4651,7 @@ date: 2023-10-09
 reply_count: 33
 title: '[討論] 蒼鷺與少年-別想太多是否比較好'
 url: https://www.ptt.cc/bbs/movie/M.1696862545.A.6AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4778,7 +4777,7 @@ date: 2023-10-08
 reply_count: 16
 title: '[好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696753143.A.038.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本文全雷，且具個人觀點，推薦觀影後再讀。\n\n　　　　由於文長八千多字，在此僅分享前半段落。\n\n\n\n　　　　網頁完整版：\n\n　　　　\n\
   \n\n　　　　主題曲〈地球儀〉：\n\n　　　　\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n\n\n內在的寧靜革命：《蒼鷺與少年》\n\n\n\n　　要先特別說明的是：我不是宮老的粉絲，吉卜力的作品，過去我也只看\n\n過《神隱少女》，還是２０２２年重映才看的；我不熟悉宮老的人生經歷、\n\
@@ -4834,7 +4833,7 @@ date: 2023-10-13
 reply_count: 14
 title: '[好雷] 內在的寧靜革命：《蒼鷺與少年》'
 url: https://www.ptt.cc/bbs/movie/M.1697159352.A.E9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '宮﨑駿還是強！《蒼鷺與少年》台灣上映2天 票房飆破2000萬
 
 
@@ -4903,7 +4902,7 @@ date: 2023-10-09
 reply_count: 90
 title: '[新聞] 宮﨑駿還是強！《蒼鷺與少年》台灣上映'
 url: https://www.ptt.cc/bbs/movie/M.1696811040.A.17C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷雷雷
 
 
@@ -4939,7 +4938,7 @@ date: 2023-10-09
 reply_count: 16
 title: '[平雷] 蒼鷺與少年 丨 那些說與沒說的'
 url: https://www.ptt.cc/bbs/movie/M.1696845528.A.60A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5017,7 +5016,7 @@ date: 2023-11-11
 reply_count: 36
 title: '[鸚鵡雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1699716712.A.724.html
---- !!python/object:movie_data.PublicReview
+---
 content: '觀看日期：2023/10/9
 
 
@@ -5197,7 +5196,7 @@ date: 2023-10-10
 reply_count: 6
 title: '[好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696896112.A.CB2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【包場活動】\n\n大家好，我們即將在10/6《蒼鷺與少年》上映當天晚上在誠品電影院包一場特別場。同時也\n邀請了一些吉卜力的粉絲們來協助這次活動的進行，希望宮崎駿和吉卜力的粉絲都可以共襄\n\
   盛舉宮崎駿睽違十年的鉅作！\n\n當天預計也會展示我身邊的一些吉卜力收藏，歡迎大家來看看，也希望大家會喜歡這部電影\n！\n下方有報名表單，請匯款後再填，也歡迎多多分享本活動！\n\
   \n主辦單位： Stark's Movie Station電影評論/解析/補貼、 斯比亂講話\n\n協辦單位：今敏木木 @konsotashi631012 、\
@@ -5213,7 +5212,7 @@ date: 2023-09-30
 reply_count: 1
 title: 《蒼鷺與少年》誠品電影院包場活動
 url: https://www.ptt.cc/bbs/movie/M.1696007595.A.B33.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蒼鷺與少年》（君たちはどう生きるか / The Boy and the Heron）
 
 
@@ -5314,7 +5313,7 @@ date: 2023-10-07
 reply_count: 11
 title: '[普微雷] 《蒼鷺與少年》個人評論'
 url: https://www.ptt.cc/bbs/movie/M.1696625311.A.05D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "宮崎駿新作《蒼鷺與少年》10月登台\n\n2023/08/16 05:30\n\n\n宮崎駿最新動畫長片《蒼鷺與少年》將於10月登台放映。（甲上娛樂提供）\n\
   \n〔記者鍾志均／台北報導〕日本動畫大師宮崎駿時隔10年推出動畫新片《蒼鷺與少年》（\n前譯：你想活出怎樣的人生），在日本採「零宣傳」策略，吊足觀眾胃口，昨確定10月登\n\
   台放映，影迷期待值飆升，直呼「不用跑日本了」、「沒想到台灣看得到」！\n\n電影上映前，劇組只釋出一張手繪電影海報，包括劇情、預告都沒有，引發觀眾好奇，而\n\
@@ -5325,7 +5324,7 @@ date: 2023-08-16
 reply_count: 23
 title: '[新聞] 宮崎駿新作《蒼鷺與少年》10月登台'
 url: https://www.ptt.cc/bbs/movie/M.1692200916.A.07B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實一開始在電影院看到這部的預告片，並沒有引起我太大的興趣
 
   但是經過朋友的推薦下，趕在可能要下檔之前，到戲院一探究竟~
@@ -5605,7 +5604,7 @@ date: 2023-11-17
 reply_count: 3
 title: '[微妙雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1700153454.A.D04.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然我覺得本篇沒雷
 
   但還是防個雷
@@ -5639,7 +5638,7 @@ date: 2023-10-10
 reply_count: 19
 title: '[好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696929484.A.4E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛開始的火災戲有感受到宮崎駿動畫的厲害
 
 
@@ -5684,7 +5683,7 @@ date: 2023-10-16
 reply_count: 14
 title: '[普雷]   蒼鷺與少年 畫面很美'
 url: https://www.ptt.cc/bbs/movie/M.1697387905.A.EFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一些關於這次宮崎駿動畫的個人觀感
 
 
@@ -5949,7 +5948,7 @@ date: 2023-10-16
 reply_count: 4
 title: '[普雷] 談《蒼鷺與少年》與10年前的《風起》'
 url: https://www.ptt.cc/bbs/movie/M.1697440167.A.C0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這本書主角小哥白尼遇到的少年困境就是真人現實世界的困境，
 
   真人也跟小哥白尼一樣，家裡有錢、聰明、惡意，
@@ -6079,7 +6078,7 @@ date: 2023-10-10
 reply_count: 33
 title: 'Re: [請益] 蒼鷺與少年的十個問號（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1696903309.A.353.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本屆奧斯卡最佳動畫片《蒼鷺與少年》下個月將在中國上映，
 
   中國片名為直譯《你想活出怎樣的人生》，
@@ -6102,7 +6101,7 @@ date: 2024-03-17
 reply_count: 51
 title: '[討論] 蒼鷺與少年的中國片名？'
 url: https://www.ptt.cc/bbs/movie/M.1710685260.A.B28.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實不用強求說要怎麼解讀這個電影，或者要怎麼看懂宮崎駿的動畫,
 
 
@@ -6213,7 +6212,7 @@ date: 2023-10-13
 reply_count: 31
 title: '[超好雷] 蒼鷺與少年觀影心得'
 url: https://www.ptt.cc/bbs/movie/M.1697128950.A.0CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我很認真看完了，\n\n我就是那個宮老電影狂粉\n\n\n\n但這部電影體驗很像谷O莫的10分鐘講電影（真心）\n\n\n\n\n來讓我們做個無雷測驗：\n\
   你現在眼前有一個\n\nA,我遇見妹妹了 B,對方是誰？\n如果你選B，恭喜你\n\n\n想諷刺沒時間品味作者設定故事的現代人感覺。\n\n\n拿掉了支線刻劃，看不出背景設定\n\
   沒感情蘊釀，沒拖劇情反而沒有劇情起伏。\n沒反轉也沒有驚喜，還會解釋設定(\n)\n\n\n\n所以不會讓人因為猜錯劇情而失望。\n\n一路主線演下去，覺得這樣真的好難看。\n\
@@ -6224,7 +6223,7 @@ date: 2023-10-15
 reply_count: 75
 title: '[討論] 蒼鷺與少年跟10分鐘講電影有何差別？'
 url: https://www.ptt.cc/bbs/movie/M.1697369641.A.C88.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6351,7 +6350,7 @@ date: 2023-10-12
 reply_count: 91
 title: '[超級負雷] 蒼鷺與少年?????'
 url: https://www.ptt.cc/bbs/movie/M.1697040883.A.A23.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: dragon803 (AZKiちゃん大好き) 看板: C_Chat
 
   標題: [情報] 蒼鷺與少年 預告
@@ -6384,7 +6383,7 @@ date: 2023-09-07
 reply_count: 22
 title: 'Fw: [情報] 蒼鷺與少年 預告'
 url: https://www.ptt.cc/bbs/movie/M.1694016793.A.F79.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文網址:
 
 
@@ -6449,7 +6448,7 @@ date: 2023-12-06
 reply_count: 8
 title: '[新聞] 《蒼鷺與少年》登「2023必看電影第4名'
 url: https://www.ptt.cc/bbs/movie/M.1701878052.A.D34.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n    香港《明報》\n\n中國首部開畫登頂日本片 《蒼鷺與少年》首日破億票房報捷\n\n【明報專訊】日本動畫大師宮崎駿執導的《蒼鷺與少年》，上月在奧斯卡再度贏得最佳動\n\
   畫，前日在中國開畫，據報首日已突破1億人民幣票房，不但是日本片在中國的最佳開畫\n成績，亦是自去年5月的《狂野時速10》後，首部最佳開畫票房的進口電影。\n\n\
   宮崎駿執導《蒼鷺與少年》去年7月在日本公映，故事講述少年牧真人的母親葬身火海後\n，隨父親與繼母組新家庭。悲傷的真人陰鬱孤僻，難以融入新環境。一次意外，他隨會說\n\
@@ -6469,7 +6468,7 @@ date: 2024-04-05
 reply_count: 15
 title: '[新聞] 中國首部開畫登頂日本片 《蒼鷺與少年》'
 url: https://www.ptt.cc/bbs/movie/M.1712326253.A.01F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先來無雷心得
 
 
@@ -6601,7 +6600,7 @@ date: 2023-10-10
 reply_count: 11
 title: '[好無雷] 君たちはどう生きるか (蒼鷺與少年)'
 url: https://www.ptt.cc/bbs/movie/M.1696918791.A.4F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n這部電影你沒先讀《你想活出怎樣的人生？》根本心境轉折只有問號？\n\
   海報的蒼鷺算另類的詐欺模式\n劇情和節奏說實在的支離破碎到結構鬆散\n神隱少女的奇幻世界，起碼還有『神隱』支柱\n這部是天外飛來隕石和JoJo簽約成了世界之主\n\
@@ -6618,7 +6617,7 @@ date: 2023-10-07
 reply_count: 53
 title: '[負雷] 放飛自我的《蒼鷺與少年》'
 url: https://www.ptt.cc/bbs/movie/M.1696638555.A.0DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文恕刪
 
 
@@ -6659,7 +6658,7 @@ date: 2023-12-19
 reply_count: 78
 title: 'Re: [新聞]《蒼鷺與少年》美國票房創紀錄《哥吉拉'
 url: https://www.ptt.cc/bbs/movie/M.1702989235.A.EA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '內容不出我意外地第一遍根本看不懂
 
   但作品讓人難懂也是宮老的特色之一
@@ -6755,7 +6754,7 @@ date: 2024-11-01
 reply_count: 41
 title: '[好雷] 蒼鷺與少年 看兩遍才稍微看懂'
 url: https://www.ptt.cc/bbs/movie/M.1730438381.A.091.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從《蒼鷺與少年》看二戰下的物價通膨
 
 
@@ -6886,7 +6885,7 @@ date: 2023-10-07
 reply_count: 5
 title: '[普雷]從《蒼鷺與少年》看二戰下的物價通膨'
 url: https://www.ptt.cc/bbs/movie/M.1696613233.A.CA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7079,7 +7078,7 @@ date: 2023-10-22
 reply_count: 51
 title: '[雷] 蒼鷺與少年 宮老又沒叫你來看，對吧？'
 url: https://www.ptt.cc/bbs/movie/M.1697959419.A.AFB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7191,7 +7190,7 @@ date: 2023-10-06
 reply_count: 5
 title: '[ 普雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696600814.A.104.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本魯七年級生，就一個快40的人來說，吉卜力的作品可說是從小陪我到大，基本就兩部沒看，波妞跟螢火蟲，對我來說吉卜力一直是長篇動畫電影的最佳選擇，但看完這次的蒼鷺與少年，心中有著一股很深的失望感，即便在美術跟配樂仍然維持以往的超高水準，但在人物塑造及故事劇情卻遠不如以往的作品。
 
 
@@ -7213,7 +7212,7 @@ date: 2023-10-20
 reply_count: 29
 title: '[討論] 蒼鷺與少年，看完後很失望的一部作品'
 url: https://www.ptt.cc/bbs/movie/M.1697801531.A.D28.html
---- !!python/object:movie_data.PublicReview
+---
 content: '自己也覺得整部片都在批判二戰的軍國主義
 
   片中人物各自的隱喻可能是（隨便說說，完全主觀）：
@@ -7263,7 +7262,7 @@ date: 2023-10-30
 reply_count: 4
 title: 'Re: [請益] 蒼鷺與少年的十個問號（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1698623615.A.DBE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7358,7 +7357,7 @@ date: 2023-10-07
 reply_count: 30
 title: '[好雷] 蒼鷺與少年，宮崎駿的一生'
 url: https://www.ptt.cc/bbs/movie/M.1696691106.A.253.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -7404,7 +7403,7 @@ date: 2024-01-08
 reply_count: 5
 title: '[新聞] 宮﨑駿《蒼鷺與少年》奪金球獎！吉卜力製'
 url: https://www.ptt.cc/bbs/movie/M.1704705184.A.098.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7528,7 +7527,7 @@ date: 2024-08-26
 reply_count: 16
 title: '[好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1724617225.A.E92.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷注意
 
   有雷注意
@@ -7605,7 +7604,7 @@ date: 2023-10-07
 reply_count: 11
 title: '[ 好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696686629.A.795.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 熟悉的吉卜力畫風，依舊的高品質製作
 
 
@@ -7692,7 +7691,7 @@ date: 2023-10-10
 reply_count: 28
 title: '[負無雷] 蒼鷺與少年 - 陪著宮老放飛的空泛旅程'
 url: https://www.ptt.cc/bbs/movie/M.1696941101.A.3DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "宮﨑駿三度摘金 蒼鷺與少年再上映\n\n2024/03/14 05:30\n\n\n《蒼鷺與少年》中男主角的曾舅公（右）是以高畑勳為原型創作而成。\n\
   （甲上提供）\n\n〔記者鍾志均／台北報導〕日本動畫大師宮﨑駿憑《蒼鷺與少年》摘下第96屆奧斯卡最佳\n動畫長片獎，片商宣布15日起將重返全台大銀幕放映，並公開「蒼鷺展翅高飛」手繪版海\n\
   報作為終極特典回饋影迷。\n\n\n宮﨑駿2014年獲頒奧斯卡終身成就獎。（美聯社）\n\n宮﨑駿於2003年以《神隱少女》榮獲奧斯卡最佳動畫長片獎，2014年獲頒奧斯卡終身成就\n\
@@ -7704,7 +7703,7 @@ date: 2024-03-14
 reply_count: 13
 title: '[新聞] 宮﨑駿三度摘金 蒼鷺與少年再上映'
 url: https://www.ptt.cc/bbs/movie/M.1710431697.A.101.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7897,7 +7896,7 @@ date: 2023-10-07
 reply_count: 49
 title: '[  雷] 蒼鷺與少年，你想看到怎樣的結局？'
 url: https://www.ptt.cc/bbs/movie/M.1696618055.A.2B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《蒼鷺與少年》票房破億 影迷6刷\n\n2023/10/18 05:30\n\n\n《蒼鷺與少年》劇情觸及生死議題，上映以來受影迷熱烈討論。（甲上娛樂提供）\n\
   \n〔記者鍾志均／台北報導〕日本動畫大師宮﨑駿推出新片《蒼鷺與少年》口碑爆棚，在台\n上映10天，全台票房飆破1億元，掀起觀影熱潮；除了有影迷6刷支持，也有人直說看完淚\n\
   流不止，力讚「果然是大師之作」。\n\n\n宮﨑駿認為電影不該去迎合時代（甲上娛樂提供）\n\n《蒼鷺與少年》講述一名喪母的少年在蒼鷺的帶領下，進入生者與死者共存的世界進行冒\n\
@@ -7909,7 +7908,7 @@ date: 2023-10-18
 reply_count: 5
 title: '[新聞] 《蒼鷺與少年》票房破億 影迷6刷'
 url: https://www.ptt.cc/bbs/movie/M.1697638192.A.CC0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "參考之前的選片文\n\n雖然有看過飢餓三部曲+推文票數較多 但是看看trailer不是很對胃口\n\n..或說窩本來對原三部曲也沒很愛xd\n\n\
   就去看宮老最後封筆(??)之作惹\n\n\n....而且還有後續放映場的not for sale海報\n\n近年日影 尤其動畫,常常來這套..\n\n(防雷)\n\
   \n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n看前面心得說 看不懂\
@@ -7920,7 +7919,7 @@ date: 2023-12-25
 reply_count: 1
 title: '[好雷] 蒼鷺與少年  這個男的真有兩套=='
 url: https://www.ptt.cc/bbs/movie/M.1703493000.A.AD0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -8033,7 +8032,7 @@ date: 2023-10-06
 reply_count: 5
 title: '[普雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1696603387.A.219.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Hayao Miyazaki’s ‘THE BOY AND THE HERON’ has passed $100M worldwide.
 
 
@@ -8050,7 +8049,7 @@ date: 2023-12-17
 reply_count: 135
 title: '[情報]蒼鷺與少年 全球票房破一億美金'
 url: https://www.ptt.cc/bbs/movie/M.1702788990.A.FA7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n提一些負雷點：\n\n1. 電影海報的蒼鷺看起來很帥，結果實際上.....\n\n   阿娘喂~~\
@@ -8063,7 +8062,7 @@ date: 2023-10-06
 reply_count: 5
 title: '[負雷] 蒼鷺與少年  '
 url: https://www.ptt.cc/bbs/movie/M.1696601574.A.D69.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n雷文防雷資訊頁\n\n\n\n\
   \n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~\
@@ -8085,7 +8084,7 @@ date: 2023-10-22
 reply_count: 16
 title: '[好雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1697924713.A.92A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '吉卜力北美代理商GKIDS剛公布了蒼鷺與少年/The Boy and The Heron/君たちはどう生きる
 
   か的北美配音版卡司，可謂眾星雲集：
@@ -8126,7 +8125,7 @@ date: 2023-10-18
 reply_count: 21
 title: '[討論] 《蒼鷺與少年》英語配音卡司'
 url: https://www.ptt.cc/bbs/movie/M.1697561118.A.10D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實我也看不太懂，宮爺爺每次說最後一部，我都會被騙去看，但整體就是反戰思想濃厚
 
   ，也有向過往的作品致敬
@@ -8143,7 +8142,7 @@ date: 2023-10-18
 reply_count: 2
 title: '[  雷] 蒼鷺與少年'
 url: https://www.ptt.cc/bbs/movie/M.1697623253.A.A44.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想跟外國朋友一起去看蒼鷺與少年。
 
   想請問有看過的大家，有印象這部片是有英文字幕的嗎？謝謝！

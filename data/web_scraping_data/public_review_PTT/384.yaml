@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '【GHOSTBUSTERS：冰天凍地】首支預告 - 2024年春假連假 電影院大銀幕上映
 
 
@@ -14,7 +13,7 @@ date: 2023-11-09
 reply_count: 57
 title: '[情報] 魔鬼剋星：冰天凍地首支預告'
 url: https://www.ptt.cc/bbs/movie/M.1699460610.A.0D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '抓鬼雖必須，但少女纖細情感才是重點
 
 
@@ -251,7 +250,7 @@ date: 2024-03-25
 reply_count: 14
 title: '[普雷]《魔鬼剋星：冰天凍地》抓鬼少女的牢騷'
 url: https://www.ptt.cc/bbs/movie/M.1711355206.A.DE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《魔鬼剋星：冰天凍地》遭負評轟炸！女主角回應：別這麼嚴肅好嗎，你不想看當然不喜
 
   歡
@@ -318,7 +317,7 @@ date: 2024-03-25
 reply_count: 102
 title: '[新聞] 魔鬼剋星：冰天凍地 遭負評轟炸！女主角'
 url: https://www.ptt.cc/bbs/movie/M.1711297463.A.79C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整部片劇情延續上一集，不知道這次的錢是不是都花在請元老回來還有要延續新一代演員鋪
 
   成的關係，這次的動作場面非常少，連最後的大戰場面居然都只是在魔鬼剋星的總部大廳對
@@ -346,7 +345,7 @@ date: 2024-03-22
 reply_count: 11
 title: '[普雷] 魔鬼剋星：冰天凍地'
 url: https://www.ptt.cc/bbs/movie/M.1711085405.A.430.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《魔鬼剋星：冰天凍地》爛番茄開盤
 
 
@@ -371,7 +370,7 @@ date: 2024-03-21
 reply_count: 72
 title: '[情報] 《魔鬼剋星：冰天凍地》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1710952983.A.C08.html
---- !!python/object:movie_data.PublicReview
+---
 content: '火力強大的幽靈軍團使紐約陷入冰河時期危機
 
   魔鬼剋星帶著升級裝備出動抓鬼、拯救世界！

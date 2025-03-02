@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "不知道春天來了以後將怎樣\n雪將怎樣\n知更鳥和狗子們，春天來了以後\n以後將怎樣\n                            \
   \      -瘂絃《乞丐》\n\n最近看了描述詩人瘂絃的文學電影「如歌的行板」\n完全被瘂絃那種幽默又溫文儒雅的老式文人風範給迷倒。\n\n這一系列的電影名為「詩的照耀下，他們在島嶼寫作」，這是是史上第一套貼身紀錄文壇大師的文學電影（貼切的來說，是紀錄片），另一部則是洛夫的「無岸之河」。非常值得推薦。\n\
   \n我特別喜歡電影中瘂絃老師到雲門拜訪林懷民老師那一幕，瘂絃一貫地微笑招呼「哎呀，小林呀」\n林懷民衝著跑過去擁抱瘂絃，混合一種撒嬌又懊惱的口氣「哎呀，老了，他們都叫我老林了」，\n\
@@ -14,7 +13,7 @@ date: 2014-11-11
 reply_count: 3
 title: '[ 好雷] 他們在島嶼寫作-如歌的行板'
 url: https://www.ptt.cc/bbs/movie/M.1415717836.A.963.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感謝黃克義導演之邀，上個星期我有幸在大螢幕上觀賞詩人瘂弦《如歌的行板》紀錄片，
 
   同時也是《他們在島嶼寫作》系列的第二部曲作品。不知是導演手法還是被紀錄主角的
@@ -161,7 +160,7 @@ date: 2014-12-24
 reply_count: 7
 title: '[好雷]觀賞瘂弦《如歌的行板》之必要 '
 url: https://www.ptt.cc/bbs/movie/M.1419390165.A.368.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影好美 好像詩一樣美.
 
 
@@ -256,7 +255,7 @@ date: 2014-11-14
 reply_count: 2
 title: 'Re: [好雷] 他們在島嶼寫作-如歌的行板'
 url: https://www.ptt.cc/bbs/movie/M.1415972520.A.5A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各三張 檔期延到11/13最後一天 但還是僅面交
 
 
@@ -277,7 +276,7 @@ date: 2014-11-05
 reply_count: 2
 title: '[贈票]'
 url: https://www.ptt.cc/bbs/movie/M.1415179149.A.359.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看了「他們在島嶼寫作」第二系列之瘂弦《如歌的行板》紀錄片，由苜宿媒體
 
   出版，陳懷恩導演拍攝。深受感動，除了對於瘂弦老師有更多一點的認識，畫面、文字

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '電影院沒看到就在Friday 上面看
 
 
@@ -24,7 +23,7 @@ date: 2024-05-12
 reply_count: 26
 title: '[無好雷] 12.12首爾之春'
 url: https://www.ptt.cc/bbs/movie/M.1715526840.A.749.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看到韓國百想藝術大賞
 
   很多入圍的電影都實至名歸
@@ -70,7 +69,7 @@ date: 2024-04-22
 reply_count: 15
 title: '[好雷] 12.12：首爾之春觀看心得'
 url: https://www.ptt.cc/bbs/movie/M.1713764641.A.5EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Choi Yung Ju (No Cut News)
 
 
@@ -132,7 +131,7 @@ date: 2024-09-05
 reply_count: 52
 title: '[情報] 2025韓國奧斯卡代表《首爾之春》'
 url: https://www.ptt.cc/bbs/movie/M.1725512836.A.C18.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n\n想到哪邊打到哪邊，有脫落錯誤還請指教。\n\n\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n   \
   \ 就算不懂這個事件的人應該也能融入到電影，並且把這個事件完整的講完，真不錯\n全斗光(史實的全斗煥)的演員黃晸玟演的有張力，而鄭雨盛的角色李泰信(史實的張泰玩\n\
@@ -146,7 +145,7 @@ date: 2023-12-17
 reply_count: 39
 title: '[好雷]  首爾之春'
 url: https://www.ptt.cc/bbs/movie/M.1702818078.A.946.html
---- !!python/object:movie_data.PublicReview
+---
 content: "太驚人！《》\n\n韓國票房市占率高達87.4%\n\n《》\n\n昨天（11/27）在韓國票房市占率高達87.4%，\n\n橫掃韓國票房！\n\
   \n單日觀影人次為23萬9669名，\n\n累積觀影人次為213萬2362名！\n\n是繼今年上映的《》後，\n\n最快突破 觀影人次的韓國電影！\n\n  \n\
   \n《》12/15 (五) 全台上映\n\n韓國下半年票房NO.1！\n\n「」真實事件震撼改編！\n\n“這部電影真的瘋了！”\n\n──觀眾滿意度99%超高分好評盛讚！\n\
@@ -157,7 +156,7 @@ date: 2023-11-29
 reply_count: 9
 title: '[情報] 《12.12：首爾之春》電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1701264963.A.62C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看了首爾之春，真是有夠好看。後來爬推文才知道：
 
 
@@ -278,7 +277,7 @@ date: 2024-02-24
 reply_count: 61
 title: '[請益] 「首爾之春」相關電影的觀看順序？'
 url: https://www.ptt.cc/bbs/movie/M.1708780082.A.04D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感謝推文提供「韓國近代史」電影資訊
 
   標注台灣譯名＋上映年份
@@ -355,7 +354,7 @@ date: 2024-02-25
 reply_count: 51
 title: 'Re: [請益] 「首爾之春」相關電影的觀看順序？'
 url: https://www.ptt.cc/bbs/movie/M.1708835258.A.534.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感謝許多網友先進協助提供中文資訊，我也獻醜幫忙製作一份完整的中文版圖表，方便大
 
   家比對閱覽：
@@ -383,7 +382,7 @@ date: 2024-03-02
 reply_count: 15
 title: 'Re: [請益] 「首爾之春」相關電影的觀看順序？'
 url: https://www.ptt.cc/bbs/movie/M.1709393641.A.0F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》\n\n12月15日 (五) 全台上映\n\n\n\n韓國票房爆炸性飆升，登下半年票房NO.1\n\n\n\n那一夜，徹底改變亞洲命運的關鍵9小時！\n\
   \n上映第4天，觀影人數突破100萬！\n\n第6天200萬！第10天300萬！第12天400萬！！\n\n上映第14天，衝破500萬\n\n為韓國2023年第三部觀影人次突破500萬的韓國電影！\n\
   \n登上韓國年度票房TOP 2！\n\n觀影人數仍持續狂飆中\n\n\n\n《》12/15 (五) 全台上映\n\n韓國演技之神們都在這\n\n\n\n\n\n\
@@ -394,7 +393,7 @@ date: 2023-12-10
 reply_count: 16
 title: '[情報] 《12.12：首爾之春》全台上映戲院列表'
 url: https://www.ptt.cc/bbs/movie/M.1702206908.A.8CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -489,7 +488,7 @@ date: 2023-12-22
 reply_count: 64
 title: '[好雷] 首爾之春 讓人又氣又覺得好看的電影'
 url: https://www.ptt.cc/bbs/movie/M.1703258132.A.AD6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '自己看過電影的時間排序:
 
 
@@ -554,7 +553,7 @@ date: 2024-02-24
 reply_count: 23
 title: 'Re: [請益] 「首爾之春」相關電影的觀看順序？'
 url: https://www.ptt.cc/bbs/movie/M.1708784618.A.4C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -654,7 +653,7 @@ date: 2024-01-02
 reply_count: 32
 title: '[ 好雷]  首爾之春 - 過渡到民主不是理所當然'
 url: https://www.ptt.cc/bbs/movie/M.1704161080.A.908.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛好有人疑問討論到電影宣傳一句話“改變亞洲歷史”
 
 
@@ -746,7 +745,7 @@ date: 2023-12-16
 reply_count: 66
 title: 'Re: [好雷]首爾之春 真的有如臨現場的感覺！！大推'
 url: https://www.ptt.cc/bbs/movie/M.1702675267.A.E8A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我是在澳洲看的，昨天上映。
 
 
@@ -827,7 +826,7 @@ date: 2023-12-10
 reply_count: 21
 title: '[好微雷] 首爾之春'
 url: https://www.ptt.cc/bbs/movie/M.1702187484.A.0A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "微劇情\n\n\n整體感想：好看\n\n如果問這部電影最大的看點是什麼？\n我覺得是現實生活中存在過的這些真實人物，面臨危局時展現的各種反應。\n\
   \n--------------------劇情分隔線--------------\n\n\n《12.12首爾之春》被譽為兩年內韓國最佳電影，參考IMDb 8.1分，臨時起意進場，\n\
   事先並沒有細看劇情簡介。\n\n\n開場十分鐘，大致瞭解是講述1979年韓國軍事政變史，初始擔心會「燜」，沒想到劇情出\n乎意料的精彩。由於電影將歷史人物修改了名字，對南韓近代史也只有個大致的模糊概念\n\
@@ -846,7 +845,7 @@ date: 2023-12-16
 reply_count: 17
 title: '[好雷] 首爾之春：很讚的軍事片宴饗'
 url: https://www.ptt.cc/bbs/movie/M.1702740203.A.1C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就是今晚，只有一個空檔看一部電影
 
 
@@ -868,7 +867,7 @@ date: 2023-12-20
 reply_count: 60
 title: '[選片] 首爾之春 年少時代 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1703059132.A.D17.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天放假剛好看到Hami video上線評價不錯的"首爾之春"
 
 
@@ -925,7 +924,7 @@ date: 2024-02-29
 reply_count: 14
 title: '[好雷] 南山的部長們+首爾之春 兩部曲真是精采 '
 url: https://www.ptt.cc/bbs/movie/M.1709199817.A.22C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看之前版上好評 趁著最後場次還是入場
 
   真的是有夠好看 幾乎是這半年我覺得最好看的一部
@@ -982,7 +981,7 @@ date: 2024-01-29
 reply_count: 26
 title: '[好雷] 首爾之春~最後的波紋大家要把握'
 url: https://www.ptt.cc/bbs/movie/M.1706496905.A.D88.html
---- !!python/object:movie_data.PublicReview
+---
 content: '相信大家看完這部片都會對主角之一的首都警備司令官李泰臣印象深刻，似乎真實人物的
 
   評價也很受到推崇。
@@ -1005,7 +1004,7 @@ date: 2024-02-25
 reply_count: 18
 title: '[請益] 關於首爾之春首都警備司令官的問題'
 url: https://www.ptt.cc/bbs/movie/M.1708837585.A.F0D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1091,7 +1090,7 @@ date: 2023-12-15
 reply_count: 62
 title: '[好雷]首爾之春 真的有如臨現場的感覺！！大推'
 url: https://www.ptt.cc/bbs/movie/M.1702652202.A.9E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1184,7 +1183,7 @@ date: 2023-12-15
 reply_count: 25
 title: '[雷] 好好看的12.12首爾之春'
 url: https://www.ptt.cc/bbs/movie/M.1702630734.A.9DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因平&假日很難抽身去看電影，剛好明天放假一天，若這兩部片選擇上，想問會建議優先選
 
   擇看哪一部呢？
@@ -1198,7 +1197,7 @@ date: 2023-12-24
 reply_count: 53
 title: '[選片] 全羅道 or 首爾之春'
 url: https://www.ptt.cc/bbs/movie/M.1703406909.A.A97.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《首爾之春》賣破21億奪冠！黃晸珉壞到犯眾怒　戲院搬這台供洩憤\n\n【記者陳薇安／綜合報導】\n\n集結黃晸珉、李星民、鄭雨盛3大影帝的新片《12.12：首爾之春》，11月22日在韓上映後\n\
   討論度爆表，蟬聯25天票房冠軍，累積849.5萬觀影人次，熱賣820億韓元（約21.4億元台\n幣），登基年度票房亞軍，突破千萬觀影大關指日可待。\n\n黃晸珉演活被權利蒙蔽的韓國前總統全斗煥，不僅每次要花4小時梳化套禿頭假髮，鼻翼\n\
   也黏上矽膠刻意變寬，精湛演技讓觀眾氣得牙癢癢，就連鄭雨盛也讚嘆：「真的看起來很\n討厭！」\n\n\n\n黃晸珉（左圖）在《12.12：首爾之春》扮演前總統全斗煥，壞到令人髮指，戲特地院準\n\
@@ -1219,7 +1218,7 @@ date: 2023-12-20
 reply_count: 35
 title: '[新聞] 《首爾之春》賣破21億奪冠！黃晸珉壞到'
 url: https://www.ptt.cc/bbs/movie/M.1703003665.A.781.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首爾之春 小曉 飢餓遊戲
 
   想選一片看
@@ -1252,7 +1251,7 @@ date: 2023-12-17
 reply_count: 63
 title: '[選片] 首爾之春 小曉 飢餓遊戲'
 url: https://www.ptt.cc/bbs/movie/M.1702772581.A.CB9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影版首po，大家早安
 
 
@@ -1352,7 +1351,7 @@ date: 2024-12-13
 reply_count: 28
 title: '[好雷] 首爾之春'
 url: https://www.ptt.cc/bbs/movie/M.1734049869.A.A4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《12.12:首爾之春》  10/10分
 
 
@@ -1454,7 +1453,7 @@ date: 2023-12-21
 reply_count: 37
 title: '[ 極好無雷]  12.12:首爾之春 - 極精彩歷史片！'
 url: https://www.ptt.cc/bbs/movie/M.1703127533.A.F72.html
---- !!python/object:movie_data.PublicReview
+---
 content: "感謝ronale大辛苦整理提供的片單\n因為要補自己的收藏清單，就順手查了手邊有的串流\n金權性內幕記得之前有在Hami看過，可能到期下架了\n\
   \n\n\n片單如下\n\n****李承晚政府 (1948-1960)\n太極旗-生死兄弟 (2004) \n國際市場 (2014)   \n總統的理髮師 (2004)\
   \  \n\n*****尹潽善政府 (1961-1962)\n\n*****朴正熙政府 (1963-1679)\n王者製造 (2022)  \n實尾島風雲 (2003)\

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '今年金馬電影學院的作品《滿七》官方已上傳至Youtube
 
 
@@ -50,7 +49,7 @@ date: 2020-11-19
 reply_count: 5
 title: '[情報] 2020金馬電影學院《滿七》'
 url: https://www.ptt.cc/bbs/movie/M.1605789213.A.D01.html
---- !!python/object:movie_data.PublicReview
+---
 content: '短片「滿七」致敬朱自清 庹宗華飆演技獲桃影放映
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '動畫電影《楊戩》發布全新海報及場景圖 2021年內上映
 
 
@@ -32,7 +31,7 @@ date: 2021-02-09
 reply_count: 22
 title: '[情報] 動畫電影《楊戩》發布全新海報及場景圖'
 url: https://www.ptt.cc/bbs/movie/M.1612873124.A.F9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '動畫電影《楊戩》立項 《大聖歸來》制作人加盟
 
 
@@ -73,7 +72,7 @@ date: 2020-06-10
 reply_count: 7
 title: '[新聞] 動畫電影《楊戩》立項《大聖歸來》制作人'
 url: https://www.ptt.cc/bbs/movie/M.1591775734.A.76A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部是對岸追光動畫的作品，Netflix 上面有前一部「挪吒」，當初看完挪吒總覺得某些地
 
   方說不出來的尬，而且角色招式用替身互轟也讓人感到有點粗糙，不過我很喜歡裡面機械的

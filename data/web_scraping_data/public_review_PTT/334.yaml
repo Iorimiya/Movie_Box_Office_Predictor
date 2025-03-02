@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "新聞網址：\n\n2018-08-14 19:07 聯合報 記者蘇詠智╱即時報導\n\n影史超級賣座名片「回到未來」今年歡度第33周年，眾家主角包括米高福克斯、莉亞湯普\n\
   遜、扮演博士的克里斯多夫洛伊等，都出席了在波士頓舉辦的影迷會，讓無數觀眾的記憶\n都被喚起，也很好奇到底會不會有第4集的出現？\n\n「回到未來」描述在1980年代生活的高中男孩米高福克斯，意外駕著時光車回到30年前爸\n\
   媽都還是跟自己差不多年紀的時候，差點變成媽媽的愛慕對象，最後巧妙鼓勵父親振作、\n贏得母親芳心，也意外改變了家族歷史。由億萬巨導史蒂芬史匹柏掛名監製，搭配幽默的\n\
@@ -13,7 +12,7 @@ date: 2018-08-15
 reply_count: 22
 title: '[新聞] 還認得出來嗎？「回到未來」主角再團圓 她保養最好！'
 url: https://www.ptt.cc/bbs/movie/M.1534295632.A.655.html
---- !!python/object:movie_data.PublicReview
+---
 content: "晚上看CONAN的訪問，來賓是宣傳新片的伊萊亞伍德，提到滿有趣的事情\n大家最熟悉他扮演的角色是魔戒的佛羅多，不過他卻是童星出身的，第一次電影演出時是\n\
   8歲，就是在回到未來2(1989)。\n\n有一幕是米高福克斯在便利商店，玩一個古早的西部手槍電動機台給兩個未來小孩看，其\n中一個頭部戴著一個像綠色廚房篩子帽的屁孩，就是伊萊亞伍德，他跟康納都承認，還好\n\
   那頂帽子不是預言成真的項目之一(可惜小熊隊沒法拿冠軍了)\n\n想想當年那個8歲屁孩也三十好幾了，雖然是理所當然，但看電影的當時，壓根都沒想到自\n己會有回到電影中未來的那天呢。\n\
@@ -26,7 +25,7 @@ date: 2015-10-22
 reply_count: 17
 title: '[  雷] 伊萊雅伍德(佛羅多)有演回到未來^^'
 url: https://www.ptt.cc/bbs/movie/M.1445447300.A.B7C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為在板上看到板友分享，網飛上了回到未來三部曲
 
 
@@ -134,7 +133,7 @@ date: 2020-07-04
 reply_count: 69
 title: '[討論] 回到未來三部曲觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1593834927.A.09D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "龍后艾蜜莉亞克拉克，和瘋狂亞州富豪帥亨利高汀，在《去年聖誕節》可不只浪漫，\n也經歷愛情隨附的相處難題。當然男帥女美又有 4K HDR 加持，還有幕後花絮，\n\
   這個就是聖誕夜前必買的片啦！\n－\n\n聖誕節也是各種不免俗，不管是升級 4K 的《小鬼當家》還是大特價的《豆豆假期》；\n最重要的是大推 4K HDR 規格完整的《速成家庭》和《史努比》，都是非常全家一起\n\
   觀賞的好片。\n－\n\n經典電影迷兒可別錯過全面升級 4K Dolby Vision 和 Dolby Atmos 的\n《回到未來三部曲》；當初買的人應該樂瘋了，如果現在買則會更高興，\n\
@@ -154,7 +153,7 @@ date: 2020-12-23
 reply_count: 3
 title: '[討論] iTunes 特價報 回到未來 / 去年聖誕節'
 url: https://www.ptt.cc/bbs/movie/M.1608733539.A.4D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '爬文看到這篇 那我也來講一個我覺得的bug好了  第3集Marty要從1955年去1885年的時候
 
 
@@ -217,7 +216,7 @@ date: 2020-05-26
 reply_count: 34
 title: 'Re: [新聞] 「回到未來」這一bug拖累整部片不完美？編劇妙答解套'
 url: https://www.ptt.cc/bbs/movie/M.1590462653.A.5D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: ronray7799 (百變Q葫蘆娃) 看板: Gossiping\n標題: Re: [問卦] 有沒有回到未來這部電影的八卦??\n時間:\
   \ Sat Jan 24 22:43:16 2015\n\n\n其實米高福克斯也是第二代馬蒂，最原始的馬蒂是艾瑞克史托茲(Eric Stoltz)\n第一集拍不到一半時，史蒂芬史匹柏覺得艾瑞克實在不合馬蒂該有的形象\n\
   下定打掉全部重來的決心，換角叫米高福克斯來重拍\n目前艾瑞克史托茲拍過的片段只放出過一點點畫面而且沒聲音\n完整的內容一直是回到未來迷夢寐以求的夢幻品\n\n\
@@ -231,7 +230,7 @@ date: 2015-01-24
 reply_count: 22
 title: 'Fw: [問卦] 有沒有回到未來這部電影的八卦??'
 url: https://www.ptt.cc/bbs/movie/M.1422110857.A.4B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n2020-04-23 20:12 聯合報 記者蘇詠智／即時報導\n\n轟動全球、票房熱賣的「回到未來」，堪稱最受觀眾喜愛的科幻喜劇經典，在許多人眼中\n\
   是一部非常完美的電影。近日漫威「星際異攻隊」導演詹姆斯岡恩卻在推特上指出該片的\n一個大bug，認為片子或許因此算不上完美，但在他眼中仍是部完美的電影。他所指出的\n\
   問題，引來「星爵」克里斯普萊特試圖解釋、護航，吸引更多的網友加入討論，變成網路\n上的熱門話題，連「回到未來」源創編劇之一鮑伯蓋爾都出來受訪，表達了自己的看法。\n\
@@ -245,7 +244,7 @@ date: 2020-04-23
 reply_count: 89
 title: '[新聞] 「回到未來」這一bug拖累整部片不完美？編劇妙答解套'
 url: https://www.ptt.cc/bbs/movie/M.1587653306.A.223.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《回到未來》問世33年 4巨頭再聚首想拍續集
 
   2018/08/14 08:38
@@ -291,7 +290,7 @@ date: 2018-08-14
 reply_count: 166
 title: '[新聞] 《回到未來》問世33年 4巨頭再聚首想拍續'
 url: https://www.ptt.cc/bbs/movie/M.1534244782.A.34C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是六年級生
 
 
@@ -328,7 +327,7 @@ date: 2015-11-23
 reply_count: 3
 title: '[討論] 以為是回到未來番外篇'
 url: https://www.ptt.cc/bbs/movie/M.1448283140.A.F3C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這回是本魯第一次看回到未來\n（別懷疑，以前沒機會看舊電影直至今日才看第一次）\n\n\n\n看完第二集，劇情顯示年代是2015年\n\n畢竟是1985年的編劇想像的未來世界，與現實的吻合度超低\n\
   \n比較一下：()內為現實狀況\n\n\n伸縮鞋帶(今年有機會實現)\n\n立體影像(實驗階段未普及)\n指紋鎖(唯一比預測年代還早出現的技術，因安全性不如預期而未普及)\n\
   家用配備(90%於現實中尚未存在)\n\n看完2015年這段，雖然說當年預測再過40年會成形，編劇這樣掰也還說得過去\n\n看完還是超想吐槽的說，電影裡有些直到現在都還沒開始建設哩！\n\
@@ -341,7 +340,7 @@ date: 2015-02-22
 reply_count: 25
 title: 'Re: [討論] 回到未來第2集!!!'
 url: https://www.ptt.cc/bbs/movie/M.1424607244.A.C4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2019-10-25 02:56 聯合報 記者蘇詠智／即時報導
 
 
@@ -397,7 +396,7 @@ date: 2019-10-25
 reply_count: 88
 title: '[新聞] 「回到未來」男主角58歲 對抗帕金森氏症 現況讓人心疼'
 url: https://www.ptt.cc/bbs/movie/M.1571994069.A.24A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "最近年假把經典的回到未來3部曲看完\n\n但看到第3集有兩個橋段有點疑問：\n\n1.博士失戀後，跑到酒館喝酒，然後旁邊一個大叔安慰他，\n\n\
   跟他說什麼你無法預測未來，然後拿出一個他新買很讚的什麼鐵絲繩來舉例\n\n請問這有什麼梗嗎？\n\n原本以為後面博士開始吹噓未來世界，會跟這個大叔的鐵絲繩有連結，結果也沒有...\n\
   \n\n2.馬蒂自稱克林伊司威特，最後決鬥完，把槍送給他祖先，請問這有埋什麼梗嗎？\n\n還是單純就是跟巨星同名，然後最後結局出現克林伊司威特橋而已？\n\n\n\
@@ -407,7 +406,7 @@ date: 2018-02-20
 reply_count: 10
 title: '[討論] 回到未來3的兩個梗？(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1519141235.A.D01.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《林肯》史蒂芬史匹柏（Steven Spielberg）監製，《走鋼索的人》勞伯辛密克斯（
 
   Rober Zemeckis）執導的經典《回到未來》（Back to the Future）三部曲，自第一集上
@@ -449,7 +448,7 @@ date: 2015-10-15
 reply_count: 32
 title: '[新聞] 真實 vs 科幻《回到未來》滿 30 周年 主角重聚討論'
 url: https://www.ptt.cc/bbs/movie/M.1444883537.A.1F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "近年來好萊塢原創故事式微，越來越多的經典被拿回來改編、重開機、拍續集…，迪士尼\n更是把過往許多手繪動畫作品搬出來拍成真人版本，此外「電影宇宙」隨著漫威影業打造\n\
   的影視帝國而成為主流，符合以上兩個重要條件的「回到未來系列」有沒有可能被片商鎖\n定？看來影迷們先不用太擔心了。\n去年我們曾經報導《回到未來》系列作的導演羅勃辛密克斯（Robert\
   \ Zemeckis）在他死\n之前都不會讓這個系列重啟，如今本片的製作人法蘭克馬修（Frank Marshell）在接受\n Yahoo Movie 訪問時也表達了一樣的看法：\n\
@@ -462,7 +461,7 @@ date: 2016-12-01
 reply_count: 22
 title: '[討論] 法蘭克馬修：我們永遠不會重拍「回到未來'
 url: https://www.ptt.cc/bbs/movie/M.1480577960.A.541.html
---- !!python/object:movie_data.PublicReview
+---
 content: '偶然發現的連結
 
 
@@ -483,7 +482,7 @@ date: 2024-01-23
 reply_count: 23
 title: '[請益] 回到未來第四集'
 url: https://www.ptt.cc/bbs/movie/M.1706014530.A.045.html
---- !!python/object:movie_data.PublicReview
+---
 content: '事實上最大Bug在
 
 
@@ -509,7 +508,7 @@ date: 2020-04-24
 reply_count: 26
 title: 'Re: [新聞] 「回到未來」這一bug拖累整部片不完美？編劇妙答解套'
 url: https://www.ptt.cc/bbs/movie/M.1587705572.A.739.html
---- !!python/object:movie_data.PublicReview
+---
 content: ":\n:\n:\n:\n:\n很可惜 事與願違\n:\n:\n:\n:\n目前最接近的現實\n\n簡單來說 大學有讀過一點化學(還物理)的應該都知道\n\
   超導體的應用問題就是要靠近臨界溫度才會有飄浮作用(EX:磁浮)\n所以最接近現實被廣泛運用的大概就是溜冰了(?)\n飄移冰刀(FREELINE SKATE)大概是最接近飛行滑板的產物\n\
   學術點講目前最高溫度已被普遍認知的4.2~138K度(攝氏-269.8~-135度)\n如果能做到超過室溫的意義代表能直接運用在任何民生方面\n也就是說要做出離地的飛行滑板理論上快可以做了\n\
@@ -523,7 +522,7 @@ date: 2016-02-16
 reply_count: 8
 title: 'Re: [新聞] 電影《回到未來》 科幻預言逐一成真'
 url: https://www.ptt.cc/bbs/movie/M.1455594879.A.E15.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這種時空倒流的戲，
 
   真的不用太考慮邏輯，
@@ -580,7 +579,7 @@ date: 2020-04-24
 reply_count: 7
 title: 'Re: [新聞] 「回到未來」這一bug拖累整部片不完美？編劇妙答解套'
 url: https://www.ptt.cc/bbs/movie/M.1587716846.A.040.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老婆沒看過回到未來趁春節租來讓她朝聖一下
 
   看著看個發現一個時空觀點上的疑問
@@ -617,7 +616,7 @@ date: 2016-02-11
 reply_count: 11
 title: '[討論] 回到未來2的時空觀點'
 url: https://www.ptt.cc/bbs/movie/M.1455199828.A.D94.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛好我有一個關於這電影的疑問
 
   一直沒有發文 是想說不要浪費版面
@@ -650,7 +649,7 @@ date: 2020-04-24
 reply_count: 17
 title: 'Re: [新聞] 「回到未來」這一bug拖累整部片不完美？編劇妙答解套'
 url: https://www.ptt.cc/bbs/movie/M.1587691634.A.580.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《回到未來》成真！ 自動綁鞋帶球鞋限量問世
 
 
@@ -700,7 +699,7 @@ date: 2016-10-12
 reply_count: 8
 title: '[新聞] 《回到未來》成真！ 自動綁鞋帶球鞋限量'
 url: https://www.ptt.cc/bbs/movie/M.1476245297.A.685.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'cinemax又重播了  這次是講到2015的未來  第二集喔
 
 
@@ -717,7 +716,7 @@ date: 2015-02-22
 reply_count: 4
 title: '[討論] 回到未來第2集!!!'
 url: https://www.ptt.cc/bbs/movie/M.1424598704.A.C16.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片名不太清楚了
 
 
@@ -762,7 +761,7 @@ date: 2020-07-17
 reply_count: 7
 title: '[問片] 一部類似回到未來'
 url: https://www.ptt.cc/bbs/movie/M.1594949370.A.A21.html
---- !!python/object:movie_data.PublicReview
+---
 content: "回到未來三部曲 應該也是影史上的經典系列了...\n\n   今天itunes三部都90元/4K，270元就能全套收集了~~推薦給大家...\n\
   \n   又一個完整系列的電影4K收藏了，周末放假在家來好好回味一下\n\n\n--\n   還是自己選的片單回看率比較高XD 只是都是錢錢!! 好怕itunes帳號被停@@\"\
   \ 呵呵"
@@ -770,7 +769,7 @@ date: 2022-03-25
 reply_count: 9
 title: '[片單] itunes特價推薦: 回到未來三部曲'
 url: https://www.ptt.cc/bbs/movie/M.1648189947.A.25C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "各位版友大家好,\n小弟不材今天才把回到未來三部曲追完\n看完後特別有興趣就google了一下有沒有第4部曲的可能性 發現網上好像蠻多第4集會出\n\
   的訊息 可是那些訊息都是幾年前的 請問那是釋放假消息嗎?\n\n\n--\n QQ\n  真的好可惜..\n 好可惜 最有靈魂的男主角\n 對 這個我有翻到 所以才燃起一線希望\n\
   \ 真的深深被吸引了\n 是呀\n 沒參與到@@\n 可是去年不是才脫口秀嗎？\n 不好意思 請問遊戲?\n 啥"
@@ -778,7 +777,7 @@ date: 2016-07-13
 reply_count: 34
 title: '[討論] 回到未來續集疑問'
 url: https://www.ptt.cc/bbs/movie/M.1468402970.A.1B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '回到未來三部曲是我很愛的作品
 
   裡面有很多有趣且新鮮的元素
@@ -829,7 +828,7 @@ date: 2022-01-22
 reply_count: 27
 title: '[討論] 回到未來的車子里程數'
 url: https://www.ptt.cc/bbs/movie/M.1642848239.A.E34.html
---- !!python/object:movie_data.PublicReview
+---
 content: '經典科幻電影《回到未來》導演重回一線  執導科幻驚悚新作
 
 
@@ -876,7 +875,7 @@ date: 2020-01-19
 reply_count: 19
 title: '[新聞] 《回到未來》導演重回一線  執導科幻驚悚'
 url: https://www.ptt.cc/bbs/movie/M.1579363955.A.9A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: zkow (逍遙山水憶秋年) 看板: Cubs\n標題: [新聞] 回到未來跟山羊魔咒誰厲害？小熊隊的冠軍\n時間: Sun Oct 18\
   \ 03:36:30 2015\n\n回到未來跟山羊魔咒誰厲害？小熊隊的冠軍夢\n\n 2015年10月17日 12:30 社群分享\n\n\n2015年10月14日，芝加哥小熊在主場球迷面前以6比4擊敗聯盟戰績最佳球隊聖路易紅雀，\n\
   風光晉級國聯冠軍賽，小熊今年是不是真的能按照著名系列電影「回到未來2」中預言，\n2015年將由小熊隊拿下世界大賽冠軍並破除山羊魔咒，許多球迷還有影迷都拭目以待。\n\
@@ -897,7 +896,7 @@ date: 2015-10-18
 reply_count: 8
 title: 'Fw: [新聞] 回到未來跟山羊魔咒誰厲害?小熊隊的冠軍夢'
 url: https://www.ptt.cc/bbs/movie/M.1445110601.A.650.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'NYCC New York Comic Con
 
   紐約漫畫展
@@ -933,7 +932,7 @@ date: 2022-10-10
 reply_count: 56
 title: '[討論] 回到未來兩位主角在NYCC出場 合影'
 url: https://www.ptt.cc/bbs/movie/M.1665333905.A.8D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1008,7 +1007,7 @@ date: 2017-06-05
 reply_count: 28
 title: '[新聞] 加州男子開時光車想「回到未來」被開單'
 url: https://www.ptt.cc/bbs/movie/M.1496638265.A.B37.html
---- !!python/object:movie_data.PublicReview
+---
 content: "好的三部曲有他能成為三部曲的點在 但要有一個三部曲\n首先要有的是訂下遊戲規則的第一部電影\n經典的起源或許只是一個小小的點子 或是無心插柳的決定\n\
   都是因為如此 才能有我們現在所看到的經典\n\n\n\n馬提麥克菲是個普通的青年 生活無大志向 只對彈電吉他有興趣\n但是與一台時光機的邂逅改變了他的世界\n\
   時光機是布朗博士由一輛DeLorean改造而成\n但其中所需要的珍貴元素只能從一群危險的利比亞組織取得\n\n在試用時光機的那一晚博士卻被利比亞組織射殺\n不知所措的馬提靠著時光機跑到了1955年\
@@ -1026,7 +1025,7 @@ date: 2015-10-26
 reply_count: 10
 title: '[討論] <回到未來Back To The Future> 回到未來的基本原理'
 url: https://www.ptt.cc/bbs/movie/M.1445850677.A.C44.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《回到未來》編劇說明為什麼不可能會有全新續集出現
 
 
@@ -1087,7 +1086,7 @@ date: 2020-10-25
 reply_count: 99
 title: '[新聞] 《回到未來》編劇說明為何不可能會有續集'
 url: https://www.ptt.cc/bbs/movie/M.1603599353.A.569.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在不只是吃老本
 
 
@@ -1131,7 +1130,7 @@ date: 2020-02-23
 reply_count: 36
 title: 'Re: [新聞] 影業不斷施壓！《回到未來》主創人堅決拒'
 url: https://www.ptt.cc/bbs/movie/M.1582434302.A.B1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影《回到未來》 科幻預言逐一成真
 
 
@@ -1182,7 +1181,7 @@ date: 2015-10-18
 reply_count: 24
 title: '[新聞] 電影《回到未來》 科幻預言逐一成真'
 url: https://www.ptt.cc/bbs/movie/M.1445110970.A.7ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n標題:《回到未來2》神準！　27年前川普已經當選了\n\n\n內文:   記者傅家妤／綜合報導\n\n     美國總統大選在9日公布票選結果，由共和黨候選人川普（Donald\
   \ Trump）成功當選\n，正式入主白宮，而這樣的消息也讓希拉蕊的支持者震驚不已。事實上，系列電影《回到\n未來》早已經預測到這樣的結果，而近日這部電影再次被網友翻出，將裡面的人物與川普\n\
   做對比，相似的背景與情節讓大家都非常驚訝。\n\n\n     在1989年上映的《回到未來2》中的男主角馬蒂（Marty McFly）穿越到2015年時，突\n\
@@ -1195,7 +1194,7 @@ date: 2016-11-10
 reply_count: 28
 title: '[新聞]《回到未來2》神準！27年前川普已經當選了'
 url: https://www.ptt.cc/bbs/movie/M.1478754364.A.7EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'MLB／「回到未來」預言差1年 1994罷工害的
 
 
@@ -1240,7 +1239,7 @@ date: 2016-11-05
 reply_count: 32
 title: '[新聞] 「回到未來」預言差1年 1994罷工害的'
 url: https://www.ptt.cc/bbs/movie/M.1478330499.A.A5F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《回到未來》米高福克斯合體「酷玩」坐輪椅彈吉他令觀眾鼻酸
 
 
@@ -1310,7 +1309,7 @@ date: 2024-07-02
 reply_count: 40
 title: '[新聞] 《回到未來》米高福克斯合體「酷玩」坐'
 url: https://www.ptt.cc/bbs/movie/M.1719883366.A.544.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片商想拍第4集 《回到未來》導演直言不可能
 
 
@@ -1383,7 +1382,7 @@ date: 2024-11-05
 reply_count: 31
 title: '[新聞] 片商想拍第4集 《回到未來》導演直言不可'
 url: https://www.ptt.cc/bbs/movie/M.1730783796.A.8C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好像沒人討論
 
   電影「回到未來」的博士演員Christopher Lloyd 來台灣了
@@ -1403,7 +1402,7 @@ date: 2024-10-11
 reply_count: 87
 title: '[討論] 回到未來的博士在台灣'
 url: https://www.ptt.cc/bbs/movie/M.1728576384.A.23F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2024/05/02 Apple TV 特價報】
 
   世界大戰／撕裂地平線／科洛弗檔案／燕尾蝶：數位經典版／窒友梅根／熊蓋毒／回到未
@@ -1609,7 +1608,7 @@ date: 2024-05-02
 reply_count: 6
 title: '[討論] Apple TV 特價 世界大戰/回到未來/熊蓋毒'
 url: https://www.ptt.cc/bbs/movie/M.1714656721.A.574.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: zkow (逍遙山水憶秋年) 看板: Gossiping
 
   標題: [新聞] 「回到未來」鞋在港義賣 81萬港幣拍出
@@ -1648,7 +1647,7 @@ date: 2016-10-12
 reply_count: 2
 title: 'Fw: [新聞] 「回到未來」鞋在港義賣 81萬港幣拍出'
 url: https://www.ptt.cc/bbs/movie/M.1476245207.A.07F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「回到未來」首步 小熊晉級季後賽\n\n2015-09-26 14:06:46 聯合晚報 記者林辰彥／即時報導\n\n芝加哥小熊在今天打了下午場的比賽，以2：3輸給海盜。他們一直等到半夜，舊金山巨人\n\
   以4：5在灣區大戰輸給運動家，小熊晉級季後賽的魔術數字歸零，確定打進國聯季後賽。\n\n國聯的季後賽名單幾乎底定，紐約大都會在國聯東區封王魔術數字剩下1、洛杉磯道奇在\n\
   西區M2。全大聯盟戰績最佳的紅雀仍未分區封王，但也只剩M3。國聯中區的前三名紅雀、\n海盜以及小熊，都已經確定至少可以打外卡賽。\n\n小熊是大聯盟最長時間沒拿世界大賽冠軍的球隊，他們上次拿世界大賽冠軍是在1908年，\n\
@@ -1660,7 +1659,7 @@ date: 2015-09-26
 reply_count: 52
 title: '[新聞] 「回到未來」首步 小熊晉級季後賽'
 url: https://www.ptt.cc/bbs/movie/M.1443282118.A.880.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天看第三集發現好像有個Bug,
 
   正史說博士被瘋狗背後開槍殺死，克萊兒幫他立墓碑，可是克萊兒不是應該要先摔山崖死
@@ -1678,7 +1677,7 @@ date: 2015-02-22
 reply_count: 6
 title: 'Re: [討論] 回到未來第2集!!!'
 url: https://www.ptt.cc/bbs/movie/M.1424601551.A.B1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '隨著好萊塢越來越多的續集、前傳、改編、翻拍等電影宇宙觀的形成，也讓不少觀眾詬病
 
   是否缺少了原創精神，不過根據好萊塢報導（The Hollywood Reporter）與美國市調機構
@@ -1720,7 +1719,7 @@ date: 2018-12-03
 reply_count: 57
 title: '[新聞] 美國觀眾最想看到《回到未來》捲土重來'
 url: https://www.ptt.cc/bbs/movie/M.1543845204.A.819.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛複習回到未來1和2
 
 
@@ -1758,7 +1757,7 @@ date: 2015-04-20
 reply_count: 70
 title: '[討論] 剛剛看回到未來發現今年2015'
 url: https://www.ptt.cc/bbs/movie/M.1429537900.A.8D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網路上看到回到未來這張圖
 
   對比當時認為的各演員30年後與實際的30年後
@@ -1778,7 +1777,7 @@ date: 2022-09-27
 reply_count: 72
 title: '[閒聊] 回到未來 30年後跟現在差異'
 url: https://www.ptt.cc/bbs/movie/M.1664268797.A.016.html
---- !!python/object:movie_data.PublicReview
+---
 content: "前幾個禮拜我有重溫回到未來三部曲\n\n看完真心覺得，不重製是對的\n\n以下解說為何不適合再重製\n\n\n1.世界觀\n\n回到未來的世界觀完全侷限在Hill\
   \ Valley也就是主角所在的城鎮\n\n故事以Hill Valley在不同時間點來完成一整部系列作(1985>1955>2015>1955>1885)\n\n\
   \n\n2.劇情用哽\n\n整個三部曲都是那幾個套路在運作，這在前三部曲還可以玩\n\n但到了第四部曲可能會出狀況，不續用就不回到未來但續用又會有被嫌老哽問題\n\
@@ -1790,7 +1789,7 @@ date: 2024-07-18
 reply_count: 11
 title: 'Re: [討論] 回到未來不給重製是不是正確的？'
 url: https://www.ptt.cc/bbs/movie/M.1721295862.A.3A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個呀~
 
 
@@ -1823,7 +1822,7 @@ date: 2020-02-23
 reply_count: 20
 title: 'Re: [新聞] 影業不斷施壓！《回到未來》主創人堅決拒'
 url: https://www.ptt.cc/bbs/movie/M.1582427679.A.CF4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "x x \n\n斥資超過400億打造《》\n\n即將在台上映，敬請期待！\n\n\n\n外星人 X 武俠 X 道術  多重宇宙無極限！\n\n\n\
   《》 近期上映\n\n《》原班華麗陣容\n\nXX\n《》發行團隊斥資超過400億韓元打造年度動作鉅獻！\n\n《》《》締造雙千萬觀影人次票房紀錄大導崔東勳最新奇幻震撼巨作！\n\
   \n #車庫娛樂 #崔東勳 #惡鬼 #金泰梨 #晝盲神探 #柳俊烈 #我們的藍調時光\n#金宇彬 #幻影 #李荷妮 #天空之城 #廉晶雅\n\n資料來源：\n\n\
@@ -1832,7 +1831,7 @@ date: 2024-01-04
 reply_count: 25
 title: '[情報] 《外星+人2：回到未來》'
 url: https://www.ptt.cc/bbs/movie/M.1704368345.A.574.html
---- !!python/object:movie_data.PublicReview
+---
 content: '東森洋片
 
   回到未來3 (Back To The Future Part III)
@@ -1849,7 +1848,7 @@ date: 2017-06-12
 reply_count: 12
 title: '[情報] 東森洋片 6/12 18:30 回到未來3'
 url: https://www.ptt.cc/bbs/movie/M.1497257748.A.4AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "<回到未來>三部曲是一部比一般人想像中更「純種」的科幻電影。嚴格說來應\n\n    該說第一部曲，後面兩部藝術成就便沒那麼高。不過，後兩部拍的也不算差，可以\n\
   \n    當成經典的回沖，大家還是三集都很喜歡，都是經典的一部分。\n\n\n\n       回到未來，一個年輕導演於 1985 年拍攝的一部「奇怪的電影」，神奇之處，\n\
   \n    就是電影裡的一景一幕，都充滿著濃郁的科幻風味。不要管其他為了票房而設計的\n\n    元素: YA式劇情、父母難搞情節、青春組團夢、和 80 年代的流行樂。這些原來\n\
@@ -1894,7 +1893,7 @@ date: 2009-12-26
 reply_count: 43
 title: '[徵文] 科幻經典:回到未來系列'
 url: https://www.ptt.cc/bbs/movie/M.1261821937.A.B9B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: KYLAT (凱拉特) 看板: joke
 
   標題: [翻譯] 該怎麼"開始"--回到未來2
@@ -1930,7 +1929,7 @@ date: 2015-10-21
 reply_count: 2
 title: 'Fw: [翻譯] 該怎麼"開始"--回到未來2'
 url: https://www.ptt.cc/bbs/movie/M.1445429034.A.639.html
---- !!python/object:movie_data.PublicReview
+---
 content: '確定有仔細看過該電影嗎?
 
   電影最後馬蒂到車庫看父母給他的新車時,女友出現
@@ -1944,7 +1943,7 @@ date: 2020-04-24
 reply_count: 1
 title: 'Re: [新聞] 「回到未來」這一bug拖累整部片不完美？編劇妙答解套'
 url: https://www.ptt.cc/bbs/movie/M.1587708374.A.D61.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n回到未來2 為什麼畢夫要解釋\n\
   \n為什麼主角問畢夫怎麼拿到年鑑時\n\n畢夫要詳細解釋\n怎麼拿到\n\n然後再說\n\n如果有科學家或小鬼來問的話要讓他們領便當\n\n然後就讓主角逃脫了\n\
@@ -1955,7 +1954,7 @@ date: 2020-08-25
 reply_count: 53
 title: '[ 問雷] 回到未來2 為什麼畢夫要解釋'
 url: https://www.ptt.cc/bbs/movie/M.1598348576.A.83B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: gelni5566 (hi~) 看板: Gossiping
 
   標題: [問卦] 回到未來第二集五年後才拍的八卦?
@@ -1988,7 +1987,7 @@ date: 2015-04-07
 reply_count: 15
 title: 'Fw: [問卦] 回到未來第二集五年後才拍的八卦?'
 url: https://www.ptt.cc/bbs/movie/M.1428416903.A.FFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影史上最有名的案例
 
 
@@ -2037,7 +2036,7 @@ date: 2024-09-29
 reply_count: 86
 title: '[討論] 像回到未來 拍攝到一半 主角慘遭換角的'
 url: https://www.ptt.cc/bbs/movie/M.1727606179.A.7E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去未來然後把富蘭克林或豹神（打敗混沌秩序兩顆頭的黑豹神）叫過來
 
   能力也是超越無限手套的
@@ -2053,7 +2052,7 @@ date: 2019-05-01
 reply_count: 12
 title: '[討論] 時空穿越可以回到未來嗎（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1556700079.A.A4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然有很多經典電影被翻拍
 
   但看了一下 1980年代 還是有很多票房與評價雙收的電影沒有被翻拍
@@ -2080,7 +2079,7 @@ date: 2020-02-23
 reply_count: 8
 title: 'Re: [新聞] 影業不斷施壓！《回到未來》主創人堅決拒'
 url: https://www.ptt.cc/bbs/movie/M.1582431968.A.8F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就我所知，這張George演員Crispin Glover的照片應該不是2015年的，我猜是2003年的。
 
   因為造型的緣故。
@@ -2214,7 +2213,7 @@ date: 2022-09-29
 reply_count: 26
 title: 'Re: [閒聊] 回到未來 30年後跟現在差異'
 url: https://www.ptt.cc/bbs/movie/M.1664405959.A.082.html
---- !!python/object:movie_data.PublicReview
+---
 content: '高畫質   11.7G  720P
 
   標準畫質  5.25G
@@ -2235,7 +2234,7 @@ date: 2015-10-26
 reply_count: 3
 title: '[討論] itunes store有回到未來同捆包....'
 url: https://www.ptt.cc/bbs/movie/M.1445788836.A.32A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在還有年輕人看過這部電影嗎?
 
   我記得是國小時看的
@@ -2260,7 +2259,7 @@ date: 2022-03-08
 reply_count: 106
 title: '[討論] 現在還有人看過《回到未來》嗎'
 url: https://www.ptt.cc/bbs/movie/M.1646754264.A.3C9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '回到未來三部曲毫無疑問是經典電影，重看不下二十次，仍舊一看再看。
 
 
@@ -2281,7 +2280,7 @@ date: 2021-06-21
 reply_count: 19
 title: 'Re: [極好雷] 回到未來'
 url: https://www.ptt.cc/bbs/movie/M.1624205717.A.661.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'MLB／若小熊2015奪冠　博物館：捐《回到未來》神車
 
 
@@ -2336,7 +2335,7 @@ date: 2015-03-04
 reply_count: 11
 title: '[新聞] 若小熊2015奪冠　博物館：捐《回到未來》'
 url: https://www.ptt.cc/bbs/movie/M.1425468896.A.FD8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "Cinemax\n01/5  回到未來   20:05～22:00\n      回到未來2  22:00～23:45\n\n01/6  回到未來\
   \   12:20～14:15\n      回到未來2  14:15～16:00\n\n01/10 回到未來   01:20～03:15\n      回到未來2\
   \  03:15～05:00\n      回到未來   16:50～18:45\n      回到未來2  18:45～20:30\n\n01/18 回到未來\
@@ -2348,7 +2347,7 @@ date: 2015-01-02
 reply_count: 16
 title: '[討論] 本月「回到未來」播出時間'
 url: https://www.ptt.cc/bbs/movie/M.1420177543.A.EE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '勞勃辛密克斯和 鮑伯蓋爾
 
 
@@ -2383,7 +2382,7 @@ date: 2024-07-14
 reply_count: 82
 title: '[討論] 回到未來不給重製是不是正確的？'
 url: https://www.ptt.cc/bbs/movie/M.1720940470.A.A50.html
---- !!python/object:movie_data.PublicReview
+---
 content: '後來回到未來演員卡司名單有兩個人去演《淘氣阿丹》電影版
 
 
@@ -2425,7 +2424,7 @@ date: 2022-09-28
 reply_count: 1
 title: 'Re: [閒聊] 回到未來 30年後跟現在差異'
 url: https://www.ptt.cc/bbs/movie/M.1664339951.A.EB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為閃電俠的電影而認識回到未來,補完三部曲發覺到第三集主角回去西部車子不小心撞
 
   壞油箱,後來遇到博士就只接用被雷打到的那台回去1985年就好了..撞破油箱的就就地
@@ -2486,7 +2485,7 @@ date: 2024-11-15
 reply_count: 86
 title: '[討論]有關回到未來3的問題'
 url: https://www.ptt.cc/bbs/movie/M.1731635216.A.3DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部最大的問題是
 
 
@@ -2528,7 +2527,7 @@ date: 2020-04-24
 reply_count: 13
 title: 'Re: [新聞] 「回到未來」這一bug拖累整部片不完美？編劇妙答解套'
 url: https://www.ptt.cc/bbs/movie/M.1587739180.A.BEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2022/09/13 iTunes 特價報】
 
   回到未來／伊莉莎白／狡兔計畫／丹麥女孩／第一神拳：冠軍之路／魯邦三世：過去的監
@@ -2720,7 +2719,7 @@ date: 2022-09-13
 reply_count: 1
 title: '[討論] iTunes特價 回到未來/伊莉莎白/丹麥女孩'
 url: https://www.ptt.cc/bbs/movie/M.1663049908.A.8E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影業不斷施壓！《回到未來》主創人堅決拒絕重啟，強調：「我會守護大家的童年回憶」
 
   ！
@@ -2779,7 +2778,7 @@ date: 2020-02-22
 reply_count: 221
 title: '[新聞] 影業不斷施壓！《回到未來》主創人堅決拒'
 url: https://www.ptt.cc/bbs/movie/M.1582373593.A.A38.html
---- !!python/object:movie_data.PublicReview
+---
 content: "馬提和博士真的再次回歸！兩人以《回到未來2》角色聚首\n\n2015 年 10 月 21 號是「回到未來日」，全球各大媒體都在回顧這個經典的電影作品，到底預言了多少科技產品和事件，而當中的演員米高福克斯（Michael\
   \ J. Fox）和克里斯多福洛伊（Christopher Lloyd ）也以片中的角色、服裝，甚至駕駛了經典車款，來到了吉米奇摩的脫口秀，三個人聊了 2015\
   \ 年與他們（電影角色）的差異，畫面相當感人\n\n\n--\n滿滿的感動!!\n\n-----\nSent from JPTT on my Sony D6563.\n\
@@ -2788,7 +2787,7 @@ date: 2015-10-23
 reply_count: 60
 title: '[新聞] 回到未來博士和馬帝今日再聚'
 url: https://www.ptt.cc/bbs/movie/M.1445572203.A.A3B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1985年經典科幻電影「回到未來」，片中男主角Marty Mcfly來到2015年10月21日。\n\n  Toyota為了慶祝這個日子，特地推出氫動力車Mirai雙門鷗翼版，\n\
   \n  向片中的時光車Delorean DMC-12致敬。\n\n\n  (圖) 豐田Mirai鷗翼雙門版，向電影「回到未來」致敬\n  \n\n\n  (圖)\
   \ Mirai鷗翼雙門版，氣勢十足\n  \n  (source: CarAdvice.com.au)\n\n\n  剛好Mirai的漢字也是「未來」，電影中的時光車，有內建一個以吃垃圾來獲得動力的\n\
@@ -2800,7 +2799,7 @@ date: 2015-10-22
 reply_count: 8
 title: '[外電] 回到未來,豐田推出氫氣車Mirai雙門鷗翼版'
 url: https://www.ptt.cc/bbs/movie/M.1445519384.A.F93.html
---- !!python/object:movie_data.PublicReview
+---
 content: '推文有人問什麼時候要拍第四集XD
 
 
@@ -2841,7 +2840,7 @@ date: 2020-07-04
 reply_count: 26
 title: 'Re: [討論] 回到未來三部曲觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1593876783.A.7CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《回到未來》預言奪冠 小熊真過2關了\n\n著名系列電影《回到未來》第2集曾預言，2015年將由小熊隊拿下世界大賽冠軍。劇情看\n來有些諷刺，不過現實裡107年沒拿過世界大賽冠軍的小熊隊，已連過2015季後賽兩關了\n\
   。\n\n包括10月8日在一場定生死的國聯外卡戰，靠著昔日金鶯隊不要、本季賽揚獎大熱門的艾\n瑞耶塔9局完封海盜隊；今天在自家的101年瑞格里球場6比4扳倒本季唯一100勝的紅雀隊\n\
   ，而以3勝1敗拿下分區系列賽，小熊已經跨進相隔12年的國聯冠軍戰。\n\n小熊將在台灣時間18日起7戰4勝制的國聯冠軍戰，對壘另一組分區系列賽大都會vs.道奇\n\
@@ -2850,7 +2849,7 @@ date: 2015-10-14
 reply_count: 23
 title: '[新聞] 《回到未來》預言奪冠 小熊真過2關了'
 url: https://www.ptt.cc/bbs/movie/M.1444794057.A.0AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌版：
 
 
@@ -2932,7 +2931,7 @@ date: 2015-10-06
 reply_count: 17
 title: '[開箱] 台版 回到未來三部曲30周年 BD鐵盒版'
 url: https://www.ptt.cc/bbs/movie/M.1444103435.A.BA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「回到未來」預言小熊奪冠 編劇先討票\n\n2015-02-06 14:51:47 聯合晚報 記者陳宛晶／綜合報導\n\n\n26年前電影「回到未來II」，預言芝加哥小熊2015年奪冠，激勵小熊的雄心壯志。如果小\n\
   熊如願在今年奪冠，編劇蓋爾(Bob Gale) 說：「希望總教練麥登(Joe Maddon)記得給我\n們幾張票。」\n\n「回到未來II」1989年上映，由米高．福克斯\
   \ (Michael J. Fox)飾演的男主角馬帝．麥\n佛萊(Marty McFly)，從1985年來到2015年的未來世界，其中一個片段就是小熊贏得世界\n\
@@ -2946,7 +2945,7 @@ date: 2015-02-06
 reply_count: 8
 title: '[新聞] 「回到未來」預言小熊奪冠 編劇先討票'
 url: https://www.ptt.cc/bbs/movie/M.1423214925.A.8DC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在在看經典的回到未來三部曲，從第一集結束就直接鋪梗第二集，第二集中間也一直鋪
 
   梗要去西部時代。
@@ -2965,7 +2964,7 @@ date: 2025-01-28
 reply_count: 47
 title: '[討論] 回到未來 當初就是直接拍三部曲嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1738035516.A.58D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -3052,7 +3051,7 @@ date: 2021-06-20
 reply_count: 116
 title: '[極好雷] 回到未來'
 url: https://www.ptt.cc/bbs/movie/M.1624192298.A.DB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "標題不夠長\n  復4中前幾次談到要回到過去\n  包括蟻人 羅德都有他們的想法\n  然後浩克跟鋼鐵人 就會說 時間不是那樣運作的(白眼)\n\
   \  然後蟻人跟羅德這兩個科技白痴的想法都是根據回到未來以及其他電影\n  只有我覺得這片段超好笑嗎 電影院超安靜我都不敢笑出來 莫非這是個老人限定梗?\n \
   \ 當然那個勒死薩寶寶也超好笑\n\n--"
@@ -3060,7 +3059,7 @@ date: 2019-05-17
 reply_count: 36
 title: '[請益] 有人跟我一樣覺得復4一直婊回到未來(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1558056992.A.95B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好萊屋這幾年是不是有劇本荒阿
 
   一邊亂湊超級英雄片
@@ -3120,7 +3119,7 @@ date: 2020-02-22
 reply_count: 112
 title: 'Re: [新聞] 影業不斷施壓！《回到未來》主創人堅決拒'
 url: https://www.ptt.cc/bbs/movie/M.1582383600.A.4D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《回到未來》系列不可能重啟　導演：除非我死了
 
 
@@ -3203,7 +3202,7 @@ date: 2015-06-30
 reply_count: 85
 title: '[情報] 《回到未來》系列不可能重啟　 '
 url: https://www.ptt.cc/bbs/movie/M.1435675561.A.89B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《回到未來》眾星37年後聚首 「馬蒂謝布朗博士」不離不棄
 
 
@@ -3277,7 +3276,7 @@ date: 2023-02-26
 reply_count: 53
 title: '[新聞] 《回到未來》眾星37年後聚首'
 url: https://www.ptt.cc/bbs/movie/M.1677342055.A.E07.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛打開Netflix，突然看到推薦片單有回到未來
 
 
@@ -3356,7 +3355,7 @@ date: 2020-07-01
 reply_count: 40
 title: '[討論] Netflix 回到未來上線啦！'
 url: https://www.ptt.cc/bbs/movie/M.1593614669.A.5A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《回到未來》男神61歲拿小金人 從影40年終獲奧斯卡肯定
 
 
@@ -3455,7 +3454,7 @@ date: 2022-06-27
 reply_count: 40
 title: '[新聞] 《回到未來》男神61歲拿小金人從影40年'
 url: https://www.ptt.cc/bbs/movie/M.1656260754.A.ABE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "回到未來一\n\n劇情 from wiki\n\n\n故事發生在1985年的美國。主角馬蒂·麥佛萊（Marty McFly）是一個居住在加州山谷市\n\
   保守家庭裏的17歲高中生，立志成為搖滾樂巨星。但馬帝的家庭環境並不那麼好：馬帝的\n父親喬治（George McFly）是個懦弱的小上班族，常受上司畢夫·譚能（Biff\
   \ Tannen）\n的刁難；母親羅蘭性格迂腐保守，看不慣任何新生事物。此時，馬帝正計畫著與女友珍妮\n佛（Jennifer）於週末時開家裡唯一的破車到湖邊露營；某天深夜，陪同與他交好的鎮上\n\
@@ -3476,7 +3475,7 @@ date: 2015-10-21
 reply_count: 57
 title: '[live] 回到未來'
 url: https://www.ptt.cc/bbs/movie/M.1445429708.A.4DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最大的BUG
 
 
@@ -3573,7 +3572,7 @@ date: 2020-07-04
 reply_count: 91
 title: 'Re: [討論] 回到未來三部曲觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1593844618.A.218.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《回到未來2》影迷試片會 10/21見證「回到未來」大預言\n\n\n今年是經典科幻喜劇《回到未來》的30週年紀念，2015年10月21日更是《回到未來2》中\n\
   ，米高福克斯穿越時空、來到未來的實際日期，全球各地紛在這天舉辦各式「回到未來」\n慶祝活動，，邀請高雄市民重新回味經典喜劇、一同見證電影中對2015年的未來預言\n\
   哪些成真。市民朋友\n，在這個歷史時刻，高雄影迷一起來到電影院共度「回到未來」時光！\n\n除了「2015回到未來，1021影迷試片會」與民同樂，高雄電影節於10/23下午二點於大東\n\
@@ -3594,7 +3593,7 @@ date: 2015-10-19
 reply_count: 19
 title: '[新聞] 《回到未來2》影迷試片會 10/21見證「回'
 url: https://www.ptt.cc/bbs/movie/M.1445252822.A.401.html
---- !!python/object:movie_data.PublicReview
+---
 content: '相隔33年！米高福克斯宣布《回到未來4》將上映
 
 
@@ -3628,7 +3627,7 @@ date: 2018-06-10
 reply_count: 42
 title: '[新聞] 相隔33年！米高福克斯宣布《回到未來4》'
 url: https://www.ptt.cc/bbs/movie/M.1528611165.A.A98.html
---- !!python/object:movie_data.PublicReview
+---
 content: "CINEMAX\n回到未來第二集 (Back to the Future Part II)\n11/22(五) 18:30~20:20\n12/13(五)\
   \ 18:00-19:45\n12/14(六) 14:50-16:35\n12/25(三) 17:50-19:40\n12/26(四) 16:05-17:55\n\
   \n導演：\n勞勃辛密克斯 (Robert Zemeckis)\n演員：\n米高福克斯 (Michael J. Fox)\n克里斯多夫洛伊 (Christopher\
@@ -3638,7 +3637,7 @@ date: 2019-11-22
 reply_count: 4
 title: '[Live] CINEMAX 18:30 回到未來第二集'
 url: https://www.ptt.cc/bbs/movie/M.1574419098.A.48F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這算什麼新聞？
 
 
@@ -3666,7 +3665,7 @@ date: 2016-09-02
 reply_count: 3
 title: 'Re: [新聞] 《回到未來》差點就不叫《回到未來》了'
 url: https://www.ptt.cc/bbs/movie/M.1472791641.A.321.html
---- !!python/object:movie_data.PublicReview
+---
 content: '女星意外被踢出「回到未來」遭換角 坦言：超級傷心！
 
 
@@ -3750,7 +3749,7 @@ date: 2022-04-19
 reply_count: 103
 title: '[新聞] 女星意外被踢出回到未來遭換角 坦言傷心'
 url: https://www.ptt.cc/bbs/movie/M.1650320635.A.FA0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》\n\n\n\n\n2月7日 (三) 反轉結局 春節震撼登場！\n\n農曆春節強檔動作鉅獻\n\n\n\nx x 強勢登場\n\n《》 2/7\
   \ (三) 全台上映\n\n距離哈瓦爆炸只剩48分鐘！\n\n一定要回去阻止哈瓦爆炸\n\n韓國雙週票房冠軍！\n\n《》原班華麗陣容\n\nX X 強勢登場！\n\
   \n《寄生上流》發行團隊 斥資超過400億韓元打造年度動作鉅獻！\n\n《》《暗殺》締造雙千萬觀影人次票房紀錄大導 最新奇幻震撼巨作！\n\n外星人 X 武俠\

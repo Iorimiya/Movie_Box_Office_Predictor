@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -36,7 +35,7 @@ date: 2024-06-28
 reply_count: 10
 title: '[普雷] 神偷奶爸4:系列最低'
 url: https://www.ptt.cc/bbs/movie/M.1719514915.A.D26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小小兵果然戲份很多
 
   還有魔鬼終結者
@@ -51,7 +50,7 @@ date: 2024-05-07
 reply_count: 11
 title: '[討論] 神偷奶爸4 第二支預告'
 url: https://www.ptt.cc/bbs/movie/M.1715096317.A.EAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -136,7 +135,7 @@ date: 2022-02-20
 reply_count: 26
 title: '[新聞] 小小兵2尚未問世 "神偷奶爸4"上映檔期公開'
 url: https://www.ptt.cc/bbs/movie/M.1645352692.A.ECA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上週末去看了神偷奶爸4，先說自己本來就不算這種家庭向年齡層較低的動畫片的粉絲，
 
   當然不喜歡也是難免的！然而如果你是帶小小孩一起去看的話可能適合（？）
@@ -202,7 +201,7 @@ date: 2024-07-16
 reply_count: 10
 title: '[負雷] 純賣IP的神偷奶爸4'
 url: https://www.ptt.cc/bbs/movie/M.1721104961.A.480.html
---- !!python/object:movie_data.PublicReview
+---
 content: '效法「辛普森家庭」！《神偷奶爸4》導演：片中角色不會長大
 
 
@@ -311,7 +310,7 @@ date: 2024-06-29
 reply_count: 32
 title: '[新聞] 效法「辛普森家庭」！《神偷奶爸4》導演'
 url: https://www.ptt.cc/bbs/movie/M.1719617952.A.1C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '神偷奶爸4再爛番茄已經56%
 
   是系列新低
@@ -324,7 +323,7 @@ date: 2024-07-03
 reply_count: 57
 title: '[討論] 神偷奶爸4爛番茄系列新低'
 url: https://www.ptt.cc/bbs/movie/M.1719980498.A.145.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n無雷純分享請往下。\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n暑期多片上檔\n\
   想帶全家人看/想帶小朋友看/想自己看?\n請看以下分析\n\n腦筋急轉彎2:劇情簡單，藉由青少年時期的困擾來帶出人應該接受全部的情緒，\n          \
@@ -335,7 +334,7 @@ date: 2024-07-08
 reply_count: 3
 title: '[無雷] 推薦腦筋急轉彎2/神偷奶爸4/找死兇宅 '
 url: https://www.ptt.cc/bbs/movie/M.1720430698.A.522.html
---- !!python/object:movie_data.PublicReview
+---
 content: "根據Boxofficemojo,台北票房觀測站票房統計\n\n強檔動畫片[神偷奶爸4]截至2024/07/07,\n都拿下北美,全台票房冠軍\n\
   \n北美票房 $122,600,325\n海外票房 $106,939,000\n----------------------\n全球票房 $229,539,325\n\
   \n\n1.北美票房部分:\n\n  從2024/07/03上映,在獨立紀念日期間\n  連續五天單日票房破2000萬美金\n\n  週末五六日三天票房 粗估約7500萬美金,\n\
@@ -348,7 +347,7 @@ date: 2024-07-08
 reply_count: 4
 title: '[情報]神偷奶爸4.北美.全台票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1720436728.A.53E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》
 
 
@@ -419,7 +418,7 @@ date: 2024-01-29
 reply_count: 55
 title: '[情報] 《神偷奶爸4》首支預告'
 url: https://www.ptt.cc/bbs/movie/M.1706478322.A.7AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這集支線太多主線太短
 
 
@@ -474,7 +473,7 @@ date: 2024-07-06
 reply_count: 22
 title: '[負雷] 神偷奶爸4 拍小小兵就好了'
 url: https://www.ptt.cc/bbs/movie/M.1720255101.A.AFA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《神偷奶爸4》全球票房達6億美元 8月線上發行
 
 
@@ -529,7 +528,7 @@ date: 2024-07-28
 reply_count: 18
 title: '[新聞] 《神偷奶爸4》全球票房達6億美元 8月線上'
 url: https://www.ptt.cc/bbs/movie/M.1722156996.A.DDA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '陪同小孩、女友的可以去看
 
   劇情有道德瑕疵
@@ -761,7 +760,7 @@ date: 2024-07-25
 reply_count: 21
 title: '[負雷] 神偷奶爸4：超級小小兵毀了小小兵'
 url: https://www.ptt.cc/bbs/movie/M.1721875021.A.CB8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -803,7 +802,7 @@ date: 2024-07-18
 reply_count: 11
 title: '[討論] 神偷奶爸4 票房1.03億'
 url: https://www.ptt.cc/bbs/movie/M.1721283721.A.5EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n本次神偷奶爸是系列作最差的一部\
   \  (包含小小兵系列)\n\n\n看的時間是昨天在林口威秀下午場次\n\n幾乎坐滿\n\n\n大家都是來看小小兵鬼吼鬼叫跟搞笑的\n\n無奈真的沒有看到，無聊到不行\n\
@@ -832,7 +831,7 @@ date: 2024-07-08
 reply_count: 53
 title: '[負雷] 神偷奶爸4  一度差點睡著'
 url: https://www.ptt.cc/bbs/movie/M.1720414867.A.306.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鏡週刊影評說神偷奶爸4有86分是真的嗎?
 
   我覺得只有七十分
@@ -845,7 +844,7 @@ date: 2024-07-13
 reply_count: 4
 title: '[討論] 鏡週刊影評說神偷奶爸4有86分是真的嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1720804973.A.32A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《神偷奶爸4》讓照明娛樂累積票房突破100億美元大關！發行作品平均票房大勝夢工廠、
 
   皮克斯

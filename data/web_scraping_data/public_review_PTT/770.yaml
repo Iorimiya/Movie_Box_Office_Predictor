@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '看板上好像完全都沒有人看這部片
 
   想說看看長大以後的小查還是寇弟有沒有走鐘還是長歪就決定來看看
@@ -66,7 +65,7 @@ date: 2024-11-23
 reply_count: 10
 title: '[普雷]《驚爆封鎖線》好萊塢電影台規格的電影'
 url: https://www.ptt.cc/bbs/movie/M.1732362496.A.D93.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部蠻好看的
 
   短短90分鐘不馬虎
@@ -99,7 +98,7 @@ date: 2024-11-08
 reply_count: 3
 title: 'Re: [新聞] <小查與寇弟>男星<驚爆封鎖線>拯救大橋危'
 url: https://www.ptt.cc/bbs/movie/M.1731073980.A.B42.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "《悲情城市》在大陸掀熱潮\n\n04:10 2023/06/13 中國時報 李承陽\n\n\n電影《悲情城市》找來梁朝偉演出，當年他僅26歲。（資料照片）\n\
   \n名導侯孝賢1989年執導的經典電影《悲情城市》，2023年推出4K版本，不僅台灣跟香港在\n院線開出票房紀錄，甚至在4月於北京電影節創下6秒完售特映場的成績，接著本月12日起\n\
   ，《悲情城市》又在上海國際電影節播映3場，即使票價約要台幣600元，依舊在幾小時內\n完售。\n\n對於這種熱潮現象，當年《悲情城市》出品公司年代國際（香港）有限公司執行長褚明仁\n\
@@ -12,7 +11,7 @@ date: 2023-06-13
 reply_count: 13
 title: '[新聞] 《悲情城市》在大陸掀熱潮'
 url: https://www.ptt.cc/bbs/movie/M.1686670475.A.B85.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -169,7 +168,7 @@ date: 2023-03-02
 reply_count: 37
 title: '[好雷] 悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1677748181.A.51E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '此次為4K數位修復版，可惜台中場次有支援
 
   4K的影廳，《悲情城市》似乎都沒有排上，
@@ -304,7 +303,7 @@ date: 2023-02-25
 reply_count: 76
 title: '[好雷] 《悲情城市》悲情的人們'
 url: https://www.ptt.cc/bbs/movie/M.1677255136.A.70B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《悲情城市》經典重現 梁朝偉催出網路聲量\n\n2023/02/22 05:30\n\n\n《悲情城市》在梁朝偉訪台後網路聲量飆升，已成近年國片最受熱議的文化現象。\n\
   （牽猴子提供）\n\n〔記者許世穎／台北報導〕由導演侯孝賢執導的電影《悲情城市》，以全新4K數位版重返\n大銀幕，國際巨星梁朝偉上週特地飛來台灣看首映，深情感言掀起熱烈迴響，更讓該片網\n\
   路聲量與梁朝偉本人的好感度飆升。\n\n電影將於24日上映，相關書籍、限量款經典海報，近日盤踞各大熱銷排行榜首，加上各界\n包場支持，使得這部33年前出品的歷久彌新經典，儼然已成近年國片最受熱議的文化現象\n\
@@ -315,7 +314,7 @@ date: 2023-02-22
 reply_count: 6
 title: '[新聞] 《悲情城市》經典重現 梁朝偉催出網路聲量'
 url: https://www.ptt.cc/bbs/movie/M.1677079821.A.50B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部所代表是歷史轉捩點
 
   沒有悲情城市 228事件
@@ -399,7 +398,7 @@ date: 2023-03-13
 reply_count: 24
 title: 'Re: [ 好雷] 悲情城市特別場'
 url: https://www.ptt.cc/bbs/movie/M.1678672520.A.DF1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2023年2月24日，時隔33年，《悲情城市》 4 K數位修復版上映。
 
 
@@ -507,7 +506,7 @@ date: 2023-03-13
 reply_count: 25
 title: '[好雷] 悲情城市—終究是屬於台灣人的故事'
 url: https://www.ptt.cc/bbs/movie/M.1678647719.A.A49.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -767,7 +766,7 @@ date: 2023-03-02
 reply_count: 17
 title: '[好雷]《悲情城市》－不求真相，只願莫忘。'
 url: https://www.ptt.cc/bbs/movie/M.1677733891.A.A48.html
---- !!python/object:movie_data.PublicReview
+---
 content: '悲情城市上海播映一票難求 影迷看二二八感觸深：想到天安門事件
 
 
@@ -881,7 +880,7 @@ date: 2023-06-12
 reply_count: 16
 title: '[新聞] 悲情城市上海播映一票難求 影迷看二二八'
 url: https://www.ptt.cc/bbs/movie/M.1686579750.A.500.html
---- !!python/object:movie_data.PublicReview
+---
 content: '幫po文~
 
 
@@ -907,7 +906,7 @@ date: 2023-03-01
 reply_count: 9
 title: '[贈票] 台南今晚1830電影-悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1677661451.A.E90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '再新電影出發的時候：臺灣新電影四十年回顧
 
 
@@ -1185,7 +1184,7 @@ date: 2022-09-15
 reply_count: 5
 title: '[情報] 臺灣新電影40年回顧影展&《悲情城市》數'
 url: https://www.ptt.cc/bbs/movie/M.1663229236.A.B4B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原榜單在此，其實還有從1996年開始算起的榜單，以及女性導演榜單
 
 
@@ -1399,7 +1398,7 @@ date: 2021-11-14
 reply_count: 22
 title: 'Re: [新聞] 釜山電影節亞洲百大佳片 侯孝賢悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1636879212.A.F79.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近重溫侯導的悲情城市，也緬懷陳松勇眾多著名角色中獲獎的經典代表作
 
 
@@ -1487,7 +1486,7 @@ date: 2022-01-03
 reply_count: 27
 title: '[雷] 悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1641187958.A.1EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "小弟35歲，剛剛才看完悲情城市，算是非常落伍了...\n  如果是6年前，也就是我29歲之前看悲情城市，\n　我會跟你一樣的想法，認為它不過是個無聊的藝術得獎片罷了，\n\
   　這幾年，多虧台獨教父馬總統的治理，讓我開始去瞭解過去台灣真正的歷史，\n　不是小時候教科書短短兩行\"1947/2/28發生二二八事件\"而已，\n　原來國民黨政府一直想掩蓋，至今叫大家不要再消費的二二八是多麼慘烈，\n\
   　還有之後長達數十年的白色恐怖....\n\n  看看主角一家，老二最聰明被日本人害得生死未卜，\n　老大被上海佬幫開槍打死（其實也是暗喻來台灣欺壓人民的外省人們），\n\
@@ -1501,7 +1500,7 @@ date: 2015-10-26
 reply_count: 177
 title: 'Re: [請益] 看不懂悲情城市有多悲情是不是很遜?(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1445838680.A.F6B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1586,7 +1585,7 @@ date: 2015-10-23
 reply_count: 57
 title: '[新聞] 《悲情城市》編劇待遇 朱天文吳念真編劇'
 url: https://www.ptt.cc/bbs/movie/M.1445570703.A.B82.html
---- !!python/object:movie_data.PublicReview
+---
 content: '侯導應該是用二哥 三哥
 
   來帶出台灣當時很重要的一個存在的狀況
@@ -1636,7 +1635,7 @@ date: 2023-02-28
 reply_count: 4
 title: 'Re: [討論] 悲情城市中高捷飾演的文良一角（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1677582571.A.B70.html
---- !!python/object:movie_data.PublicReview
+---
 content: "梁朝偉《悲情城市》婚禮 著實跪拜九叩首\n\n04:10 2023/01/30 中國時報 李承陽\n\n\n26歲的梁朝偉（右）與23歲的辛樹芬，在《悲情城市》中扎扎實實跪拜到九叩首。\n\
   （牽猴子提供）\n\n\n迎親戲中新娘辛樹芬（右）身著典雅過膝洋裝，新郎梁朝偉則是三件式直條紋西裝。\n（牽猴子提供）\n\n影帝梁朝偉去年在韓國釜山影展記者會上提及，最想讓新一代觀眾欣賞的作品，是他33年\n\
   前來台拍攝的《悲情城市》，這部台灣影史首部榮獲威尼斯影展金獅獎的巨作，將以4K數\n位調光版本重映。電影開拍前3年，劇組對1947年故事發生的歷史背景深入研究，對當時\n\
@@ -1649,7 +1648,7 @@ date: 2023-01-30
 reply_count: 36
 title: '[新聞] 梁朝偉《悲情城市》婚禮 著實跪拜九叩首'
 url: https://www.ptt.cc/bbs/movie/M.1675093598.A.14B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "沒想到當代綜藝天王\n唐綺陽跟邰智源有演悲情城市！\n他們還23歲同年，真是經過大風大浪\n照片轉載自牽猴子電影公司臉書\n\n\n\n\n\n\
   \n\n\n\n梁朝偉以影會友 挺《悲情城市》低調來台\n\n2023/02/14 05:30\n\n\n梁朝偉演出的《悲情城市》33週年4K全新數位版即將登上大銀幕。（牽猴子提供）\n\
   \n〔記者廖俐惠／台北報導〕香港巨星梁朝偉暌違10年來台，據悉是為了宣傳電影《悲情城\n市》33週年4K全新數位版，將出席今天的首映會，並與老友敘舊。梁朝偉上次在台灣公開\n\
@@ -1665,7 +1664,7 @@ date: 2023-02-17
 reply_count: 60
 title: 'Re: [新聞] 梁朝偉以影會友 挺《悲情城市》低調來台'
 url: https://www.ptt.cc/bbs/movie/M.1676611037.A.B48.html
---- !!python/object:movie_data.PublicReview
+---
 content: "其實就是多發了張海報，有看到觀眾小心地帶著A3資料夾坐在地上收拾好。\n\n覺得自己也想要這樣子學起來。\n\n\n\n我並不知道這是臺灣第一部跟228有關的戲劇，\n\
   \n這次會看也是因為我一直覺得很迷人的梁朝偉提到說他很期待這部片重映，\n\n然後說也奇怪就重映了，\n\n不知道是人家順了他的意還是他也接業配就是了。\n\n\
   反正就在這什麼都不知道的情況下開始看起。\n\n對了我甚至在觀看之前買了劇本書，\n\n明知道是被盤但還是被盤得很高興的狀況。\n\n所以看之前的印象就只有梁朝偉、高捷、陳松勇的幹你娘很好聽？\n\
@@ -1684,7 +1683,7 @@ date: 2023-03-13
 reply_count: 59
 title: '[ 好雷] 悲情城市特別場'
 url: https://www.ptt.cc/bbs/movie/M.1678664691.A.874.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n其實我已經忘記當年看這部\n\
   到底是高中還是大學了XD\n\n這次能有機會再上大螢幕當然不能錯過啦\n全文算是個人針對角色的心得\n求高抬貴手輕鞭^^\"\n\n\n\n關於文良（老三）\n\
@@ -1708,7 +1707,7 @@ date: 2023-02-28
 reply_count: 14
 title: '[好雷] 悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1677580815.A.F0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -1765,7 +1764,7 @@ date: 2023-02-28
 reply_count: 33
 title: '[討論] 悲情城市中高捷飾演的文良一角（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1677558116.A.E0F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "同樣是日本人做的配樂\n我喜歡悲情城市大於末代皇帝\n\n雖然陳懷恩大師的攝影比起李屏賓大師 比較中規中矩\n但還是跟侯導一起平靜又誠實的說了一個關於台灣自己的故事\n\
   \n每次看到這幕\n\n都會讓我想到萬仁導演“超級大國民“的這幕\n\n然後熱淚盈眶\n\n和平東路一直往東走 上了山\n在一個小小的岔路斜坡旁 寫著：\n白色恐怖紀念園區\n\
   \n是我大學時常常會去的地方\n\n當朋友跟我說 地上遍佈的小小石柱 是無名塚時\n我心中震驚不已\n\n超級大國民的年邁主角\n在那一片無言的墓地上 點滿懺悔的燭光\n\
@@ -1775,7 +1774,7 @@ date: 2022-02-28
 reply_count: 2
 title: '[討論] 年代電視台今天應該也會播悲情城市吧？'
 url: https://www.ptt.cc/bbs/movie/M.1646033583.A.DF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁+前情提要：
 
 
@@ -2228,7 +2227,7 @@ date: 2011-08-21
 reply_count: 25
 title: '[好雷] 悲情城市 '
 url: https://www.ptt.cc/bbs/movie/M.1313866356.A.CC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這週台中上映「悲情城市」的影城中，新時代威秀把這片排在最大的旗艦第1廳，但一天
 
   只有一場。這廳設備是 4K鐳射放映系統，這廳的畫質極佳、論影像品質在台中只輸給台
@@ -2245,7 +2244,7 @@ date: 2023-03-11
 reply_count: 21
 title: 'Re: [討論] 哪些電影院會上映4K的悲情城市？'
 url: https://www.ptt.cc/bbs/movie/M.1678493403.A.934.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2377,7 +2376,7 @@ date: 2023-02-26
 reply_count: 31
 title: '[好雷] 悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1677344600.A.83E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '━━━━━━━━━━━━━━━━━━━━━
 
   　史　詩　鉅　片　《　悲　情　城　市　》
@@ -2420,7 +2419,7 @@ date: 2022-10-22
 reply_count: 35
 title: '[情報] 史詩鉅片《悲情城市》經典再現'
 url: https://www.ptt.cc/bbs/movie/M.1666421020.A.B70.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2645,7 +2644,7 @@ date: 2020-01-09
 reply_count: 31
 title: '[新聞] 1989——《悲情城市》與台灣的第一座金獅'
 url: https://www.ptt.cc/bbs/movie/M.1578500119.A.EEF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前搶到影視聽中心放映的悲情城市的票，趁年底來補一下心得。
 
 
@@ -2727,7 +2726,7 @@ date: 2022-12-16
 reply_count: 14
 title: '[好雷] 悲情城市裡的悲歡離合（劇情雷）'
 url: https://www.ptt.cc/bbs/movie/M.1671184544.A.F7F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '媒體來源：自由時報
 
 
@@ -2827,7 +2826,7 @@ date: 2022-12-29
 reply_count: 144
 title: '[新聞] 台灣人一生必看！《悲情城市》梁朝偉全家'
 url: https://www.ptt.cc/bbs/movie/M.1672296613.A.662.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: qweewqq (風一樣的男子) 看板: Gossiping
 
   標題: [問卦] 電視很少播悲情城市，卻一直重播港片？
@@ -2853,7 +2852,7 @@ date: 2015-05-17
 reply_count: 10
 title: 'Fw: [問卦] 電視很少播悲情城市，卻一直重播香港電影?'
 url: https://www.ptt.cc/bbs/movie/M.1431870940.A.9AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，
 
 
@@ -2873,7 +2872,7 @@ date: 2015-04-16
 reply_count: 4
 title: '[請益] 悲情城市裡的一首歌？！'
 url: https://www.ptt.cc/bbs/movie/M.1429130557.A.7DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "梁朝偉憶《悲情城市》 拍藝術片的起點\n\n04:10 2023/10/27 中國時報 孫伊萱\n\n\n梁朝偉26日出席東京影展舉辦的大師講座，開心與日本影迷打招呼。\n\
   （摘自影展官方推特）\n\n名導侯孝賢因罹患失智症宣布退休，曾參演他代表作《悲情城市》的影帝梁朝偉，26日出\n席在東京影展舉辦的大師講座時，開心分享當年拍攝的點點滴滴，他直呼：「這可說是我\n\
   工作正式開始的地方，第一次親身看到藝術片是如何拍攝的。」\n\n提及侯孝賢，梁朝偉分享因為自己不會說閩南語，所以侯導就把他的角色設定為聾啞人士\n，「侯導當時要做的事太多了，所以他沒有空理我，都是讓我自己發揮，所以一開始我真\n\
@@ -2886,7 +2885,7 @@ date: 2023-10-27
 reply_count: 7
 title: '[新聞] 梁朝偉憶《悲情城市》 拍藝術片的起點'
 url: https://www.ptt.cc/bbs/movie/M.1698420445.A.40A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "整理了二度重看悲情城市觀影重點。\n\n一段1945~1949年林氏家族的故事，始於日本投降，終於國民政府正式遷台。\n\n二次唱悲歌：蔡秋鳳+蔡振南，都有二胡伴樂。\n\
   \n二次擦地板鏡頭：一次是酒家，一人跪地擦地板，一次是醫院，一人用拖把擦地板。\n\n三段廣播：一段是日本天皇御音，另二段是陳儀因228事件，二度廣播放送安撫人心。\n\
   \n侯導喜歡拍的場景：\n一，九份俯瞰漁港。\n\n二、九份（實則是金瓜石）山路，寬美文清上山、寬美寬榮下山。文清上山找寬榮，有看\n    到廢煙管。\n\n\
@@ -2898,7 +2897,7 @@ date: 2023-04-04
 reply_count: 2
 title: '[無雷]再刷悲情城市 '
 url: https://www.ptt.cc/bbs/movie/M.1680618271.A.4AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '島國拾影 昨天有貼一篇
 
 
@@ -2925,7 +2924,7 @@ date: 2023-03-28
 reply_count: 13
 title: 'Re: [討論] 悲情城市的一個場景'
 url: https://www.ptt.cc/bbs/movie/M.1680016141.A.36A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3009,7 +3008,7 @@ date: 2023-03-06
 reply_count: 85
 title: '[新聞] 《悲情城市》3年不上串流！陳松勇狂飆三'
 url: https://www.ptt.cc/bbs/movie/M.1678090163.A.778.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這次重新上映的「悲情城市」
 
 
@@ -3052,7 +3051,7 @@ date: 2023-02-24
 reply_count: 11
 title: '[討論] 哪些電影院會上映4K的悲情城市？'
 url: https://www.ptt.cc/bbs/movie/M.1677222912.A.788.html
---- !!python/object:movie_data.PublicReview
+---
 content: '國影慶40周年 紀錄片《大甲媽祖回娘家》數位修復版10/25特映
 
 
@@ -3146,7 +3145,7 @@ date: 2019-10-10
 reply_count: 12
 title: '[新聞] 國影慶40週年《悲情城市》30週年特別放映'
 url: https://www.ptt.cc/bbs/movie/M.1570645312.A.B49.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3201,7 +3200,7 @@ date: 2021-11-13
 reply_count: 26
 title: '[新聞] 釜山電影節亞洲百大佳片 侯孝賢悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1636793646.A.88F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我原本不太習慣悲情城市的長鏡頭敘事方式\n但是看完整部片之後 發現片中好多畫面會縈繞心頭\n再搭配wiki上的劇情簡介跟版上幾篇網友的分享\n\
   慢慢發現這部片的後勁很強\n值得細細回味\n\n但還是有幾幕我實在想不通導演想要呈現/表達什麼：\n\n1.舞龍舞獅：那麼久是要幹嘛?\n\n2.林文雄半夜睡不著起來泡茶，說他小時候跟爸爸一起出門綁被在電線桿上的故事\n\
   \n3.林文雄賭博，鏡頭拍他的表情拍好久，而且整部片為什麼那麼多賭博的鏡頭？\n  是否在對比上海人賭博的悠哉跟苦命台灣人賭博是在紓壓?\n\n4.前半段有一幕在帷幕裡一男一女，男的似乎想上但被女生推開，最後被蓋布袋帶走。\n\
@@ -3211,7 +3210,7 @@ date: 2023-02-28
 reply_count: 62
 title: '[請益] 悲情城市 片中幾點疑問 (有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1677596124.A.C6A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因近期想帶外國友人去看這部電影
 
   不知 版上各位在台北區的電影院觀看時 是否有英文字幕?
@@ -3228,7 +3227,7 @@ date: 2023-02-27
 reply_count: 19
 title: '[請益] 悲情城市電影中文字幕下有英文字幕嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1677476013.A.D85.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n侯孝賢執導的經典史詩鉅作《悲情城市》時隔33年後，即將以全新4K數位版全台上映。該\n片是台灣政治解嚴之初，電影創作上首部直接挑戰政治禁忌話題和電檢尺度的作品。尤其\n\
   飾演失聰人士的梁朝偉，在片尾吃力說出「我…台灣人」的經典台詞，一句話道盡身為台\n灣人無奈，強大的感染力道，深深打動人心。\n\n《悲情城市》以228事件為背景，透過一個台灣基隆家族興衰，帶出封塵禁錮歷史。當年\n\
   一舉奪下威尼斯影展最佳影片金獅獎，成為首部於世界三大影展掄元的國片，不但鼓舞了\n台灣電影創作者，開啟國片在全球各大影展引領風騷的美好年代。\n\n經典重映的全新彩色款主視覺海報的中文文案只有一句：「身為台灣人，一生必看的電影\n\
@@ -3245,7 +3244,7 @@ date: 2023-02-02
 reply_count: 17
 title: '[新聞]一生必看的電影《悲情城市》經典重映'
 url: https://www.ptt.cc/bbs/movie/M.1675345577.A.C9F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3466,7 +3465,7 @@ date: 2023-02-28
 reply_count: 32
 title: '[好雷] 末代皇帝與悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1677593761.A.E84.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《悲情城市》闊別33年！重返香港大銀幕　「千人座席」影廳上映秒殺
 
 
@@ -3528,7 +3527,7 @@ date: 2023-04-01
 reply_count: 6
 title: '[新聞] 《悲情城市》闊別33年！重返香港大銀幕　'
 url: https://www.ptt.cc/bbs/movie/M.1680357244.A.21A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "中山73推雙影展 《再見列寧》、《悲情城市》喜悲登場\n\n16:37 2023/03/30 中時 李承陽\n\n\n梁朝偉因為演出《悲情城市》開創日後不凡的演藝成就。（海鵬影業提供）\n\
   \n\n《再見列寧》當年上映時，創下許多傲人的電影紀錄。（海鵬影業提供）\n\n作為中部唯一藝術電影院放映空間，台中中山73四月份焦點主題，將推出「再見悲情」影\n\
   展，結合《再見列寧》與《悲情城市》兩部數位修復電影，反映出大時代關鍵時刻下、人\n民的悲喜與命運。\n\n「再見悲情」影展將兩部獲獎無數、在歷史及影史都堪稱地位非凡的數位修復片《悲情城\n\
@@ -3542,7 +3541,7 @@ date: 2023-03-30
 reply_count: 2
 title: '[新聞] 中山73推雙影展 《再見列寧》、《悲情城市》喜悲登場'
 url: https://www.ptt.cc/bbs/movie/M.1680183943.A.61A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\
   \n\n\n\n\n\n昨天晚上一邊喝vodka一邊看\n\n兩個半小時的片長\n我到中後段居然有種不想趕快把他看完的感覺 (而且我都快倒了XD)\n\n不討論劇情\n\
   \n裡面演技派太多，根本沒啥好挑剔\n然後由四個兄弟(?)的故事來帶出當年的環境\n\n由於文雄被殺死\n後來你才體會到，原來串連整部戲的主角 其實是老四文清\n\
@@ -3552,7 +3551,7 @@ date: 2020-03-08
 reply_count: 40
 title: '[好雷] 悲情城市'
 url: https://www.ptt.cc/bbs/movie/M.1583619358.A.9E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
 
@@ -3578,7 +3577,7 @@ date: 2015-08-13
 reply_count: 10
 title: '[問片] 悲情城市最後一幕'
 url: https://www.ptt.cc/bbs/movie/M.1439438747.A.2A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '官方跟ＹＴ拍的新舊比較圖片
 
 
@@ -3636,7 +3635,7 @@ date: 2023-03-04
 reply_count: 17
 title: '[討論] 悲情城市的一個場景'
 url: https://www.ptt.cc/bbs/movie/M.1677942553.A.627.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以前買過悲情城市的VCD
 
   但畫質不佳又昏暗，很多地方都看不清楚
@@ -3705,7 +3704,7 @@ date: 2023-02-26
 reply_count: 26
 title: '[好雷] 悲情城市  腦海中的畫面變清晰了'
 url: https://www.ptt.cc/bbs/movie/M.1677413351.A.F07.html
---- !!python/object:movie_data.PublicReview
+---
 content: "梁朝偉以影會友 挺《悲情城市》低調來台\n\n2023/02/14 05:30\n\n\n梁朝偉演出的《悲情城市》33週年4K全新數位版即將登上大銀幕。（牽猴子提供）\n\
   \n〔記者廖俐惠／台北報導〕香港巨星梁朝偉暌違10年來台，據悉是為了宣傳電影《悲情城\n市》33週年4K全新數位版，將出席今天的首映會，並與老友敘舊。梁朝偉上次在台灣公開\n\
   亮相已經是2013年的第50屆金馬獎，此次來台片商低調證實，梁朝偉確實因個人行程來台\n。\n\n\n梁朝偉（右）在《悲情城市》中一句「我是台灣人」逼哭許多觀眾。\
@@ -3720,7 +3719,7 @@ date: 2023-02-14
 reply_count: 47
 title: '[新聞] 梁朝偉以影會友 挺《悲情城市》低調來台'
 url: https://www.ptt.cc/bbs/movie/M.1676389691.A.944.html
---- !!python/object:movie_data.PublicReview
+---
 content: '悲情城市很有名，榮獲最佳影片「金獅獎」。
 
 
@@ -3741,7 +3740,7 @@ date: 2022-08-28
 reply_count: 50
 title: '[討論] 悲情城市是不是過譽了?'
 url: https://www.ptt.cc/bbs/movie/M.1661658220.A.A0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近重溫悲情城市，裡面有個叫紅猴的角色
 
 
@@ -3779,7 +3778,7 @@ date: 2017-09-11
 reply_count: 5
 title: '[討論] 悲情城市的紅猴'
 url: https://www.ptt.cc/bbs/movie/M.1505135206.A.35E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '純粹好奇 一個小小的問題
 
 

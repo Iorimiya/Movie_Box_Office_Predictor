@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '某一些人是誰？
 
 
@@ -38,7 +37,7 @@ date: 2016-12-01
 reply_count: 19
 title: 'Re: [討論]《你的名字》賣破194億日幣破魔法公主紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1480578782.A.3DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天第一次看魔法公主
 
 
@@ -79,7 +78,7 @@ date: 2024-01-10
 reply_count: 46
 title: '[  雷] 魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1704901210.A.14E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實重點在於，這部片確實有打動到人心。
 
 
@@ -110,7 +109,7 @@ date: 2016-12-01
 reply_count: 15
 title: 'Re: [討論]《你的名字》賣破194億日幣破魔法公主紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1480567247.A.CA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實正如我所言，"賣座片一定有打動人心之處，但是打動人心的片不一定賣座"。
 
 
@@ -138,7 +137,7 @@ date: 2016-12-01
 reply_count: 7
 title: 'Re: [討論]《你的名字》賣破194億日幣破魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1480580540.A.27D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影前面阿席達卡與神婆對談的時候
 
   神婆稱呼阿席達卡 「higoya 」（憑聽到的打出來）
@@ -166,7 +165,7 @@ date: 2024-01-27
 reply_count: 23
 title: '[請益] 魔法公主翻譯問題'
 url: https://www.ptt.cc/bbs/movie/M.1706336500.A.B1D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '趁著下檔前再去刷了一波魔法公主，順便搜集香噴噴小桑海報<3
 
 
@@ -339,7 +338,7 @@ date: 2024-02-03
 reply_count: 18
 title: '[ 超好雷] 《魔法公主》想說些什麼？'
 url: https://www.ptt.cc/bbs/movie/M.1706905156.A.EFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '導演：怪獸設計受到宮崎駿動畫的影響
 
 
@@ -375,7 +374,7 @@ date: 2017-02-10
 reply_count: 12
 title: '[討論] 《金剛：骷髏島》致敬《魔法公主》'
 url: https://www.ptt.cc/bbs/movie/M.1486705426.A.FA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天在中國首映，觀眾突破兩百萬，票房突破五千萬人民幣，
 
   日本人的感想如下:
@@ -569,7 +568,7 @@ date: 2016-12-02
 reply_count: 50
 title: 'Re: [討論]《你的名字》賣破194億日幣破魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1480679233.A.404.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我第一次看魔法公主是我童年在電視看的，多年後裡面劇情我幾乎忘差不多，但最有印象
 
   的是受槍傷的男主角當要被女主角殺死時，居然說：
@@ -615,7 +614,7 @@ date: 2024-01-21
 reply_count: 97
 title: '[  雷] 魔法公主的一句台詞'
 url: https://www.ptt.cc/bbs/movie/M.1705826360.A.295.html
---- !!python/object:movie_data.PublicReview
+---
 content: "6歲我勸你真的不要帶進場\n \n以我的例子講給你看就知道了\n幼稚園的時候老師在電視放魔法公主\n裡面血腥、斷頭、密集恐懼\n當時看了直接嚇尿了\n\
   心靈創傷了好久\n以前看早期柯南也有幾集比較可怕\n但是魔法公主更恐怖\n \n \n \n儘管現在因為工作關係看了許多人體解剖噴血畫面\n但對於魔法公主重映，心中還是怕怕的不敢進戲院\n\
   \ \n \n拜託真的不要因為「宮崎駿」三個字就覺得一定適合小朋友\n就如同有次宮崎駿音樂會遇到小小孩來鬧場那樣\n \n我真的覺得魔法公主應該列為限制級才對\n\
@@ -624,7 +623,7 @@ date: 2024-01-06
 reply_count: 69
 title: 'Re: [問片] 重映魔法公主的分級'
 url: https://www.ptt.cc/bbs/movie/M.1704493361.A.790.html
---- !!python/object:movie_data.PublicReview
+---
 content: '華山光點
 
 
@@ -714,7 +713,7 @@ date: 2024-01-15
 reply_count: 12
 title: '[好雷] 無解的難題 魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1705329363.A.655.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「我喜歡你，但是我無法原諒人類。」\n    「沒關係，那就和我一起活下去吧。」\n\n    觀看《魔法公主》，你很難不想起宮崎駿最早的那部動畫長片《風之谷》（\n\
   風の谷のナウシカ）——故事都是從避世於太陽之西的小部落開始，同樣探討著\n人類與自然的競合關係，人們也還是跟往常一樣忙著彼此爭鬥，渾然不知大禍臨\n頭。兩部作品相隔十幾年，《魔法公主》的作畫水準自然是不可同日而語，人物\n\
   的肢體動作更加細膩流暢，遼闊的山水景致令人心曠神怡。聽著久石讓那首沉穩\n深遠，卻透著溫潤雅致的主題曲〈阿席達卡傳奇〉，你只感覺到脊梁從尾椎開始\n往上發毛，一路通透到頂輪；然後你眼前一亮，看世界的眼光從此變得不一樣。\n\
@@ -760,7 +759,7 @@ date: 2018-12-24
 reply_count: 113
 title: '[有雷] 去你的天人合一，納命來！——魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1545641044.A.4CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '借引用一下推文
 
 
@@ -802,7 +801,7 @@ date: 2024-01-07
 reply_count: 15
 title: 'Re: [好雷] 魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1704600571.A.EF1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -909,7 +908,7 @@ date: 2024-01-21
 reply_count: 22
 title: '[好雷] 魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1705769551.A.803.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請問大家知道這次重新上映的魔法公主分級
 
 
@@ -926,7 +925,7 @@ date: 2024-01-02
 reply_count: 113
 title: '[問片] 重映魔法公主的分級'
 url: https://www.ptt.cc/bbs/movie/M.1704164781.A.305.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'ETtoday 2019年08月17日 07:20
 
 
@@ -993,7 +992,7 @@ date: 2019-08-18
 reply_count: 22
 title: '[新聞] 宮崎駿曾送武士刀去美國 《魔法公主》的2'
 url: https://www.ptt.cc/bbs/movie/M.1566143049.A.F8D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '魔法公主紀念版27年後重映！
 
 
@@ -1017,7 +1016,7 @@ date: 2023-12-08
 reply_count: 100
 title: '[討論] 魔法公主重映'
 url: https://www.ptt.cc/bbs/movie/M.1702012040.A.7A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -1153,7 +1152,7 @@ date: 2024-05-28
 reply_count: 4
 title: '[  雷] 魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1716886109.A.052.html
---- !!python/object:movie_data.PublicReview
+---
 content: "<神隱少女> 講述一個小女孩誤闖了神靈世界，之後經歷成長的故事\n\n           最終獲得奧斯卡金像獎的肯定\n\n<魔法公主> 電影講述在幻想的室町時代裡，一名蝦夷少年為了找自己自己受困擾咒的\n\
   \n           原因而離開家園，之後介入了一場人類與森林神祇兩方的衝突事件\n\n\n兩部動畫神作 想問問看大家覺得哪部最好看\n\n我自己是最愛魔法公主的\
   \ 劇情裡人類對大自然的破壞造成大自然最終的反撲\n\n讓人感同身受～\n\n\n--\n\n超好聽宮崎駿音樂鋼琴版\n\n\n--\n\n--"
@@ -1161,7 +1160,7 @@ date: 2020-03-29
 reply_count: 326
 title: '[討論] 神隱少女VS天空之城 大家會選哪部？'
 url: https://www.ptt.cc/bbs/movie/M.1585485541.A.DC0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '宮崎駿電影裡面的"反派" 通常都是政府單位
 
 
@@ -1205,7 +1204,7 @@ date: 2016-10-28
 reply_count: 18
 title: 'Re: [好雷] 魔法公主 - 黑帽大人'
 url: https://www.ptt.cc/bbs/movie/M.1477620684.A.99F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '家
 
   往
@@ -1379,7 +1378,7 @@ date: 2024-01-14
 reply_count: 13
 title: 'Re: [好雷] 魔法公主－一場尋求「生」的旅途'
 url: https://www.ptt.cc/bbs/movie/M.1705220103.A.EBA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天下午在京站威秀看完國語版的魔法公主.....
 
 
@@ -1455,7 +1454,7 @@ date: 2024-01-08
 reply_count: 18
 title: 'Re: [好雷] 魔法公主 (配音和字幕問題)'
 url: https://www.ptt.cc/bbs/movie/M.1704714265.A.A41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影片連結：
 
 
@@ -1485,7 +1484,7 @@ date: 2024-01-09
 reply_count: 20
 title: '[討論] 《魔法公主》自製停格動畫'
 url: https://www.ptt.cc/bbs/movie/M.1704764739.A.D19.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這部都24年了，還需要防雷嗎XD\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\
   \n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n在網飛上轉到就重看了一次，覺得真是浪費我兩小時\n\n＊中文譯名「魔法公主」也太爛了\n\n  女主角小桑根本不是「公主」，也不會魔法\n\n  日文「姫」就是個女性尊稱而已，不是什麼公主\n\
@@ -1501,7 +1500,7 @@ date: 2021-03-15
 reply_count: 25
 title: '[負雷] 魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1615812008.A.9CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果要拍真人版的話，建議女主角:森野葉子
 
   男主角:ptt任何一位鄉民
@@ -1517,7 +1516,7 @@ date: 2015-03-18
 reply_count: 1
 title: 'Re: [情報] 英國粉絲籌拍真人版『魔法公主』續作短篇'
 url: https://www.ptt.cc/bbs/movie/M.1426672379.A.591.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(文長)
 
 
@@ -1884,7 +1883,7 @@ date: 2024-01-19
 reply_count: 35
 title: '[好雷] 30歲後重新鑑賞的魔法公主 '
 url: https://www.ptt.cc/bbs/movie/M.1705594582.A.418.html
---- !!python/object:movie_data.PublicReview
+---
 content: "標題:你的名字超越魔法公主成為收入最高電影\n\n底下的評論\n\n>沒有比魔法公主好,如果你喜歡著重s**t的情感,那你的名字是偉大的\n>>魔法公主是我看過最好的電影,你的名字受歡迎只是因為酷炫的視覺效果\n\
   \  它幾乎沒有任何價值\n\n[ - ] ChaosReaver101 1分 13 hours ago\n如果沒有到你附近的電影院，請在網上觀看：P\n\n\
   >我同意還不錯,但我期待更多\n 有驚人的音樂跟畫面,但沒有對我留下深刻印象\n 如果我一開始不抱期望,那我對這部的評價會更好\n>>我幾個小時前離開戲院,你的評論準確的描述了我的感覺\n\
@@ -1894,7 +1893,7 @@ date: 2016-11-27
 reply_count: 38
 title: '[討論] 你的名字 外國reddit.com討論評價'
 url: https://www.ptt.cc/bbs/movie/M.1480222837.A.0A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文恕刪
 
 
@@ -1922,7 +1921,7 @@ date: 2024-01-05
 reply_count: 93
 title: 'Re: [新聞] 宮﨑駿《魔法公主》海報 電燈關掉竟藏彩蛋'
 url: https://www.ptt.cc/bbs/movie/M.1704454219.A.513.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問大大這位是魔法公主裡的誰   因為我只有英文查不到中文翻譯
 
 
@@ -1938,7 +1937,7 @@ date: 2015-05-09
 reply_count: 2
 title: '[問片] 魔法公主中的誰?'
 url: https://www.ptt.cc/bbs/movie/M.1431180569.A.7CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然我很喜歡看動畫，但「電影」這個載體一直沒有很吸引我，可能源於小時候我媽「家
 
   裡很窮」的耳濡目染，所以我對花錢去看一部投影在大螢幕上的影片始終興趣缺缺
@@ -2489,7 +2488,7 @@ date: 2024-01-14
 reply_count: 50
 title: '[好雷] 魔法公主－一場尋求「生」的旅途'
 url: https://www.ptt.cc/bbs/movie/M.1705201956.A.12A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '只有我覺得「你的名字」其實只是比較通俗然後有好結局的
 
   「星之聲」、「雲的彼端」、「秒速五公分」嗎？
@@ -2565,7 +2564,7 @@ date: 2016-12-01
 reply_count: 57
 title: 'Re: [討論]《你的名字》賣破194億日幣破魔法公主紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1480561543.A.05F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "宮﨑駿《魔法公主》海報 電燈關掉竟藏彩蛋\n\n2023/12/20 13:03\n\n〔記者廖俐惠／綜合報導〕宮﨑駿動畫鉅作《魔法公主》闊別27年重返台灣大銀幕，片商\n\
   邀請三金設計師方序中與插畫家董十行繼《神隱少女》21周年經典重映之後，再度聯手打\n造《魔法公主》台灣限定海報，分別為「阿席達卡版」與「小桑版」兩款，海報當中還藏\n\
   有彩蛋。\n\n\n《魔法公主》台灣限定海報由方序中、董十行攜手打造，當阿席達卡版（左圖）與小桑版\n（右圖）兩款海報合體後傳遞出完整意象。（甲上娛樂提供）\n\
@@ -2584,7 +2583,7 @@ date: 2023-12-20
 reply_count: 76
 title: '[新聞] 宮﨑駿《魔法公主》海報 電燈關掉竟藏彩蛋'
 url: https://www.ptt.cc/bbs/movie/M.1703083880.A.2ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我有時候會覺得有些人很好笑，他們有一種邏輯，新海誠不如宮崎駿所以爛，然後擺出神隱少女票房多少屌打你的名字，這是不是一種因為呂布很強所以關羽很爛的概念？那你叫動畫界那些黃巾渠帥情何以堪？
 
 
@@ -2605,7 +2604,7 @@ date: 2016-12-01
 reply_count: 36
 title: 'Re: [討論]《你的名字》賣破194億日幣破魔法公主紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1480554943.A.EA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天看完魔法公主
 
 
@@ -2695,7 +2694,7 @@ date: 2024-01-06
 reply_count: 66
 title: '[好雷] 魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1704530476.A.F09.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如果有一天，能以真正清澈的目光看待這個世界...\n\n那是在多少個夢中、多少片夜裡，盎然的綠意與萎然的枝骸只有一眨眼的距離。為了探尋\n生命的出路，我千里飄遊來到此地。眼前所見卻是近乎無解的命題：人類對更高規格生活\n\
   的嚮往，如勢無可擋的箭矢一般射向時間的彼岸；但這一箭也射穿了千百年來、在此生生\n不息的萬物們蓬發的枝葉。兩相摩擦之際，爆出淒烈的戰火之音。\n\n於是生存衍伸而成掠奪，榮耀孕育出了仇恨。一次又一次地在晨霧飄渺裡，我虔心追問活\n\
   下來的意義；卻不曾想過在那無聲的當下、視線被遮蔽之處，閃動在生與死的光影之間的\n，竟然是妳。\n\n走過了將近十二個年頭，在1994年初，宮崎駿終於結束了他的漫畫連載《風之谷的娜烏西\n\
@@ -2776,7 +2775,7 @@ date: 2008-07-09
 reply_count: 42
 title: '[懷舊] 《魔法公主》by（時光之硯）'
 url: https://www.ptt.cc/bbs/movie/M.1215609470.A.425.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2853,7 +2852,7 @@ date: 2024-01-14
 reply_count: 24
 title: '[好雷]魔法公主_阿席達卡有補完自己 '
 url: https://www.ptt.cc/bbs/movie/M.1705245898.A.B72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2971,7 +2970,7 @@ date: 2024-01-14
 reply_count: 6
 title: '[好雷]《魔法公主》先看清原委，再斷定是非'
 url: https://www.ptt.cc/bbs/movie/M.1705242182.A.81E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '黑帽大人是吉卜力系列所有角色中我最愛的一個，堅毅不屈、剛強且獨立的女性。
 
 
@@ -2994,7 +2993,7 @@ date: 2016-10-28
 reply_count: 28
 title: '[好雷] 魔法公主 - 黑帽大人'
 url: https://www.ptt.cc/bbs/movie/M.1477596010.A.E06.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先，我要跟久石讓道歉。以前早就聽過無數次〈阿席達卡的傳說〉，並陶醉於壯烈卻蒼
 
   茫的旋律裡，但我總以為只是古裝八點檔常用的配樂；直到這週第一次看了《魔法公主》
@@ -3132,7 +3131,7 @@ date: 2024-01-08
 reply_count: 82
 title: '[好雷] 魔法公主'
 url: https://www.ptt.cc/bbs/movie/M.1704726836.A.179.html
---- !!python/object:movie_data.PublicReview
+---
 content: '據東寶電影公司公布數據，《你的名字》從8月26日上映至今，截至本月27日為止，已創
 
   下日幣194.9億票房，外界大多看好票房極有可能突破200億日幣，打敗目前亞軍、2004年
@@ -3159,7 +3158,7 @@ date: 2016-11-30
 reply_count: 79
 title: '[討論]《你的名字》賣破194億日幣破魔法公主紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1480492086.A.0EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "被邪靈附身的野豬、笑得超詭異的山獸神、只剩頭還可以咬人的莫娜、一堆發出怪聲音超\n像咒怨的小精靈、沒事就斷手斷頭的畫面，現在想起小時候看《魔法公主》，留下的震撼\n\
   只有陰影。趁著重新上映的今年再刷一次，雖然陰影還是無法抹去，但看懂背後的涵義之\n後，覺得這是宮崎駿 作品中黑暗到相當具有突破性的異色童話。反戰、環保、女權、種\n\
   族，《魔法公主》多面向的探討足以讓它站穩經典地位，就算到了28年後的今天還是一樣\n毫不過時。\n\n「自私」一詞是我給這部電影的註解，我想到經濟學中最經典的賽局理論－囚徒困境。「\n\

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '加拿大的一部奇幻小品，片名有夠長。故事就如其所述，主角身為吸血鬼但不喜傷害他人
 
   ，為了生存只好退而求其次，尋找自願獻身的人。
@@ -47,7 +46,7 @@ date: 2024-08-03
 reply_count: 6
 title: '[好雷] 人道主義吸血鬼徵求自願獻身者'
 url: https://www.ptt.cc/bbs/movie/M.1722664082.A.516.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一言蔽之，是小品的文青電影
 
   女主角非常有靈氣，演技很自然

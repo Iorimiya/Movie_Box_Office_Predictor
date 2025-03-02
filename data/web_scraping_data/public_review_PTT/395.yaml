@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "1. 剛看完, 心情還很好, 趕緊來記錄這篇\n\n2. 鐘雪瑩真的太可愛了\n   戴眼鏡正 不戴眼鏡更正\n   不笑正 笑起來更正\n \
   \  一開始穿校服的樣子更是可愛\n\n3. 不過光憑鐘雪很可愛還不是會去電影院看的理由\n   是看到這篇hk01的新聞\n   \n\n   看完新聞就決定一定要買票支持一下\n\
   \   難怪整部劇充滿了真實感跟說服力\n\n4. 原來鐘雪小鬍子是在cosplay梁朝偉\n\n5. 其實她搬去英國唸書的朋友也很可愛\n\n6. 用了很多別出心裁的特效讓看起來低成本的片變得有趣\n\
@@ -11,7 +10,7 @@ date: 2024-03-23
 reply_count: 10
 title: '[好雷] 填詞L 推薦'
 url: https://www.ptt.cc/bbs/movie/M.1711202616.A.82F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -177,7 +176,7 @@ date: 2024-03-25
 reply_count: 12
 title: '[好雷] 填詞L'
 url: https://www.ptt.cc/bbs/movie/M.1711359658.A.C8F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在去年金馬60及今年香港金像獎分別都有獲得提名成績
 
   三部優質港片將相繼於台灣正式上映

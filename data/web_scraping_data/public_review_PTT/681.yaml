@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -219,7 +218,7 @@ date: 2024-09-30
 reply_count: 14
 title: '[雷] 千萬別放手 觀後感（有雷 不喜勿入'
 url: https://www.ptt.cc/bbs/movie/M.1727685046.A.96E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '標題是回應有人說這不是恐怖片的
 
 
@@ -247,7 +246,7 @@ date: 2024-09-29
 reply_count: 11
 title: '[好雷] 千萬別放手 是恐怖片而且蠻黑暗'
 url: https://www.ptt.cc/bbs/movie/M.1727616633.A.C00.html
---- !!python/object:movie_data.PublicReview
+---
 content: '預告看完其實就有一種《敲敲門》預告的感覺
 
   雖然我也沒看過敲敲門

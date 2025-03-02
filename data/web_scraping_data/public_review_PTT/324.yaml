@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '金牌1 好看就不說了
 
 
@@ -34,7 +33,7 @@ date: 2024-02-02
 reply_count: 69
 title: '[請益] 覺得金牌2不錯看 可以看阿蓋爾嗎'
 url: https://www.ptt.cc/bbs/movie/M.1706852992.A.59D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -132,7 +131,7 @@ date: 2024-01-31
 reply_count: 79
 title: '[ 普負雷] 機密特務阿蓋爾'
 url: https://www.ptt.cc/bbs/movie/M.1706692282.A.80E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛看完，\n不拿馬修范恩巔峰的水準比，\n我是覺得還好有去看，\n因為看完評價本來要取消訂票的，\n結果太晚了不能退\n \n動作跟畫面都在水準之上，\n\
   反轉也不錯，\n但節奏有待加強，\n女主角胖到讓我很出戲\n \n不到經典強片，\n但是是不錯的娛樂爽片，\n我覺得比金牌前傳好看，\n我女友則比較喜歡前傳，\n\
   但也覺得這部不錯看\n \n--"
@@ -140,7 +139,7 @@ date: 2024-02-01
 reply_count: 19
 title: '[好無雷] 阿蓋爾'
 url: https://www.ptt.cc/bbs/movie/M.1706802254.A.456.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -178,7 +177,7 @@ date: 2024-02-16
 reply_count: 53
 title: '[討論] 機密特務：阿蓋爾 票房1785萬'
 url: https://www.ptt.cc/bbs/movie/M.1708045403.A.A5C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '預告片看起來很精彩滿懷期待的進戲院，出來覺得還真浪費錢
 
 
@@ -215,7 +214,7 @@ date: 2024-02-01
 reply_count: 20
 title: '[雷] 特務阿蓋爾 大負雷'
 url: https://www.ptt.cc/bbs/movie/M.1706762175.A.134.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -348,7 +347,7 @@ date: 2024-02-10
 reply_count: 10
 title: '[好雷]《機密特務：阿蓋爾》好玩、充滿樂趣，更不斷超出預期'
 url: https://www.ptt.cc/bbs/movie/M.1707548522.A.320.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -454,7 +453,7 @@ date: 2024-06-04
 reply_count: 152
 title: '[新聞] 馬修范恩不解《機密特務:阿蓋爾》負評如潮'
 url: https://www.ptt.cc/bbs/movie/M.1717488183.A.76B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "阿蓋爾 票房不如預期 褒貶不一\n\n但我個人認為: 導演說了一個好故事\n\n\n: 美。英國+法國葡萄園路+阿拉伯異國風情=舒服\n\n:\
   \ 好聽，舒服。 愛情戲份+配樂 絕頂升天\n\n:前半慢 後半快 but沒多餘冗贅台詞 沒多餘刻意搞笑\n\n:Bryce+Sam Rockwell 都是戲精了啊\
   \ Chemistry超好\n\n:維持導演水準(略遜金牌1 但能比這部好的也不多了啊\n\n: 見仁見智 但書中特務推演到現實生活 我覺得很棒\n\n\n結尾也有前後呼應，美好Ending\n\
@@ -471,7 +470,7 @@ date: 2024-02-17
 reply_count: 80
 title: '[討論] 其實，特務阿蓋爾 很精彩吧?? (內文無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1708146351.A.D35.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n \n \n \n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n \n\
   \ \n \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n \n \n \n\
   \ \n \n \n \n \n就 太胖\n \n原本的衣服還沒這麼明顯\n \n還符合宅女形象\n \n換了禮服以後 比你媽還肥\n \n不要跟我扯什麼女性主義\
@@ -484,7 +483,7 @@ date: 2024-02-01
 reply_count: 48
 title: '[普雷] 阿蓋爾 無法忍受女主角禮服造型'
 url: https://www.ptt.cc/bbs/movie/M.1706759367.A.93D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '世界上最偉大的間諜，被捲入一場環遊世界的冒險。
 
   由一拖拉庫的大咖主演
@@ -499,7 +498,7 @@ date: 2023-09-28
 reply_count: 70
 title: '[討論] 馬修范恩「機密特務:阿蓋爾」預告'
 url: https://www.ptt.cc/bbs/movie/M.1695888979.A.41F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不想打太長
 
   總之這片太柔和了，缺少導演本身自己喜歡的R級風格，不過看訪談好像是說女兒不喜歡他
@@ -532,7 +531,7 @@ date: 2024-02-03
 reply_count: 29
 title: '[負無雷] 毫無亮點的《機密特務：阿蓋爾》'
 url: https://www.ptt.cc/bbs/movie/M.1706959229.A.52D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -636,7 +635,7 @@ date: 2024-02-03
 reply_count: 55
 title: '[ 好雷] 馬修范恩好雷-阿蓋爾'
 url: https://www.ptt.cc/bbs/movie/M.1706893857.A.074.html
---- !!python/object:movie_data.PublicReview
+---
 content: '過年放假想說排一天帶兩
 
   個孩子去看電影（男，12y、14y）
@@ -703,7 +702,7 @@ date: 2024-02-04
 reply_count: 45
 title: '[選片] 水行俠or機密特務阿蓋爾'
 url: https://www.ptt.cc/bbs/movie/M.1707059881.A.6D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -825,7 +824,7 @@ date: 2024-02-03
 reply_count: 21
 title: '[好雷] 機密特務：阿蓋爾'
 url: https://www.ptt.cc/bbs/movie/M.1706893240.A.A5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -935,7 +934,7 @@ date: 2024-03-10
 reply_count: 3
 title: '[普雷] 七重點發現海報騙很大的《阿蓋爾》'
 url: https://www.ptt.cc/bbs/movie/M.1710038512.A.4E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很久沒看電影了，前幾天和朋友一起去看機密特務阿蓋爾，看到海報上的卡司陣容感覺蠻厲
 
   害的，但其實是完全不知道內容就去看了，我們連預告片都沒看XD
@@ -987,7 +986,7 @@ date: 2024-02-04
 reply_count: 29
 title: '[雷] 機密特務阿蓋爾：蠻有潛力但有點可惜'
 url: https://www.ptt.cc/bbs/movie/M.1707030597.A.9A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1117,7 +1116,7 @@ date: 2024-02-26
 reply_count: 49
 title: '[好雷] 機密特務：阿蓋爾-洛克威爾的腦粉會愛死'
 url: https://www.ptt.cc/bbs/movie/M.1708942530.A.80A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '干女主角胖瘦屁事
 
 
@@ -1143,7 +1142,7 @@ date: 2024-06-05
 reply_count: 39
 title: 'Re: [新聞] 馬修范恩不解《機密特務:阿蓋爾》負評如潮'
 url: https://www.ptt.cc/bbs/movie/M.1717541930.A.7B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下得獎者獲得特映票兩張，得獎者請於1月23日17:00前回覆主動站內信回覆
 
   中獎者資料，恕不接受逾期回覆
@@ -1228,7 +1227,7 @@ date: 2024-01-22
 reply_count: 48
 title: 'Re: [贈票] 【機密特務:阿蓋爾】北桃中南搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1705891876.A.43B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在沒看完預告的情況下
 
 
@@ -1356,7 +1355,7 @@ date: 2024-02-01
 reply_count: 45
 title: '[普雷] 機密特務阿蓋爾 簡單心得'
 url: https://www.ptt.cc/bbs/movie/M.1706723041.A.C52.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完特映
 
 
@@ -1395,7 +1394,7 @@ date: 2024-01-30
 reply_count: 57
 title: '[無雷] 機密特務阿蓋爾'
 url: https://www.ptt.cc/bbs/movie/M.1706626807.A.766.html
---- !!python/object:movie_data.PublicReview
+---
 content: '週末打算帶親戚去看電影，目前這兩部在挑
 
 
@@ -1430,7 +1429,7 @@ date: 2024-03-02
 reply_count: 41
 title: '[選片] 機密特務阿蓋爾、天眼救援'
 url: https://www.ptt.cc/bbs/movie/M.1709310789.A.2EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "要說票房,\n      [機密特務：阿蓋爾]    北美首周1800萬(預估)\n已經比[金牌特務：金士曼起源]北美首周 591萬高很多了~\n\
   \n\n[金牌特務：金士曼起源]北美總票房只有3717萬\n\nDOMESTIC      (29.5%) $ 37,176,373\nINTERNATIONAL\
   \ (70.5%) $ 88,721,105\n-------------------------------------\nWORLDWIDE       \
@@ -1443,7 +1442,7 @@ date: 2024-02-05
 reply_count: 112
 title: 'Re: [討論] 《機密特務阿蓋爾》美國票房大爆炸？'
 url: https://www.ptt.cc/bbs/movie/M.1707118633.A.DB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '馬修范恩的片 從星塵傳奇後每一部我都有看
 
   都還算蠻喜歡的
@@ -1512,7 +1511,7 @@ date: 2024-06-05
 reply_count: 34
 title: 'Re: [新聞] 馬修范恩不解《機密特務:阿蓋爾》負評如潮'
 url: https://www.ptt.cc/bbs/movie/M.1717599955.A.067.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷
 
 
@@ -1593,7 +1592,7 @@ date: 2024-02-01
 reply_count: 120
 title: '[  負雷]  阿蓋爾 超人戲份少'
 url: https://www.ptt.cc/bbs/movie/M.1706783353.A.12D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《阿蓋爾》神劇情 宛如羅琳走進霍格華茲\n\n2024/01/18 05:30\n\n\n布萊絲達拉斯霍華（右）在《機密特務：阿蓋爾》被迫和山姆洛克威爾一同展開冒險。\n\
   （UIP提供）\n\n〔記者許世穎／首爾報導〕《金牌特務》系列鬼才導演馬修范恩執導新片《機密特務：阿\n蓋爾》，今天率領亨利卡維爾、布萊絲達拉斯霍華、奧斯卡得主山姆洛克威爾一同到首爾\n\
   進行宣傳。電影隨著搶先試片揭開神秘面紗，范恩笑言是為了兩個女兒而拍，腦洞大開的\n情節更宛如「J.K.羅琳走進霍格華茲！」\n\n\n布萊絲達拉斯霍華在《機密特務：阿蓋爾》飾演喜歡宅在家的小說家，筆下的世界竟然與\n\
@@ -1609,7 +1608,7 @@ date: 2024-01-18
 reply_count: 11
 title: '[新聞] 《阿蓋爾》神劇情 宛如羅琳走進霍格華茲'
 url: https://www.ptt.cc/bbs/movie/M.1705592604.A.12F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '版上一堆負評果然是真的
 
   102個評分只有37%好評
@@ -1622,7 +1621,7 @@ date: 2024-02-01
 reply_count: 95
 title: '[討論] 機密特務阿蓋爾 爛番茄37'
 url: https://www.ptt.cc/bbs/movie/M.1706797866.A.8CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1670,7 +1669,7 @@ date: 2024-02-14
 reply_count: 19
 title: '[好雷] 機密特務：阿蓋爾'
 url: https://www.ptt.cc/bbs/movie/M.1707841016.A.E48.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《阿蓋爾》首映美國票房為1800 萬美元。
 
   據報道，這部電影的製作成本為2億美元。
@@ -1732,7 +1731,7 @@ date: 2024-02-05
 reply_count: 220
 title: '[討論] 《機密特務阿蓋爾》美國票房大爆炸？'
 url: https://www.ptt.cc/bbs/movie/M.1707066828.A.813.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我想請問有沒有人知道男女主角在丟彩色煙霧彈的時候的配樂歌名是什麼？
 
   我把電影原聲帶都聽完了
@@ -1755,7 +1754,7 @@ date: 2024-02-03
 reply_count: 28
 title: '[請益] 機密特務：阿蓋爾配樂'
 url: https://www.ptt.cc/bbs/movie/M.1706927893.A.53C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我很喜歡馬修范恩kingsman 系列的第一部作品\n \n他用很魔幻的手法講一個簡單的故事。\n \n他的電影故事本身並不複雜，甚至有點經不起推敲\n\
   \ \n但因為敘事是魔幻的，所以劇情的合理性，時間感就沒那麼重要。\n \n用小說來講，就像那種魔幻寫實的小說開頭\n \n \n「從前的某月某日，XX人幹了什麼破事，然後他想起了一個光怪陸離的東西」\n\
   \ \n \n但這部阿蓋爾真的是過頭了\n \n那個劇情真的是，腦洞大到腦袋都掉出來\n \n腦洞大就算了，馬修范恩又好像已經沈迷在「獨特的敘事鏡頭」\n \n\
@@ -1772,7 +1771,7 @@ date: 2024-02-01
 reply_count: 18
 title: '[負雷] 阿蓋爾，腦洞開太大'
 url: https://www.ptt.cc/bbs/movie/M.1706797432.A.188.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（可能會涉及雷請注意）
 
 

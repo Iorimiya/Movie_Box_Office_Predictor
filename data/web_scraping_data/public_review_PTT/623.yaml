@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '這部片才真正見識到莫文蔚的演技根本不遜色於梁朝偉阿
 
 
@@ -18,7 +17,7 @@ date: 2022-10-22
 reply_count: 3
 title: '[好雷] 催眠大師的莫文蔚太強了'
 url: https://www.ptt.cc/bbs/movie/M.1666448551.A.395.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛在 YOUTUBE 發現一部很有趣的電影! 雖然是小朋友的電影! 但是涵意很深..
 
 
@@ -36,7 +35,7 @@ date: 2016-01-29
 reply_count: 2
 title: '[請益] 莫莉夢妮與神奇的催眠書 片尾曲最後一首'
 url: https://www.ptt.cc/bbs/movie/M.1454048105.A.F2A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   最近在app內很長看到這個電影？的預售
@@ -57,7 +56,7 @@ date: 2020-02-29
 reply_count: 3
 title: '[請益] 催眠麥克風 五小時的說唱？'
 url: https://www.ptt.cc/bbs/movie/M.1582970969.A.E6D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前看到預告片，
 
   就覺得蠻想去看一下的。
@@ -101,7 +100,7 @@ date: 2023-06-04
 reply_count: 8
 title: 'Re: [普雷] 催眠狙擊 小班新作'
 url: https://www.ptt.cc/bbs/movie/M.1685857731.A.0E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n1.影片名稱 :\
   \ 莫莉夢妮與神奇的催眠書\n             Molly Moon and the Incredible Book of Hypnotism\n\n\
   2.觀影時間 : 2018/09/02 20:00\n\n3.觀影地點 : 住家網路\n\n4.觀影方式 : 網路，iTunes英國版\n\n§其他防雷說明 :\
@@ -132,7 +131,7 @@ date: 2018-09-03
 reply_count: 1
 title: '[好雷] 莫莉夢妮與神奇的催眠書'
 url: https://www.ptt.cc/bbs/movie/M.1535948323.A.AEB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大部分的劇情都忘光了
 
   印象中是一部驚悚片
@@ -167,7 +166,7 @@ date: 2022-10-16
 reply_count: 21
 title: '[問片] 帶麻袋面具有催眠能力的反派'
 url: https://www.ptt.cc/bbs/movie/M.1665925518.A.0A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下可能有雷
 
 
@@ -333,7 +332,7 @@ date: 2019-11-17
 reply_count: 7
 title: '[普雷]《催眠．裁決》保持獨立思考的重要'
 url: https://www.ptt.cc/bbs/movie/M.1573998764.A.C61.html
---- !!python/object:movie_data.PublicReview
+---
 content: '主角好像去了某間企業,結果去每個出差都在持續的被催眠,
 
   催眠的方式是用催眠的氣體,
@@ -360,7 +359,7 @@ date: 2018-11-14
 reply_count: 8
 title: '[問片] 催眠氣體洗腦企業'
 url: https://www.ptt.cc/bbs/movie/M.1542201073.A.14C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看著班艾佛列克演的新作
 
 
@@ -402,7 +401,7 @@ date: 2023-06-04
 reply_count: 5
 title: '[普雷] 催眠狙擊 小班新作'
 url: https://www.ptt.cc/bbs/movie/M.1685808677.A.814.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最後一幕原來是四個人都在一起
 
   可是我的當下也覺得越看越怪
@@ -444,7 +443,7 @@ date: 2022-08-14
 reply_count: 1
 title: '[討論] 催眠大師 是暗黑結局還是腦補？（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1660427194.A.497.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -641,7 +640,7 @@ date: 2017-02-24
 reply_count: 1
 title: '[負雷]夢遊3D - 催眠好片'
 url: https://www.ptt.cc/bbs/movie/M.1487885090.A.7C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由《萬惡城市》、《艾莉塔：戰鬥天使》導演Robert Rodriguez執導，
 
 
@@ -679,7 +678,7 @@ date: 2023-04-18
 reply_count: 30
 title: '[情報] 班艾佛列克驚悚新片《催眠》海報&劇照'
 url: https://www.ptt.cc/bbs/movie/M.1681797230.A.379.html
---- !!python/object:movie_data.PublicReview
+---
 content: "導演：拉斯馮提爾（Lars Von Trier）\n國籍：丹麥（1990）\n\n\n深淺有度之催眠\n\n這是催眠三部曲中的其中一部，所謂催眠者，就是有一個全知全能的背景聲調，告訴你即\n\
   將發生，又或給你暗示，要你去行為某事。當然也是要試圖從催眠主人翁的過程去催眠觀眾\n，我不曉得他有沒有成功，因為我始終在這個黑白似夢的電影當中，精神集中，卻又恍恍惚\n\
   惚。其實催眠的全知全能的「旁白」，是自己對自己的深層對話、自我辯證。\n\n\n\n在催眠三部曲當中，其中的《瘟疫》一片中的催眠是一個背景角色，但是又在影片最末跳\n\
@@ -699,7 +698,7 @@ date: 2008-04-09
 reply_count: 4
 title: '[影評] 催眠三部曲之《歐洲特快車》 ( Europa )'
 url: https://www.ptt.cc/bbs/movie/M.1207748896.A.6B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '情節記得不是很清楚
 
 
@@ -738,7 +737,7 @@ date: 2017-09-05
 reply_count: 6
 title: '[問片] 男主角自我催眠的片'
 url: https://www.ptt.cc/bbs/movie/M.1504545425.A.AB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問21號上映的"催眠"有人去看過了嗎
 
 
@@ -752,7 +751,7 @@ date: 2014-11-23
 reply_count: 9
 title: '[問片] 催眠'
 url: https://www.ptt.cc/bbs/movie/M.1416748514.A.2D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '男主角是個沉默寡言的人，會彈鋼琴。但他在孩提時期就被父母拋棄，所以跟親戚姑姑還
 
   是阿姨的同住在一棟大樓。大樓裡面有一個不尋常的婦人，男主角某天喝了她準備的藥草
@@ -773,7 +772,7 @@ date: 2017-01-24
 reply_count: 2
 title: '[問片] 會彈鋼琴的男人被草藥催眠的電影'
 url: https://www.ptt.cc/bbs/movie/M.1485237673.A.DA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我剛剛在YT滑到一部電影解說\n\n一個手語大師用手語就可以催眠警察\n\n還讓警察載他\n\n一部歐美的片子\n\n因為影片內容很短不知道是哪一部\n\
   \n留言區也沒給完成影片連結\n\n因為他的手語實在太尬了\n\n想問這部片的名稱\n\n我用手語催眠都沒搜到\n\n-----\nSent from JPTT\
   \ on my iPhone\n\n--\n不是SOD\n內容是一名男子的穿著好像睡衣的服裝\n在兩個警察面前比手語\n然後兩個警察就目光呆滯\n之後男子就翹著二郎腿坐在警車後座\n\
@@ -782,7 +781,7 @@ date: 2024-09-13
 reply_count: 8
 title: '[問片] 請問手語大師催眠警察的影片？'
 url: https://www.ptt.cc/bbs/movie/M.1726202684.A.7BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本魯第一次本版po文，請小力鞭。
 
 
@@ -813,7 +812,7 @@ date: 2018-11-09
 reply_count: 11
 title: '[問片] 一個催眠的驚悚片'
 url: https://www.ptt.cc/bbs/movie/M.1541758832.A.241.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大量劇情雷文
 
 
@@ -908,7 +907,7 @@ date: 2024-10-28
 reply_count: 1
 title: '[好雷] 催眠The Hypnosis'
 url: https://www.ptt.cc/bbs/movie/M.1730084270.A.974.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-\n\n1.影片名稱 : 逃出絕命鎮\n2.觀影時間\
   \ : 3/7\n3.觀影地點 : 家中\n4.觀影方式 : 自行觀影\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-\n\n此區為發文防雷頁\n\
   \n(內文圖片都來自官方釋出之劇照或是預告片的截圖，版權將歸回官方所有)\n\n\n ~~~~~~~ 雷文 主文分隔線 ~~~~~~~\n\n故事描述克里斯周末要去女友-蘿絲家拜訪，但因為自己是黑人、女友是白人而感到不安\n\
@@ -923,7 +922,7 @@ date: 2019-03-09
 reply_count: 14
 title: '[好雷] 《逃出絕命鎮》催眠術真有這麼厲害?! '
 url: https://www.ptt.cc/bbs/movie/M.1552132313.A.8D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '用一句話形容這部電影，
 
 
@@ -983,7 +982,7 @@ date: 2018-12-11
 reply_count: 18
 title: '[催眠無雷] 移動城市 ：朱比特崛起 加強版'
 url: https://www.ptt.cc/bbs/movie/M.1544530375.A.F4C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '抱歉在很久之前問過同樣的
 
   但因為沒有得到答案所以想說再問一次試試看
@@ -1048,7 +1047,7 @@ date: 2018-07-31
 reply_count: 48
 title: '[問片] 全世界都被催眠，電視裡的人對主角說話'
 url: https://www.ptt.cc/bbs/movie/M.1533004507.A.CF6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不好意思請問各位大神
 
 
@@ -1092,7 +1091,7 @@ date: 2015-04-07
 reply_count: 17
 title: '[問片] 一部電影關於催眠 用針插眼睛讀記憶'
 url: https://www.ptt.cc/bbs/movie/M.1428372375.A.531.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本片由《萬惡城市》、《艾莉塔：戰鬥天使》導演Robert Rodriguez執導，班艾佛列克主
 
   演。
@@ -1129,7 +1128,7 @@ date: 2023-04-04
 reply_count: 20
 title: '[討論] 班艾佛列克驚悚新作《催眠》預告'
 url: https://www.ptt.cc/bbs/movie/M.1680582455.A.561.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大膽《催眠狙擊》／《Hypnotic》
 
 
@@ -1221,7 +1220,7 @@ date: 2023-06-11
 reply_count: 12
 title: '[普雷]大膽《催眠狙擊》／《Hypnotic》 '
 url: https://www.ptt.cc/bbs/movie/M.1686473208.A.12D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟要先看中途島
 
 
@@ -1262,7 +1261,7 @@ date: 2019-11-16
 reply_count: 16
 title: '[問片] 催眠 裁決 好看嗎'
 url: https://www.ptt.cc/bbs/movie/M.1573885814.A.53F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你應該沒認真看吧？
 
 
@@ -1353,7 +1352,7 @@ date: 2023-06-07
 reply_count: 8
 title: 'Re: [負雷神作] 催眠狙擊'
 url: https://www.ptt.cc/bbs/movie/M.1686123158.A.BB2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
   以下有雷
@@ -1458,7 +1457,7 @@ date: 2023-06-03
 reply_count: 6
 title: '[負雷神作] 催眠狙擊'
 url: https://www.ptt.cc/bbs/movie/M.1685759268.A.65F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天在 MOD 看到，相當精彩的電影。
 
 
@@ -1520,7 +1519,7 @@ date: 2016-09-14
 reply_count: 3
 title: 'Re: [好雷] 催眠大師 '
 url: https://www.ptt.cc/bbs/movie/M.1473843649.A.D03.html
---- !!python/object:movie_data.PublicReview
+---
 content: '自從一個人住之後都盡量避開恐怖片
 
 
@@ -1551,7 +1550,7 @@ date: 2017-11-13
 reply_count: 27
 title: '[請益] 催眠大師會很恐怖嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1510519178.A.F4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來暑假看到一堆地雷片
 
 
@@ -1605,7 +1604,7 @@ date: 2016-08-15
 reply_count: 78
 title: '[被騙  雷] 哥吉拉是催眠片'
 url: https://www.ptt.cc/bbs/movie/M.1471243904.A.408.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -1632,7 +1631,7 @@ date: 2015-03-26
 reply_count: 3
 title: 'Re: [好雷] 催眠大師 '
 url: https://www.ptt.cc/bbs/movie/M.1427335017.A.9CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好像字幕跑完有片尾，但我們沒看到嗚嗚嗚
 
 
@@ -1665,7 +1664,7 @@ date: 2023-06-03
 reply_count: 10
 title: '[好雷] 請問催眠狙擊的隱藏片尾'
 url: https://www.ptt.cc/bbs/movie/M.1685807562.A.DAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -1685,7 +1684,7 @@ date: 2017-07-13
 reply_count: 5
 title: '[問片] 請問一部催眠片'
 url: https://www.ptt.cc/bbs/movie/M.1499956840.A.9E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1738,7 +1737,7 @@ date: 2023-05-10
 reply_count: 11
 title: '[新聞] 女兒走失與不明催眠師有關 班艾佛列克為'
 url: https://www.ptt.cc/bbs/movie/M.1683725757.A.E73.html
---- !!python/object:movie_data.PublicReview
+---
 content: '印象中是國小看到的
 
   現在已經大一
@@ -1776,7 +1775,7 @@ date: 2015-11-06
 reply_count: 3
 title: '[問片]好像是有關於催眠的'
 url: https://www.ptt.cc/bbs/movie/M.1446803587.A.07E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下為不專業敘述，斟酌使用
 
 
@@ -1803,7 +1802,7 @@ date: 2023-06-02
 reply_count: 27
 title: 好雷 催眠狙擊
 url: https://www.ptt.cc/bbs/movie/M.1685689617.A.9E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看完一部瑞典片
 
   叫《催眠師》
@@ -1840,7 +1839,7 @@ date: 2014-12-26
 reply_count: 3
 title: '[請益] 瑞典片《催眠師》'
 url: https://www.ptt.cc/bbs/movie/M.1419609313.A.F44.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
   《催眠麥克風》推沉浸式體驗！觀眾可即時投票「選出饒舌之王」
@@ -1910,7 +1909,7 @@ date: 2024-12-14
 reply_count: 1
 title: '[新聞] 《催眠麥克風》推沉浸式體驗！觀眾可即'
 url: https://www.ptt.cc/bbs/movie/M.1734163870.A.82C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好像是圍繞在拯救心理層面上的劇情
 
 
@@ -1944,7 +1943,7 @@ date: 2021-04-25
 reply_count: 5
 title: '[問片] 想找一部拯救心理相關的電影'
 url: https://www.ptt.cc/bbs/movie/M.1619328959.A.DFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近突然對催眠這個題材很有興趣
 
   想找幾不跟催眠有關的電影來看
@@ -1973,7 +1972,7 @@ date: 2015-09-14
 reply_count: 26
 title: '[片單] 關於催眠題材的電影'
 url: https://www.ptt.cc/bbs/movie/M.1442225888.A.A9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '對岸片(不含港片)
 
 
@@ -2053,7 +2052,7 @@ date: 2019-03-19
 reply_count: 3
 title: '[好雷] 催眠大師'
 url: https://www.ptt.cc/bbs/movie/M.1552980192.A.C11.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛看完這部  非常精彩的電影\n\n而且這還是台灣導演導出來的作品\n\n男主角瑞寧在車禍之後產生的創傷後壓力症候群\n\n除了怕水以及不敢開車載人以外\
   \  後來已經嚴重到有夢遊中自殘行為\n\n這段在電影中有演出來  所以他的老師方教授\n\n才找女主角小妍來進行清醒催眠\n\n\n\n\n另外網路上有人發表這部電影其實還有個隱藏劇情\n\
   \n似乎最後被捨棄了  所以沒有呈現出來\n\n電影情節中第一層結構是\n\n瑞寧試圖透過催眠解決小妍會看到鬼的問題\n\n第二層結構則是\n\n小妍假裝被治療\

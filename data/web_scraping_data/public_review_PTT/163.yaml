@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -116,7 +115,7 @@ date: 2023-10-09
 reply_count: 8
 title: '[好雷] 奪魂鋸X 略微遺憾的編排'
 url: https://www.ptt.cc/bbs/movie/M.1696844907.A.831.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -170,7 +169,7 @@ date: 2024-10-03
 reply_count: 20
 title: '[新聞] 演了20年  Tobin Bell繼續回歸奪魂鋸XI'
 url: https://www.ptt.cc/bbs/movie/M.1727925990.A.28C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -206,7 +205,7 @@ date: 2023-09-30
 reply_count: 2
 title: '[好雷] 其實是超級英雄劇情片的奪魂鋸X'
 url: https://www.ptt.cc/bbs/movie/M.1696023553.A.C8E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '藍色窗簾一下
 
 
@@ -288,7 +287,7 @@ date: 2023-10-01
 reply_count: 12
 title: 'Re: [討論] 奪魂鋸X 最後的遊戲不合理（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1696161839.A.739.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奪魂鋸X的時間是設定在1.2集之間
 
   這集最後的女醫生沒死
@@ -326,7 +325,7 @@ date: 2023-10-02
 reply_count: 34
 title: '[討論] 奪魂鋸X完還有下一集嗎？有雷'
 url: https://www.ptt.cc/bbs/movie/M.1696179818.A.86A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奪魂鋸X》學徒「亞曼達」強勢回歸 「拼圖殺人魔」邀你釋放鮮血
 
 
@@ -486,7 +485,7 @@ date: 2023-09-29
 reply_count: 10
 title: '[新聞] 《奪魂鋸X》學徒「亞曼達」強勢回歸'
 url: https://www.ptt.cc/bbs/movie/M.1695983376.A.A2A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '向《芭比海默》學行銷？《奪魂鋸X》《汪汪隊立大功：超級大電影》也在社群上合體啦
 
   ！
@@ -590,7 +589,7 @@ date: 2023-10-04
 reply_count: 13
 title: '[新聞] 向芭比海默學行銷？奪魂鋸X汪汪隊立大功'
 url: https://www.ptt.cc/bbs/movie/M.1696354622.A.E75.html
---- !!python/object:movie_data.PublicReview
+---
 content: "！\n\n全球嚇破300億《》最新篇章！\n\n系列開創者  強勢回歸【】\n\n9/28 (四) 搶先全美 上映\n\n\n「」令人永生難忘的最終遊戲\n\
   \n驚人反轉再創恐懼顛峰！\n\n\n【】9/28 (四) 搶先全美上映\n\n電影預告：\n\n\n\n上映戲院：\n\n\n\n全球嚇破300億《》最新篇章\n\
   \n《》系列開創者、恐怖大師  強勢回歸主導！\n\n睽違六年，再度飾演「」重返《》\n\n這次，拼圖殺人魔將對詐騙集團展開最「量身打造」的血腥報復\n\n #車庫娛樂\
@@ -599,7 +598,7 @@ date: 2023-09-23
 reply_count: 13
 title: '[情報] 《奪魂鋸X》全台上映戲院列表公開！'
 url: https://www.ptt.cc/bbs/movie/M.1695475031.A.94D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奪魂鋸X》美國首映票房為1800萬美元。
 
 
@@ -665,7 +664,7 @@ date: 2023-10-02
 reply_count: 48
 title: '[情報] 《奪魂鋸X》美國首映票房1800萬鎂'
 url: https://www.ptt.cc/bbs/movie/M.1696182398.A.0F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -832,7 +831,7 @@ date: 2023-09-28
 reply_count: 38
 title: '[負雷] 奪魂鋸X - 賣情懷能不能不要那麼刻意'
 url: https://www.ptt.cc/bbs/movie/M.1695914695.A.39E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -931,7 +930,7 @@ date: 2023-10-01
 reply_count: 10
 title: '[超級好雷] 改善奪魂鋸缺點的集大成之作 奪魂鋸X'
 url: https://www.ptt.cc/bbs/movie/M.1696135723.A.7E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奪魂鋸X
 
   道具簡陋 機關無聊
@@ -992,14 +991,14 @@ date: 2023-12-25
 reply_count: 28
 title: '[負雷] 恐怖片負雷三連發 奪魂鋸X 詭屋 屍禁'
 url: https://www.ptt.cc/bbs/movie/M.1703519747.A.713.html
---- !!python/object:movie_data.PublicReview
+---
 content: "英文預告：\n\n\n\n中文預告：\n\n\n\n\n\n拼圖殺人魔回歸！\n\n 《》今年9月 全台上映\n\n\n\n 全球賣座逾294億台幣《》系列\n\
   \n最新篇章\n\n《》系列開創者\n\n恐怖大師\n睽違八年 拼圖殺人魔再度回歸！\n\n ###"
 date: 2023-07-30
 reply_count: 58
 title: '[情報] 《奪魂鋸10》全新預告 Saw X'
 url: https://www.ptt.cc/bbs/movie/M.1690676057.A.73D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "Police were called to the ‘SAW X’ editing suite when neighbors reported\
   \ noises\n of someone being tortured to death.\n\n“He was like, ‘Actually I’m just\
   \ working on a movie… You can come in and see\n it if you want?'”\n\n奪魂鋸X剪輯室曾遭鄰居報警\n\
@@ -1008,7 +1007,7 @@ date: 2023-09-30
 reply_count: 11
 title: '[情報]奪魂鋸X剪輯室曾遭鄰居報警：裡面有人死'
 url: https://www.ptt.cc/bbs/movie/M.1696047345.A.746.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大家中秋節快樂\n \n以往的奪魂鋸故事都從受試者的視角出發，並以各種交叉敘事的方式，創造詭計與懸疑感。\n \n這次直接以一個很直線性敘事的方式，以老頭的視角出發，帶我們看老頭如何從接觸到一個事\n\
   件，綁架事件的人，到按排遊戲、觀察遊戲，很有幕後花絮的感覺。\n \n老頭的戲份很多，從中可以更了解約翰克萊默這個人及其與阿曼達間的師徒互動，看得出劇組\n花了不少心思去描寫，但缺點就是有點寫太多，導致故事有點不緊湊且少了以往的懸疑感，\n\
   畢竟都直接從老頭視角出發了，雖然導演還是有留一手做結局反轉，但真的也就一小手而已\n，這部分有點可惜，畢竟我來看奪魂鋸還是想看懸疑緊湊的劇情，跟意外的結局反轉。\n\
@@ -1019,7 +1018,7 @@ date: 2023-09-29
 reply_count: 18
 title: '[普無雷] 奪魂鋸X - 用心必看但爽度差了點'
 url: https://www.ptt.cc/bbs/movie/M.1696001991.A.FB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '賀 ！！！ 拼圖老頭颯爽回歸
 
 
@@ -1122,7 +1121,7 @@ date: 2023-09-28
 reply_count: 49
 title: '[普好雷] 奪魂鋸X 熟悉的老頭回來啦'
 url: https://www.ptt.cc/bbs/movie/M.1695898809.A.471.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奪魂鋸X》將「釋放你的鮮血」
 
 
@@ -1176,14 +1175,14 @@ date: 2023-09-23
 reply_count: 45
 title: '[情報] 《奪魂鋸X》x #台北捐血中心 合作'
 url: https://www.ptt.cc/bbs/movie/M.1695407572.A.A6B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "拼圖殺人魔回歸！\n 【#奪魂鋸X】 今年9月 全台上映\n\n 全球賣座逾294億台幣《#奪魂鋸》系列最新篇章\n\n《奪魂鋸》系列開創者、恐怖大師溫子仁最新監製作品\n\
   \n托賓貝爾睽違八年，拼圖殺人魔再度回歸！\n\n #車庫娛樂 #溫子仁 #托賓貝爾\n\n\n\n來源車庫娛樂臉書：\n\n\n--"
 date: 2023-07-27
 reply_count: 29
 title: '[情報] 奪魂鋸X 今年9月 全台上映'
 url: https://www.ptt.cc/bbs/movie/M.1690463226.A.408.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -1340,7 +1339,7 @@ date: 2023-09-29
 reply_count: 7
 title: '[好雷]《奪魂鋸X》，以其人之道，還治其人之身。'
 url: https://www.ptt.cc/bbs/movie/M.1695980859.A.231.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奪魂鋸X 開頭的護工遊戲
 
   最後有揭露只是約翰腦中想的畫面
@@ -1374,7 +1373,7 @@ date: 2023-09-30
 reply_count: 23
 title: '[討論] 奪魂鋸X 開頭討論 雷'
 url: https://www.ptt.cc/bbs/movie/M.1696058723.A.3AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1676,7 +1675,7 @@ date: 2023-10-02
 reply_count: 112
 title: '[  好雷] 奪魂鋸X 故事脈絡解答'
 url: https://www.ptt.cc/bbs/movie/M.1696211865.A.4F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一直都有追看奪魂鋸系列
 
 
@@ -1700,7 +1699,7 @@ date: 2023-10-28
 reply_count: 20
 title: '[請益] 奪魂鋸X沒看前作Spiral會有影響嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1698422567.A.954.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片根本不符合拼圖殺人老頭的個性啊
 
 
@@ -1742,7 +1741,7 @@ date: 2023-09-28
 reply_count: 31
 title: '[請益] 奪魂鋸X問題請教(有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1695908567.A.90F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n2023-09-28\n\n\n《奪魂鋸 X》的首波評價已經正式解禁，許多媒體都在社群平台上分享了他們對於這部最\n新續集的初步評論。本片由凱文格勞特執導，喬許史托柏格和彼得戈德芬格擔任編劇，雖\n\
   然是系列在 2021 年《死亡漩渦：奪魂鋸新遊戲》之後推出的第十部電影，但故事設定在\n《奪魂鋸》以及《奪魂鋸 2》之間，講述了由托賓貝爾回歸演出的「拼圖殺人魔」約翰克\n\
   拉莫針對一群來自墨西哥的醫療詐騙集團展開了一場血腥的復仇行動。\n\n\n如今，《奪魂鋸 X》已經在本周正式上映，社群媒體的首波評價也已經正式解禁。以目前\n\
@@ -1761,7 +1760,7 @@ date: 2023-09-28
 reply_count: 19
 title: '[新聞]《奪魂鋸X》首波評價解禁:系列史上最棒續集'
 url: https://www.ptt.cc/bbs/movie/M.1695876281.A.CD5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前面開始到被騙錢那邊很拖戲
 
   然後玩遊戲的人不多
@@ -1792,7 +1791,7 @@ date: 2023-09-29
 reply_count: 22
 title: '[普雷]奪魂鋸X 總體來說都挺一般'
 url: https://www.ptt.cc/bbs/movie/M.1695955992.A.F2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '----防雷---
 
 
@@ -1877,7 +1876,7 @@ date: 2023-09-30
 reply_count: 48
 title: '[討論] 奪魂鋸X 最後的遊戲不合理（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1696056314.A.207.html
---- !!python/object:movie_data.PublicReview
+---
 content: '稍早官方（獅門影業）已經正式宣布
 
   遊戲還會繼續
@@ -1896,7 +1895,7 @@ date: 2023-12-12
 reply_count: 48
 title: '[討論] 奪魂鋸XI 暫定發行於2024.9.27'
 url: https://www.ptt.cc/bbs/movie/M.1702340472.A.E95.html
---- !!python/object:movie_data.PublicReview
+---
 content: '詐騙集團都給我去割腎雷
 
 
@@ -1933,7 +1932,7 @@ date: 2023-10-01
 reply_count: 7
 title: '[討論] 奪魂鋸X 的時間點？'
 url: https://www.ptt.cc/bbs/movie/M.1696160672.A.F4D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2015,7 +2014,7 @@ date: 2023-10-01
 reply_count: 28
 title: '[ 負雷] 奪魂鋸X  史詩級大爛片！！！'
 url: https://www.ptt.cc/bbs/movie/M.1696097188.A.29B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "過去從來沒進電影院看奪魂鋸系列\n今年這部續作看到老頭戲份這麼多，加上又是復仇劇立刻進場支持\n看完之後，感覺片中的大反派根本是在暗示伊莉莎白霍姆斯吧\n\
   就是惡血的theranos創辦人，雖然不是針對癌症\n但也是醫療相關企業的詐欺\n\n\n此外那個吸毒女的陷阱設計上是不是故意放水了？\n如果她沒有聽從大反派的說法，而是先敲斷手\n\
   她落地之後也許輻射燈就照不到了\n\n\n這次作品在創新上有兩個懸念，一是通過考驗的那個司機/假醫生\n不知道未來有沒有機會出現\n二是大反派女醫師，沒想到最後她居然還是活了下來\n\
@@ -2027,7 +2026,7 @@ date: 2023-09-30
 reply_count: 20
 title: '[討論] 奪魂鋸X的遊戲有bug&寓言(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1696033869.A.4D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老頭原本開心的以為遇到神醫
 
 
@@ -2057,7 +2056,7 @@ date: 2023-11-12
 reply_count: 4
 title: '[討論] 奪魂鋸X 反詐騙'
 url: https://www.ptt.cc/bbs/movie/M.1699748449.A.9B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很可能是今年教師節最應景的電影。
 
 
@@ -2221,7 +2220,7 @@ date: 2023-09-28
 reply_count: 21
 title: '[好雷] 《奪魂鋸X》：意想不到的教師節電影'
 url: https://www.ptt.cc/bbs/movie/M.1695832017.A.DB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《奪魂鋸X》首次亮相，在爛番茄上獲得了 83% 的評分（23 條評論）。
 
 
@@ -2246,7 +2245,7 @@ date: 2023-09-28
 reply_count: 22
 title: '[情報] 《奪魂鋸X》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1695908047.A.45B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "奪魂鋸1～9不管過程再爛，\n\n結局至少都還有讓人想不到的梗\n\n第十集感覺直接炸裂。\n\n\n\n老頭治病過程，我還想說他那麼聰明\n\n\
   應該不會被老梗醫療團隊詐騙，\n\n甚至一開始完全沒提到費用，還以為\n\n是真的，結果竟然就這樣順順的騙下去。\n\n\n\n結尾冒出小屁孩是啥小，雖然很爛\n\
   \n但這也是唯一一集老頭失算，打亂\n\n他的計畫。\n\n\n但血刑風險也太大了吧，本來應該\n\n是設計老頭和阿曼達玩，把情侶騙上去\n\n但如果情侶心理變態看著他們玩呢？\n\
@@ -2258,7 +2257,7 @@ date: 2023-10-22
 reply_count: 37
 title: '[普雷] 奪魂鋸X結尾是不是歷屆最爛？'
 url: https://www.ptt.cc/bbs/movie/M.1697914084.A.1B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》 來啦\n\n全球嚇破300億《》最新篇章！\n\n系列開創者  強勢回歸\n\n【】9/28 (四) 搶先全美上映\n\n「」令人永生難忘的最終遊戲\n\
   \n驚人反轉再創恐懼顛峰！\n\n\n【】 9/28 (四) 搶先全美上映\n\n全球嚇破300億《》最新篇章\n\n《》系列開創者、恐怖大師 溫子仁 強勢回歸主導！\n\
   \n睽違六年，再度飾演「」重返《》\n\n這次，拼圖殺人魔將對詐騙集團展開最「量身打造」的血腥報復\n\n #車庫娛樂 #托賓貝爾\n\n資料來源：\n\n--"
@@ -2266,7 +2265,7 @@ date: 2023-09-26
 reply_count: 2
 title: '[情報] 《奪魂鋸X》Dolby Atmos 上映戲院列表'
 url: https://www.ptt.cc/bbs/movie/M.1695722733.A.8C4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '晚上看完 整體而言應該有80分以上吧
 
   不是沒有缺點 但奪魂鋸系列的虐殺 中心主題以及創意轉折都還是有

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '最近假日有點清閒
 
   和五歲小孩在家看加菲貓和腦筋急轉彎
@@ -43,7 +42,7 @@ date: 2024-06-16
 reply_count: 29
 title: '[選片] 加菲貓農場大冒險vs腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1718538431.A.41B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -126,7 +125,7 @@ date: 2024-06-24
 reply_count: 5
 title: '[好雷]  腦筋急轉彎2 - 警察'
 url: https://www.ptt.cc/bbs/movie/M.1719204523.A.1E8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '巴斯光年電影失敗後，迪士尼高層認為主要原因是因為劇中巴斯的同性之吻
 
 
@@ -138,7 +137,7 @@ date: 2024-09-18
 reply_count: 66
 title: '[討論] 迪士尼要求讓腦筋急轉彎2的萊利不要太gay'
 url: https://www.ptt.cc/bbs/movie/M.1726636834.A.3D6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '介紹新的情緒焦慮
 
   不知道青春期會不會登場
@@ -153,7 +152,7 @@ date: 2024-02-09
 reply_count: 7
 title: '[討論] 腦筋急轉彎2 前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1707441162.A.98E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -303,7 +302,7 @@ date: 2024-06-24
 reply_count: 90
 title: '[新聞] 《腦筋急轉彎2》只用 8 天登頂年度冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1719211934.A.6E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(防雷)
 
 
@@ -448,7 +447,7 @@ date: 2024-06-16
 reply_count: 39
 title: '[好雷] 腦筋急轉彎2：更成熟的腦筋急轉彎'
 url: https://www.ptt.cc/bbs/movie/M.1718552801.A.166.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論，身為皮克斯的忠實老粉，我非常喜歡這次的《腦２》。
 
 
@@ -569,7 +568,7 @@ date: 2024-06-16
 reply_count: 15
 title: '[好雷] 腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1718538306.A.6CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -648,7 +647,7 @@ date: 2024-07-13
 reply_count: 43
 title: '[ 負雷] 腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1720873294.A.9DC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "腦筋急轉彎2夯賣 票房三冠王 全球賣破95億\n\n2024/06/18 05:30\n\n\n皮克斯動畫《腦筋急轉彎2》榮登全台票房冠軍，勇奪影史動畫片開片票房亞軍。\n\
   （迪士尼提供）\n\n〔記者廖俐惠／綜合報導〕皮克斯續作《腦筋急轉彎2》票房嚇嚇叫，勇奪全球、全美及\n全台三冠王，全球票房高達2.95億美元（約台幣95.4億元），台灣票房也相當亮眼，僅4\n\
   天就大賣7522萬元，穩坐上週票房冠軍寶座。\n\n《腦筋急轉彎2》上週末3天在北美票房衝破1.55億美金（約台幣50.14億元），成為今年\n北美開片票房冠軍，同時也是北美今年首部開片破億的電影，榮登全球動畫影史最佳開片\n\
@@ -659,7 +658,7 @@ date: 2024-06-18
 reply_count: 4
 title: '[新聞] 腦筋急轉彎2夯賣 票房三冠王 全球賣破95億'
 url: https://www.ptt.cc/bbs/movie/M.1718726071.A.255.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整體劇本品質有回歸以往皮克斯的水準
 
   雖然走向一樣是比較公式一點
@@ -731,7 +730,7 @@ date: 2024-06-14
 reply_count: 8
 title: '[好無雷] 腦筋急轉彎2 皮克斯回來惹 for now....'
 url: https://www.ptt.cc/bbs/movie/M.1718351912.A.FEA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一部神到看三次哭三次
 
   看到續集要出就決定衝第一天去看！
@@ -876,7 +875,7 @@ date: 2024-06-13
 reply_count: 68
 title: '[好微雷]腦筋急轉彎2 - 等了九年的神片續集'
 url: https://www.ptt.cc/bbs/movie/M.1718293404.A.47C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台美影史紀錄再刷新！《腦筋急轉彎2》全球猛破15億美金
 
 
@@ -932,7 +931,7 @@ date: 2024-07-30
 reply_count: 41
 title: '[新聞] 紀錄再刷新！腦筋急轉彎2全球猛破15億美'
 url: https://www.ptt.cc/bbs/movie/M.1722294823.A.A62.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -969,7 +968,7 @@ date: 2024-06-16
 reply_count: 10
 title: 'Re: [請益] 想請問腦筋急轉彎2某個疑問'
 url: https://www.ptt.cc/bbs/movie/M.1718509900.A.2AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Deadline報導:
 
 
@@ -1016,7 +1015,7 @@ date: 2024-06-15
 reply_count: 96
 title: '[討論] 腦筋急轉彎2北美提早場1300萬 今年最高'
 url: https://www.ptt.cc/bbs/movie/M.1718427249.A.4B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n無雷純分享請往下。\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n暑期多片上檔\n\
   想帶全家人看/想帶小朋友看/想自己看?\n請看以下分析\n\n腦筋急轉彎2:劇情簡單，藉由青少年時期的困擾來帶出人應該接受全部的情緒，\n          \
@@ -1027,7 +1026,7 @@ date: 2024-07-08
 reply_count: 3
 title: '[無雷] 推薦腦筋急轉彎2/神偷奶爸4/找死兇宅 '
 url: https://www.ptt.cc/bbs/movie/M.1720430698.A.522.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整體架構接近複製第一集，
 
   但第一集就是言簡意賅，
@@ -1187,7 +1186,7 @@ date: 2024-06-22
 reply_count: 19
 title: '[普雷] 腦筋急轉彎2(前無雷後有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1719051768.A.94F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請容我大聲喊一下！
 
 
@@ -1227,7 +1226,7 @@ date: 2024-06-13
 reply_count: 72
 title: '[好無雷] 腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1718261411.A.56A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無雷
 
   只是想問一個有點在意的問題
@@ -1269,7 +1268,7 @@ date: 2024-06-23
 reply_count: 16
 title: '[好雷] 腦筋急轉彎2 疑問+好評'
 url: https://www.ptt.cc/bbs/movie/M.1719144688.A.AB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1420,7 +1419,7 @@ date: 2024-06-21
 reply_count: 23
 title: '[好雷] 腦筋急轉彎2~拯救暑假票房的救世主 '
 url: https://www.ptt.cc/bbs/movie/M.1718974671.A.B10.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《腦筋急轉彎2》全台賣破4.5億穩坐年度冠軍！本週將超車《灌籃高手》票房
 
 
@@ -1479,7 +1478,7 @@ date: 2024-07-23
 reply_count: 72
 title: '[新聞] 腦筋急轉彎2全台賣破4.5億穩坐年度冠軍！'
 url: https://www.ptt.cc/bbs/movie/M.1721671946.A.0B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -1539,7 +1538,7 @@ date: 2024-07-02
 reply_count: 46
 title: '[討論] 腦筋急轉彎2裡面的阿廢'
 url: https://www.ptt.cc/bbs/movie/M.1719933134.A.143.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第二集將聚焦於萊莉青春期的故事，
 
 
@@ -1565,7 +1564,7 @@ date: 2023-11-09
 reply_count: 123
 title: '[討論] 腦筋急轉彎2  前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1699539728.A.A75.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1668,7 +1667,7 @@ date: 2024-07-04
 reply_count: 32
 title: '[普雷] 腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1720057057.A.B9F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '怕有雷先防雷
 
 
@@ -1792,7 +1791,7 @@ date: 2024-06-14
 reply_count: 47
 title: '[好雷] 腦筋急轉彎2 青春期的焦慮與不安 '
 url: https://www.ptt.cc/bbs/movie/M.1718372568.A.895.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1844,7 +1843,7 @@ date: 2024-11-12
 reply_count: 3
 title: '[普雷] 腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1731402388.A.8D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2002,7 +2001,7 @@ date: 2024-07-11
 reply_count: 10
 title: '[新聞] 《腦筋急轉彎2》12.51億美元超越《超人特攻隊2》成皮克斯'
 url: https://www.ptt.cc/bbs/movie/M.1720688843.A.76E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷，自行斟酌閱讀
 
 
@@ -2034,7 +2033,7 @@ date: 2024-06-20
 reply_count: 11
 title: '[雷] 腦筋急轉彎2之美國工人'
 url: https://www.ptt.cc/bbs/movie/M.1718893571.A.C02.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -2067,7 +2066,7 @@ date: 2024-06-27
 reply_count: 60
 title: '[討論] 腦筋急轉彎2 票房1.9億'
 url: https://www.ptt.cc/bbs/movie/M.1719495416.A.D1C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說我是皮克斯的忠實粉絲，我小時候的願望是進入皮克斯工作。另外（不重要）我是INFP\n，給不知道MBTI測驗的人，INFP類型是內心感情豐富（而且有點理想主義），但缺乏實際行\n\
   動的人，只會在腦中想一堆，但很少真的會實行。\n\n提這個只是想說，我這種個性的會喜歡這部影片喔，給大家選片參考。\n\n\n\n\n防雷，下面有雷，沒看過的快回家收衣服！\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n以下開始電影評論：\n\n\n【腦筋急轉彎1】是我最喜歡的一部皮克斯作品，是的，高於玩具總動員1跟3，我知道幾乎\n\
@@ -2099,7 +2098,7 @@ date: 2024-06-19
 reply_count: 14
 title: '[雷] [好雷] 腦筋急轉彎2 我們愛的是你原來的樣'
 url: https://www.ptt.cc/bbs/movie/M.1718785469.A.913.html
---- !!python/object:movie_data.PublicReview
+---
 content: '所以要進入青春期篇了嗎？
 
   那顆大按鈕應該也差不多要按下去了
@@ -2114,7 +2113,7 @@ date: 2022-09-10
 reply_count: 72
 title: '[情報] 腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1662771485.A.0E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "全新腦內革命 《腦筋急轉彎2》解鎖4情緒角色\n\n2024/03/09 05:30\n\n\n皮克斯《腦筋急轉彎2》曝光全新情緒角色羞羞（左起）、焦焦、慕慕、倦倦，將掀起全\n\
   新腦內革命。（迪士尼提供）\n\n〔記者許世穎／綜合報導〕皮克斯動畫續作《腦筋急轉彎2》昨曝光新預告，正式「解鎖\n」全新情緒角色，包括代表焦慮的「焦焦」、羨慕的「慕慕」、倦怠的「倦倦」、害羞的\n\
   「羞羞」，將與樂樂、憂憂等元老情緒們展開全新腦內革命。\n\n首集《腦筋急轉彎》於2015年推出，在全球大賣8.57億美金（約台幣269億元），故事停\n在小女孩萊莉12歲的完美結局，但本集萊莉將經歷讓人聞風喪膽的青春期，內心也要拓寬\n\
@@ -2125,7 +2124,7 @@ date: 2024-03-09
 reply_count: 2
 title: '[新聞] 全新腦內革命 《腦筋急轉彎2》解鎖4情緒角色'
 url: https://www.ptt.cc/bbs/movie/M.1709997514.A.82B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '腦筋急轉彎2，首週全球票房達2.95億美金
 
 
@@ -2144,7 +2143,7 @@ date: 2024-06-17
 reply_count: 53
 title: '[情報] 腦筋急轉彎2 首週全球票房'
 url: https://www.ptt.cc/bbs/movie/M.1718607396.A.0EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本人對英雄電影普通，最近一次是看蜘蛛人3，看完真的五味雜陳，邊看電影邊看時間那
 
   種，但男友半個漫威迷，這次很想看休傑克曼。
@@ -2162,7 +2161,7 @@ date: 2024-07-27
 reply_count: 37
 title: '[選片] 死侍與金剛狼 & 腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1722064362.A.27F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我跟老婆以前都是迪士尼跟皮克斯的忠實信徒\n前陣子又重溫了腦筋急轉彎第一集\n還是能被Bing Bong感動的眼眶泛紅\n對第二集也很有興趣\n\
   \ \n但最近這幾年\n對迪士尼的失望已經累積到有PTSD了\n最讓我卻步的部分\n是第二集萊莉進入青春期出現新情緒\n但第一集的父母腦中並沒有這些新情緒\n\
   \ \n像怪獸大學的劇情並沒有跟怪獸電力公司的世界框架有任何矛盾的地方\n蘇利文跟麥可華司基的個性轉變也很合理\n看完怪獸大學也為電力公司結尾麥克華司基能完成夢想成為專員感到很開心\n\
@@ -2173,7 +2172,7 @@ date: 2024-06-15
 reply_count: 92
 title: '[請益] 想請問腦筋急轉彎2某個疑問'
 url: https://www.ptt.cc/bbs/movie/M.1718466307.A.E44.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「腦筋急轉彎2」預告強勢回歸 全新情緒成「焦」點\n\n2023-11-10 17:57\n\n聯合報 記者陳建嘉／即時報導\n\n\n「腦筋急轉彎2」最受喜愛的「情緒主角」重返大銀幕。圖／迪士尼提供\n\
   \n皮克斯最受歡迎的作品之一「腦筋急轉彎」將於明年暑假推出暌違9年的續集 「腦筋急轉\n彎2」，最受喜愛的「情緒主角」全都重返大銀幕，更有全新的情緒角色驚喜登場，首支\n\
   預告與海報也正式曝光。\n\n電影首集停在小女孩萊莉12歲的完美結局，未料她的內心世界又將展開全新旅程！正要經\n歷青春期的萊莉，內心也要拓寬空間，以容納更多情緒，而這些新的情緒也將在萊莉的內\n\
@@ -2186,7 +2185,7 @@ date: 2023-11-10
 reply_count: 6
 title: '[新聞] 「腦筋急轉彎2」預告強勢回歸 全新情緒成「焦」點'
 url: https://www.ptt.cc/bbs/movie/M.1699630147.A.DF2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '腦中控制面板升級有青春期這個按鈕
 
   代表有更多變化
@@ -2225,7 +2224,7 @@ date: 2015-08-23
 reply_count: 39
 title: '[討論] 腦筋急轉彎2的可能性'
 url: https://www.ptt.cc/bbs/movie/M.1440268783.A.EAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
 
@@ -2376,7 +2375,7 @@ date: 2024-07-14
 reply_count: 89
 title: '[大爛雷] 腦筋急轉彎2--青春期應該只有性慾'
 url: https://www.ptt.cc/bbs/movie/M.1720934511.A.C2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在剛好有空檔時間想挑一部來看
 
   目前對這兩部動畫片有興趣
@@ -2410,7 +2409,7 @@ date: 2024-09-02
 reply_count: 61
 title: '[選片] 腦筋急轉彎2 驀然回首'
 url: https://www.ptt.cc/bbs/movie/M.1725262698.A.A67.html
---- !!python/object:movie_data.PublicReview
+---
 content: '霹靂包是連結首集教育橋段，打破第四面牆與觀眾互動；如同首集的小彬彬，腦2雖然成
 
   人觀賞會更有感，但TA群還是著重學齡兒童，所以如同Dora卡通似的學齡橋段，還是必須
@@ -2459,7 +2458,7 @@ date: 2024-06-20
 reply_count: 52
 title: 'Re: [北七雷] 腦筋急轉彎2-沒錯，長大了就是少了樂趣'
 url: https://www.ptt.cc/bbs/movie/M.1718855836.A.306.html
---- !!python/object:movie_data.PublicReview
+---
 content: "第一集談的比較多議題，形塑萊利的這個人，不過2很集中的在說焦慮的出現如何霸佔和\n影響萊利的生活。\n\n以下是一些看完腦筋急轉彎2記得的畫面以及有共鳴的部分：\n\
   \n---以下大爆雷---\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(1)存放情緒球的地方是波浪狀大櫃子很像大腦的皺褶\n\n(2)控制台逐漸被焦焦佔領，其他情緒就很難碰到控制台，混合情緒的配比就下降，因為\n\
   愛慕害羞而更焦慮\n\n(3)廢廢極度懶惰跟厭世，所以只想花最少力氣高效率工作，靠遠端工作連離開椅子都懶\n哈\n\n(4)萊利睡前有很多複雜想法的時候,腦內的情緒主角們在爭奪控制台,這時候可以觀察萊\n\
@@ -2476,7 +2475,7 @@ date: 2024-06-19
 reply_count: 5
 title: '[好雷] 腦筋急轉彎2 - 與焦焦的共鳴 (大暴雷)'
 url: https://www.ptt.cc/bbs/movie/M.1718747308.A.970.html
---- !!python/object:movie_data.PublicReview
+---
 content: "核心主旨:\n\n有看過跟沒看過的人  看到下面這句話基本上就是貫穿核心\n\n這是電影想傳達的主旨之一 其實是跟觀眾對話 而不是鎖定在女主角的成長\n\
   \n這句話是什麼呢:\n\n\n\n\"When you grow up, you don't really need joy.\"\n\n\n\n這不是原話但差不多啦XD\
   \  它想表達的是樂樂認為長大的Riley不需要它\n\n而故事中最後Riley召喚樂樂  就是想表達  哦 原來長大了還是可以快樂這樣子\n\n而這個價值觀我認同嗎?真的是有道理又值得擁抱的嗎?\n\
@@ -2542,7 +2541,7 @@ date: 2024-06-20
 reply_count: 243
 title: '[北七雷] 腦筋急轉彎2-沒錯，長大了就是少了樂趣'
 url: https://www.ptt.cc/bbs/movie/M.1718849841.A.477.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題看預告片也是圍繞在原本四隻人物故事在打轉，就好奇有沒有新角出現，會不會有個
 
   角色是假假？
@@ -2553,7 +2552,7 @@ date: 2024-06-10
 reply_count: 38
 title: 期待這腦筋急轉彎2會不會新角登場？
 url: https://www.ptt.cc/bbs/movie/M.1717988122.A.7A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '建議還是要看1 我當天晚上在迪士尼補完1之後 就去電影院看2了
 
   這部是少數2比1還好看的續集 1也很好看 片長才94分而已 一下就看完了
@@ -2572,7 +2571,7 @@ date: 2024-06-22
 reply_count: 9
 title: 'Re: [請益] 腦筋急轉彎2需先看1嗎'
 url: https://www.ptt.cc/bbs/movie/M.1719063909.A.C32.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下全有雷！！！！\n\n\n\n\n\n\n\n\n\n\n\nInside Out 2 最棒的第二集。\n\n其實一開始看到阿焦的出現的時候，\n\
   我非常討厭他，\n覺得他為什麼要把事情搞得那麼複雜？\n\n明明就是很簡單的事情，\n卻總是設想了很多可能，\n最後困住自己。\n\n然後朋友說：「通常我們討厭或是對某些情緒敏感，\n\
   有可能是因為我們本身那樣的情緒佔比就很多。」\n\n但是後來一切慢慢失控，\n發現自己設立的完美目標可能無法達到的時候，\n萊莉心底的聲音是：「我還不夠好、我還不夠好、我不夠優秀。」\n\
@@ -2587,7 +2586,7 @@ date: 2024-06-19
 reply_count: 8
 title: '[好雷]腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1718771592.A.41F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《腦筋急轉彎2》全球票房破12億美金！ 登動畫片TOP5史上最快
 
 
@@ -2633,7 +2632,7 @@ date: 2024-07-08
 reply_count: 137
 title: '[新聞] 《腦筋急轉彎2》全球票房破12億美金！'
 url: https://www.ptt.cc/bbs/movie/M.1720437464.A.B51.html
---- !!python/object:movie_data.PublicReview
+---
 content: '公布隊員時間到，女主角拿起手機微笑一下，然後沒有演有沒有上。我個人覺得有上，畢竟
 
   都進兩球了，實力應該夠了吧？
@@ -2646,7 +2645,7 @@ date: 2024-07-08
 reply_count: 22
 title: '[請益] 腦筋急轉彎2到底錄取了沒啦？'
 url: https://www.ptt.cc/bbs/movie/M.1720422271.A.042.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Deadline本周末票房報導:
 
 
@@ -2684,7 +2683,7 @@ date: 2024-06-22
 reply_count: 133
 title: '[討論] 《腦筋急轉彎2》8天超車沙丘2 登北美年冠'
 url: https://www.ptt.cc/bbs/movie/M.1719071201.A.026.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《腦筋急轉彎2》爛番茄91%好評　皮克斯有望再拍第三集？導演給回應
 
 
@@ -2756,7 +2755,7 @@ date: 2024-06-13
 reply_count: 40
 title: '[新聞] 《腦筋急轉彎2》爛番茄91%好評　皮克斯'
 url: https://www.ptt.cc/bbs/movie/M.1718251767.A.2A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n《腦筋急轉彎2》：強勢的樂樂、失控的阿焦，萊莉兩個都不要\n\
   \n\n○ 樂樂：打破二元對立，不論晴雨感受情緒意義\n\n樂樂一直是萊莉腦內總部的指揮，她負責調配並帶動其他情緒合作，甚至能決定每段記憶\n的重要程度和去留。她想讓萊莉快樂平安的長大。\n\
@@ -2790,7 +2789,7 @@ date: 2024-06-19
 reply_count: 9
 title: '[好雷]腦筋急轉彎2 強勢樂樂失控阿焦，萊莉不要'
 url: https://www.ptt.cc/bbs/movie/M.1718785183.A.6D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2902,7 +2901,7 @@ date: 2024-06-28
 reply_count: 41
 title: '[ 好雷] 腦筋急轉彎2 給大人的療癒情緒片'
 url: https://www.ptt.cc/bbs/movie/M.1719517368.A.CAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -2972,7 +2971,7 @@ date: 2024-08-09
 reply_count: 20
 title: '[請益] 腦筋急轉彎2的信念系統'
 url: https://www.ptt.cc/bbs/movie/M.1723181636.A.5D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "皮克斯重返榮耀！《腦筋急轉彎2》台美票房大爆發\n\n2024/06/15 13:33\n\n〔記者許世穎／綜合報導〕皮克斯賣座動畫續作《腦筋急轉彎2》14日正式在北美上映，\n\
   外媒初步統計，電影首日在北美大收4700萬美金（約台幣15.2億元，成績不含週四優先場\n的1300萬美金），預計當天結束可達到6000萬美金（約台幣19.41億元）。\n\
   \n\n《腦筋急轉彎2》在台美創下好票房。（迪士尼提供）\n\n該片北美首日票房已確定遠超2015年首集《腦筋急轉彎》首日的3426萬美金（約台幣\n11.08億元），同時也是繼去年暑假《Barbie芭比》首日創下的7050萬美金（約台幣22.8\n\
@@ -2983,7 +2982,7 @@ date: 2024-06-15
 reply_count: 61
 title: '[新聞] 皮克斯重返榮耀！《腦筋急轉彎2》台美票房大爆發'
 url: https://www.ptt.cc/bbs/movie/M.1718457082.A.FAE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來想看英語版
 
   但小孩對腦筋急轉彎有點抗拒
@@ -3005,7 +3004,7 @@ date: 2024-07-17
 reply_count: 42
 title: '[請益] 腦筋急轉彎2國語版好嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1721190759.A.F07.html
---- !!python/object:movie_data.PublicReview
+---
 content: "~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\
   \n\n\n\n\n\n腦筋急轉彎 1 跟 2 都不是女主角的成長故事，而是「樂樂」的成長故事\n\n\n    1: 樂樂從 \"排斥憂憂\" 的錯誤中成長\n\
   \       了解到 \"憂憂也是人格中不可或缺的一部分\"\n\n    2. 樂樂從 \"排斥負面記憶\" 的錯誤中成長\n       了解到 \"所有記憶都是塑造完整人格的一部分\"\
@@ -3021,7 +3020,7 @@ date: 2024-11-02
 reply_count: 1
 title: '[普雷] 腦筋急轉彎2 Inside Out 2'
 url: https://www.ptt.cc/bbs/movie/M.1730512420.A.83B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -3057,7 +3056,7 @@ date: 2024-08-25
 reply_count: 31
 title: '[討論] 腦筋急轉彎2 票房5億'
 url: https://www.ptt.cc/bbs/movie/M.1724589716.A.693.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《腦筋急轉彎2》續集終於來了！ 小女孩長大「青春期」有情緒
 
 
@@ -3118,7 +3117,7 @@ date: 2024-06-07
 reply_count: 51
 title: '[新聞] 《腦筋急轉彎2》續集終於來了！ 小女孩'
 url: https://www.ptt.cc/bbs/movie/M.1717736844.A.536.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3253,7 +3252,7 @@ date: 2024-06-18
 reply_count: 48
 title: '[普好微雷] 腦筋急轉彎2：成長了 但不多'
 url: https://www.ptt.cc/bbs/movie/M.1718683253.A.F6D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3439,7 +3438,7 @@ date: 2024-07-26
 reply_count: 9
 title: '[好雷] 腦筋急轉彎2─情緒正想告訴你的事情'
 url: https://www.ptt.cc/bbs/movie/M.1721985511.A.38C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，推薦看哪種配音，我蠻喜歡聽道地的俚語或烙幾句台語，很有趣。
 
 
@@ -3460,7 +3459,7 @@ date: 2024-06-22
 reply_count: 36
 title: '[請益] 腦筋急轉彎2 英文or中文?'
 url: https://www.ptt.cc/bbs/movie/M.1719020111.A.846.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n「腦筋急轉彎2」暫居年度冠軍 「死侍金鋼狼」緊追在後\n\n 2024-06-24 18:29 聯合報 記者陳建嘉／即時報導\n\
   \n「腦筋急轉彎2」正式登頂成為年度票房冠軍，這部皮克斯動畫讓粉絲苦等9年，續作一樣\n精采好看，全球上映僅2周便以7.24億美金(約新台幣224億)的票房暫居年度冠軍，全台也\n\
   突破1.9億，終於炒熱先前較為冷淡的戲院票房，接下來還有「死侍與金鋼狼」、「神偷\n奶爸4」以及「龍捲風暴」等強片陸續接棒登場。\n\n「腦筋急轉彎2」不僅承襲於前一集，讓觀眾再度進入小女孩「萊莉」的腦袋，讓前集的\n\
@@ -3473,7 +3472,7 @@ date: 2024-06-24
 reply_count: 14
 title: '[新聞] 「腦筋急轉彎2」暫居年度冠軍 「死侍金'
 url: https://www.ptt.cc/bbs/movie/M.1719233998.A.62B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3554,7 +3553,7 @@ date: 2024-06-16
 reply_count: 45
 title: '[  雷] 腦筋急轉彎2結局！？'
 url: https://www.ptt.cc/bbs/movie/M.1718469928.A.A48.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3634,7 +3633,7 @@ date: 2024-07-19
 reply_count: 24
 title: '[ 好雷]  腦筋急轉彎2 看到阿焦好共感'
 url: https://www.ptt.cc/bbs/movie/M.1721385324.A.FD8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '發生了！
 
   《腦筋急轉彎2》超越冰雪奇緣2，
@@ -3703,7 +3702,7 @@ date: 2024-07-25
 reply_count: 111
 title: '[情報] 腦筋急轉彎2票房正式超越冰雪奇緣2'
 url: https://www.ptt.cc/bbs/movie/M.1721866631.A.599.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~
 
 
@@ -3765,7 +3764,7 @@ date: 2024-06-14
 reply_count: 12
 title: '[感動雷] 腦筋急轉彎2 令人感動的續作'
 url: https://www.ptt.cc/bbs/movie/M.1718350822.A.9CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完想了很久，覺得還是只能普雷
 
 
@@ -3865,7 +3864,7 @@ date: 2024-06-13
 reply_count: 36
 title: '[普雷] 腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1718288311.A.0AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《腦筋急轉彎2》再奪全球年度票房冠軍！北美動畫吸金速度No.1
 
 
@@ -3909,7 +3908,7 @@ date: 2024-06-24
 reply_count: 33
 title: '[新聞] 《腦筋急轉彎2》再奪全球年度票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1719190474.A.76A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "迪士尼 皮克斯的《》\n\n\n\n新演員陣容：\n\n\n\n‧ - 由Ayo Edebiri 配音。\n‧ - 由瑪雅霍克配音。\n‧ -\
   \ 由Adele Exarchopoulos 配音。\n‧ - 由保羅沃特豪瑟配音。\n\n\n\n迪士尼與皮克斯的《》中的新情感\n\n‧ \n‧ \n‧ \n\
   ‧ \n\n6月14日上映\n\n\n\n資料來源：X\n\n--"
@@ -3917,7 +3916,7 @@ date: 2024-03-08
 reply_count: 44
 title: '[情報] 《腦筋急轉彎2》正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1709833639.A.542.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題：
 
   請問需要先看1才能看2嗎？
@@ -3942,7 +3941,7 @@ date: 2024-06-22
 reply_count: 30
 title: '[請益] 腦筋急轉彎2需先看1嗎'
 url: https://www.ptt.cc/bbs/movie/M.1719056280.A.29E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4074,7 +4073,7 @@ date: 2024-06-17
 reply_count: 66
 title: '[好雷] 腦筋急轉彎2 與自己的情緒和解'
 url: https://www.ptt.cc/bbs/movie/M.1718619374.A.5EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4318,7 +4317,7 @@ date: 2024-06-17
 reply_count: 66
 title: '[新聞] 皮克斯再刷新一堆票房紀錄！腦筋急轉彎2'
 url: https://www.ptt.cc/bbs/movie/M.1718613726.A.53B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當時看這腦筋急轉彎2的時候
 
   我發現我其實對阿焦這個角色很反感
@@ -4353,7 +4352,7 @@ date: 2024-07-19
 reply_count: 12
 title: 'Re: [ 好雷]  腦筋急轉彎2 看到阿焦好共感'
 url: https://www.ptt.cc/bbs/movie/M.1721387630.A.CBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4408,7 +4407,7 @@ date: 2024-11-06
 reply_count: 21
 title: '[普雷] 腦筋急轉彎2 想再次二刷'
 url: https://www.ptt.cc/bbs/movie/M.1730877121.A.8B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如標題
 
 

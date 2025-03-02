@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -169,7 +168,7 @@ date: 2022-11-05
 reply_count: 21
 title: '[好雷] 劊樂小丑2 - 不只要殺你，更要玩死你'
 url: https://www.ptt.cc/bbs/movie/M.1667651068.A.24C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很抱歉，也許是期待太高，失望越高
 
   我只能給負雷

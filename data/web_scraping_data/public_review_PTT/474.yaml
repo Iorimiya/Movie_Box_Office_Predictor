@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -103,7 +102,7 @@ date: 2024-05-03
 reply_count: 2
 title: '[新聞] 【地獄的逃走劇】打造影史最狂科幻動作片'
 url: https://www.ptt.cc/bbs/movie/M.1714737525.A.61E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我看的那場今天只有我，而且一天才一場
 
   看起來下週岌岌可危
@@ -209,7 +208,7 @@ date: 2024-05-26
 reply_count: 9
 title: '[好普雷]BLOODY ESCAPE：地獄的逃走劇'
 url: https://www.ptt.cc/bbs/movie/M.1716712102.A.0FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '情報來源：
 
 

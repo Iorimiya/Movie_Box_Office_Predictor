@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '爬文跟google一開始說8號
 
 
@@ -25,7 +24,7 @@ date: 2024-11-13
 reply_count: 8
 title: '[請益] 異教詭屋到底哪時上映啊?'
 url: https://www.ptt.cc/bbs/movie/M.1731501327.A.07E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -160,7 +159,7 @@ date: 2024-12-01
 reply_count: 19
 title: '[好雷] 異教詭屋 Heretic'
 url: https://www.ptt.cc/bbs/movie/M.1733044485.A.82B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論
 
   爛番茄分數這麼高有點意外
@@ -239,7 +238,7 @@ date: 2024-11-29
 reply_count: 62
 title: '[雷] 異教鬼屋'
 url: https://www.ptt.cc/bbs/movie/M.1732869510.A.B86.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -289,7 +288,7 @@ date: 2024-12-17
 reply_count: 36
 title: '[好雷] 異教詭屋:結合信仰和驚悚的好片'
 url: https://www.ptt.cc/bbs/movie/M.1734370267.A.677.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片預告就誤導觀眾了
 
   看預告還以為是像獵人考試那樣
@@ -345,7 +344,7 @@ date: 2024-11-30
 reply_count: 24
 title: '[討論]《異教詭屋》結局的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1732963653.A.477.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我也蠻期待這部的
 
   剛剛發中文預告了 11/29上映

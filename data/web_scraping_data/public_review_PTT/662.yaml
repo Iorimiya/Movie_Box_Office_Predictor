@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '作者: roktzzt (阿銀) 看板: C_Chat
 
   標題: [閒聊] 終於去看你的名字。
@@ -70,7 +69,7 @@ date: 2016-10-24
 reply_count: 10
 title: 'Fw: [閒聊] 終於去看你的名字。'
 url: https://www.ptt.cc/bbs/movie/M.1477324632.A.FDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n英國電影雜誌為「你的名字。」打出滿分評價\n認為新海誠有機會獲得奧斯卡！\n\n「你的名字。」雖然預定明年第一季度才會在美國正式上映\n\
   不過在今年12月「你的名字。」將會在洛杉磯地區進行限定上映\n期望能夠趕及時間入圍第89屆奧斯卡\n而英國著名電影雜誌《帝國》不僅為「你的名字。」打出了滿分5分\n\
   還認為「你的名字。」很有機會獲得明年的奧斯卡最佳外國影片或最佳動畫\n甚至是兩個獎項同時獲得\n\n《帝國》雜誌是英國銷量最高的電影雜誌\n在12月號中《帝國》雜誌為新海誠的「你的名字。」打出了5分的最高分\n\
@@ -84,7 +83,7 @@ date: 2016-11-08
 reply_count: 15
 title: '[新聞] 英國電影雜誌為「你的名字。」打出滿分評價'
 url: https://www.ptt.cc/bbs/movie/M.1478597454.A.EF2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '霍爾：「蘇菲的頭髮染上了星光的顏色，其他人是…？」
 
 
@@ -160,7 +159,7 @@ date: 2016-11-18
 reply_count: 11
 title: '[討論] 你的名字。出現過的動漫公式/老梗'
 url: https://www.ptt.cc/bbs/movie/M.1479484799.A.421.html
---- !!python/object:movie_data.PublicReview
+---
 content: "部落格版：\n\n內含個人觀感的心得，僅供參考\n電影的心得分為兩部分，前半部給還沒看過的人參考的無雷感想，後半部分為有雷感想。\n\n你的名字。無雷感想\n\
   \n原本看到日本的柯南迷有幾個人都去電影院看了這部作品，接著看到越來越多日本朋友前\n往觀劇，或網路上也不少人在討論，日本的電影院也幾乎滿座，一位難求。\n\n\
   不過多久，你的名字。的票房也超過了柯南純黑的惡夢，心想這部電影這麼賣座，一定有\n它美好的價值，稍微看了一下你的名字。的預告片，當時雖然不是特別喜歡人物的畫風，\n\
@@ -206,7 +205,7 @@ date: 2016-11-03
 reply_count: 18
 title: '[好雷] 你的名字。精美畫作值得在大螢幕欣賞'
 url: https://www.ptt.cc/bbs/movie/M.1478181876.A.77A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片的畫風從靜態看是2D畫風
 
 
@@ -257,7 +256,7 @@ date: 2016-10-16
 reply_count: 9
 title: '[ 好無雷] 你的名字。畫面太好，音樂太美'
 url: https://www.ptt.cc/bbs/movie/M.1476633581.A.1C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個內容不是大紀元記者自己寫的，是引用日本電影評論家小張秋子(小張アキコ)的話。
 
   幾乎跟大紀元的新聞內容差不多...
@@ -307,7 +306,7 @@ date: 2017-02-01
 reply_count: 25
 title: 'Re: [新聞] 影射核爆？《你的名字。》落選奧斯卡'
 url: https://www.ptt.cc/bbs/movie/M.1485952319.A.88F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -388,7 +387,7 @@ date: 2016-11-07
 reply_count: 139
 title: '[新聞] 帝國電影雜誌給予「你的名字。」滿分評價'
 url: https://www.ptt.cc/bbs/movie/M.1478495613.A.D4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: segunta (\Mitsuha/) 看板: C_Chat
 
   標題: [情報] 你的名字。 BD&DVD Amazon資訊+開放訂購
@@ -526,7 +525,7 @@ date: 2017-05-10
 reply_count: 21
 title: 'Fw: [情報] 你的名字。 BD&DVD Amazon資訊+開放訂購'
 url: https://www.ptt.cc/bbs/movie/M.1494363288.A.D9F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說我下面比較的是。\n別的戲院我沒去看所以也無從比較起，看下週有沒有心情去觀摩看看吧。之前這篇有發在\n西洽，但有新增一點東西。\n\n\n\n\
   \n(本想去京站跟美麗華，不過如果接下來因為新片上映後被排在小廳可能就不會去看吧，\n可惜台北離我太遠，之前想去也懶。\n至於信義威秀本來已經移出比較好的11廳\
   \ “THX認證廳”，但我發現明天 13：40 那場是\n排在11廳，所以會去體驗看看)\n\n因為當地人，之前1～3刷 (都是8廳) 都在林口，所以想說第4刷去別間看看，不然就太無\n\
@@ -561,7 +560,7 @@ date: 2016-11-11
 reply_count: 62
 title: '[討論] 你的名字。林口與板橋威秀之比較心得'
 url: https://www.ptt.cc/bbs/movie/M.1478866501.A.421.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新海誠《你的名字。》這部作品令本人帶來了商業上的光環，也不可避免的招致了一些議
 
   論
@@ -613,7 +612,7 @@ date: 2016-12-20
 reply_count: 51
 title: '[討論] 新海誠向批評「你的名字。」劇情的影評家'
 url: https://www.ptt.cc/bbs/movie/M.1482212566.A.4D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說聲擾板抱歉(?\n雖然這篇回文的原文一直有在更新\n多謝了推文的各位支持或補充\n不過看到板上有三個大家常問的問題\n也想跟著分享自己的想法\n\
   但加在前一篇文章內覺得怪怪的\n問的人又多不知道要回誰\n只好回自己的文章了\n前幾行也說了這是針對問題的回應\n所以不會有類似前一篇的捏他\n標題與本篇文章內容不符這點還請各位見諒\n\
   所以我說前面這堆根本可以說是廢話的防雷頁應該夠了吧\n重點只有下面兩句而已\n內容有小說雷，想自行觀賞的板友請小心別往下看了\n以下正文，文長注意\n\n\n\
@@ -652,7 +651,7 @@ date: 2016-10-22
 reply_count: 46
 title: 'Re: [討論] 《你的名字。》的一些捏他（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1477121863.A.840.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我過去沒看過新海誠的其他作品，雖然喜歡這部動畫，但也不到感動淚推；想寫這\n篇文章，主要是看完之後有種被什麼打到的感受。心裡有點悶悶的。\n\n\
   　　首次看完後，我其實是困惑多一些。雖然觀看中一直有「被鉤子扯住的感覺」，細\n節經過剪裁使故事推進非常流暢，節制中有起伏，也沒有太過分地想挑撥我的情緒（EX\n\
   ：讓人白眼的刻意哭點）。但，這還是一個超級單純的故事呀，還是說充滿誠意的音樂\n和畫面就足以打中我呢？\n\n　　實在讓我很想再看一次。二刷時花了較多心思去琢磨快速的轉場、進展、揭曉與行\n\
@@ -746,7 +745,7 @@ date: 2016-10-30
 reply_count: 113
 title: '[討論] 《你的名字。》的隱喻與象徵（文長雷多)'
 url: https://www.ptt.cc/bbs/movie/M.1477799461.A.FB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -790,14 +789,14 @@ date: 2017-03-11
 reply_count: 27
 title: '[好雷]你的名字 詩文影評'
 url: https://www.ptt.cc/bbs/movie/M.1489225542.A.1EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "ifil*傳影互X好棒棒，能負責超優質動畫電影！\n君の名は。你的名字。\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n---------以下為各大砲火觀賞後的感想--------\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n--"
 date: 2016-10-11
 reply_count: 99
 title: '[討論] 你的名字。中文宣傳主題曲 台灣片商.....'
 url: https://www.ptt.cc/bbs/movie/M.1476200719.A.AA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷 慎入\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n\
   .\n.\n.\n.\n.\n.\n.\n.\n\n\n電影版(偽)首PO就獻給這部了，總結個人昨天剛看完今日便馬上二刷的心得，在此與大家\n分享\n\n先來說說個人認為這部動畫電影的小缺失\n\
   \n1.男女主角對於彼此時間線的不同的後知後覺其實十分詭異，就以兩者都使用智慧型手機\n  來說，最少也可從上面看出兩人的年份是不同的\n\n2.片段接近尾聲之處，長大後的男女主角在下雪的東京都天橋上擦肩而過，此時下的BGM\n\
@@ -831,7 +830,7 @@ date: 2016-10-26
 reply_count: 39
 title: '[極好雷]一個由"結"串起的故事--你的名字。'
 url: https://www.ptt.cc/bbs/movie/M.1477419384.A.1B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "此處的「捏他」不是後面那個雷的意思\n而比較像冷知識\n就是直接在板上搜尋冷知識能看到的那種\n不過個人還是比較喜歡講捏他\n所以才需要解釋一下\n\
   順便當成防雷頁XD\n建議如果是在看電影前會先踩雷決定要不要看的人\n這篇可以先跳過了\n因為看過一次「你的名字。」\n再來觀看這篇文章，會比較有趣\n「你的名字。」明日正式上映！\n\
   行數應該夠了吧，以下正文\n文長注意(?\n\n\n\n—————\n1.片頭曲\n第一次看的時候心裡吐槽\"新海你在劇場版動畫做片頭曲幹嘛啊ww\"\n但其實片頭曲含有的情報量非常大\n\
@@ -886,7 +885,7 @@ date: 2016-10-20
 reply_count: 190
 title: '[討論] 《你的名字。》的一些捏他（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1476965126.A.FB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '手機回文。 小弟一丁點淺見
 
 
@@ -1062,7 +1061,7 @@ date: 2016-10-14
 reply_count: 84
 title: 'Re: [普雷] 你的名字。是不是過譽了？'
 url: https://www.ptt.cc/bbs/movie/M.1476414580.A.D6D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "板上「你的名字。」心得量已相當豐富，但抱著被噓爆的風險，還是想來分享一些\n自己的感想，希望能找到和我有共鳴的人。\n\n  首先，先請板友們聽首歌吧，やなぎなぎ的「クロスロード」(crossroad)\n\
   \n  \n\n  這是一個主要業務為通信教學的補習班，Z會，的電視廣告。這個廣告於2014年2月\n公開。算一下時間，差不多就是「你的名字。」開始籌備的時間點。事實上，新海誠\n\
   曾在自己的推特\n以及訪談 中，明\n確指出這個廣告正是「你的名字。」的原點。以下，我將試著從新海誠過去的作品，\n包含這個Z會的廣告，找出新海誠在「你的名字。」中，想傳達什麼事情給觀眾。\n\
@@ -1121,7 +1120,7 @@ date: 2016-10-31
 reply_count: 20
 title: '[好雷] 你的名字。 -見山又是山'
 url: https://www.ptt.cc/bbs/movie/M.1477866881.A.6E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前天看了《你的名字》。有很喜歡的地方，但也有稍嫌可惜的部分。
 
 
@@ -1301,7 +1300,7 @@ date: 2016-10-26
 reply_count: 36
 title: '[好雷] 你的名字。'
 url: https://www.ptt.cc/bbs/movie/M.1477484716.A.D5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影射核爆？《你的名字。》落選奧斯卡
 
 
@@ -1354,7 +1353,7 @@ date: 2017-02-01
 reply_count: 37
 title: '[新聞] 影射核爆？《你的名字。》落選奧斯卡'
 url: https://www.ptt.cc/bbs/movie/M.1485945950.A.2CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖說我昨晚就已經訂了Amazon限定的4K UHD五碟珍藏版就是了
 
 
@@ -1412,7 +1411,7 @@ date: 2017-05-10
 reply_count: 13
 title: 'Re: [情報] 你的名字。 BD&DVD Amazon資訊+開放訂購'
 url: https://www.ptt.cc/bbs/movie/M.1494396759.A.B03.html
---- !!python/object:movie_data.PublicReview
+---
 content: "網大導讀：到今天，《你的名字。》已經斬下3.6億票房，票房大賣的同時，也讓大家開始反思國內影視業的審美傾向。從內容上看，《你的名字。》顯然並沒有到達《天空之城》、《幽靈公主》等經典動畫的高度，這樣形式大於內容的作品能獲得如此矚目的成績，是不是代表我們正在「娛樂至死」呢？\n\
   \n\n不光是《你的名字。》一部電影，目前國內影視行業對於IP、明星等的依賴越來越重，IP又在依賴續集，明星依賴炒作和綜藝。影視作品大多流於表面，娛樂至上而不夠內涵，這種情況下，也難免國內的觀眾審美疲勞了。\n\
   \n\n正文：\n\n\n今年12月2日，創下日本年度票房紀錄的動畫電影《你的名字。》登陸中國，萬千粉絲翹首以待，紛紛趕去電影院貢獻票房。\n\n\n對於不太瞭解ACG的小夥伴們來說，新海誠也許是一個陌生的名字，但是對於對ACG有研究的小夥伴們來說，這個名字想必都不會陌生。\n\
@@ -1441,7 +1440,7 @@ date: 2016-12-11
 reply_count: 64
 title: '[影評] 你的名字。形式大於內容口碑被高估 雷'
 url: https://www.ptt.cc/bbs/movie/M.1481426835.A.285.html
---- !!python/object:movie_data.PublicReview
+---
 content: "不是開玩笑的過譽文，我是真的覺得它有點過譽。\n\n電影剛上映時我正好要回台灣，\n所以就匆匆買了小說版來看。\n\n不得不說小說真的是個滿不錯的作品，\n\
   故事引人入勝、許多鋪陳跟劇情轉折都很耐人尋味。\n\n可是怎麼看了電影卻感覺.....拍糟了？\n小說裡的台詞跟電影基本上是完全一樣，\n可是不知道為什麼電影裡的角色唸起來就感覺好出戲，\n\
   海報上聲優的名字寫那麼大可是演技根本超差，\n尤其是男女互換時的聲音真的配得好糟超級出戲，\n很多角色的內心掙扎都沒有表現出來。\n\nテッシー幫忙放炸彈那裡也是有點唐突，\n\
@@ -1472,7 +1471,7 @@ date: 2016-10-13
 reply_count: 633
 title: '[普雷] 你的名字。是不是過譽了？'
 url: https://www.ptt.cc/bbs/movie/M.1476359591.A.E90.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大家好。\n\n剛剛看的是大直美麗華13:10場。\n\n1. 雖然iMAX畫面還是蠻讚的，不過我覺得應該沒有重製，有點像拿原版在大螢幕上放，所\n\
   \n   以細看起來有點糊？（也有可能是因為這次坐中間，能比較近距離看？）\n\n2. 美麗華iMAX廳的音響效果真的不是蓋的。或許是因為立體聲環繞？情緒更能融入音樂，\n\
   \n   爆炸聲跟彗星墜落聲比前兩刷在東南亞秀泰跟信義威秀更加震撼，甚至感覺到座位在震\n\n   動，超棒！\n\n3. 英文字幕被拿掉了，只剩下中文字幕。\n\
@@ -1483,7 +1482,7 @@ date: 2017-01-13
 reply_count: 39
 title: '[微雷] 三刷《你的名字。》（iMAX）'
 url: https://www.ptt.cc/bbs/movie/M.1484298683.A.A37.html
---- !!python/object:movie_data.PublicReview
+---
 content: "根據 Deadline 的最新獨家報導指出，原要指導好萊塢真人版《你的名字。》的奧斯卡提\n名韓裔美國導演 Lee Isaac Chung 離開了這項計畫。\n\
   \n\n\n由派拉蒙影業和 J.J. Abrams 的製作公司 Bad Robot 所合製的《你的名字。》美國真人\n版電影在去年九月時找到了導演人選，為近期以《夢想之地》崛起的韓裔導演\
   \ Lee Isaac\n Chung，而後他在今年也因此片同時提名了奧斯卡最佳導演與原創劇本獎。\n\n然而，在今天的報導中指出，導演因為檔期衝突決議退出該項計畫。在去年底的時候，Var\n\
@@ -1500,7 +1499,7 @@ date: 2021-07-21
 reply_count: 33
 title: '[情報] 美國真人版《你的名字。》再換導演！《夢想之地》導演退出'
 url: https://www.ptt.cc/bbs/movie/M.1626843265.A.B5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁！
 
 
@@ -1766,7 +1765,7 @@ date: 2016-10-14
 reply_count: 275
 title: '[好雷] 你的名字。'
 url: https://www.ptt.cc/bbs/movie/M.1476437933.A.495.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天和男友去看了「你的名字。」，
 
   男友是屬於「不進戲院看動畫派」的，

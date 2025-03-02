@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -103,7 +102,7 @@ date: 2021-01-20
 reply_count: 1
 title: '[心得雷]《巴黎，德州》—我們愛上的只是個概念 '
 url: https://www.ptt.cc/bbs/movie/M.1611120749.A.A0B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《巴黎，德州》4K還原 導演揭神秘面紗\n\n2024/07/11 05:30\n\n\n國際大導文溫德斯的經典神作《巴黎，德州》榮獲坎城影展金棕櫚獎。（甲上娛樂提供）\n\
   \n〔記者廖俐惠／綜合報導〕榮獲坎城影展最高榮譽金棕櫚獎的經典神作《巴黎，德州》，\n將在7月26日首度在台上映4K數位修復版，導演文溫德斯親自監督修復工作，攜手御用資\n\
   深調色師一起還原最初的美好與感動。\n\n《巴黎，德州》被譽為影史最完美的公路電影之一，文溫德斯拍攝那年才38歲，現年78歲\n的他感慨已過了兩倍多時光，他回憶當年在他最愛的美國西部拍攝，給了他很大的啟發。\n\
@@ -114,7 +113,7 @@ date: 2024-07-11
 reply_count: 3
 title: '[新聞] 《巴黎，德州》4K還原 導演揭神秘面紗'
 url: https://www.ptt.cc/bbs/movie/M.1720712945.A.E96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址
 
 

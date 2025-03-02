@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -61,7 +60,7 @@ date: 2024-09-09
 reply_count: 2
 title: '[好雷] 紅色房間Red Rooms'
 url: https://www.ptt.cc/bbs/movie/M.1725847881.A.DC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -209,7 +208,7 @@ date: 2024-06-28
 reply_count: 23
 title: '[好雷] 紅色房間'
 url: https://www.ptt.cc/bbs/movie/M.1719555316.A.0F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '——————以下無雷——————
 
 
@@ -403,7 +402,7 @@ date: 2024-07-03
 reply_count: 4
 title: '[雷] #好雷 紅色房間：看不見一滴血的血腥慘案'
 url: https://www.ptt.cc/bbs/movie/M.1719939535.A.09E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大約20幾年前axn播的片
 
   有點像耳袋系列

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '民謠大師陳明章紀錄片《撼山河 撼向世界》 耗時4年分享台灣的歌
 
 
@@ -124,7 +123,7 @@ date: 2023-06-30
 reply_count: 6
 title: '[新聞] 民謠大師陳明章紀錄片《撼山河 撼向世界'
 url: https://www.ptt.cc/bbs/movie/M.1688092485.A.F6B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《撼山河 撼向世界》
 
 

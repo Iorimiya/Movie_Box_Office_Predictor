@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '如題
 
 
@@ -29,7 +28,7 @@ date: 2024-11-01
 reply_count: 44
 title: '[請益] 請問荒野機器人適合國中生看嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1730392395.A.327.html
---- !!python/object:movie_data.PublicReview
+---
 content: '英文版由奧斯卡獎得主 精彩詮釋主角機器人 - 羅茲
 
   中文版由王牌製作人兼當紅女星 ，首度獻聲好萊塢動畫
@@ -92,7 +91,7 @@ date: 2024-09-12
 reply_count: 645
 title: '[贈票] 【荒野機器人】全台暖心特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1726133769.A.4A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '偵測到冒險！
 
 
@@ -130,7 +129,7 @@ date: 2024-06-12
 reply_count: 10
 title: '[情報] 露琵塔尼詠歐《荒野機器人》最新預告'
 url: https://www.ptt.cc/bbs/movie/M.1718168191.A.A75.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -232,7 +231,7 @@ date: 2024-11-08
 reply_count: 16
 title: '[好雷] 荒野機器人The Wild Robot'
 url: https://www.ptt.cc/bbs/movie/M.1731049163.A.470.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片長1小時40分無冷場、
 
 
@@ -263,7 +262,7 @@ date: 2024-10-12
 reply_count: 25
 title: '[好無雷] 荒野機器人'
 url: https://www.ptt.cc/bbs/movie/M.1728744528.A.A4C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "(內文有劇情內容）\n\n圖文 Medium 好讀版\n\n\n\n----這是分隔線，以下有雷----\n\n\n雖然這部片得到許多好評，但我應該不是這部片的大粉絲，我偏好心思比較細膩或深刻的\n\
   故事；但這部片的強項跟特點，恰巧就是透過是從機器人與動物的互動視角，平舖直述且\n無太多刻意及加油添醋的去討論一些感情元素：愛、親情、屬於、善良。在這太過複雜、\n\
   每天受到太多刺激的時代，簡單反而是最難也最能打動人的方式\n\n故事描述一個具有 AI 智慧的服務機器人Roz7134，因故漂流到只有動物的小島，被設定\n要提供\"\
@@ -307,7 +306,7 @@ date: 2024-10-27
 reply_count: 8
 title: '[好雷] 荒野機器人 The Wild Robot'
 url: https://www.ptt.cc/bbs/movie/M.1730044018.A.5A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌版
 
 
@@ -352,7 +351,7 @@ date: 2024-10-12
 reply_count: 63
 title: '[好雷] The Wild Robot 荒野機器人 '
 url: https://www.ptt.cc/bbs/movie/M.1728674717.A.6F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -440,7 +439,7 @@ date: 2024-10-10
 reply_count: 25
 title: '[好雷] 荒野機器人：直觸人心的好故事'
 url: https://www.ptt.cc/bbs/movie/M.1728575039.A.96C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文網誌 :\n\n【荒野機器人】：在弱肉強食的世界裡，我選擇相互扶持\n\n上映時間：2024/10/10　導演：Chris Sanders\n\
   \n觀看時間：2024/10/1 (in89特映)\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n　　2010年，我在戲院看了【馴龍高手】，從此愛上動畫電影跟導演Chris Sanders。\n\n2024年，在看完【荒野機器人】的預告後，我就極為期待導演的新作，本片九月在美國上\n\
@@ -476,7 +475,7 @@ date: 2024-10-11
 reply_count: 24
 title: '[好雷] 荒野機器人 '
 url: https://www.ptt.cc/bbs/movie/M.1728600345.A.889.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論，看完影片留在心中的餘韻久久未散，
 
   到現在聽著原聲帶還是會眼眶泛紅，
@@ -562,7 +561,7 @@ date: 2024-10-16
 reply_count: 42
 title: '[無雷] 荒野機器人-超級推薦的家庭好片'
 url: https://www.ptt.cc/bbs/movie/M.1729039968.A.EDC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情其實滿好猜的
 
 
@@ -598,7 +597,7 @@ date: 2024-11-04
 reply_count: 19
 title: '[極好雷] 荒野機器人(中字)：細節決定成敗'
 url: https://www.ptt.cc/bbs/movie/M.1730691676.A.E24.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一階段 得獎名單公布 請於9/18 10:00前主動站內信回覆資料 逾時恕不受理
 
 
@@ -668,7 +667,7 @@ date: 2024-09-16
 reply_count: 28
 title: 'Re: [贈票] 【荒野機器人】全台暖心特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1726470205.A.25E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '連線訪問／受宮﨑駿影響「荒野機器人」導演笑認忘了配音
 
 
@@ -752,7 +751,7 @@ date: 2024-10-05
 reply_count: 8
 title: '[新聞] 受宮﨑駿影響「荒野機器人」導演笑認忘了'
 url: https://www.ptt.cc/bbs/movie/M.1728058505.A.C36.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -859,7 +858,7 @@ date: 2024-10-31
 reply_count: 10
 title: '[超好雷] 《荒野機器人》中愛與死的表現手法'
 url: https://www.ptt.cc/bbs/movie/M.1730358017.A.AE2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -932,7 +931,7 @@ date: 2024-10-15
 reply_count: 5
 title: '[好雷] 荒野機器人 不一樣的童話'
 url: https://www.ptt.cc/bbs/movie/M.1729000460.A.567.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作畫非常用心，
 
   一些段落很感人，
@@ -965,7 +964,7 @@ date: 2024-10-15
 reply_count: 11
 title: '[好無雷] 荒野機器人'
 url: https://www.ptt.cc/bbs/movie/M.1728979120.A.EEE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "荒野機器人表現佳 北美票房龍頭易主\n\n2024/9/30 14:42（9/30 14:54 更新）\n\n（中央社洛杉磯29日綜合外電報導）今天的業界數據顯示，科幻動畫片「荒野機器人」（\n\
   The Wild Robot）這個週末終結「陰間大法師Beetlejuice」（Beetlejuice Beetlejuice\n）3連霸戰績，登上北美票房冠軍寶座。\n\
   \n法新社報導，北美院線聯盟（Exhibitor Relations）估計，奧斯卡獎得主露琵塔尼詠歐\n（Lupita Nyong'o）配音演出的「荒野機器人」，27日至29日期間有3500萬美元進帳。\n\
@@ -981,7 +980,7 @@ date: 2024-09-30
 reply_count: 1
 title: '[新聞] 荒野機器人表現佳 北美票房龍頭易主'
 url: https://www.ptt.cc/bbs/movie/M.1727711400.A.41F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '導演Chris Sanders在訪談中提到
 
   《荒野機器人》的續集正在開發中
@@ -1003,7 +1002,7 @@ date: 2024-10-13
 reply_count: 36
 title: '[新聞] 《荒野機器人》續集開發確認'
 url: https://www.ptt.cc/bbs/movie/M.1728816383.A.984.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1059,7 +1058,7 @@ date: 2024-10-10
 reply_count: 65
 title: '[好雷] 荒野機器人:感人好笑'
 url: https://www.ptt.cc/bbs/movie/M.1728562842.A.7C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，非業配寫手
 
 
@@ -1101,7 +1100,7 @@ date: 2024-09-12
 reply_count: 37
 title: '[討論] 夢工廠《荒野機器人》爛番茄滿分開盤'
 url: https://www.ptt.cc/bbs/movie/M.1726136933.A.0C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第二階段得獎者名單公布
 
   請於9月25日10:00前主動站內信回覆票券收件者資料(姓名、郵遞區號+地址、電話)
@@ -1166,7 +1165,7 @@ date: 2024-09-23
 reply_count: 19
 title: 'Re: [贈票] 【荒野機器人】全台暖心特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1727058677.A.7A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

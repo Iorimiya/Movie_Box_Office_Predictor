@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '之前在YOUTUBE上意外聽到千禧曼波的原聲帶
 
 
@@ -40,7 +39,7 @@ date: 2018-04-27
 reply_count: 12
 title: '[請益] 請問如何看到千禧曼波'
 url: https://www.ptt.cc/bbs/movie/M.1524803987.A.FD8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完侯孝賢《千禧曼波》，不只沒有看到好電影之後的滿足感，反而內心一片茫然，不禁
 
   想著，拍攝電影的目的何在？
@@ -95,7 +94,7 @@ date: 2016-10-15
 reply_count: 14
 title: '[負雷] 千禧曼波 有什麼意義 '
 url: https://www.ptt.cc/bbs/movie/M.1476512720.A.4F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '林強2001年幫侯孝賢導演《千禧曼波》製作的開場配樂 「A Pure Person」
 
   最近被法國品牌Chloe 2018春夏時尚秀音樂 沒想到台語歌意外適合時尚氛圍
@@ -115,7 +114,7 @@ date: 2017-09-30
 reply_count: 29
 title: '[討論] 林強《千禧曼波》台語配樂登上巴黎時尚秀'
 url: https://www.ptt.cc/bbs/movie/M.1506754070.A.818.html
---- !!python/object:movie_data.PublicReview
+---
 content: '心得
 
 
@@ -219,7 +218,7 @@ date: 2017-07-08
 reply_count: 8
 title: '[台北電影節] 千禧曼波、徐自強的練習題'
 url: https://www.ptt.cc/bbs/movie/M.1499520882.A.1C4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天公視播紀錄片
 
 

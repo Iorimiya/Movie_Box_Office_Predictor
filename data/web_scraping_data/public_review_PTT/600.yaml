@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "《失速芭蕾》(Joika)，根據真人真事改編\n主角原型是美國芭蕾舞者喬伊沃瑪克(Joy Womack)\n她是第一位被莫斯科國家舞蹈學院錄取的美國人，這次也有參與電影製作，負責編排舞蹈並親自指導芭蕾舞\n\
   主演塔莉雅萊德(Talia Ryder)在劇中的造型清新美麗而且演技深刻\n從一開始遭遇種種挫敗，到後來為了演出機會有些走火入魔，最後又展現出堅強毅力的形象\n\
   而黛安克魯格(Diane Kruger)飾演曾是首席芭蕾舞者的芭蕾舞教練也有很精湛的演出，有趣的是她在受傷轉行前也曾是位舞者\n雖是將近2小時的文藝電影卻十分精彩，從女主血淋淋的雙腳一窺專業芭蕾舞界的競爭與犧牲\n\
@@ -7,7 +6,7 @@ date: 2024-08-22
 reply_count: 18
 title: '[好無雷] 失速芭蕾'
 url: https://www.ptt.cc/bbs/movie/M.1724337604.A.2C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從開頭就跟著感覺到窒息 配樂、教練都很有帶入感 節奏也不太拖拉
 
   真人真事改編讓我入戲到最後起雞皮疙瘩 很精彩的追夢故事
@@ -60,7 +59,7 @@ date: 2025-02-07
 reply_count: 2
 title: '[好雷] 失速芭蕾'
 url: https://www.ptt.cc/bbs/movie/M.1738912599.A.825.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由於友人有事不能一同觀賞，
 
   希望徵一位對失速芭蕾興趣的版友一起觀賞

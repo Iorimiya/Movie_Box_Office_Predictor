@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '金馬60即時得獎名單／方志友《本日公休》首度入圍就奪最佳女配
 
 
@@ -251,7 +250,7 @@ date: 2023-11-25
 reply_count: 8
 title: '[新聞] 金馬60即時得獎名單／方志友《本日公休》'
 url: https://www.ptt.cc/bbs/movie/M.1700923295.A.C25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本日公休
 
 
@@ -288,7 +287,7 @@ date: 2023-02-28
 reply_count: 8
 title: 贈票 3/2 本日公休特映一張票
 url: https://www.ptt.cc/bbs/movie/M.1677570288.A.061.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天在電視上看到這部電影，
 
 
@@ -339,7 +338,7 @@ date: 2023-10-12
 reply_count: 39
 title: '[好雷]本日公休(從頭哭到尾) '
 url: https://www.ptt.cc/bbs/movie/M.1697118765.A.580.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -463,7 +462,7 @@ date: 2023-05-23
 reply_count: 68
 title: '[請問] 本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1684816131.A.431.html
---- !!python/object:movie_data.PublicReview
+---
 content: '要我以一句話形容電影的話：
 
 
@@ -557,7 +556,7 @@ date: 2023-03-03
 reply_count: 40
 title: '[好雷] 本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1677803293.A.F71.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前要:因為看到有人把這部片跟《運轉手之戀》放到了一個高度，所以決定去看。
 
   感想:看完之後，發現有一句話很適合這部電影，那就是，很想去苛責，但不忍心。
@@ -600,7 +599,7 @@ date: 2024-06-13
 reply_count: 14
 title: '[討論] 本日公休觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1718262005.A.08A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先前在網路上意外聽到了《本日公休》的主題曲《同款》非常喜歡，
 
 
@@ -754,7 +753,7 @@ date: 2023-08-31
 reply_count: 29
 title: '[普負雷]本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1693423747.A.63C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -917,7 +916,7 @@ date: 2023-03-06
 reply_count: 28
 title: '[普雷] 《本日公休》，人情味固然重要，但多了就'
 url: https://www.ptt.cc/bbs/movie/M.1678073791.A.758.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -999,7 +998,7 @@ date: 2023-07-19
 reply_count: 10
 title: '[ 好雷 ] 小聊<<本日公休>>的拍攝手法'
 url: https://www.ptt.cc/bbs/movie/M.1689765365.A.9E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1181,7 +1180,7 @@ date: 2023-02-26
 reply_count: 7
 title: '[好雷] 本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1677351975.A.1D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家安安
 
 
@@ -1274,7 +1273,7 @@ date: 2023-05-31
 reply_count: 15
 title: '[好雷] 本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1685509978.A.76F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '陪我家老媽去看的片，大概簡單寫下心得：
 
 
@@ -1322,7 +1321,7 @@ date: 2023-03-13
 reply_count: 7
 title: '[算好無雷] 本日公休 '
 url: https://www.ptt.cc/bbs/movie/M.1678710940.A.545.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，金馬60終於要在這禮拜登場！
 
   本日公休是我私心最喜歡的其中一個作品
@@ -1410,7 +1409,7 @@ date: 2023-11-22
 reply_count: 17
 title: '[心得] 金馬60入圍最喜歡的電影之一 本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1700641733.A.0A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本文涉及劇情，且具個人觀點，推薦觀影後再讀。\n\n\n　　　　圖文網頁版：\n\n　　　　\n\n\n　　　　預告片：\n\n　　　　\n\n\
   \n　　　　主題曲：洪佩瑜演唱的〈同款〉\n\n　　　　\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n\n\n離合聚散，人情猶在：《本日公休》\n\n\n\n　　台灣電影《本日公休》以理髮師阿蕊（陸小芬飾，原型是台中市東區77\n\n歲的家庭理髮廳頭家娘蕭蕊，是導演傅天余的媽媽）為主角，描繪台灣年長\n\
@@ -1455,7 +1454,7 @@ date: 2023-03-09
 reply_count: 13
 title: '[好雷] 離合聚散，人情猶在：《本日公休》'
 url: https://www.ptt.cc/bbs/movie/M.1678368891.A.81D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《本日公休》導演傅天余　獲頒東京影展黑澤明獎\n  壹蘋新聞\n\n。傅天余執導\n的《本日公休》剛在日本上映，93歲名導山田洋次盛讚：「演員和工作人員充滿愛地描繪\n\
   了傳統理髮師的世界，日本為什麼拍不出這樣的電影呢。」他也是黑澤明獎評選委員之一\n。\n\n黑澤明獎表彰對電影界有卓越貢獻以及背負電影界未來的影人，睽違14年於2022年復辦，\n\
   。\n\n51歲的傅天余就讀政大日本語文學系，取得紐約大學媒體生態與電影研究所碩士，以小說\n家開始創作生涯，後來轉向電影製作，在吳念真指導下開始寫電影劇本，2009年拍攝第一\n\
@@ -1469,7 +1468,7 @@ date: 2024-09-24
 reply_count: 23
 title: '[新聞] 《本日公休》導演傅天余 獲頒東京影展黑'
 url: https://www.ptt.cc/bbs/movie/M.1727153335.A.995.html
---- !!python/object:movie_data.PublicReview
+---
 content: "星期一症候群急需電影來解~~\n\n待會下班想耍廢看個電影，\n\n《本日公休》和《鈴芽之旅》兩部都在待看清單中，\n\n但今晚只能先挑一部看(兩部都看就半夜了XD)\n\
   \n大家比較推薦先看哪部呢？\n\n\n--\n       在遊樂場裡，我不想與人推擠，\n       只想放慢腳步，慢下來才能看得清楚點，\n     \
   \  想得明白些...\n\n--"
@@ -1477,7 +1476,7 @@ date: 2023-03-06
 reply_count: 52
 title: '[選片] 本日公休 or 鈴芽之旅'
 url: https://www.ptt.cc/bbs/movie/M.1678092265.A.892.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下都有劇情雷 愼入
 
 
@@ -1611,7 +1610,7 @@ date: 2023-03-05
 reply_count: 73
 title: '[普負雷] 本日公休 總覺得很可惜'
 url: https://www.ptt.cc/bbs/movie/M.1678020435.A.A40.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《本日公休》陸小芬大阪電影節獲獎哽咽 柯震東首拿導演獎肯定
 
 
@@ -1679,7 +1678,7 @@ date: 2023-03-21
 reply_count: 29
 title: '[新聞] 《本日公休》陸小芬大阪電影節獲獎哽咽 柯震東首拿導演獎肯'
 url: https://www.ptt.cc/bbs/movie/M.1679360750.A.68F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '淡出影壇多年的陸小芬，交出濃淡得已的演技堪稱是本片最大亮點。鍾興民所製作的音樂
 
   也讓人印象深刻，把觀眾抓住電影裡，唯美的鏡頭、講述人與人距離的劇情，傅天余導演
@@ -1786,7 +1785,7 @@ date: 2023-03-03
 reply_count: 10
 title: '[ 好雷] 《本日公休》陸小芬真摯動人的演技'
 url: https://www.ptt.cc/bbs/movie/M.1677776160.A.DD8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "完整片單 :\n\n\n$90 本日公休 : \n\n陸小芬睽違20年電影作品，有點日式小品風格的台灣電影，金馬獎最佳女配角.最佳原創\n歌曲獲獎。\n\
   \n-\n\n$90 天馬茶房 : \n\n2000年代表台灣參加奧斯卡最佳外語片的作品，也是以白色恐怖時期為主題的電影。\n\n-\n\n$90 寒戰 : \n\
   \n郭富城.梁家輝主演，確實蠻像當年宣傳說的，無間道 之後最棒的警匪電影。\n\n-\n\n$90 七月與安生 : \n\n周冬雨.馬思純 金馬雙影后之作。\n\
@@ -1797,7 +1796,7 @@ date: 2024-11-22
 reply_count: 2
 title: '[情報] iTunes多部$90起寒戰.海角七號.本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1732243726.A.1A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1973,7 +1972,7 @@ date: 2023-03-04
 reply_count: 56
 title: '[好雷]《本日公休》家庭生活經驗的台味詮釋'
 url: https://www.ptt.cc/bbs/movie/M.1677936039.A.EB4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '-
 
   有雷
@@ -2064,7 +2063,7 @@ date: 2023-03-04
 reply_count: 32
 title: 'Re: [好雷] 本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1677861523.A.923.html
---- !!python/object:movie_data.PublicReview
+---
 content: '身為台中人，對於劇中場景真的有莫名親切感
 
   很喜歡整部的平淡卻傳達溫暖的感覺
@@ -2098,7 +2097,7 @@ date: 2023-06-08
 reply_count: 4
 title: 'Re: [好雷] 本日公休'
 url: https://www.ptt.cc/bbs/movie/M.1686224917.A.896.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看了本日公休
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "卡麥隆：《沙丘2》是純粹的電影 說服力強\n\n\n大導演詹姆斯卡麥隆資料照。(Gareth Cattermole/Getty Images for\
   \ Disney)\n\n【大紀元2024年04月07日訊】（大紀元記者葉子杰編譯報導）除了大導演史蒂芬史匹柏和\n克里斯多福諾蘭對丹尼維勒納夫執導的《沙丘2》讚不絕口外，詹姆斯卡麥隆（James\n\
   Cameron）近日也稱讚本片具有說服力，是純粹的電影（pure cinema）。傳奇影業也證實\n《沙丘3》正在製作中。\n\n丹尼維勒納夫（Denis Villeneuve）執導的《沙丘2：第二部》（Dune:\
@@ -20,7 +19,7 @@ date: 2024-04-08
 reply_count: 24
 title: '[新聞] 卡麥隆：《沙丘2》是純粹的電影 說服力強'
 url: https://www.ptt.cc/bbs/movie/M.1712543103.A.1DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘》導演嘆現代電影「台詞太多」被影集帶壞！他發現年輕人愛看「片長很長」的電\n 影\n\n\n\n\n電影的敘事手法愈來愈趨近影集，影集的製作質感愈來愈接近電影水準，是好萊塢近代十\n\
   分普遍的發展走向，連《沙丘》（Dune）系列導演-丹尼維勒納夫（Denis Villeneuve）\n也深有同感，不過他所觀察到的電影「電視劇化」的特徵，和一般人不太一樣。\n\
   \n維勒納夫接受《泰晤士報》（The Times）專訪時指出：「坦白說，我很討厭對白，對白\n是為了舞台劇和電視劇而存在的。我對一部電影印象深刻，通常不會是因為它對白寫得多\n\
@@ -35,7 +34,7 @@ date: 2024-02-27
 reply_count: 163
 title: '[新聞] 《沙丘》導演嘆現代電影「台詞太多」 '
 url: https://www.ptt.cc/bbs/movie/M.1709002043.A.269.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -80,7 +79,7 @@ date: 2021-11-09
 reply_count: 15
 title: '[新聞]《沙丘2》上映時間來了！導演親揭「會有驚喜新角色加入」　'
 url: https://www.ptt.cc/bbs/movie/M.1636471698.A.A23.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上週剛看完，然後搭配最近看了一些YT影片後我自己的結論是：不是必要但最好要
 
 
@@ -344,7 +343,7 @@ date: 2021-09-26
 reply_count: 105
 title: 'Re: [好無雷] 沙丘 + 觀影前建議'
 url: https://www.ptt.cc/bbs/movie/M.1632645213.A.DBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '他們一開始練習兵器的時候就有介紹屏蔽場的功能
 
 
@@ -380,7 +379,7 @@ date: 2024-02-26
 reply_count: 37
 title: '[討論] 《沙丘1》的屏蔽場和刺針問題'
 url: https://www.ptt.cc/bbs/movie/M.1708955384.A.AD3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近沙丘快上映了，把小說複習了一下，突然有所感，
 
   整個故事套路有種熟悉感，分享一下
@@ -437,7 +436,7 @@ date: 2021-09-11
 reply_count: 11
 title: '[討論] 從中式武俠看”沙丘”'
 url: https://www.ptt.cc/bbs/movie/M.1631370153.A.809.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果因為自己想寫下的紀錄而提供另一個意識不同的思考面向，那麼對自己的人生過程也就
 
   多了那麼一點滿意度；
@@ -539,7 +538,7 @@ date: 2022-04-18
 reply_count: 6
 title: '[雷] 中規中矩的《沙丘DUNE》'
 url: https://www.ptt.cc/bbs/movie/M.1650295419.A.810.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -618,7 +617,7 @@ date: 2021-09-18
 reply_count: 29
 title: '[好雷] 無雷  沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631903349.A.7E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問會像魔戒一樣類似出個三部曲之類的嗎?
 
   因為我有去book板爬文 小說好像不只兩本且聽說翻譯很差 大不推
@@ -643,7 +642,7 @@ date: 2024-02-29
 reply_count: 37
 title: '[請益] 沙丘的問題 (無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1709204707.A.8B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我比較好奇原本拍不成沙丘的那個智利導演看了沒？
 
   他看大衛林區版本的時候爽到內傷
@@ -669,7 +668,7 @@ date: 2021-10-27
 reply_count: 4
 title: 'Re: [新聞] 諾蘭:《沙丘》是我看過特效和實拍融合最完美的電影之一'
 url: https://www.ptt.cc/bbs/movie/M.1635327610.A.F54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷：
 
 
@@ -839,7 +838,7 @@ date: 2024-03-02
 reply_count: 105
 title: '[好雷] 沙丘2：一場精心策畫的意識形態形塑工程'
 url: https://www.ptt.cc/bbs/movie/M.1709374660.A.09F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "張震化身貴族御醫 新片《沙丘》造型首曝光\n\n10:57 2020/04/16 中時 李承陽\n\n\n張震在新片《沙丘》的造型相當具有神秘感。（澤東提供）\n\
   \n\n張震（左）和名導丹尼維勒納夫前年在坎城影展結緣。（澤東提供）\n\n由美國傳奇影業和華納兄弟攜手打造的全新科幻動作電影《沙丘》（暫名），\n近日發佈首輪正式劇照，其中備受關注的國際知名演員張震，\n\
   在片中的新造型也一起曝光，見他身著一襲暗紅色中式長衫，\n表情散發著招牌神祕憂鬱感，被陰鬱氣氛環繞，\n尤其他額頭中間的黑色菱形印記略顯醒目，令人猜想其中深意。\n\
@@ -854,7 +853,7 @@ date: 2020-04-16
 reply_count: 27
 title: '[新聞] 張震化身貴族御醫 新片《沙丘》造型首曝光'
 url: https://www.ptt.cc/bbs/movie/M.1587049166.A.893.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -972,7 +971,7 @@ date: 2024-03-05
 reply_count: 30
 title: '[新聞] 沙丘2兩演員戲份全被刪，但導演不會推'
 url: https://www.ptt.cc/bbs/movie/M.1709634353.A.DA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1050,7 +1049,7 @@ date: 2021-09-14
 reply_count: 35
 title: '[新聞] 同意《沙丘》同步上架HBO Max串流平台！'
 url: https://www.ptt.cc/bbs/movie/M.1631635035.A.D9D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【沙丘】全新官方主預告
 
 
@@ -1074,7 +1073,7 @@ date: 2021-07-22
 reply_count: 106
 title: '[討論] 【沙丘】全新官方主預告'
 url: https://www.ptt.cc/bbs/movie/M.1626960079.A.984.html
---- !!python/object:movie_data.PublicReview
+---
 content: "去年問過《天能》一樣的問題,\n\n而 今天去看了《沙丘》\n\n其實就..\n\n還好\n\n當然可能會是今年看過的影片中,排行前幾的\n\n\
   只是看完後的感想會覺得:沙丘的劇情可能拍成電視劇,拉長交代更仔細,會更好的感覺.\n\n\n那麼\n\n我是覺得\"最佳影片\"的難度高\n\n\"最佳導演\"\
   \"最佳各演員獎\"也不容易\n\n不過服裝設計獎 畢竟是SF或奇幻類電影可以大顯身手的獎項\n\n再來是H.Z.的配樂 至少沒像2049,吵到我快瘋掉==\n\
@@ -1084,7 +1083,7 @@ date: 2021-09-17
 reply_count: 24
 title: '[討論] 《沙丘》可能拿下哪些技術獎項?'
 url: https://www.ptt.cc/bbs/movie/M.1631809332.A.21B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1166,7 +1165,7 @@ date: 2021-09-26
 reply_count: 69
 title: '[好雷] 滿足回憶的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632651889.A.31D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘的設定是刀能突破護盾
 
   所以都要近戰
@@ -1182,7 +1181,7 @@ date: 2024-02-28
 reply_count: 66
 title: '[討論] 沙丘裡的人幹嘛不穿裝甲？'
 url: https://www.ptt.cc/bbs/movie/M.1709134928.A.1EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘前半段 還算是比較輕鬆有趣一點
 
 
@@ -1224,7 +1223,7 @@ date: 2024-03-04
 reply_count: 68
 title: '[討論] 沙丘2中害我出戲的點 (有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1709563696.A.CF9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -1283,7 +1282,7 @@ date: 2021-09-27
 reply_count: 73
 title: '[討論] 關於沙丘的夢與結局 一小疑問 (大雷)'
 url: https://www.ptt.cc/bbs/movie/M.1632718955.A.C00.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   想問一段保羅和荃妮的劇情解析
@@ -1396,7 +1395,7 @@ date: 2024-02-29
 reply_count: 78
 title: '[ 問雷] 沙丘二保羅荃妮這段？'
 url: https://www.ptt.cc/bbs/movie/M.1709146162.A.440.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2022/01/12 iTunes 特價報－春節前夕大量大片特價！】
 
   捍衛戰士 : 獨行俠／侏羅紀世界：統霸天下／怪獸與鄧不利多的秘密／007 生死交戰／
@@ -1737,7 +1736,7 @@ date: 2023-01-12
 reply_count: 54
 title: '[討論] iTunes大片特價 獨行俠/生死交戰/沙丘/獸'
 url: https://www.ptt.cc/bbs/movie/M.1673500943.A.C39.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'E
 
   Al
@@ -1776,7 +1775,7 @@ date: 2023-02-21
 reply_count: 19
 title: 'Re: [新聞] 編劇：《蟻人3》是漫威版《沙丘》'
 url: https://www.ptt.cc/bbs/movie/M.1676910498.A.F15.html
---- !!python/object:movie_data.PublicReview
+---
 content: '嚴格來說我應該算是丹尼維勒納夫的粉絲
 
 
@@ -1908,7 +1907,7 @@ date: 2021-09-17
 reply_count: 34
 title: '[普好雷] 被吹上天的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631857207.A.B6F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘：第二部】全新預告，今年11月 大銀幕敬請期待
 
 
@@ -1926,7 +1925,7 @@ date: 2023-06-30
 reply_count: 96
 title: '[情報] 沙丘：第二部全新預告，今年11月上映'
 url: https://www.ptt.cc/bbs/movie/M.1688055496.A.FC1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘》導演可望開拍新《埃及豔后》！千黛亞扮豔后、甜茶扮屋大維、007 化身凱薩大
 
   帝
@@ -2012,7 +2011,7 @@ date: 2023-11-11
 reply_count: 71
 title: '[新聞] 《沙丘》導演可望開拍新《埃及豔后》！'
 url: https://www.ptt.cc/bbs/movie/M.1699634401.A.EB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   雖然覺得很好看
@@ -2039,7 +2038,7 @@ date: 2024-03-10
 reply_count: 28
 title: '[討論] 沙丘為何主要用刀打架？'
 url: https://www.ptt.cc/bbs/movie/M.1710073177.A.7DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2170,7 +2169,7 @@ date: 2021-11-03
 reply_count: 4
 title: '[好雷] 沙丘, 007生死交戰, 永恆族 IMAX滿版效果'
 url: https://www.ptt.cc/bbs/movie/M.1635953891.A.9D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2252,7 +2251,7 @@ date: 2021-09-25
 reply_count: 46
 title: '[好雷] 沙丘觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1632575165.A.F28.html
---- !!python/object:movie_data.PublicReview
+---
 content: '預告還沒出《沙丘魔堡》電影閉門試映片段 觀眾心得公開：「 震撼程度媲美魔戒與星戰
 
   電影 」
@@ -2349,7 +2348,7 @@ date: 2020-01-21
 reply_count: 42
 title: '[新聞] 預告還沒出《沙丘魔堡》電影閉門試映片段'
 url: https://www.ptt.cc/bbs/movie/M.1579606221.A.400.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -2374,7 +2373,7 @@ date: 2024-12-30
 reply_count: 188
 title: Zendaya 在沙丘演技實在沒啥進步
 url: https://www.ptt.cc/bbs/movie/M.1735526646.A.7EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小小雷，沒看過的朋友也快去看吧 ~
 
 
@@ -2441,13 +2440,13 @@ date: 2024-03-22
 reply_count: 19
 title: '[請益] 沙丘的一個小問題'
 url: https://www.ptt.cc/bbs/movie/M.1711049702.A.657.html
---- !!python/object:movie_data.PublicReview
+---
 content: --
 date: 2021-10-04
 reply_count: 31
 title: '[  雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1633357763.A.7CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '完整標題：
 
   《沙丘：第二部》《哥吉拉與金剛：新帝國》連霸，華納兄弟成為今年首個票房突破10億
@@ -2640,7 +2639,7 @@ date: 2024-04-17
 reply_count: 21
 title: '[新聞]沙丘2、哥吉拉與金剛：新帝國連霸，華納'
 url: https://www.ptt.cc/bbs/movie/M.1713315463.A.187.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看第二集了
 
 
@@ -2670,7 +2669,7 @@ date: 2024-03-09
 reply_count: 7
 title: 'Re: [請益] 問沙蟲一個設定問題（有沙丘二雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709989301.A.60E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2713,7 +2712,7 @@ date: 2021-10-22
 reply_count: 60
 title: '[新聞]《沙丘》導演坦言"不喜歡、也不想拍"彩蛋'
 url: https://www.ptt.cc/bbs/movie/M.1634917801.A.B3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "美麗華影城《沙丘》《沙丘：第二部》出現在「即將上映」的分類，但目前還沒看到場次與\n時間，本週開始Dolby Cinema的主場是《神鬼戰士2》，現在又出現沙丘兩部曲也要在Dolby\n\
   \ Cinema放映，不知會不會壓縮到神鬼戰士2的特殊場次播放期？\n\n\n\n根據IMDB的資料，神鬼戰士2的電影製作技術規格是畫面比例2.39:1，並採用Dolby\
   \ Atmos等\n沉浸式音效，因此，看來本片最佳觀看體驗無疑是Dolby Cinema，請把握在本片Dolby Cine\nma特殊廳上映期內趕快看！\n\n\
@@ -2723,7 +2722,7 @@ date: 2024-11-11
 reply_count: 6
 title: '[討論] 沙丘1/2 美麗華重映(Dolby Cinema)'
 url: https://www.ptt.cc/bbs/movie/M.1731310054.A.9BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "果然其他地方的imax還是跟美麗華差太多\n2024的第一個遺憾：沒能去美麗華看沙丘第二部\n \n \n \n防雷\n \n \n \n \n\
   \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
   \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n首先恭喜丹尼哥又完成人生一大成就\n無論如何能把重磅級的小說成功改造成電影\n\
@@ -2744,7 +2743,7 @@ date: 2024-03-02
 reply_count: 71
 title: '[  雷] 沙丘：第二部 弗瑞曼人 我的超人'
 url: https://www.ptt.cc/bbs/movie/M.1709347899.A.BDF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘》最終預告剛剛釋出
 
 
@@ -2762,7 +2761,7 @@ date: 2021-10-08
 reply_count: 93
 title: '[影片] 《沙丘》最終預告'
 url: https://www.ptt.cc/bbs/movie/M.1633706141.A.F2C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "上個週末看完沙丘2\n\n我覺得沙丘這個系列很神奇，通常我看完一部很喜歡的電影，會去回想電影的劇情大綱和\n故事內容\n\n但沙丘不管是1和2，我並不會去太用力去想它的劇情，而是沉浸在電影營造的氣氛裡面\n\
   \n感覺像是做了一場很深沉的夢，整個人像是要融化進電影裡面\n當電影結束時就是夢該醒了，有一種捨不得醒來的感覺 XD\n\n有很多人形容沙丘系列是睡覺片\n\n\
   就某方面來說還真的是，但就是要這樣進入半夢半醒的狀態才爽啊！！\n\n並不是因電影無聊而想睡，而是因為電影氣氛太好，你才會墜入那個想像中的世界。\n\n沙丘2的劇情較緊湊有故事可看，\n\
@@ -2776,7 +2775,7 @@ date: 2024-03-06
 reply_count: 52
 title: '[好無雷] 沙丘2 繼續沉浸'
 url: https://www.ptt.cc/bbs/movie/M.1709698361.A.0D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影的沙1還沒看過，
 
   沙2好像這幾年也會上。
@@ -2805,7 +2804,7 @@ date: 2023-09-16
 reply_count: 61
 title: '[討論] 沙丘值得補原作小說嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1694851929.A.8D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各方新聞已經公告，電影沙丘將在美國戲院上映前一天，先在 HBO Max 上播放。
 
   沙丘電影原來是要在戲院與串流同時開始播放，現在改成在串流提前一天播放。
@@ -2823,7 +2822,7 @@ date: 2021-10-16
 reply_count: 74
 title: '[討論] 沙丘在美國 HBO Max 較戲院提前一天播放'
 url: https://www.ptt.cc/bbs/movie/M.1634380232.A.27A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n作為一個年少時喜歡看奇幻/科幻小說的人\n\
   沙丘這部科幻鉅著我卻一直以來都是聞名，但未曾謀面\n\n原因無他，因為內容對當年的我來說挺無聊的：\n\n\"沙丘嘛，就一片黃澄澄的沙子在那邊有甚麼好寫的?\"\
@@ -2852,7 +2851,7 @@ date: 2021-09-22
 reply_count: 115
 title: '[好雷] 沙丘~別試著去理解它，而是感受它'
 url: https://www.ptt.cc/bbs/movie/M.1632286267.A.E5A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '結論 : 值得
 
 
@@ -2896,7 +2895,7 @@ date: 2023-09-16
 reply_count: 31
 title: 'Re: [討論] 沙丘值得補原作小說嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1694856380.A.9F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題啦
 
   說到2024最大製作的史詩鉅片
@@ -2956,7 +2955,7 @@ date: 2025-01-16
 reply_count: 111
 title: '[討論] 沙丘2成本原來才一億多噢？'
 url: https://www.ptt.cc/bbs/movie/M.1737027286.A.7F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '二刷時注意到一個細節：
 
 
@@ -3014,7 +3013,7 @@ date: 2024-03-05
 reply_count: 82
 title: 'Re: [討論] 沙丘2中害我出戲的點 (有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1709612783.A.3C4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道有沒有人跟我一樣
 
   明明是部好片
@@ -3045,7 +3044,7 @@ date: 2021-09-23
 reply_count: 41
 title: '[請益] 沙丘走路方式吐槽（含雷）'
 url: https://www.ptt.cc/bbs/movie/M.1632377323.A.DD2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我沒看過小說 直接看一二部
 
   第一部出現的雷射光
@@ -3078,7 +3077,7 @@ date: 2024-02-29
 reply_count: 40
 title: '[討論] 沙丘2 武器疑問（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709180412.A.42C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，沙丘1雖然不少人喜歡，但我自己是對不到頻率，雖然知道在介紹世界觀，但整體節
 
   奏讓我覺得很冗，然後最後的決戰也不怎麼精彩
@@ -3099,7 +3098,7 @@ date: 2024-03-03
 reply_count: 107
 title: '[請益] 沙丘2的節奏會像沙丘1嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1709396608.A.3FE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【沙丘】 重返IMAX廳
 
 
@@ -3167,7 +3166,7 @@ date: 2022-04-07
 reply_count: 42
 title: 'Re: [請益] 沙丘還會再在大直美麗華imax上映嗎'
 url: https://www.ptt.cc/bbs/movie/M.1649314269.A.CD6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完沙丘
 
 
@@ -3190,7 +3189,7 @@ date: 2021-09-18
 reply_count: 10
 title: '[討論] 沙丘外傳 姊妹會'
 url: https://www.ptt.cc/bbs/movie/M.1631978383.A.D8D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '認真問，打算這週末去美麗華看iMax版，
 
   想問第二集的劇情適合邊吃邊看嗎（爆米花太吵，正在考慮吉拿/熱狗套票）
@@ -3205,7 +3204,7 @@ date: 2024-03-04
 reply_count: 50
 title: '[請益] 沙丘二適合食物套票嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1709565257.A.DB8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "丹尼斯維勒納談論HBO Max上架策略：用電視看《沙丘》像是在浴缸試圖開一台快艇\n\n\n\n丹尼斯維勒納夫（Denis Villeneuve）無疑是當今最受到關注與推崇的電影導演之一，他\n\
   逐漸將自己歐洲導演的作者風格與好萊塢旗艦電影規格做出結合（或是找到完美天秤），\n不過無倫他怎麼再次演繹賽博龐克的世界，或是如新作《沙丘》（Dune）重現經典科幻文\n\
   學，他都是希望觀眾能在戲院大銀幕觀賞，不過由於疫情的影響，華納媒體集團在去年做\n出了一個大膽的政策，就是2021年華納兄弟發行的作品都會同步於旗下串流服務HBO\
@@ -3219,7 +3218,7 @@ date: 2021-08-24
 reply_count: 46
 title: '[新聞] 導演：用電視看《沙丘》像是在浴缸開快艇'
 url: https://www.ptt.cc/bbs/movie/M.1629798911.A.A3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 為什麼 Harkonnen 都是光頭？可是某女角又可以不是光頭？
 
 
@@ -3239,7 +3238,7 @@ date: 2024-03-12
 reply_count: 14
 title: '[請益] 沙丘幾個問題請益（很雷）'
 url: https://www.ptt.cc/bbs/movie/M.1710245041.A.075.html
---- !!python/object:movie_data.PublicReview
+---
 content: '哥吉拉與金剛新帝國，在全球的票房近5億美
 
 
@@ -3277,7 +3276,7 @@ date: 2024-03-26
 reply_count: 96
 title: '[討論] 哥吉拉台灣票房會贏沙丘二嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1711439174.A.D87.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -3355,7 +3354,7 @@ date: 2024-03-06
 reply_count: 41
 title: '[討論] 沙丘2 關於菲得羅薩和男爵（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709712083.A.633.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘2》續霸榜 全球票房約158億\n\n04:10 2024/03/19 中國時報 翁紫曦\n\n\n提摩西夏勒梅（左）主演的《沙丘：第二部》，全球票房表現優異。（華納兄弟提供）\n\
   \n《沙丘：第二部》在台上映蟬聯3周票房冠軍，全台票房累計近1.76億新台幣，票房表現\n強勁。北美票房則破2億美元（約63億新台幣），全球票房累積近5億美元（約158億新台\n\
   幣）。這也是主角提摩西夏勒梅1年內第2部破2億美元的電影。\n\n有趣的是，前陣子網友翻出2018年地鐵上拍到提摩西的照片，當時21歲的他在地鐵上讀的\n書正是《沙丘》。將近6年過去，提摩西靠作品成為現今30歲以下最有名的男星，所到之\n\
@@ -3368,7 +3367,7 @@ date: 2024-03-19
 reply_count: 68
 title: '[新聞] 《沙丘2》續霸榜 全球票房約158億'
 url: https://www.ptt.cc/bbs/movie/M.1710863408.A.5A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -3420,7 +3419,7 @@ date: 2021-09-28
 reply_count: 65
 title: '[ 極好雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632826376.A.C61.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘2》很好看
 
   但是不知道為什麼，主角Timothee跟Zendaya真的完全沒CP感
@@ -3443,7 +3442,7 @@ date: 2024-03-19
 reply_count: 229
 title: '[討論] 《沙丘2》沒有CP感，是因為都有對象了嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1710783659.A.2E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -3559,7 +3558,7 @@ date: 2021-09-14
 reply_count: 33
 title: '[好無雷] 只是第一部曲的「沙丘」'
 url: https://www.ptt.cc/bbs/movie/M.1631621844.A.14E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在Reddit上看就搬來了
 
 
@@ -3604,7 +3603,7 @@ date: 2021-11-29
 reply_count: 14
 title: '[討論] 沙丘腳本釋出'
 url: https://www.ptt.cc/bbs/movie/M.1638193590.A.B15.html
---- !!python/object:movie_data.PublicReview
+---
 content: '嗯，其實標題就雷的差不多了
 
 
@@ -3814,7 +3813,7 @@ date: 2024-02-28
 reply_count: 61
 title: '[好雷] 沙丘二 - 造神的王者'
 url: https://www.ptt.cc/bbs/movie/M.1709104199.A.FB8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '懶人包：
 
   一部沒中間值的電影，神作和無聊一線之隔。但我覺得衝著畫面和音樂就值得那300塊。劇
@@ -3923,7 +3922,7 @@ date: 2021-09-18
 reply_count: 132
 title: '[雷] 沙丘，終於看完了'
 url: https://www.ptt.cc/bbs/movie/M.1631898372.A.1F1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天終於看了IMAX場的沙丘，
 
   平心而論，這部在我心裡的評價不斷來回的擺盪，
@@ -4055,7 +4054,7 @@ date: 2021-09-18
 reply_count: 5
 title: '[雷] 沙丘 - 是否常在夢裡實現'
 url: https://www.ptt.cc/bbs/movie/M.1631978393.A.813.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘》導演丹尼·維勒納夫表示有意再為下一部經典科幻小說進行改編拍攝
 
 
@@ -4106,7 +4105,7 @@ date: 2021-12-16
 reply_count: 20
 title: '[新聞] 《沙丘》導演丹尼·維勒納夫表示有意再 '
 url: https://www.ptt.cc/bbs/movie/M.1639651868.A.69C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這次二部曲多了不少精彩的動作戲和爆炸，比起1看起來沒有那麼沉悶
 
   但看完還是有許多疑惑
@@ -4136,7 +4135,7 @@ date: 2024-02-28
 reply_count: 80
 title: '[ 好雷] 沙丘2戰鬥場景一些吐槽&疑惑'
 url: https://www.ptt.cc/bbs/movie/M.1709131293.A.1FE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘》實景拍攝取代綠幕 喬許布洛林被虧「最厲害布景」
 
   記者潘鈺楨／台北報導
@@ -4169,7 +4168,7 @@ date: 2020-09-19
 reply_count: 14
 title: '[新聞] TV版《沙丘》TRAILER實景拍攝取代綠幕'
 url: https://www.ptt.cc/bbs/movie/M.1600500664.A.597.html
---- !!python/object:movie_data.PublicReview
+---
 content: "院線片 一定要防雷\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   \n\n\n\n我沒看過小說 但這部的敘事風格我非常喜歡 是我神片口袋名單之一\n但有幾個問題想請教沙丘迷\n\n1. 姐妹會存在的目的\n是不是想培養出一位救世主\n\
   來推翻皇帝？\n所以身為姐妹會成員的傑西卡夫人\n是依照聖母密令\n才嫁給厄崔迪公爵\n然後在沙丘星散佈謠言說男主是救世主？\n而傑西卡夫人私下卻把姐妹會特技魅因私傳男主？\n\
@@ -4182,7 +4181,7 @@ date: 2021-09-24
 reply_count: 33
 title: '[討論] 沙丘一些問題'
 url: https://www.ptt.cc/bbs/movie/M.1632462401.A.5D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4309,7 +4308,7 @@ date: 2024-02-29
 reply_count: 122
 title: '[新聞] 沙丘》蕾貝卡弗格森自爆曾遭大咖演員欺辱'
 url: https://www.ptt.cc/bbs/movie/M.1709178213.A.DED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該是無雷
 
 
@@ -4348,7 +4347,7 @@ date: 2024-03-07
 reply_count: 14
 title: '[請益] 沙丘2的某些橋段'
 url: https://www.ptt.cc/bbs/movie/M.1709775595.A.93D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "威秀資訊\n吉娃娃沙蟲．重返ＩＭＡＸ\n為大銀幕而生的【 #沙丘：第二部】\n 04/03起～ #IMAX 限量重映\n美麗華資訊\n【沙丘：第二部】\
   \ 04月03日起\n重返 IMAX挺v廳\n    場次今晚18點後開賣\n    實際開放場次以影城現場公告為主\n威秀要重新上映沙丘imax金剛沒有賣得那麼好嗎？\n\
   \n--"
@@ -4356,7 +4355,7 @@ date: 2024-04-01
 reply_count: 29
 title: '[討論] 沙丘：第二部威秀imax重新上映'
 url: https://www.ptt.cc/bbs/movie/M.1711946138.A.9F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4440,7 +4439,7 @@ date: 2024-03-28
 reply_count: 192
 title: '[新聞] "沙丘2"遭批選角不夠多元 穆斯林團體抱怨:片中缺乏中東、北非演員'
 url: https://www.ptt.cc/bbs/movie/M.1711604153.A.71C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天去看了口碑場，
 
   有可能是我期待太高而且看過小說，
@@ -4613,7 +4612,7 @@ date: 2024-02-28
 reply_count: 53
 title: '[  負無雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1709089527.A.4F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在下已在美麗華大直影城imax看過兩場沙丘，但位置都不好。
 
   一次在第二排，一次在第三排，太前面，雖然螢幕很大但觀影角度仰角有斜。
@@ -4631,7 +4630,7 @@ date: 2021-10-12
 reply_count: 84
 title: '[請益] 沙丘還會再在大直美麗華imax上映嗎'
 url: https://www.ptt.cc/bbs/movie/M.1634035587.A.21C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天去看了沙丘，真的很棒，很接近我理想中的科幻片了。
 
 
@@ -4671,7 +4670,7 @@ date: 2021-09-28
 reply_count: 101
 title: '[討論] 沙丘 亞崔迪母子(劇情雷)'
 url: https://www.ptt.cc/bbs/movie/M.1632807807.A.927.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《旺卡》《沙丘》系列接連大賣！華納兄弟樂得和「甜茶」提摩西夏勒梅簽下多年新合約
 
 
@@ -4721,7 +4720,7 @@ date: 2024-03-28
 reply_count: 82
 title: '[新聞] 旺卡 沙丘系列接連大賣！華納兄弟樂得和'
 url: https://www.ptt.cc/bbs/movie/M.1711559743.A.7E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過沙丘小說 但我看過
 
 
@@ -4777,7 +4776,7 @@ date: 2021-09-21
 reply_count: 164
 title: '[討論雷] 沙丘是不是敗在問世太早 梗都被用完了'
 url: https://www.ptt.cc/bbs/movie/M.1632189178.A.E3C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘2好看
 
   時間雖然長
@@ -4823,7 +4822,7 @@ date: 2024-03-16
 reply_count: 4
 title: '[ 好 雷] 沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1710550534.A.4AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最簡單講就是象徵成長
 
   除了魅音這種需要培養的技能
@@ -4874,7 +4873,7 @@ date: 2021-11-30
 reply_count: 4
 title: 'Re: [討論] 沙丘腳本釋出'
 url: https://www.ptt.cc/bbs/movie/M.1638285931.A.91D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這篇文實在來得太晚
 
   抱歉 7 月 8 月時間咻咻過
@@ -5047,7 +5046,7 @@ date: 2023-09-01
 reply_count: 6
 title: '[討論] 今年沒有沙丘 2 至少我重溫了銀翼殺手'
 url: https://www.ptt.cc/bbs/movie/M.1693499985.A.EAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說 以下有雷
 
 
@@ -5213,7 +5212,7 @@ date: 2021-09-20
 reply_count: 76
 title: '[普雷] 沙丘 不確定是否為一部粉絲向作品'
 url: https://www.ptt.cc/bbs/movie/M.1632106483.A.1A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有小說後期劇透
 
   看完《沙丘2》不想被雷的先左轉
@@ -5294,7 +5293,7 @@ date: 2024-03-08
 reply_count: 31
 title: '[討論] 請問《沙丘》小說中的奎薩茲哈德拉赫'
 url: https://www.ptt.cc/bbs/movie/M.1709882633.A.809.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「沙丘」威尼斯首映爆好評 導演虧提摩西頭髮「難搞」
 
 
@@ -5354,7 +5353,7 @@ date: 2021-09-04
 reply_count: 9
 title: '[新聞] 「沙丘」威尼斯首映爆好評 導演虧提摩西'
 url: https://www.ptt.cc/bbs/movie/M.1630758524.A.CA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於看到《沙丘》。不曉得是下班去看太累還是配樂音效本身就是要這麼磅礡，電影過一
 
   半左右，我的頭就開始痛，直到結束都沒有停下來。上一部這種狀況（且更為嚴重的）是
@@ -5403,7 +5402,7 @@ date: 2021-09-23
 reply_count: 31
 title: '[好雷] 沙丘Dune'
 url: https://www.ptt.cc/bbs/movie/M.1632363036.A.62B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從預告中還算可以，
 
 
@@ -5453,7 +5452,7 @@ date: 2020-09-10
 reply_count: 7
 title: 'Re: [情報] 《沙丘》首支正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1599729746.A.53B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5611,7 +5610,7 @@ date: 2021-10-19
 reply_count: 64
 title: '[好雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1634587726.A.198.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -5645,7 +5644,7 @@ date: 2024-03-05
 reply_count: 89
 title: '[討論] 沙丘1出現的某個角色在沙丘2是誰？'
 url: https://www.ptt.cc/bbs/movie/M.1709604693.A.565.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無雷，先講結論，沙丘比較值得花錢進場看
 
   但兩部看完都有種少了點什麼的感覺
@@ -5682,7 +5681,7 @@ date: 2021-09-20
 reply_count: 23
 title: 'Re: [選片] 尚氣/沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632137231.A.41C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -5744,7 +5743,7 @@ date: 2023-04-18
 reply_count: 53
 title: '[新聞] 傳諾蘭參與構思新007 沙丘導演有望接拍'
 url: https://www.ptt.cc/bbs/movie/M.1681791340.A.902.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.被HansZimmer 噪音轟炸3小時，耳膜快破了，強烈建議帶耳塞進去。
 
 
@@ -5790,7 +5789,7 @@ date: 2024-03-13
 reply_count: 110
 title: '[極爛無雷]沙丘2:被HansZimmer 噪音轟炸3小時'
 url: https://www.ptt.cc/bbs/movie/M.1710301303.A.7F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n沙丘 (Dune)\n03-26(六) 21:00~23:35\n03-27(日) 18:30~21:00\n03-30(三) 21:00~23:35\n\
   03-31(四) 13:10~15:45\n\n導演:\n丹尼維勒納夫 (Denis Villeneuve)\n主演:\n提摩西夏勒梅 (Timothee Chalamet)\n\
   蕾貝卡弗格森 (Rebecca Ferguson)\n奧斯卡伊薩克 (Oscar Isaac)\n喬許布洛林 (Josh Brolin)\n史戴倫史柯斯嘉 (Stellan\
@@ -5801,7 +5800,7 @@ date: 2022-03-26
 reply_count: 167
 title: '[Live] HBO 21:00 沙丘 (Dune)'
 url: https://www.ptt.cc/bbs/movie/M.1648290332.A.9E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "根據 Deadline 的報導指出，《沙丘2》又有新卡司曝光啦！\n\n\n\n繼《黑寡婦》奧斯卡提名英國女演員 Florence Pugh 將在續集飾演\
   \ Irulan 公主，以及\n《貓王艾維斯》澳洲男星 Austin Butler 將演出 Feyd-Rautha 之後，今天又有一位新卡\n司加入了這部眾所期待的續集電影當中，而這個角色即是「皇帝」Shaddam\
   \ IV。\n\n在 1984 年的《沙丘魔堡》中，皇帝一角由《風流劍俠》的波多黎各裔奧斯卡影帝 Jose\n Ferrer 飾演。而在這個最新版本中，則找來了曾以《越戰獵鹿人》拿下奧斯卡最佳男配\n\
@@ -5811,7 +5810,7 @@ date: 2022-05-13
 reply_count: 80
 title: '[情報] 《沙丘2》新演員加入！皇帝將由克里斯多夫華肯飾演'
 url: https://www.ptt.cc/bbs/movie/M.1652378794.A.DB4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實我想用一句話總結
 
 
@@ -5826,7 +5825,7 @@ date: 2024-03-04
 reply_count: 11
 title: '[普雷] 沙丘2觀後心得'
 url: https://www.ptt.cc/bbs/movie/M.1709564664.A.561.html
---- !!python/object:movie_data.PublicReview
+---
 content: "簡單說，日本單週票房才第五QQ\n第一名是：燃燒吧！劍\n\n韓國單日票房則是冠軍\n\n希望北美會好看一點\n雖然上串流一定影響很大QQ\n\
   至於對岸雖然有市場\n但已經有人在片子未上之前就看完了\n對岸嘛！大家都知道QQ\n\n-----\nSent from JPTT on my Sony XQ-AS72.\n\
   \n--\n\n神奇的推噓文\n一定是聰明的人才看得到\n而我資質駑鈍QQ\n\n\n真的？日本都這樣？\n\n                       \
@@ -5853,7 +5852,7 @@ date: 2021-10-24
 reply_count: 172
 title: '[討論] 沙丘日韓票房...'
 url: https://www.ptt.cc/bbs/movie/M.1635038721.A.A8D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看完沙丘2，有幾個不了解的地方想請教大家
 
 
@@ -5895,7 +5894,7 @@ date: 2024-02-28
 reply_count: 92
 title: '[請益] 看完沙丘2的幾個疑問'
 url: https://www.ptt.cc/bbs/movie/M.1709119039.A.957.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n \n \n \n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n \n\
   \ \n \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n \n \n2021年看的是一般電影版\n\
   \ \n當時已經覺得超級好看了\n \n不過每當想起時仍然有點遺憾沒用IMAX看\n \n這次宣布重映後一直期待著\n \n可惜正好卡年假前後，不方便去美麗華朝聖\n\
@@ -5910,7 +5909,7 @@ date: 2024-02-07
 reply_count: 31
 title: '[  雷] 沙丘重映版'
 url: https://www.ptt.cc/bbs/movie/M.1707299694.A.81F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想問有看過這三部的人覺得哪一部最好看呢～
 
 
@@ -5939,7 +5938,7 @@ date: 2021-09-17
 reply_count: 164
 title: '[選片] 脫稿玩家/尚氣/沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631879676.A.91B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '野心勃勃！丹尼維勒納夫想把《沙丘》拍成三部曲
 
 
@@ -6013,7 +6012,7 @@ date: 2021-11-02
 reply_count: 176
 title: '[新聞] 丹尼維勒納夫想把《沙丘》拍成三部曲 '
 url: https://www.ptt.cc/bbs/movie/M.1635842619.A.E2B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6122,7 +6121,7 @@ date: 2020-06-10
 reply_count: 30
 title: '[負雷] 沙丘魔堡1984'
 url: https://www.ptt.cc/bbs/movie/M.1591783829.A.9D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6201,7 +6200,7 @@ date: 2021-09-25
 reply_count: 46
 title: '[普雷] 有點不上不下的沙丘 '
 url: https://www.ptt.cc/bbs/movie/M.1632501366.A.E97.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果要對劇情深入討論的話
 
 
@@ -6310,7 +6309,7 @@ date: 2024-03-08
 reply_count: 5
 title: 'Re: [討論] 請問《沙丘》小說中的奎薩茲哈德拉赫'
 url: https://www.ptt.cc/bbs/movie/M.1709910375.A.2E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '早上看完沙丘2了 心得就是：中世紀的史觀搭配宇宙科幻的場景還有一些衝浪UBER隨意搭
 
   的元素
@@ -6331,7 +6330,7 @@ date: 2024-03-03
 reply_count: 108
 title: '[討論] 沙丘2小心得（無雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709449363.A.DEE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -6398,7 +6397,7 @@ date: 2019-12-29
 reply_count: 2
 title: '[問片] 尋找一片關於沙丘的片'
 url: https://www.ptt.cc/bbs/movie/M.1577588355.A.418.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完沙丘
 
 
@@ -6571,7 +6570,7 @@ date: 2021-09-23
 reply_count: 35
 title: '[好雷] 沙丘 用155分鐘架構一個新世界'
 url: https://www.ptt.cc/bbs/movie/M.1632412645.A.BBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘3》受《蜘蛛人4》推遲之累 也得延後開拍
 
 
@@ -6635,7 +6634,7 @@ date: 2024-10-23
 reply_count: 30
 title: '[新聞] 《沙丘3》受《蜘蛛人4》推遲之累 也得延'
 url: https://www.ptt.cc/bbs/movie/M.1729694136.A.A25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整體絕對仍是好雷啦~是當代會感動 為大螢幕而生的電影
 
   也希望他能有奧本海默的聲勢跟長賣
@@ -6752,7 +6751,7 @@ date: 2024-02-27
 reply_count: 40
 title: '[好雷] 沙丘2：明顯瑕，但仍完全掩蓋不了瑜'
 url: https://www.ptt.cc/bbs/movie/M.1709047726.A.CF4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了兩集錦衣衛繡春刀,覺得張震演工具人真是男人之恥
 
 
@@ -6799,7 +6798,7 @@ date: 2021-09-04
 reply_count: 1
 title: 'Re: [新聞] 威尼斯影展：沙丘導演稱讚張震是綠洲'
 url: https://www.ptt.cc/bbs/movie/M.1630749199.A.287.html
---- !!python/object:movie_data.PublicReview
+---
 content: '推個艾蓮說
 
   我沒有讀小說，不過有看過巨人
@@ -6839,7 +6838,7 @@ date: 2024-02-29
 reply_count: 72
 title: 'Re: [好雷] 沙丘2 保羅亞崔迪你XXXX！'
 url: https://www.ptt.cc/bbs/movie/M.1709171927.A.728.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防電影+小說雷
 
 
@@ -6909,7 +6908,7 @@ date: 2021-10-03
 reply_count: 35
 title: '[討論] 沙丘之後還可以怎麼演?'
 url: https://www.ptt.cc/bbs/movie/M.1633236964.A.AF9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -6954,7 +6953,7 @@ date: 2023-07-01
 reply_count: 62
 title: '[新聞] 《沙丘：第二部》史詩級復仇之戰即將開打'
 url: https://www.ptt.cc/bbs/movie/M.1688190244.A.61E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '為什麼皇帝要御駕親征啊
 
   這是我最大的疑問，不就一幫呼呼嘿嘿（以他們視角）
@@ -7002,7 +7001,7 @@ date: 2024-03-04
 reply_count: 126
 title: '[  雷] ［沙丘2］為什麼皇帝要…'
 url: https://www.ptt.cc/bbs/movie/M.1709488655.A.063.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以我自己算是科幻迷的角度來看看這部片
 
 
@@ -7133,7 +7132,7 @@ date: 2022-01-17
 reply_count: 89
 title: '[無雷] 《永恆族》輸給同質的沙丘＆2049'
 url: https://www.ptt.cc/bbs/movie/M.1642384194.A.791.html
---- !!python/object:movie_data.PublicReview
+---
 content: '光是看到光頭胖子跟公爵在長桌那場戲我就覺得已經值回票價了好嗎！
 
 
@@ -7215,7 +7214,7 @@ date: 2021-10-02
 reply_count: 34
 title: '[雷] 沙丘明明就神作'
 url: https://www.ptt.cc/bbs/movie/M.1633143014.A.5D6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~
 
 
@@ -7252,7 +7251,7 @@ date: 2021-09-23
 reply_count: 12
 title: '[普雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632332446.A.8A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -7295,7 +7294,7 @@ date: 2024-03-18
 reply_count: 29
 title: '[雷] 關於沙丘2拉班的功績？'
 url: https://www.ptt.cc/bbs/movie/M.1710723076.A.BBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '肥肥我想問葛第一集的問題
 
   應該不用防雷
@@ -7362,7 +7361,7 @@ date: 2024-03-04
 reply_count: 31
 title: '[討論] 姐妹會在等什麼'
 url: https://www.ptt.cc/bbs/movie/M.1709545071.A.0C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7538,7 +7537,7 @@ date: 2021-09-23
 reply_count: 6
 title: '[好雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632330347.A.AF4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n\n因應疫情，華納媒體 (WarnerMedia) 去年拋下震撼彈決定將 2021 年所有發行的電影同\n步於 HBO Max\
   \ 串流平台上推出，這個無預警的消息引發許多合作夥伴的反彈，與華納長\n期合作的導演克里斯多福諾蘭更是氣憤走人。然而，在落實這項新策略近 11 個月後，華\n\
   納媒體高層傑森基拉爾 (Jason Kilar) 和安沙諾夫 (Ann Sarnoff) 在最新採訪中表示，\n他們相當滿意目前的成效，但也花了不少心力在修補與合作夥伴的關係上。此外，他們也\n\
@@ -7572,7 +7571,7 @@ date: 2021-10-22
 reply_count: 65
 title: '[新聞] 確定會有《沙丘2》！華納表示「續集可能'
 url: https://www.ptt.cc/bbs/movie/M.1634906935.A.EFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這篇可能會有雷，
 
   還請沒看過的版友注意一下
@@ -7711,7 +7710,7 @@ date: 2024-03-06
 reply_count: 55
 title: '[討論] 沙丘的設定問題'
 url: https://www.ptt.cc/bbs/movie/M.1709717033.A.4C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '會喔，我中途有差點睡著。第二部劇情有大進展而且精采場面也比第一部多，比上集緊湊是
 
   肯定的。但是絕對沒到兩倍速三倍速那種程度，主要是繼承了第一部的敘事方式。不時會來
@@ -7726,7 +7725,7 @@ date: 2024-03-03
 reply_count: 11
 title: 'Re: [請益] 沙丘2的節奏會像沙丘1嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1709430551.A.EE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '繼續防雷
 
 
@@ -7892,7 +7891,7 @@ date: 2024-02-28
 reply_count: 27
 title: 'Re: [好雷] 沙丘二 - 造神的王者'
 url: https://www.ptt.cc/bbs/movie/M.1709115602.A.747.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(威尼斯影展官方)
 
 
@@ -7921,7 +7920,7 @@ date: 2021-06-17
 reply_count: 17
 title: 'Re: [新聞] 《沙丘》將於今年威尼斯影展首映'
 url: https://www.ptt.cc/bbs/movie/M.1623928528.A.588.html
---- !!python/object:movie_data.PublicReview
+---
 content: '堤摩西柴勒梅德商談主演《銀翼殺手2049》導演丹尼維勒納夫執導的科幻電影《沙丘魔堡》，《班傑明的奇幻旅程》編劇艾瑞克·羅斯操刀劇本。
 
 
@@ -7940,7 +7939,7 @@ date: 2018-07-17
 reply_count: 28
 title: '[情報] 堤摩西柴勒梅德商談主演《沙丘魔堡》'
 url: https://www.ptt.cc/bbs/movie/M.1531784804.A.624.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昆汀塔倫提諾超愛《小丑2》、但卻對《沙丘》電影表示毫無興趣？昆汀：「拍那麼多次
 
   要幹嘛？
@@ -8009,7 +8008,7 @@ date: 2024-11-03
 reply_count: 63
 title: '[新聞] 昆汀超愛《小丑2》、但卻對《沙丘》電影'
 url: https://www.ptt.cc/bbs/movie/M.1730569548.A.87A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -8135,7 +8134,7 @@ date: 2024-03-07
 reply_count: 73
 title: '[討論] 沙丘的反派不夠壞？（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709778125.A.37D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -8215,7 +8214,7 @@ date: 2021-09-16
 reply_count: 107
 title: '[負雷] 沙丘-給我快轉鈕'
 url: https://www.ptt.cc/bbs/movie/M.1631791659.A.B1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'RT
 
 
@@ -8254,7 +8253,7 @@ date: 2021-09-16
 reply_count: 76
 title: '[請益] 看沙丘前要做功課嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1631799273.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實盡量不把劇情放進來，
 
 
@@ -8383,7 +8382,7 @@ date: 2024-03-03
 reply_count: 8
 title: '[好雷] 沙丘二：非常喜歡！'
 url: https://www.ptt.cc/bbs/movie/M.1709395703.A.ABA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據 Deadline 的獨家報導指出，曾參演《高潮》等片的瑞士新銳女演員 Souheila Yacou
 
   b 加入了《沙丘2》陣容。
@@ -8428,7 +8427,7 @@ date: 2022-07-16
 reply_count: 7
 title: '[情報] 《沙丘2》新卡司！《高潮》瑞士女演員加入'
 url: https://www.ptt.cc/bbs/movie/M.1657905676.A.6A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來今天凌晨沙丘2握有2200萬
 
   萬人民幣左右的預售票房，大幅領先周處只有約700萬人民幣左右的預售票房。
@@ -8462,7 +8461,7 @@ date: 2024-03-09
 reply_count: 114
 title: '[討論] 周處逆轉再創新高又贏沙丘2了'
 url: https://www.ptt.cc/bbs/movie/M.1709996096.A.5DD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我不覺得如此
 
   如果這個理由可以成立的話
@@ -8553,7 +8552,7 @@ date: 2021-09-22
 reply_count: 39
 title: 'Re: [討論雷] 沙丘是不是敗在問世太早 梗都被用完了'
 url: https://www.ptt.cc/bbs/movie/M.1632242263.A.7C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -8611,7 +8610,7 @@ date: 2021-09-17
 reply_count: 13
 title: '[偏負雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631892361.A.BBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老實說，剛看完的時候不知道該給這部普雷還是好雷，
 
   這部片能吐槽的地方實在蠻多的！
@@ -8898,7 +8897,7 @@ date: 2021-10-02
 reply_count: 35
 title: '[好雷] 沙丘- 表面工夫做得不錯'
 url: https://www.ptt.cc/bbs/movie/M.1633179350.A.7ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘》全新預告釋出！「甜茶」穿盔甲更添帥氣\n\n20:00 2021/07/23 中時 江珮瑜\n\n\n提摩西夏勒梅飾演保羅亞崔迪。（華納兄弟提供）\n\
   \n史詩巨作電影《沙丘》23日曝光全新預告，「甜茶」提摩西夏勒梅擔綱男主角保羅亞崔迪\n，穿著帥氣盔甲肩負著超越自己能理解的偉大天命，必須遠行至宇宙中最危險的行星，以\n\
   確保家族未來的延續。由於該星球出產極其珍貴的資源，一種能釋放人類最大潛能的物質\n，隨著各方邪惡勢力為搶奪資源大打出手，最後只有戰勝內心恐懼的人才能存活。\n\n\
@@ -8912,7 +8911,7 @@ date: 2021-07-23
 reply_count: 28
 title: '[新聞] 《沙丘》全新預告釋出！「甜茶」穿盔甲更添帥氣'
 url: https://www.ptt.cc/bbs/movie/M.1627055707.A.0DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不好意思打擾 因為沒有研究這些比較特別的廳
 
 
@@ -8941,7 +8940,7 @@ date: 2024-03-01
 reply_count: 45
 title: '[請益] 沙丘imax luxe請益'
 url: https://www.ptt.cc/bbs/movie/M.1709301387.A.970.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防一下雷
 
 
@@ -8984,7 +8983,7 @@ date: 2024-05-08
 reply_count: 18
 title: '[討論] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1715178839.A.004.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無雷
 
 
@@ -9054,7 +9053,7 @@ date: 2021-09-16
 reply_count: 36
 title: '[好無雷]「沙丘」好久沒看到這樣的好電影'
 url: https://www.ptt.cc/bbs/movie/M.1631780475.A.4FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '嫌《沙丘》荃妮的戲份太少？　導演說續集補給你
 
 
@@ -9119,7 +9118,7 @@ date: 2021-10-31
 reply_count: 32
 title: '[新聞] 嫌《沙丘》荃妮的戲份太少？　導演說續'
 url: https://www.ptt.cc/bbs/movie/M.1635694661.A.B9B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -9191,7 +9190,7 @@ date: 2021-10-31
 reply_count: 60
 title: '[新聞] 望穿秋水！沙丘2最快也要2022秋季才開拍'
 url: https://www.ptt.cc/bbs/movie/M.1635666409.A.5D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "沙丘有一些設定其實蠻白痴的\n\n還記得裡面有雷射武器和屏障（英文叫shield）吧？\n\n我想大多數人大概直覺以為因為有包覆型屏障\n\n\
   雷射沒用所以大家才搞落後的近戰肉搏對吧？\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n實際設定是\n\n屏障和雷射接觸後，會在兩者之間產生核爆（對就是那個核爆\n\
   \n因為實在太危險了，人人都是會走路的核彈\n\n所以大家說好不用雷射武器直接打人\n\n\n\n\n看到這，我想還是不要太執著於沙丘合不合理\n\n-----\n\
@@ -9202,7 +9201,7 @@ date: 2021-09-17
 reply_count: 10
 title: 'Re: [普雷] 佳作以上經典未滿的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631867982.A.304.html
---- !!python/object:movie_data.PublicReview
+---
 content: '科幻名作《沙丘》全新翻拍即將問世！但舊版電影導演大衛林區卻興致缺缺：我完全不感
 
   興趣
@@ -9255,7 +9254,7 @@ date: 2020-04-21
 reply_count: 34
 title: '[新聞] 科幻名作《沙丘》全新翻拍即將問世！但舊'
 url: https://www.ptt.cc/bbs/movie/M.1587473277.A.27A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘的配樂由大名鼎鼎的Hans Zimmer執掌
 
 
@@ -9279,7 +9278,7 @@ date: 2021-09-18
 reply_count: 43
 title: '[討論] 沙丘的配樂'
 url: https://www.ptt.cc/bbs/movie/M.1631947650.A.62C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道要用好雷還是負雷的一部片
 
 
@@ -9301,7 +9300,7 @@ date: 2021-09-20
 reply_count: 41
 title: '[不知道雷] 只爽中間的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632112728.A.EE8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘》巨型沙蟲震撼現身 漢斯季默配樂建構新世界\n\n\n\n由導演丹尼維勒納夫(Denis Villeneuve)執導的史詩巨片《沙丘》即將於10月14日（週四\n\
   ）全台上映，故事描述一位聰明又富有天賦的年輕人保羅亞崔迪，肩負著超越自己能理解\n的偉大天命，必須遠行至宇宙中最危險的星球，以確保家族未來的延續。華納兄弟今舉行\n\
   《沙丘》IMAX精彩片段搶先看觀賞會，透過大銀幕體驗這個波瀾壯闊、嘆為觀止的冒險旅\n程。\n\n\n《沙丘》改編自法蘭克赫伯特的同名小說，系列小說共有六部曲，不僅被譽為世上最偉大\n\
@@ -9318,7 +9317,7 @@ date: 2021-08-10
 reply_count: 36
 title: '[新聞] 《沙丘》巨型沙蟲震撼現身 漢斯季默配樂'
 url: https://www.ptt.cc/bbs/movie/M.1628590309.A.A3B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '甜茶《沙丘》巨型沙蟲來襲感受命定衝擊　水行俠敲碗6小時導演版
 
 
@@ -9419,7 +9418,7 @@ date: 2021-08-11
 reply_count: 43
 title: '[新聞] 甜茶《沙丘》巨型沙蟲來襲 水行俠敲碗'
 url: https://www.ptt.cc/bbs/movie/M.1628612147.A.AB1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不少人都說沙丘過於沉悶
 
 
@@ -9445,7 +9444,7 @@ date: 2021-10-29
 reply_count: 163
 title: '[討論] 沙丘 海報'
 url: https://www.ptt.cc/bbs/movie/M.1635488859.A.6B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '菲得這個角色
 
   一出場就吸引了我的目光
@@ -9544,7 +9543,7 @@ date: 2024-03-11
 reply_count: 63
 title: '[  雷] 沙丘2的菲得 (超大雷)'
 url: https://www.ptt.cc/bbs/movie/M.1710140697.A.EDF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是防雷線
 
   - - - - - - - - - - - - - - - - - - - - - - - -
@@ -9576,7 +9575,7 @@ date: 2024-03-11
 reply_count: 113
 title: '[請益] 沙丘二 生命之水問題 雷'
 url: https://www.ptt.cc/bbs/movie/M.1710119856.A.161.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就是
 
 
@@ -9602,7 +9601,7 @@ date: 2024-02-29
 reply_count: 80
 title: '[請益] 問沙蟲一個設定問題（有沙丘二雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709187830.A.ABD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天又有一位演員將有望加盟《沙丘》續集啦！
 
 
@@ -9660,7 +9659,7 @@ date: 2022-03-11
 reply_count: 1
 title: 'Re: [情報] 《沙丘2》選角開始！多位演員有望加盟續集'
 url: https://www.ptt.cc/bbs/movie/M.1646977122.A.9BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "第一集《沙丘》上映時，影迷與書迷既期待又怕受傷害，一邊對 1984 年《沙丘魔堡》的\n窘境歷歷在目，明白這個 IP 太難駕馭，名導大衛林區也只能低頭、一邊對丹尼維勒納夫\n\
   改編文本的功力深具信心，拍攝融合科幻與人文的題材更是從未失手。\n\n.\n結果證明華納賭對了，丹尼維勒納夫道出屬於自己版本的《沙丘》，無懼疫情於全球寫下\n\
   \ 4.3 億美金的亮眼票房；《沙丘：第二部》儘管遭遇美國編劇與演員工會罷工、硬是延\n後半年才登場，仍收穫廣大好評，更盛讚本片足以名列影史偉大的第二集之林，宛如這個\n\
@@ -9686,7 +9685,7 @@ date: 2024-03-04
 reply_count: 56
 title: '[普雷] 沙丘：第二部'
 url: https://www.ptt.cc/bbs/movie/M.1709526521.A.B55.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果以不看小說為前提
 
   沙丘的改編算是相當不錯了
@@ -9847,7 +9846,7 @@ date: 2021-09-14
 reply_count: 41
 title: '[無雷] 好但還能更好的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631550928.A.E45.html
---- !!python/object:movie_data.PublicReview
+---
 content: "青春票房4500萬 沙丘2破2億\n\n2024/03/26 05:30\n\n\n許光漢在《青春18x2 通往有你的旅程》扮演Jimmy，是他演過最像自己的角色。\n\
   （翻滾吧男孩電影有限公司提供）\n\n〔記者廖俐惠／綜合報導〕台日合製電影《青春18x2 通往有你的旅程》上映第二週，票\n房累積突破4500萬，躍升年度國片冠軍，許光漢笑說Jimmy是演過最像自己的角色：「心\n\
   裡的一些猶疑和不確定，和我是很雷同的，如果有機會也會想自己去旅行，應該會成長蠻\n多的。」\n\n\n由提摩西夏勒梅主演的《沙丘：第二部》，在台灣票房突破2億大關。（華納兄弟提供）\n\
@@ -9860,7 +9859,7 @@ date: 2024-03-26
 reply_count: 37
 title: '[新聞] 青春票房4500萬 沙丘2破2億'
 url: https://www.ptt.cc/bbs/movie/M.1711466718.A.727.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很小很小的時候有看過台視超級電影院之類的時段播過沙丘魔堡
 
   但那完全沒記憶了，只記得「有個沙漠行星，然後有很可怕、會吃人的沙蟲」
@@ -9906,7 +9905,7 @@ date: 2024-03-12
 reply_count: 60
 title: '[討論] 沙丘電影裡的沙蟲（當然有1+2的雷）'
 url: https://www.ptt.cc/bbs/movie/M.1710203163.A.CB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下心得比較像是個人雜感，有《沙丘》、《異星入境》、《銀翼殺手2049》與《怒火邊
 
   界》等四部作品的雷。
@@ -10101,7 +10100,7 @@ date: 2021-09-22
 reply_count: 69
 title: '[好雷] 沙丘：停頓總在成長時'
 url: https://www.ptt.cc/bbs/movie/M.1632280208.A.0B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '七龍珠都複製自己多久了?
 
   要講人氣，他和他提的名導們遇上七龍珠一樣都要躺下
@@ -10155,7 +10154,7 @@ date: 2021-09-17
 reply_count: 22
 title: 'Re: [新聞]《沙丘》導演:漫威只是在複製貼上其他電影'
 url: https://www.ptt.cc/bbs/movie/M.1631856925.A.376.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -10346,7 +10345,7 @@ date: 2024-03-07
 reply_count: 11
 title: '[有雷] 沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1709803017.A.82B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '甄嬛的父親只是正四品的大理寺少卿，
 
   但在皇帝有需要+暗示之下，也能夠對正一品年大將軍發起彈劾後致家族崩落，年羹堯從
@@ -10416,7 +10415,7 @@ date: 2024-03-13
 reply_count: 45
 title: 'Re: [討論] 沙丘故事裡的貴族位階'
 url: https://www.ptt.cc/bbs/movie/M.1710327117.A.F96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過小說
 
   個人覺得一個電影作品在有原著-尤其是小說-要拍出改編電影實在是一個很大的挑戰
@@ -10515,7 +10514,7 @@ date: 2024-02-28
 reply_count: 29
 title: '[好雷] 沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1709095453.A.514.html
---- !!python/object:movie_data.PublicReview
+---
 content: '週三驚覺《沙丘》IMAX版本居然即將下片，說什麼也要趕著去看。
 
 
@@ -10665,7 +10664,7 @@ date: 2021-10-01
 reply_count: 12
 title: '[好雷] 沙丘-如果，你知道那是個不得不去的陷阱 '
 url: https://www.ptt.cc/bbs/movie/M.1633094602.A.208.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘》深奧難改編 導演只拍到第三部 盼有人接手
 
 
@@ -10748,7 +10747,7 @@ date: 2024-09-11
 reply_count: 75
 title: '[新聞] 《沙丘》深奧難改編 導演只拍到第三部 '
 url: https://www.ptt.cc/bbs/movie/M.1726048070.A.32F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看到，超便宜！
 
 
@@ -10772,7 +10771,7 @@ date: 2022-06-29
 reply_count: 38
 title: '[情報] iTunes 沙丘 150元'
 url: https://www.ptt.cc/bbs/movie/M.1656514026.A.3FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論 很推！搭配IMX大畫面跟音效很讚
 
   很適合當作一部爽片來看
@@ -10790,7 +10789,7 @@ date: 2024-02-26
 reply_count: 3
 title: 'Re: [討論] 大家看好沙丘2的票房嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1708962072.A.EA5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n先講結論\n\n第二部比第一部好看\n\
   \n如果第一部是我會在電視上邊滑手機邊看的程度\n\n那第二部就是電視轉到會叫家人朋友一起來觀賞\n\n這樣的差異\n\n\n場面依然宏大，導演擅長的攝影依舊滿分\n\
@@ -10808,7 +10807,7 @@ date: 2024-02-27
 reply_count: 18
 title: '[好雷] 超出期待的沙丘第二部'
 url: https://www.ptt.cc/bbs/movie/M.1708971789.A.AF5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '衝著耳聞「坎城影展映後觀眾起立鼓掌」、
 
   又哥哥生日請電影（我是米蟲妹）、
@@ -10939,7 +10938,7 @@ date: 2021-09-21
 reply_count: 53
 title: '[雷] 沙丘（微 ‧ 吐槽）'
 url: https://www.ptt.cc/bbs/movie/M.1632225147.A.F4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "功夫熊貓打趴沙丘 坐上北美票房冠軍寶座\n\n2024/3/11 16:04\n\n（中央社洛杉磯10日綜合外電報導）功夫熊貓4本週以5830萬美元成為北美票房冠軍；「\n\
   沙丘：第二部」則是成為2024年首部票房累積破1.5億元美元大關的電影。\n\n功夫熊貓4（Kung Fu Panda 4）是該系列電影的第4部影片，這讓其加入「玩具總動員」\n\
   （Toy Story）、「神偷奶爸/小小兵」（Despicable Me/Minions）、「冰原歷險記」（\nIce Age）、史瑞克（Shrek）等片，成為賣座動畫系列電影的一員。\n\
@@ -10954,7 +10953,7 @@ date: 2024-03-11
 reply_count: 8
 title: '[新聞] 功夫熊貓打趴沙丘 坐上北美票房冠軍寶座'
 url: https://www.ptt.cc/bbs/movie/M.1710170445.A.142.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請教片頭一開始的橋段
 
 
@@ -11004,7 +11003,7 @@ date: 2024-03-04
 reply_count: 70
 title: '[請益] 沙丘2的問題'
 url: https://www.ptt.cc/bbs/movie/M.1709557623.A.333.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據 THR 的報導，張震加入華納兄弟、傳奇影業的新拍版《沙丘魔堡》！
 
 
@@ -11065,7 +11064,7 @@ date: 2019-03-18
 reply_count: 71
 title: '[情報] 張震加入新拍版《沙丘魔堡》'
 url: https://www.ptt.cc/bbs/movie/M.1552879367.A.65B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「沙丘」賣破62億！ 提摩西「關鍵場」導演讚：選對人
 
 
@@ -11127,7 +11126,7 @@ date: 2021-10-28
 reply_count: 33
 title: '[新聞] 「沙丘」賣破62億！ 提摩西「關鍵場」導'
 url: https://www.ptt.cc/bbs/movie/M.1635434123.A.248.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我本人並非重度沙丘迷，約兩年前看過小說第一
 
 
@@ -11263,7 +11262,7 @@ date: 2021-09-17
 reply_count: 46
 title: '[ 偏好雷] 沙丘(有小說雷)'
 url: https://www.ptt.cc/bbs/movie/M.1631811376.A.C82.html
---- !!python/object:movie_data.PublicReview
+---
 content: '阿麗啊  Alia
 
 
@@ -11322,7 +11321,7 @@ date: 2024-09-03
 reply_count: 13
 title: '[討論] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1725315438.A.20C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -11391,7 +11390,7 @@ date: 2024-03-03
 reply_count: 43
 title: '[雷] 沙丘2心得'
 url: https://www.ptt.cc/bbs/movie/M.1709401391.A.D96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '疑似找到一個BUG/剪接的問題
 
   第一次看沙丘2的時候以為我看錯了
@@ -11425,7 +11424,7 @@ date: 2024-03-02
 reply_count: 63
 title: '[討論] 沙丘2的BUG'
 url: https://www.ptt.cc/bbs/movie/M.1709394127.A.43B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這週沒事就在看Netflix 上的沙丘，
 
   突然想到為什麼是聖母（皇帝的真言師）來測試保羅？而且竟然沒有取他的種？
@@ -11436,7 +11435,7 @@ date: 2024-03-09
 reply_count: 17
 title: '[討論] 沙丘第一集'
 url: https://www.ptt.cc/bbs/movie/M.1709917219.A.41C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片比起講好一個故事，他給我的感覺更像是導演想要先講好一個世界觀，為續集做鋪墊
 
 
@@ -11523,7 +11522,7 @@ date: 2021-10-04
 reply_count: 31
 title: '[好雷] 沙丘 一部還在鋪陳階段的電影'
 url: https://www.ptt.cc/bbs/movie/M.1633312788.A.B57.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n \n \n看了預告騙，因為是科幻騙被騙進場。廣告史詩科幻、年度科幻，但電影的呈現度名不符實\n\n \n \n \n \n\
   \ \n \n \n \n。\n以下部分劇情雷，慎入。\n \n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \ \n \n \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n \n \n\
@@ -11557,7 +11556,7 @@ date: 2021-09-17
 reply_count: 84
 title: '[負雷] 沙丘-劣質版阿凡達'
 url: https://www.ptt.cc/bbs/movie/M.1631864800.A.9A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先
 
 
@@ -11616,7 +11615,7 @@ date: 2021-09-18
 reply_count: 54
 title: '[超好無雷] 沙丘 絕不能錯過的經典'
 url: https://www.ptt.cc/bbs/movie/M.1631898600.A.386.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Deadline本周末票房報導:
 
 
@@ -11654,7 +11653,7 @@ date: 2024-06-22
 reply_count: 133
 title: '[討論] 《腦筋急轉彎2》8天超車沙丘2 登北美年冠'
 url: https://www.ptt.cc/bbs/movie/M.1719071201.A.026.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘》導演選角張震不二人選\n\n04:10 2020/08/03 中國時報 江珮瑜\n\n\n張震首度闖蕩好萊塢，在《沙丘》飾演「惠靈頓岳醫生」。（摘自IMDb）\n\
   \n張震首度闖蕩好萊塢，接演改編經典的科幻巨作《沙丘》，他在片中飾演「甜茶」提摩西\n夏勒梅（Timothee Chalamet）的師傅「惠靈頓岳醫生」，並在匈牙利及約旦實地拍攝。\n\
   該片由金獎提名導演丹尼維勒納夫（Denis Villeneuve）執導，他日前為上海電影節大師\n班越洋視訊訪問，透露其中選角過程，直指張震是他的不二人選，對他讚不絕口，興奮地\n\
@@ -11667,7 +11666,7 @@ date: 2020-08-03
 reply_count: 89
 title: '[新聞] 《沙丘》導演選角張震不二人選'
 url: https://www.ptt.cc/bbs/movie/M.1596467275.A.881.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -11752,7 +11751,7 @@ date: 2024-02-28
 reply_count: 167
 title: '[好雷] 沙丘2結局改動有點不爽'
 url: https://www.ptt.cc/bbs/movie/M.1709116420.A.1DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '特效 畫面 美術 配樂都不錯
 
 
@@ -11847,7 +11846,7 @@ date: 2021-09-18
 reply_count: 23
 title: '[不知什麼雷] 沙丘 - 一定要在電影院看'
 url: https://www.ptt.cc/bbs/movie/M.1631970748.A.BEE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩部科幻電影我都看過，
 
 
@@ -11906,7 +11905,7 @@ date: 2021-08-19
 reply_count: 51
 title: 'Re: [討論] 超粒方：《沙丘》預定2021年最佳電影'
 url: https://www.ptt.cc/bbs/movie/M.1629360147.A.85A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '用小說的設定補充一下電影版劇情不清的部分
 
 
@@ -12826,7 +12825,7 @@ date: 2024-03-01
 reply_count: 239
 title: 'Re: [普雷] 沙丘2  場面比預期中小很多'
 url: https://www.ptt.cc/bbs/movie/M.1709304939.A.65A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大雷，沒看過電影的朋友可以先不用看。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n今天去看了，覺得整體表現超越第一集。\n\
   \n\n提摩西與弗格森的角色，皆有令我印象深刻的表現，\n\n尤其是弗格森。喝下聖水後那突然膨脹的權力慾望可\n\n說是推進劇情的一大重點。同樣的，提摩西喝下聖水\n\
   \n後的王者之風與果斷，盡掃電影前期的遲疑與柔弱。\n\n\n哈肯能家族這裡，史科斯嘉與巴帝斯塔則令我失望，\n\n尤其是後者，不禁有看了感覺真可憐.jpg的既視感；\n\
@@ -12851,7 +12850,7 @@ date: 2024-03-18
 reply_count: 133
 title: '[請益] 沙丘:小說與電影情節的對比'
 url: https://www.ptt.cc/bbs/movie/M.1710692853.A.F52.html
---- !!python/object:movie_data.PublicReview
+---
 content: '繼《奧本海默》又一核彈大片！《沙丘》名導丹尼維勒納夫籌拍「核戰題材」新作
 
 
@@ -12893,7 +12892,7 @@ date: 2024-04-05
 reply_count: 9
 title: '[新聞] 繼《奧本海默》又一核彈大片！《沙丘》名'
 url: https://www.ptt.cc/bbs/movie/M.1712323121.A.457.html
---- !!python/object:movie_data.PublicReview
+---
 content: '為何評價這麼兩極?
 
   有的人老婆看過後還超愛，
@@ -12913,7 +12912,7 @@ date: 2024-02-26
 reply_count: 20
 title: 'Re: [討論] 大家看好沙丘2的票房嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1708947454.A.276.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我沒看過原著只有看電影+爬文
 
   因此如果原作有解答或是電影有漏掉細節
@@ -13039,7 +13038,7 @@ date: 2024-04-03
 reply_count: 110
 title: '[討論] 沙丘1+2 幾點劇情疑點'
 url: https://www.ptt.cc/bbs/movie/M.1712111834.A.592.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問電影板的板眾一個問題
 
 
@@ -13109,7 +13108,7 @@ date: 2021-09-18
 reply_count: 156
 title: '[請益] 請問《沙丘》的蕾貝卡佛格森'
 url: https://www.ptt.cc/bbs/movie/M.1631933574.A.A02.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過原著，只看過兩部電影版+幾部背景科普+板上小說粉熱心補充，我想問的是，設定中
 
   ，姐妹會、宇航公會領航員、門塔特晶算師這三者的能力，都需要依賴香料吧，我的疑問是
@@ -13141,7 +13140,7 @@ date: 2024-03-10
 reply_count: 6
 title: '[請益] 沙丘二，關於保羅的能力(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1710078688.A.1EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網路上試著用文字跟AI
 
   用舊風格創作的短片
@@ -13195,7 +13194,7 @@ date: 2024-04-01
 reply_count: 2
 title: '[討論] 沙丘：另類風格短片'
 url: https://www.ptt.cc/bbs/movie/M.1711968231.A.826.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -13231,7 +13230,7 @@ date: 2021-10-26
 reply_count: 77
 title: '[新聞] 「沙丘」導演稱讚「天能」是「大師之作」'
 url: https://www.ptt.cc/bbs/movie/M.1635207206.A.1B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完電影一二集之後，這禮拜補完小說，今天又來重看一下沙丘二，看開頭覺得就覺得疑惑
 
 
@@ -13281,7 +13280,7 @@ date: 2024-06-07
 reply_count: 34
 title: '[討論] 沙丘2  到底能不能開護盾啊'
 url: https://www.ptt.cc/bbs/movie/M.1717772131.A.380.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》
 
 
@@ -13308,7 +13307,7 @@ date: 2023-12-04
 reply_count: 69
 title: '[情報] 《沙丘：第二部》角色海報公布'
 url: https://www.ptt.cc/bbs/movie/M.1701623408.A.23E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   想問一段沙漠中的劇情解析
@@ -13367,7 +13366,7 @@ date: 2024-03-03
 reply_count: 18
 title: '[請益] 沙丘2小疑問'
 url: https://www.ptt.cc/bbs/movie/M.1709448032.A.A4C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這星期終於有空看沙丘
 
 
@@ -13391,7 +13390,7 @@ date: 2024-03-27
 reply_count: 60
 title: '[請益] 請問沙丘哪裡還有IMAX版本'
 url: https://www.ptt.cc/bbs/movie/M.1711513443.A.8ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我應該也算投好雷\n\n但美中不足的部分就是 後段節奏太緊了\n\n我沒看過小說但有補油管上的劇情解說\n\n不確定電影改編多少\n\n================================\n\
   \n\n\n\n劇情缺憾\n1 準男爵反派鋪成蠻不夠的 \n除了更變態嗜血以外 實在看不出他有什麼資格\n取代拉班 （競技場三個亞崔迪兵 \n選一個最老最瘦弱的不下藥\
   \ 我有點傻眼）\n或是成為另一個奎薩茲哈德拉跟保羅競爭\n就是以優秀遺傳因子來看的話\n\n然後最後一場打鬥戲我也看不出保羅怎麼打贏的\n\n2 保羅的戰略看不懂\n\
@@ -13403,7 +13402,7 @@ date: 2024-02-27
 reply_count: 39
 title: 'Re: [好雷] 沙丘：第二部  DUNE：PART TWO'
 url: https://www.ptt.cc/bbs/movie/M.1709035743.A.03D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "蕾貝卡弗格森洽談加盟《銀翼殺手2049》導演丹尼維勒納夫執導科幻新作《沙丘魔堡》\n\n《不可能的任務》系列電影女星蕾貝卡弗格森（Rebecca\
   \ Ferguson）洽談加盟《銀翼殺手\n2049》、《異星入境》奧斯卡提名最佳導演丹尼維勒納夫（Denis Villeneuve）執導科幻\n新作《沙丘魔堡》（暫譯，Dune）。\n\
   \n《沙丘魔堡》改編自美國科幻巨匠法蘭克赫伯特（Frank Herbert）的同名代表作，曾獲\n星雲獎、雨果獎最佳長篇小說殊榮。故事背景設定在生態環境極其惡劣、以「沙丘」之稱\n\
@@ -13420,7 +13419,7 @@ date: 2018-09-06
 reply_count: 19
 title: '[新聞] 蕾貝卡弗格森洽談加盟《沙丘魔堡》'
 url: https://www.ptt.cc/bbs/movie/M.1536230752.A.D1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '傳奇影業剛宣布！
 
 
@@ -13614,7 +13613,7 @@ date: 2021-10-27
 reply_count: 153
 title: '[討論] 沙丘要有第2部啦~~'
 url: https://www.ptt.cc/bbs/movie/M.1635272652.A.99F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我沒看過小說，然後非常喜歡沙丘第一集，這次看評價非常好所以很期待，但是看完其
 
   實有點微微失望。
@@ -13652,7 +13651,7 @@ date: 2024-02-28
 reply_count: 23
 title: '[普微雷] 沙丘2 畫面壯麗但劇情跳痛'
 url: https://www.ptt.cc/bbs/movie/M.1709128031.A.C67.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為有朋友說沙丘1難看，我不確定到底該不該推他第2集，畢竟節奏快了不少。
 
 
@@ -13669,7 +13668,7 @@ date: 2024-03-06
 reply_count: 158
 title: '[討論] 有覺得沙丘1難看 沙丘2好看的人嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1709659217.A.18E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為一直都可以用
 
 
@@ -13797,7 +13796,7 @@ date: 2024-04-18
 reply_count: 32
 title: 'Re: [雷] 為什麼沙丘第二集可以用槍？'
 url: https://www.ptt.cc/bbs/movie/M.1713435470.A.204.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本人剛看完沙丘2
 
 
@@ -13839,7 +13838,7 @@ date: 2024-02-29
 reply_count: 15
 title: '[  舒服雷] 超越鬼滅柱訓練的沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1709198954.A.6B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: ":\n:\n     其實沙丘的世界概念的設定  是人類在遠古跟電腦AI產生了戰爭\n\n     所以後來獲勝之後  面對電腦這種東西是非常負面的概念\n\
   \n     問題是以前人類文明沒有電腦不行  所以人類開始提升自己心靈能力包\n\n     含類似女巫的預知能力\n\n     當然在星際旅遊不用電腦怎麼辦?\
   \  就是靠香料來讓領航員有強大的精準定位\n\n　　而且這些能力都要靠一種香料　就是你在電影看到那個阿拉吉斯\n\n　　裡面的香料來刺激這些功能\n\n　　所以香料很重要的原因就是這樣　　全部的心靈功能\n\
@@ -13849,7 +13848,7 @@ date: 2021-10-03
 reply_count: 10
 title: 'Re: [好雷] 沙丘一點片段心得疑問'
 url: https://www.ptt.cc/bbs/movie/M.1633233281.A.667.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很簡單啊
 
 
@@ -13904,7 +13903,7 @@ date: 2024-04-15
 reply_count: 30
 title: 'Re: [有雷] 沙丘2預言疑問'
 url: https://www.ptt.cc/bbs/movie/M.1713192398.A.52E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙蟲小時候叫做沙鱒 小小隻的骨溜骨溜
 
 
@@ -13928,7 +13927,7 @@ date: 2024-03-09
 reply_count: 2
 title: 'Re: [請益] 問沙蟲一個設定問題（有沙丘二雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709992745.A.6A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【沙丘】第二部
 
   蟬聯四週票房冠軍
@@ -13969,7 +13968,7 @@ date: 2024-03-25
 reply_count: 20
 title: '[分享] 【沙丘】第二部全台票房突破2億大關'
 url: https://www.ptt.cc/bbs/movie/M.1711333816.A.A26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影頻道2／特效真實感受《沙丘》風飛沙 沙漠「蒸餾服」更是酷斃了！
 
 
@@ -14125,7 +14124,7 @@ date: 2021-09-24
 reply_count: 1
 title: '[新聞] 特效真實感受《沙丘》風飛沙沙漠「蒸餾服'
 url: https://www.ptt.cc/bbs/movie/M.1632449483.A.713.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去電影院看沙丘。
 
   為什麼會選沙丘，因為強檔片都看的差不多了，剛好最近也有看到沙丘的預告，所以這次
@@ -14177,7 +14176,7 @@ date: 2021-09-18
 reply_count: 36
 title: '[討論] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631978562.A.71D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "在最後一段與弗雷曼人決鬥前\n\n保羅看到了一段有人被捅了一刀倒地後的畫面\n\n從保羅所聽到的耳語來判斷\n\n原本以為保羅是要在這次決鬥中藉由自身假輸赴死\n\
   \n以符合保羅所預見到的未來\n\n但最後決鬥結果卻與此預知不同?\n\n想請問這段是我看錯還是隨著劇情進行\n\n有特別含意或劇情嗎\n\n以下想到的幾個可能\n\
   \n1.該預知為未來實際發生的事情，但不是現在\n\n2.保羅逆轉了本次注定發生的結果\n\n\n\n如果有看過小說的煩請暴雷\n\n\n\n\n--\n\n\
@@ -14189,7 +14188,7 @@ date: 2021-10-12
 reply_count: 28
 title: '[請益] 沙丘中保羅所看到的畫面'
 url: https://www.ptt.cc/bbs/movie/M.1634051293.A.079.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恕刪
 
 
@@ -14278,7 +14277,7 @@ date: 2021-09-21
 reply_count: 68
 title: 'Re: [新聞]《沙丘》導演:漫威只是在複製貼上其他電影'
 url: https://www.ptt.cc/bbs/movie/M.1632155429.A.D9B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影版的大家晚上好！手機排版傷眼的話拍謝～
 
 
@@ -14346,7 +14345,7 @@ date: 2021-10-16
 reply_count: 146
 title: '[選片] 007生死交戰 or 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1634394001.A.1CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說，本人是個科幻迷，喜歡星戰、星艦迷航、異形１、２、普羅米修斯、聖約、攻殼機動隊、駭客任務、顫慄異次元、太陽毀滅。
 
   　　可能不是很硬核，但絕對是個科幻片必看的觀眾。
@@ -14450,7 +14449,7 @@ date: 2021-09-19
 reply_count: 157
 title: '[負雷]看得很有壓力的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631984388.A.466.html
---- !!python/object:movie_data.PublicReview
+---
 content: "關於沙丘2 結局最後的幾個問題\n\n防雷\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n（1）荃妮很明顯對於保羅要跟公主成婚很不滿\n\
   \n   結局最後 她跑去召喚沙蟲\n\n 是準備離開   還是要迎戰敵人？\n\n（2）最後大氏族不接受保羅繼任皇帝的位置\n\n 是因為純粹對於保羅不正當手段逼迫皇帝讓位\n\
   \n 還是他們也是想要掌握權力當皇帝\n\n（3）在保羅宣布對大氏族開戰之後\n\n  眾人隨即登上飛行器準備迎戰\n\n 但那些不是皇帝還是哈肯能的飛行器嗎？\n\
@@ -14459,7 +14458,7 @@ date: 2024-03-03
 reply_count: 58
 title: '[請益] 關於沙丘2 結局最後的幾個問題'
 url: https://www.ptt.cc/bbs/movie/M.1709458495.A.437.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -14542,7 +14541,7 @@ date: 2024-02-28
 reply_count: 152
 title: '[負無雷] 沙丘2  不如在家追劇'
 url: https://www.ptt.cc/bbs/movie/M.1709132107.A.071.html
---- !!python/object:movie_data.PublicReview
+---
 content: "真的太爽啦！「沙丘2」IMAX版春假強勢回歸\n\n2024-04-02 09:43\n\n聯合報 記者陳建嘉／即時報導\n\n\n提摩西查勒梅主演「沙丘：第二部」全球票房熱賣。圖／華納兄弟提供\n\
   \n史詩鉅片「沙丘：第二部」持續在全球熱賣，截至週日（3月31日）全球票房已高達6.26\n億美金（約台幣200.06億元），先前上映好位難求的IMAX版也宣布，將於接下來的春假連\n\
   假強勢回歸！\n\n「沙丘」系列兩部作品累積票房已正式邁入10億美金票房俱樂部，「沙丘：第二部」IMAX\n票房長紅，目前已登上IMAX史上第七名，全台票房則朝台幣2億2000萬元邁進，票房及口\n\
@@ -14556,7 +14555,7 @@ date: 2024-04-02
 reply_count: 15
 title: '[新聞] 真的太爽啦！「沙丘2」IMAX版春假強勢回歸'
 url: https://www.ptt.cc/bbs/movie/M.1712073181.A.E0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -14650,7 +14649,7 @@ date: 2021-09-26
 reply_count: 102
 title: '[普雷] 看沙丘做功課？'
 url: https://www.ptt.cc/bbs/movie/M.1632609985.A.A8F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   沒看過沙丘1
@@ -14675,7 +14674,7 @@ date: 2024-02-27
 reply_count: 117
 title: '[討論] 想看沙丘2要補看1嗎'
 url: https://www.ptt.cc/bbs/movie/M.1709045710.A.A1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到有點恍神
 
   有一幕瑪歌跟大聖母分享男爵愛愛的情報
@@ -14697,7 +14696,7 @@ date: 2024-03-27
 reply_count: 16
 title: '[請益] 沙丘2的瑪歌夫人（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1711530771.A.5BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '續集晉升為主角！千黛亞曝《沙丘》超短工時：我只花了4天拍攝
 
 
@@ -14768,7 +14767,7 @@ date: 2021-08-27
 reply_count: 20
 title: '[新聞] 續集晉升為主角！千黛亞曝《沙丘》超短工'
 url: https://www.ptt.cc/bbs/movie/M.1630016705.A.FF2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -14864,7 +14863,7 @@ date: 2024-02-26
 reply_count: 34
 title: '[好雷] 沙丘第二部 北美口碑場'
 url: https://www.ptt.cc/bbs/movie/M.1708927784.A.E8E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是的，我可能跟多數人都不太一樣
 
 
@@ -15026,7 +15025,7 @@ date: 2024-02-28
 reply_count: 49
 title: '[好雷] 沙丘二  二十年前玩家的小震撼'
 url: https://www.ptt.cc/bbs/movie/M.1709067538.A.B39.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於上 HBO GO 上看了《沙丘》Dune！要先謝謝版上許多文章的提點給我觀影切入點：首先是 SINW 版友的文章提到的「儀式感」當真貫串全片、再來是
   jonathan836版友提到的「被動式主角」助我理解核心的命運故事、還有 bpf1980大提到的「不看IMAX等於沒看」督促我乖乖架好大銀幕（雖然還是等於沒看XD）、以及
   fatpigdog大提出的政治分析讓我對本片違和做好心理準備... 不過小說情節嘛，我覺得「沒看過小說」不是我觀影的負債而是資產、仍然不看小說直接看片。以下純粹一張白紙的看片後感想，如有對此故事的誤解還請不吝指正。
@@ -15074,7 +15073,7 @@ date: 2021-11-25
 reply_count: 40
 title: '[好雷] 沙丘 Dune'
 url: https://www.ptt.cc/bbs/movie/M.1637795912.A.2FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '要看過沙丘一但大概忘記劇情、如果兩部要挑一部看請問先開哪部？
 
   -----
@@ -15087,7 +15086,7 @@ date: 2024-04-16
 reply_count: 70
 title: '[選片] 破墓跟沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1713244001.A.B56.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有魔戒首部曲雷及沙丘雷
 
 
@@ -15217,7 +15216,7 @@ date: 2021-09-18
 reply_count: 82
 title: '[普雷]流水般的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631957418.A.3AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷裝置
 
 
@@ -15362,7 +15361,7 @@ date: 2024-02-28
 reply_count: 19
 title: '[好雷] 沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1709070164.A.FCA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '命運將至
 
 
@@ -15390,7 +15389,7 @@ date: 2024-01-25
 reply_count: 32
 title: '[情報] 【沙丘：第二部】 2/27搶先口碑場'
 url: https://www.ptt.cc/bbs/movie/M.1706155218.A.0F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -15478,7 +15477,7 @@ date: 2024-02-27
 reply_count: 40
 title: '[好雷] 沙丘：第二部  DUNE：PART TWO'
 url: https://www.ptt.cc/bbs/movie/M.1709008818.A.70B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '特效爛片 爛到有剩 千萬別看
 
   藝術比不過藝術電影
@@ -15520,7 +15519,7 @@ date: 2021-09-17
 reply_count: 84
 title: '[爛無雷]  沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631893859.A.C9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '超粒方昨天狂說沙丘是神作
 
 
@@ -15555,7 +15554,7 @@ date: 2021-08-18
 reply_count: 157
 title: '[討論] 超粒方：《沙丘》預定2021年最佳電影'
 url: https://www.ptt.cc/bbs/movie/M.1629250652.A.225.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘2》宣布延檔雜誌照上！導演親吐「疲憊但快樂」\n\n2023/08/26 15:29\n\n\n《沙丘：第二部》雖然宣布延期，但仍照原定計畫登上《帝國》雜誌封面。\n\
   （翻攝自推特）\n\n〔記者許世穎／綜合報導〕美國演員工會罷工持續進行，影迷相當期待的史詩續篇《沙丘\n：第二部》原訂11月在全球上映，昨已宣布延到明年3月15日上映，造成不少影迷哀號。\n\
   而電影原先就排定登上《帝國》雜誌宣傳，剛好就在宣布延期的隔天曝光兩款氣勢非凡的\n封面，導演丹尼維勒納夫也透露本集更像一部戰爭片。\n\n《沙丘》系列改編自法蘭克赫伯特備受讚譽的暢銷小說，第二部繼續由維勒納夫執導，除\n\
@@ -15571,7 +15570,7 @@ date: 2023-08-26
 reply_count: 11
 title: '[新聞] 《沙丘2》宣布延檔雜誌照上！導演親吐「疲憊但快樂」'
 url: https://www.ptt.cc/bbs/movie/M.1693065035.A.44F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '編劇：《蟻人3》是漫威版《沙丘》
 
 
@@ -15634,7 +15633,7 @@ date: 2023-02-04
 reply_count: 102
 title: '[新聞] 編劇：《蟻人3》是漫威版《沙丘》'
 url: https://www.ptt.cc/bbs/movie/M.1675521194.A.68C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -15697,7 +15696,7 @@ date: 2024-03-12
 reply_count: 18
 title: '[好雷] 沙丘2 修道院滿技能作弊仔'
 url: https://www.ptt.cc/bbs/movie/M.1710258374.A.E09.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天剛看完 IMAX 版，個人蠻喜歡的
 
 
@@ -15720,7 +15719,7 @@ date: 2021-09-18
 reply_count: 20
 title: '[請益] 想問沙丘 4DX 效果'
 url: https://www.ptt.cc/bbs/movie/M.1631962377.A.FF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '內有劇透 小心服用
 
 
@@ -15772,7 +15771,7 @@ date: 2021-09-21
 reply_count: 16
 title: '[  普雷] 看完沙丘感想'
 url: https://www.ptt.cc/bbs/movie/M.1632218874.A.0DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前段無雷 防雷線後有大雷
 
   注意推文可能有雷
@@ -15904,7 +15903,7 @@ date: 2024-02-27
 reply_count: 96
 title: '[好雷] 沙丘2 保羅亞崔迪你XXXX！'
 url: https://www.ptt.cc/bbs/movie/M.1709049539.A.F0D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看電影之前沒看過小說
 
   也不喜歡做一大堆功課
@@ -16239,7 +16238,7 @@ date: 2021-09-19
 reply_count: 141
 title: 'Re: [不知什麼雷] 沙丘 - 一定要在電影院看'
 url: https://www.ptt.cc/bbs/movie/M.1631986980.A.274.html
---- !!python/object:movie_data.PublicReview
+---
 content: "心得文之前先請教板上高手一些哈肯能家族的設定問題\n\n還請多多賜教\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n!\n!\n!\n\
   !\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n\n1. 哈肯能家族養的黑色寵物（第一集被聖母喝令出去、第二集在競技場）\n   有什麼特殊的作用嗎？\n\
@@ -16250,7 +16249,7 @@ date: 2024-03-12
 reply_count: 84
 title: '[好雷] 沙丘 2 哈肯能家族問題'
 url: https://www.ptt.cc/bbs/movie/M.1710226579.A.729.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n2021/10/25｜新聞快訊\nby hsphere追蹤\n\n\n雖然《沙丘》（Dune）已經在中秋節連假於台灣上映，不過北美一直到上週末才正式於戲\n\
   院登場，目前也拿下了 4000 萬美金的當週票房成績，同時上架的 HBO Max 串流數字也\n讓續集有了更多的可能；近日導演丹尼維勒納夫（Denis Villeneuve）在\
   \ podcast 節目\n The Director’s Cut 中與《天能》（TENET）導演克里斯多福諾蘭（Christopher\nNolan）對談，這位同樣受到極高推崇的當代導演對《沙丘》的技術層面給予高度評價：\n\
@@ -16265,7 +16264,7 @@ date: 2021-10-27
 reply_count: 105
 title: '[新聞] 諾蘭:《沙丘》是我看過特效和實拍融合最完美的電影之一'
 url: https://www.ptt.cc/bbs/movie/M.1635298814.A.B72.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下無雷\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n剛參加完特映會\n\n以一個沒接觸過小說及電玩的人\n\n對於沙丘之大名時常耳聞\n\n所以是蠻期待的\n\n先講優點\n\n配樂跟場景都是相當優良\n\n\
   尤其配樂真的不錯\n\n很有帶動氣氛的作用\n\n而缺點就是\n\n可是可能是世界觀過大、設定很多\n\n導演花很多時間解釋\n\n但還是解釋的沒那麼清楚\n\n\
@@ -16278,7 +16277,7 @@ date: 2021-09-14
 reply_count: 122
 title: '[微妙無雷] 有點沉悶的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631550332.A.922.html
---- !!python/object:movie_data.PublicReview
+---
 content: '美麗華IMAX首映心得，無雷
 
 
@@ -16396,7 +16395,7 @@ date: 2021-09-16
 reply_count: 5
 title: '[好無雷] 沙丘-史詩巨作第一章'
 url: https://www.ptt.cc/bbs/movie/M.1631786614.A.80B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奧斯卡伊薩克：《沙丘魔堡》駭人震驚又發自內心
 
 
@@ -16455,7 +16454,7 @@ date: 2019-12-18
 reply_count: 22
 title: '[新聞] 奧斯卡伊薩克：《沙丘魔堡》駭人震驚又發'
 url: https://www.ptt.cc/bbs/movie/M.1576669853.A.E71.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -16507,7 +16506,7 @@ date: 2024-02-28
 reply_count: 53
 title: '[  雷]沙丘2最後接近結尾一幕疑問'
 url: https://www.ptt.cc/bbs/movie/M.1709131475.A.6A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -16572,7 +16571,7 @@ date: 2019-02-15
 reply_count: 35
 title: '[新聞] 科幻經典《沙丘魔堡》重啟版'
 url: https://www.ptt.cc/bbs/movie/M.1550227424.A.6D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完試映會 坦白說小失望
 
   知道小說跟電玩都非常有名
@@ -16713,7 +16712,7 @@ date: 2021-09-13
 reply_count: 35
 title: '[普雷] 期望別太高的沙丘(無雷'
 url: https://www.ptt.cc/bbs/movie/M.1631545835.A.B6F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -16791,7 +16790,7 @@ date: 2024-02-29
 reply_count: 30
 title: '[好雷] 沙丘2 小疑問'
 url: https://www.ptt.cc/bbs/movie/M.1709198068.A.3DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '亞崔迪家族封號是公爵 (Duke)
 
 
@@ -16816,7 +16815,7 @@ date: 2024-03-12
 reply_count: 16
 title: '[討論] 沙丘故事裡的貴族位階'
 url: https://www.ptt.cc/bbs/movie/M.1710255525.A.2A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完電影，最後保羅跟菲德決鬥前，保羅稱他表哥（cousin),但菲德是老哈肯能的侄子，
 
   保羅的媽媽是哈肯能女兒，這樣保羅該叫菲德舅舅才對吧？
@@ -16827,7 +16826,7 @@ date: 2024-03-16
 reply_count: 8
 title: '[請益] 沙丘2  的親屬關係？'
 url: https://www.ptt.cc/bbs/movie/M.1710592907.A.70D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -16909,7 +16908,7 @@ date: 2021-09-17
 reply_count: 325
 title: '[新聞]《沙丘》導演:漫威只是在複製貼上其他電影'
 url: https://www.ptt.cc/bbs/movie/M.1631854015.A.CED.html
---- !!python/object:movie_data.PublicReview
+---
 content: "★ 改編自法蘭克赫伯特備受讚譽的暢銷小說《沙丘》\n★ 萬眾矚目的史詩續作\n★ 電影預告：\n★【沙丘：第二部】[保護級] 2月27日 (週二)\
   \ 搶先口碑場 2月28日 (週三) 大銀幕敬\n請 期待\n2D·3D·IMAX·D-BOX·4DX·MX4D·Atmos·Dolby Cinema 同步上映\n\
   \n隨著獲獎無數的導演丹尼維勒納夫，著手拍攝改編自法蘭克赫伯特著名小說《沙丘》後，\n【沙丘：第二部】將繼續述說這個傳奇故事，並且擴大網羅全球知名演員陣容。這部由華\n\
@@ -16927,7 +16926,7 @@ date: 2024-02-20
 reply_count: 1483
 title: '[贈票] 【沙丘：第二部】 特映會搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1708437532.A.438.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問這部片會很難看懂嗎? 因為本人理解力一向很差
 
   所以斗膽在這邊先問一下 謝謝回答!
@@ -16947,7 +16946,7 @@ date: 2024-03-18
 reply_count: 27
 title: '[請益] 沙丘1的問題 (無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1710748314.A.DDF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -16995,7 +16994,7 @@ date: 2021-09-25
 reply_count: 22
 title: '[好雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632576410.A.CC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2022/06/30 iTunes 特價報 暑期特價開跑！】
 
   沙丘／駭客任務：復活／魔鬼剋星：未來世／詭老／追憶人／變形金剛系列／星際爭霸
@@ -17137,7 +17136,7 @@ date: 2022-06-30
 reply_count: 16
 title: '[討論] iTunes多部150特價 沙丘/追憶人/變形金剛'
 url: https://www.ptt.cc/bbs/movie/M.1656566054.A.995.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘》預計於年底上映
 
 
@@ -17259,7 +17258,7 @@ date: 2020-09-10
 reply_count: 73
 title: '[情報] 《沙丘》首支正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1599671817.A.689.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我沒看過小說..也不是沙丘粉
 
 
@@ -17402,7 +17401,7 @@ date: 2021-09-26
 reply_count: 92
 title: '[好無雷] 沙丘 + 觀影前建議'
 url: https://www.ptt.cc/bbs/movie/M.1632614386.A.7A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞
 
 
@@ -17423,7 +17422,7 @@ date: 2018-03-11
 reply_count: 46
 title: '[討論] Denis Villeneuve說沙丘魔堡會拍成兩部'
 url: https://www.ptt.cc/bbs/movie/M.1520733440.A.45E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "青埔新光參戰\n\n《沙丘：第二部》限時重返 Dolby Cinema\n4/3~4/11 每天一場\n\n立即購票 \n全台唯一 最頂尖影廳Dolby\
   \ Cinema就在 桃園青埔新光影城\n\n「Dolby Vision杜比視界」4K雙雷射HDR放映系統+「Dolby Atmos杜比全景聲」\n對比度高達驚人的100萬:1，相當於一般影院的500倍，\n\
   呈現從未曾在大銀幕上出現過的鮮明色彩。\n你手上的iPhone都已經有Dolby Vision杜比視界了，\n看電影為什麼不選一樣有杜比視界的「DolbyCinema杜比影院」。\n\
@@ -17433,7 +17432,7 @@ date: 2024-04-02
 reply_count: 3
 title: 'Re: [討論] 沙丘：第二部威秀美麗華imax重新上映'
 url: https://www.ptt.cc/bbs/movie/M.1712044185.A.B9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '英文
 
 
@@ -17455,7 +17454,7 @@ date: 2023-05-03
 reply_count: 72
 title: '[情報] 【沙丘：第二部】海報釋出'
 url: https://www.ptt.cc/bbs/movie/M.1683064459.A.E02.html
---- !!python/object:movie_data.PublicReview
+---
 content: '近年看過最難看想睡的電影 沒有之一
 
 
@@ -17672,7 +17671,7 @@ date: 2021-09-21
 reply_count: 141
 title: '[負無雷]  沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632209901.A.CFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
   ..
@@ -17782,7 +17781,7 @@ date: 2024-02-29
 reply_count: 38
 title: '[雷] '
 url: https://www.ptt.cc/bbs/movie/M.1709153046.A.AAE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -17890,7 +17889,7 @@ date: 2022-01-09
 reply_count: 18
 title: '[好雷] 沙丘 場景壯觀、配樂攝人、劇情流暢'
 url: https://www.ptt.cc/bbs/movie/M.1641659974.A.213.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《浮華世界》獨家新一批劇照曝光啦！幾乎全角色都出現了～
 
 
@@ -17928,7 +17927,7 @@ date: 2020-04-14
 reply_count: 32
 title: 'Re: [情報] 新版《沙丘》（Dune）劇照公開！'
 url: https://www.ptt.cc/bbs/movie/M.1586862735.A.FC0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -17975,7 +17974,7 @@ date: 2025-01-02
 reply_count: 64
 title: '[新聞] 華納已在籌拍沙丘4和更多外傳 但導演不爽'
 url: https://www.ptt.cc/bbs/movie/M.1735787772.A.F79.html
---- !!python/object:movie_data.PublicReview
+---
 content: '＼上映日期更新公告／
 
   【沙丘】9月16日(週四) 中秋連假搶先全美上映
@@ -18002,7 +18001,7 @@ date: 2021-08-16
 reply_count: 41
 title: '[討論] 沙丘 9/16（四）搶先全美上映'
 url: https://www.ptt.cc/bbs/movie/M.1629101904.A.CFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有朋友說 電影本身就是一部精緻的預告片
 
   我覺得講得蠻傳神的
@@ -18044,7 +18043,7 @@ date: 2021-10-25
 reply_count: 7
 title: '[好無雷] 沙丘 '
 url: https://www.ptt.cc/bbs/movie/M.1635119677.A.077.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看沙丘普通版
 
   畫面不如首刷imax 看著宏偉
@@ -18089,7 +18088,7 @@ date: 2021-10-03
 reply_count: 31
 title: '[請益] 請問沙丘一般版會很暗嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1633262201.A.5A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙蟲身體外部有一層厚重很像魚鱗的鱗片保護它們身體內部柔軟的部分，
 
 
@@ -18224,7 +18223,7 @@ date: 2024-03-03
 reply_count: 121
 title: 'Re: [討論] 沙丘2的BUG'
 url: https://www.ptt.cc/bbs/movie/M.1709477596.A.B95.html
---- !!python/object:movie_data.PublicReview
+---
 content: '厭惡異星人為了香料無窮的佔據星球了嗎？
 
   討厭異星人不斷炒作北半球，逼得大家只能鳥不生蛋的南半球了嗎？
@@ -18259,7 +18258,7 @@ date: 2024-03-02
 reply_count: 19
 title: '[  好雷] 沙丘2-保師父會帶你們上天堂！'
 url: https://www.ptt.cc/bbs/movie/M.1709389617.A.533.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想問一下在沙丘的設定中既然因為
 
 
@@ -18283,7 +18282,7 @@ date: 2023-05-07
 reply_count: 25
 title: '[請益] 關於沙丘中的戰鬥'
 url: https://www.ptt.cc/bbs/movie/M.1683424734.A.1B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -18375,7 +18374,7 @@ date: 2021-09-23
 reply_count: 6
 title: '[好雷]  沙丘簡單單感想(看過小說)'
 url: https://www.ptt.cc/bbs/movie/M.1632410242.A.AA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -18556,7 +18555,7 @@ date: 2024-03-07
 reply_count: 115
 title: '[心得負雷] 《沙丘：第二部》'
 url: https://www.ptt.cc/bbs/movie/M.1709805265.A.FBE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '節錄一些影評：
 
 
@@ -18582,7 +18581,7 @@ date: 2024-02-22
 reply_count: 365
 title: '[討論] 沙丘2爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1708537362.A.207.html
---- !!python/object:movie_data.PublicReview
+---
 content: "2021年的沙丘，是一部表現史詩氛圍的影像傑作，種種評論見仁見智。\n在此只想寫些個人觀影感懷體驗，內容有雷，未看不想預知劇情者，請勿繼續閱覽！\n\
   \n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n簡單講些關於主角保羅作為貴族領主接班人的角色塑造\n\
@@ -18607,7 +18606,7 @@ date: 2021-10-02
 reply_count: 19
 title: '[好雷] 沙丘─盡在不言中'
 url: https://www.ptt.cc/bbs/movie/M.1633152926.A.233.html
---- !!python/object:movie_data.PublicReview
+---
 content: "-\n先說本人是沒看過原作\n所以對這部世界觀完全不理解的情況下去看的\n\n以下評論不以其他科幻片做比較，單純自身感想\n\n優點：畫面沒有什麼可以挑剔的地方,甚至很多場景畫面都很細膩（包括演員）\n\
   劇情平鋪直述，不難理解\n\n缺點：太過冗長,花太多時間敘述整個世界觀（中間睡著兩次又被配樂吵醒）\n沒有什麼高潮迭起的部分，最後面打鬥那邊不知道是因為我已經疲乏了還是真的不是很好\n\
   看，所以完全無感。\n  劇情太過簡單，人物描寫的太粗淺\n甚至後面某某犧牲都完全沒感覺,對角色的帶入感太低....\n\n總結：如果你是跟我一樣喜歡劇情跟打鬥的人\n\
@@ -18616,7 +18615,7 @@ date: 2021-09-22
 reply_count: 20
 title: '[ 普無雷] 沙丘感想'
 url: https://www.ptt.cc/bbs/movie/M.1632248049.A.37C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '...防雷頁...
 
   嘿
@@ -18730,7 +18729,7 @@ date: 2024-03-20
 reply_count: 44
 title: '[請益] 沙丘姐妹會小問題（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1710917986.A.07F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '氣勢磅礡
 
 
@@ -18744,7 +18743,7 @@ date: 2023-12-13
 reply_count: 75
 title: '[討論] 沙丘二新預告'
 url: https://www.ptt.cc/bbs/movie/M.1702401945.A.461.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我沒看過電影，
 
   去年很掙扎的把六本原著給看完了，
@@ -18866,7 +18865,7 @@ date: 2024-03-05
 reply_count: 9
 title: 'Re: [討論] 沙丘2的一些疑問？ （有雷） '
 url: https://www.ptt.cc/bbs/movie/M.1709644100.A.B94.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -18992,7 +18991,7 @@ date: 2024-03-10
 reply_count: 12
 title: '[普雷]《沙丘：第二部》集震撼與乏力'
 url: https://www.ptt.cc/bbs/movie/M.1710055005.A.4E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "澤東電影官宣 張震加入好萊塢新片《沙丘》\n\n14:15 2019/04/09 旺報  廖慧娟\n\n\n張震將主演好萊塢電影《沙丘》。（取自新浪微博＠澤東電影）\n\
   \n香港澤東電影今天（中午4月9日）宣布，台灣男星張震確定演出好萊塢大片《沙丘》。\n\n據了解，《沙丘》3月開拍時，華納電影公司曾透露正與張震談合作，鎖定他演出男主角\n\
   堤摩西・柴勒梅德的老師越博士。\n\n《沙丘》改編自同名科幻小說巨著，《銀翼殺手2049》等片的導演丹尼‧維勒納夫執導，\n主角包括蕾貝卡‧弗格森、夏綠蒂‧蘭普琳、哈維爾‧巴登、奧斯卡‧伊薩克、贊達亞‧\n\
@@ -19004,7 +19003,7 @@ date: 2019-04-09
 reply_count: 19
 title: '[新聞] 澤東電影官宣 張震加入好萊塢新片《沙丘》'
 url: https://www.ptt.cc/bbs/movie/M.1554806425.A.6A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實還真的有粉絲搞了終極戰士版本的伊娃族
 
 
@@ -19026,7 +19025,7 @@ date: 2024-12-04
 reply_count: 11
 title: 'Re: [新聞] 沙丘導演丹尼維勒納夫批《星戰》早已脫軌'
 url: https://www.ptt.cc/bbs/movie/M.1733242750.A.481.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1. 因為以前只統計北方的弗萊曼人\n     不知道南方數量是北方的幾十倍而且戰鬥力更高\n\n  2. 因為皇帝密謀哈肯能家族滅掉亞崔迪家族的事不能傳出去\n\
   \     否則其他大氏族為自保會全面對皇帝宣戰\n     所以皇帝一直以為沒有留活口\n    (他不知道聖母要求哈肯能不殺保羅母子)\n\n  3. 當保羅的信傳到皇帝手中時\n\
   \     皇帝才發現哈肯能沒趕盡殺絕\n     那皇帝當然會想成:\n     是你哈肯能故意放保羅生路 反過來要趕我下台\n     什麼香料被襲擊無法供應都是你哈肯能的劇本\n\
@@ -19039,7 +19038,7 @@ date: 2024-03-10
 reply_count: 61
 title: 'Re: [請益] 所以沙丘中皇帝到底幹嘛御駕親征?'
 url: https://www.ptt.cc/bbs/movie/M.1710047900.A.E5E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -19454,7 +19453,7 @@ date: 2021-09-28
 reply_count: 488
 title: '[負雷]沙丘 要看前請三思'
 url: https://www.ptt.cc/bbs/movie/M.1632823214.A.934.html
---- !!python/object:movie_data.PublicReview
+---
 content: "微雷心得\n\n不管這部前一次拍多爛\n\n不管小說多久以前出的\n\n不管導演敘事風格多慢節奏\n\n不管這部會不會有續集\n\n不管現代人已被多少速食電影荼毒\n\
   \n我覺得\n\n單作為一部電影\n\n真的難看\n\n電影中可以看到導演對於故事的幾條線有做了許多的鋪陳\n\n或者透過一些畫面讓觀眾在心中預期接著可能會看到的情節\n\
   \n然而這些鋪陳沒有一個是在這部電影裡結束的\n\n一些打鬥情節也讓人覺得只是小打小鬧\n\n不是真正的高潮\n\n接著電影就結束了\n\n彷彿告訴你看完了這些鋪陳\n\
@@ -19469,7 +19468,7 @@ date: 2021-09-17
 reply_count: 120
 title: '[負無雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631868229.A.692.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -19718,7 +19717,7 @@ date: 2021-09-22
 reply_count: 19
 title: '[好雷]電影《沙丘》－亞崔迪家族萬歲！（圖多）'
 url: https://www.ptt.cc/bbs/movie/M.1632241854.A.42B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -19836,7 +19835,7 @@ date: 2024-02-16
 reply_count: 172
 title: '[新聞]《沙丘:第二部》外媒好評爆棚：戰爭戲媲美《雙城奇謀》'
 url: https://www.ptt.cc/bbs/movie/M.1708055230.A.CF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請教一下原著粉
 
 
@@ -19870,7 +19869,7 @@ date: 2021-08-15
 reply_count: 30
 title: '[請益] 原著粉認為堤摩西適合沙丘男主角嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1628959160.A.F85.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n    【開啟星系權力鬥爭】\n    「甜茶」提摩西夏勒梅《沙丘》秀中文，張震演出關鍵角色\n\n\n    好萊塢科幻電影《沙丘》於今天（8日）舉辦台灣媒體試映，全片描述星系\n\
   \    之間的權力鬥爭，觀眾從「甜茶」提摩西夏勒梅飾演的保羅亞崔迪一角從男\n    孩蛻變為男人的過程中，了解亞崔迪家族、哈肯能家族、貝尼潔瑟睿德、弗\n\
   \    瑞曼人之間的衝突、社會壓迫及生態災難，場面浩大逼真，讓人宛如身歷其\n    境。《沙丘》改編自法蘭克赫伯特的經典同名小說，以數千年後的未來為背\n\
@@ -19889,7 +19888,7 @@ date: 2021-09-09
 reply_count: 14
 title: '[新聞] 提摩西《沙丘》秀中文，張震演出關鍵角色'
 url: https://www.ptt.cc/bbs/movie/M.1631177899.A.D04.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘》導演丹尼維勒納夫：我已經想出弗瑞曼人從沙蟲上下來的方法！等不及要在大銀
 
   幕上呈現了
@@ -19990,7 +19989,7 @@ date: 2024-03-04
 reply_count: 68
 title: '[新聞] 沙丘導演：已想出弗瑞曼人從沙蟲上下來'
 url: https://www.ptt.cc/bbs/movie/M.1709540454.A.59F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -20042,7 +20041,7 @@ date: 2021-09-25
 reply_count: 67
 title: '[微負雷]  沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632556433.A.915.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完的當下 我只想大喊
 
   利桑亞拉黑！！！
@@ -20116,7 +20115,7 @@ date: 2024-02-29
 reply_count: 27
 title: '[  雷] 沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1709219639.A.34F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -20166,7 +20165,7 @@ date: 2024-03-08
 reply_count: 74
 title: '[討論] 沙丘主角保羅的血緣關係'
 url: https://www.ptt.cc/bbs/movie/M.1709892303.A.EA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n    【GQ People】張震接演《沙丘》尤因醫生的原因－感情豐富、戲劇張力\n    大，聰明且有責任感，帶動觀眾情感。\n\
   \n\n    最近話題度極高的電影《沙丘》裡面有我們非常熟悉的面孔－張震\n\n    張震才剛以懸疑片《緝魂》獲得台北電影獎最佳男主角入圍，而他參與的好\n\
   \    萊塢科幻大片《沙丘》9/16也將上映，引起科幻迷熱烈討論。《沙丘》敘述\n    一位年輕神祕英雄保羅．亞崔迪（提摩西．夏勒梅飾演）的成長歷程，而張\n\
@@ -20191,7 +20190,7 @@ date: 2021-09-16
 reply_count: 40
 title: '[新聞] 張震接演《沙丘》尤因醫生的原因（GQ專訪'
 url: https://www.ptt.cc/bbs/movie/M.1631803213.A.683.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下有雷\n\n\n沙丘當然很棒 拍得很美\n很用心在說故事\n\n雖然沒看過原著\n但真的覺得有幾個點真的傻眼到有點無法接受\n\n\n1.尤因醫師\
   \  整部戲最神奇的絕對是這角色\n聰明到能夠關閉整個家族的屏蔽場  強到可以暗算公爵\n屏蔽場爛到好像按一顆按鈕就可以全關閉一樣\n卻智障到覺得只要幫了哈克男爵\
   \ 對方就會放過自己跟老婆\n連我阿嬤都知道哈克男爵是甚麼性格  銀河系最殘酷的男人\n你卻選擇幫助他???\n這麼真摯的愛情真的不輸尚氣文武耶\n\n2.亞崔迪家族沒有對空作戰能力???\n\
@@ -20204,7 +20203,7 @@ date: 2021-09-17
 reply_count: 84
 title: '[討論] 沙丘最傻眼的幾個點(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1631891216.A.C88.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位版友好
 
 
@@ -20278,7 +20277,7 @@ date: 2021-09-20
 reply_count: 45
 title: '[請益] 沙丘觀影後疑問 （有劇情雷）'
 url: https://www.ptt.cc/bbs/movie/M.1632102380.A.7EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n    科幻史詩級鉅作《沙丘Dune》終於在今年上映，台灣更是領先美國，在中秋\n    節檔期上映，片商安排導演Denis\
   \ Villeneuve丹尼維勒納夫，以及「甜茶」\n    提摩西夏勒梅一起接受《Vogue》訪問。在片中飾演御醫的張震則在威尼斯\n    影展與導演和其他主角合體宣傳。\n\
   \n\n    《Vogue》請他們分享與張震合作的經驗，導演Denis Villeneuve丹尼維勒\n    納夫說：「當我看王家衛90年代的電影時，我就被張震圈粉，3年前當張震\n\
@@ -20300,7 +20299,7 @@ date: 2021-09-04
 reply_count: 8
 title: '[新聞] 威尼斯影展：沙丘導演稱讚張震是綠洲'
 url: https://www.ptt.cc/bbs/movie/M.1630747517.A.570.html
---- !!python/object:movie_data.PublicReview
+---
 content: "深為相當喜歡沙丘1的粉絲\n \n沙丘2看完之後的感受是非常複雜的\n \n上一集世界觀完整地呈現，棋局開好了\n \n第二集就是要大顯身手，最後來個closure\n\
   \ \n就各方面來說，他的確也是都做得很好\n \n沙漠星球的絕景依舊\n \n哈肯能家族母星詭譎的黑暗恆星紅外線攝影\n \n沙蟲的震撼\n \n另外就是兩部片在結構上有很多相互呼應\n\
   \ \n不管是劇情、畫面運鏡與情節安排\n \n有種鏡像但角色互換的樂趣\n \n喜歡1的沒有理由不看，但看完其實很鬱卒\n \n以下開始雷\n \n \n \n\
@@ -20316,7 +20315,7 @@ date: 2024-03-04
 reply_count: 18
 title: '[苦澀雷] 沙丘2 美麗華IMAX 意猶未盡的惆悵'
 url: https://www.ptt.cc/bbs/movie/M.1709529531.A.3A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完推特上很多人洩漏了「沙丘」 teaser trailer 的截圖，據傳是在8月30號開始「天
 
   能」前公開的預告。想知道這幾天看完「天能」的人，有看到這款「沙丘」電影預告嗎？
@@ -20331,7 +20330,7 @@ date: 2020-09-01
 reply_count: 36
 title: '[請益] 天能前有播「沙丘」預告嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1598926982.A.3E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '華納兄弟今日公開了新版《沙丘》（Dune）的首張劇照！
 
 
@@ -20405,7 +20404,7 @@ date: 2020-04-13
 reply_count: 66
 title: '[情報] 新版《沙丘》（Dune）劇照公開！'
 url: https://www.ptt.cc/bbs/movie/M.1586792023.A.0F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -20452,7 +20451,7 @@ date: 2024-02-09
 reply_count: 60
 title: '[新聞] 春節後最大片！《沙丘：第二部》北美預售'
 url: https://www.ptt.cc/bbs/movie/M.1707466187.A.532.html
---- !!python/object:movie_data.PublicReview
+---
 content: "因為小說設定\n   女修會聖母要經過後天考驗儀式才能當\n   當上聖母可以存取歷代聖母的雲端記憶,可以跟祖先對話\n   而保羅妹因為媽媽喝聖水關係也得到這個能力\n\
   \   女修會不允許天生就有這種能力的人出生,會除掉這種小孩\n   所以電影中才會這樣說\n\n   事實證明,天生擁有這種能力會被反噬\n   小說第三集會提到，就不雷大家了\n\
   \n   電影也改動保羅妹在小說第一集的戲份\n   目前第三集應該會拍,丹導劇本也寫好了?\n   好奇保羅妹阿莉亞戲份會怎麼改\n   還有小說中對保羅百依百順的荃妮,第三集要怎麼演\n\
@@ -20461,7 +20460,7 @@ date: 2024-03-11
 reply_count: 67
 title: 'Re: [請益] 沙丘二 生命之水問題 雷'
 url: https://www.ptt.cc/bbs/movie/M.1710124086.A.973.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好想在院線看一次4K修復1984年版
 
   不過應該沒希望了  Q Q
@@ -20523,7 +20522,7 @@ date: 2024-04-01
 reply_count: 12
 title: 'Re: [討論] 沙丘：第二部威秀美麗華imax重新上映'
 url: https://www.ptt.cc/bbs/movie/M.1711966644.A.8AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最好笑的是 哈肯南已經演一次給你看了
 
 
@@ -20552,7 +20551,7 @@ date: 2024-03-10
 reply_count: 96
 title: 'Re: [請益] 所以沙丘中皇帝到底幹嘛御駕親征?'
 url: https://www.ptt.cc/bbs/movie/M.1710056361.A.39F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第二部有呈現說弗瑞曼人 靠著游擊戰跟駕馭沙蟲本領有能力擊敗哈肯能跟皇帝的軍隊
 
   可是電影最後弗瑞曼是如何跟大氏族的宇宙船pk 我很難想像說弗瑞曼人靠著刀跟雷射炮就可以贏得聖戰.....
@@ -20565,7 +20564,7 @@ date: 2024-03-08
 reply_count: 22
 title: '[請益] 沙丘2的聖戰問題雷'
 url: https://www.ptt.cc/bbs/movie/M.1709876898.A.134.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到原po文章想到一件很有趣的事
 
   上週日戴著我的garmin錶去看沙丘
@@ -20589,7 +20588,7 @@ date: 2024-03-06
 reply_count: 10
 title: 'Re: [好無雷] 沙丘2 繼續沉浸'
 url: https://www.ptt.cc/bbs/movie/M.1709718014.A.4A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '史詩級的《沙丘》......嗎？
 
 
@@ -20764,7 +20763,7 @@ date: 2021-09-21
 reply_count: 61
 title: '[普雷] 史詩級的《沙丘》......嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1632219894.A.5B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷....慎入
 
 
@@ -20809,7 +20808,7 @@ date: 2024-07-02
 reply_count: 45
 title: '[請益] 沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1719883806.A.FD7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近一直想看沙丘，無奈工作太忙碌到這周才有空
 
   本來興高采烈想搶訂美麗華imax結果發現只播映到這禮拜三
@@ -20829,7 +20828,7 @@ date: 2021-09-29
 reply_count: 138
 title: '[請益] 沙丘IMAX再放映的可能性？'
 url: https://www.ptt.cc/bbs/movie/M.1632888425.A.5CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來想全部自己慢慢爬文看有沒有人有相同疑問
 
   但真的太多了…
@@ -20855,7 +20854,7 @@ date: 2021-10-12
 reply_count: 39
 title: '[請益] 沙丘幾個問題'
 url: https://www.ptt.cc/bbs/movie/M.1634048131.A.18F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過原作小說跟舊版電影
 
   但當年的沙丘魔堡遊戲可是即時戰略先驅
@@ -20884,7 +20883,7 @@ date: 2021-09-17
 reply_count: 29
 title: '[普無雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631877867.A.4D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個嘛
 
 
@@ -20946,7 +20945,7 @@ date: 2024-02-27
 reply_count: 18
 title: 'Re: [討論] 大家看好沙丘2的票房嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1708998315.A.D78.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -20993,7 +20992,7 @@ date: 2021-09-22
 reply_count: 31
 title: '[無雷] 看沙丘前可以準備的事 '
 url: https://www.ptt.cc/bbs/movie/M.1632317063.A.59D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為打算先看原著再來去電影院
 
 
@@ -21031,7 +21030,7 @@ date: 2021-08-15
 reply_count: 19
 title: '[請益] 請問電影沙丘是到原著的第幾部'
 url: https://www.ptt.cc/bbs/movie/M.1629015720.A.FFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '票房會不會更好窩不知道
 
 
@@ -21086,7 +21085,7 @@ date: 2021-10-28
 reply_count: 70
 title: 'Re: [討論] 沙丘找個比較亮眼的女主 票房會更好嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1635398583.A.C30.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -21134,7 +21133,7 @@ date: 2022-03-11
 reply_count: 20
 title: '[新聞]「蝙蝠俠」羅伯派汀森喊話想加入《沙丘2》'
 url: https://www.ptt.cc/bbs/movie/M.1646965999.A.1A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "恭喜以下幸運得獎人，可以搶先看【沙丘：第二部】試映會。\n將以站內信通知領獎事宜，請各位得獎者收到通知信後\n務必於2月23日12:00前回覆聯絡領獎事項，恕不接受逾期回覆。\n\
   \n 台北場\nCottonz\nbbhorse1131\nlilybeian\nderyi\nRikkaPoP\nyggdrasils\nchiyogga\n\
   bb901\nmiya0327\nMaInGou\n\n\n台中場\nqoo2002s\nvasknight\ntomedc14\nu981336\nnoahalice\n\
@@ -21145,7 +21144,7 @@ date: 2024-02-22
 reply_count: 90
 title: 'Re: [贈票] 【沙丘：第二部】 特映會搶先看 '
 url: https://www.ptt.cc/bbs/movie/M.1708532650.A.533.html
---- !!python/object:movie_data.PublicReview
+---
 content: '著名的大衛林區院線電影 1984
 
 
@@ -21199,7 +21198,7 @@ date: 2024-09-13
 reply_count: 16
 title: 'Re: [新聞] 《沙丘》深奧難改編 導演只拍到第三部 '
 url: https://www.ptt.cc/bbs/movie/M.1726173839.A.DA1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -21256,7 +21255,7 @@ date: 2024-04-11
 reply_count: 19
 title: '[雷] 沙丘2一些疑問，有雷'
 url: https://www.ptt.cc/bbs/movie/M.1712824450.A.3E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -21290,7 +21289,7 @@ date: 2021-09-26
 reply_count: 61
 title: '[雷] 沙丘裡保羅的預視能力（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1632657606.A.B55.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
   加減防
@@ -21362,7 +21361,7 @@ date: 2024-04-15
 reply_count: 31
 title: '[  雷]'
 url: https://www.ptt.cc/bbs/movie/M.1713182177.A.5B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過小說，只看過幾部背景科普影片+幾天前剛補完沙丘1，幾個問題想請教一下各位大大
 
   ：
@@ -21405,7 +21404,7 @@ date: 2024-03-01
 reply_count: 36
 title: '[請益] 沙丘1跟2數問'
 url: https://www.ptt.cc/bbs/movie/M.1709230154.A.067.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘2雖然場面一樣浩大
 
   可是劇情上感覺有點散亂 跳來跳去
@@ -21502,7 +21501,7 @@ date: 2024-03-02
 reply_count: 98
 title: '[普雷] 沙丘2 有點美中不足 '
 url: https://www.ptt.cc/bbs/movie/M.1709385576.A.C1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2021最佳電影！《沙丘》《西城故事》《千萬別抬頭》搶下10強
 
 
@@ -21550,7 +21549,7 @@ date: 2021-12-13
 reply_count: 5
 title: '[新聞] 2021最佳電影！《沙丘》《西城故事》《千'
 url: https://www.ptt.cc/bbs/movie/M.1639407355.A.985.html
---- !!python/object:movie_data.PublicReview
+---
 content: "首先感謝在PTT上的贈票活動\n\n 接下來直接說結論\n\n\n 電影的篇幅有限\n\n 在描述宏觀故事以及原作改編時\n\n 應該要對原作內容做取捨及適度的重新改編\n\
   \n 這點沙丘真的做的很糟糕\n\n 電影的高潮起伏營造得並不好\n\n 不是要求一定要所謂的起承轉合\n\n 但是從中段高潮過後\n\n 一路小波浪到結尾只會消耗觀眾的情緒\n\
   \n 如果真的不想要破壞原作故事結構\n\n 那拍影集反而是更適合的\n\n 本片拍得不差\n\n 但也就只是這樣而已\n\n\n\n~~~~~~~~~~~~~~~~~~~\
@@ -21567,7 +21566,7 @@ date: 2021-09-15
 reply_count: 45
 title: '[普雷] 沙丘 '
 url: https://www.ptt.cc/bbs/movie/M.1631650977.A.FC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -21632,7 +21631,7 @@ date: 2023-08-28
 reply_count: 39
 title: '[新聞] 丹尼維勒納夫想將《沙丘》拍成三部曲'
 url: https://www.ptt.cc/bbs/movie/M.1693235753.A.FC3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "史蒂芬史匹柏給予《沙丘 2》極高的讚賞：「丹尼維勒納夫拍出了\n\n我看過最高明的科幻電影之一！」\n\n新聞網址： 本文為轉錄，原中文中沒有One\
   \ of，\n\n在此附上原文 \n\n在最新一期的「Director’s Cut」Podcast 節目上訪問丹尼維勒納夫時，史蒂芬史匹柏\n對於這位導演給出了極高的讚賞。這位奧斯卡金獎導演向丹尼維勒納夫表示他拍出了他看\n\
   過最高明的科幻電影之一。\n\n有鑒於史蒂芬史匹柏是拍出了《ET 外星人》以及《第三類接觸》的導演，這絕對是一個\n大誇獎。\n\n這並不是史蒂芬史匹柏對於這位《沙丘》導演講出的唯一一句好話。\n\
@@ -21649,7 +21648,7 @@ date: 2024-03-28
 reply_count: 20
 title: '[新聞] 史蒂芬史匹柏給予《沙丘 2》極高的讚賞'
 url: https://www.ptt.cc/bbs/movie/M.1711622887.A.624.html
---- !!python/object:movie_data.PublicReview
+---
 content: '金獎編劇太懷舊，科幻大片《沙丘》劇本居然是用 30 年前的軟體編寫的！
 
 
@@ -21716,7 +21715,7 @@ date: 2021-11-04
 reply_count: 5
 title: '[新聞] 金獎編劇太懷舊，科幻大片《沙丘》劇本居'
 url: https://www.ptt.cc/bbs/movie/M.1636041094.A.6B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '個人我從國中開始，
 
   就很喜歡看西方文學小說，
@@ -21800,7 +21799,7 @@ date: 2021-10-24
 reply_count: 33
 title: '[討論] 沙丘觀影心得（無雷）'
 url: https://www.ptt.cc/bbs/movie/M.1635088134.A.1FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n沙丘-第二部 (DUNE: PART TWO)\n電影-科幻神怪-英美\n08-31(六) 21:00~23:45\n09-01(日)\
   \ 08:55~11:35\n\n演員:\n提摩西夏勒梅 (Timothee Chalamet)\n辛蒂亞柯爾曼 (Zendaya Coleman)\n蕾貝卡弗格森\
   \ (Rebecca Ferguson)\n喬許布洛林 (Josh Brolin)\n奥斯汀巴特勒 (Austin Butler)\n佛蘿倫絲普伊 (Florence\
@@ -21811,7 +21810,7 @@ date: 2024-08-31
 reply_count: 109
 title: '[LIVE] HBO 21:00 沙丘-第二部 (DUNE: PART TWO)'
 url: https://www.ptt.cc/bbs/movie/M.1725096877.A.487.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -21997,7 +21996,7 @@ date: 2024-02-27
 reply_count: 14
 title: '[好雷]沙丘2 魔戒後最偉大的幻想史詩 '
 url: https://www.ptt.cc/bbs/movie/M.1709043773.A.3BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老實講我以前根本不知道沙丘是什麼，更別說這部電影已經上映許久
 
 
@@ -22025,7 +22024,7 @@ date: 2021-10-28
 reply_count: 252
 title: '[討論] 沙丘找個比較亮眼的女主 票房會更好嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1635395055.A.A7F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "在沙丘的小說原著中，查柯布薩語(Chakobsa)\n\n是佛里曼人的語言。原作中雖出現不少文本\n\n還有單詞，但其完整度依舊不高，難以支撐\n\
   \n電影中大量的對話。\n\n\n\n於是大衛·J·彼得森(David Joshua Peterson)\n\n為沙丘系列電影創作並擴充了查科布薩語。\n\n\
   原作者赫伯特似曾以阿拉伯文為基底創作了\n\n佛里曼文字，但是在電影中，大衛創作一種\n\n名為 Dinlih 的字體用以書寫查科布薩語。\n\n與阿拉伯文省略母音的輔音音素文字不同，\n\
@@ -22046,7 +22045,7 @@ date: 2024-10-21
 reply_count: 12
 title: '[請益] 沙丘的查科布薩語'
 url: https://www.ptt.cc/bbs/movie/M.1729503490.A.E14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不擔心片長！《沙丘2》導演：年輕觀眾喜歡看更長的電影
 
 
@@ -22171,7 +22170,7 @@ date: 2024-02-28
 reply_count: 22
 title: '[新聞] 不擔心片長！《沙丘2》導演：年輕觀眾'
 url: https://www.ptt.cc/bbs/movie/M.1709094209.A.BD3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -22263,7 +22262,7 @@ date: 2022-01-19
 reply_count: 4
 title: '[好雷] 沙丘 D U N E'
 url: https://www.ptt.cc/bbs/movie/M.1642595774.A.178.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為有人提出冰天雪地片單，這反而讓我想到自己還是比較喜歡沙漠場景的片子。
 
 
@@ -22298,7 +22297,7 @@ date: 2018-08-02
 reply_count: 39
 title: '[片單] 劇情圍繞著沙丘或沙漠場景'
 url: https://www.ptt.cc/bbs/movie/M.1533163846.A.17A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1.《犬山記》                 爛蕃茄 94%  , 153 獎   /NETFLIX\n     英/澳/美/加/紐    \
   \       演員*49, 導演*32, 劇本*23, 影片*22,\n                              攝影*11, 音樂*11\n\
   \n 2.《沙丘》                   爛蕃茄 83%  ,  58 獎   /包月：HBO GO\n                    \
@@ -22332,7 +22331,7 @@ date: 2022-01-29
 reply_count: 20
 title: '[情報] 奧斯卡前哨站: 犬山記 153獎, 沙丘 58獎'
 url: https://www.ptt.cc/bbs/movie/M.1643467440.A.702.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛好這週五晚上老婆帶小孩去跟姐妹吃飯\n小弟弟我呢難得清閒\n想說去看場電影\n上次進電影院是捍衛戰士獨行俠XD\n \n剛好最近的大片只有沙丘2\n\
   1我沒有看，也沒啥時間在NF上複習\n所以想問問各位如果直接看的話\n會不會有很多看不懂的地方呢？\n----\nSent from on my iPhone\
   \ 12 Pro Max\n \n--\n\n噓的不曉得是不是一大早被老闆臭幹XD火氣真大\n小弟平常顧完小朋友睡覺再稍微做個家事，有空的時間大概只剩1個多小時，所以真的沒啥時\n\
@@ -22341,7 +22340,7 @@ date: 2024-03-13
 reply_count: 53
 title: '[請益] 沙丘2可以直接看嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1710290811.A.C97.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -22409,7 +22408,7 @@ date: 2024-11-29
 reply_count: 82
 title: '[新聞] 沙丘導演丹尼維勒納夫批《星戰》早已脫軌'
 url: https://www.ptt.cc/bbs/movie/M.1732810469.A.ABF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
   防雷
@@ -22464,7 +22463,7 @@ date: 2024-02-29
 reply_count: 17
 title: '[請益] 沙丘2的一句台詞 有雷'
 url: https://www.ptt.cc/bbs/movie/M.1709205631.A.504.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(Indiewire)
 
 
@@ -22490,7 +22489,7 @@ date: 2020-09-12
 reply_count: 80
 title: '[情報] 《神力女超人1984》《沙丘》定檔於12月'
 url: https://www.ptt.cc/bbs/movie/M.1599844239.A.4B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址： (Deadline)
 
 
@@ -22566,7 +22565,7 @@ date: 2021-05-27
 reply_count: 30
 title: '[新聞] 《沙丘》將於今年威尼斯影展首映'
 url: https://www.ptt.cc/bbs/movie/M.1622093719.A.F9F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "就等雙鉤都勾住後短暫的用一手抓住兩鉤 另一手去戴阿(誤)\n\n  我覺得更大的bug是一個人騎沙蟲你說是這樣跳上去\n  那後面聖母大陣仗要移去南方時那群人是怎麼上車的??\n\
   \  沙蟲不會停下來讓人上車吧?\n  所以.....一大群人+挑著搖籃的轎夫跳上疾駛列車??\n  唉~算了 不要深究下去了 不然沙丘設定本來就滿滿的坑了\n\
   \n--"
@@ -22574,7 +22573,7 @@ date: 2024-03-03
 reply_count: 30
 title: 'Re: [討論] 沙丘2的BUG'
 url: https://www.ptt.cc/bbs/movie/M.1709434805.A.D80.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n原文出處→\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n　　《沙丘》，改編自法蘭克赫伯特的1965年英文同名科幻小說，由於小說所建構的宇宙\n\
   觀甚大，格局恢弘，要將之影像化，向來是一個艱鉅的任務，1984年大衛林區的《沙丘魔\n堡》便嘗到苦頭，毀譽參半，慶幸這次是交由截至目前從未失手的丹尼維勒納夫執導，《\n\
@@ -22592,7 +22591,7 @@ date: 2022-01-22
 reply_count: 10
 title: '[好雷]《沙丘》　科幻版的《冰與火之歌》 '
 url: https://www.ptt.cc/bbs/movie/M.1642821502.A.2A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -22639,7 +22638,7 @@ date: 2024-02-29
 reply_count: 15
 title: '[問雷] 沙丘2新角色劇情疑問'
 url: https://www.ptt.cc/bbs/movie/M.1709176656.A.61A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2025/01/20 Apple TV 新春特價快報】
 
   沙丘：第二部／奧本海默／哥吉拉與金剛 : 新帝國／特技玩家／陰間大法師／威龍闖天
@@ -22917,7 +22916,7 @@ date: 2025-01-21
 reply_count: 10
 title: '[討論] Apple TV新春特價 沙丘2/特技玩家/新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1737430943.A.0E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘第一部是很棒的電影，唯一讓我覺得有點遺憾的是，飾演荃妮的千黛亞表現出戲。
 
   千黛亞(辛蒂亞)在第一部最後才出現，她的表現與戲中其他人相較，有些格格不入。
@@ -22955,7 +22954,7 @@ date: 2023-07-04
 reply_count: 66
 title: 'Re: [新聞] 《沙丘：第二部》史詩級復仇之戰即將開打'
 url: https://www.ptt.cc/bbs/movie/M.1688441962.A.A69.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個動畫用大螢幕看，真的太美。
 
 
@@ -22974,7 +22973,7 @@ date: 2021-09-16
 reply_count: 5
 title: '[好無雷]  沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631798674.A.B12.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可能還有人沒看，先防個雷
 
 
@@ -23020,7 +23019,7 @@ date: 2024-04-23
 reply_count: 24
 title: '[討論] 沙丘2 表哥'
 url: https://www.ptt.cc/bbs/movie/M.1713834885.A.F87.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘2》登全台冠軍！創IMAX在台開片最高票房\n\n2024/02/29 16:32\n\n\n《沙丘：第二部》有望為提摩西夏勒梅生涯票房再創高峰。（華納兄弟提供）\n\
   \n〔記者許世穎／台北報導〕史詩鉅作《沙丘：第二部》週一（27日）在台搶先上映口碑場\n，當天便直接攻頂全台票房冠軍，昨正式上映適逢228國定假日，更開出超過2800萬的絕\n\
   佳成績，不僅是今年目前最高開片成績，也超越2021年首集《沙丘》開片紀錄。\n\n2021年《沙丘》在中秋連假前夕上檔，首日便以全台692萬創下戲院解封後最佳開片紀錄\n\
@@ -23034,7 +23033,7 @@ date: 2024-02-29
 reply_count: 49
 title: '[新聞] 《沙丘2》登全台冠軍！創IMAX在台開片最高票房'
 url: https://www.ptt.cc/bbs/movie/M.1709221252.A.5F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -23285,7 +23284,7 @@ date: 2021-09-16
 reply_count: 106
 title: '[請益] 沙丘 很多幕看不懂(大雷）'
 url: https://www.ptt.cc/bbs/movie/M.1631796137.A.9B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘3》提早於今年開拍 傳《沙丘4》換導演接拍\n\n\n\n（大紀元記者葉子杰編譯報導）當地17日，傳出《沙丘》（Dune）系列第四部電影將換\n\
   《哥吉拉》與《星際大戰外傳：俠盜一號》導演蓋瑞斯‧愛德華執導，另據報導，《沙\n丘3》將提早於今年6月開拍，而非2026年。\n\n據《DarkHorizons》報導，好萊塢消息人士丹尼爾‧瑞奇曼（Daniel\
   \ Richtman）透露，\n《哥吉拉》（2014）、《星際大戰外傳：俠盜一號》（2016）和《侏羅紀世界：重生》\n（2025）導演蓋瑞斯‧愛德華（Gareth\
@@ -23303,7 +23302,7 @@ date: 2025-02-18
 reply_count: 33
 title: '[新聞] 《沙丘3》提早於今年開拍 傳《沙丘4》換'
 url: https://www.ptt.cc/bbs/movie/M.1739886860.A.186.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘是科幻史詩經典
 
 
@@ -23330,7 +23329,7 @@ date: 2021-08-18
 reply_count: 41
 title: '[討論] 預估沙丘的票房會超越阿凡達嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1629280135.A.4F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: amidha (東岐明) 看板: Gossiping\n標題: [問卦] 沙丘的鬥士舉刀禮\n時間: Sun Oct  3 21:41:12\
   \ 2021\n\n\n請問對人類歷史或沙丘小說有研究的專家們\n\n沙丘電影中亞崔迪家族的劍士鄧肯與少主保羅，在戰鬥前會行一種舉刀禮。\n就是以右手先舉刀直立在左胸前，再舉刀橫在額前，然後才開始戰鬥。\n\
   \n\n\n請問這舉刀禮是人類歷史上曾經真有此種刀禮傳統？\n還是這是原本《沙丘》小說中原創的刀禮儀式？\n還是這是這部2021年沙丘電影設計創造出的刀禮儀式？\n\
@@ -23340,7 +23339,7 @@ date: 2021-10-03
 reply_count: 8
 title: 'Fw: [問卦] 沙丘的鬥士舉刀禮'
 url: https://www.ptt.cc/bbs/movie/M.1633268505.A.7F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -23469,7 +23468,7 @@ date: 2024-02-27
 reply_count: 3
 title: '[好雷]沙丘2影評(有劇透雷) '
 url: https://www.ptt.cc/bbs/movie/M.1709043267.A.9E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "沒啥劇透\n\n沒看過1 直接看2 有去做一些功課\n\n宣傳打著媲美魔戒的場面\n\n看了卻有些許失望\n\n設定是宇宙皇帝\n\n小說也說聖戰造成600億人死亡\n\
   \n\n但 電影規模似乎撐不起來\n\n場面設定成歐洲皇帝打非洲\n\n或是地球皇帝打月球 也許比較合理\n\n\n列隊場面有到位 像是星際大戰\n\n但 開打場面真的就遜色很多\n\
   \n例如 59枚足以毀滅星球的原子彈\n\n結果三發出去只是打掉一座山頭\n\n又為什麼不多打個三發去幹掉敵人呢 ??\n\n皇帝最強的直屬部隊\n\n殺氣有出來\n\
@@ -23480,7 +23479,7 @@ date: 2024-03-01
 reply_count: 57
 title: '[普雷] 沙丘2  場面比預期中小很多'
 url: https://www.ptt.cc/bbs/movie/M.1709291996.A.50D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -23509,7 +23508,7 @@ date: 2024-04-18
 reply_count: 20
 title: '[雷] 為什麼沙丘第二集可以用槍？'
 url: https://www.ptt.cc/bbs/movie/M.1713434147.A.C31.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天是沙丘2在大陸上映的第一天
 
 
@@ -23542,7 +23541,7 @@ date: 2024-03-08
 reply_count: 134
 title: '[討論] 周處創新高力壓沙丘2，登頂陸票房日冠'
 url: https://www.ptt.cc/bbs/movie/M.1709912135.A.A54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '手機發文，排版若走鐘請見諒OTZ
 
 
@@ -23649,7 +23648,7 @@ date: 2021-09-27
 reply_count: 18
 title: '[好雷] 我就是來享受《沙丘》打造的視覺饗宴的'
 url: https://www.ptt.cc/bbs/movie/M.1632757106.A.DA7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '摘自GQ台灣翻譯影片 12:31
 
 
@@ -23697,7 +23696,7 @@ date: 2024-04-01
 reply_count: 13
 title: '[討論] 沙丘2 導演:保羅的uber要跑了'
 url: https://www.ptt.cc/bbs/movie/M.1711946243.A.DD7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '丹尼維勒納夫：華納扼殺了《沙丘》系列電影
 
 
@@ -23795,7 +23794,7 @@ date: 2020-12-12
 reply_count: 64
 title: '[新聞] 導演：華納扼殺了《沙丘》系列電影'
 url: https://www.ptt.cc/bbs/movie/M.1607751235.A.648.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -23910,7 +23909,7 @@ date: 2021-09-23
 reply_count: 84
 title: '[ 微負雷] 沙丘的武打'
 url: https://www.ptt.cc/bbs/movie/M.1632368533.A.856.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n原標題:\n\n2024-06-03電影神搜\n\n\n執導《沙丘》、《銀翼殺手2049》等片的加拿大導演丹尼維勒納夫，上週在多倫多的\n\
   \ 2024 加拿大電影獎上獲頒了學院形象獎 (Academy Icon Award)，並且在發表感言時表\n達了自己對於今年夏季新電影緩慢的票房成長速度有何感想。\n\
   \n\n他表示：\n\n「我想我們需要那種能夠帶來電影院體驗的電影，完全擁抱電影院的力量，我說的並不只\n有《沙丘：第二部》而已。當然，這類的電影有很多部。\n\
@@ -23922,7 +23921,7 @@ date: 2024-06-03
 reply_count: 60
 title: '[新聞] 丹尼維勒納夫:失望沙丘2仍是今年票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1717394626.A.5F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請簡述自身需求片單理由 或 欲尋找電影的類型或特徵（請盡量描述清楚）
 
 
@@ -23974,7 +23973,7 @@ date: 2021-09-17
 reply_count: 10
 title: '[片單] 看完沙丘（無雷）想找有忠實老將的電影'
 url: https://www.ptt.cc/bbs/movie/M.1631828523.A.FD3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "格羅蘇 \"野獸\" 拉班 ,其實在第一部電影推出時,順勢推出的桌遊 也有他的腳色領導卡\n\n\n\n可以看得出 也算符合設定 初期資源多一點,多一點香料+多一點錢\n\
   \n然後戒指能力,可以派多一些兵到戰場, 電影也是,拉一堆小兵去打,自己負責砍戰俘頭\n\n不同的是 桌遊這樣能力就評價很高惹,電影差點少了一半戲份..\n\n\
   還有他這樣就伯爵喔? 那薩非羅斯也才準男爵而已耶..\n\n--\n\n\n \n\n--"
@@ -23982,7 +23981,7 @@ date: 2024-03-18
 reply_count: 7
 title: 'Re: [雷] 關於沙丘2拉班的功績？'
 url: https://www.ptt.cc/bbs/movie/M.1710767454.A.B95.html
---- !!python/object:movie_data.PublicReview
+---
 content: "荃妮和保羅《沙丘2》墜愛河 情人節出招\n\n2024/02/06 05:30\n\n\n提摩西夏勒梅（左）、辛蒂亞將在《沙丘：第二部》展開一場戀愛。（華納兄弟提供）\n\
   \n〔記者廖俐惠／綜合報導〕導演丹尼維勒納夫的史詩鉅作《沙丘：第二部》將於228在台\n上映，亮點莫過於保羅亞崔迪和荃妮之間的愛情。\n\n導演分享荃妮一開始對來自其他星球的保羅感到懷疑，但保羅的真誠感動了她，覺得他是\n\
   真的想了解弗瑞曼人的生活方式，而不是想被視為救世主，荃妮的心於是慢慢向他敞開。\n\n男主角「甜茶」提摩西夏勒梅認為，對保羅來說，他不想去接受自己的命運，那是一種領\n\
@@ -23993,7 +23992,7 @@ date: 2024-02-06
 reply_count: 8
 title: '[新聞] 荃妮和保羅《沙丘2》墜愛河 情人節出招'
 url: https://www.ptt.cc/bbs/movie/M.1707234114.A.D25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -24083,7 +24082,7 @@ date: 2021-10-07
 reply_count: 234
 title: '[新聞] 《沙丘》票房全球破28億、全台破1.1億 '
 url: https://www.ptt.cc/bbs/movie/M.1633595353.A.0E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【沙丘：第二部】全台票房突破一億
 
 
@@ -24116,7 +24115,7 @@ date: 2024-03-07
 reply_count: 27
 title: '[分享] 【沙丘：第二部】全台票房突破一億'
 url: https://www.ptt.cc/bbs/movie/M.1709798016.A.014.html
---- !!python/object:movie_data.PublicReview
+---
 content: '科幻新作《沙丘》敲定編劇
 
 
@@ -24146,7 +24145,7 @@ date: 2017-04-15
 reply_count: 50
 title: '[討論] 傳奇影業科幻新作《沙丘》敲定編劇'
 url: https://www.ptt.cc/bbs/movie/M.1492234969.A.113.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n    丹尼維勒納夫 (Denis Villeneuve) 執導的磅礴史詩《沙丘》(Dune) 才剛\n    在威尼斯影展首映，台灣觀眾現在也可以在戲院一睹為快了。本片改編自\n\
   \    Frank Herbert 的傳奇巨作，這是一部以擁有龐大世界觀聞名的科幻小說，\n    其中所建構的世界包羅萬象，涵蓋了語言、宗教、文化、風俗、階層等，如\n\
   \    此鉅細靡遺的設定讓它在世界各地擄獲了許多忠誠粉絲。\n\n\n    正是因為這部系列小說在全球掀起的巨浪，讓它發展出各式各樣、橫跨多方\n    領域的作品，包含電影、影集、電玩、桌遊、漫畫等。改編電影《沙丘魔\n\
@@ -24174,7 +24173,7 @@ date: 2021-09-21
 reply_count: 32
 title: '[新聞] 提摩西夏勒梅談擔綱沙丘主角的恐懼與挑戰'
 url: https://www.ptt.cc/bbs/movie/M.1632219560.A.6CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下劇情有重雷慎入
 
 
@@ -24348,7 +24347,7 @@ date: 2022-09-01
 reply_count: 56
 title: 'Re: [普雷] 沙丘懶人包 '
 url: https://www.ptt.cc/bbs/movie/M.1662031956.A.1F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請教各位電影大大
 
   我一直有一個疑問
@@ -24373,7 +24372,7 @@ date: 2024-03-03
 reply_count: 6
 title: '[請益] 關於沙丘2中佛雷曼人的語言'
 url: https://www.ptt.cc/bbs/movie/M.1709443683.A.728.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前導預告
 
 
@@ -24411,7 +24410,7 @@ date: 2023-05-03
 reply_count: 165
 title: '[情報]【沙丘：第二部】 預告片釋出'
 url: https://www.ptt.cc/bbs/movie/M.1683128817.A.33E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這不是引戰文 我只是翻了很多沙丘雷文\n很多版友說看不懂就給負雷\n我先說說自己的心得\n\n這兩部我在看電影前 都沒看過小說\n劇情算蠻好理解\
   \ 看懂七成也是看的很爽\n魔戒是我看完三部曲後\n才去翻小說補完世界觀的\n把剩下三成不懂的給補完\n魔戒給我打分數 我會給95分\n\n沙丘我也是沒看過小說\n\
   本來以為跟銀翼殺手一樣\n畫面只是看爽的 劇情可能要再惡補才會看的懂\n但實際上劇情也不難理解\n也是看懂七成 而我也想去讀小說\n把剩下不懂的給補完\n說劇情老梗也還好\n\
@@ -24423,7 +24422,7 @@ date: 2021-09-26
 reply_count: 32
 title: '[討論] 沙丘 VS 魔戒'
 url: https://www.ptt.cc/bbs/movie/M.1632642731.A.D05.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家來討論看看喜歡或印象深刻的戲？
 
   完全主觀，不照順序。
@@ -24666,7 +24665,7 @@ date: 2021-10-28
 reply_count: 87
 title: '[討論] 沙丘裡面喜歡的戲（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1635425390.A.61D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這篇主要是寫給：
 
   1.沒看過原著
@@ -24722,7 +24721,7 @@ date: 2021-09-20
 reply_count: 6
 title: '[雷] 普微雷 越過沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632068034.A.203.html
---- !!python/object:movie_data.PublicReview
+---
 content: "因為後來會被復活搞暗殺 這在小說寫的  當然你也可以在2003沙丘之子找到答案\n\n\n 醫生反叛本來就是小說的設定\n\n 而且在1985沙丘魔堡也是這樣子演!\n\
   \n  你有些小說內容不想看\n\n  把1985的沙丘魔堡看完  跟2003沙丘之子看完\n\n  那這樣你就比較了解劇情\n\n  另外1985可以看畢凱艦長(在星艦迷航記)裏面有演一個腳色\n\
   \n  那時他還年輕阿!\n\n\n--"
@@ -24730,7 +24729,7 @@ date: 2021-10-03
 reply_count: 16
 title: 'Re: [討論] 沙丘觀影兩次後的疑問，新增缺點討論。'
 url: https://www.ptt.cc/bbs/movie/M.1633242811.A.658.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址： \n\n\n　　《沙丘》編劇、《冰與火之歌》作者：MS-DOS 再戰 50 年\n\n\n科幻迷期待已久的大作《沙丘》電影（2021）終於全球上映，這部恢弘的史詩電影改編\n\
   自美國作家 Franklin Patrick Herbert, Jr. 同名科幻小說《沙丘》，曾獲星雲獎和\n雨果獎，為史上最偉大科幻小說之一，也是《星際大戰》和《星艦迷航記》等名科幻作\n\
   品的靈感來源。\n\n當然《沙丘》系列影視化改編有過多次，要麼無疾而終，要麼廣受粉絲批評，讓《沙丘》\n譽為最難影視化的科幻小說。以前幾次影視作品特效太差、成本太低造成品質不佳等都\n\
@@ -24786,7 +24785,7 @@ date: 2021-11-04
 reply_count: 17
 title: '[新聞] 沙丘編劇、冰與火之歌作者：MS-DOS 再戰'
 url: https://www.ptt.cc/bbs/movie/M.1635997999.A.E1D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "#這不是來了嗎\n【沙丘】IMAX重映\n\n重映期間：10月27日至11月2日\n\n 10月27日場次開放訂票時間為10月20日18點後\n\
   \ 10月28日至11月2日場次開放訂票時間為10月26日18點後\n\n#對不起 #讓你們久等了\n\n\n\n\n\n==============================\n\
   \n#永遠的詹姆斯龐德\n【007生死交戰】 IMAX重映\n\n重映期間：10月27日至11月2日\n\n10月27日場次開放訂票時間為10月20日18點後\n\
@@ -24796,7 +24795,7 @@ date: 2021-10-19
 reply_count: 45
 title: '[討論] 美麗華重映沙丘IMAX 和 007生死交戰IMAX'
 url: https://www.ptt.cc/bbs/movie/M.1634639021.A.939.html
---- !!python/object:movie_data.PublicReview
+---
 content: '借標題抒發感想
 
 
@@ -24835,7 +24834,7 @@ date: 2021-09-22
 reply_count: 15
 title: 'Re: [ 普無雷] 沙丘感想'
 url: https://www.ptt.cc/bbs/movie/M.1632276694.A.14F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '說複製貼上也沒錯啊
 
 
@@ -24861,7 +24860,7 @@ date: 2021-09-20
 reply_count: 37
 title: 'Re: [新聞]《沙丘》導演:漫威只是在複製貼上其他電影'
 url: https://www.ptt.cc/bbs/movie/M.1632098984.A.978.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據綜合外電的報導指出，近來在漫威系列作品《黑寡婦》和《鷹眼》中飾演「二代黑寡
 
   婦」葉蓮娜的奧斯卡提名英國女演員 Florence Pugh 正在洽談演出《沙丘》續集。
@@ -24906,7 +24905,7 @@ date: 2022-03-09
 reply_count: 134
 title: '[情報] 《沙丘2》選角開始！佛蘿倫絲普伊洽談演出伊如蘭公主'
 url: https://www.ptt.cc/bbs/movie/M.1646800429.A.73C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "希望台灣平安，Delta病毒不要爆發，如果又三級害我看不到《沙丘》在院線上映，\n真的會抓狂！已經等了一年多到底想怎樣（翻桌）身為Denis Villeneuve粉，私\n\
   心覺得他拍的每部片都是為大螢幕而生(*￣▽￣)/‧☆*\"`'*-.,_,.-*'`\"*-.,_☆\n趁著近期《沙丘》上映的熱度，希望可以刷一波大家先去看《銀翼殺手2049》，\n\
   全球票房根本應該要下跪道歉！！！完全對不起導演的才華QQ\n無廣告音樂有劇照好讀網誌版：\n\n--------------騙P幣結束P幣到底什麼時候要變成加密或幣----------------\n\
@@ -24929,7 +24928,7 @@ date: 2021-09-14
 reply_count: 35
 title: '[好雷] 寫在沙丘上映前，維勒納夫的銀翼殺手2049'
 url: https://www.ptt.cc/bbs/movie/M.1631610296.A.15C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '聖母去哈克南家族那邊做暗盤交易時 一開始地上有一支很像蜘蛛的黑色物體
 
 
@@ -24950,7 +24949,7 @@ date: 2021-09-26
 reply_count: 26
 title: '[請益] 沙丘 不明生物  (有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1632598623.A.D3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -25024,7 +25023,7 @@ date: 2021-09-19
 reply_count: 28
 title: '[好雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632054937.A.ACA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -25102,7 +25101,7 @@ date: 2020-09-18
 reply_count: 25
 title: '[新聞] 杜洛夫斯基看《沙丘》預告：貴又沒驚喜'
 url: https://www.ptt.cc/bbs/movie/M.1600399419.A.10E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "導演第一集很顯然被投資方釘歪了\n\n  第二集(或是所謂第二部)顯然完全修正了第一集的缺點\n\n  走了一個純商業走向的操作\n\n  想當然也是為了能拍到第三集\n\
   \n\n  首先就是將意識流大量刪減\n\n  把畫面聚焦在角色上靠演員表現\n\n  這方面也很聰明的將內容集中在主要角色上\n\n  免洗咖都不解釋當作說明役或是陪秤主役\n\
   \n  不會給無謂的鏡頭\n\n\n  接著靠著主役們的事件一個一個去推進劇情\n\n  並藉由文戲武戲交叉去製造大小高潮堆疊\n\n  完全解決了第一集節奏混亂\n\
@@ -25117,7 +25116,7 @@ date: 2024-02-27
 reply_count: 17
 title: '[好無雷] 沙丘2 '
 url: https://www.ptt.cc/bbs/movie/M.1709029674.A.2E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
   Dune: Part Two—An Exclusive First Look at the Saga''s Epic Conclusion
@@ -25208,7 +25207,7 @@ date: 2023-04-27
 reply_count: 225
 title: '[新聞] 沙丘2劇照首發.'
 url: https://www.ptt.cc/bbs/movie/M.1682607011.A.645.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到 - 一行人坐飛機去出任務 - 這樣算沒暴雷吧 因為畫面突然變亮, 不禁看了一下手
 
   錶 媽呀已經演了1小時 但可以感覺到都還在說明鋪陳 所以 就一個感覺 大概不會太好看
@@ -25251,7 +25250,7 @@ date: 2021-10-01
 reply_count: 80
 title: '[普無雷] 沙丘有點拖戲'
 url: https://www.ptt.cc/bbs/movie/M.1633068091.A.080.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不久前電視上看到
 
 
@@ -25304,7 +25303,7 @@ date: 2023-03-09
 reply_count: 66
 title: '[閒聊] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1678372362.A.9CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -25361,7 +25360,7 @@ date: 2024-09-02
 reply_count: 12
 title: '[普雷] 沙丘第二部'
 url: https://www.ptt.cc/bbs/movie/M.1725262300.A.67A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先講結論：值回票價一看，但有失史詩經典的水準。
 
 
@@ -25928,7 +25927,7 @@ date: 2021-09-17
 reply_count: 122
 title: '[普雷] 佳作以上經典未滿的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631857574.A.E5A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '此為小弟剛剛觀賞完高雄威秀 IMAX 的無雷心得
 
   一開始打得比較亂
@@ -26042,7 +26041,7 @@ date: 2021-09-16
 reply_count: 106
 title: '[ 好無雷]  這只是開始 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631768506.A.5E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '個人感想：沒看過小說，把故事的鋪陳用觀眾可以了解的方式呈現，也是導演功力的展現，電影讓我覺得枯燥，太多意義不明，不解釋前後關係的鋪陳，個人覺得非常無趣。
 
 
@@ -26127,7 +26126,7 @@ date: 2021-10-01
 reply_count: 55
 title: '[雷] 無趣且動機不明的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1633063724.A.29F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n        身為第一部片尾還沒跑完就在期待第二部到來的人而言，提早了2/28上映日一天\n看了口碑場實在是微微滿足，不過小失望的部分在於青埔新光影城的預售票贈送海報在晚\n\
@@ -26144,7 +26143,7 @@ date: 2024-02-28
 reply_count: 26
 title: '[好雷] 沙丘2:風格略遜第一部，但更易咀嚼'
 url: https://www.ptt.cc/bbs/movie/M.1709055780.A.BD6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說明我沒有看過原著小說，所以只有從沙丘1&2電影裡獲取的資訊。
 
 
@@ -26171,7 +26170,7 @@ date: 2024-03-03
 reply_count: 23
 title: '[請益] [有雷]沙丘2的親戚稱呼'
 url: https://www.ptt.cc/bbs/movie/M.1709480020.A.120.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一早投下震撼彈，
 
   原本佔盡IMAX檔期優勢，
@@ -26209,7 +26208,7 @@ date: 2023-08-25
 reply_count: 105
 title: '[情報]沙丘:第二部延期至2024年3月'
 url: https://www.ptt.cc/bbs/movie/M.1692916746.A.A45.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我沒看過原著
 
 
@@ -26282,7 +26281,7 @@ date: 2024-03-20
 reply_count: 17
 title: 'Re: [雷] 關於沙丘2拉班的功績？'
 url: https://www.ptt.cc/bbs/movie/M.1710867528.A.D76.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1. 承第一部的劇情,\n   保羅就像得了絕世武功的張無忌現身在光明頂一樣,\n   妹子都愛, 長輩都疼\n   不一會就開始在幫中建立話語權\n\
   \   但是帥氣的外表下, 怎麼看都有點渣\n\n2. 因為林區爺爺的版本我看了好幾次了\n   這次劇情其實就是加長家常版, 沒特別的驚喜\n\n3. 最大的優點大概就是Zendaya很可愛\n\
   \   安雅泰勒喬伊的造型也很可愛\n   鎖子甲Pugh也很可愛\n\n4. 喝下聖水後的保羅, 更認定自己就是教主\n   那叫一個跩, 講話都昂聲了起來\n\
@@ -26293,7 +26292,7 @@ date: 2024-03-08
 reply_count: 57
 title: '[普雷] 沙丘2: 沙漠張無忌'
 url: https://www.ptt.cc/bbs/movie/M.1709906195.A.242.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛吃早餐時想到的
 
   來耍個冷
@@ -26378,7 +26377,7 @@ date: 2024-03-06
 reply_count: 5
 title: 'Re: [新聞] 《沙丘2》演員感情好 甜茶樂喊美夢成真'
 url: https://www.ptt.cc/bbs/movie/M.1709703224.A.ECD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天晚上的票房，周處連兩天驚險逆轉沙丘2
 
 
@@ -26418,7 +26417,7 @@ date: 2024-03-11
 reply_count: 28
 title: '[討論] 周處連三天周末大陸票房奪冠，力壓沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1710087212.A.70A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「沙丘2」登頂2024年截止票房冠軍 飆破1.36億\n\n2024-03-12 07:57\n\n聯合報 記者陳建嘉／即時報導\n\n\n男主角提摩西查勒梅與導演丹尼維勒納夫因為「沙丘2」，聲勢更加水漲船高。\n\
   圖／華納兄弟提供\n\n「沙丘：第二部」太強了，不僅成為今年繼由「劇場版SPY×FAMILY CODE: White」 之後\n第2部破億電影，更以1.36億票房佳績，順勢登上今年截止的全台賣座冠軍，第二個週末\n\
   （8至10日）全台票房跌幅僅22%，IMAX票房更是僅跌8%，輕鬆蟬聯雙週票房冠軍，全球票\n房也正式衝破3.67億美金（約台幣115.31億元）。\n\n男主角「甜茶」提摩西查勒梅事業一帆風順，與女友凱莉詹納的感情也很順利，不過昨日\n\
@@ -26432,7 +26431,7 @@ date: 2024-03-12
 reply_count: 6
 title: '[新聞] 「沙丘2」登頂2024年截止票房冠軍 飆破1.36億'
 url: https://www.ptt.cc/bbs/movie/M.1710259102.A.B24.html
---- !!python/object:movie_data.PublicReview
+---
 content: '快睡著好幾次！！！
 
 
@@ -26640,7 +26639,7 @@ date: 2021-11-05
 reply_count: 115
 title: '[有雷] 沙丘瞌睡心得'
 url: https://www.ptt.cc/bbs/movie/M.1636115132.A.B49.html
---- !!python/object:movie_data.PublicReview
+---
 content: '還二刷
 
 
@@ -26770,7 +26769,7 @@ date: 2021-09-17
 reply_count: 20
 title: 'Re: [普雷]沙丘-史詩般的美麗普作'
 url: https://www.ptt.cc/bbs/movie/M.1631855081.A.3A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天看完沙丘IMAX
 
   上映前就非常期待
@@ -26855,7 +26854,7 @@ date: 2021-09-17
 reply_count: 33
 title: '[好無雷] 沙丘-其他導演拍大概半小時演完'
 url: https://www.ptt.cc/bbs/movie/M.1631808543.A.B25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說心得：大衛林區真的很厲害
 
   看過新版之後，才知道當年大衛林區拍的還不錯
@@ -26935,7 +26934,7 @@ date: 2021-10-02
 reply_count: 10
 title: '[好無雷] 沙丘，經典永不退流行'
 url: https://www.ptt.cc/bbs/movie/M.1633152038.A.86A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '借標題問幾個問題
 
   看完覺得畫面很美但劇情很多問號
@@ -26964,7 +26963,7 @@ date: 2021-10-03
 reply_count: 56
 title: 'Re: [好雷] 沙丘一點片段心得疑問'
 url: https://www.ptt.cc/bbs/movie/M.1633267291.A.D0F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -27018,7 +27017,7 @@ date: 2024-03-05
 reply_count: 13
 title: '[請益] 沙丘2佛瑞曼人喊的名字原文？'
 url: https://www.ptt.cc/bbs/movie/M.1709626089.A.43C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "（先來個有票有真相）\n\n去看演唱會時，\n被推坑了Screen X版的「DUNE 」第二部，\n朋友說的沒錯，\n櫻花每年都會滿開，\n但能在Screen\
   \ X戲院，\n看到 正在上映的沙丘，\n除非特別飛一趟日本，\n不然怎麼能錯過呢～\n\n不過因此要看演唱會的關係，\n能選擇的時段真的也不多，\n加上池袋太陽城\
   \ ScreenX+4DX的影廳已經下檔了，\n最後心一橫選擇目前號稱全日本音效最好的，\n109シネマズプレミアム新宿 戲院看最晚場，\n看完已經快凌晨三點了，\n\
@@ -27046,7 +27045,7 @@ date: 2024-04-12
 reply_count: 30
 title: '[雷]  沙丘DUNE II 日本Screen X心得'
 url: https://www.ptt.cc/bbs/movie/M.1712937486.A.F37.html
---- !!python/object:movie_data.PublicReview
+---
 content: "回歸《沙丘2》美夢成真！甜茶肩負重任展開復仇\n\n2024/02/02 07:21\n\n\n提摩西夏勒梅對於回歸《沙丘：第二部》直呼美夢成真。（華納兄弟提供）\n\
   \n〔記者許世穎／綜合報導〕萬眾矚目的《沙丘：第二部》再度由獲獎無數的導演丹尼維勒\n納夫執導，故事將接續描述「甜茶」提摩西夏勒梅飾演的保羅亞崔迪的傳奇故事，他與辛\n\
   蒂亞飾演的荃妮及弗瑞曼人聯手，對毀滅家族的陰謀者展開報復。提摩西開心表示：「能\n回歸沙丘世界真的是美夢成真！」\n\n\n佛蘿倫絲普伊加入《沙丘：第二部》飾演「伊若琅公主」。（華納兄弟提供）\n\
@@ -27059,7 +27058,7 @@ date: 2024-02-02
 reply_count: 12
 title: '[新聞] 回歸《沙丘2》美夢成真！甜茶肩負重任展開復仇'
 url: https://www.ptt.cc/bbs/movie/M.1706888044.A.5A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -27099,7 +27098,7 @@ date: 2023-07-26
 reply_count: 8
 title: '[新聞] 罷工持續進行！《沙丘：第二部》再傳考慮'
 url: https://www.ptt.cc/bbs/movie/M.1690384991.A.990.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【#沙丘】2/7 - 2/13重返大銀幕
 
   重返起源，見證史詩篇章
@@ -27161,7 +27160,7 @@ date: 2024-01-19
 reply_count: 66
 title: '[討論] 【沙丘】2/7-2/13 重返大銀幕'
 url: https://www.ptt.cc/bbs/movie/M.1705641286.A.0E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完鬼滅之刃劇場版
 
 
@@ -27207,7 +27206,7 @@ date: 2024-02-23
 reply_count: 33
 title: '[舒服雷] 比沙丘1好看的鬼滅之刃？'
 url: https://www.ptt.cc/bbs/movie/M.1708668908.A.E13.html
---- !!python/object:movie_data.PublicReview
+---
 content: "首先，我是純電影觀眾，僅探討電影設定\n \n \n1）為什麼保羅沒有利用男爵？2）武力是否可以取得帝位？\n \n兩個問題一起講\n \n沙丘世界觀類似於中世紀，皇帝（或國王）的權威很大程度來源於貴族的承認\n\
   這也是為什麼皇帝必須有私軍薩督卡的原因，保護自己威懾貴族嘛\n平常皇帝貴族互不越線，貴族們承認皇帝統治的合法性，皇帝保證貴族們的利益和存續\n \n但今天你皇帝偷偷派私軍搞掉了一個公爵，其他貴族們（大氏族）會想，下一個是不是就是\n\
   我？\n一旦這件事被捅出來，貴族們會立刻不承認皇帝，然後發兵討伐，成功後就互打爭帝位\n \n和皇帝對峙時，保羅要葛尼發給大氏族們的訊息就是皇帝派私軍搞掉亞崔迪的事\n\
@@ -27231,7 +27230,7 @@ date: 2024-02-27
 reply_count: 28
 title: 'Re: [好雷] 沙丘：第二部  DUNE：PART TWO'
 url: https://www.ptt.cc/bbs/movie/M.1709042610.A.44C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好～
 
   想請問一下有沒有看過原作小說的人
@@ -27268,7 +27267,7 @@ date: 2024-03-05
 reply_count: 29
 title: '[討論] 沙丘2的一些疑問？ （有雷） '
 url: https://www.ptt.cc/bbs/movie/M.1709637789.A.D9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有幸在版上抽到《沙丘》的票
 
   剛剛在美麗華IMAX看完滿過癮的
@@ -27385,7 +27384,7 @@ date: 2021-09-14
 reply_count: 15
 title: '[好無雷] 《沙丘》畫風優美的科幻史詩'
 url: https://www.ptt.cc/bbs/movie/M.1631634712.A.3EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -27451,7 +27450,7 @@ date: 2023-05-04
 reply_count: 8
 title: '[新聞] 《沙丘：第二部》釋出正式預告影片 今年 '
 url: https://www.ptt.cc/bbs/movie/M.1683132233.A.DB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下是寫給很忙的覺得本片很冗長的人看的\n\n\n\n\n\n\n\n\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\
   沙塵中，埋伏的弗瑞曼人對香料採收士兵發起攻擊。\n\n\n弗瑞曼：如果文明是要我們卑躬屈膝，那我就讓你們看見野蠻的驕傲！\n\n士兵：搞、搞錯了，我們不是日本人RRR\n\
@@ -27509,7 +27508,7 @@ date: 2021-11-22
 reply_count: 35
 title: '[普雷] 沙丘懶人包'
 url: https://www.ptt.cc/bbs/movie/M.1637525344.A.2EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說優點:
 
 
@@ -27536,7 +27535,7 @@ date: 2024-02-27
 reply_count: 5
 title: '[好無雷] 沙丘2'
 url: https://www.ptt.cc/bbs/movie/M.1708970474.A.E1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -27812,7 +27811,7 @@ date: 2024-05-13
 reply_count: 2
 title: '[好雷]在那片黃沙之後(沙丘II)'
 url: https://www.ptt.cc/bbs/movie/M.1715603203.A.889.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -27862,7 +27861,7 @@ date: 2023-07-22
 reply_count: 61
 title: '[新聞] 罷工持續進行！傳《沙丘2》延後至 2024 '
 url: https://www.ptt.cc/bbs/movie/M.1689992352.A.1E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據 Deadline 的最新獨家報導指出，《未來犯罪》法國實力派女演員 Léa Seydoux 將
 
   有望加入《沙丘2》全明星陣容。
@@ -27899,7 +27898,7 @@ date: 2022-06-22
 reply_count: 24
 title: '[情報] 《沙丘2》再添卡司！蕾雅瑟杜洽談演出瑪格夫人'
 url: https://www.ptt.cc/bbs/movie/M.1655832909.A.DF2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -27965,7 +27964,7 @@ date: 2017-02-01
 reply_count: 18
 title: '[新聞] 沙丘魔堡重開機 導演確定'
 url: https://www.ptt.cc/bbs/movie/M.1485964250.A.94A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘2》演員感情好 甜茶樂喊美夢成真\n\n04:10 2024/03/05 中國時報 李承陽\n\n\n導演丹尼維勒納夫（左）在片場與提摩西夏勒梅同框合影。（華納兄弟提供）\n\
   \n由導演丹尼維勒納夫執導，提摩西夏勒梅（暱稱甜茶）主演的電影《沙丘：第二部》，自\n上周上映後拿下全球票房冠軍，台灣票房也累積近8000萬，市占超過6成，創下多項開片\n\
   紀錄，4日加碼曝光幕後花絮，讓觀眾看到演員之間的感情，就像家人般相互扶持。\n\n像提摩西夏勒梅和辛蒂亞戲裡外有著好交情，男方分享：「能回歸《沙丘》的世界，感覺\n\
@@ -27977,7 +27976,7 @@ date: 2024-03-05
 reply_count: 26
 title: '[新聞] 《沙丘2》演員感情好 甜茶樂喊美夢成真'
 url: https://www.ptt.cc/bbs/movie/M.1709652784.A.438.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -28140,7 +28139,7 @@ date: 2021-09-14
 reply_count: 50
 title: '[好雷]【沙丘】這部片不看IMAX等於沒看'
 url: https://www.ptt.cc/bbs/movie/M.1631631695.A.74B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過原著
 
   什麼都不知道
@@ -28231,7 +28230,7 @@ date: 2021-10-02
 reply_count: 31
 title: '[好雷] 沙丘一點片段心得疑問'
 url: https://www.ptt.cc/bbs/movie/M.1633186912.A.375.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛在百貨公司地下街吃午餐一直看到沙丘2廣告，看來這次華納下了重本在宣傳，但我的生活圈中對沙丘2感興趣的朋友好像不多，還有一些是看完沙丘1感到失望的，去年奧本海默剛上映時朋友跟同事各種揪人一起去看的討論度，在沙丘2上完全沒有發生。目前查了北部2/27晚上、2/28假日的imax場次，其實都還有1/5-1/3的空位，熱度似乎有點不如預期。
 
 
@@ -28246,14 +28245,14 @@ date: 2024-02-26
 reply_count: 209
 title: '[討論] 大家看好沙丘2的票房嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1708926839.A.A79.html
---- !!python/object:movie_data.PublicReview
+---
 content: "英文語境下的cousin範圍上下限非常大\n\n關係對照參照下表\n\n紅色圈起來的是菲德羅薩之於保羅的稱呼\n\n \n\n至於中文應該是稱作「表舅」\n\
   \n英文叫做 first cousin once removed\n\n也是cousin\n\n----\nSent from \n\n--"
 date: 2024-03-16
 reply_count: 10
 title: 'Re: [請益] 沙丘2  的親屬關係？'
 url: https://www.ptt.cc/bbs/movie/M.1710600914.A.8F1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛發現美麗華把沙丘的上映時間從原先的10/14改成9/16了，不過奇摩那邊沒改，是否
 
   為誤植還有待商榷，不過若是連日期都不一樣機率應該頗高的
@@ -28280,7 +28279,7 @@ date: 2021-08-14
 reply_count: 57
 title: '[討論] 沙丘提前上映？！'
 url: https://www.ptt.cc/bbs/movie/M.1628874456.A.92E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蜘蛛女才剛認愛！《沙丘》提摩西認了：其實我一直欣賞她
 
 
@@ -28380,7 +28379,7 @@ date: 2021-09-18
 reply_count: 31
 title: '[新聞] 《沙丘》提摩西認了：其實我一直欣賞她'
 url: https://www.ptt.cc/bbs/movie/M.1631900423.A.653.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沙丘1在保羅到達沙丘星的時候
 
   一直有一個聲音在跟他對話
@@ -28410,7 +28409,7 @@ date: 2024-03-05
 reply_count: 9
 title: '[討論] 沙丘12一個問題 有雷'
 url: https://www.ptt.cc/bbs/movie/M.1709633077.A.DBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n\n標題：\n\n《死侍 3》《復仇者 6》《刀鋒戰士》等多部漫威電影宣告延期！《沙丘 2》趁勢提前上\n映\n\n\n\n\
   \n（圖片來源：漫威影業）\n\n迪士尼影業今日宣佈了旗下多部未來新片的檔期異動，其中多半以漫威電影為主，例如上\n個月才定檔 2024 年 09 月 06 日上映的《死侍》（Deadpool）第三集，現已延後至\n\
   2024 年 11 月 08 日；其它同步延期的漫威電影，還包括新版《驚奇四超人》（\nFantastic Four），該片如今已從 2024 年 11 月 08\
@@ -28429,7 +28428,7 @@ date: 2022-10-12
 reply_count: 11
 title: '[新聞] 多部漫威電影延期 沙丘提前上映'
 url: https://www.ptt.cc/bbs/movie/M.1665537907.A.A57.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是以封建體系模擬的太空帝國
 
   由於人工智慧反叛人類在宇宙活動
@@ -28519,7 +28518,7 @@ date: 2024-03-13
 reply_count: 4
 title: 'Re: [討論] 沙丘故事裡的貴族位階'
 url: https://www.ptt.cc/bbs/movie/M.1710322620.A.FBE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '日前才釋出預告、原定今年12月8日上映的《沙丘》將改至2021年10月1日上映，而原本定
 
   檔這天、同屬華納兄弟影業發行的《蝙蝠俠》很可能也會在近期宣佈新的上映日期避免同
@@ -28588,7 +28587,7 @@ date: 2020-10-06
 reply_count: 23
 title: '[新聞] 《沙丘》延期1年！4部DC電影調整上映日期'
 url: https://www.ptt.cc/bbs/movie/M.1601931538.A.C7A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -28641,7 +28640,7 @@ date: 2021-09-24
 reply_count: 7
 title: '[好雷] 沙丘 觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1632459928.A.7B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '值得
 
 
@@ -28686,7 +28685,7 @@ date: 2023-09-16
 reply_count: 3
 title: 'Re: [討論] 沙丘值得補原作小說嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1694866583.A.512.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片真的超長的，大家都在喊著神作，不過我其實不太能理解哪裡神？
 
 
@@ -28717,7 +28716,7 @@ date: 2021-09-21
 reply_count: 30
 title: '[普無雷]沙丘，150分鐘的預告片'
 url: https://www.ptt.cc/bbs/movie/M.1632219199.A.23A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '猛毒、007、沙丘各自大賣 「瀑布」台灣新片票房第一
 
 
@@ -28808,7 +28807,7 @@ date: 2021-11-02
 reply_count: 17
 title: '[新聞] 猛毒、007、沙丘各自大賣 「瀑布」台灣'
 url: https://www.ptt.cc/bbs/movie/M.1635792452.A.2D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「偉人從不自求上位，而是聽從呼喚。」
 
 
@@ -28841,7 +28840,7 @@ date: 2021-09-16
 reply_count: 6
 title: '[好無雷] 沙丘 IMAX示範片等級的鉅作'
 url: https://www.ptt.cc/bbs/movie/M.1631797713.A.58D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘2》票房超乎預期！北美全球雙冠王狂破56億
 
 
@@ -28878,7 +28877,7 @@ date: 2024-03-04
 reply_count: 96
 title: '[新聞] 《沙丘2》票房超乎預期！北美全球雙冠'
 url: https://www.ptt.cc/bbs/movie/M.1709536927.A.553.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘》：電影的臉
 
 
@@ -28950,7 +28949,7 @@ date: 2021-09-16
 reply_count: 7
 title: '[好雷] 沙丘：電影的臉'
 url: https://www.ptt.cc/bbs/movie/M.1631791142.A.6A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '保羅跟艾倫有一點不一樣
 
 
@@ -29329,7 +29328,7 @@ date: 2024-02-29
 reply_count: 188
 title: 'Re: [好雷] 沙丘2 保羅亞崔迪你XXXX！'
 url: https://www.ptt.cc/bbs/movie/M.1709177672.A.752.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很推這部，畫面氣氛震撼，故事節奏緊湊，每個細節都蘊含大量資訊，
 
 
@@ -29436,7 +29435,7 @@ date: 2021-09-26
 reply_count: 84
 title: '[好雷] 沙丘畫面故事俱佳但需認真欣賞避免遺漏'
 url: https://www.ptt.cc/bbs/movie/M.1632589739.A.D24.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -29599,7 +29598,7 @@ date: 2021-09-20
 reply_count: 80
 title: '[天好雷] 一期一會，保羅的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632150947.A.83A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "拋家棄子?  XD\n原作，這版電影一，二集都有用喔!\n各種武器都有\n\n你真的記錯了\n不相信我，你可以自己找時間\n看書看片確認喔\n\
   沒錯\n不是不能用槍，不是不能用雷射槍\n要看場合需求\n你要嫌設定自助餐也行\n\n這點PTT各版很多人鞭\n\n為啥有超光速星際旅行\n，雷射，防護罩，核蛋的年代\n\
   \n刀劍肉搏體術還是很重要?\n\n望向kirk,路克，博士，馬蓋先將軍...\n\n我只知道本書原作者賺大錢\nStar Wars作者賺大錢\nStar Trek作者賺大錢\n\
@@ -29621,7 +29620,7 @@ date: 2024-04-20
 reply_count: 6
 title: 'Re: [雷] 為什麼沙丘第二集可以用槍？'
 url: https://www.ptt.cc/bbs/movie/M.1713554850.A.6BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -29682,7 +29681,7 @@ date: 2024-03-06
 reply_count: 38
 title: '[討論] 沙丘2劇情一問（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709733977.A.7A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是否該去複習第一集的劇情
 
   但是網路上好像沒有精華解說或是懶人包
@@ -29703,7 +29702,7 @@ date: 2024-02-23
 reply_count: 76
 title: '[討論] 沙丘2上映前需要準備什麼'
 url: https://www.ptt.cc/bbs/movie/M.1708702356.A.D29.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛編輯之後格式跑掉了只好刪掉重發Orz
 
 
@@ -29774,7 +29773,7 @@ date: 2021-09-18
 reply_count: 29
 title: '[好雷] 沙丘小小心得'
 url: https://www.ptt.cc/bbs/movie/M.1631952671.A.E68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請問一下大家
 
   為什麼保羅時不時就要提一下他有哈肯能血統？
@@ -29791,7 +29790,7 @@ date: 2024-03-10
 reply_count: 39
 title: '[討論] 沙丘二血統問題'
 url: https://www.ptt.cc/bbs/movie/M.1710074336.A.42E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【沙丘】敘述一個聰明又富有天賦的年輕人，肩負超越自己理解的偉大天命，而且必須遠
 
   行至宇宙中最危險的行星，以確保他家人及族人未來的延續。【沙丘】氣勢磅礡的預告片
@@ -29815,7 +29814,7 @@ date: 2020-09-19
 reply_count: 5
 title: '[情報] 【沙丘】邀眾星齊聚解析角色導演丹尼維'
 url: https://www.ptt.cc/bbs/movie/M.1600466432.A.EFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我在上映第一天就衝去看南夢紡IMAX，建議每位想看這部電影的民眾都至少得在有好音響的
 
   戲院裡觀賞。
@@ -29927,7 +29926,7 @@ date: 2021-09-21
 reply_count: 7
 title: (還算好雷)《沙丘》觀影後雜想
 url: https://www.ptt.cc/bbs/movie/M.1632162730.A.E9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '標題就是我的感想 整部是還行
 
   劇情雖然很硬要 但畫面鏡頭拍的很棒
@@ -29967,7 +29966,7 @@ date: 2021-09-18
 reply_count: 113
 title: '[普好雷] 被配樂搞到很想給負雷的沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631904189.A.073.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘：第二部》首週末全球票房衝1.85 億美元！IMAX 執行長：我們沒辦法賺更多是因
 
   為票都賣完了
@@ -30066,7 +30065,7 @@ date: 2024-03-06
 reply_count: 13
 title: '[新聞] 沙丘2首週末全球票房衝1.85 億美元！'
 url: https://www.ptt.cc/bbs/movie/M.1709655560.A.F2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '世界觀、演技、配樂美術都好
 
 
@@ -30211,7 +30210,7 @@ date: 2021-09-17
 reply_count: 60
 title: '[普雷]沙丘-史詩般的美麗普作'
 url: https://www.ptt.cc/bbs/movie/M.1631810243.A.516.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -30272,7 +30271,7 @@ date: 2021-10-21
 reply_count: 79
 title: '[好雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1634753242.A.8A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網頁版點這裡：
 
 
@@ -30382,7 +30381,7 @@ date: 2024-04-01
 reply_count: 1
 title: '[好雷] 七重點再續科幻史詩鉅作《沙丘：第二部》'
 url: https://www.ptt.cc/bbs/movie/M.1711974048.A.4B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '特效 場景都不錯
 
 
@@ -30472,7 +30471,7 @@ date: 2024-02-23
 reply_count: 127
 title: '[普雷]  沙丘1 主角在演台灣龍捲風嗎'
 url: https://www.ptt.cc/bbs/movie/M.1708693849.A.D35.html
---- !!python/object:movie_data.PublicReview
+---
 content: ':
 
 
@@ -30535,7 +30534,7 @@ date: 2021-08-19
 reply_count: 30
 title: 'Re: [討論] 超粒方：《沙丘》預定2021年最佳電影'
 url: https://www.ptt.cc/bbs/movie/M.1629309459.A.D6B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說~!我沒看過甜茶演的任何戲劇作品
 
 
@@ -30636,7 +30635,7 @@ date: 2021-09-20
 reply_count: 112
 title: '[普好雷] 沙丘-如果男主角換人演呢? '
 url: https://www.ptt.cc/bbs/movie/M.1632068933.A.B1D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
   沒看小說 還是蠻多不明白的
@@ -30704,7 +30703,7 @@ date: 2024-02-28
 reply_count: 73
 title: '[討論] 沙丘2之還是覺得有點奇怪的點'
 url: https://www.ptt.cc/bbs/movie/M.1709051569.A.571.html
---- !!python/object:movie_data.PublicReview
+---
 content: '為了看沙丘2而去看沙丘1
 
   看完想取消訂位了
@@ -30753,7 +30752,7 @@ date: 2024-02-23
 reply_count: 31
 title: '[ 裝B雷] 沙丘1 - 裝B自溺的爛片'
 url: https://www.ptt.cc/bbs/movie/M.1708700064.A.3C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '亞崔迪家族明明是公爵 居然打輸最低等的男爵
 
   另外亞崔迪家族受封為厄拉科斯領主
@@ -30781,7 +30780,7 @@ date: 2024-03-09
 reply_count: 31
 title: '[討論] 沙丘2設定討論'
 url: https://www.ptt.cc/bbs/movie/M.1709914226.A.A60.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我認為MCU劇情主要有五大路線：\n\n1. 天之驕子落難，反省覺悟後，承擔起責任，成為英雄\n\n   鋼鐵人、奇異博士、雷神索爾\n   尤其是東尼跟奇異際遇很像啊，片子的節奏也很類似，難怪聊得來XD\n\
   \n\n2. 小人物獲得力量後，行俠仗義\n   美隊、蟻人\n\n\n3. ㄎㄧㄤ\n   雷神三、星際異攻隊12\n   俗稱的你到底吸了什麼\n\n\n\
   4. 主打非老白男\n   黑豹、驚奇隊長、尚氣，永恆族看起來可能也是，黑寡不知道算不算\n   不是主角非老白男就好，宣傳時要強調這部片非老白男，要導出這議題才行\n\
@@ -30791,7 +30790,7 @@ date: 2021-09-20
 reply_count: 39
 title: 'Re: [新聞]《沙丘》導演:漫威只是在複製貼上其他電影'
 url: https://www.ptt.cc/bbs/movie/M.1632100068.A.262.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完了沙丘的電影之後，引起我對沙丘的興趣
 
   想到之前哈利波特或者是魔戒
@@ -30882,7 +30881,7 @@ date: 2021-10-27
 reply_count: 25
 title: '[討論] 沙丘的小說和電影差異'
 url: https://www.ptt.cc/bbs/movie/M.1635330906.A.606.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近剛好有空
 
 
@@ -30903,7 +30902,7 @@ date: 2024-03-11
 reply_count: 65
 title: '[請益] 看沙丘2前要先看沙丘1嗎'
 url: https://www.ptt.cc/bbs/movie/M.1710167524.A.DE6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《沙丘2》首映 安雅泰勒喬伊飄仙氣\n\n辛蒂亞未來戰士裝亮相 場外小蜘蛛人愛相隨\n\n04:10 2024/02/17 中國時報 翁紫曦\n\
   \n\n提摩西夏勒梅（左）、辛蒂亞以充滿科技感的造型出席首映。（美聯社）\n\n\n安雅泰勒喬伊是《沙丘2》首映最大亮點，官方透露她將演「神祕角色」。（路透）\n\
   \n暌違3年，史詩科幻巨作《沙丘》將推續集《沙丘2》，2月28日將在全台上映。近日，主\n演群提摩西夏勒梅、辛蒂亞、奧斯汀巴特勒在各國進行電影造勢，日前在倫敦舉行首映，\n\
@@ -30917,7 +30916,7 @@ date: 2024-02-17
 reply_count: 93
 title: '[新聞] 《沙丘2》首映 安雅泰勒喬伊飄仙氣'
 url: https://www.ptt.cc/bbs/movie/M.1708184667.A.20F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '借標題一問，先說我只看過電影
 
 
@@ -30938,7 +30937,7 @@ date: 2024-03-04
 reply_count: 25
 title: 'Re: [請益] 問沙蟲一個設定問題（有沙丘二雷）'
 url: https://www.ptt.cc/bbs/movie/M.1709532452.A.4B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -30984,7 +30983,7 @@ date: 2021-09-16
 reply_count: 25
 title: '[微雷] 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1631785777.A.85F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛才用網飛看完沙丘1 (我知道lag太久) 覺得還蠻好看的
 
   上網查詢沙丘2 台中只有一場 且是晚上10點 真的很晚了 (片長165分鐘)
@@ -31006,7 +31005,7 @@ date: 2024-05-15
 reply_count: 31
 title: '[請益] 請問沙丘2 (無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1715704345.A.013.html
---- !!python/object:movie_data.PublicReview
+---
 content: "導演提前放映《沙丘2》實現臨終粉絲最後心願\n\n\n《沙丘：第二部》片場照，導演丹尼·維勒納夫（Denis Villeneuve）（右三）。（華納\n\
   兄弟提供）\n\n【大紀元2024年03月08日訊】（大紀元記者葉子杰編譯報導）導演丹尼·維勒納夫和他的\n團隊在電影《沙丘：第二部》（Dune: Part Two）上映前一個多月，用筆電讓一名生命垂\n\
   危的男粉絲提前觀看了這部電影，圓了他最後的心願。男粉絲幾天後撒手人寰。\n\n據《華盛頓郵報》報導，一名加拿大男子有一個臨終願望：在去世前能看到《沙丘2》。\n\
@@ -31023,13 +31022,13 @@ date: 2024-03-09
 reply_count: 4
 title: '[新聞] 導演提前放映《沙丘2》實現臨終粉絲最後心'
 url: https://www.ptt.cc/bbs/movie/M.1709988878.A.040.html
---- !!python/object:movie_data.PublicReview
+---
 content: "請問如果只有沙丘2和可憐的東西可以選 ,哪片比較好看 ?\n\n 沙丘2片長165分, 會不會耐不住?\n\n--"
 date: 2024-05-31
 reply_count: 38
 title: '[選片] 沙丘2 和 可憐的東西'
 url: https://www.ptt.cc/bbs/movie/M.1717139869.A.0D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "幾個不同的資訊：\n\n1. (電影) 第一集裡面雷托公爵說，哈克南家族估計佛里曼人不超過兩萬人\n   這是鄧肯從沙漠裡面回來，像公爵匯報他的估計（上百萬人）時，側面\n\
   \   提到的資訊\n   -> 哈克南家族嚴重低估佛里曼人人數\n\n2. (電影) 第二集裡面公主聽完聖母的話，和皇帝老爸進讒言，要他親征\n\n2. (書)\
   \ 雖然頭銜是「皇帝」，但這個「帝國」採取的是封邑主式的封建\n   統治。可以想像成十一世紀的英國（諸侯可以起兵對抗征服者威廉）或\n   是十七世紀的神聖羅馬帝國（維也納被圍，哈布斯堡王朝叫不動諸侯來\n\
@@ -31038,7 +31037,7 @@ date: 2024-03-12
 reply_count: 37
 title: 'Re: [請益] 所以沙丘中皇帝到底幹嘛御駕親征?'
 url: https://www.ptt.cc/bbs/movie/M.1710174316.A.BD5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "★ BBC「最受喜愛的100本小說」\n    ★ 首部同時獲得星雲獎、雨果獎的作品\n    ★ Wired讀者票選史上最佳科幻小說第一名\n\
   \    ★《軌跡》雜誌「歷時不衰的科幻小說」\n    ★ 美國國會圖書館「對美國人生活造成重大影響的65本書」\n\n    「論及人物的深刻和世界建構的細膩，除了《魔戒》，我不知有什麼可以跟\n\
   \    《沙丘》相比。」—— 科幻大師 亞瑟克拉克《2001太空漫遊》作者\n\n\n\n    電影【沙丘】9月4日凌晨在威尼斯影展舉行全球首映，映後起立鼓掌時間多\n\
@@ -31069,14 +31068,14 @@ date: 2021-09-05
 reply_count: 805
 title: '[贈票]【沙丘】威尼斯影展大好評，邀您搶先見證!'
 url: https://www.ptt.cc/bbs/movie/M.1630818099.A.AA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【沙丘：第二部】登上全台票房冠軍\n\n【沙丘：第二部】打破多項票房紀錄\n開片日票房破2800萬\n創下IMAX在台開片日票房新高\n\n打破導演#丹尼維勒納夫\n\
   #提摩西夏勒梅 #奧斯汀巴特勒\n 生涯最高開片紀錄\n\n華納兄弟創下繼【神力女超人】後\n最高開片日票房\n\n資訊來源：華納兄弟台灣FB\n\n\n--"
 date: 2024-02-29
 reply_count: 78
 title: '[分享] 【沙丘：第二部】全台票房突破2800萬'
 url: https://www.ptt.cc/bbs/movie/M.1709195742.A.9E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '保羅喝下生命之水上預知能力buff成為教主後對皇帝宣戰，
 
 
@@ -31143,7 +31142,7 @@ date: 2024-03-10
 reply_count: 154
 title: '[請益] 所以沙丘中皇帝到底幹嘛御駕親征?'
 url: https://www.ptt.cc/bbs/movie/M.1710038356.A.67D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完《沙丘》2021版，著實被影片中的場景所震懾，我以為畫面中出現的峽灣跟
 
   沙漠都是電腦特效，沒想到搜尋之後，原來都確有其地，外景拍攝地從挪威、約旦
@@ -31195,7 +31194,7 @@ date: 2021-09-17
 reply_count: 7
 title: '[無雷] 沙丘 2021 拍攝地與心得'
 url: https://www.ptt.cc/bbs/movie/M.1631850054.A.C24.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為帶小孩去美麗華看間諜家家酒
 
 
@@ -31243,7 +31242,7 @@ date: 2024-02-22
 reply_count: 218
 title: 'Re: [討論] 沙丘2爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1708571898.A.2CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '張震《沙丘》扮關鍵家族醫師　親解密「甜茶」提摩西撂中文原因
 
 
@@ -31350,7 +31349,7 @@ date: 2021-09-19
 reply_count: 53
 title: '[新聞] 張震《沙丘》扮家族醫師 親解密甜茶'
 url: https://www.ptt.cc/bbs/movie/M.1631982960.A.0D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《沙丘：第二部》 8/10分
 
 
@@ -31460,7 +31459,7 @@ date: 2024-02-27
 reply_count: 77
 title: '[好無雷] 《沙丘：第二部》磅礡場面教科書叻'
 url: https://www.ptt.cc/bbs/movie/M.1709032039.A.7A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: ':
 
   :
@@ -31578,7 +31577,7 @@ date: 2022-07-29
 reply_count: 38
 title: 'Re: [普雷] 沙丘懶人包 '
 url: https://www.ptt.cc/bbs/movie/M.1659039157.A.1BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '超過30年了吧
 
   我目前36估計當時低於10歲
@@ -31607,7 +31606,7 @@ date: 2020-06-20
 reply_count: 3
 title: '[問片] 超過30年的國片 小孩 沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1592648743.A.90A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從海報釋出後就一直期待著這部重新詮釋的經典
 
   （大衛林區抱歉惹～那部我就算用Netflix分段看都撐不下去）
@@ -31678,7 +31677,7 @@ date: 2021-09-27
 reply_count: 26
 title: '[好雷] 沙丘～已經開始期待系列續作惹'
 url: https://www.ptt.cc/bbs/movie/M.1632718168.A.636.html
---- !!python/object:movie_data.PublicReview
+---
 content: "╔═══#秀泰獨家    #ScreenX ═══╗\n\n    　　　                            好片經典重映\n\
   \    　收藏限定版海報，只在秀泰影城\n\n╚═══        .        —        .        期間限定═══╝\n\n    活動辦法：\n\
   9/13~10/1期間限定，購買此活動任一電影票2張，即贈該部電影「ScreenX版本限定原文\n珍藏海報」1張\n\n    注意事項    ：\n＊每週詳細場次以官網公告為主\n\
@@ -31690,7 +31689,7 @@ date: 2024-09-10
 reply_count: 69
 title: '[新聞] ScreenX 捍衛戰士、沙丘二大片重映'
 url: https://www.ptt.cc/bbs/movie/M.1725958187.A.B37.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過原作
 
 
@@ -31721,7 +31720,7 @@ date: 2021-09-20
 reply_count: 6
 title: 'Re: [普好雷] 沙丘-如果男主角換人演呢? '
 url: https://www.ptt.cc/bbs/movie/M.1632099428.A.5E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本身沒有看過小說，沒有做過任何關於此部電影的功課。
 
   小小抒發一下看完後的感想。
@@ -31790,7 +31789,7 @@ date: 2021-11-04
 reply_count: 23
 title: '[普雷] 沙丘的空洞感'
 url: https://www.ptt.cc/bbs/movie/M.1635988812.A.08A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -31844,7 +31843,7 @@ date: 2024-03-03
 reply_count: 3
 title: '[新聞] 千黛亞Zendaya拍沙丘2導演金句讓她難忘.'
 url: https://www.ptt.cc/bbs/movie/M.1709475106.A.319.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -31905,7 +31904,7 @@ date: 2021-09-20
 reply_count: 29
 title: '[  雷] 爆米花尚氣 經典沙丘一天看完'
 url: https://www.ptt.cc/bbs/movie/M.1632110131.A.317.html
---- !!python/object:movie_data.PublicReview
+---
 content: '漢斯季默透露《沙丘 3》配樂已在譜寫中！「薩諾斯」喬許布洛林連兩集都有幫電影寫歌
 
 
@@ -31955,7 +31954,7 @@ date: 2024-03-03
 reply_count: 41
 title: '[新聞] 漢斯季默透露《沙丘 3》配樂已在譜寫中'
 url: https://www.ptt.cc/bbs/movie/M.1709424275.A.52B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "小弟一直很喜歡科幻題材，這次沙丘上映也馬上去看還二刷，一場台中遠百imax，一場隔\n壁新光ATMOS，個人覺得還是imax比較厲害，雖然看兩次但還是有些看不懂，想請教大家\n\
   ，謝謝。\n\n\n\n\n\n\n\n\n\n\n===========防雷分隔線===========\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   1.男主夢裡跟茜尼接吻後被捅一刀這是啥意思？\n\nA:夢境與現實不一定會相同，主角可以\n   改變未來\n\n2.為什麼鄧肯已經如男主夢裡死亡，但後面的夢裡又身著弗雷曼人的服裝出現？是否意味\n\
@@ -31975,7 +31974,7 @@ date: 2021-09-19
 reply_count: 55
 title: '[討論] 沙丘觀影兩次後的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1631984762.A.AD8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛爬文有看到類似的選片文，但想說對片的喜好興趣因人而異，才想再發一篇詢問大家
 
   。
@@ -32007,7 +32006,7 @@ date: 2021-09-20
 reply_count: 115
 title: '[選片] 尚氣/沙丘'
 url: https://www.ptt.cc/bbs/movie/M.1632096765.A.644.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -32051,7 +32050,7 @@ date: 2024-03-01
 reply_count: 46
 title: '[請益] 沙丘2前半段疑問'
 url: https://www.ptt.cc/bbs/movie/M.1709252485.A.35C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '趁著二刷記憶清楚來回一下這篇
 
 
@@ -32223,7 +32222,7 @@ date: 2024-03-04
 reply_count: 80
 title: 'Re: [  雷] ［沙丘2］為什麼皇帝要…'
 url: https://www.ptt.cc/bbs/movie/M.1709515589.A.8B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【 號外特價！超多大片$150＋套裝特價＋沙丘搶先全球上線】
 
   －
@@ -32373,7 +32372,7 @@ date: 2021-11-04
 reply_count: 14
 title: '[討論] iTunes 超多大片$150/套裝特價/沙丘上架'
 url: https://www.ptt.cc/bbs/movie/M.1635993574.A.5F7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可憐我們棒棒堂的王子
 
 
@@ -32394,7 +32393,7 @@ date: 2021-09-25
 reply_count: 34
 title: '[討論] 沙丘主角可以找王子'
 url: https://www.ptt.cc/bbs/movie/M.1632557494.A.402.html
---- !!python/object:movie_data.PublicReview
+---
 content: '續集有望！《沙丘》歐洲搶先北美上映，法國票房亮眼破紀錄！
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '先說如果這部看IMAX而且音效好會很爽
 
   .
@@ -31,7 +30,7 @@ date: 2023-08-23
 reply_count: 14
 title: '[好無雷] GT 跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1692791910.A.7B1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這題材在台灣真的很冷門
 
   禮拜三上映那天跟朋友一共6個人去看新光MX4D
@@ -158,7 +157,7 @@ date: 2023-08-25
 reply_count: 29
 title: '[好雷] GT跨界玩家 爆米花指數來到驚人的99%了！'
 url: https://www.ptt.cc/bbs/movie/M.1692950418.A.DE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《GT：跨界玩家》空降全台冠軍！猛創多項紀錄\n\n2023/08/25 06:56\n\n\n《GT：跨界玩家》一上映就拿下全台票房冠軍。（索尼影業提供）\n\
   \n〔記者許世穎／台北報導〕熱血賽車電影《GT：跨界玩家》，前天（23日）正式在台上映\n，首日票房飆破 台幣600萬，榮登全台票房冠軍，並創下多項紀錄，包括近年來賽車類型\n\
   電影最高開片紀錄、影史開片票房最佳的PlayStation®遊戲改編電影，這部不可思議的\n真人真事改編賽車電影有望再創票房里程碑。\n\n《GT：跨界玩家》除了引起台灣影迷熱烈討論，也在知名影評網站「爛番茄」獲得98%爆\n\
@@ -172,7 +171,7 @@ date: 2023-08-25
 reply_count: 39
 title: '[新聞] 《GT：跨界玩家》空降全台冠軍！猛創多項紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1692977220.A.F8C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原來賽車是這麼浪漫的事《GT跨界玩家》
 
 
@@ -294,7 +293,7 @@ date: 2023-08-26
 reply_count: 45
 title: '[好雷]原來賽車是這麼浪漫的事《GT跨界玩家》 '
 url: https://www.ptt.cc/bbs/movie/M.1693039253.A.520.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，三部等一下九點都有場次，不知道該選哪一個
 
 
@@ -312,7 +311,7 @@ date: 2023-09-04
 reply_count: 66
 title: '[選片] 芭比、私刑教育3、跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1693829001.A.EB9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '口碑場看的  內文真的有雷
 
 
@@ -423,7 +422,7 @@ date: 2023-08-21
 reply_count: 18
 title: '[好雷] 簡單粗暴-GT跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1692604211.A.E21.html
---- !!python/object:movie_data.PublicReview
+---
 content: "結論 :\n\n         這部比較適合喜歡四輪，但又不懂賽車or單純想看爽片的人\n         如果是這樣應該會看得蠻開心的\n\
   --------------------------------------------------------------\n\n其實整部很像是為了工商跑車浪漫旅跟ps的商業電影\
   \ XD\n\n也許是為了要合大眾口味，所以比較像講故事\n如果是想看GT賽車內容的話基本上是0\n印象中完全沒有講到賽車的東西，有的話也是非常淺\n\n我自己是喜歡兩輪四輪、賽車運動的\n\
@@ -434,7 +433,7 @@ date: 2023-08-27
 reply_count: 45
 title: '[普無雷] GT 跨界玩家 觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1693076731.A.4AA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從前幾個月就被預告片吸引，這次觀賞影廳為imax, 全片的發展算是相當好猜，劇情大概就預告片那樣，但完全無損觀賞體驗
 
 
@@ -464,7 +463,7 @@ date: 2023-08-27
 reply_count: 32
 title: '[ 好無雷] GT 跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1693066367.A.F36.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近幾年看到很多洋片都有台片的影子
 
 
@@ -509,7 +508,7 @@ date: 2023-09-14
 reply_count: 55
 title: '[請益] GT跨界玩家是翻拍我們的叱吒風雲嗎 ?'
 url: https://www.ptt.cc/bbs/movie/M.1694663771.A.781.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無雷概括: 爽片，賽車部分拍得很棒，
 
 
@@ -641,7 +640,7 @@ date: 2023-08-23
 reply_count: 17
 title: '[好雷] GT:跨界玩家-名垂青史'
 url: https://www.ptt.cc/bbs/movie/M.1692777120.A.184.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【#GT：#跨界玩家】熱血預告即將登場\n年輕賽車手 #揚馬登伯勒 將徹底改寫賽車歷史\n不可思議真人真事  8月10日（週四）電影院大銀幕獻映\n\
   \n【GT：跨界玩家】改編自 n 知名電玩遊戲 《#跑車浪漫旅》\n#奧蘭多布魯 #大衛哈伯 #亞契馬德維\n\n中文還只有昨天短版的就不po了\n感覺沒有很吸引人…\n\
   \n--\n                                  05/02 21:39\n                          \
@@ -650,7 +649,7 @@ date: 2023-05-02
 reply_count: 24
 title: '[討論] 《GT：跨界玩家（跑車浪漫旅）》預告'
 url: https://www.ptt.cc/bbs/movie/M.1683034651.A.0DC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很典型的勵志片，劇情就是你想的那樣(?)
 
   首刷感想就是及格爽片，覺得是可以進去給引擎聲炸一下的。
@@ -685,7 +684,7 @@ date: 2023-08-31
 reply_count: 10
 title: '[無雷] GT：跨界玩家 4DX'
 url: https://www.ptt.cc/bbs/movie/M.1693494182.A.CDE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【GT:跨界玩家】  8/18－20（五－日）熱血口碑場｜8/23（週三）電影院大銀幕競速上映
 
 
@@ -829,7 +828,7 @@ date: 2023-08-18
 reply_count: 357
 title: '[贈票] 美麗華影城 x GT:跨界玩家 競速贈票'
 url: https://www.ptt.cc/bbs/movie/M.1692351941.A.D06.html
---- !!python/object:movie_data.PublicReview
+---
 content: "GT：跨界玩家險勝芭比 登北美票房冠軍\n\n2023/8/28 18:09\n\n（中央社洛杉磯27日綜合外電報導）據北美院線聯盟（Exhibitor\
   \ Relations）報告，改\n編自熱門遊戲的「GT：跨界玩家」(Gran Turismo），本週以些微差距擊敗「芭比」，以\n1730萬美元登上北美票房冠軍寶座。\n\
   \n分析師葛羅斯（David A. Gross）說，「這對改編自電玩的動作片來說，不算是太強的開\n片」，尤其是在和在全球收入達4.39億美元的「魔獸：崛起」（Warcraft）、票房累積達\n\
@@ -846,7 +845,7 @@ date: 2023-08-28
 reply_count: 1
 title: '[新聞] GT：跨界玩家險勝芭比 登北美票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1693232623.A.758.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今年暑假最不可錯過的熱血電影\n\n《》正式上映\n\n\n\n口碑場好評破表\n\n爛番茄觀眾好評高達98\n\n\n\n    「好看得要命！」\n\
   \    「大銀幕沉浸式體感體驗很逼真，必須二刷看IMAX！」\n    「非電玩愛好者，但看了一樣熱血沸騰！」\n\n不可思議真人真事、一級玩家升級賽道狂人\n\
   \n改編自  知名電玩遊戲\n\n《》 真實熱血故事\n\n【】8/23（本週三）\n\n電影院大銀幕競速上映\n\n\n\n資料來源：\n\n--"
@@ -854,7 +853,7 @@ date: 2023-08-22
 reply_count: 29
 title: '[情報] 《GT：跨界玩家》全台上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1692705008.A.7A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片用很多絢麗的CG特效輔助 讓觀眾知道目前各場賽事的情況
 
 
@@ -879,7 +878,7 @@ date: 2023-08-19
 reply_count: 15
 title: '[好無雷] GT跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1692453598.A.BEA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛公布全台有上映的版本
 
   想請教看過口碑場的各位
@@ -894,7 +893,7 @@ date: 2023-08-21
 reply_count: 29
 title: '[請益] GT跨界玩家  imax or 4DX'
 url: https://www.ptt.cc/bbs/movie/M.1692591411.A.3F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '覺得劇情很普通…
 
 
@@ -967,7 +966,7 @@ date: 2023-08-23
 reply_count: 37
 title: ' [普雷] 跨界玩家閲後感'
 url: https://www.ptt.cc/bbs/movie/M.1692778466.A.7A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2024/09/12 Apple TV 特價報】
 
   GT：跨界玩家／變形金剛全特價／神啊，你在嗎？／奇蹟俱樂部／奪天書／大逃殺 4K數
@@ -1155,7 +1154,7 @@ date: 2024-09-12
 reply_count: 16
 title: '[討論] Apple TV 特價 GT:跨界玩家/變形金剛系列'
 url: https://www.ptt.cc/bbs/movie/M.1726150047.A.2AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.特效：效果一般，大概比網飛上自己發行的電影好一些，不過賽車相關的電影大概就這樣
 
 
@@ -1176,7 +1175,7 @@ date: 2023-08-31
 reply_count: 46
 title: '[普負雷] GT-跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1693451554.A.D20.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛看完欲罷不能，索性來分享個\n首先不免俗唸一下，宣傳跟slogan 也太隨便了吧\n要不是喜歡車的人真的不會提起興趣，週五晚上的廳觀衆寥寥無幾，感覺真是令人擔憂Q\n\
   \n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n雖然前面有版友提到TG2被噓\n但是我看完也是馬上想到TG2\n\
@@ -1206,7 +1205,7 @@ date: 2023-08-26
 reply_count: 48
 title: '[好雷]GT跨界玩家 - 優質大型置入 爽快直球對決'
 url: https://www.ptt.cc/bbs/movie/M.1692987689.A.BA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1269,7 +1268,7 @@ date: 2023-08-31
 reply_count: 156
 title: '[普雷]GT：跨界玩家 還有什麼運動能比照辦理 '
 url: https://www.ptt.cc/bbs/movie/M.1693471731.A.C4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《跑車浪漫旅》改編真人電影《GT：跨界玩家》宣布 8 月在台上映\n\nGNN 記者 犬拓 報導\n\n改編自 Sony PlayStation\
   \ 熱門遊戲《跑車浪漫旅（Gran Turismo）》的電影《GT：跨界玩\n家》釋出最新畫面，由魔戒「勒苟拉斯」奧蘭多布魯與《怪奇物語》影集中的哈普警長大衛\n\
   哈伯主演，將於 2023 年 8 月 11 日（五）正式在台上映。\n\n《GT：跨界玩家》改編自年輕賽車手揚馬登伯勒的真實故事，電影描述這位《跑車浪漫旅》\n\
@@ -1285,7 +1284,7 @@ date: 2023-03-09
 reply_count: 12
 title: '[新聞] 《GT：跨界玩家》宣布 8 月在台上映'
 url: https://www.ptt.cc/bbs/movie/M.1678363717.A.301.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你想成為賽車手嗎？
 
   即便這不是你的夢想，來電影院當賽車手吧！
@@ -1310,7 +1309,7 @@ date: 2023-08-23
 reply_count: 6
 title: '[好無雷］跨界玩家 爽片該有的樣子'
 url: https://www.ptt.cc/bbs/movie/M.1692806285.A.BBD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1403,7 +1402,7 @@ date: 2023-09-03
 reply_count: 5
 title: '[好雷] GT 跨界玩家 4DX'
 url: https://www.ptt.cc/bbs/movie/M.1693752758.A.ADF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '個人認為美版的GT跨界玩家
 
   是今年2023唯一最好看的洋片
@@ -1531,7 +1530,7 @@ date: 2023-12-28
 reply_count: 93
 title: '[好雷] 跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1703742826.A.EE1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1575,7 +1574,7 @@ date: 2023-08-05
 reply_count: 17
 title: '[好雷]  GT跨界玩家 電玩特別場'
 url: https://www.ptt.cc/bbs/movie/M.1691165899.A.59C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雖然賽車電影我都挺喜歡的，但這部真的出乎意料的好看，除了賽車跟勵志故事之外\n，從行銷Markting 來看也很有趣，一開始根本就是\"我就隨便提了個案子，我也沒想到就\n\
   過了\"的感覺，真的是很瘋狂的idea，更瘋狂的是這是真人真事，電影刺激的引擎音效跟\n賽車駕駛逼真的畫面真的讓人熱血沸騰，真希望有4DX，除了這點就值得花電影票入場之\n\
   外，故事的情感面也很豐富，讓我從幾度眼淚含框，到最後還是忍不住擠出幾滴來，真的\n很感動。\n\n    男主角的形象塑造就是個阿宅，但看久居然也挺帥的(但跟故事主角本人真的差挺多)\n\
@@ -1586,7 +1585,7 @@ date: 2023-08-18
 reply_count: 52
 title: '[好無雷] "跨界玩家"無雷心得'
 url: https://www.ptt.cc/bbs/movie/M.1692368395.A.A03.html
---- !!python/object:movie_data.PublicReview
+---
 content: '真人真事改編
 
 
@@ -1855,7 +1854,7 @@ date: 2023-09-01
 reply_count: 11
 title: '[普雷] GT：跨界玩家 搔不到癢處'
 url: https://www.ptt.cc/bbs/movie/M.1693558973.A.D02.html
---- !!python/object:movie_data.PublicReview
+---
 content: "觀眾好評爆棚\n\n《》\n\n《於本週五六日\n\n（8/18-8/20）口碑場搶先上映\n\n絕對不能錯過電影院大銀幕的熱血電影\n\n改編自\
   \  知名電玩遊戲\n\n《》  真實故事\n\n\n\n不可思議真人真事《》\n\n8/18－20（五－日）熱血口碑場\n\n8/23（週三）電影院大銀幕競速上映\n\
   \n 資料來源：\n\n--"
@@ -1863,7 +1862,7 @@ date: 2023-08-15
 reply_count: 20
 title: '[情報] 《GT：跨界玩家》口碑場上映戲院列表'
 url: https://www.ptt.cc/bbs/movie/M.1692113927.A.F7D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "東森洋片\nGT-跨界玩家 (Gran Turismo)\n電影-動作冒險-英美\n05-10(五) 21:00~23:50\n05-12(日)\
   \ 21:00~23:50\n\n導演:\n尼爾布洛姆坎普 (Neill Blomkamp)\n演員:\n大衛哈伯 (David Harbour)\n奧蘭多布魯\
   \ (Orlando Bloom)\n亞契馬德維(Archie Madekwe)\n\n\n--\n   \n\n--"
@@ -1871,7 +1870,7 @@ date: 2024-05-10
 reply_count: 37
 title: '[Live] 東森洋片 21:00 GT-跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1715336321.A.BA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '兩部電影故事都很完整
 
 
@@ -1892,7 +1891,7 @@ date: 2023-12-09
 reply_count: 1
 title: '[好雷] 跨界玩家與笨錢效應'
 url: https://www.ptt.cc/bbs/movie/M.1702136124.A.8CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -1988,7 +1987,7 @@ date: 2024-07-03
 reply_count: 10
 title: '[  雷] GT跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1719995756.A.685.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這片最大的優點就是讓大家想起2019年的賽道狂人有多好看
 
 
@@ -2015,7 +2014,7 @@ date: 2023-08-24
 reply_count: 38
 title: '[普無雷] GT跨界玩家: YA版《賽道狂人》 '
 url: https://www.ptt.cc/bbs/movie/M.1692806902.A.879.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新東陽是贊助電影
 
   還是贊助真實車隊?
@@ -2040,7 +2039,7 @@ date: 2023-05-08
 reply_count: 5
 title: 'Re: [討論] 《GT：跨界玩家（跑車浪漫旅）》預告'
 url: https://www.ptt.cc/bbs/movie/M.1683475237.A.FF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我的背景
 
   對賽車沒興趣,也沒認真玩過賽車遊戲
@@ -2082,7 +2081,7 @@ date: 2023-08-18
 reply_count: 21
 title: '[ 好無雷] GT:跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1692356505.A.F96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '基本上爛番茄應該算蠻中肯的
 
 

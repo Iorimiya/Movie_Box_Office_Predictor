@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n觀影證明：\n\n\n\n\n\
   費用：$192中信秀泰聯名卡\n             $45美運(台)中爆+大飲\n\n趕在電影院還有場次有空檔就再來享受一下電影帶來的美好感官體驗，順吃份爆米花。\n\
@@ -12,7 +11,7 @@ date: 2024-12-12
 reply_count: 3
 title: '[超好雷] 焚城2024/11/08'
 url: https://www.ptt.cc/bbs/movie/M.1733994157.A.E2B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完『焚城』後，忽然想起1997年劉青雲主演的『十萬火急』，同樣是火災、同樣是消防
 
   員為角色基底，『焚城』則是更擴大成輻射外洩的人為災難設定；全劇的特效展現，應該
@@ -84,7 +83,7 @@ date: 2024-11-09
 reply_count: 15
 title: '[普雷] 『焚城』全城災難 一步之遙'
 url: https://www.ptt.cc/bbs/movie/M.1731084569.A.61C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '粉嶺發生輻射洩漏事故，現場發現高強度放射物質銫-137，目前情況未明
 
   危機應變小組及消防隊誓要24小時內力阻災難波及全港
@@ -128,7 +127,7 @@ date: 2024-09-17
 reply_count: 3
 title: '[情報] 焚城 前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1726583742.A.243.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這片只有演劉德華的岳母不是香港人
 
   其他全是香港演員，岳母也用粵語配音
@@ -199,7 +198,7 @@ date: 2025-01-21
 reply_count: 2
 title: '[影評] 焚城'
 url: https://www.ptt.cc/bbs/movie/M.1737450543.A.AD3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先是不准灑水，熱帶低氣壓要來了提早灑根本沒差。然後否定有新的污染源直到檢體出來。
 
   然後封鎖輻射消息，不給任何一個居民逃命機會，直到特首下令撤離。整部戲他有哪個決策
@@ -212,7 +211,7 @@ date: 2024-12-04
 reply_count: 2
 title: '[雷] （有雷）焚城的莫文蔚算狗官嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1733327597.A.434.html
---- !!python/object:movie_data.PublicReview
+---
 content: "劉德華化身末日英雄 焚城過癮尬戲莫文蔚\n\n2024/10/12 05:30\n\n\n莫文蔚在《焚城》飾演代理特首，笑說和劉德華針鋒相對很過癮。（華映提供）\n\
   \n〔記者許世穎／台北報導〕香港影史首部輻射災難電影《焚城》由影帝「華仔」劉德華監\n製主演，並聯手莫文蔚、鄭則仕、王菀之、王丹妮等人一同演出。華仔才剛在上映中的《\n\
   危機航線》對抗劫機犯，這回則要阻止輻射外洩引發的末日浩劫。\n\n\n劉德華在《焚城》飾演阻止輻射外洩的專家，希望能避免引發末日浩劫。（華映提供）\n\n該片描述一場意外引發輻射洩漏，全港命運危在旦夕，為應付這場毀滅性災難，華仔飾演\n\
@@ -223,7 +222,7 @@ date: 2024-10-12
 reply_count: 4
 title: '[新聞] 劉德華化身末日英雄 焚城過癮尬戲莫文蔚'
 url: https://www.ptt.cc/bbs/movie/M.1728742756.A.095.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -299,7 +298,7 @@ date: 2023-01-11
 reply_count: 3
 title: '[  好雷] 暴君焚城錄'
 url: https://www.ptt.cc/bbs/movie/M.1673445841.A.B8D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '試想像用賀歲片等級的卡士
 
   同時拍一部烈火雄心和寒戰
@@ -554,7 +553,7 @@ date: 2024-11-04
 reply_count: 21
 title: '[負雷] 焚城'
 url: https://www.ptt.cc/bbs/movie/M.1730716029.A.403.html
---- !!python/object:movie_data.PublicReview
+---
 content: '觀影證明：
 
 
@@ -636,7 +635,7 @@ date: 2024-11-12
 reply_count: 2
 title: '[好雷] 焚城（2024）'
 url: https://www.ptt.cc/bbs/movie/M.1731425824.A.2B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昨日剛看完特映會\n劇情緊湊度個人覺得還可以\n（雖然中間有稍冗的地方，但還行）\n特效很不錯\n\n因為有香港消防處協助拍攝\n所以消防人員設備程序等著墨很多\n\
   也算是有一點知識性\n\n有拜讀前面幾位的評論\n我覺得可能當成無腦爽片來看比較適合\n\n\n\n\n雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\"這不是天災，而是人禍！\"\

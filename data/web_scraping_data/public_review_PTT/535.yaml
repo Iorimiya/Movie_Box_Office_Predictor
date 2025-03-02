@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -201,7 +200,7 @@ date: 2024-11-02
 reply_count: 16
 title: '[好雷] 噤界：入侵日'
 url: https://www.ptt.cc/bbs/movie/M.1730533920.A.20F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "有雷\n\n\n\n\n防雷\n\n\n\n\n---\n有人跟我一樣發現：\n\n\n都已經災難末日降臨了，逃命都來不及了\n男主角每一幕都還有時間打領帶嗎？先不說影響活動力了，哪裡來的時間可以打領帶啊？？\n\
   ？\n本魯上班打領帶都不一定保證無聲了...\n有鄉民們跟本魯一樣發現這個不合理的bug嗎？我想最合理的解釋是他都沒有脫衣服洗澡過\n（臭臭）\n\n--\n\
   \ \n \n \n \n \n \n\n--"
@@ -209,7 +208,7 @@ date: 2024-07-03
 reply_count: 12
 title: '[討論] [雷] 噤界《入侵日》 不合邏輯的地方'
 url: https://www.ptt.cc/bbs/movie/M.1719965467.A.2BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【#噤界：#入侵日】最新預告曝光
 
 
@@ -226,7 +225,7 @@ date: 2024-05-09
 reply_count: 114
 title: '[情報] 噤界：入侵日 最新預告曝光6/26上映'
 url: https://www.ptt.cc/bbs/movie/M.1715260078.A.392.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這次回到外星怪物入侵地球之前的開始．．．
 
 
@@ -271,7 +270,7 @@ date: 2024-06-19
 reply_count: 964
 title: '[贈票] 【噤界：入侵日】北中南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1718785521.A.8C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下幸運得獎者獲得搶先看【噤界：入侵日】特映會
 
   請於得獎者請於6月24日16:00前主動站內信回覆現場領票者姓名與電話，逾時恕不受理
@@ -336,7 +335,7 @@ date: 2024-06-23
 reply_count: 63
 title: 'Re: [贈票] 【噤界：入侵日】北中南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1719105593.A.C50.html
---- !!python/object:movie_data.PublicReview
+---
 content: ":\n:\n:\n:\n:\n:\n:\n多防一點\n\n\n\n\n\n:\n:\n:\n:\n:\n補幾個個人覺得不邏輯的點\n1.發電機\
   \ 第一反應應該是要逃離有聲音的地方吧 去關不是找死嗎(也確實死了)\n\n2.美軍也太智障,都知道怪物對聲音有反應 為啥還飛在要在城市上面繞\n  風箏怪的話也可以理解\
   \ 但風箏一定量以後就集中拖去陷阱還轟炸就好了吧\n\n3.承上,都知道有民眾開始上街往南避難了,就不能把怪物往北引嗎?\n\n4.一群路人走在路上...要是我會盡量跟人群分離\n\
@@ -350,7 +349,7 @@ date: 2024-07-03
 reply_count: 22
 title: 'Re: [討論] [雷] 噤界《入侵日》 不合邏輯的地方'
 url: https://www.ptt.cc/bbs/movie/M.1719971263.A.3A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情有夠單線
 
   從城市到港口撤離
@@ -433,7 +432,7 @@ date: 2024-08-05
 reply_count: 36
 title: '[大負雷] 噤界：入侵日'
 url: https://www.ptt.cc/bbs/movie/M.1722851218.A.E84.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次被神之手抽中特映票
 
   拿人手軟，所以也回饋一份新穎的Screen X感想
@@ -487,7 +486,7 @@ date: 2024-06-26
 reply_count: 7
 title: '[無雷]  噤界:入侵日 特映會 Screen X新廳'
 url: https://www.ptt.cc/bbs/movie/M.1719352480.A.6F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片長100分鐘，感覺步調比前兩集慢。
 
 
@@ -515,7 +514,7 @@ date: 2024-06-30
 reply_count: 17
 title: '[普雷] 噤界:入侵日 (男主像布蘭登費雪?'
 url: https://www.ptt.cc/bbs/movie/M.1719679524.A.BB8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看板上以為是什麼浪費生命的爛片，
 
   說得都要被滅團了還要去吃披薩，
@@ -551,7 +550,7 @@ date: 2024-07-08
 reply_count: 19
 title: '[討論] 噤界：入侵日  還行啊! 大概70分'
 url: https://www.ptt.cc/bbs/movie/M.1720415889.A.D25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《噤界：入侵日》刷新系列開片猛奪北美新片冠軍！全球票房破32億
 
 
@@ -604,7 +603,7 @@ date: 2024-07-01
 reply_count: 43
 title: '[新聞] 《噤界：入侵日》刷新系列開片猛奪北美'
 url: https://www.ptt.cc/bbs/movie/M.1719795826.A.79E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '認真覺得這部前傳拍的滿好的，像是一首詩。
 
 
@@ -704,7 +703,7 @@ date: 2024-06-28
 reply_count: 28
 title: '[好雷] 噤界《入侵日》'
 url: https://www.ptt.cc/bbs/movie/M.1719557929.A.2D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n噤界：入侵日（A Quiet Place: Day One）\n2025-02-08(六) 21:00\n2025-02-16(日)\
   \ 22:50\n\n導演 麥可·薩爾諾斯基\n主演\n露琵塔·尼詠歐\n約瑟夫·奎因\n艾瑞克克斯·沃爾夫\n吉蒙·韓蘇\n\n《噤界：入侵日》（英語：A Quiet\
   \ Place: Day One）是一部2024年美國末日幻想恐怖片\n，由麥可·薩爾諾斯基編導，約翰·卡拉辛斯基撰寫故事。該片為《噤界》第三部作品，\n也是系列前傳電影。主演包括露琵塔·尼詠歐、約瑟夫·奎因、艾瑞克克斯·沃爾夫和吉\n\
@@ -714,7 +713,7 @@ date: 2025-02-08
 reply_count: 29
 title: '[LIVE] HBO 21:00 噤界：入侵日'
 url: https://www.ptt.cc/bbs/movie/M.1739005398.A.E29.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（已經有工讀生準備開洗了 能救一個是一個 大家自己斟酌）
 
 
@@ -1066,7 +1065,7 @@ date: 2024-06-26
 reply_count: 266
 title: '[大負雷] 噤界3：入侵日 史上最難看沒有之一'
 url: https://www.ptt.cc/bbs/movie/M.1719373869.A.033.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1159,7 +1158,7 @@ date: 2024-09-24
 reply_count: 35
 title: '[大負雷] 噤界: 入侵日 年度爛片 '
 url: https://www.ptt.cc/bbs/movie/M.1727146014.A.781.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我不覺得是工讀生在洗
 
   因為真的沒意義
@@ -1267,7 +1266,7 @@ date: 2024-06-27
 reply_count: 28
 title: 'Re: [大負雷] 噤界3：入侵日 史上最難看沒有之一'
 url: https://www.ptt.cc/bbs/movie/M.1719455517.A.F84.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如果看過噤界1, 然後因為好奇外星人到底怎麼入侵\n而來看這片的話, 非常不推.\n過程沒講清楚, 氣氛營造也不如第一集\n如果沒看過之前的系列,\
   \ 這部也可以跳過, 太多不合理的橋段\n以下有雷\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文\
   \ 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n看第一集的時候覺得設定很有趣~ 也很好奇人類到底是怎麼被逼到這種境地\n\
@@ -1281,7 +1280,7 @@ date: 2024-07-08
 reply_count: 31
 title: '[負雷]噤界:入侵日 覺得劇組太小看人類了'
 url: https://www.ptt.cc/bbs/movie/M.1720372405.A.125.html
---- !!python/object:movie_data.PublicReview
+---
 content: '幫影片平反一下，其實配樂不錯，
 
   貓咪演出不錯，雖然沒驚悚、沒劇
@@ -1353,7 +1352,7 @@ date: 2024-06-26
 reply_count: 48
 title: 'Re: [大負雷] 噤界3：入侵日 史上最難看沒有之一'
 url: https://www.ptt.cc/bbs/movie/M.1719379319.A.9C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '打給賀，剛看完了噤界入侵日，
 
   有個問題想問
@@ -1473,7 +1472,7 @@ date: 2024-07-02
 reply_count: 9
 title: '[請益] 噤界：入侵日的一個小問題'
 url: https://www.ptt.cc/bbs/movie/M.1719932163.A.80E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '為什麼沒有早點看到這篇
 
   喜歡一二氛圍的可以不用花錢了
@@ -1510,7 +1509,7 @@ date: 2024-07-02
 reply_count: 7
 title: 'Re: [大負雷] 噤界3：入侵日 史上最難看沒有之一'
 url: https://www.ptt.cc/bbs/movie/M.1719850558.A.7A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為特映會有簽保密協議，不能透露任何有關劇情的影評，所以單就影廳畫面呈現的部分
 
   來發表心得。
@@ -1556,7 +1555,7 @@ date: 2024-06-25
 reply_count: 25
 title: '[無雷] 噤界：入侵日 Screen X'
 url: https://www.ptt.cc/bbs/movie/M.1719325732.A.6F1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -1703,7 +1702,7 @@ date: 2024-07-23
 reply_count: 13
 title: '[好雷] 噤界3:入侵日'
 url: https://www.ptt.cc/bbs/movie/M.1721667663.A.359.html
---- !!python/object:movie_data.PublicReview
+---
 content: '自己發的文自己回
 
   忘記提醒大家一個很重要的事情
@@ -1768,7 +1767,7 @@ date: 2024-06-27
 reply_count: 24
 title: 'Re: [大負雷] 噤界3：入侵日 史上最難看沒有之一'
 url: https://www.ptt.cc/bbs/movie/M.1719487232.A.152.html
---- !!python/object:movie_data.PublicReview
+---
 content: '儘管 這系列1>2,也是窩的感想
 
 
@@ -1830,7 +1829,7 @@ date: 2024-06-27
 reply_count: 28
 title: '[好雷] 噤界：入侵日 算是合乎期待'
 url: https://www.ptt.cc/bbs/movie/M.1719421284.A.AE7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '購票資訊：
 
 
@@ -1896,7 +1895,7 @@ date: 2024-06-28
 reply_count: 17
 title: '[好雷] 噤界：入侵日（看貓可貓超乖）'
 url: https://www.ptt.cc/bbs/movie/M.1719509477.A.351.html
---- !!python/object:movie_data.PublicReview
+---
 content: '噤界：入侵日
 
   1.這部片沒有主角威能，就是一部怪獸災難片裡面的一段小品故事。
@@ -1928,7 +1927,7 @@ date: 2024-06-26
 reply_count: 20
 title: '[無雷] 噤界：入侵日'
 url: https://www.ptt.cc/bbs/movie/M.1719397792.A.7A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1989,7 +1988,7 @@ date: 2024-06-25
 reply_count: 31
 title: '[新聞] 噤界:入侵日首映好評 外媒讚:有如"異形2"'
 url: https://www.ptt.cc/bbs/movie/M.1719326743.A.876.html
---- !!python/object:movie_data.PublicReview
+---
 content: '噤界這系列一直都不能當作很純粹的怪獸或驚悚片來看待
 
   從第一集開始就是在描述小人物的大故事
@@ -2069,7 +2068,7 @@ date: 2024-06-26
 reply_count: 12
 title: '[普好無雷] 《噤界：入侵日》觀影前須知'
 url: https://www.ptt.cc/bbs/movie/M.1719377316.A.FAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '真的有夠難看！！
 
 
@@ -2112,7 +2111,7 @@ date: 2024-06-26
 reply_count: 63
 title: '[負無雷] 噤界：入侵日'
 url: https://www.ptt.cc/bbs/movie/M.1719392263.A.D40.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片因為主打無聲又時常是女主角藏身於平靜的躲藏處，加上貓咪從頭到尾都異常安靜
 
   的連
@@ -2230,7 +2229,7 @@ date: 2024-06-30
 reply_count: 10
 title: '[無雷心得] 噤界：入侵日 影評'
 url: https://www.ptt.cc/bbs/movie/M.1719748845.A.4B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然版上很多大負雷
 
   結果怎麼有很多影評人喜歡啊?

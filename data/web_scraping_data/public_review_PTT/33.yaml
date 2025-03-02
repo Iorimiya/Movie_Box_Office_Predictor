@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -71,7 +70,7 @@ date: 2021-01-29
 reply_count: 17
 title: '[新聞] 為什麼小月、小梅再也看不到「龍貓」了？'
 url: https://www.ptt.cc/bbs/movie/M.1611923472.A.20E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "宮崎吾朗打造吉卜力 龍貓魔女走出銀幕\n\n04:10 2023/09/28 中國時報 孫伊萱 、名古屋傳真\n\n\n宮崎吾朗在建設工程中趕來接受台灣媒體訪問。（甲上提供）\n\
   \n日本吉卜力工作室推出數部經典動畫作品，以其獨特動畫世界觀打造的「吉卜力公園」也\n於去年在名古屋開幕。宮崎吾朗不繼承82歲爸爸宮﨑駿的衣缽，全心投入擔任園區創意開\n\
   發總監，日前特別接受台灣媒體訪問，表示未來有機會將新片《蒼鷺與少年》帶進公園中\n，令吉卜力迷引頸期盼。\n\n吉卜力公園一開始是日本愛知縣2005年舉行的萬國博覽會，當時興建了「愛‧地球博紀念\n\
@@ -88,7 +87,7 @@ date: 2023-09-28
 reply_count: 3
 title: '[新聞] 宮崎吾朗打造吉卜力 龍貓魔女走出銀幕'
 url: https://www.ptt.cc/bbs/movie/M.1695915004.A.5E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《龍貓》藏30年內幕！宮崎駿爆：是可怕生物
 
 
@@ -145,7 +144,7 @@ date: 2019-06-19
 reply_count: 18
 title: '[新聞] 《龍貓》藏30年內幕！宮崎駿爆：是可怕生'
 url: https://www.ptt.cc/bbs/movie/M.1560949637.A.85C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近串流上架吉卜力。連假重溫80年代宮老幾部經典，風之谷、天空之城、龍貓、魔女宅
 
   急便。超滿足啊啊啊！！！
@@ -175,7 +174,7 @@ date: 2020-04-08
 reply_count: 76
 title: '[討論] 為什麼天空之城和龍貓當年都賣不好？'
 url: https://www.ptt.cc/bbs/movie/M.1586356738.A.5E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '懷念宮崎駿經典動畫嘛？
 
   現在熱映中噢
@@ -191,7 +190,7 @@ date: 2018-05-27
 reply_count: 13
 title: ［LIVE]衛視電影台17:00-龍貓
 url: https://www.ptt.cc/bbs/movie/M.1527412029.A.381.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2023/07/27  號外特價報！暑期動畫大特價】
 
   你的名字／千年女優／機動警察系列／來自深淵系列／鬼滅之刃系列／藍色珊瑚礁／花樣
@@ -545,7 +544,7 @@ date: 2023-07-27
 reply_count: 14
 title: '[討論] iTunes動畫特價 你的名字/千年女優/龍貓'
 url: https://www.ptt.cc/bbs/movie/M.1690442206.A.D98.html
---- !!python/object:movie_data.PublicReview
+---
 content: '吉卜力動畫總選舉　龍貓竟然沒進前5名
 
 
@@ -570,7 +569,7 @@ date: 2016-08-22
 reply_count: 241
 title: '[新聞] 吉卜力動畫總選舉　龍貓竟然沒進前5名'
 url: https://www.ptt.cc/bbs/movie/M.1471854927.A.D4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文出處：
 
   影評原作者：龍貓大王通信
@@ -745,7 +744,7 @@ date: 2020-11-28
 reply_count: 9
 title: '[影評]  同學麥娜絲/ 龍貓大王通信'
 url: https://www.ptt.cc/bbs/movie/M.1606554706.A.4B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '宮崎駿重返電影院之作是《龍貓》！2021年1月台灣首次大銀幕上映 |
 
 
@@ -808,7 +807,7 @@ date: 2020-12-24
 reply_count: 26
 title: '[新聞] 宮崎駿重返電影院之作是《龍貓》！2021年'
 url: https://www.ptt.cc/bbs/movie/M.1608824285.A.B58.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《龍貓》月底正式在台上映 宮崎駿親揭角色原型\n\n20:39 2021/01/15 中時 孫伊萱\n\n\n為迎接電影在台上映，片商曝光了「全台龍貓出沒地圖」。（甲上提供）\n\
   \n\n宮崎駿耗費10年心血創作影壇經典《龍貓》。（甲上提供）\n\n日本動畫大師經典作《龍貓》過去從未在台灣正式上映，終於要在1月29日躍上大銀幕，\n為了迎接電影上映，片商曝光了「全台龍貓出沒地圖」，經典的龍貓公車站場景將進駐雙\n\
   北、桃園、苗栗、台中、台南和高雄多家戲院，台北京站威秀影城手扶梯處也出現了「龍\n貓隧道」，還有「貓巴士」為主圖刊登百輛公車廣告，即日起將在大台北地區跑透透。\n\
@@ -824,7 +823,7 @@ date: 2021-01-15
 reply_count: 14
 title: '[新聞] 《龍貓》月底正式在台上映 宮崎駿親揭角色原型'
 url: https://www.ptt.cc/bbs/movie/M.1610721334.A.01A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '龍貓對姊姊說了一句話、貓巴士開去哪裡？宮﨑駿經典大解析
 
 
@@ -883,7 +882,7 @@ date: 2024-08-25
 reply_count: 10
 title: '[新聞] 龍貓對姊姊說了一句話、貓巴士開去哪裡？'
 url: https://www.ptt.cc/bbs/movie/M.1724569462.A.5D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -1043,7 +1042,7 @@ date: 2024-07-25
 reply_count: 5
 title: '[  雷] 龍貓'
 url: https://www.ptt.cc/bbs/movie/M.1721887627.A.1CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "陪小孩看完龍貓\n\n被問說大龍貓每天都在睡覺\n\n可是還是有橡果子吃\n\n他是不是都霸凌中龍貓小龍貓\n\n想想好像蠻有道理的\n\n可是這樣回答好像又破壞大龍貓的形象\n\
   \n該怎麼回好呢？\n\n\n   有特定喜好或需求，想請朋友開片單   請選 3.[片單]\n   已知劇情詢問片名，    請選 2.[問片]\n   已知劇情詢問片名，\
   \    請選 2.[問片]\n\n◎ 此為搏杯文，適用於已有兩三部備案，不知該如何選擇的情況。\n   1. 請在標題上註明片名，以便爬文， ex. [選片]\
@@ -1054,7 +1053,7 @@ date: 2020-04-01
 reply_count: 11
 title: '[請益] 被問龍貓問題'
 url: https://www.ptt.cc/bbs/movie/M.1585744811.A.C22.html
---- !!python/object:movie_data.PublicReview
+---
 content: "宮崎駿童年經歷 催生《龍貓》\n\n2021/01/28 05:30\n\n\n《龍貓》片中生病的母親來自宮崎駿真實童年經歷。（甲上提供）\n\n\
   〔記者吳琬婷／綜合報導〕宮崎駿經典作品《龍貓》將上映，替吉卜力工作室21部經典動\n畫陸續重返大銀幕揭開序幕。宮崎駿透露《龍貓》是因自己的童年往事催生出的作品，他\n\
   當時回想起母親在他6歲的時患上結核病，開始長期住院療養的生活，跟片中兩姊妹小月\n、小梅的母親情況不謀而合。\n\n宮崎駿也坦言，直到製作結尾才曉得最後一幕的畫法，兩姊妹因為「龍貓」的存在而得到\n\
@@ -1065,7 +1064,7 @@ date: 2021-01-28
 reply_count: 3
 title: '[新聞] 宮崎駿童年經歷 催生《龍貓》'
 url: https://www.ptt.cc/bbs/movie/M.1611835332.A.309.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小時候看龍貓是用錄影帶來看，前後大概看了30幾次看到錄影帶壞掉..
 
 
@@ -1097,7 +1096,7 @@ date: 2021-02-20
 reply_count: 29
 title: '[感動無雷] 在電影院看龍貓'
 url: https://www.ptt.cc/bbs/movie/M.1613807159.A.AAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.龍貓有2阿
 
   在吉卜力美術館才看的到
@@ -1147,7 +1146,7 @@ date: 2016-08-22
 reply_count: 10
 title: 'Re: [新聞] 吉卜力動畫總選舉　龍貓竟然沒進前5名'
 url: https://www.ptt.cc/bbs/movie/M.1471868362.A.EA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1206,7 +1205,7 @@ date: 2020-01-20
 reply_count: 41
 title: '[新聞] 龍貓2月登上Netflix 吉卜力21部動畫全球'
 url: https://www.ptt.cc/bbs/movie/M.1579520165.A.D72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒有龍貓，我一點都不意外。
 
 
@@ -1251,14 +1250,14 @@ date: 2016-08-22
 reply_count: 17
 title: 'Re: [新聞] 吉卜力動畫總選舉　龍貓竟然沒進前5名'
 url: https://www.ptt.cc/bbs/movie/M.1471864426.A.E2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昨天去威秀看夢幻島時\n\n突然看到這張海報.....映像中\n\n1.姐姐不是短髮嗎？\n\n2.妹妹小梅這段好像是背在背上\n   但妹妹的手呢？\n\
   \n3.這部是不是跟以前的龍貓有增加一些未公開的\n    部分\n\n\n\n謝謝\n\n--"
 date: 2021-02-04
 reply_count: 7
 title: '[討論] 龍貓的海報'
 url: https://www.ptt.cc/bbs/movie/M.1612404680.A.DD4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《麥塊》《米奇 17》《不可能的任務 8》等 2025 年上映的 30 部推薦電影：\n超級英雄！經典重製！更多更多的續集電影！\n\n  龍貓大王通信\
   \ @ 電影神搜\n\n\n\n\n 1.預計上映日期：1/17（美國）｜1/17（台灣）\n   \n\n《狼人》(Wolf Man) 電影劇情大綱：曾獲金球獎提名的克里斯托福阿波特（《可憐的東\n\
   西》、《天黑請關門》）飾演布雷克，一名住在舊金山的丈夫和父親，當他自己的父親失\n蹤並被判定死亡之後，他就繼承了他位於奧勒岡州鄉下偏遠地區的童年老家。當他和他事\n\
@@ -1374,7 +1373,7 @@ date: 2024-12-30
 reply_count: 11
 title: '[討論] 2025年上映的30部推薦電影  /龍貓大王通信'
 url: https://www.ptt.cc/bbs/movie/M.1735549517.A.973.html
---- !!python/object:movie_data.PublicReview
+---
 content: '多虧了現代科技，
 
 
@@ -1528,7 +1527,7 @@ date: 2021-06-12
 reply_count: 92
 title: '[ 好雷] 重看龍貓 其實第一次從頭看完'
 url: https://www.ptt.cc/bbs/movie/M.1623465667.A.AE1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '只在日本的哪裡播印 好像片長才14分鐘
 
   有人知道更深入的了解嗎? 還是單純只是個噱頭而已呢?
@@ -1556,7 +1555,7 @@ date: 2023-10-20
 reply_count: 11
 title: '[請益] 新聞看到的龍貓續集?'
 url: https://www.ptt.cc/bbs/movie/M.1697809454.A.93C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "網誌版： \n\n\n應該是8歲那年的校外教學吧，或是更早也說不一定。\n我在遊覽車的電視上，第一次遇見龍貓。\n\n管弦樂的進行曲在水壺互相撞擊的鏗鏘聲下有節奏地迴響在車內，\n\
   小朋友們抓緊餅乾袋，圓溜溜的眼睛瞪著那些長滿絨毛的大怪物發愣，\n車裡不時傳來笑聲與尖叫。\n\n我努力抓住這模糊卻幸福的一刻，覺得童真離我是這麼的遙遠。\n\
   那是個一切都充滿驚奇的年代，不知道該怎麼辦就大哭的年代。\n\n現在的我掌心貼著粗糙的樹幹，仰頭看著依然高聳的巨木；\n心跳聲與土地和童年連結在一塊，耳旁傳來琴弦與松枝摩擦的旋律，\n\
@@ -1622,7 +1621,7 @@ date: 2009-06-07
 reply_count: 53
 title: '[好雷] 龍貓 - 隔壁的多多洛'
 url: https://www.ptt.cc/bbs/movie/M.1244307522.A.87F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近在電影才看到重播的龍貓，
 
 
@@ -1650,7 +1649,7 @@ date: 2020-02-10
 reply_count: 16
 title: '[請益] 龍貓最後少了一首歌...'
 url: https://www.ptt.cc/bbs/movie/M.1581282066.A.129.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前就有報導過甲上娛樂於2021將會重映吉卜力系列作品
 
 
@@ -1680,7 +1679,7 @@ date: 2020-12-24
 reply_count: 88
 title: '[情報] 《龍貓》1/29 經典上映'
 url: https://www.ptt.cc/bbs/movie/M.1608803179.A.37E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "（ 剛剛要轉去MIYAZAKI版的時候 不小心把這邊刪掉了Orz\n   只好重貼一次 請大家見諒<(_ _)>  ）\n\n《龍貓》- 時光之硯部落格\n\
   \n （照樣有太多的劇照 orz）\n\n==========================================================\n\
   \n你聽到落葉被捲起、飄落、摩擦撞擊的沙沙聲，聽到悠遊在水稻田\n、樹林裡、山坡上面青草地的飛揚鏡頭，和那不斷旋轉的地面風景\n。風聲穿梭在林木夾道的夜裡，兩旁的樹影紛紛倒退而去。前方等\n\
@@ -1747,7 +1746,7 @@ date: 2007-02-11
 reply_count: 24
 title: '[好雷] 《龍貓》by（時光之硯）'
 url: https://www.ptt.cc/bbs/movie/M.1171124287.A.46E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1790,7 +1789,7 @@ date: 2021-01-16
 reply_count: 12
 title: '[新聞] 宮崎駿《龍貓》29日登台 「貓巴士」跑遍'
 url: https://www.ptt.cc/bbs/movie/M.1610758153.A.19A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: KenHiraiTW (KenHirai) 看板: C_Chat\n標題: [新聞]\"龍貓\"29號在台上映!宮崎駿透漏片尾藏催淚\n\
   時間: Thu Jan 28 22:16:33 2021\n\n\n\n\n\n\n2021-01-28 18:25遊戲角落 玄軒軒\n\n將於明（29）日首次在台灣影廳正式上映，一起上電影院重溫\n\
   小月、小梅兩姐妹與龍貓相遇的奇幻旅程。\n\n\n\n宮崎駿透露《龍貓》片尾插畫其實暗藏了，他刻意在片尾插畫中不讓小月、小梅兩\n姊妹與龍貓同框，他說：「只要相信有龍貓的存在，她們就不是孤立無援的，但若一直讓\n\
@@ -1805,7 +1804,7 @@ date: 2021-01-28
 reply_count: 3
 title: 'Fw: [新聞]"龍貓"29號在台上映!宮崎駿透漏片尾藏催淚'
 url: https://www.ptt.cc/bbs/movie/M.1611843442.A.EB9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -1834,7 +1833,7 @@ date: 2021-02-18
 reply_count: 55
 title: '[討論] 龍貓票房 750 萬'
 url: https://www.ptt.cc/bbs/movie/M.1613632349.A.60F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "（影音）宮崎駿《龍貓》藏催淚彩蛋 「台灣限定預告」曝光\n\n2021/01/27 19:18\n\n〔記者邱奕欽／台北報導〕日本動畫大師宮崎駿經典作品《龍貓》過去從未在台灣正式上\n\
   映，29日將躍上大銀幕，宮崎駿透露片尾插畫暗藏催淚彈，刻意不讓小月、小梅姊妹與龍\n貓同框，「只要相信有龍貓的存在，她們就不是孤立無援的，但若一直讓她們停留在那兒\n\
   ，她們將無法回歸到人類世界。」台灣限定的預告片也在今（27）天曝光。\n\n\n宮崎駿童年往事催生出動人電影《龍貓》。（甲上娛樂提供）\n\n宮崎駿透露片尾插畫中小月與一起玩耍的朋友長得幾乎一模一樣，因為她不再需要早熟地\n\
@@ -1849,7 +1848,7 @@ date: 2021-01-27
 reply_count: 22
 title: '[新聞] （影音）宮崎駿《龍貓》藏催淚彩蛋 「台灣限定預告」曝光'
 url: https://www.ptt.cc/bbs/movie/M.1611757291.A.68F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「龍貓」重新熱映 昔日被刪減戲份曝光\n\n\n「龍貓」。圖／甲上提供\n\n2021-01-29 18:36  聯合報 記者陳建嘉／即時報導\n\
   \n動畫電影「龍貓」橫掃全球票房逾10億美元票房，吉卜力工作室的作品更是皮克斯與迪士\n尼的靈感泉源。而「龍貓」暌違多年終於首次在台灣正式上映，中日文版同步熱映中，成\n\
   為日本動畫大師宮崎駿與吉卜力工作室21部經典動畫電影重返大銀幕的第一部。\n\n「龍貓」是無數影迷共通的童年記憶，此次終於在台灣首次正式登上大銀幕，而隨著電影\n\

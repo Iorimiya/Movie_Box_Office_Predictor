@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -54,7 +53,7 @@ date: 2024-07-03
 reply_count: 4
 title: '[普無聊雷] 老狐狸-你要當失敗的人還是成功的人'
 url: https://www.ptt.cc/bbs/movie/M.1719965948.A.4B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -101,7 +100,7 @@ date: 2024-07-07
 reply_count: 132
 title: '[新聞] 快訊／陳慕義再開砲《老狐狸》導演蕭雅全'
 url: https://www.ptt.cc/bbs/movie/M.1720315638.A.7DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '自從我看了范保德後
 
   從此就被蕭雅全導演圈粉
@@ -293,7 +292,7 @@ date: 2023-12-07
 reply_count: 30
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701942967.A.F9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '時間有限，無法三部都進戲院～
 
 
@@ -309,7 +308,7 @@ date: 2023-12-11
 reply_count: 113
 title: '[選片] 小曉、富都青年、老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1702261525.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -389,7 +388,7 @@ date: 2024-02-13
 reply_count: 12
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1707756170.A.D34.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -428,7 +427,7 @@ date: 2023-11-27
 reply_count: 19
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701091482.A.937.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -643,7 +642,7 @@ date: 2024-05-07
 reply_count: 40
 title: '[心得負雷]《老狐狸》-濫調、濫情、濫好人 '
 url: https://www.ptt.cc/bbs/movie/M.1715085416.A.E2E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -743,7 +742,7 @@ date: 2023-12-15
 reply_count: 39
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1702609849.A.764.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可是，我看起來超級卡的耶，
 
   每一段都很抽離，感覺像是一場場獨立的舞台劇，
@@ -813,7 +812,7 @@ date: 2024-11-13
 reply_count: 21
 title: 'Re: [負雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1731434430.A.9F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -917,7 +916,7 @@ date: 2023-12-08
 reply_count: 53
 title: '[  好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701999343.A.302.html
---- !!python/object:movie_data.PublicReview
+---
 content: '懶人包：
 
   《年少日記》>>《老狐狸》≒《富都青年》>《旺卡》
@@ -1092,7 +1091,7 @@ date: 2023-12-13
 reply_count: 49
 title: '[雷] 旺卡/富都青年/老狐狸/年少日記'
 url: https://www.ptt.cc/bbs/movie/M.1702431545.A.FE1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【老狐狸】描述90年代快速變遷的台灣，小男孩廖界的家庭受到很大的影響。有天他在路
 
   上遇到房東謝老闆，人人都稱他「老狐狸」。兩人的相遇開啟廖界對這個世界的新認知。
@@ -1171,7 +1170,7 @@ date: 2023-12-27
 reply_count: 19
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1703676410.A.4AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1272,7 +1271,7 @@ date: 2023-12-22
 reply_count: 5
 title: '[好雷] 六重點學習《老狐狸》的不平等思維 '
 url: https://www.ptt.cc/bbs/movie/M.1703175212.A.979.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老狐狸-
 
 
@@ -1517,7 +1516,7 @@ date: 2024-11-17
 reply_count: 14
 title: '[好雷] 老狐狸-這是最好與最壞的時代'
 url: https://www.ptt.cc/bbs/movie/M.1731851186.A.321.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然機會不大，
 
   但私心希望這部片能得今晚金馬的導演獎，
@@ -1608,7 +1607,7 @@ date: 2023-11-25
 reply_count: 17
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1700907810.A.AFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '關於。老狐狸
 
   我很難跟你解釋，它是什麼電影
@@ -1707,7 +1706,7 @@ date: 2023-12-08
 reply_count: 5
 title: '[好雷]老狐狸。留白的寓言'
 url: https://www.ptt.cc/bbs/movie/M.1702048469.A.5EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天因為被這部電影的心得給轟炸
 
   所以就想說來看一下
@@ -1830,7 +1829,7 @@ date: 2023-12-06
 reply_count: 35
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701863443.A.0CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2014,7 +2013,7 @@ date: 2023-12-02
 reply_count: 38
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701478684.A.4D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天想跟太太去看電影
 
 
@@ -2042,7 +2041,7 @@ date: 2023-12-10
 reply_count: 25
 title: '[選片] 老狐狸 or 夢行者保羅'
 url: https://www.ptt.cc/bbs/movie/M.1702221752.A.CB7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情大概在講民國80年左右的事情
 
 
@@ -2087,7 +2086,7 @@ date: 2023-11-29
 reply_count: 65
 title: '[無雷] 懷舊感滿滿的老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701189328.A.3E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一直都聽過這部電影的好評
 
   但是直到今日才有時間討論
@@ -2139,7 +2138,7 @@ date: 2024-11-07
 reply_count: 16
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1730962886.A.9AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '該講的彩蛋很多人都說了
 
 
@@ -2324,7 +2323,7 @@ date: 2024-01-05
 reply_count: 35
 title: '[好雷]  老狐狸—敬每個平凡而偉大的台灣人'
 url: https://www.ptt.cc/bbs/movie/M.1704421702.A.C3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《老狐狸》角逐奧斯卡 導演盼跨時空引發共鳴
 
 
@@ -2416,7 +2415,7 @@ date: 2024-11-21
 reply_count: 19
 title: '[新聞] 《老狐狸》角逐奧斯卡 導演盼跨時空引發共'
 url: https://www.ptt.cc/bbs/movie/M.1732155049.A.2DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '起於買房子，終於蓋房子
 
   房子一直在台灣這50年，圍繞你我，
@@ -2483,7 +2482,7 @@ date: 2023-11-27
 reply_count: 26
 title: '[ 好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701059222.A.42E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷頁\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n原文寫得不錯，雖然有些論點，也不見得非A即B，不過大致上跟我的感想差不多\n\
   \n基本上，這部電影明顯就是由一堆\"很刻意\"的情節堆出來的\n\n\n例如：\n\n    小孩自始至終很堅持要買房、要開理髮店\n\n    這個設定本身就缺乏「合理性」\n\
   \n\n    一來，一個單親家庭國小男孩的日常生活，應該不會把 \"買房\" 當成自己的責任\n\n          但主角甚至比老爸更積極，老爸說三年，他不能接受，持續\
@@ -2509,7 +2508,7 @@ date: 2024-06-30
 reply_count: 19
 title: 'Re: [心得負雷]《老狐狸》-濫調、濫情、濫好人 '
 url: https://www.ptt.cc/bbs/movie/M.1719692108.A.0B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '#老狐狸
 
   #有雷分享
@@ -2671,7 +2670,7 @@ date: 2023-12-18
 reply_count: 40
 title: '[  雷] 老狐狸，也曾經也是暖心的小鬼'
 url: https://www.ptt.cc/bbs/movie/M.1702869874.A.63F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3132,7 +3131,7 @@ date: 2023-12-20
 reply_count: 21
 title: '[有雷] 長篇心得 富都/小曉/年少日記/老狐狸/BIG'
 url: https://www.ptt.cc/bbs/movie/M.1703087344.A.EBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   \n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\
   \n (刊登於方格子圖文並茂版本)\n\n\n\n樂見看到國片終於有人描寫父輩那一代常見台灣資本家(註)功利主義（但也絕非如此二元\n）的精神與道德狀態，而非許多描寫弱勢族群電影往往大部分只會出現幾秒壓榨勞工的刻\n\
@@ -3154,7 +3153,7 @@ date: 2023-12-02
 reply_count: 16
 title: '[好雷] 老狐狸-還是動了真情的半套殘酷寓言 '
 url: https://www.ptt.cc/bbs/movie/M.1701455273.A.9FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷—————————————————————
 
 
@@ -3173,7 +3172,7 @@ date: 2023-12-02
 reply_count: 23
 title: '[討論] 老狐狸 （解惑）？'
 url: https://www.ptt.cc/bbs/movie/M.1701529537.A.B52.html
---- !!python/object:movie_data.PublicReview
+---
 content: "內文有雷且具個人觀點，推薦觀影後再讀。\n\n　　　　本片場次有限，還請把握。\n\n\n\n　　　　圖文網頁版：\n\n　　　　\n\n\n\
   　　　　預告片：\n\n　　　　\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\
   \n成為更好的選擇：《老狐狸》\n\n\n\n\n\n　　只能向上爬高的單一價值無從選擇，人生任何時刻都可能墜落；《年少\n\n日記》用鄭老師的選擇告訴觀眾，脆弱的時候，如果有人仍然願意給你擁抱，\n\
@@ -3207,7 +3206,7 @@ date: 2024-01-25
 reply_count: 8
 title: '[好雷] 成為更好的選擇：《老狐狸》'
 url: https://www.ptt.cc/bbs/movie/M.1706196056.A.51B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3299,7 +3298,7 @@ date: 2023-12-03
 reply_count: 13
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701619088.A.611.html
---- !!python/object:movie_data.PublicReview
+---
 content: '專欄網址：
 
 
@@ -3472,7 +3471,7 @@ date: 2024-07-09
 reply_count: 68
 title: '[專欄] 道謝是有重量的—為什麼《老狐狸》陳慕義'
 url: https://www.ptt.cc/bbs/movie/M.1720499743.A.D72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3604,7 +3603,7 @@ date: 2023-12-17
 reply_count: 11
 title: '[好雷]《老狐狸》時代感與細膩度俱足，然而意旨太過簡單'
 url: https://www.ptt.cc/bbs/movie/M.1702822662.A.334.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩天看完網飛上的老狐狸
 
 
@@ -3832,7 +3831,7 @@ date: 2024-11-07
 reply_count: 43
 title: '[普雷] 老狐狸  像我一樣有什麼不好'
 url: https://www.ptt.cc/bbs/movie/M.1730983858.A.681.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3886,7 +3885,7 @@ date: 2023-11-12
 reply_count: 20
 title: '[新聞] 《老狐狸》攻金馬 陳慕義不玩金錢遊戲'
 url: https://www.ptt.cc/bbs/movie/M.1699783834.A.975.html
---- !!python/object:movie_data.PublicReview
+---
 content: '心情有點悶，想看點無腦的電影放空
 
 
@@ -3932,7 +3931,7 @@ date: 2023-12-03
 reply_count: 50
 title: '[選片] 驚奇隊長 或 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701583606.A.4BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '說實在的期待這部片好一陣子了
 
 
@@ -4031,7 +4030,7 @@ date: 2023-11-25
 reply_count: 20
 title: '[普好雷]  老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1700912192.A.F87.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整片看起來很順暢
 
   但其實沒甚麼主軸
@@ -4144,7 +4143,7 @@ date: 2024-11-08
 reply_count: 195
 title: '[負雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1731041689.A.8CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
   文
@@ -4244,7 +4243,7 @@ date: 2023-12-12
 reply_count: 6
 title: '[好雷]老狐狸：在叢林社會生存的理想指南 '
 url: https://www.ptt.cc/bbs/movie/M.1702387489.A.3F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天想帶媽媽去看電影
 
   想問看看這兩齣
@@ -4262,7 +4261,7 @@ date: 2023-12-01
 reply_count: 75
 title: '[選片] 老狐狸跟富都青年'
 url: https://www.ptt.cc/bbs/movie/M.1701437533.A.E12.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4311,7 +4310,7 @@ date: 2023-11-28
 reply_count: 29
 title: '[好雷] 老狐狸之高度'
 url: https://www.ptt.cc/bbs/movie/M.1701116106.A.04B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你問的問題是擷取片段，
 
   這樣很難講，
@@ -4353,7 +4352,7 @@ date: 2023-12-01
 reply_count: 12
 title: 'Re: 老狐狸（解惑）？'
 url: https://www.ptt.cc/bbs/movie/M.1701378787.A.DBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就是今晚，只有一個空檔看一部電影
 
 
@@ -4375,7 +4374,7 @@ date: 2023-12-20
 reply_count: 60
 title: '[選片] 首爾之春 年少時代 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1703059132.A.D17.html
---- !!python/object:movie_data.PublicReview
+---
 content: '陳
 
   拿
@@ -4458,7 +4457,7 @@ date: 2024-07-08
 reply_count: 56
 title: 'Re: [新聞] 快訊／陳慕義再開砲《老狐狸》導演蕭雅全'
 url: https://www.ptt.cc/bbs/movie/M.1720410972.A.45B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4511,7 +4510,7 @@ date: 2023-11-24
 reply_count: 14
 title: '[好雷] 老狐狸Old Fox'
 url: https://www.ptt.cc/bbs/movie/M.1700806046.A.5E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《老狐狸》獲選代表臺灣角逐2025年美國第97屆奧斯卡金像獎最佳國際影片
 
 
@@ -4562,7 +4561,7 @@ date: 2024-08-14
 reply_count: 73
 title: '[情報] 2025 台灣奧斯卡代表：《老狐狸》'
 url: https://www.ptt.cc/bbs/movie/M.1723619541.A.57F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4683,7 +4682,7 @@ date: 2023-12-10
 reply_count: 25
 title: '[好雷]老狐狸 '
 url: https://www.ptt.cc/bbs/movie/M.1702219294.A.46C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《老狐狸》
 
 
@@ -4949,7 +4948,7 @@ date: 2023-11-27
 reply_count: 69
 title: '[好雷] 老狐狸：世界本來就不是二分法'
 url: https://www.ptt.cc/bbs/movie/M.1701080240.A.CFA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在站在影城櫃檯前猶豫
 
   飢餓評價不錯
@@ -4974,7 +4973,7 @@ date: 2023-11-26
 reply_count: 11
 title: '[選片]老狐狸☆飢餓遊戲'
 url: https://www.ptt.cc/bbs/movie/M.1700992703.A.B5C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "老狐狸\n\n整部片瀰漫著「下一秒就要出事」的氛圍，因此看到結尾主角們(尤其是劉冠廷)都沒死，\n我和太太不禁喜極而泣。\n\n\n但大概也是因為種期待，我會覺得電影稍嫌平淡一點，好像真應該出點事才對。我大約感\n\
   受到導演不灑狗血的企圖，但畫面與表演節制並不一定要限制故事的起伏，像謝老闆v.華\n哥、廖泰來v.林秘書或華嫂等情節應該有更多發展空間，不需要「演」出來，但應該對情\n\
   節有影響。\n\n\n總歸來說，我會覺得《老狐狸》略顯平淡是因為沒有真正的壞人。謝老闆大概就是一般的\n生意人，離真正的「壞人」或是我想像的「老狐狸」還有點距離。他也沒因為抓住長書包\n\
@@ -4988,7 +4987,7 @@ date: 2024-04-26
 reply_count: 10
 title: '[好雷]老狐狸 '
 url: https://www.ptt.cc/bbs/movie/M.1714139336.A.C0D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整部電影營造的很有年代感
 
   很有自己回到阿嬤家的感覺
@@ -5090,7 +5089,7 @@ date: 2023-11-27
 reply_count: 20
 title: '[好雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701056171.A.21C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5270,7 +5269,7 @@ date: 2023-12-09
 reply_count: 47
 title: '[好雷] 老狐狸，奸詐卻討喜的角色'
 url: https://www.ptt.cc/bbs/movie/M.1702096517.A.8BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5350,7 +5349,7 @@ date: 2024-06-03
 reply_count: 21
 title: '[好雷] 老狐狸 理想人生的條件?'
 url: https://www.ptt.cc/bbs/movie/M.1717384108.A.4FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實也沒有什麼好防雷的
 
   因為這部電影的劇本內容實在太少了
@@ -5469,7 +5468,7 @@ date: 2023-11-26
 reply_count: 27
 title: '[負雷] 老狐狸是部好「電影」'
 url: https://www.ptt.cc/bbs/movie/M.1700999131.A.9A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5633,7 +5632,7 @@ date: 2023-12-01
 reply_count: 30
 title: '[雷] 老狐狸'
 url: https://www.ptt.cc/bbs/movie/M.1701419966.A.0F1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老保全我明天終於休假，
 
 
@@ -5671,7 +5670,7 @@ date: 2023-11-26
 reply_count: 74
 title: '[選片] 拿破崙 老狐狸 驚奇隊長2'
 url: https://www.ptt.cc/bbs/movie/M.1700955409.A.744.html
---- !!python/object:movie_data.PublicReview
+---
 content: '下面有雷
 
 
@@ -5708,7 +5707,7 @@ date: 2023-12-01
 reply_count: 22
 title: 老狐狸（解惑）？
 url: https://www.ptt.cc/bbs/movie/M.1701362238.A.390.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5770,7 +5769,7 @@ date: 2023-12-03
 reply_count: 6
 title: '[好雷]老狐狸 觀後感 '
 url: https://www.ptt.cc/bbs/movie/M.1701598822.A.2D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然這兩部根本不同類型
 
 
@@ -5828,7 +5827,7 @@ date: 2024-11-10
 reply_count: 49
 title: '[討論] 老狐狸vs誰偷了垃圾桶'
 url: https://www.ptt.cc/bbs/movie/M.1731254053.A.7CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天想看電影
 
 
@@ -5861,7 +5860,7 @@ date: 2023-12-08
 reply_count: 39
 title: '[選片] 老狐狸/年少日記（✓）'
 url: https://www.ptt.cc/bbs/movie/M.1702049537.A.AEA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論：推薦！配樂導演功力很讚，白潤音、陳慕義大哥的演技非常爐火純青。
 
   白潤音沒有入圍金馬非常地可惜！
@@ -5934,7 +5933,7 @@ date: 2023-11-28
 reply_count: 9
 title: '[好雷] 老狐狸——簡單但精彩的寓言故事 '
 url: https://www.ptt.cc/bbs/movie/M.1701109966.A.B67.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Medium好讀版:
 
 
@@ -6123,7 +6122,7 @@ date: 2024-10-05
 reply_count: 37
 title: '[普雷]老狐狸：人情味無庸置疑，說服力略為勉強'
 url: https://www.ptt.cc/bbs/movie/M.1728137429.A.8A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -159,7 +158,7 @@ date: 2024-03-18
 reply_count: 20
 title: '[好雷] 尋找湯德章 '
 url: https://www.ptt.cc/bbs/movie/M.1710769605.A.1BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '耗時5年拍攝 紀錄片「尋找湯德章」集資計畫開跑
 
 
@@ -224,7 +223,7 @@ date: 2023-12-26
 reply_count: 26
 title: '[新聞] 耗時5年拍攝 紀錄片「尋找湯德章」集資計畫開跑'
 url: https://www.ptt.cc/bbs/movie/M.1703582220.A.EF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '注定的悲劇？停在那刻的台灣近代法律人
 
 
@@ -464,7 +463,7 @@ date: 2024-03-13
 reply_count: 31
 title: '[好雷]《尋找湯德章》在圓環公園的你，是誰？'
 url: https://www.ptt.cc/bbs/movie/M.1710329312.A.754.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -562,7 +561,7 @@ date: 2023-04-05
 reply_count: 23
 title: '[新聞] 紀錄片《尋找湯德章》籌拍4年 預定今秋'
 url: https://www.ptt.cc/bbs/movie/M.1680686925.A.EE4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實是今早才在FB看到這部電影的資訊，
 
   318十週年的今天，擇日不如撞日，
@@ -653,7 +652,7 @@ date: 2024-03-18
 reply_count: 26
 title: '[  好雷] 尋找湯德章，找回塵封的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1710777092.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -781,7 +780,7 @@ date: 2024-03-24
 reply_count: 26
 title: '[好雷] 尋找湯德章'
 url: https://www.ptt.cc/bbs/movie/M.1711288401.A.9FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文完整版：
 
 

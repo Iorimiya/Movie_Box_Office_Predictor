@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '嗨 午安
 
   我阿良啦
@@ -24,7 +23,7 @@ date: 2024-01-02
 reply_count: 28
 title: '[選片] 法拉利 水行俠 哪個好看'
 url: https://www.ptt.cc/bbs/movie/M.1704174597.A.E2B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
   原文部分：Motorsport
@@ -128,7 +127,7 @@ date: 2015-04-11
 reply_count: 11
 title: '[新聞]勞勃狄尼洛將飾演法拉利創辦人 '
 url: https://www.ptt.cc/bbs/movie/M.1428720582.A.FBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.影片名稱 :馴龍高手3
 
 
@@ -203,7 +202,7 @@ date: 2019-02-02
 reply_count: 5
 title: '[好雷] 馴龍高手3之法拉利座椅'
 url: https://www.ptt.cc/bbs/movie/M.1549104726.A.D4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '他真的很有天生的喜感，扮演水行俠這樣的超級英雄，但其實他是很歡樂的人，從很久以
 
   前的作品星際之門就已經常常有不少喜感演出
@@ -220,7 +219,7 @@ date: 2023-07-11
 reply_count: 9
 title: ［閒聊］傑森摩莫亞遊玩法拉利樂園
 url: https://www.ptt.cc/bbs/movie/M.1689081542.A.0E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由亞當司機主演的新法拉利電影在爛番茄獲得77%好評
 
   頂級影評83%
@@ -235,7 +234,7 @@ date: 2023-12-20
 reply_count: 15
 title: '[討論] 法拉利評價沒想像中好，爛番茄77'
 url: https://www.ptt.cc/bbs/movie/M.1703001763.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "歐洲影評：這是文化挪用！對《拿破崙》、《法拉利》採用美國演員感到憤怒\n\nYahoo奇摩電影戲劇編輯部\n\n2023年12月18日 週一 下午8:10\n\
   \n\n\n《法拉利》《拿破崙》《杜巴利伯爵夫人》《大師風華：真愛樂章》《神鬼戰士》劇照\n\n1.法國、義大利代表性人物「講英語」讓歐洲影評怒了\n\n2.「一堆白人演另一堆白人！」有一群歐洲一線演員還不用？\n\
   \n3.「強尼戴普講法語才難受！」聽美國人講法語也是折磨…\n\n【文／太空小姐】\n\n近來兩部歷史與傳記電影，（Ridley Scott）的《》與（Mich\n\
@@ -259,7 +258,7 @@ date: 2023-12-19
 reply_count: 182
 title: '[新聞] 文化挪用！對拿破崙、法拉利採用美國'
 url: https://www.ptt.cc/bbs/movie/M.1702945250.A.652.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本作改編自 Brock Yates 知名著作《Enzo Ferrari – The Man and the Machine》，背
 
   景設定在 1957 年夏天，前職業車手 Enzo Ferrari（Adam Driver  飾）的人生陷入空前
@@ -300,7 +299,7 @@ date: 2023-10-26
 reply_count: 19
 title: '[情報] 【法拉利】Ferrari 正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1698330392.A.330.html
---- !!python/object:movie_data.PublicReview
+---
 content: '法拉利真的是最近比較不優的傳記電影 導演敘事能力不好 沉悶 無趣 沒把汽車業的鬥爭演
 
   活 私生活的戲碼也稱不上出色 主角居然還是我很喜歡的亞當催佛（星戰）
@@ -322,7 +321,7 @@ date: 2024-01-10
 reply_count: 16
 title: '[負雷] 法拉利'
 url: https://www.ptt.cc/bbs/movie/M.1704858080.A.475.html
---- !!python/object:movie_data.PublicReview
+---
 content: "12/29 (五) 全台上映\n\n改變世界賽車史的終極對決\n\n\n「興奮、危險、一部《\n\n\n\n\n\n生死賽道，極速對決\n\n\
   強勢問鼎2024奧斯卡！\n\n2023威尼斯影展競賽片\n\n《》《》監製打造年度鉅獻\n\n《》金獎名導 睽違7年最新作品\n\n《》奧斯卡提名男星 化身法拉利創始人\n\
   \n《分岐者系列》知名女星  再創演技新巔峰\n\n《瘋狂競賽片》奧斯卡獲獎女星 加盟演出\n\n《》奧斯卡提名作曲家打造動人樂章\n\n《曼克》《控制》奧斯卡獲獎攝影師構築精彩畫面\n\
@@ -331,7 +330,7 @@ date: 2023-12-26
 reply_count: 3
 title: '[情報] 麥可曼恩《法拉利》全台上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1703596127.A.FEB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '曾多次在大銀幕上增重減肥的Christian Bale，原本預計由他主演的已故義大利傳奇賽車
 
   手法拉利(Enzo Ferrari)傳記電影，近日他以健康因素拒絕再增重為由，退出電影拍攝。
@@ -352,7 +351,7 @@ date: 2016-01-16
 reply_count: 30
 title: '[新聞] 克里斯丁貝爾退出《法拉利傳》拒增重影響健康'
 url: https://www.ptt.cc/bbs/movie/M.1452921462.A.FCE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如標題！
 
 
@@ -370,7 +369,7 @@ date: 2023-12-30
 reply_count: 103
 title: '[請益]  請問有版友看過法拉利了嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1703942144.A.940.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n法拉利（Ferrari）\n2024-12-14(六) 21:00\n2024-12-22(日) 03:25\n2024-12-22(日)\
   \ 23:25\n\n導演 麥可·曼恩\n主演\n亞當·崔佛\n潘妮洛普·克魯茲\n雪琳·伍德莉\n莎拉·蓋登\n加布里埃爾·萊昂內\n傑克·奧康奈爾\n派屈克·丹普西\n\
   \n《法拉利》（英語：Ferrari）是2023年上映的美國傳記運動驚悚片，改編自義大利汽車\n製造商法拉利汽車創辦人恩佐·法拉利的傳記《恩佐·法拉利：人與機器》（Enzo\n\
@@ -382,7 +381,7 @@ date: 2024-12-14
 reply_count: 23
 title: '[LIVE] HBO 21:00 法拉利（Ferrari）'
 url: https://www.ptt.cc/bbs/movie/M.1734171592.A.5EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【樂搜搜片報】\n佐藤健特輯 / 法拉利312B / 古曼童\n\n待在家想找部電影看嗎？這回獻上 15 部優惠到 3/27 的 iTunes\
   \ 特價片、5\n部由數位平台開放租買的新片，作為觀影參考！\n\n繼黑木華，這回輪到潛力男星佐藤健，將在 3/21 滿 31 歲。在這推薦漫改電\n影《亞人》，用不死人種衍伸的社會議題和鬥爭，引起《攻殼機動隊1995》導\n\
   演押井守盛讚特效團隊，高度還原打鬥場景的逼真感；當中身為主角的壽星，\n考量觀看族群範圍擴充，多次提供本廣克行在氣氛打造的建議，選擇懸疑科幻\n減緩恐怖描寫。\n\

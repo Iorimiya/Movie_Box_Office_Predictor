@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -71,7 +70,7 @@ date: 2024-11-03
 reply_count: 5
 title: '[好雷] 變身機長 Pilot'
 url: https://www.ptt.cc/bbs/movie/M.1730639109.A.7A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片的劇情很簡單
 
 
@@ -109,7 +108,7 @@ date: 2024-08-27
 reply_count: 60
 title: '[無雷] 變身機長，輕喜劇輕鬆看'
 url: https://www.ptt.cc/bbs/movie/M.1724699952.A.E93.html
---- !!python/object:movie_data.PublicReview
+---
 content: "他（她）回來了！！\n\n 《》領銜主演！\n\n《》( 前譯：)\n\n今年8月 在台上映\n\n  \n\n歡迎搭乘本班機\n我會安全的將各位送達目的地\n\
   \n\n《》今年8月即將在台上映\n\n《》領銜主演爆笑鉅獻！\n\n《菜鳥警校生》X《D.P：逃兵追緝令》製作團隊攜手打造\n\n《二十五，二十一》李宙明 X《酒鬼都市女人們》韓善伙\
   \ X《還魂》申承浩 精彩共演！\n\n一夕之間失業的明星機長，準備再次起飛！\n\n具備最強飛行實力的明星機長韓正宇（飾），受歡迎到還參加了有名的電視節目\n\

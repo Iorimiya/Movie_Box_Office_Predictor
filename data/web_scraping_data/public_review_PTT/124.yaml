@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -132,7 +131,7 @@ date: 2018-08-31
 reply_count: 14
 title: '[心得]《私法爭鋒》、《雙面危敵》《烈火焚身》'
 url: https://www.ptt.cc/bbs/movie/M.1535719879.A.7A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家推到爆的加拿大片，但是我想說一部兩小多的電影看到前面三十分就猜到結局了，這
 
   整部片的爆點就是那結局，真搞不懂導演片頭那一段是怎樣，是存心讓白癡都可以直接猜
@@ -151,7 +150,7 @@ date: 2016-01-08
 reply_count: 16
 title: '[討論] 烈火焚身觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1452241857.A.752.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -253,7 +252,7 @@ date: 2024-12-12
 reply_count: 12
 title: '[好雷] 烈火焚身'
 url: https://www.ptt.cc/bbs/movie/M.1733992376.A.A40.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -399,7 +398,7 @@ date: 2023-05-12
 reply_count: 13
 title: '[好雷] 烈火焚身'
 url: https://www.ptt.cc/bbs/movie/M.1683901392.A.EE7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌好讀版：
 
 
@@ -532,7 +531,7 @@ date: 2011-09-26
 reply_count: 19
 title: '[好雷] 烈火焚身（Incendies）'
 url: https://www.ptt.cc/bbs/movie/M.1316967830.A.4CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '烈火焚身 Incendies ; 焦土之地(2010加拿大電影)
 
 
@@ -597,7 +596,7 @@ date: 2018-08-27
 reply_count: 13
 title: '[ 好雷] 烈火焚身Incedies(2010加拿大電影)'
 url: https://www.ptt.cc/bbs/movie/M.1535368343.A.492.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請問烈火焚身的片頭
 
   一開始就唱電台司令的 you and whose army
@@ -624,7 +623,7 @@ date: 2023-06-10
 reply_count: 21
 title: '[討論] 請問烈火焚身的劇情'
 url: https://www.ptt.cc/bbs/movie/M.1686405939.A.AF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前陣子看完沙丘 點開導演的頁面發現還有執導另一部電影 烈火焚身 瀏覽介紹後就決定
 
   追這部

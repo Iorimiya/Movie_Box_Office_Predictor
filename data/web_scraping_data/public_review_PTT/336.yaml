@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '三部片的劇情都很吸引我，
 
   但家有幼兒幾乎沒有自己的時間可以去電影院，只能三擇一。
@@ -17,7 +16,7 @@ date: 2024-02-28
 reply_count: 77
 title: '[選片] 可憐的東西、墜惡真相、夢想集中營'
 url: https://www.ptt.cc/bbs/movie/M.1709091040.A.FF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第96屆奧斯卡金像獎最佳國際影片獎由電影「夢想集中營」奪下，全片聚焦奧斯威辛
 
   集中營指揮官一家生活，醞釀作品10年的導演葛拉瑟今天上台致詞時，獻獎給所有
@@ -109,7 +108,7 @@ date: 2024-03-11
 reply_count: 4
 title: '[新聞] 夢想集中營奪最佳國際影片 導演獻獎給抵'
 url: https://www.ptt.cc/bbs/movie/M.1710166590.A.7C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -191,7 +190,7 @@ date: 2024-02-24
 reply_count: 51
 title: '[負雷] 夢想集中營'
 url: https://www.ptt.cc/bbs/movie/M.1708708223.A.3FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~
 
 
@@ -261,7 +260,7 @@ date: 2024-02-28
 reply_count: 6
 title: '[  雷] 《夢想集中營》心得-二戰題材反套路電影'
 url: https://www.ptt.cc/bbs/movie/M.1709107025.A.09E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "去年坎城評審團大獎得主。\n\n上周五上映，現正熱映中\n推薦給大家\n\n\n\n\n\n\n雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n  (刊登於網址的原文，含圖片與連結)\n\
   \n\n\n描述二戰德國惡名昭彰的奧斯威辛猶太人集中營管理指揮官魯道夫霍斯（Rudolf Höss）\n生平，他甚至是Zyklon B毒氣室發明者，《夢想集中營》呈現上述其看似「遙遠」歷史事\n\
@@ -291,7 +290,7 @@ date: 2024-02-26
 reply_count: 26
 title: '[好雷] 《夢想集中營》- 界線與範式(系統)轉換  '
 url: https://www.ptt.cc/bbs/movie/M.1708952920.A.F68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '只能說這部的概念真的很特別，而且官方劇情介紹就把整部想表達的說完了，但觀影過程
 
   所帶來的情緒又更為生動、後勁強很多。我想導演真的有效地用「電影」這個載體來找到
@@ -332,7 +331,7 @@ date: 2024-03-02
 reply_count: 4
 title: '[普好雷] 夢想集中營'
 url: https://www.ptt.cc/bbs/movie/M.1709373702.A.45A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "電影中的背景聲音並非只是背景噪音，而是反映了生活的真實環境：孩童的哭泣聲、粗暴\n的吆喝聲、驚恐的慘叫聲，以及遠處的槍響聲。他們生活的平靜和和諧背後，是冷酷的現\n\
   實和無情的壓迫。\n\n\n\n《夢想集中營》的劇本細節繁多，它通篇不見血，只有背景不斷傳來的異樣聲響：孩童的\n哭泣聲、粗暴的吆喝聲、驚恐的慘叫聲，以及此起彼落的槍響聲。\n\
   \n\n電影最讓我感到可怕的一幕，是原本被調離奧斯威辛集中營的魯道夫，終於獲准返「家」\n，他打電話跟妻子報「喜訊」，並以冷靜且不帶情緒的口吻說著自己回到集中營後要做的\n\
@@ -344,7 +343,7 @@ date: 2024-03-03
 reply_count: 11
 title: '[好雷] 夢想集中營｜觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1709481078.A.8CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '活該你浪費了觀影時間
 
   開頭軍官們討論的平面圖才是本片的引線，你居然連看都看不懂就想噴？
@@ -361,7 +360,7 @@ date: 2024-02-25
 reply_count: 44
 title: 'Re: [負雷] 夢想集中營'
 url: https://www.ptt.cc/bbs/movie/M.1708800548.A.9D6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實我覺得這個中文片名取的不是很好啦
 
 
@@ -405,7 +404,7 @@ date: 2024-03-01
 reply_count: 9
 title: '[普無雷] 隔靴搔癢的《夢想集中營》'
 url: https://www.ptt.cc/bbs/movie/M.1709272627.A.184.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為版上這兩部討論不多
 
 
@@ -424,7 +423,7 @@ date: 2024-02-22
 reply_count: 45
 title: '[選片]  夢想集中營 或 墜惡真相'
 url: https://www.ptt.cc/bbs/movie/M.1708594820.A.EB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~
 
 
@@ -469,7 +468,7 @@ date: 2024-02-25
 reply_count: 31
 title: '[ 超好雷] 夢想集中營 A24又一部神作'
 url: https://www.ptt.cc/bbs/movie/M.1708871417.A.1CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "奧斯卡強勢入圍最佳影片等5項大獎！\n\n出品完美之作《》\n\n2月23日(五) 全台上映\n\n奧斯卡5項大獎入圍！《》金獎導演鞥\n\n\
   細膩殘暴話題之作【】\n\nThe Zone of Interest 2/23(五) 全台上映\n\n\n\n\n   「一個巨大的奇蹟」—Vanity Fair\n\
   \n   「極具毀滅性又至關重要」—The Telegraph\n\n  「既細膩又殘暴，既兇猛又冷酷」—CineVue\n\n  「一部偉大的電影」—BBC\n\
@@ -484,7 +483,7 @@ date: 2024-02-08
 reply_count: 5
 title: '[情報] 《夢想集中營》2/23(五) 全台上映'
 url: https://www.ptt.cc/bbs/movie/M.1707373270.A.DD6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整部片看似平白直敘
 
   沒有什麼曲折離奇的劇情

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '一部看似紀實的劇情片，卻存在著幽靈，此幽靈的出現卻是在延遲中顯現，
 
   筆者以為劇情中光司（三蒲春馬
@@ -54,7 +53,7 @@ date: 2016-08-11
 reply_count: 1
 title: '[有雷]短論《東京公園》：試探不可忽略的幽靈 '
 url: https://www.ptt.cc/bbs/movie/M.1470857299.A.583.html
---- !!python/object:movie_data.PublicReview
+---
 content: '經由版大介紹
 
   日前在  Yahoo free電影區

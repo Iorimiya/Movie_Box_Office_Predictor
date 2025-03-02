@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -241,7 +240,7 @@ date: 2016-06-26
 reply_count: 16
 title: '[新聞]《ID4：星際重生》告訴我們的事'
 url: https://www.ptt.cc/bbs/movie/M.1466946790.A.46A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影簡評:ID4星際重生,簡單來說 第一部是經典果然很難超越,個人覺得這個續集只是
 
 
@@ -259,7 +258,7 @@ date: 2016-06-25
 reply_count: 3
 title: '[負雷]ID4 星際重生簡評 '
 url: https://www.ptt.cc/bbs/movie/M.1466785500.A.876.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當年我7歲第一次在家裡看ID4，看的是錄影帶，電視是厚重的CRT電視
 
 
@@ -587,7 +586,7 @@ date: 2016-07-03
 reply_count: 17
 title: '[普雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1467502809.A.D40.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
   .
@@ -818,7 +817,7 @@ date: 2016-06-23
 reply_count: 38
 title: '[負雷] ID4星際重生 然後他就死掉了'
 url: https://www.ptt.cc/bbs/movie/M.1466657628.A.64F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛剛又看一次這部\n\n這第四集的劇情我當初去電影院看完不到三小時\n\n完全記不住這部電影的劇情到底是什麼，因為連慣性很差，中間又被許多置入行銷插入。\n\
   \n劇情的部份遭到各方抨擊我想就不再多提我自己的心得了。\n\n不過在重看的過程中發現本片嚴重用煙霧和火花帶過需要一定動畫水平的地方\n\n變型金鋼，不賣劇情、不發揮題材特性、無邏輯性，大家有目共睹。\n\
   \n所以我想它本身就是一部動畫片，歸類成動畫片應該沒問題吧?\n\n雖然劇情差不提，但一部動畫片動畫的部份作的不好就說不過去了。\n\n追逐戰的部份一率是用砲火加煙霧帶過，主角群閃避率約85%，格擋率13%，幸運閃躲1%。\n\
@@ -831,7 +830,7 @@ date: 2015-08-07
 reply_count: 25
 title: '[負雷] 變型金鋼4 絕跡重生 '
 url: https://www.ptt.cc/bbs/movie/M.1438952834.A.33C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "==算小雷==\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n少數覺得漫畫改編成真人電影後不錯的\n\n雖然特效比不上好萊屋,兩人在對打時仍稍微不真實\n\
   \n在打破身體時\n\n老爹的右手肢體也有點卡卡的(慢動作特別明顯)\n\n但滿喜歡用臉去擠爆獅子神的手XD 不會打架的趣味 (如果用反擊拳就怪啦 ww)\n\n\
   \n\n在無差別獵殺時\n\n先殺肥宅滿過癮的\n\n兩個妹子在看大螢幕時,如果加了句 \"獅子神滿帥的嘛~喜歡<3 \"\n                \
@@ -843,7 +842,7 @@ date: 2018-11-16
 reply_count: 27
 title: '[好雷]殺戮重生犬屋敷'
 url: https://www.ptt.cc/bbs/movie/M.1542351519.A.BEF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -1012,7 +1011,7 @@ date: 2022-10-27
 reply_count: 1
 title: '[好雷] 《愛別離苦》，重生與新生。'
 url: https://www.ptt.cc/bbs/movie/M.1666863195.A.46B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '個人感覺這部真的改得不錯
 
   近期日漫改的電影，像之前的亞人，JOJO跟殺戮重生
@@ -1056,7 +1055,7 @@ date: 2018-07-01
 reply_count: 5
 title: '[好雷]殺戮重生犬屋敷 '
 url: https://www.ptt.cc/bbs/movie/M.1530374427.A.C66.html
---- !!python/object:movie_data.PublicReview
+---
 content: '睽違了二十年
 
 
@@ -1352,7 +1351,7 @@ date: 2016-06-23
 reply_count: 16
 title: '[普負雷]  ID4 老調重生 '
 url: https://www.ptt.cc/bbs/movie/M.1466681485.A.99B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -1544,7 +1543,7 @@ date: 2018-06-23
 reply_count: 29
 title: '[好雷] 殺戮重生犬屋敷--我存在的意義'
 url: https://www.ptt.cc/bbs/movie/M.1529693499.A.92F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看《33:重生奇蹟》你會知道的3件事情\n\n\n背景是這樣的，電影改編自2010年發生在智利阿塔加馬沙漠中聖何塞礦場（Mina San Jos\n\
   ）礦坑的真實案件，33名礦工被困在地底下大約200層樓的深度，期間長達69天，並在各\n國伸出援手後成功獲救，整個救援過程引起全球關注。\n\n\n1． 全世界最長的英文單字是火山矽肺症，（Pneumonoultramicroscopicsilicovolcanoc\n\
   oniosis）高中背這個冷門到炸的單字的時候除了覺得踏馬的英文老師根本在整我之外，\n覺得這個單字根本就不實用，生活中不會出現，連托福我都不覺得會考= = 沒想到今天在\n\
@@ -1570,7 +1569,7 @@ date: 2015-12-03
 reply_count: 10
 title: '[好雷] 看「33:重生奇蹟」會知道的3件事情'
 url: https://www.ptt.cc/bbs/movie/M.1449138269.A.B80.html
---- !!python/object:movie_data.PublicReview
+---
 content: '羅蘭導演
 
   你看看人家
@@ -1676,7 +1675,7 @@ date: 2017-04-30
 reply_count: 118
 title: '[LIVE] ID4星際重生    星星臺首播21:00'
 url: https://www.ptt.cc/bbs/movie/M.1493555078.A.F5C.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'ID4星際終結者
 
   一部很經典的地球人大戰外星人的片
@@ -1726,7 +1725,7 @@ date: 2016-06-24
 reply_count: 11
 title: '[普雷] ID4星際重生 微心得'
 url: https://www.ptt.cc/bbs/movie/M.1466701644.A.1B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'ID4星際重生 距離上集已經超過20年
 
 
@@ -1748,7 +1747,7 @@ date: 2016-04-22
 reply_count: 152
 title: '[討論] ID4星際重生 第二波預告釋出'
 url: https://www.ptt.cc/bbs/movie/M.1461309812.A.E98.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看到一堆人糾結這個問題真的是莫名其妙\n\n女王最後被爆是因為她的船太小嗎？\n不是耶\n女王最後雖然離開了4800km的母艦\n但她乘坐的太空船仍然非常大\n\
   是可以讓比爾普曼那艘載著冷核融炸彈的假信號飛船, 開進去裡頭飛來飛去的大小\n看起來很可能就是第一集300km那個級別的\n此外她也把母艦裡的小飛機幾乎都帶來了(電影裡頭說全體動員)\n\
   她繼續待著鬧空城的母艦裡, 有比較安全？\n\n女王被爆是因為她讓假信號飛船進來, 無關她的飛船大小\n就算她當時開的是4800km級, 一樣會被爆\n(一開始人類就是用兩艘冷核融轟炸機要去爆4800km的母艦)\n\
@@ -1757,7 +1756,7 @@ date: 2016-06-23
 reply_count: 49
 title: 'Re: [普雷]ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466681116.A.B0E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然板上負雷不少
 
 
@@ -1798,7 +1797,7 @@ date: 2016-06-25
 reply_count: 32
 title: '[爽雷] ID4星際重生的致敬點'
 url: https://www.ptt.cc/bbs/movie/M.1466835010.A.695.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完這部片我蠻五味雜陳的
 
   不知道該說好是好雷還是負雷，我覺得看這部片可能要有點心理準備，這絕對是部爽片，
@@ -1906,7 +1905,7 @@ date: 2016-06-22
 reply_count: 18
 title: '[ 微好雷] 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466572809.A.664.html
---- !!python/object:movie_data.PublicReview
+---
 content: '演的真差啊
 
 
@@ -1915,7 +1914,7 @@ date: 2016-06-27
 reply_count: 8
 title: 'Re: [負雷] ID4星際重生 ID4都不ID4了 '
 url: https://www.ptt.cc/bbs/movie/M.1466993761.A.BC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先還沒看過的人，先別期待這部是恐怖
 
   鬼片、嚇人片，「們」比較像是哲學混一
@@ -2066,7 +2065,7 @@ date: 2022-06-05
 reply_count: 50
 title: '[好雷] 「們 MEN」 死亡與重生'
 url: https://www.ptt.cc/bbs/movie/M.1654363370.A.D7B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2112,7 +2111,7 @@ date: 2018-06-19
 reply_count: 12
 title: '[新聞] 本鄉奏多【殺戮重生犬屋敷】力抗佐藤健！'
 url: https://www.ptt.cc/bbs/movie/M.1529407512.A.3EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "衝著小時候有進電影院看過第一集的份上...\n\n剛上映就馬上衝到電影院看...還看3D...\n\n\n結果非常的失望!!!\n\n除了特效以外...感覺劇情就一直很趕...\n\
   \n每一段劇情都快速的帶過 然後就馬上換場景了= =\n\n真的覺得有很多沒必要的點...\n\n像是\n\n1.一開始主角出場裝武器要凸顯出技術很好那段 到底有甚麼意義...看了一點都沒感覺\n\
   \n2.老蔣用中文罵人 跟 牛奶那段 我真的看了超傻眼...有沒有要這麼刻意...\n\n3.劉小雨 一出場講中文時候... 馬上就有種很出戲的感覺...\n\
@@ -2129,7 +2128,7 @@ date: 2016-06-23
 reply_count: 40
 title: '[負雷]ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466652174.A.E32.html
---- !!python/object:movie_data.PublicReview
+---
 content: "◎《33：重生奇蹟》(The 33) - 真實版本比較精彩\n\n圖文完整版： \n\n《33：重生奇蹟》是根據2010年真實事件改編，描述智利發生礦坑意外時，\n\
   被埋在地底下700公尺深處的33名礦工，如何面對如此兇險的困境。\n\n我覺得《33：重生奇蹟》與許多真實事件改編的電影一樣，有個先天不良的\n問題：觀眾早已知道結局。就算不知道，本片的宣傳也差不多說完了。這已\n\
   經削弱不少懸疑感，所以必須要很有說故事的能力，才不會讓觀眾不耐。\n\n但是很可惜，本片還有另一個先天不良，在於「埋在礦坑裡哪也不能去」這\n檔事本來就很無聊。舉例來說，《間諜橋》(Bridge\
@@ -2150,7 +2149,7 @@ date: 2015-12-11
 reply_count: 5
 title: '[普雷] 《33：重生奇蹟》 - 真實版本比較精彩'
 url: https://www.ptt.cc/bbs/movie/M.1449822243.A.670.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2203,7 +2202,7 @@ date: 2024-12-20
 reply_count: 79
 title: '[新聞] 《侏羅紀世界：重生》導演保證：回歸初衷'
 url: https://www.ptt.cc/bbs/movie/M.1734677343.A.715.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《WE ARE X：X JAPAN 重生之路》口碑特映場PTT限定贈票
 
 
@@ -2269,7 +2268,7 @@ date: 2017-04-11
 reply_count: 395
 title: '[贈票] 《WE ARE X：X JAPAN重生之路》特映贈票'
 url: https://www.ptt.cc/bbs/movie/M.1491850673.A.7EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'AXN目前正在播浩劫重生。
 
   看到Wilson在海上漂走後突然有感，剛好也跟這篇影評的標題有關。
@@ -2319,7 +2318,7 @@ date: 2015-01-02
 reply_count: 2
 title: 'Re: [有雷] 排球與我的荒島之戀——《浩劫重生》'
 url: https://www.ptt.cc/bbs/movie/M.1420202891.A.4ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無音樂網誌好讀版：
 
 
@@ -2490,7 +2489,7 @@ date: 2015-03-22
 reply_count: 26
 title: '[好雷] 金盞花大酒店2 - 有多少死亡就有多少重生'
 url: https://www.ptt.cc/bbs/movie/M.1427026944.A.ECE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "無雷\n\n\n   看到板上負評跟普雷太多,本來想打退堂鼓,但這部前作實在太經典,所以就IMAX3D給他\n\n衝下去,結果出乎意料的好看阿!!!!!!!故事的發展也不會讓我感覺到有違和感,而且不會\n\
   \n比一還要難看阿~後面大戰部分也非常精彩,整體來講就是一部爽爽片,看完心情很好,真的\n\n很推去戲院看喔!!!!!!\n\n\n\n\n\n\n\n\n\n\
   \n防雷\n\n\n\n\n\n\n之前看到板上有人把這片說得中國置入性行銷好像很嚴重,結果產品就只有短短不到5秒的\n\n牛奶跟QQ畫面,然後前面15分鐘中國人配角有比較多的台詞,就這樣=\
@@ -2500,7 +2499,7 @@ date: 2016-06-24
 reply_count: 23
 title: '[超爽雷]ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466707443.A.2BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '說這部是上半年我最期待的電影
 
 
@@ -2601,7 +2600,7 @@ date: 2016-06-28
 reply_count: 35
 title: '[普雷] 讓人失望的Id4第二集'
 url: https://www.ptt.cc/bbs/movie/M.1467110965.A.481.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我比較疑問的BUG點是那個女王幹嘛自己出來送頭 明明不到半天就把地球空軍93%全殲了
 
 
@@ -2625,7 +2624,7 @@ date: 2016-06-26
 reply_count: 14
 title: 'Re: [負雷] 大失所望的ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466919925.A.A76.html
---- !!python/object:movie_data.PublicReview
+---
 content: "記者林映妤／綜合報導\n\n歷久不衰的《星戰》系列目前出到第8集《STAR WARS：最後的絕地武士》，也培養了大批\n死忠影迷，《星戰》除了系列宇宙電影，也有2部外傳作品，2016年底上映的《星際大戰\n\
   外傳：俠盜一號》（Rogue One: A Star Wars Story）以及今年5月上映的《星際大戰外\n傳：韓索羅》（Solo: A Star Wars\
   \ Story）。\n\n\n\n《俠盜一號》跟《韓索羅》有什麼關聯呢？它們都做為連接《星際大戰三部曲：西斯大帝\n的復仇》跟《星際大戰四部曲：曙光乍現》的橋樑，也就是《韓索羅》是《俠盜一號》的\n\
@@ -2641,7 +2640,7 @@ date: 2018-01-09
 reply_count: 32
 title: '[新聞] 《韓索羅》撤換導演重生　《星戰》2外傳'
 url: https://www.ptt.cc/bbs/movie/M.1515468094.A.465.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《ID4星際重生》全台票房破記錄 網讚更勝首集
 
   2016/06/23 18:43
@@ -2684,7 +2683,7 @@ date: 2016-06-23
 reply_count: 50
 title: '[新聞] 《ID4星際重生》全台票房破記錄 網讚更'
 url: https://www.ptt.cc/bbs/movie/M.1466679695.A.E32.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2790,7 +2789,7 @@ date: 2019-02-10
 reply_count: 17
 title: '[普雷] 殺戮重生犬屋敷 奇怪的家人'
 url: https://www.ptt.cc/bbs/movie/M.1549788170.A.23A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2824,7 +2823,7 @@ date: 2015-12-11
 reply_count: 3
 title: '[新聞] 吳念真為「33：重生奇蹟」感動'
 url: https://www.ptt.cc/bbs/movie/M.1449845168.A.A2B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '意外，囚禁，尋找，解放
 
 
@@ -2850,7 +2849,7 @@ date: 2016-12-31
 reply_count: 7
 title: '[好雷] 星際版浩劫重生，威爾森排球變正妹'
 url: https://www.ptt.cc/bbs/movie/M.1483126591.A.6CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過第一集，被身邊的腦粉朋友揪
 
   但他說其實關聯性不大，只是一些小梗有呼應到上集
@@ -2897,7 +2896,7 @@ date: 2016-06-23
 reply_count: 11
 title: '[好無雷] ID4星際重生3D'
 url: https://www.ptt.cc/bbs/movie/M.1466664688.A.469.html
---- !!python/object:movie_data.PublicReview
+---
 content: '空掉的座位
 
 
@@ -2912,7 +2911,7 @@ date: 2017-12-18
 reply_count: 9
 title: 'Re: [討論] 素媛(希望:為愛重生)最後一幕的問題'
 url: https://www.ptt.cc/bbs/movie/M.1513530710.A.D0F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我看的是IMAX 3D版本，可以理解為啥有人說要看4DX，
 
 
@@ -2978,7 +2977,7 @@ date: 2016-06-30
 reply_count: 17
 title: '[普雷]平鋪直敘的ID4-星際重生 '
 url: https://www.ptt.cc/bbs/movie/M.1467255320.A.569.html
---- !!python/object:movie_data.PublicReview
+---
 content: '－－－－－－有雷－－－－－
 
 
@@ -3026,7 +3025,7 @@ date: 2017-06-25
 reply_count: 2
 title: '[普雷] 變形金剛-哈比人之-國家寶藏-星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1498390872.A.3F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網頁版文章：
 
 
@@ -3384,7 +3383,7 @@ date: 2016-07-05
 reply_count: 35
 title: '[影評] 《ID4星際重生》給你20年卻抓錯重點'
 url: https://www.ptt.cc/bbs/movie/M.1467705652.A.D42.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先打個預防針:我是在hide死的那年認識並喜歡上X JAPAN
 
   但兩年後就逐漸失去熱情的短期前粉絲
@@ -3479,7 +3478,7 @@ date: 2017-05-06
 reply_count: 51
 title: '[好雷]WE ARE X：X JAPAN重生之路'
 url: https://www.ptt.cc/bbs/movie/M.1494003927.A.9BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這
 
 
@@ -3591,7 +3590,7 @@ date: 2021-12-25
 reply_count: 13
 title: '[普雷] 駭客任務4：重生'
 url: https://www.ptt.cc/bbs/movie/M.1640428332.A.383.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天和同事跟風去看ID4 續集
 
   版上很多心得文就不暴雷了~~
@@ -3627,7 +3626,7 @@ date: 2016-06-25
 reply_count: 43
 title: '[好無雷] ID4星際重生就是要看3D才爽'
 url: https://www.ptt.cc/bbs/movie/M.1466839762.A.E46.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天要去看電影了！現在還很猶豫要看哪一部片，拜託大家看過的給點意見，那部比較不
 
   沉悶呢？
@@ -3645,7 +3644,7 @@ date: 2015-12-13
 reply_count: 6
 title: 白鯨傳奇 重生奇蹟
 url: https://www.ptt.cc/bbs/movie/M.1449942829.A.DC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '特別請了特休去看
 
   還買了二刷的電影票
@@ -3733,7 +3732,7 @@ date: 2016-06-22
 reply_count: 12
 title: '[負雷] ID4-星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466604036.A.9DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台中地區
 
 
@@ -3751,7 +3750,7 @@ date: 2016-09-08
 reply_count: 24
 title: '[情報] ID4星際重生 二輪上映'
 url: https://www.ptt.cc/bbs/movie/M.1473336978.A.5CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '豐富圖文版:
 
 
@@ -3849,7 +3848,7 @@ date: 2016-07-07
 reply_count: 2
 title: '[普雷] ID4星際重生 大就一定好看嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1467900850.A.EB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '屍體不只在土裡，死亡讓我們知道了什麼？
 
 
@@ -3994,7 +3993,7 @@ date: 2021-08-28
 reply_count: 1
 title: '[普雷] 《我是動物標本師》死亡；重生'
 url: https://www.ptt.cc/bbs/movie/M.1630127203.A.EAF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了一堆說星際大戰:俠盜一號
 
 
@@ -4130,7 +4129,7 @@ date: 2016-12-15
 reply_count: 84
 title: '[負雷]星戰:俠盜一號,ID4星際重生般的悲劇'
 url: https://www.ptt.cc/bbs/movie/M.1481792422.A.5CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -4204,7 +4203,7 @@ date: 2016-06-22
 reply_count: 1
 title: '[普雷]ID4：星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466579992.A.316.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《新封神：哪吒重生》入圍「動畫界奧斯卡」
 
 
@@ -4282,14 +4281,14 @@ date: 2020-06-07
 reply_count: 22
 title: '[新聞] 《新封神：哪吒重生》入圍「動畫界奧斯卡'
 url: https://www.ptt.cc/bbs/movie/M.1591521662.A.55D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "突然想到很多電影的反派都有類似思想\n\n很老梗卻很好用\n\n覺得人類是地球的病毒\n\n必須要毀滅後重生才能延續生命\n\n這類的梗不知道看幾次了\n\
   \n世界真的這麼多這種瘋子嗎\n----\nSent from \n\n--"
 date: 2019-09-02
 reply_count: 155
 title: '[討論] 這世界真的很多想要毀滅重生的人嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1567423903.A.737.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家還記得幾年前智利礦災時，33名礦工被困在地底下69天，全球民眾跟著新聞實況每天
 
   看著救援進度嗎？該真實事件改編的電影《33：重生奇蹟》(The 33)完整呈現當時許多曲
@@ -4327,7 +4326,7 @@ date: 2016-07-31
 reply_count: 45
 title: '[LIVE] 33：重生奇蹟  (The 33)'
 url: https://www.ptt.cc/bbs/movie/M.1469968047.A.DE8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一個女孩遇到車禍又反覆重生,是校園電影,最近看第四臺有介紹，忘記抄下片名,不知是
 
   否有網友知道可以告知片名，謝謝幫忙。
@@ -4338,7 +4337,7 @@ date: 2017-11-19
 reply_count: 21
 title: '[問片] 一個女孩遇到車禍又反覆重生'
 url: https://www.ptt.cc/bbs/movie/M.1511101302.A.99E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有一點雷，防一下
 
 
@@ -4387,7 +4386,7 @@ date: 2015-12-12
 reply_count: 5
 title: '[請益] 33:重生奇蹟插曲'
 url: https://www.ptt.cc/bbs/movie/M.1449858486.A.567.html
---- !!python/object:movie_data.PublicReview
+---
 content: '扣除掉前面可有可無的對年輕一輩鋪陳 ...
 
 
@@ -4481,7 +4480,7 @@ date: 2016-06-23
 reply_count: 7
 title: '[普好雷] '
 url: https://www.ptt.cc/bbs/movie/M.1466616478.A.8F7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格內文有更多文章連結！
 
 
@@ -4656,7 +4655,7 @@ date: 2015-05-27
 reply_count: 30
 title: '[頂好雷] 瘋狂麥斯：憤怒道 每秒我自新墓重生(轉)'
 url: https://www.ptt.cc/bbs/movie/M.1432729527.A.7A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最後女王為了破壞基地,利用飛行器成為漩渦狀保護自己
 
 
@@ -4674,7 +4673,7 @@ date: 2016-06-26
 reply_count: 5
 title: '[討論] ID4 2是不是有參考戰爭遊戲??(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1466871731.A.45D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原文連結\n\n\n\n    影視短評\\【ID4：星際重生】祥和的空戰場面\n\n    以下的分析文會有雷，建議看完電影之後再閱讀。\n\n\
   \    1996年【ID4：星際終結者】裡頭讓威爾史密斯成為大明星的那場經典空戰戲\n    ，花了許多的鏡頭與時間去描述一架F18如何想盡辦法打下一架外星戰鬥機，\n\
   \    一場充滿劣勢的戰鬥到最後反敗為勝的熱血，成就了從【捍衛戰士】之後最\n    精彩的現代空戰戲。（我個人覺得這個紀錄直到【衝出封鎖線】才被取代）\n\n\
@@ -4691,7 +4690,7 @@ date: 2016-06-24
 reply_count: 20
 title: '[普雷]ID4星際重生不如第一集的原因０２ '
 url: https://www.ptt.cc/bbs/movie/M.1466712488.A.A37.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看來可以省下錢或等二輪了
 
 
@@ -4715,7 +4714,7 @@ date: 2016-06-23
 reply_count: 62
 title: '[討論] ID4 星際重生 IMDB 只有 6.7分'
 url: https://www.ptt.cc/bbs/movie/M.1466686141.A.EBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '爛片
 
 
@@ -4822,7 +4821,7 @@ date: 2016-06-22
 reply_count: 31
 title: '[ 負雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466607137.A.9EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先，看了本片結局跟查了一下IMDB之後，確定是會有續集。
 
 
@@ -4934,7 +4933,7 @@ date: 2016-06-27
 reply_count: 37
 title: '[負雷] ID4星際重生 = 外星人全是智障'
 url: https://www.ptt.cc/bbs/movie/M.1467014655.A.4DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩天利用運動快走、小跑步的時間把這部片看完，
 
   雖然內容遠不及第一集震撼、精彩、感人，但整體而
@@ -4954,7 +4953,7 @@ date: 2020-07-06
 reply_count: 115
 title: '[請益] ID4 2 星際重生也太慘了吧？'
 url: https://www.ptt.cc/bbs/movie/M.1594045853.A.DA5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~ID4星際重生<瞠目結舌…>~~
 
   "手動墜落"
@@ -5082,7 +5081,7 @@ date: 2016-06-23
 reply_count: 6
 title: '[普無雷] 嗑電影:ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466663494.A.00B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '溫馨提醒：內文有劇情透露，慎入。
 
 
@@ -5189,7 +5188,7 @@ date: 2015-12-10
 reply_count: 7
 title: '[好雷] 由智利礦災改編的The 33 (重生奇蹟) '
 url: https://www.ptt.cc/bbs/movie/M.1449735865.A.E13.html
---- !!python/object:movie_data.PublicReview
+---
 content: "2019/11/05 by JeanLin\n\n\n《ID4星際終結者》（Independence Day）編導羅蘭艾莫瑞奇（Roland Emmerich）在\n\
   \ 2016 年帶來了睽違 20 年的續集《ID4星際重生》（Independence Day: Resurgence）\n，\n，對此，羅蘭艾莫瑞奇日前接受\
   \ Yahoo 訪問時不諱言表示，當初或許不\n應該拍續集。\n\n\n\n\n，因為我們本來有一個很好的劇本，但接著我必須要用很快的速度，再跟\n另一個劇本拼湊在一起。我應該要說不的，因為突然間，我就變成在做一件我會批評自己\n\
@@ -5201,7 +5200,7 @@ date: 2019-11-06
 reply_count: 121
 title: '[新聞] 導演羅蘭艾莫瑞奇承認後悔拍攝ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1573003556.A.48B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》\n\n主演【】The Crow \n\n\n 「」30年後終於重獲新生\n\n2024.8月 全台上映\n\n\n人間找不到的正義\n\n\
   由地獄使者來實現\n\n\n【】2024.8月 全台上映\n\n「」《》\n\n30年後終於重獲新生\n\n《蝙蝠俠》團隊打造地獄歸來的不死殺神\n\n《》《牠》瑞典人氣男星\n\
   \n 領銜主演\n\n美國同名暢銷漫畫改編\n\n來自地獄的烏鴉，讓他成為不死之身\n\n#車庫娛樂 \n\n資料來源：\n\n\n\n\n\n\n\n\n\n\
@@ -5210,7 +5209,7 @@ date: 2024-07-30
 reply_count: 24
 title: '[情報] 比爾史柯斯嘉《龍族戰神：重生》預告'
 url: https://www.ptt.cc/bbs/movie/M.1722331582.A.04F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本來是打算要看忍者龜的，但一出電梯門發現《ID4 星際重生》剛好開演\n\n        身為二十年前跟高中同學一起進戲院看第一集的大叔\n\n\
   \        義無反顧地放棄忍者龜選擇跟外星人開飛機打架\n\n        --\n\n        而就跟版上給負雷的大家意見一樣\n\n    \
   \    第二集裡最兇最猛的特效鏡頭都在預告片裡了\n\n        反正地球被好萊塢特效組不知道弄壞了幾百次\n\n        看到有一點麻痺只想拜託時間有限趕快推進好嗎？\n\
@@ -5223,7 +5222,7 @@ date: 2016-06-22
 reply_count: 10
 title: '[負雷]ID4 星際重生 '
 url: https://www.ptt.cc/bbs/movie/M.1466604017.A.8E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知會不會被噓
 
   但實在很想罵...
@@ -5326,7 +5325,7 @@ date: 2016-06-26
 reply_count: 68
 title: '[討論] ID4:星際重生-楊穎演技爛到爆炸'
 url: https://www.ptt.cc/bbs/movie/M.1466910473.A.E1F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版，有附圖，歡迎支持→
 
   以下有微雷
@@ -5480,7 +5479,7 @@ date: 2018-06-27
 reply_count: 34
 title: '[好雷]《殺戮重生犬屋敷》佐藤健不愧為漫改一哥 '
 url: https://www.ptt.cc/bbs/movie/M.1530075399.A.F5E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '20年前的經典大作
 
 
@@ -5500,7 +5499,7 @@ date: 2016-06-08
 reply_count: 9
 title: '[討論] 飛官方評論 - ID4星際重生預告分析及預測'
 url: https://www.ptt.cc/bbs/movie/M.1465385968.A.82B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '故事主講‘‘高等人類’’因地球資源耗盡，移民至克卜勒－209星球後，歷經時間推移，
 
   開始無法生育，於是再派探索隊返回地球，尋找生存與生育契機……
@@ -5585,7 +5584,7 @@ date: 2022-05-07
 reply_count: 4
 title: '[普雷]《地球重生》地球只有一個'
 url: https://www.ptt.cc/bbs/movie/M.1651914690.A.83C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "各位電影版友大家好\n\n在這部電影上映前我一直有種既視感\n\n1. 續集難產\n\n2. 主角換人但搞笑角還在（預告表示原班人馬部分回歸）\n\
   \n3. 中國元素參雜\n\n4. 預告片鋪天蓋地而來\n\n有種ID4 2的既視感...害我很期待續集又很怕受傷害\n\n以下有雷\n\n\n\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n先講故事內容好了\n\n故事一開始，與前作一樣由故事主角開場旁白\n\n大致介紹一下前作演到哪了\n\
@@ -5613,7 +5612,7 @@ date: 2018-04-29
 reply_count: 7
 title: '[普雷] 環太平洋2 - 星際重生？'
 url: https://www.ptt.cc/bbs/movie/M.1524932311.A.797.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(防雷)
 
 
@@ -5674,7 +5673,7 @@ date: 2016-06-24
 reply_count: 8
 title: '[討論] ID4-星際重生,這次的外星人跟上次比...'
 url: https://www.ptt.cc/bbs/movie/M.1466700478.A.AD7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我看預告，發現威爾史密斯居然領便當了，取而代之的是他在戲裡的兒子，可是威爾史密
 
   斯在第一集也是很重要的角色不是嗎，怎麼其他人都回歸了就他沒有？是片酬要求太高還
@@ -5691,7 +5690,7 @@ date: 2016-05-21
 reply_count: 20
 title: '[請益] id4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1463824089.A.53B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了兩天版上的評論，總算是自己親自去看了，大概是有心理準備的關係，覺得還算不錯
 
   沒有想像中的那樣差勁。當然，跟第一集是無法比較的，但是比不過第一集也是正常，因
@@ -5813,7 +5812,7 @@ date: 2016-06-23
 reply_count: 7
 title: '[普好雷] ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466661672.A.94D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我常覺得，電影就像藥品，安慰劑、興奮劑、鎮定劑、麻醉劑、迷幻劑，在那\n　　數不清的藥品裡，我們能以任何可能的方式觸動自己的神經與感情，而後獲得\n\
   　　的滿足，可以是重生、是宣洩、是省思，或者是任何事。\n\n　　所以說，《戀愛沒有假期》，到底算是哪一種藥品？\n\n　　大致來看，本片與《托斯卡尼艷陽下》與《美好的一年》極度類似，與前者的\n\
   　　相似度尤其顯著──主角都是受創的女性，都為了逃避現狀而前往異國，結果\n　　意外地獲得了新的情感、自信、領悟、方向，或者任何其他事情。\n\n　　而《托斯卡尼艷陽下》在我看來，就是不折不扣的安慰劑，光是俊俏男人的說\n\
@@ -5883,7 +5882,7 @@ date: 2007-02-23
 reply_count: 285
 title: '[惡雷] 戀愛沒有假期：自慰性的重生劇'
 url: https://www.ptt.cc/bbs/movie/M.1172244532.A.952.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我倒覺得這一幕的用意是告訴主角人生依舊寬廣。
 
 
@@ -5931,7 +5930,7 @@ date: 2020-03-04
 reply_count: 16
 title: 'Re: [討論] 浩劫重生哪一段比較感傷？'
 url: https://www.ptt.cc/bbs/movie/M.1583252125.A.D17.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我個人也認為第二集也拍爛了。
 
 
@@ -5990,7 +5989,7 @@ date: 2016-06-27
 reply_count: 28
 title: 'Re: [負雷] ID4星際重生 = 外星人全是智障'
 url: https://www.ptt.cc/bbs/movie/M.1467021363.A.F7C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "異形2真的是神作，淦\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n異形四怎麼可以拍成這樣\n既不驚悚也無爽度更沒有裝神弄鬼的裝高深\n\
   劇情平鋪直述節奏極差毫無高潮\n分鏡、演員表情和台詞給人一種極為可笑的白爛惡搞感\n如果說3是把異形放進末世宗教片\n那4大概就是有異形的星際異攻隊\n（起碼GOTG是真的好笑又爽，此片全無\n\
   \n劇情也一堆莫名其妙的地方\n對比第2集奮戰到底的陸戰隊員\n這集的軍官更多又是自家場合第一反應居然是直接逃跑\n連異形到底怕不怕武器都不知道\n隊長看到地上的武器像是撿地上糖果吃的小孩毫無危機意識一直撿\n\
@@ -6005,7 +6004,7 @@ date: 2019-01-22
 reply_count: 21
 title: '[負雷] 毫無特點的異形4：浴火重生'
 url: https://www.ptt.cc/bbs/movie/M.1548148269.A.13D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "不是有景甜的《環太平洋2》 而是《還大西洋2》\n\n\n\n更強、更大、更猛！所向無敵的機甲戰神再度強悍出擊！\n\n今年的太平洋不平靜，而遠在地球彼端的大西洋也有批英勇戰士，駕駛著更廉價、更落伍\n\
   的機甲戰神浴血奮戰著！\n\n生化巨獸再度從大西洋深處竄出，美國政府打造了比前身更加巨大、威力更強大的機甲戰\n神，試圖阻止這批生化巨獸登陸洛杉磯。不過，上回嘗過戰敗滋味的巨獸們也不是省油的\n\
   燈，雙方陷入難分難捨的激烈纏鬥，機甲戰神的駕駛員們必須竭盡所能擊退敵人，拯救世\n界免於滅亡！\n\n發行商：映畫聯合\n\n竟然有公司買 而且要上院線XD~~~~~~\n\
@@ -6014,7 +6013,7 @@ date: 2018-04-19
 reply_count: 114
 title: '[討論] 《環大西洋2：重生時刻》5/11上台灣院線'
 url: https://www.ptt.cc/bbs/movie/M.1524106680.A.FEA.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'IBDM :1分
 
 
@@ -6272,7 +6271,7 @@ date: 2016-07-02
 reply_count: 17
 title: '[極品雷] ID4-2 星際重生，值得一看'
 url: https://www.ptt.cc/bbs/movie/M.1467457961.A.59D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》團隊翻新恐怖經典！
 
 
@@ -6330,7 +6329,7 @@ date: 2022-08-26
 reply_count: 71
 title: '[情報] 《毛骨悚然：惡魔重生》電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1661446691.A.CAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如果電影要這麼嚴格的講究\n     那湯姆克魯斯演的 top gun也不及格了\n     他那種戰機炫技,\n     事實上當時的裝備是做不到的\n\
   \     G力就可以讓他當場昏厥\n\n\n     至少劇情有交待\n     他不只是前總統這麼簡單\n     而是拯救人類的大英雄\n     五十一區那些事\n\
   \     他老早就知道,\n     還知道的比別人多\n     對他來說,哪有什麼機密可言...\n\n\n     那又如何?\n     侏儸紀公園的大人小孩都可以跑給暴龍追\n\
@@ -6344,7 +6343,7 @@ date: 2016-06-30
 reply_count: 18
 title: 'Re: [無敵大負雷] 想看ID4星際重生,還是省下這筆錢吧'
 url: https://www.ptt.cc/bbs/movie/M.1467217763.A.099.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到20年前老演員再次相聚合力對抗外星人，真的相當熱血啊www
 
   劇情鋪成相當緊湊絕無冷場
@@ -6386,7 +6385,7 @@ date: 2016-06-23
 reply_count: 5
 title: '[好無雷]<ID4星際重生>人類團結救地球'
 url: https://www.ptt.cc/bbs/movie/M.1466676488.A.B3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如有看過屍速列車及末日之戰的，相信都會拿來比較一下
 
   那如有看過33重生奇蹟這部片，那建議也來看一下韓片[隧道]，滿好看的
@@ -6399,7 +6398,7 @@ date: 2016-09-23
 reply_count: 4
 title: '[討論] 屍速列車vs末日之戰  隧道vs33重生奇蹟'
 url: https://www.ptt.cc/bbs/movie/M.1474644740.A.D5A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看了板上(幾乎)清一色的負雷,好多板友都說不要浪費錢跟時間\n但再怎麼說ID4也是童年的回憶,就當成花些錢買個童年回憶吧\n\n是說最近因為本片,所以第四台也多次重播舊版的ID4\n\
   每每看到都讓人感動,不論是動畫、劇情、協調性真的都很棒\n\n後來看了電影,發現沒想像中糟,可能是看之前的文章已經完全沒抱任何希望\n所以來談談感想好了,有些劇情雷,沒看過的可能要想想要不要往下看\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n----------------------------防雷線-----------------------------\n\
@@ -6415,7 +6414,7 @@ date: 2016-07-06
 reply_count: 18
 title: '[普雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1467795231.A.3A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天也看完這部,在進場我是非常期待的這招牌是我以前最喜歡電影之一
 
   我看之前當然不會抱著劇情片心態去看,單純就是看特效看打仗,不管是怪獸還是機器人
@@ -6544,7 +6543,7 @@ date: 2016-06-23
 reply_count: 3
 title: '[普雷]ID4 星際重生 '
 url: https://www.ptt.cc/bbs/movie/M.1466678638.A.648.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論，等級很像學生製片拍出來的東西，為了營造恐怖感很多場景都黑，但也黑到讓人
 
   看不到
@@ -6584,7 +6583,7 @@ date: 2023-07-01
 reply_count: 6
 title: '[ 負雷] 幽魂娜娜：重生 雷到天邊…'
 url: https://www.ptt.cc/bbs/movie/M.1688178040.A.BF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '晚安大家好
 
 
@@ -6602,7 +6601,7 @@ date: 2016-07-17
 reply_count: 11
 title: '[討論] 浩劫重生電影中的一幕'
 url: https://www.ptt.cc/bbs/movie/M.1468770554.A.FB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到很多人罵硬要加中國風進去
 
   其實覺得還好
@@ -6667,7 +6666,7 @@ date: 2016-06-26
 reply_count: 22
 title: '[負雷] 大失所望的ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466916071.A.88A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '楊穎的型根本就不適合演戰鬥機飛行員。
 
 
@@ -6686,7 +6685,7 @@ date: 2016-06-26
 reply_count: 17
 title: 'Re: [討論] ID4:星際重生-楊穎演技爛到爆炸'
 url: https://www.ptt.cc/bbs/movie/M.1466923393.A.8AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位好
 
 
@@ -6761,7 +6760,7 @@ date: 2016-11-14
 reply_count: 12
 title: '[討論] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1479135664.A.4C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近引起韓國人關注的社會新聞議題，是2008年的「趙斗淳事件」。當時趙斗淳(音譯)將年
 
   僅8歲的女童娜英(化名)誘拐至教會廁所性侵，造成女童臉部、腹部、骨盆受重傷，甚至造
@@ -6905,7 +6904,7 @@ date: 2017-12-10
 reply_count: 7
 title: '[新聞] 趙斗淳事件與電影「希望:為愛重生」被害'
 url: https://www.ptt.cc/bbs/movie/M.1512890235.A.5F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "把ID4第一集的劇情, 開場3分鐘用文字描述一下\n\n劇名換一個不當ID4續作的話, 可能評價會好很多\n\n拿來和第一集比, 就20年後特效比較讚,\
   \ 其他完敗\n\n\n\n\n\n\n\n\n\n\n===================== 以下有雷 =====================\n\n\
   \n\n2的劇情只能說完全沒有激情....(個人覺得熱血的地方都只有在老總統說話XD)\n\n在起承轉合方面, 跟1比起來真的差太多了\n\n1在外星人入侵,\
@@ -6925,7 +6924,7 @@ date: 2016-06-26
 reply_count: 30
 title: '[負雷] ID4星際重生 ID4都不ID4了'
 url: https://www.ptt.cc/bbs/movie/M.1466950522.A.49B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -7012,7 +7011,7 @@ date: 2023-03-18
 reply_count: 16
 title: '[  雷] 浩劫重生'
 url: https://www.ptt.cc/bbs/movie/M.1679119236.A.640.html
---- !!python/object:movie_data.PublicReview
+---
 content: "首先，我其實是打算要做成一段影片來解釋的\n可是我想說的實在太多了，一天絕對寫不完\n現在已經累積了快兩千字的篇幅。\n\n所以小弟會慢慢的把這些東西整理成段落。\n\
   其實我很不願意去批判羅蘭艾默力奇，\n畢竟我就是因為ＩＤ４才開始愛上看電影\n\n原文連結：\n\n\n\n    影視短評\\【ID4：星際重生】消失的危機感\n\
   \n\n    1996年的【ID4：星際終結者】前二十分鐘的災難片段鋪陳片段是災難類型電\n    影的標準起手勢，\n\n    其實，羅蘭艾默利奇的幾部大格局電影可以看到明顯的一貫性，他的電影通\n\
@@ -7054,7 +7053,7 @@ date: 2016-06-23
 reply_count: 39
 title: '[普雷]我為什麼覺得ID4：星際重生不如第一集-01'
 url: https://www.ptt.cc/bbs/movie/M.1466619154.A.CD9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請描述欲尋找電影的類型或特徵（請盡量描述清楚）
 
 
@@ -7095,7 +7094,7 @@ date: 2015-05-03
 reply_count: 25
 title: '[片單] 輪迴重生相關的動畫'
 url: https://www.ptt.cc/bbs/movie/M.1430667094.A.B2C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實就你不喜歡 浪費了你250
 
   沒必要說大家眼瞎
@@ -7135,7 +7134,7 @@ date: 2016-12-15
 reply_count: 34
 title: 'Re: [負雷]星戰:俠盜一號,ID4星際重生般的悲劇 '
 url: https://www.ptt.cc/bbs/movie/M.1481799202.A.F49.html
---- !!python/object:movie_data.PublicReview
+---
 content: "發這篇不是為了阻止大家去看，畢竟20年的情懷絕對值得各位進電影院看一下。\n\n只是這部片實在bug太多，我指的不僅僅是像當年為什麼人類的病毒能影響外星人的系統\n\
   \n這類的bug。除此之外有更多的是劇情上不合邏輯的地方，還有很多過於不合一般人常理\n\n的部分。\n\n\nPS：想直接看吐槽，不想看大綱可以跳至第七頁\n\
   \n--------------------------以下有雷，不想看的請迴避---------------------------\n\n\n\n\n\n\n\
@@ -7187,7 +7186,7 @@ date: 2016-06-22
 reply_count: 112
 title: '[負雷]ID42，前段無雷'
 url: https://www.ptt.cc/bbs/movie/M.1466585553.A.2AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -7224,7 +7223,7 @@ date: 2016-06-16
 reply_count: 32
 title: '[新聞] 外星人的復仇！《ID4星際重生》三支片段'
 url: https://www.ptt.cc/bbs/movie/M.1466088625.A.640.html
---- !!python/object:movie_data.PublicReview
+---
 content: '諾蘭電影的結尾，是在懸念中抱持著盼望的。那是一種心靈洗滌、相信明天會更好的正向
 
   情感。在《黑暗騎士》中，我們目睹了黑夜轉黎明的瞬間，即使高譚如何令人絕望，我們
@@ -7342,7 +7341,7 @@ date: 2017-07-26
 reply_count: 22
 title: '[好雷] 在浴火中重生：淺談敦克爾克的結尾'
 url: https://www.ptt.cc/bbs/movie/M.1501005178.A.BA5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '洛基成漫威重生重要人物？　湯姆希德斯頓談小勞勃道尼回歸：「是可以探討的問題」
 
   原文：
@@ -7399,7 +7398,7 @@ date: 2023-11-13
 reply_count: 90
 title: '[新聞] 洛基成漫威重生重要人物？　湯姆希德斯'
 url: https://www.ptt.cc/bbs/movie/M.1699858433.A.472.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'HBO 7月首播變形金剛4:絕跡重生
 
 
@@ -7420,7 +7419,7 @@ date: 2015-06-26
 reply_count: 73
 title: '[新聞] HBO 7月首播變形金剛4:絕跡重生'
 url: https://www.ptt.cc/bbs/movie/M.1435324751.A.C07.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小時候進電影院看這部，那時候大概才五、六歲，
 
 
@@ -7462,7 +7461,7 @@ date: 2020-03-02
 reply_count: 102
 title: '[討論] 浩劫重生哪一段比較感傷？'
 url: https://www.ptt.cc/bbs/movie/M.1583134112.A.773.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很久沒在電影版發文了
 
   但這一部真的想吐苦水...
@@ -7603,7 +7602,7 @@ date: 2016-06-22
 reply_count: 29
 title: '[負雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466601738.A.062.html
---- !!python/object:movie_data.PublicReview
+---
 content: "有些其實不太算bug\n\n\n\n沒錯，收割者必定常常碰上一些科技甚至比地球人更弱的行星，\n\n但是第一集就講過了，他們本性就如蝗蟲一般，\n\
   \n掃蕩一個又一個的星球，地球只不過是他們評估後認為吃的下的其中一個罷了。\n\n\n\n甚至連科技更高的數位外星人，收割者都照樣跟他們打上千年，\n\n連對方的母星都吃了，地球人的科技比起數位外星人又算什麼？\n\
   \n\n\n\n你就當她是一個能開蟲洞的硬碟就好了....\n\n雖然她沒有武裝到這種程度是有點奇怪=.=\n\n\n\n\n其實一直都有。\n\n只是這一次人類升級的戰機，光砲威力已經足以打破小飛碟的防護罩了，\n\
@@ -7623,7 +7622,7 @@ date: 2016-07-08
 reply_count: 14
 title: 'Re: [宇宙級大負雷] ID4-星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1467909935.A.3F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先講結論，超級難看。
 
 
@@ -7644,7 +7643,7 @@ date: 2016-06-22
 reply_count: 121
 title: '[負無雷]  ID4 第二集 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466597998.A.A53.html
---- !!python/object:movie_data.PublicReview
+---
 content: '“那不是石頭，這就是山的心臟，她終於爆發了。”
 
   五年前，不僅盡是智利甚至全球人民的目光都放在一個相對陌生的一座礦區小城。隨著救援行動的進行牽動了全球無數人的心情！
@@ -7682,7 +7681,7 @@ date: 2015-12-15
 reply_count: 10
 title: '[好雷]33:重生奇蹟 向無名勇者致敬'
 url: https://www.ptt.cc/bbs/movie/M.1450179190.A.58C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "時光之硯每週影評：\n  \n\n\n    1996年夏天，剛要上國三的我，因為已經不記得的契機聽見了安室奈美惠，從此變成\n  她的粉絲，開啟了如今回想起來，唯一稱得上是「迷偶像」的四年回憶：買專輯、買錄\n\
   \  影帶、到東京去旅行還特地去原宿找官方的週邊商品，當然還有她當封面的看不懂的雜\n  誌……同一時間，我也愛屋及烏地對整個小室家族\n都生出了興趣，尤其愛其中的地球樂團。我記得那時候逢人就說：\n\
   \  要看個人魅力和舞蹈，要看Amuro，但是要聽音樂和唱功，則要聽globe。\n\n    要到了上大學之後，當我的音樂視野被 U2 真正地啟蒙，我才明白樂團的分工應該是\n\
@@ -7724,7 +7723,7 @@ date: 2017-04-27
 reply_count: 21
 title: '[好雷]《We Are X : X JAPAN 重生之路》'
 url: https://www.ptt.cc/bbs/movie/M.1493306163.A.CD5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在網上看到
 
   桂林阿又出片了
@@ -7765,7 +7764,7 @@ date: 2024-08-14
 reply_count: 10
 title: '[問片] 阮經天 重生？怎麼好像都沒消息'
 url: https://www.ptt.cc/bbs/movie/M.1723616984.A.D14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7891,7 +7890,7 @@ date: 2018-12-24
 reply_count: 1
 title: '[好雷] 人面魚：紅衣小女孩外傳 - 放下才能重生'
 url: https://www.ptt.cc/bbs/movie/M.1545666579.A.639.html
---- !!python/object:movie_data.PublicReview
+---
 content: '漂浮在海上時夜晚遇到的鯨魚
 
 
@@ -7929,7 +7928,7 @@ date: 2018-06-07
 reply_count: 16
 title: '[討論] 浩劫重生內有什麼暗喻？（有劇透）'
 url: https://www.ptt.cc/bbs/movie/M.1528341174.A.DB2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實撇開他叫IDR  會是一部不錯的科幻片
 
 
@@ -8027,7 +8026,7 @@ date: 2016-06-28
 reply_count: 15
 title: 'Re: [無敵大負雷] 想看ID4星際重生,還是省下這筆錢吧'
 url: https://www.ptt.cc/bbs/movie/M.1467102833.A.491.html
---- !!python/object:movie_data.PublicReview
+---
 content: '只有最糞 沒有更糞了
 
 
@@ -8091,7 +8090,7 @@ date: 2016-05-17
 reply_count: 2
 title: '[負雷] 海克力士 重生'
 url: https://www.ptt.cc/bbs/movie/M.1463429254.A.E4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先總結一下，逼近一部預算極高的B級片
 
 
@@ -8211,7 +8210,7 @@ date: 2016-06-23
 reply_count: 8
 title: '[普雷]  ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466667299.A.574.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昨天看完電影，接著回家就在網路上四處看看有關這個事件的報導，\n但搜尋的結果好像電影劇情跟事實不太相符？所以想上來問問...\n\n(名字基本上都忘光了，這邊的名字都是照新聞報導裡的稱呼)\n\
   \n基本上新聞報導裡看到，\n在地底下組織大家分工的領導者是工頭烏祖亞，\n也就是電影裡跟老闆反映裂縫擴大，最後一個離開礦坑的人\n他在底下分配工作，讓大家每天都有事做，也分配食物，鼓舞大家堅持不要放棄\n\
   \n但是在電影裡的劇情，卻變成幾乎是馬力歐在主導組織一切\n找出礦坑的樓梯、搶下鑰匙分配食物\n\n(但是根據新聞報導的實情，馬力歐只是在搜救人員放下攝影機後，\n\
@@ -8226,7 +8225,7 @@ date: 2015-12-13
 reply_count: 12
 title: '[請益] (雷)有關 "33:重生奇蹟" 的問題？'
 url: https://www.ptt.cc/bbs/movie/M.1449989625.A.9E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好吧...先說我沒看過之前的ID4...
 
 
@@ -8278,7 +8277,7 @@ date: 2016-06-23
 reply_count: 4
 title: '[ 普雷] ID4星際重生觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1466691448.A.ADD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《33：重生奇蹟》特映券贈票活動\n\n★2010 年「智利礦災」真實事件改編！★\n★ 《蒙面俠蘇洛》安東尼奧班德拉斯、「三冠王影后」茱麗葉畢諾許領銜主演\n\
   ★ 史上規模最大、營救難度最高，救援指數更勝《聖母峰》、《127 小時》\n\n33 位礦工，深埋地底 700 公尺，長達 69 天的重生奇蹟\n\n更多劇情介紹+預告>>\
   \ \n\n▇ 主辦單位 >> 影劇圈圈│電影電視劇社群網\n▇ 活動時間 >> 即日起 ~ 2015/12/03 (四) 23：59 止\n▇ 活動頁面 >>\
@@ -8289,7 +8288,7 @@ date: 2015-11-25
 reply_count: 2
 title: '[贈票] 史上規模最大救援◎《33：重生奇蹟》特映'
 url: https://www.ptt.cc/bbs/movie/M.1448417980.A.605.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文版：
 
 
@@ -8563,7 +8562,7 @@ date: 2016-07-08
 reply_count: 25
 title: '[有雷] ID4星際重生：20年前，20年後 '
 url: https://www.ptt.cc/bbs/movie/M.1467988812.A.EC7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看大家都說難看我快變怪人了 哈哈
 
 
@@ -8590,7 +8589,7 @@ date: 2016-06-26
 reply_count: 51
 title: '[討論] 只有我覺得ID4重生很好看嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1466873364.A.EEA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完早場，來爆雷
 
 
@@ -8661,7 +8660,7 @@ date: 2016-06-22
 reply_count: 143
 title: '[ 好雷] ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466570254.A.314.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -8706,7 +8705,7 @@ date: 2016-06-27
 reply_count: 111
 title: '[新聞] 《ID4星際重生》全台票房冠軍 5天狂吸1.2'
 url: https://www.ptt.cc/bbs/movie/M.1467030597.A.FE8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n1.影片名稱 :\
   \ 大黃蜂 Bumblebee\n\n2.觀影時間 : 12/26\n\n3.觀影地點 : 喜樂時代\n\n4.觀影方式 : 自行購票\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n我向來不是《變形金剛》系列影迷，還不如說是海莉石坦菲的影迷。此片金剛對戰多不多、軍武展演多不多、變身的視覺與節奏饗宴爽不爽，對我都不是那麼重要，光看少女與黃色金龜車的異國情緣就飽了，何況海莉不但擔綱主角還兼唱片尾主題曲！看來我在安娜坎綴克主場的《歌喉讚》系列中所有為海莉感到可惜之處、《大黃蜂》都為我完成了！\n\
@@ -8741,7 +8740,7 @@ date: 2018-12-27
 reply_count: 9
 title: '[好雷] 大黃蜂 Bumblebee，從廢鐵重生'
 url: https://www.ptt.cc/bbs/movie/M.1545847604.A.2CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（以下有雷）
 
 
@@ -8956,7 +8955,7 @@ date: 2018-03-19
 reply_count: 3
 title: '[好雷] 記憶中的擁抱 – 關於接納與重生（大雷）'
 url: https://www.ptt.cc/bbs/movie/M.1521428398.A.090.html
---- !!python/object:movie_data.PublicReview
+---
 content: '....連結都給你了，你是要告訴大家，你連圖片都不會看嗎？
 
 
@@ -9248,7 +9247,7 @@ date: 2016-06-29
 reply_count: 148
 title: 'Re: [無敵大負雷] 想看ID4星際重生,還是省下這筆錢吧'
 url: https://www.ptt.cc/bbs/movie/M.1467132632.A.DEB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今早去看早場,買票人潮多到爆炸
 
   可想而知ID4續集是今年強片之一~
@@ -9345,7 +9344,7 @@ date: 2016-06-22
 reply_count: 22
 title: '[好雷]ID4星際重生:找好戲院看就對了'
 url: https://www.ptt.cc/bbs/movie/M.1466590970.A.CBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '>>網誌圖文好讀版：
 
 
@@ -9417,14 +9416,14 @@ date: 2016-06-22
 reply_count: 1
 title: '[普雷] ID4-星際重生-懷舊與創新融合'
 url: https://www.ptt.cc/bbs/movie/M.1466581013.A.526.html
---- !!python/object:movie_data.PublicReview
+---
 content: "ID4第一集：美國人替地球人打贏了外星人。\n\n    ID4第二集：美國人跟中國市場打贏了外星人。\n\n    心得：外星人如果早一個月來打地球就尷尬了～～\n\
   \n\n\n--"
 date: 2016-06-23
 reply_count: 2
 title: '[無雷]ID4 星際重生之外星人很會選時間 '
 url: https://www.ptt.cc/bbs/movie/M.1466618097.A.183.html
---- !!python/object:movie_data.PublicReview
+---
 content: "牠們的目標是地核\n  其它都不重要\n  太空船掃過所有地表當然可以\n  但一來太花時間\n  讓人類有時間反擊\n  二來只破壞地表\n\
   \  外星人可沒法確定人類所有家當都在地表\n  既然鑽洞有實益又夠快\n  當然先鑽洞啊\n\n\n  不\n  有生命的星球,\n  地核才有可能符合牠們的需要\n\
   \  因為\n  規模夠大,\n  能產生一定的磁場\n  才有牠們需要的能量\n\n  恆星更不可能\n\n\n  第一集的母船上沒有女王啊\n\n\n\n\
@@ -9437,7 +9436,7 @@ date: 2016-06-27
 reply_count: 11
 title: 'Re: [普雷] ID4星際重生 '
 url: https://www.ptt.cc/bbs/movie/M.1466957050.A.FF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完這片
 
   唯二無法理解的地方就是那個神婆和燙傷躺在床上的爸爸
@@ -9475,7 +9474,7 @@ date: 2014-12-13
 reply_count: 3
 title: '[請益] 重生-- 邵美琪--有雷'
 url: https://www.ptt.cc/bbs/movie/M.1418404857.A.49E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "官方IG：\n\n\nYouTube：\n\n\n\n（中文版）\n\n 《侏羅紀世界：重生》首支預告正式正式上線\n\n\n\n\n官方劇情大綱：\n\
   \n在【侏羅紀世界：統霸天下】中的事件發生的五年後，地球的生態系統絕大部分的地方已\n被證明不再適合讓恐龍居住。倖存的恐龍只能在赤道附近孤立的環境中生存，這些地方的\n\
   氣候和牠們曾經繁衍興盛的環境類似。在這個熱帶生物圈之中，有三隻體積最龐大的恐龍\n體內含有一種關鍵性成分，能夠用來製造一種能為人類帶來奇蹟般地回生續命功效的藥物\n\
@@ -9486,7 +9485,7 @@ date: 2025-02-05
 reply_count: 225
 title: '[討論] 《侏羅紀世界：重生》首支預告'
 url: https://www.ptt.cc/bbs/movie/M.1738760701.A.76A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -9540,7 +9539,7 @@ date: 2021-04-25
 reply_count: 6
 title: '[微好雷] 殺戮重生犬屋敷'
 url: https://www.ptt.cc/bbs/movie/M.1619292624.A.F7D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "ID4 可說是很多人小時候的經典回憶\n\n想當年  我還國小\n\n看到飛碟一口氣轟掉那些拿牌子  站在高樓上的人\n\n威爾史密斯 一拳打昏外星人\n\
   \n還有最後總統令人熱血 亢奮的演說\n\n無不令人印象深刻\n\n但是這個續集是在衝三小........\n\n\n(防雷頁)\n(文長)\n\n\n\n\n\
   \n\n\n爽度來說  還可以  特別是把地標捲起  然後亂砸一通\n\n橫跨在大西洋上方\n\n不過劇情真的是一場悲劇   可說是為了演而演\n\n\n\n\n\
@@ -9570,7 +9569,7 @@ date: 2017-01-08
 reply_count: 31
 title: '[大負雷] ID4 星際重生- 我到底看了三小'
 url: https://www.ptt.cc/bbs/movie/M.1483870275.A.D1A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '跟同事們一起去看了<ID4星際重生>
 
   看完以後內心很彭湃，除了災難場面精緻磅礡外
@@ -9607,7 +9606,7 @@ date: 2016-06-25
 reply_count: 92
 title: '[討論] <ID4星際重生>七年級錯了嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1466865666.A.EC5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -9861,7 +9860,7 @@ date: 2022-09-25
 reply_count: 23
 title: '[垃圾雷] 毛骨悚然:惡魔重生'
 url: https://www.ptt.cc/bbs/movie/M.1664099719.A.079.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'ID4第一集威爾史密斯去炸外星人太空船的時候 沒能在這世界上看到經典之作
 
   後來在電視上完整看過 撇開那個特效 其實還蠻爽的
@@ -10188,7 +10187,7 @@ date: 2016-06-24
 reply_count: 33
 title: '[負雷] ID4星際重生-功虧一簣的爽片'
 url: https://www.ptt.cc/bbs/movie/M.1466761944.A.861.html
---- !!python/object:movie_data.PublicReview
+---
 content: '湯姆漢克斯爆最愛的3部電影　《浩劫重生》排球「威爾遜」天價售出
 
 
@@ -10252,7 +10251,7 @@ date: 2021-11-14
 reply_count: 27
 title: '[新聞] 湯姆漢克斯爆最愛的3部電影　《浩劫重生'
 url: https://www.ptt.cc/bbs/movie/M.1636904767.A.02D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這齣片是應女朋友要求陪他進去電影院裡面看的
 
 
@@ -10361,7 +10360,7 @@ date: 2018-03-19
 reply_count: 2
 title: '[好雷]記憶中的擁抱--死亡或重生 '
 url: https://www.ptt.cc/bbs/movie/M.1521392331.A.56D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近重看了浩劫重生
 
   想問一個問題
@@ -10392,7 +10391,7 @@ date: 2022-04-26
 reply_count: 13
 title: '[討論] 浩劫重生最後一個包裹的主人？'
 url: https://www.ptt.cc/bbs/movie/M.1650974844.A.FEB.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Q1.
 
   高科技外星人突然傳送太空船到人類月球基地
@@ -10425,7 +10424,7 @@ date: 2016-09-21
 reply_count: 21
 title: '[請益] ID4 2 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1474459144.A.58B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -10576,7 +10575,7 @@ date: 2018-06-24
 reply_count: 13
 title: '[好雷]《殺戮重生犬屋敷》不同味道的超級英雄'
 url: https://www.ptt.cc/bbs/movie/M.1529841850.A.9DD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請描述欲尋找電影的類型或特徵（請盡量描述清楚）
 
 
@@ -10627,7 +10626,7 @@ date: 2016-12-08
 reply_count: 78
 title: '[片單]親友自殺致主角有陰影.但最後獲得重生'
 url: https://www.ptt.cc/bbs/movie/M.1481193060.A.F0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~
 
 
@@ -10788,7 +10787,7 @@ date: 2019-01-13
 reply_count: 13
 title: '[普好雷]《7月22日重生》讓人彷彿身歷其境的慘劇'
 url: https://www.ptt.cc/bbs/movie/M.1547392929.A.54B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '湯姆漢克斯拍攝《浩劫重生》時差點喪命？因太入戲竟真的聽到「威爾森」說話
 
 
@@ -10848,7 +10847,7 @@ date: 2024-01-18
 reply_count: 46
 title: '[新聞] 湯姆漢克斯拍攝《浩劫重生》時差點喪命'
 url: https://www.ptt.cc/bbs/movie/M.1705581971.A.EC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "長到腰的當然不會多。\n\n但是長過肩的，不僅有，就是中國女飛行員....\n\n如果不會找，不如我直接給你好了：\n\n\n\n所以呢？\n\n\
   重點他就是可以找到有權限的人帶他光明正大的進去，\n\n在場所有人也不認為他沒資格在那，不是嗎？\n\n\n\n你硬要拿陳水扁來相提並論真是大錯特錯。\n\n\n\
   \n總統女兒有加入國際菁英飛行小組，請問你還記得嗎？\n\n她的男友傑克本來也是飛行小組，請問你還記得嗎？\n\n前總統二十多年前也是空軍飛行員，請問你還記得嗎？\n\
@@ -10873,7 +10872,7 @@ date: 2016-06-28
 reply_count: 24
 title: 'Re: [無敵大負雷] 想看ID4星際重生,還是省下這筆錢吧'
 url: https://www.ptt.cc/bbs/movie/M.1467110606.A.855.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -11058,7 +11057,7 @@ date: 2018-06-21
 reply_count: 21
 title: '[普好雷]《殺戮重生犬屋敷》，這個家我來守護！ '
 url: https://www.ptt.cc/bbs/movie/M.1529580399.A.102.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文版：
 
 
@@ -11465,7 +11464,7 @@ date: 2016-07-21
 reply_count: 8
 title: '[有雷] ID4星際重生：外星人笨沒藥醫之劇情吐槽 '
 url: https://www.ptt.cc/bbs/movie/M.1469110668.A.B9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原始連結：
 
 
@@ -11567,7 +11566,7 @@ date: 2021-01-07
 reply_count: 3
 title: '[新聞] 府城老戲院戎館重生 魏導將送《海角七號'
 url: https://www.ptt.cc/bbs/movie/M.1610029258.A.B2E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天在星星台看到了ID4
 
   爬了一下文才發現原來這是一部20年前的老片
@@ -11654,7 +11653,7 @@ date: 2016-06-22
 reply_count: 18
 title: '[好微雷]ID4星際重生 重溫舊夢 '
 url: https://www.ptt.cc/bbs/movie/M.1466609112.A.3E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我們先來看看 imdb 的分數 \n目前是 6.6 分，基本上我的評分跟這個接近再少一點點，不過差不多啦~\n(個人覺得IMDB 7 分才算是踏入及格的門檻)\n\
   幸好看電影前有耳聞評價不好，不過其實也就抱著無腦的心態去看就是了。\n\n以場面來說，不夠浩大，或者說比想像中小很多，幾乎預告裡面就把大場面看光光了吧？\n還滿多畫面致敬第一集（充滿回憶？），\n\
   不過最後面勝利的地方那邊全人類歡呼這次莫名的做作=.=\n\n以劇情來的合理性來說，這應該是本集最大最大敗筆，這集比上一集還要莫名其妙，\n其實我還以為一開始大飛碟一出來人類應該就可以直接全滅然後\
@@ -11672,7 +11671,7 @@ date: 2016-06-24
 reply_count: 2
 title: '[微負雷] ID4 - 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466700984.A.191.html
---- !!python/object:movie_data.PublicReview
+---
 content: '分三點來說
 
 
@@ -11771,7 +11770,7 @@ date: 2016-06-25
 reply_count: 12
 title: '[普雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466859457.A.452.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位已看過該片的前輩好，
 
 
@@ -11792,7 +11791,7 @@ date: 2016-06-23
 reply_count: 21
 title: '[請益] ID4 星際重生 IMAX 3D or 4DX ?'
 url: https://www.ptt.cc/bbs/movie/M.1466665865.A.C58.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在Netflix上看到 《哪吒重生》 的第一個想法是「好中國的電影，跳過！」
 
 
@@ -12105,7 +12104,7 @@ date: 2021-05-25
 reply_count: 13
 title: '[普雷]觀後 | NETFLIX電影/哪吒重生-新神話宇宙 '
 url: https://www.ptt.cc/bbs/movie/M.1621944712.A.7C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '與神同行
 
 
@@ -12420,7 +12419,7 @@ date: 2018-01-12
 reply_count: 14
 title: '[好雷] 與神同行-寬恕、原諒、救贖與重生'
 url: https://www.ptt.cc/bbs/movie/M.1515707761.A.41F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩天要去看IMAX 3D
 
 
@@ -12442,7 +12441,7 @@ date: 2016-06-29
 reply_count: 17
 title: '[請益] IMAX ID4星際重生 vs. 泰山傳奇'
 url: https://www.ptt.cc/bbs/movie/M.1467142897.A.358.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《神鬼獵人》The Revenant
 
   ★★★★
@@ -12645,7 +12644,7 @@ date: 2016-01-16
 reply_count: 12
 title: '[好雷]《神鬼獵人》─ 重生！文明的怒吼！ '
 url: https://www.ptt.cc/bbs/movie/M.1452919796.A.FBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中國時報【徐定遠╱綜合報導】
 
 
@@ -12675,7 +12674,7 @@ date: 2015-05-09
 reply_count: 10
 title: '[新聞] 《大國民》威爾斯遺作 有望募資重生'
 url: https://www.ptt.cc/bbs/movie/M.1431174244.A.946.html
---- !!python/object:movie_data.PublicReview
+---
 content: '女友平常不敢看恐怖片
 
 
@@ -12714,7 +12713,7 @@ date: 2015-12-12
 reply_count: 16
 title: '[選片] 陀地驅魔人、33重生奇蹟'
 url: https://www.ptt.cc/bbs/movie/M.1449902341.A.D96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片蠻經典的，當初有到戲院看，結局雖然沒有講明，但其實是有機可尋的
 
 
@@ -12758,7 +12757,7 @@ date: 2020-03-04
 reply_count: 25
 title: 'Re: [討論] 浩劫重生哪一段比較感傷？'
 url: https://www.ptt.cc/bbs/movie/M.1583261611.A.A0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '33：重生奇蹟 2015.12.11上映
 
   由
@@ -12828,7 +12827,7 @@ date: 2015-10-24
 reply_count: 5
 title: '[討論] 《33：重生奇蹟》中文預告'
 url: https://www.ptt.cc/bbs/movie/M.1445653222.A.F12.html
---- !!python/object:movie_data.PublicReview
+---
 content: '環球「闇黑宇宙」浴火重生！萊恩葛斯林確認主演《狼人》改編電影！
 
 
@@ -12874,7 +12873,7 @@ date: 2020-05-30
 reply_count: 52
 title: '[新聞] 闇黑宇宙重生！萊恩葛斯林主演《狼人》'
 url: https://www.ptt.cc/bbs/movie/M.1590803931.A.A50.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文／法操司想傳媒
 
 
@@ -13003,7 +13002,7 @@ date: 2020-08-21
 reply_count: 12
 title: '[討論] 《希望：為愛重生》：若此案發生在台灣，'
 url: https://www.ptt.cc/bbs/movie/M.1598009342.A.FFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '漫威電影宇宙（MCU）10年來推出18部電影，全球票房累積就有美金150億元（約為台幣4468
 
   億元），不過你知道漫威曾經破產，被迫賣出蜘蛛人、X戰警等角色嗎？好在他們最後以《
@@ -13073,7 +13072,7 @@ date: 2018-05-20
 reply_count: 134
 title: '[新聞] 漫威破產血淚史／20年重生「18部片賺千億'
 url: https://www.ptt.cc/bbs/movie/M.1526793236.A.A1A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我的怨念實在太重了，
 
   一個人一口氣講了一個多鐘頭
@@ -13134,7 +13133,7 @@ date: 2016-06-25
 reply_count: 1
 title: '[普雷] 聊ID4：星際重生與災難片實況'
 url: https://www.ptt.cc/bbs/movie/M.1466853561.A.13D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "小弟昨天去看了ID4星際重生~\n  因為有上Ptt查了一下發現負評連連~\n  所以我也沒抱太大期待,\n  單純抱著想看特效的心態去看3D版~\n\
   \n  看完後深深覺得, 我想向變種人天啟道歉~\n  我本來以為你才是最天真的Boss~\n  沒想到外星人的女王蜂Boss比你還天真~\n  都是雷聲超大雨點很小~\n\
   \  能力驚人可是死得微不足道~\n\n  感覺真的太辜負了前作設定的世界觀~\n  不曉得是沒錢請編劇,\n  還是中資介入對劇本意見太多,改成了四不像\n\
@@ -13148,7 +13147,7 @@ date: 2016-06-26
 reply_count: 45
 title: '[請益] 請問一下ID4星際重生裡,總統的女兒~ '
 url: https://www.ptt.cc/bbs/movie/M.1466942245.A.163.html
---- !!python/object:movie_data.PublicReview
+---
 content: '來認真一下
 
 
@@ -13213,7 +13212,7 @@ date: 2016-07-06
 reply_count: 10
 title: '[普雷] ID4 星際重生 擁有尖端科技的外星白痴'
 url: https://www.ptt.cc/bbs/movie/M.1467812545.A.16B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '再期待了超級久的星戰8後今天投完票終於去看了!!
 
   事前稍微看了下這版的評價，發現竟然超級分歧
@@ -13449,7 +13448,7 @@ date: 2017-12-16
 reply_count: 59
 title: '[超好雷]星際大戰8:傳奇已死，我們涅槃重生'
 url: https://www.ptt.cc/bbs/movie/M.1513438849.A.E27.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Entertainment 稍早發佈了四張由蓋瑞斯愛德華執導，「侏羅紀」系列第七部電影《侏羅
 
   紀世界：重生》的新劇照
@@ -13475,7 +13474,7 @@ date: 2024-12-19
 reply_count: 57
 title: '[情報] 《侏羅紀世界：重生》新劇照'
 url: https://www.ptt.cc/bbs/movie/M.1734540011.A.3C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我算是ID4的無腦粉絲，當天上映的時候就衝早場看完了，其實當時的心情非常矛盾，有
 
   一種明明期待很久，場面也很大，可是就是哪裡不對勁，我相信很多朋友都有點出劇本的
@@ -13520,7 +13519,7 @@ date: 2016-06-24
 reply_count: 4
 title: 'Re: [討論] ID4-星際重生,這次的外星人跟上次比...'
 url: https://www.ptt.cc/bbs/movie/M.1466707036.A.488.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部讓我哭慘了
 
   有興趣的可以去看看
@@ -13547,7 +13546,7 @@ date: 2016-09-17
 reply_count: 17
 title: '[討論] 素媛(希望:為愛重生)最後一幕的問題'
 url: https://www.ptt.cc/bbs/movie/M.1474073160.A.4AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -13600,7 +13599,7 @@ date: 2022-02-08
 reply_count: 17
 title: '[新聞] 億萬災難片名導打造【地球重生】壯闊末日'
 url: https://www.ptt.cc/bbs/movie/M.1644327447.A.975.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我X你X的還我電影票錢啊啊啊啊啊啊啊啊啊啊啊啊!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -13657,7 +13656,7 @@ date: 2016-06-30
 reply_count: 20
 title: '[無雷] 一句話說明看完ID4星際重生的感想'
 url: https://www.ptt.cc/bbs/movie/M.1467271039.A.606.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【 iTunes 特價報】
 
   我們 / 奏鳴曲 / 重生騎士
@@ -13835,7 +13834,7 @@ date: 2020-09-18
 reply_count: 1
 title: '[情報] iTunes Store特價報 我們 / 重生騎士 / '
 url: https://www.ptt.cc/bbs/movie/M.1600417297.A.27A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次貼文就獻給這部片了…
 
   上星期五和三位朋友一起去看ID4  3D 午夜場
@@ -13876,7 +13875,7 @@ date: 2016-06-28
 reply_count: 13
 title: 'Re: [無敵大負雷] 想看ID4星際重生,還是省下這筆錢吧'
 url: https://www.ptt.cc/bbs/movie/M.1467128840.A.8B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一集是看錄影帶，才小六沒錢，看看都多久了才等到第二集，結果滿失望的.
 
 
@@ -13923,7 +13922,7 @@ date: 2016-06-23
 reply_count: 13
 title: '[ 無雷] ID4 星際重生 主要演員特質'
 url: https://www.ptt.cc/bbs/movie/M.1466660354.A.580.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這也算是暑假大片吧
 
 
@@ -13950,7 +13949,7 @@ date: 2016-06-19
 reply_count: 32
 title: '[討論] ID4 - 重生 口碑到底如何？？'
 url: https://www.ptt.cc/bbs/movie/M.1466315239.A.415.html
---- !!python/object:movie_data.PublicReview
+---
 content: '嘿 又是我
 
   因為學校去了新一代展覽而放假
@@ -14220,7 +14219,7 @@ date: 2017-05-21
 reply_count: 61
 title: '[普雷] 異形4-浴火重生'
 url: https://www.ptt.cc/bbs/movie/M.1495374561.A.A4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文版：\n\n再見曼德拉 (Goodbye Bafana )\n\n影片年份：2007\n出品國：Belgium\n語言：English\n\
   導演：比利奧古斯特\n演員：約瑟夫范恩斯、丹尼斯赫柏特、黛安克魯格\n\n本片改編自羅賓島獄警桂格里所著之同名小說《Goodbye Bafana》，敘述南非前總統、民\n\
   主鬥士曼德拉獄中生活20年真人真事。由丹麥導演比利奧古斯都執導，曾在1987年以《比\n利小英雄》橫掃奧斯卡與金球獎，拿下最佳外語片，與1988年坎城影展金棕櫚最佳影片。\n\
@@ -14251,7 +14250,7 @@ date: 2008-04-24
 reply_count: 1
 title: '[好雷] 從絕望到重生—《再見曼德拉》'
 url: https://www.ptt.cc/bbs/movie/M.1209039039.A.E34.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次在上映第一天看早場
 
 
@@ -14479,7 +14478,7 @@ date: 2016-06-22
 reply_count: 64
 title: '[負雷]ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466574993.A.B68.html
---- !!python/object:movie_data.PublicReview
+---
 content: "~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n1.影片名稱 :素媛：為愛重生\n\n\
   2.觀影時間 : 2019/05/28（週二）\n\n3.觀影地點 : 家中\n\n4.觀影方式 : MOD 電影199\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n先兩句話總結：\n\n一個人要讓另外一個人痛苦得想要去死、懷疑自己的生存價值，非常簡單。\n\
@@ -14513,7 +14512,7 @@ date: 2019-05-28
 reply_count: 12
 title: '[好雷] 素媛：為愛重生－願這世界不再有悲傷'
 url: https://www.ptt.cc/bbs/movie/M.1559007745.A.940.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在ㄧ片負雷中
 
 
@@ -14667,7 +14666,7 @@ date: 2016-06-24
 reply_count: 37
 title: '[好爽雷] ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466734079.A.EE8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電視台正在播浩劫重生,每次看到最後查克與凱莉在雨中擁吻的場景都覺得超級揪心。
 
   同時也覺得查克有夠Man願意放下心中所愛成全他人...。
@@ -14681,7 +14680,7 @@ date: 2018-10-01
 reply_count: 62
 title: '[討論] 哪部電影的雨景跟浩劫重生一樣經典？'
 url: https://www.ptt.cc/bbs/movie/M.1538405456.A.8D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '精彩預告：
 
 
@@ -14709,7 +14708,7 @@ date: 2018-12-27
 reply_count: 11
 title: 'Re: [贈票] 請你看《借來的100天》選擇肉體限時重生'
 url: https://www.ptt.cc/bbs/movie/M.1545893974.A.677.html
---- !!python/object:movie_data.PublicReview
+---
 content: '>>網誌圖文好讀版：
 
 
@@ -14770,7 +14769,7 @@ date: 2015-11-26
 reply_count: 1
 title: '[好雷] 重生奇蹟-選擇相信希望，才能獲得希望'
 url: https://www.ptt.cc/bbs/movie/M.1448530010.A.B50.html
---- !!python/object:movie_data.PublicReview
+---
 content: '犬屋敷一個禮拜前上映，到今天差不多都要下檔了，抓住檔期的尾巴去看，居然包場，沒想
 
 
@@ -14863,7 +14862,7 @@ date: 2018-06-29
 reply_count: 6
 title: '[好雷] 殺戮重生犬屋敷動畫及電影情節討論'
 url: https://www.ptt.cc/bbs/movie/M.1530282929.A.451.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看過第一集的影迷,如果跟我一樣期待,建議看預告片就好,ID4續集看了會讓你失望.\n\nID4的招牌,加上老演員,的確很有吸引力;但劇情沒有起伏,且不合理的漏洞很多,\n\
   \n導演沒想過要拍續劇,也考量當時特效不夠,怕拍了續集會經典片落漆.\n\n但20年後特效進步了,但還是拍爛了.\n\n\n---------------------------以下有雷--------------------\n\
   \n  首先,女王是整個艦隊的生命中樞,但卻輕易脫離母艦讓自己暴露在危險中,如果要用\n\n巨大外星生物的特效,不用女王出馬,除了工蟻的飛碟之外,用兵蟻的腳色就可以了.\n\
@@ -14874,7 +14873,7 @@ date: 2016-06-23
 reply_count: 18
 title: '[負雷] ID4星際重生 高期待卻讓人失望'
 url: https://www.ptt.cc/bbs/movie/M.1466615542.A.2B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今天看完這部，我覺得很失望。\n                當年第一集算是早期的災難片\n                (我心目中的災難片三部曲:ID4\
   \ 彗星撞地球 世界末日)\n                大毀滅和英雄犧牲自己拯救人類，當年是很稀奇的賣點，\n                (先承認我是大叔)\n\
   \                20年來已經成為無感的老梗。\n                但老梗如果有特殊的發揮，可以增加可看度。\n        \
@@ -14888,7 +14887,7 @@ date: 2016-06-24
 reply_count: 4
 title: '[災難負雷]ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466702379.A.177.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文好讀版：
 
 
@@ -15185,7 +15184,7 @@ date: 2017-02-27
 reply_count: 9
 title: '[好雷] 骷髏霸主的重生－金剛 2005（King Kong）'
 url: https://www.ptt.cc/bbs/movie/M.1488207822.A.D16.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看到的，應該還沒OP，裡面多了滿多畫面跟交代舊人的資訊以及回顧第一集的內容
 
 
@@ -15204,7 +15203,7 @@ date: 2016-06-01
 reply_count: 6
 title: '[討論] ID4 星際重生 ESD 召募宣傳片'
 url: https://www.ptt.cc/bbs/movie/M.1464785330.A.D2A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -15246,7 +15245,7 @@ date: 2018-06-06
 reply_count: 12
 title: '[新聞] 【殺戮重生犬屋敷】震撼特效由台灣打造！'
 url: https://www.ptt.cc/bbs/movie/M.1528287481.A.AA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -15344,7 +15343,7 @@ date: 2024-09-05
 reply_count: 12
 title: '[普雷] 2024龍族戰神：重生(含劇透）'
 url: https://www.ptt.cc/bbs/movie/M.1725549646.A.3B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '43
 
 
@@ -15412,7 +15411,7 @@ date: 2020-03-03
 reply_count: 6
 title: 'Re: [討論] 浩劫重生哪一段比較感傷？'
 url: https://www.ptt.cc/bbs/movie/M.1583199597.A.D5D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -15461,7 +15460,7 @@ date: 2018-07-30
 reply_count: 38
 title: '[新聞] 64歲男星自爆吸食古柯鹼　勒戒重生一尾'
 url: https://www.ptt.cc/bbs/movie/M.1532923137.A.52F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "浩劫重生\n哈囉~我是薯條\n看過《魯賓遜漂流記》嘛!?曾經幻想過自己待在荒島生和的日子?最近上映的電影《白鯨\n傳奇:怒海之心》提到主角們在與外界隔離的孤島上生存的經歷，雷神還從彪形大漢變成\n\
   了骨瘦如柴的狼狽模樣，讓觀眾深切的感受到在脫離社群來到荒島上獨自面對大自然的人\n們是多麼的渺小。所以這週想跟大家分享一些在荒野、孤寂之逆境中求生的電影~\n\n\
   \n\n(原本壯碩的身材，在遇難後骨瘦如柴的身影產生對比)\n\n\n\n第一部:《浩劫重生》（Cast Away）\n這部電影，可以說是荒島生存系列中的經典，湯姆漢克斯更憑此部片榮獲第58屆金球獎最\n\
@@ -15496,7 +15495,7 @@ date: 2015-12-21
 reply_count: 3
 title: '[討論] 一個人在荒島上你會怎麼做呢?來看看"浩劫重生"類型的電影吧~'
 url: https://www.ptt.cc/bbs/movie/M.1450690423.A.1A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Jeepers Creepers: Reborn開出史上最爛的成績
 
 
@@ -15528,7 +15527,7 @@ date: 2022-09-22
 reply_count: 25
 title: '[情報] 《毛骨悚然：惡魔重生》評價崩壞'
 url: https://www.ptt.cc/bbs/movie/M.1663811936.A.8E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實這是很久以前朋友推薦的
 
 
@@ -15556,7 +15555,7 @@ date: 2014-12-24
 reply_count: 40
 title: '[問片] 一部主角被槍打成蜂窩後重生成英雄的片'
 url: https://www.ptt.cc/bbs/movie/M.1419418293.A.495.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -15625,7 +15624,7 @@ date: 2024-08-30
 reply_count: 20
 title: '[普雷] 龍族戰神：重生'
 url: https://www.ptt.cc/bbs/movie/M.1724995459.A.A87.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請教同時看過漫畫原作跟真人電影的朋友
 
 
@@ -15649,7 +15648,7 @@ date: 2018-06-26
 reply_count: 52
 title: '[請益] 《殺戮重生犬屋敷》的改編幅度？'
 url: https://www.ptt.cc/bbs/movie/M.1529993060.A.CC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '經過不知道到底是怎麼隨機法的隨機抽票後，恭喜以下五位
 
   獲得今晚九點《WE ARE X：X JAPAN 重生之路》特映會贈票，稍
@@ -15685,7 +15684,7 @@ date: 2017-04-17
 reply_count: 15
 title: 'Re: [贈票] 《WE ARE X：X JAPAN重生之路》特映贈票'
 url: https://www.ptt.cc/bbs/movie/M.1492393096.A.308.html
---- !!python/object:movie_data.PublicReview
+---
 content: "ID4 星際重生\n\n一點點不專業的觀後心得\n\n\n\n\n\n\n\n\n                              \
   \ ----防雷一下----\n\n\n\n\n\n\n\n\n\n\n1996第一集 星際終結者 真的很好看 很振奮人心\n\n營造出來的世界毀滅絕望感 各國又再度團結的感覺\n\
   \n加上當年小學時看錄影帶 箱型傳統電視 有那種特效 對我很震撼\n\n2016第二集 剛剛走出電影院...好空虛...\n\n地球毀滅的絕望感沒了 雖然這集有強調地球20年沒有內亂戰爭\n\
@@ -15701,7 +15700,7 @@ date: 2016-06-24
 reply_count: 8
 title: '[普雷]ID4 星際重生 一點觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1466700800.A.123.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
   .
@@ -15771,7 +15770,7 @@ date: 2016-06-22
 reply_count: 7
 title: 'Re: [ 負雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466611070.A.ECE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "安海瑟薇職涯低谷因《星際效應》重生\n\n04:10 2024/12/04 中國時報 杜欣穎\n\n\n《星際效應》上映10周年5日將在台重返大銀幕。（華納兄弟提供）\n\
   \n名導克里斯多夫諾蘭執導的科幻電影《星際效應》，當年收獲全球影迷的眼淚。今年正逢\n該片上映10周年，台灣也將在電影院重映，安海瑟薇日前在社群發文紀念此事時直言，「\n\
   如果沒有這部片，我的生涯會完全不同。」\n\n她表示，對這部電影的愛猶如大海一般，並將諾蘭形容為天使，「因為他給了我一個最美\n麗的角色，這是我參與過最棒的電影之一。」這篇貼文獲得超過37萬位粉絲按讚力挺。\n\
@@ -15783,7 +15782,7 @@ date: 2024-12-04
 reply_count: 1
 title: '[新聞] 安海瑟薇職涯低谷因《星際效應》重生'
 url: https://www.ptt.cc/bbs/movie/M.1733325338.A.755.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看標題就知道我多肚爛這部續集
 
   不想被雷請左轉離開 順便去租第一集來看比較實在
@@ -15917,7 +15916,7 @@ date: 2016-08-11
 reply_count: 12
 title: '[大負雷]ID4星際重生 '
 url: https://www.ptt.cc/bbs/movie/M.1470921750.A.9DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我是沒看過1~
 
   畢竟當初1上映時我還是小孩子XDXD
@@ -15942,7 +15941,7 @@ date: 2016-06-26
 reply_count: 33
 title: '[好雷] ID4星際重生看完很爽阿(無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1466923019.A.D97.html
---- !!python/object:movie_data.PublicReview
+---
 content: "電影把主角定位成這樣的女性，其實也不用什麼道理吧＠＠？\n\n就像為什麼魔戒是給一個小矮個保管一樣＝ ＝\n\n劇情若這樣定位，那就直接去享受這樣立場的劇情安排，不就好拉＠＠？\n\
   \n你現在的評論是凱特溫絲蕾……\n\n不是愛麗斯～\n\n之前凱特溫絲蕾的確不少人追阿！不過她結婚了～\n\n真的要這樣挑的話，我也想問為什麼愛麗斯是讓一個已結婚的女人來演～\n\
   \n愛麗斯並沒有結婚阿！\n\n當她是去「演一個角色」時，她本身的條件有很必要嗎＝ ＝？\n\n\n愛麗斯是一個角色，剛好是凱特的身材與外貌來飾演\n\n他表現的是一個心境，而不是一個條件＝\
@@ -15975,7 +15974,7 @@ date: 2007-02-24
 reply_count: 91
 title: 'Re: [惡雷] 戀愛沒有假期：自慰性的重生劇'
 url: https://www.ptt.cc/bbs/movie/M.1172299439.A.2F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "預告:    預售票: \n\n上映地點：\n\n\n\n\n\n活動方式：\n\n\n\n:看完預告請在此篇:\n         戲院地址:台北市萬華區漢中街116號\n\
   \n:即刻至 \n:將於   於 電影版 公布得獎名單。\n\n收到得獎通知時(會站內信告知) 請務必回覆您\n,我們收到這四項回覆確認才視同報名完成\n\n\
   :現場會核對您的個人資訊及ID並劃位,提早抵達觀影座位較佳:)\n:本活動請,\n\n\n被譽為「今年最震撼電影」的《7月22日重生》（U-July 22），改編自2011年的「挪威烏\n\
@@ -15996,7 +15995,7 @@ date: 2018-12-25
 reply_count: 255
 title: '[贈票] 一鏡到底！《7月22日重生》限時贈票'
 url: https://www.ptt.cc/bbs/movie/M.1545707114.A.3C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《致敬意味的劇本》
 
 
@@ -16095,7 +16094,7 @@ date: 2010-05-07
 reply_count: 13
 title: '[好雷] 血世紀：生存與重生的抉擇'
 url: https://www.ptt.cc/bbs/movie/M.1273243848.A.03D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "有雷。\n   圖文版：\n\n\n\n    單就第二部IDR來評論，我覺得從導演到編劇對這個題材都沒有愛，所以根本\n    不吸取新知也不想進步。抽空寫這篇是因為我對這個題材具有滿滿的愛，無\n\
   \    奈這部片的粗糙呈現不是一個真的喜愛星際科幻或是災難刻劃的人會編出來\n    的東西。編劇還五個人，一個大團隊，卻連一個記憶梗都沒有。根本「天生\n\
   \    一對」的兒童片情節，以精美但其實還差一截的技術包裝當成背景，讓這部\n    片的誕生，摧毀了多少人二十年前都還青澀但震撼的美好回憶。\n\n\n \
@@ -16128,7 +16127,7 @@ date: 2016-06-24
 reply_count: 10
 title: '[  雷]ID4星際重生：想像力大缺乏的災難拼圖 '
 url: https://www.ptt.cc/bbs/movie/M.1466770462.A.8DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格圖文 懇請支持
 
 
@@ -16297,7 +16296,7 @@ date: 2016-06-25
 reply_count: 2
 title: '[普雷] ID4星際重生 '
 url: https://www.ptt.cc/bbs/movie/M.1466860633.A.B19.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很多人看完都說，這集的外星人好像變弱了，之前的重型武器怎麼不用呢？不是一發就毀
 
   了城市，我來檢視，這個重武雖強，但速度太慢，在第一集因為人類破不了防護罩，所以
@@ -16320,7 +16319,7 @@ date: 2016-06-23
 reply_count: 98
 title: 'Re: [ 負雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466612206.A.C26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '超級英雄界的老頑童重生！漫威影業獲授權未來20年史丹李肖像使用權，讓他繼續在電影
 
   客串演出
@@ -16415,7 +16414,7 @@ date: 2022-05-21
 reply_count: 37
 title: '[新聞] 老頑童重生！漫威影業獲授權未來20年史丹李'
 url: https://www.ptt.cc/bbs/movie/M.1653063754.A.6BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不太懂幾個地方
 
 
@@ -16448,7 +16447,7 @@ date: 2017-04-30
 reply_count: 17
 title: 'Re: [LIVE] ID4星際重生    星星臺首播21:00'
 url: https://www.ptt.cc/bbs/movie/M.1493565996.A.8C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'ID4第一集拍攝得很成功的關鍵－ 第一集他有人情味，讓你隨著炫染出保家衛國的氛圍。
 
 
@@ -16469,7 +16468,7 @@ date: 2016-06-23
 reply_count: 9
 title: '[無雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466648535.A.FAF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '法文片名：De rouille et d''os，直譯「鐵鏽的和骨頭的」
 
   英文片名：Rust and Bone，直譯「鐵鏽和骨頭」
@@ -16538,7 +16537,7 @@ date: 2018-03-16
 reply_count: 8
 title: '[好雷] 烈愛重生 De rouille et d''os'
 url: https://www.ptt.cc/bbs/movie/M.1521133296.A.071.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》
 
 
@@ -16607,7 +16606,7 @@ date: 2023-06-25
 reply_count: 14
 title: '[情報] 《幽魂娜娜：重生》全台上映戲院列表'
 url: https://www.ptt.cc/bbs/movie/M.1687705047.A.711.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文連結：
 
 
@@ -16740,7 +16739,7 @@ date: 2017-04-26
 reply_count: 81
 title: '[好雷] WE ARE X：X JAPAN重生之路—鐵粉必看'
 url: https://www.ptt.cc/bbs/movie/M.1493138816.A.C4C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '站在人生十字路口的茫然
 
 
@@ -16769,7 +16768,7 @@ date: 2020-03-02
 reply_count: 6
 title: 'Re: [討論] 浩劫重生哪一段比較感傷？'
 url: https://www.ptt.cc/bbs/movie/M.1583157993.A.4BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不好意思晚公布 若有版友明天中午時間可以，想看的歡迎站內信
 
   請記得回覆喔 已經寫站內信
@@ -16803,7 +16802,7 @@ date: 2018-12-26
 reply_count: 12
 title: 'Re: [贈票] 一鏡到底！《7月22日重生》限時贈票'
 url: https://www.ptt.cc/bbs/movie/M.1545837653.A.EA0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '題外話  我剛看完  說實在劇情很薄弱
 
 
@@ -16841,7 +16840,7 @@ date: 2016-06-24
 reply_count: 2
 title: 'Re: [負雷] ID4星際重生-功虧一簣的爽片'
 url: https://www.ptt.cc/bbs/movie/M.1466768876.A.A92.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說一下我最近4dx 3d的經歷\nXmen 天啟是4dx初體驗後，\n這部是我下決心花錢看4dx的片，\n該說還好有4dx搖來搖去不然我可能真的會睡著\n\
   \n\n\n\n\n\n\n這張圖能夠表達我八點多看完之後到現在的心情\n\n加上隔壁情侶的女性三不五時那邊自言自語\n「唉呀外星人要出來了！」\n「飛快點呀！」\n\
   以及他男友似乎帶著大蒜麵包所以我整場時不時聞到大蒜麵包味實在讓人出戲呀\n\n\n以下有雷\n\n\n\n\n\n視訊用QQ?視訊用QQ?視訊用QQ?\nQQ?\
@@ -16857,7 +16856,7 @@ date: 2016-06-22
 reply_count: 15
 title: '[負雷]  ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466606512.A.975.html
---- !!python/object:movie_data.PublicReview
+---
 content: "（獨家專訪1）藉小丑女重生女神 昆汀《好萊塢》寫情書\n\n2019/07/20 21:17\n\n〔記者許世穎／洛杉磯專訪〕鬼才導演昆汀塔倫提諾最新力作《從前，有個好萊塢》描繪\n\
   60年代末的好萊塢光景，除了致敬，更充滿他喜愛的「電影」元素，完全像他形容的，像\n一封「獻給好萊塢的情書」。提到「小丑女」瑪格羅比在片中飾演的莎朗蒂，昆汀更感性\n\
   表示：「讓她（莎朗蒂）在大銀幕重生對我來說相當重要。」\n\n\n瑪格羅比在《從前，有個好萊塢》飾演的莎朗蒂，是導演昆汀塔倫提諾拍攝該片的原因之\n一。（双喜提供）\n\
@@ -16873,7 +16872,7 @@ date: 2019-07-20
 reply_count: 6
 title: '[新聞] 藉小丑女重生女神 昆汀《好萊塢》寫情書'
 url: https://www.ptt.cc/bbs/movie/M.1563637507.A.F91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網路上負評很多，
 
   我們提早10分鐘進場還沒什麼人，
@@ -16985,7 +16984,7 @@ date: 2016-06-30
 reply_count: 14
 title: '[ 好雷] ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1467290678.A.F20.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《新封神：哪吒重生》東方古典+西方朋克全新融合
 
 
@@ -17126,7 +17125,7 @@ date: 2020-06-25
 reply_count: 10
 title: '[情報] 《新封神：哪吒重生》東方古典+西方朋克'
 url: https://www.ptt.cc/bbs/movie/M.1593024894.A.69A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -17201,7 +17200,7 @@ date: 2022-12-30
 reply_count: 39
 title: '[  負雷] ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1672391778.A.7BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "推文留言，就有機會獲得，一人中獎兩人同行！\n\n\n：\n\n當死亡不是終點，而是另一段「限時人生」的起點。一個遊蕩人世的靈魂，意外獲得重生\n\
   的機會，借屍還魂住進一位泰國高中生小旻(James飾演)的身體。展開一段新生活不如表\n面看起來輕鬆，試著融入新家庭、新學校的過程中，也遇見讓人心跳加速的學伴小派。然\n\
   而這一切都是有期限的，他必須在100天查出小旻的神秘死因，屆時如未完成任務，他將\n魂飛魄散、永不超生...\n\n\n\n\n推文留言：「」\n\n範例1：「」\n\
@@ -17211,7 +17210,7 @@ date: 2018-12-24
 reply_count: 166
 title: '[贈票] 請你看《借來的100天》選擇肉體限時重生'
 url: https://www.ptt.cc/bbs/movie/M.1545625160.A.8E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大部分都被板友吐嘈過了…討論比較沒少人提的…
 
 
@@ -17260,7 +17259,7 @@ date: 2016-07-02
 reply_count: 18
 title: '[負雷] ID4星際重生戰略…'
 url: https://www.ptt.cc/bbs/movie/M.1467392720.A.10E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一部續集電影必然包括「致敬」與「新設定」這兩個部分，而ID4本身又較為特殊，因為他是經典，續集本來就可有可無，而且又和第一集相隔二十年，一定會受到更高標準的檢視。而這兩部分IDR都很絀劣。
 
 
@@ -17295,7 +17294,7 @@ date: 2016-06-28
 reply_count: 10
 title: 'Re: [無敵大負雷] 想看ID4星際重生,還是省下這筆錢吧'
 url: https://www.ptt.cc/bbs/movie/M.1467085970.A.338.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -17328,7 +17327,7 @@ date: 2016-05-24
 reply_count: 65
 title: '[新聞] 《ID4星際重生》釋出 5 分鐘加長預告'
 url: https://www.ptt.cc/bbs/movie/M.1464090336.A.6D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我覺得也可以反過來問
 
   為什麼導演要拍這段
@@ -17383,7 +17382,7 @@ date: 2016-12-15
 reply_count: 28
 title: 'Re: [負雷]星戰:俠盜一號,ID4星際重生般的悲劇 '
 url: https://www.ptt.cc/bbs/movie/M.1481801476.A.542.html
---- !!python/object:movie_data.PublicReview
+---
 content: '.
 
   .
@@ -17485,7 +17484,7 @@ date: 2016-07-02
 reply_count: 6
 title: 'Re: [負雷] ID4星際重生戰略…'
 url: https://www.ptt.cc/bbs/movie/M.1467464557.A.A38.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n1.影片名稱 :\
   \ 7月22日重生 Utøya 22.juli\n\n2.觀影時間 : 04/21\n\n3.觀影地點 : 住家網路\n\n4.觀影方式 : 網路，iTunes\
   \ 英國版商店\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n~~~~~~~~~~~~~~~~~~~\
@@ -17522,7 +17521,7 @@ date: 2019-04-24
 reply_count: 4
 title: '[好雷] 7月22日重生 Utøya 22.juli'
 url: https://www.ptt.cc/bbs/movie/M.1556097753.A.AD2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大批地勤人員當時丟下工作搶著簽名，叫他們回工作崗位是很奇怪嗎?\n\n小雨跟指揮官既然是親戚，寒暄幾句是礙到誰了?\n\n\n\n請善用搜尋引擎，真的不是每一個女飛官都留短頭髮=.=\n\
   \n\n\n他是閒雜人等嗎?\n\n\n\n....太空飛到地球講的是傑課開拖船去非洲接大衛這回？\n\n請問你還記得傑克是菁英飛行員嗎？\n\n\n\n坦白說有這一段嗎？\n\
   \n\n補充說明一下，美國政府的飛行器，只有在『美國總統有搭乘』的時間，\n\n才被稱為空軍一號。\n\n\n所以，被國際菁英飛行中隊領隊迪恩叫回災區的海陸直昇機，\n\
@@ -17538,7 +17537,7 @@ date: 2016-06-28
 reply_count: 50
 title: 'Re: [無敵大負雷] 想看ID4星際重生,還是省下這筆錢吧'
 url: https://www.ptt.cc/bbs/movie/M.1467073260.A.3F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天上映第一天之後網路上口碑也是災難片來著，好評鮮少，以致於我今天進場是
 
   抱著既期待又害怕的心情，看完結果覺得也沒大家說的那麼不堪，個人覺得還不錯，空
@@ -17592,7 +17591,7 @@ date: 2016-06-24
 reply_count: 4
 title: '[普無雷]ID4星際重生-空有大場面無法再成經典 '
 url: https://www.ptt.cc/bbs/movie/M.1466702963.A.AA6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《侏羅紀世界：重生》首支預告片段曝光！故事設定於《統霸天下》5 年後
 
 
@@ -17663,7 +17662,7 @@ date: 2025-02-04
 reply_count: 48
 title: '[新聞] 《侏羅紀世界：重生》首支預告片段曝光！'
 url: https://www.ptt.cc/bbs/movie/M.1738645535.A.9BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鑒於本部片完全是改編自2010年智利大地震真實事件改編，
 
   大家都知道是個歡樂圓滿大結局所以也就不怕爆雷了！
@@ -17728,7 +17727,7 @@ date: 2015-12-15
 reply_count: 5
 title: '[好雷]人定勝天？33重生奇蹟感人推薦 '
 url: https://www.ptt.cc/bbs/movie/M.1450192842.A.988.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《新神榜：哪吒重生》幕後特輯 講述現代版哪吒由來
 
 
@@ -17773,7 +17772,7 @@ date: 2021-02-11
 reply_count: 9
 title: '[情報] 《新神榜：哪吒重生》幕後特輯 講述現代'
 url: https://www.ptt.cc/bbs/movie/M.1613029506.A.313.html
---- !!python/object:movie_data.PublicReview
+---
 content: '德國電影獎今年提名的熱門片單中，幾乎都是政治歷史倫理等題材等深度劇情片，只有一部技術見長的德瑞合製科幻片《浪潮》Tides 一口氣提名六個技術獎項！它談大概此後一百多年的未來地球，地球早已被人類搞爛不宜人居了，地球小部分菁英已找到另一顆只有石頭的「克卜勒星」靠高科技維持人類所需環境建立了各殖民地，就眼看著走不了的人隨著地球環境崩潰而滅絕。然而克卜勒星也有新問題：雖然人造環境能讓人存活、但人們不分男女都喪生了生育能力，於是一次「反向殖民」計劃展開：要派探險家搭乘太空船「尤里西斯」號回到荒蕪的地球、探索生育的奧秘。
 
 
@@ -17839,7 +17838,7 @@ date: 2021-09-05
 reply_count: 4
 title: '[好雷] 浪潮 Tides/殖民地 The Colony (2021 德國＆瑞士) '
 url: https://www.ptt.cc/bbs/movie/M.1630833830.A.4B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "人類方的策略也整個耍笨\n他們專注在進攻女王，結果中陷阱\n整個戰爭的核心就在地核被電漿炮挖穿之前要把女王幹掉\n.\n.\n.\n.\n我突然發覺母船的弱點也是電漿主砲呀\n\
   直接用第一集的方式就可以把母船給炸了，即使女王還活著，還有女王的空軍一號可以用\n 至少鑽孔危機已經解除了\n別跟我說有防護層無法打，這次的設定跟第一集一樣都是可以用慢速度穿透防護層內部，\n\
   所以一開始在月球的時候太空貨船才可以在防護層裡面看月球基地被毀\n\n更不用說船明明十倍大，軍隊反而比第一集少很多\n--"
@@ -17847,7 +17846,7 @@ date: 2016-06-27
 reply_count: 17
 title: 'Re: [負雷] ID4星際重生 = 外星人全是智障'
 url: https://www.ptt.cc/bbs/movie/M.1467031509.A.A91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '泰國傳說女鬼「」再登大銀幕！
 
 
@@ -17907,7 +17906,7 @@ date: 2023-06-02
 reply_count: 9
 title: '[情報] 《幽魂娜娜：重生》電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1685711433.A.179.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《新神榜：哪吒重生》終極預告 神秘六耳獼猴現身
 
 
@@ -17959,7 +17958,7 @@ date: 2021-02-08
 reply_count: 21
 title: '[情報] 《新神榜：哪吒重生》終極預告 神秘六耳'
 url: https://www.ptt.cc/bbs/movie/M.1612774061.A.D89.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情簡介
 
 
@@ -17991,7 +17990,7 @@ date: 2015-07-17
 reply_count: 392
 title: '[Live] 變形金剛4：絕跡重生'
 url: https://www.ptt.cc/bbs/movie/M.1437138167.A.19B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無音樂網誌圖文版：
 
 
@@ -18168,7 +18167,7 @@ date: 2016-07-06
 reply_count: 30
 title: '[負雷] 幸好沒用二十年來期待的《ID4-星際重生》'
 url: https://www.ptt.cc/bbs/movie/M.1467739564.A.1B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '爛到不行的局情 太多扯到不行的地方!!!
 
   置入性行銷就算了 為什麼要偷別人的哏呢????
@@ -18195,7 +18194,7 @@ date: 2016-06-23
 reply_count: 3
 title: 'Re: [ 負雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466621930.A.D3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
   目前有兩隻重量級的明星恐龍確定會登場
@@ -18237,7 +18236,7 @@ date: 2025-02-05
 reply_count: 47
 title: '[  雷] 侏儸紀世界：重生 恐龍先行圖'
 url: https://www.ptt.cc/bbs/movie/M.1738724212.A.67C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原文連結\n\n\n\n    影視短評\\ID4：星際重生\n\n    有的時候在電影看到一些只有自己知道的梗，整場電影院只有自己一個人在\n\
   \    笑的時候實在是有點寂寞的事情。\n\n    想當年【ID4：星際終結者】本身會請布萊特史畢爾來扮演51區的怪怪科學家\n    本身就是一個梗，因為他就是【星艦迷航記：銀河飛龍】（好啦！就是【星\n\
   \    際爭霸戰】啦）的DATA百科，影集裡頭一天到晚都在面對外星種族，所以電\n    影裡頭他一跑出來，而【星艦迷航記：銀河飛龍】又是當年在美國家喻戶曉\n\
@@ -18252,7 +18251,7 @@ date: 2016-06-22
 reply_count: 13
 title: '[雷]ID4：星際重生的星艦梗 '
 url: https://www.ptt.cc/bbs/movie/M.1466595826.A.471.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問一下，在首席工程師要放棄的時候，
 
   礦業部長到底說了什麼，
@@ -18275,7 +18274,7 @@ date: 2015-12-22
 reply_count: 3
 title: '[請益] 33重生奇蹟，最後一次鑽孔的問題'
 url: https://www.ptt.cc/bbs/movie/M.1450776341.A.AFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《夜魔俠：重生》曝全新編導陣容：《洛基》導演檔接手重拍、《制裁者》編劇接手重寫
 
   劇本
@@ -18330,7 +18329,7 @@ date: 2023-10-30
 reply_count: 7
 title: '[新聞] 《夜魔俠：重生》曝全新編導陣容：《洛'
 url: https://www.ptt.cc/bbs/movie/M.1698596568.A.422.html
---- !!python/object:movie_data.PublicReview
+---
 content: "要知道，月球基地使用的光束砲，是收割者的科技。\n\n收割者能把圓球外星人打到剩最後一個，被收割者的武器打爆有需要意外嗎?\n\n\n\n外星人的邏輯不需要跟地球人類似。\n\
   \n\n她可以有很多理由必須要親自去搶，\n\n比如如果親自搶到她可以變成收割者總頭目還啥的都可以是理由。\n\n\n重點是如果不這樣演，根本不可能有勝算，觀眾會要看地球人滅亡嗎?\n\
   \n\n\n防護罩並不是無敵的，遭到外力衝擊消耗就會被擊破，\n\n先硬吃四枚可以摧毀51區到底特律之間所有物體的冷融合導彈還不死，\n\n防護罩恐怕早就快耗光了吧....\n\
@@ -18340,7 +18339,7 @@ date: 2016-09-21
 reply_count: 2
 title: 'Re: [請益] ID4 2 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1474466768.A.04E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1987年的「機器戰警」表面上是部血腥暴力的科幻動作片
 
 
@@ -18437,7 +18436,7 @@ date: 2014-12-24
 reply_count: 17
 title: 'Re: [問片] 一部主角被槍打成蜂窩後重生成英雄的片'
 url: https://www.ptt.cc/bbs/movie/M.1419432756.A.54C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '真實事件改編電影《希望：為愛重生》的原型性侵犯「趙斗順」，在2008年時殘忍性侵8歲
 
   女童，但卻在犯行後因為其律師主張當事人「喝醉」導致精神狀態不穩定、失去辨別事物的
@@ -18485,7 +18484,7 @@ date: 2019-04-26
 reply_count: 11
 title: '[新聞] 韓國節目首度公開《希望:為愛重生》原型'
 url: https://www.ptt.cc/bbs/movie/M.1556212932.A.F03.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一篇我給負雷
 
   中午starmovie 重撥第一集有小複習
@@ -18528,7 +18527,7 @@ date: 2016-06-25
 reply_count: 48
 title: '[ 好雷] ID4星際重生 二刷'
 url: https://www.ptt.cc/bbs/movie/M.1466862206.A.24C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.影片名稱：我的媽咪金搖擺
 
 
@@ -18596,7 +18595,7 @@ date: 2018-09-17
 reply_count: 2
 title: '[好雷] 我的媽咪金搖擺 - 輕鬆小品，渣男重生'
 url: https://www.ptt.cc/bbs/movie/M.1537118390.A.67B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "活動出處:\n\n每年平均有12,000名礦工死於礦場崩塌，相較於其他類型的災難受害者，\n他們是被大眾長期忽視的弱勢族群；為了表示支持弱勢族群，我們這次和\n\
   華山基金會合作，捐發票做公益就可以免費看《33：重生奇蹟》！只要手\n持「3」張11或12月的紙本發票，並且發票號碼內皆有「3」的數字，於\n12/2(三) 晚上6點到7點至華威天母影城4F活動現場，即可憑三張發票號\n\
   碼有3的發票，兌換特映券入場券乙張！一人限兌換乙張，共100個名額，\n送完為止。\n\n\n歡迎將本活動分享給親朋好友們，邀請大家一起來幫獨居老人盡份心力！\n\
@@ -18608,7 +18607,7 @@ date: 2015-12-01
 reply_count: 2
 title: '[贈票] 捐33發票，免費看《33：重生奇蹟》!'
 url: https://www.ptt.cc/bbs/movie/M.1448909281.A.3D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影片
 
 
@@ -18682,7 +18681,7 @@ date: 2016-07-02
 reply_count: 18
 title: '[普雷\影片]從星際終結者到星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1467448342.A.06F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '遲來的續集!
 
 
@@ -18763,7 +18762,7 @@ date: 2016-06-23
 reply_count: 4
 title: '[普雷] ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466614171.A.88E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本人很少在PTT上發文 看完了ID4星際重生 (以下簡稱:ID42)\n我就非常認真要發負雷\n看過的電影真的不算多，可能剛好經典的商業片都有看過\n\
   \n    有鑑於最近幾年的商業娛樂片對於人物的刻畫越來越薄弱\n幾乎每部片子都是在賣特效，比豪洨。而我在意的立體的角色\n呈現、令人咀嚼再三的經典台詞、每一個鏡頭都有其必要性，\n\
   在最近幾年的電影越來越少見。鄙人也秉持著不爽不要看的精\n神就越來越少進場看娛樂爽片。也不批評進場看的人，畢竟看\n與不看都是個人的選擇。\n\nBUT!!\n\
@@ -18797,7 +18796,7 @@ date: 2016-06-26
 reply_count: 68
 title: '[負雷]ID4星際重生 回憶只能是回憶 '
 url: https://www.ptt.cc/bbs/movie/M.1466908588.A.C05.html
---- !!python/object:movie_data.PublicReview
+---
 content: '浩劫重生看這麼多次
 
 
@@ -18835,7 +18834,7 @@ date: 2017-04-03
 reply_count: 29
 title: '[討論] 浩劫重生 查克被救起來的過程?'
 url: https://www.ptt.cc/bbs/movie/M.1491209193.A.1FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這周都在討論《星際大戰7》
 
 
@@ -18963,7 +18962,7 @@ date: 2015-12-22
 reply_count: 6
 title: '[好雷] 《33：重生奇蹟》考驗在得救後才開始'
 url: https://www.ptt.cc/bbs/movie/M.1450715954.A.ED0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -19063,7 +19062,7 @@ date: 2015-12-14
 reply_count: 10
 title: '[新聞] 【33：重生奇蹟】票房「3」喜臨門零負評!'
 url: https://www.ptt.cc/bbs/movie/M.1450097040.A.3E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "<ID4 星際重你老母>\n\n　\n　\n　\n　\n　\n　\n\n以下充滿ID4星際重你老母大爛片的怒雷\n\n　\n　\n　\n　\n\
   　\n\n　\n　\n\n先說ID4第一集在我心中神聖的地位\n　\n　\n\n小小年紀看到威爾史密斯把外星人拖出來揍\n　\n　\n\n「嚐嚐我的第三類接觸！」\n\
   　\n\n害我小時候夢想就是當戰鬥機駕駛\n\n　\n\n我還記得那時候得到人生第一台遊戲主機叫做SS\n　\n\n還忍住不買柯南把錢拿去買了ID4的遊戲\n\
@@ -19106,7 +19105,7 @@ date: 2016-06-30
 reply_count: 288
 title: '[ 大負雷] lD4星際重生之你有事嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1467223681.A.303.html
---- !!python/object:movie_data.PublicReview
+---
 content: '基本上這片已經被負雷淹沒
 
   我大概就不吐槽一堆各種無意義便當跟愚蠢劇情和不合情理角色塑造的部分
@@ -19248,7 +19247,7 @@ date: 2016-07-07
 reply_count: 30
 title: '[宇宙級大負雷] ID4-星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1467876634.A.CBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -19317,7 +19316,7 @@ date: 2016-07-06
 reply_count: 37
 title: '[新聞] ID4星際重生 沒有威爾史密斯的原因'
 url: https://www.ptt.cc/bbs/movie/M.1467776930.A.976.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本篇有雷
 
 
@@ -19397,7 +19396,7 @@ date: 2016-06-22
 reply_count: 29
 title: '[負雷] ID4：星際重生 中國元素怎麼這麼多'
 url: https://www.ptt.cc/bbs/movie/M.1466600366.A.C8B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，最近imdb片長出來了，顯示119分
 
 
@@ -19415,7 +19414,7 @@ date: 2016-06-13
 reply_count: 41
 title: '[請益] ID4星際重生的片長'
 url: https://www.ptt.cc/bbs/movie/M.1465783263.A.EFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是一個知道片名 卻不知到劇情的問片~冏
 
 
@@ -19451,7 +19450,7 @@ date: 2015-06-18
 reply_count: 2
 title: '[問片] 重生之門'
 url: https://www.ptt.cc/bbs/movie/M.1434585683.A.540.html
---- !!python/object:movie_data.PublicReview
+---
 content: '七年級生沒有錯    錯的是ID4星際重生
 
 
@@ -19669,7 +19668,7 @@ date: 2016-06-26
 reply_count: 44
 title: 'Re: [討論] <ID4星際重生>七年級錯了嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1466876740.A.CA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '忘記在哪裡看到的
 
 
@@ -19703,7 +19702,7 @@ date: 2020-09-27
 reply_count: 8
 title: '[問片] 一個男的嘲笑浩劫重生把排球當朋友'
 url: https://www.ptt.cc/bbs/movie/M.1601199432.A.6F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看ID4星際重生最讓我感動的是，美國人可以在緊要關頭時攜手合作，團結一致。
 
   而且美國總統父女慷慨犧牲。
@@ -19726,7 +19725,7 @@ date: 2016-07-02
 reply_count: 4
 title: '[  雷] ID4 星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1467465450.A.15D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今天終於看了這部期待了2年的電影《ID4星際重生》，第一集是20年前的電影，\n上映時才2歲。第一次看是大概國小二或三年級時在家裡的電視上看的，當時看到外星人\n\
   把城市炸毀的震撼，那感覺到現在還記得...之後電視重播每次轉到必定會停下來觀賞。\n那時也沒有想過可能會拍續集。直到2年前，某個電影網站公布消息說導演決定拍攝第二\n\
   集，內心就非常期待，到時上映必定會去電影院觀賞，好好彌補第一集沒能上電影院的遺\n憾。\n\n       預售票開賣當下我就訂好了票，之後一直滿心期待今天的到來。然而，首映當天\n\
@@ -19740,7 +19739,7 @@ date: 2016-06-26
 reply_count: 3
 title: '[微好無雷]'
 url: https://www.ptt.cc/bbs/movie/M.1466934604.A.BB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "南港的喜樂時代影城感覺是用多個座椅不到二三十個的小廳搶市場的樣子\n\n雖然這次還不像上次看忍者龜一樣等同包場，不過人真的不多\n大概是因為已經快下片了吧......\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n先說最直接感想：\n\n這種外星人入侵地球然後被地球人反抗打爆的片子該有的橋段都有，\n不過演出來的效果就真的蠻微妙的。\n\
   \n不過也不是說完全不行啦，後面人類一鼓作氣大反攻看了蠻爽，\n前面外星人打到地球讓整個地球陷入滅亡危機的危機感也有營造出來\n(欸對了艾菲爾鐵塔好強！\n 明明倫敦全毀了、片尾全巴黎市都在冒煙了，艾菲爾鐵塔還屹立不搖耶！)\n\
@@ -19758,7 +19757,7 @@ date: 2016-07-30
 reply_count: 13
 title: '[普雷] ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1469815459.A.CD9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得小時候有一次吃完喜酒回來
 
 
@@ -19871,7 +19870,7 @@ date: 2016-06-22
 reply_count: 8
 title: '[普雷] ID4:星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466609857.A.BB4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本週上映了趙婷片《遊牧人生》、還沒機會出門看的我就先來複習她舊片《重生騎士》過過癮。此片四年前在日舞多倫多坎城統統有好評，不過我比較膚淺是看歐巴馬推薦才來看
   XD 趙婷是中國導演美國拍片、但這部片很美國又不太美國主流，它手法也頗有歐洲片那個人存在主義的影子、只是這「存在」是發生於我們不熟的美國內陸大地文化中。記得三年多前看此片時，我對這「文化」雖不至於沒聽過、但還真是一知半解，可能從部分商業電影如《愛情沒有終點》曾淺淺一瞥、但與其說用心體察他們不如說更像是遠距欣賞他們。
 
@@ -19926,7 +19925,7 @@ date: 2021-03-24
 reply_count: 8
 title: '[好雷] 重生騎士 The Rider (2017)'
 url: https://www.ptt.cc/bbs/movie/M.1616549723.A.B38.html
---- !!python/object:movie_data.PublicReview
+---
 content: '同樣是近期流行的災難求生電影
 
 
@@ -20038,7 +20037,7 @@ date: 2015-12-11
 reply_count: 4
 title: '[無好雷] 33:重生奇蹟'
 url: https://www.ptt.cc/bbs/movie/M.1449840718.A.620.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌圖文好讀版：
 
 
@@ -20094,7 +20093,7 @@ date: 2015-10-04
 reply_count: 1
 title: '[好雷] 絕地救援-浩劫重生之火星求生日記 '
 url: https://www.ptt.cc/bbs/movie/M.1443949863.A.8E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一個虎頭蜂巢的虎頭蜂再恐怖勇猛
 
   你把虎頭蜂蜂后幹掉以後
@@ -20139,7 +20138,7 @@ date: 2016-06-26
 reply_count: 15
 title: 'Re: [負雷] 大失所望的ID4星際重生'
 url: https://www.ptt.cc/bbs/movie/M.1466939668.A.055.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天難得兒子要和阿公阿嬤去旅遊，
 
   老婆特地請了年假要重溫約會看電影的美好，
@@ -20169,7 +20168,7 @@ date: 2015-12-10
 reply_count: 5
 title: '[選片] 災難片的選擇障礙求解'
 url: https://www.ptt.cc/bbs/movie/M.1449731107.A.8A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖多網誌版：
 
 
@@ -20549,7 +20548,7 @@ date: 2015-06-10
 reply_count: 20
 title: '[普雷] 侏羅紀世界－侏羅紀公園的重生'
 url: https://www.ptt.cc/bbs/movie/M.1433915632.A.F98.html
---- !!python/object:movie_data.PublicReview
+---
 content: "<無音樂好讀網誌版>\n\n\n\n你從社會攝影大師薩爾加多的作品中看到的是什麼?\n\n我看到的是毀滅後重生的希望\n\n這篇心得應該沒有所謂的雷不雷的問題，畢竟這是部紀錄片，\n\
   \n記錄的是一位重要的巴西社會攝影大師\n\n塞巴斯提安薩爾加多(Sebastião Salgado)的經歷，\n\n(如果不想要知道內容的話，可能就請別再往下看了)\n\
   \n整部電影畫面就像是一幅一幅的藝術品般，\n\n輪番上陣得讓在螢幕前的各位感到讚嘆不已，\n\n卻又用這些作品讓大家感動、絕望再到重心拾起希望，\n\n對於紀錄片相當拿手的德國導演文溫德斯，讓這部紀錄片有了生命與呼吸，\n\
@@ -20570,7 +20569,7 @@ date: 2015-05-26
 reply_count: 7
 title: '[好雷] 薩爾加多的凝視~毀滅與重生的過程紀錄~ '
 url: https://www.ptt.cc/bbs/movie/M.1432612656.A.B7B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "電影版首PO就獻給這部拉~\n\n\n 一直都是科幻、災難、異形電影愛好者的我，\n當然不能錯過這部睽違20年的老片!\n\n\n今天一上映就趕著早場衝進電影院~\n\
   \n\n看完也沒有讓我失望\n(除了沒有威爾斯密斯讓我有點失望哈)\n\n\n\n自己看完還有一點點的小反思(?)\n\n\n -----------以下開始有雷-------------\n\
   \n\n\n\n\n\n\n\n\n\n\n先簡單敘述電影故事：\n\n\n電影一開始就帶到人類的科技進步，\n已經不用害怕外星生物的攻擊，\n以及準備慶祝獨立紀念日，\n\
@@ -20585,7 +20584,7 @@ date: 2016-06-22
 reply_count: 39
 title: '[好雷]ID4:毀滅後才能重生？'
 url: https://www.ptt.cc/bbs/movie/M.1466571862.A.487.html
---- !!python/object:movie_data.PublicReview
+---
 content: '51區的博士第一集不是死掉了嗎?
 
   我在預告片看到他就覺得很奇怪。
@@ -20596,7 +20595,7 @@ date: 2016-06-23
 reply_count: 8
 title: 'Re: [ 無雷] ID4 星際重生 主要演員特質'
 url: https://www.ptt.cc/bbs/movie/M.1466674409.A.FB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -20679,7 +20678,7 @@ date: 2022-02-09
 reply_count: 81
 title: '[新聞] "ID4星際重生"因W.Smith退出 2週內改劇本'
 url: https://www.ptt.cc/bbs/movie/M.1644400566.A.EDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '跟朋友說星際重生負評連連
 
 
@@ -20700,7 +20699,7 @@ date: 2016-07-02
 reply_count: 13
 title: '[討論] ID4星際重生vs惡靈戰警2'
 url: https://www.ptt.cc/bbs/movie/M.1467471774.A.8A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -20814,7 +20813,7 @@ date: 2015-08-02
 reply_count: 1
 title: '[新聞] 聚焦智利礦災，【33：重生奇蹟】巨星雲集'
 url: https://www.ptt.cc/bbs/movie/M.1438525911.A.1D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近新的異形電影上映又勾起了大家把經典的本家四集
 
   加上生死不明的前傳兩集拿出來討論和比較
@@ -20868,7 +20867,7 @@ date: 2024-09-01
 reply_count: 32
 title: '[討論]《異形4：浴火重生》當時的時空背景'
 url: https://www.ptt.cc/bbs/movie/M.1725191527.A.B3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒有看過這部漫畫原著，看預告覺得題材挺有趣的，電影整個看下來還不錯，不過有幾個
 
   問題不知道是不是要看過漫畫才會懂？
@@ -20895,7 +20894,7 @@ date: 2019-08-13
 reply_count: 5
 title: '[請益] 殺戮重生犬屋敷幾2個問題？（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1565660479.A.8BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '白卜庭為何死後重生？《星際大戰》男星：他永遠都有B計劃
 
 
@@ -20999,7 +20998,7 @@ date: 2024-02-16
 reply_count: 60
 title: '[新聞] 白卜庭為何死後重生？《星際大戰》男星'
 url: https://www.ptt.cc/bbs/movie/M.1708026224.A.196.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看了網路發文，身為恐怖片的愛好者，\n特地早起，今天早上09:30趕去樂聲影城，\n只花了220。無優惠。  (我反而不看派拉蒙的top gun，我不喜歡軍武。)\n\
   \n\n\n[劇情]: 23年一次的傳說，竟然是個誘人陷阱。食人魔又開始覓食了。\n        會不會有一班大學生團滅呢??\n        這次是恐怖活動愛好者扮演會的露天舞會。\n\
   \n\n[概念]: 來自官方的吐潮，前三集的矛骨悚然是芝加哥電視台拍的，\n        本片要開創新的歷史。\n        (R: 夠了吧!!你們不是活在銀魂世界或驚聲尖笑呀!!)\n\
@@ -21037,7 +21036,7 @@ date: 2022-09-26
 reply_count: 5
 title: 'Re: [垃圾雷] 毛骨悚然:惡魔重生'
 url: https://www.ptt.cc/bbs/movie/M.1664187471.A.796.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有這種想法並不是瘋子
 
   反而是理所當然

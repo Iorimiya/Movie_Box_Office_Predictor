@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '鬼太郎誕生 咯咯咯之謎 / 鬼太郎誕生 ゲゲゲの謎　(2023)　　
 
 
@@ -65,7 +64,7 @@ date: 2024-02-13
 reply_count: 4
 title: '[好無雷] 鬼太郎誕生 咯咯咯之謎 心得'
 url: https://www.ptt.cc/bbs/movie/M.1707837123.A.1DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷無雷頁
 
 
@@ -135,7 +134,7 @@ date: 2024-02-11
 reply_count: 7
 title: '[好雷] 鬼太郎誕生 咯咯咯之謎'
 url: https://www.ptt.cc/bbs/movie/M.1707650144.A.ACD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -237,7 +236,7 @@ date: 2025-01-09
 reply_count: 12
 title: '[新聞]【鬼太郎誕生：咯咯咯之謎真生版】2/7台映'
 url: https://www.ptt.cc/bbs/movie/M.1736423856.A.1D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '出處：采昌亞洲電影世界
 
 
@@ -305,7 +304,7 @@ date: 2024-01-12
 reply_count: 5
 title: '[情報] 【鬼太郎誕生：咯咯咯之謎】2月7日 上映'
 url: https://www.ptt.cc/bbs/movie/M.1705049962.A.990.html
---- !!python/object:movie_data.PublicReview
+---
 content: '水木茂誕辰100年紀念作，戰後日本未來反思
 
 
@@ -548,7 +547,7 @@ date: 2024-02-03
 reply_count: 11
 title: '[好雷] 《鬼太郎誕生：咯咯咯之謎》軍國夢之遺瘡'
 url: https://www.ptt.cc/bbs/movie/M.1706946679.A.647.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天二刷了鬼太郎誕生，覺得好滿足~
 
   由於一刷完看了很多板上的心得文，很多
@@ -582,7 +581,7 @@ date: 2024-03-02
 reply_count: 15
 title: '[請益] 鬼太郎誕生 咯咯咯之謎'
 url: https://www.ptt.cc/bbs/movie/M.1709364564.A.024.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說這部劇場版好看到我會收DVD
 
   劇情
@@ -687,7 +686,7 @@ date: 2024-02-10
 reply_count: 34
 title: '[好雷] 鬼太郎誕生咯咯咯之謎 不是粉絲向'
 url: https://www.ptt.cc/bbs/movie/M.1707497827.A.23A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片尾工作名單開始在跑的時候
 
   旁邊的插圖也是很重要的劇情
@@ -767,7 +766,7 @@ date: 2024-02-04
 reply_count: 70
 title: '[驚艷好雷] 鬼太郎誕生 咯咯咯之謎 誠意之作'
 url: https://www.ptt.cc/bbs/movie/M.1707037940.A.174.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鬼太郎電影推薦，好無雷
 
 
@@ -827,7 +826,7 @@ date: 2024-02-22
 reply_count: 13
 title: '[好無雷] 《鬼太郎誕生：咯咯咯之謎》比想像中'
 url: https://www.ptt.cc/bbs/movie/M.1708615977.A.5C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本作為日本在2023年11月17日上映，台灣在2024年2月7日上映，是第九部鬼太郎電影。本
 
   作為鬼太郎主角群沒什麼登場的鬼太郎電影版，因為本作都在講鬼太郎父親的故事。
@@ -911,7 +910,7 @@ date: 2024-02-28
 reply_count: 15
 title: '[  雷]鬼太郎誕生 咯咯咯之謎 - 簡要與讀後感'
 url: https://www.ptt.cc/bbs/movie/M.1709106791.A.D14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '采昌粉專公告，第三彈特典也確定要於2/23-2/29發送，小眾好電影就靠大家互相宣傳了
 
 
@@ -930,7 +929,7 @@ date: 2024-02-20
 reply_count: 51
 title: '[新聞] 鬼太郎誕生：咯咯咯之謎全台票房破千萬'
 url: https://www.ptt.cc/bbs/movie/M.1708425075.A.424.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1036,7 +1035,7 @@ date: 2024-01-13
 reply_count: 3
 title: '[新聞] 【鬼太郎誕生：咯咯咯之謎】日本熱賣20億'
 url: https://www.ptt.cc/bbs/movie/M.1705077836.A.C84.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完口碑場很喜歡來無雷推一下
 
 
@@ -1083,7 +1082,7 @@ date: 2024-02-03
 reply_count: 45
 title: '[好無雷] 鬼太郎誕生：咯咯咯之謎'
 url: https://www.ptt.cc/bbs/movie/M.1706954884.A.69F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於有空去看了，還好還沒下檔= =
 
 
@@ -1126,7 +1125,7 @@ date: 2024-03-08
 reply_count: 8
 title: '[好無雷] 《鬼太郎誕生 咯咯咯之謎》'
 url: https://www.ptt.cc/bbs/movie/M.1709842741.A.0AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1243,7 +1242,7 @@ date: 2024-01-19
 reply_count: 10
 title: '[新聞] 【鬼太郎誕生：咯咯咯之謎】口碑場搶先映'
 url: https://www.ptt.cc/bbs/movie/M.1705663185.A.D60.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1350,7 +1349,7 @@ date: 2024-02-06
 reply_count: 10
 title: '[新聞] 【鬼太郎誕生：咯咯咯之謎】感人彩蛋催淚'
 url: https://www.ptt.cc/bbs/movie/M.1707221831.A.0B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n鬼太郎跟貓女只出現片頭跟片尾兩個部份而已，\n佔不到五分鐘。\n\n我還是不懂為什麼六期要把貓女改成少女\n雖然還是五星好平，可是蘿莉貓娘不好嗎？\n\
   \n覺得貓女戲分少的不用難過，\n\n劇中有安排超優質的黑長直、淚痔、大蝴蝶結、和服昭和美少女一起跑劇情，\n雖然看起來可能有JC了不過我還是可以！\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n看完後自己消化一下再看板上的心得及版友推文\n\n幾乎每篇都刷了一整排的「人類太可惡」\n\n仔細反省一下，我大概也會在「太可惡」那一群裡面。\n\n  \

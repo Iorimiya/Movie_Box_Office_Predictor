@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '恭喜以下得獎者
 
 
@@ -33,7 +32,7 @@ date: 2020-10-07
 reply_count: 8
 title: 'Re: [贈票]金馬獎三項大獎提名【幻愛】快閃贈票'
 url: https://www.ptt.cc/bbs/movie/M.1602043483.A.EF9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -419,7 +418,7 @@ date: 2020-10-18
 reply_count: 16
 title: '[好雷]《幻愛》能不能愛自己才是真的 '
 url: https://www.ptt.cc/bbs/movie/M.1603035703.A.AC9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛在國賓長春看完
 
   大概有30幾個觀眾 比我想的還多XD
@@ -471,7 +470,7 @@ date: 2020-10-17
 reply_count: 41
 title: '[討論] 幻愛 結局問題（當然有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1602929294.A.26A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '國新生代導演 Drake Doremus 曾經以由《愛的萬物論》奧斯卡入圍英國女演員
 
   Felicity Jones 與《星際爭霸戰》已故男星 Anton Yelchin 主演的《愛瘋了》成為影壇
@@ -544,7 +543,7 @@ date: 2018-03-08
 reply_count: 23
 title: '[情報] 蕾雅瑟杜、伊旺麥奎格主演科幻愛情電影《Zoe》首張劇照公開'
 url: https://www.ptt.cc/bbs/movie/M.1520501383.A.FF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -666,7 +665,7 @@ date: 2020-10-23
 reply_count: 5
 title: '[好雷] 幻愛觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1603393729.A.6FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -708,7 +707,7 @@ date: 2017-05-22
 reply_count: 5
 title: '[問片] 找一部科幻愛情片'
 url: https://www.ptt.cc/bbs/movie/M.1495386286.A.896.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去年上映時就頗想進電影院看的《幻愛》（Beyond The Dream）本週在catchplay串流上
 
   架。
@@ -792,7 +791,7 @@ date: 2021-01-17
 reply_count: 8
 title: '[好雷]《幻愛》（Beyond The Dream）'
 url: https://www.ptt.cc/bbs/movie/M.1610864987.A.0DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '即刻起至10/07(三) 12：00，推文留言簡單回答一個問題
 
 
@@ -857,7 +856,7 @@ date: 2020-10-06
 reply_count: 121
 title: '[贈票]金馬獎三項大獎提名【幻愛】快閃贈票'
 url: https://www.ptt.cc/bbs/movie/M.1601950780.A.A01.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好萊塢的電影，只記得劇情是在講述一個男的用寫日記（或是寫小說）創造他的女朋友
 
 
@@ -873,7 +872,7 @@ date: 2017-12-13
 reply_count: 4
 title: '[問片] 某一部奇幻愛情片 2010年以後的電影'
 url: https://www.ptt.cc/bbs/movie/M.1513138230.A.98E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由《十年：自焚者》導演周冠威執導的《幻愛》
 
 
@@ -898,7 +897,7 @@ date: 2020-07-06
 reply_count: 33
 title: '[情報] 《幻愛》9月台灣上映 由光年映畫代理'
 url: https://www.ptt.cc/bbs/movie/M.1594026029.A.0D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1018,7 +1017,7 @@ date: 2020-10-14
 reply_count: 11
 title: '[新聞]金馬準新人《幻愛》撞牆百次　腫一大包照'
 url: https://www.ptt.cc/bbs/movie/M.1602681819.A.053.html
---- !!python/object:movie_data.PublicReview
+---
 content: '已獲板主同意張貼。
 
 
@@ -1081,7 +1080,7 @@ date: 2024-04-02
 reply_count: 7
 title: '[問卷] (抽現金)近未來軟科幻愛情喜劇問卷'
 url: https://www.ptt.cc/bbs/movie/M.1712027357.A.4A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有類似這種電影嗎
 
   如日片  向陽處的她
@@ -1099,7 +1098,7 @@ date: 2017-06-05
 reply_count: 2
 title: '[片單] 魔幻愛情'
 url: https://www.ptt.cc/bbs/movie/M.1496668921.A.4D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然這片不只是單純的硬科幻片
 
   但要是沒有基礎的天文物理底子，別說懂劇情了，連橋段都很難懂(加上字幕又亂翻)
@@ -1138,7 +1137,7 @@ date: 2014-11-08
 reply_count: 23
 title: '[好雷] 只向硬科幻愛好者推薦的星際效應'
 url: https://www.ptt.cc/bbs/movie/M.1415440198.A.3C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '手機排版請見諒
 
 
@@ -1171,7 +1170,7 @@ date: 2024-02-16
 reply_count: 4
 title: '[討論] 幻愛女主心理跟結尾（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1708027607.A.2EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影評同步刊登在《林鮭魚YuYu》粉絲團：
 
 
@@ -1256,7 +1255,7 @@ date: 2017-01-04
 reply_count: 9
 title: '[普雷] 星際過客-適合情侶觀看的科幻愛情片'
 url: https://www.ptt.cc/bbs/movie/M.1483502866.A.7BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "幻愛：幻想的會客室與值得愛的電影\n\n\n\n--\n\n要湊齊正在排練舞台的劉俊謙、蔡思韵和構思準備新片的周冠威導演不容易，\n他們聚集在出品《幻愛》的高先影業等候和我們連線直播。\n\
   線是連上了，卻播不出去。金馬還是遇上技術困難了。\n兩邊聊了快一小時，結束之後，回憶記錄一些東西，\n跟等候未果的影迷分享，也向盛情相約的香港朋友致歉。\n\n\
   在網路上看得到《幻愛》的前身，2006 年的短片《樓上傳來的歌聲》，\n一個關於精神病患者與幻象相戀的故事，也反映了社會歧視的問題。\n所以當周導說，起初沒想找劉俊謙演男主，因為他長得太帥，忍不住笑了。\n\
@@ -1296,7 +1295,7 @@ date: 2020-10-23
 reply_count: 21
 title: '[影評] 聞天祥評 / 幻愛'
 url: https://www.ptt.cc/bbs/movie/M.1603417245.A.909.html
---- !!python/object:movie_data.PublicReview
+---
 content: "<內容無雷>\n\n今天剛去看完奇異博士\n\n原本完全沒有很大期待, 因為聽朋友講跟看版上不少負雷\n\n所以想說可能是個不怎麼樣的片子\n\n\
   個人的習慣是不看有雷介紹的文章的, 因為不喜歡被任何方式的劇透\n\n\n\n在看完後   感想是\n\n\n\n對於某些偏好電影類型的人來說, 這部跟本是神作\n\
   \n在我心裡的等級, 跟你的名字差不多同等, 哦不對, 可能還更高一點點\n\n因為是我的菜\n\n\n\n好看的地方是\n\n1. 科幻與多重次元的設定, 搭配呈現的感覺很協調\n\
@@ -1314,7 +1313,7 @@ date: 2016-10-29
 reply_count: 19
 title: '[極好雷] 3D奇異博士  科幻愛好者的神片'
 url: https://www.ptt.cc/bbs/movie/M.1477677257.A.49E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天晚上在in89完成二刷
 
   內心比第一次看文的時候更感動
@@ -1421,7 +1420,7 @@ date: 2020-12-04
 reply_count: 22
 title: '[好雷] 幻愛'
 url: https://www.ptt.cc/bbs/movie/M.1607017163.A.669.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了《幻愛》 很喜歡
 
 
@@ -1543,7 +1542,7 @@ date: 2020-10-19
 reply_count: 9
 title: '[好無雷] 《幻愛》接納、傷口和愛情'
 url: https://www.ptt.cc/bbs/movie/M.1603115073.A.260.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n千眼美子復出首部主演奇幻愛情電影《我的女友是魔法師》勇奪首週日片票房亞軍\n\n日本人氣女星清水富美加（現已改名為千眼美子）主演的電影《我的女友是魔法師》2019\n\
   年2月在日本上映，本片為千眼美子2017年2月宣布出家並暫時退出演藝圈後，復出主演的\n首部電影。故事描述千眼美子飾演的女主角風花是世界上最後一位「白魔法的繼承者」，\n\
   她必須找到「命運相繫」之人，一同對抗邪惡黑魔法的侵襲。《我的女友是魔法師》在日\n上映首週勇奪日片票房亞軍，僅次於《飛翔吧！埼玉》，觀影人次更連續四週蟬聯前十，\n\
@@ -1562,7 +1561,7 @@ date: 2019-08-15
 reply_count: 15
 title: '[新聞] 千眼美子復出首部主演奇幻愛情電影《我的'
 url: https://www.ptt.cc/bbs/movie/M.1565844330.A.1DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看了幻愛
 
 
@@ -1614,7 +1613,7 @@ date: 2020-10-26
 reply_count: 16
 title: '[討論] 諮商輔導/心理學系看幻愛的感想?'
 url: https://www.ptt.cc/bbs/movie/M.1603724983.A.B33.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 

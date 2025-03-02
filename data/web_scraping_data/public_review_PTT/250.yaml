@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '問一部恐怖片
 
 
@@ -38,7 +37,7 @@ date: 2020-06-13
 reply_count: 31
 title: '[問片] 用巫術讓媽媽復活 但變成只會吃人的殭屍'
 url: https://www.ptt.cc/bbs/movie/M.1592063840.A.ED4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '隨著《哈利波特》外傳電影【怪獸與牠們的產地】一天一天地倒數
 
 
@@ -66,7 +65,7 @@ date: 2016-06-29
 reply_count: 8
 title: '[討論] 怪獸與牠們產地-伊法摩尼魔法與巫術學校'
 url: https://www.ptt.cc/bbs/movie/M.1467172080.A.765.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請簡述自身需求片單理由 或 欲尋找電影的類型或特徵（請盡量描述清楚）
 
 
@@ -99,7 +98,7 @@ date: 2024-04-21
 reply_count: 94
 title: '[片單] 以厲害女巫、巫術為主的電影'
 url: https://www.ptt.cc/bbs/movie/M.1713709172.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '>>網誌圖文好讀版：
 
 
@@ -161,7 +160,7 @@ date: 2016-04-21
 reply_count: 9
 title: '[好雷] 非死不可-當巫術控制了社群網路'
 url: https://www.ptt.cc/bbs/movie/M.1461243005.A.360.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看牙醫的時候放的電影
 
   不過只有看到電影剛開始的一小段
@@ -227,7 +226,7 @@ date: 2018-11-28
 reply_count: 2
 title: '[問片] 問韓國跟巫術/魔相關的片'
 url: https://www.ptt.cc/bbs/movie/M.1543368209.A.A14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很多關於女巫或巫術崇拜的電影常常會看到用樹枝作的, 掛在樹上的東西
 
 

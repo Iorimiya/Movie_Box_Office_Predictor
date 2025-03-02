@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '想知道X教授創立X學院時籌措資金的方式
 
   （欸不是…錯棚）
@@ -77,7 +76,7 @@ date: 2024-09-16
 reply_count: 10
 title: '[普雷] 四平八穩的邪惡勿語'
 url: https://www.ptt.cc/bbs/movie/M.1726490724.A.288.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是一部心理驚悚片
 
 
@@ -127,7 +126,7 @@ date: 2024-09-18
 reply_count: 19
 title: '[無雷] 緊張精采到不行，邪惡勿語'
 url: https://www.ptt.cc/bbs/movie/M.1726669700.A.1AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -297,13 +296,13 @@ date: 2024-09-21
 reply_count: 41
 title: '[好雷] 《邪惡勿語》：外向仔VS內向仔'
 url: https://www.ptt.cc/bbs/movie/M.1726890220.A.869.html
---- !!python/object:movie_data.PublicReview
+---
 content: "*推文微雷*\n\n\n\n\n\n\n\n\n\n\n\n\n--\n\nSent from \n\n--\n\n\n\n09/11 23:01"
 date: 2024-09-11
 reply_count: 72
 title: '[微好無雷] 邪惡勿語'
 url: https://www.ptt.cc/bbs/movie/M.1726025558.A.7FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -367,7 +366,7 @@ date: 2024-09-14
 reply_count: 36
 title: '[普雷] 邪惡勿語'
 url: https://www.ptt.cc/bbs/movie/M.1726323618.A.BA2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先是看了美版，然後看丹麥原版。
 
 
@@ -473,7 +472,7 @@ date: 2024-09-23
 reply_count: 9
 title: '[好雷] 邪惡勿語-大推丹麥版'
 url: https://www.ptt.cc/bbs/movie/M.1727028140.A.EAD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "一個夢幻假期的開始，卻成為一場可怕夢魘...\n\n 領銜主演\n 最新出品\n\n\n\n【】首支驚悚預告曝光\n9月13日 全台戲院 隆重懼獻\n\
   \n今年九月， James McAvoy 在戲院做了非常非常邪惡的事。\n\n\n\n觀看  和\n翻拍的丹麥恐怖電影 預告片：\n\n\n\n\n\n\n\n\
   資料來源：X\n\n\n\n\n是一部即將上映的美國心理恐怖驚悚片，由詹姆斯沃特金斯編劇和導演。\n\n該片翻拍自 2022 年丹麥同名電影。\n\n資料來源：維基\n\
@@ -482,7 +481,7 @@ date: 2024-04-11
 reply_count: 37
 title: '[情報] 詹姆斯麥艾維《邪惡勿語》首支驚悚預告'
 url: https://www.ptt.cc/bbs/movie/M.1712795893.A.8FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "一個美國家庭在渡假時結識一個迷人的英國家庭\n受邀前往他們的優美莊園度過週末假期\n原本應該是一個夢幻假期的開始，卻很快變成了一場可怕的心理夢魘...\n\
   \n 又一精心製作、劇情緊湊、懸疑緊張的驚悚片\n 繼【X戰警】【分裂】【異裂】最新精湛演出\n\n9月13日 有口難言 全台戲院見\n\n精彩預告:\n\n\
   特映會場次（一人得獎兩人同行）\n中午場：9月10日 12:30 欣欣秀泰影城\n台中場：9月10日 19:00 站前秀泰影城\n台北場：9月11日 19:30\
@@ -492,7 +491,7 @@ date: 2024-08-19
 reply_count: 479
 title: '[贈票] 詹姆斯麥艾維【邪惡勿語】搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1724055678.A.6D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最好不要讓接待你的主人等太久
 
 
@@ -533,7 +532,7 @@ date: 2024-07-25
 reply_count: 30
 title: '[情報] 詹姆斯麥艾維《邪惡勿語》最新驚悚預告'
 url: https://www.ptt.cc/bbs/movie/M.1721909247.A.645.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原版是2022年的丹麥片Speak No Evil
 
 
@@ -566,7 +565,7 @@ date: 2024-07-26
 reply_count: 16
 title: 'Re: [情報] 詹姆斯麥艾維《邪惡勿語》最新驚悚預告'
 url: https://www.ptt.cc/bbs/movie/M.1721996798.A.C4B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '得獎名單公布如下，請得獎者請於9月3日17:00前主動站內信回覆領票者資料
 
   恕不接受逾期回覆

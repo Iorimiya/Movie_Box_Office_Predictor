@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '贈《屍禁》電影票一張
 
   為今晚信義威秀19:00特映會場次，須提前劃位。意者請站內信聯繫～
@@ -9,7 +8,7 @@ date: 2023-11-30
 reply_count: 2
 title: '[] ［贈票］今晚《屍禁》電影票一張'
 url: https://www.ptt.cc/bbs/movie/M.1701331829.A.BB1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小心唸咒慘遭下降頭！
 
   震撼東南亞！見證真實最陰「鬼洗屍」嚇破8億鬼片冠軍 恐怖超越【薩滿】
@@ -75,7 +74,7 @@ date: 2023-11-07
 reply_count: 4
 title: '[情報]半夜不要看！【屍禁】最陰降頭預告'
 url: https://www.ptt.cc/bbs/movie/M.1699344300.A.EEF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '太多bug，嚴重懷疑印尼票房灌水
 
   還是印尼沒看過真正的恐怖電影
@@ -121,7 +120,7 @@ date: 2023-12-03
 reply_count: 29
 title: '[負雷] 屍禁看到脾氣都失禁'
 url: https://www.ptt.cc/bbs/movie/M.1701600695.A.A74.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷資訊頁
 
 
@@ -197,7 +196,7 @@ date: 2023-10-31
 reply_count: 26
 title: '[新聞] 《屍禁》女子為高薪被騙去「鬼洗屍」，邪'
 url: https://www.ptt.cc/bbs/movie/M.1698733646.A.807.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奪魂鋸X
 
   道具簡陋 機關無聊
@@ -258,7 +257,7 @@ date: 2023-12-25
 reply_count: 28
 title: '[負雷] 恐怖片負雷三連發 奪魂鋸X 詭屋 屍禁'
 url: https://www.ptt.cc/bbs/movie/M.1703519747.A.713.html
---- !!python/object:movie_data.PublicReview
+---
 content: "一般來說，我對殭尸片的興致不高、也不認識喬治羅密歐。\n\n    日前耳聞喬治羅密歐喜愛將個人對權力關係、經濟結構與價值批判等理念嵌藏在電\n\
   \    影裡。對於這種帶點崇拜的解說型描述，我實在沒什麼感覺，畢竟我不會主動把黏\n    液外星人或殘暴活屍跟資本主義反思湊在一起—語言上的遊戲與直觀上的感受往往\n\
   \    是不一致的—一如我不會為了思索存在哲學而看【駭客任務】，吸引我的單純只是\n    挑戰地心引力的武打與爆破而已。\n\n    再說，雖然對殭尸電影不狂熱，但這類小成本次級驚悚電影早期本來就是約會專用\n\
@@ -289,7 +288,7 @@ date: 2005-09-23
 reply_count: 11
 title: 活屍禁區：殭尸的美麗新世界
 url: https://www.ptt.cc/bbs/movie/M.1127450768.A.820.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -337,7 +336,7 @@ date: 2021-02-13
 reply_count: 4
 title: '[請益] 活屍禁區(2005) 沒有台詞很眼熟的演員'
 url: https://www.ptt.cc/bbs/movie/M.1613147111.A.14C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一口氣看完喬治．羅密歐（ George A. Romero）的《活屍禁區》（2005）與《活屍日記
 
   》（2008）。推薦我看的朋友說導演是從黑白片時代就開始拍活屍片的大師級人物，這兩
@@ -418,7 +417,7 @@ date: 2017-06-05
 reply_count: 5
 title: '[心得] 《活屍禁區》與《活屍日記》'
 url: https://www.ptt.cc/bbs/movie/M.1496672887.A.DC9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

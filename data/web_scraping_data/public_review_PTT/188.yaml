@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '電影很好看, 節奏很順, 但是有幾個地方, 不知道是否電影省略了,
 
 
@@ -72,7 +71,7 @@ date: 2020-04-05
 reply_count: 16
 title: '[請益] 抓住救命稻草的野獸們 (有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1586023372.A.877.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n以下有《》劇情雷\n\n\n圖文好讀版  \n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n\n\n由全度妍、鄭雨盛、裴晟佑所主演的《抓住救命稻草的野獸們》，是部韓國的犯罪懸疑片，一字排開的華麗陣容，三段故事與八大角色交織出的貧與貪，絕對值得你聚精會神品味這齣隨錢起舞的精湛演技，感受人為財死鳥為死亡的真切。\n\
   \n故事以一袋無人認領的現金開始，穿梭在貧戶夫妻、家暴女子和悲情男人的身上，從錢的誕生、經手、轉折到搶奪，是追隨弱肉強食的叢林法則，更是精於謀畫的人性利用，儘管下場血流成河卻總是前撲後繼，畢竟人沒有了錢和鹹魚有什麼區別。\n\
@@ -86,7 +85,7 @@ date: 2020-03-30
 reply_count: 4
 title: '[好雷] 《抓住救命稻草的野獸們》給我錢！'
 url: https://www.ptt.cc/bbs/movie/M.1585578088.A.C98.html
---- !!python/object:movie_data.PublicReview
+---
 content: '裡面被殺的警察是真警察還是假警察?
 
 
@@ -127,7 +126,7 @@ date: 2020-03-28
 reply_count: 10
 title: '[討論] 抓住救命稻草的野獸們'
 url: https://www.ptt.cc/bbs/movie/M.1585364944.A.3D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影的劇情張力就在於對角色的刻畫與本身的轉變
 
 
@@ -170,7 +169,7 @@ date: 2020-03-30
 reply_count: 19
 title: '[討論] 抓住救命稻草的野獸們裡美蘭的轉變(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1585542149.A.D3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這片裡面帥哥美女都是壞蛋
 
   只有認真工作生活的人能活到最後
@@ -458,7 +457,7 @@ date: 2020-05-12
 reply_count: 9
 title: '[好雷] 抓住救命稻草的野獸們'
 url: https://www.ptt.cc/bbs/movie/M.1589274702.A.E53.html
---- !!python/object:movie_data.PublicReview
+---
 content: '近年韓國電影真的拍攝得不錯，自從上次去看了寄生上流，
 
   這次又進電影院看了「抓住救命稻草的野獸們」。
@@ -535,7 +534,7 @@ date: 2020-04-01
 reply_count: 10
 title: '[討論] 抓住救命稻草的野獸們錢袋的下落'
 url: https://www.ptt.cc/bbs/movie/M.1585756587.A.392.html
---- !!python/object:movie_data.PublicReview
+---
 content: '通常我都喜歡看完電影再去補小說
 
   因為小說細節比較多，電影後讀會有更多的感悟
@@ -617,7 +616,7 @@ date: 2020-04-06
 reply_count: 5
 title: '[好雷] 抓住救命稻草的野獸們電影與小說心得'
 url: https://www.ptt.cc/bbs/movie/M.1586183881.A.EE8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -670,7 +669,7 @@ date: 2022-08-23
 reply_count: 5
 title: '[好雷] 抓住救命稻草的野獸們'
 url: https://www.ptt.cc/bbs/movie/M.1661192843.A.748.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -902,7 +901,7 @@ date: 2020-03-28
 reply_count: 2
 title: '[好雷]《抓住救命稻草的野獸們》在一念之間就踏進黑暗深淵'
 url: https://www.ptt.cc/bbs/movie/M.1585406601.A.574.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完來個快速心得！
 
 
@@ -1009,7 +1008,7 @@ date: 2020-03-28
 reply_count: 6
 title: '[好雷] 抓住救命稻草的野獸們 人與野獸一線之隔'
 url: https://www.ptt.cc/bbs/movie/M.1585403031.A.F21.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我對韓片也算是極度不熟的一群人。除了少數紅爆的韓國電影（像《與神同行》、《屍速
 
   列車》）外，只看特定幾個韓國導演的作品（像是朴贊郁、奉俊昊、羅泓軫），再其他就
@@ -1066,7 +1065,7 @@ date: 2020-03-20
 reply_count: 7
 title: '[好雷] 抓住救命稻草的野獸們Beasts Clawing at '
 url: https://www.ptt.cc/bbs/movie/M.1584671046.A.965.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《抓住救命稻草的野獸們》：打亂時間線的燒腦電影，人為財死的經典呈現
 
 
@@ -1165,7 +1164,7 @@ date: 2020-03-25
 reply_count: 7
 title: '[好雷]女鬼橋後燒腦時間線《抓住救命稻草的野獸們'
 url: https://www.ptt.cc/bbs/movie/M.1585102075.A.8BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天抽中絕色影城特映場就不顧疫情還是衝了～
 
 

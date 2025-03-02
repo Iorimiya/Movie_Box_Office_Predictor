@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -100,7 +99,7 @@ date: 2016-09-07
 reply_count: 64
 title: '[新聞]《屍速列車》7大哭點！最後一幕「給爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1473228331.A.699.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想問兩部片的片名，
 
   第一部是韓國片，家庭成員有爸爸媽媽哥哥姊姊妹妹，記得妹妹名字好像叫星兒，姊姊叫
@@ -135,7 +134,7 @@ date: 2018-12-06
 reply_count: 2
 title: '[問片] 1.韓國爸爸得癌症2.英國媽媽生氣'
 url: https://www.ptt.cc/bbs/movie/M.1544067060.A.E30.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好萊塢影星克里斯帕克曾以「星爵」一角竄紅演藝圈，後來接演《侏羅紀世界》再度翻紅
 
   ，成為媒體關注的新寵兒。日前他接受訪問，坦承在拍攝《侏羅紀》時為了不耽誤拍攝進
@@ -170,7 +169,7 @@ date: 2015-06-19
 reply_count: 18
 title: '[新聞] 侏羅紀世界克里斯帕特悔:來不及見爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1434717568.A.168.html
---- !!python/object:movie_data.PublicReview
+---
 content: '榮耀國的盡頭是陰影(鬣狗地盤)
 
 
@@ -204,7 +203,7 @@ date: 2019-07-18
 reply_count: 15
 title: 'Re: [請益] 獅子王裡女主角的爸爸是誰？'
 url: https://www.ptt.cc/bbs/movie/M.1563463929.A.82D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原PO寫好好。
 
 
@@ -320,7 +319,7 @@ date: 2016-09-04
 reply_count: 13
 title: 'Re: [超好雷]屍速列車-爸爸們本來就比較吃虧 '
 url: https://www.ptt.cc/bbs/movie/M.1472994322.A.879.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看了皮爾斯布洛斯南的After the sunset
 
 
@@ -391,7 +390,7 @@ date: 2015-08-03
 reply_count: 10
 title: '[問片] 喜劇 分居夫妻 爸爸帶小孩 '
 url: https://www.ptt.cc/bbs/movie/M.1438573256.A.43E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "請問電影版各位神人，小時候我在電視電影頻道上看到\n\n線索\n\n1. 他爸爸是詐欺車商，好像會使用旋轉工具修改汽車的里程數，\n   來詐欺這是比較新的中古車。\n\
   \n2. 她女兒好像後來遇到學校好老師，老師都會借他書，\n   回家看還是怎樣的這段忘了...\n\n3. 最後女兒好像也沒有繼續跟爸爸在一起，因為電影好像說\n\
   \   再一起生活女兒沒辦法升學或是繼續學習\n\n------謝謝電影版各位神人，麻煩幫我回憶一下，謝謝\n\n\n--"
@@ -399,7 +398,7 @@ date: 2017-10-15
 reply_count: 16
 title: '[問片] 天才高智商女兒 爸爸詐欺車商'
 url: https://www.ptt.cc/bbs/movie/M.1508058452.A.17D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是昨天在Netflix上看的，其實還算讓人感動的一部片，邱澤演得很好。
 
 
@@ -416,7 +415,7 @@ date: 2021-08-31
 reply_count: 3
 title: 'Re: [討論] 當男人戀愛時，為啥要把爸爸丟給女朋友'
 url: https://www.ptt.cc/bbs/movie/M.1630414602.A.7B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好像是一部驚悚片
 
 
@@ -439,7 +438,7 @@ date: 2018-11-15
 reply_count: 21
 title: '[問片] 找一部單親爸爸養女兒 爸爸精神分裂'
 url: https://www.ptt.cc/bbs/movie/M.1542258709.A.82A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -504,7 +503,7 @@ date: 2022-05-21
 reply_count: 7
 title: '[新聞]為了300萬不要命！爸爸觸及「9屍命案」　'
 url: https://www.ptt.cc/bbs/movie/M.1653103316.A.90C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天去二輪看了奇蹟男孩
 
 
@@ -571,7 +570,7 @@ date: 2018-03-22
 reply_count: 6
 title: '[討論] 奇蹟男孩 禮物'
 url: https://www.ptt.cc/bbs/movie/M.1521694800.A.E77.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -634,7 +633,7 @@ date: 2022-02-01
 reply_count: 6
 title: '[好雷] 爸爸的小提琴'
 url: https://www.ptt.cc/bbs/movie/M.1643650614.A.F0A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -685,7 +684,7 @@ date: 2015-12-02
 reply_count: 85
 title: '[新聞] 柴智屏沮喪坦承　王大陸派爸爸去解約'
 url: https://www.ptt.cc/bbs/movie/M.1449062697.A.AC1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '印象中小時候看過一部電影
 
 
@@ -712,7 +711,7 @@ date: 2016-02-13
 reply_count: 13
 title: '[問片] [有雷] 爸爸是精神疾患'
 url: https://www.ptt.cc/bbs/movie/M.1455372953.A.EC5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '梁朝偉好帥
 
   梁朝偉好帥
@@ -780,7 +779,7 @@ date: 2021-09-05
 reply_count: 10
 title: '[好雷] 尚氣 之爸爸好帥'
 url: https://www.ptt.cc/bbs/movie/M.1630853088.A.F11.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -850,7 +849,7 @@ date: 2019-08-23
 reply_count: 289
 title: '[新聞] 史丹李女兒「迪士尼從未尊重爸爸」'
 url: https://www.ptt.cc/bbs/movie/M.1566565584.A.C35.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位電影版的大大好：
 
 
@@ -905,7 +904,7 @@ date: 2017-03-28
 reply_count: 5
 title: '[問片] 為了一把雷射槍去救被綁架的爸爸(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1490654529.A.CFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下是個人心得，如果戳中你是靠爸族請左轉跳出
 
   防爸頁
@@ -1079,7 +1078,7 @@ date: 2016-05-02
 reply_count: 39
 title: '[好雷]美國隊長3之有個富爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1462199243.A.7B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然我對這部片整體是給正面評價
 
   大推演員的表現
@@ -1160,7 +1159,7 @@ date: 2017-09-02
 reply_count: 8
 title: 'Re: [負雷] 想問爸爸去哪裡？的紅衣小女孩2'
 url: https://www.ptt.cc/bbs/movie/M.1504343043.A.DBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，這是部老片，記得當時超想看的但快段考了就沒辦法看了…。距今約1x年前。
 
 
@@ -1187,7 +1186,7 @@ date: 2016-07-23
 reply_count: 18
 title: '[問片] 爸爸尋找女兒的電影'
 url: https://www.ptt.cc/bbs/movie/M.1469277579.A.3AA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '用有印象的關鍵字都google不到所以上來問
 
 
@@ -1208,7 +1207,7 @@ date: 2017-12-06
 reply_count: 20
 title: '[問片] 一部爸爸好像對女兒有意思的片'
 url: https://www.ptt.cc/bbs/movie/M.1512575002.A.E51.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問之前在FB上看到快上映的一部應該是法國片
 
 
@@ -1233,7 +1232,7 @@ date: 2016-11-12
 reply_count: 3
 title: '[問片] 請問兩個爸爸帶女兒出去度假'
 url: https://www.ptt.cc/bbs/movie/M.1478914717.A.3DC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   忽然想起小時候看到的兩幕劇情
@@ -1294,7 +1293,7 @@ date: 2018-03-07
 reply_count: 16
 title: '[問片] 一部女兒喜歡爸爸的片'
 url: https://www.ptt.cc/bbs/movie/M.1520395188.A.001.html
---- !!python/object:movie_data.PublicReview
+---
 content: '全
 
   的
@@ -1331,7 +1330,7 @@ date: 2016-09-04
 reply_count: 12
 title: 'Re: [超好雷]屍速列車-爸爸們本來就比較吃虧 '
 url: https://www.ptt.cc/bbs/movie/M.1473003810.A.FDB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨日看了這部片
 
   其實有點看不太懂在幹嘛
@@ -1349,7 +1348,7 @@ date: 2017-09-27
 reply_count: 2
 title: '[討論] 日片-我被爸爸綁架了'
 url: https://www.ptt.cc/bbs/movie/M.1506499984.A.14B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -1403,7 +1402,7 @@ date: 2019-04-13
 reply_count: 16
 title: '[雷雷] 為副不仁老婆的爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1555136761.A.E5F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部上映於2001的優質電影
 
   展現了至今同類型電影的帝王風範
@@ -1450,7 +1449,7 @@ date: 2019-06-01
 reply_count: 43
 title: '[ 神好雷] 他不笨，他是我爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1559361065.A.36C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想問一部疑似國片
 
   背景是一個窮爸爸帶小兒子
@@ -1477,7 +1476,7 @@ date: 2023-08-26
 reply_count: 9
 title: '[問片] 一部疑似國片窮爸爸帶兒子'
 url: https://www.ptt.cc/bbs/movie/M.1693038761.A.50D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請問一部歐美殭屍片（應該是美國片）
 
   有點久了，應該至少5年以上了
@@ -1516,7 +1515,7 @@ date: 2018-06-21
 reply_count: 5
 title: '[問片] 歐美殭屍片有爸爸和小女兒（已爬文）'
 url: https://www.ptt.cc/bbs/movie/M.1529517769.A.F54.html
---- !!python/object:movie_data.PublicReview
+---
 content: "劉青雲《爸爸》入魂 哀痛愛子弒妻女\n\n2024/12/24 05:30\n\n\n《爸爸》導演翁子光（左）、劉青雲一同接受台灣媒體訪問，侃侃而談。\n\
   （甲上娛樂提供）\n\n〔記者廖俐惠／台北－香港連線報導〕港片《爸爸》改編自2010年震驚社會的「荃灣享和\n街弒母殺妹案」，劉青雲飾演的「永年」，故事原型正是妻女遭兒子殺害的「簡先生」。\n\
   戲外是個頂客族的劉青雲，透露自己邊拍邊學習當一名父親，逐漸與飾演兒女的新演員建\n立如親子般的關係。\n\n\n劉青雲（後排左起）、蘇文濤、谷祖琳和熊諾頤（前排）在《爸爸》中飾演一家人，蘇文\n\
@@ -1529,7 +1528,7 @@ date: 2024-12-24
 reply_count: 6
 title: '[新聞] 劉青雲《爸爸》入魂 哀痛愛子弒妻女'
 url: https://www.ptt.cc/bbs/movie/M.1735047204.A.0E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '只記得劇情中段
 
 
@@ -1561,7 +1560,7 @@ date: 2016-10-27
 reply_count: 2
 title: '[問片] 一部爸爸復仇片'
 url: https://www.ptt.cc/bbs/movie/M.1477574610.A.5AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本週兩部法國電影都有濃濃的北非阿爾及利亞色彩，主流的有《終極殺陣 5》，小眾的有《我的美麗爸爸》。好久不見的芬妮亞當也快七十了，不過越演越年輕，而且這次要演個既悲情又閃亮的王子！此片劇情很間單，處境很複雜，重點也許不在故事進展，而在這複雜的處境與心境如何在小節中表達。
 
 
@@ -1623,7 +1622,7 @@ date: 2018-04-17
 reply_count: 4
 title: '[好雷] 我的美麗爸爸 Lola Pater'
 url: https://www.ptt.cc/bbs/movie/M.1523942964.A.F51.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我只記得有一幕是 那個爸爸買了冷氣機， 結果回家發現是三插不能用他後來掰掉，結果
 
   吹了兩分鐘大樓跳電，然後他就很絕望
@@ -1655,7 +1654,7 @@ date: 2016-10-17
 reply_count: 8
 title: '[問片] 一個窮爸爸跟孩子的日常生活'
 url: https://www.ptt.cc/bbs/movie/M.1476657792.A.614.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得之前看過一部電影，
 
 
@@ -1692,7 +1691,7 @@ date: 2020-01-06
 reply_count: 8
 title: '[問片] 找一部爸爸變年輕的電影'
 url: https://www.ptt.cc/bbs/movie/M.1578304030.A.59B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\nmod看到的 雖然被歸類為喜劇 可是我喜不起來\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n圖文網誌：\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\
   簡評：嚴格來說，如果想看一部搞笑片，這部不是，\n但是這一部很適合決定結婚生小孩的男女一起看。\n\n看完可以雙方好好討論 以後家務事要怎麼分配\n很認真決定要不要攜手走入婚姻這個墳墓\n\
@@ -1727,7 +1726,7 @@ date: 2019-10-11
 reply_count: 24
 title: '[普雷] 厭世媽咪日記 最該看電影的 應該是爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1570725526.A.C15.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是醬
 
   昨天小魯和女友在萬代福看了《孤味》
@@ -1769,7 +1768,7 @@ date: 2021-02-23
 reply_count: 43
 title: '[討論] 《孤味》爸爸給的糕點是茯苓糕？'
 url: https://www.ptt.cc/bbs/movie/M.1614078271.A.1A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷頁\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n剛剛去看完，本身是二戰迷，這部片讓我激動不已。\n\
   \n記得片中爸爸去找直屬上尉，他跟那個秘書小姐談話，其中談到他曾參加過某某戰役。然\n後秘書小姐就呆住了，想請問那是什麼戰役？想去查一下資料。是否很慘烈到生還者令人\n\
   驚訝...\n\n很努力想記得什麼戰役，但太好看了所以忘記了，記得是什麼貝羅...之役？\n\n本身是二戰迷，對於一戰比較不熟。最新關於本片的討論也有幾日了，因此來此發問。\n\
@@ -1778,7 +1777,7 @@ date: 2016-12-16
 reply_count: 8
 title: '[討論] 鋼鐵英雄-關於爸爸的小問題'
 url: https://www.ptt.cc/bbs/movie/M.1481901882.A.576.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問王大陸在紅了之後要跟柴智屏的經紀公司解約
 
 
@@ -1805,7 +1804,7 @@ date: 2015-12-03
 reply_count: 36
 title: 'Re: [新聞] 柴智屏沮喪坦承　王大陸派爸爸去解約'
 url: https://www.ptt.cc/bbs/movie/M.1449152044.A.BC5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -1867,7 +1866,7 @@ date: 2016-11-01
 reply_count: 14
 title: '[討論] 你的名字 瀧與三葉爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1477929806.A.55C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.影片名稱 : 名偵探皮卡丘
 
 
@@ -2011,7 +2010,7 @@ date: 2019-05-09
 reply_count: 31
 title: '[普雷] 名偵探皮卡丘-爸爸去哪兒'
 url: https://www.ptt.cc/bbs/movie/M.1557411091.A.E26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '手機排版加上敘述流水帳，傷眼見諒
 
 
@@ -2043,7 +2042,7 @@ date: 2017-02-06
 reply_count: 10
 title: '[問片］主角爸爸的好友是壞人的外國電影'
 url: https://www.ptt.cc/bbs/movie/M.1486390087.A.AA0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "‧\n是不是像行銷宣傳那樣，【爸爸PAPA】是劉青雲從影以來最揪心演出，我不敢確定；但可\n以肯定的是，劉青雲將劇中角色「阮永年」心中的內藏情緒，無論是悲或是恨，都隱含在\n\
   他長達2小時多的面無表情，而在這張充滿滄桑的臉之下，又是多麼的無助、悲傷、氣憤\n以及自責。\n\n也許我們喜歡看到的是，父子之間狗血誇張的愛恨情節，也或許是充滿動機、仇恨及大篇\n\
   幅的殺人橋段，但翁子光導演並不這麼做，更多的是以傳統家庭中的「爸爸」角色視角做\n為出發，講求一段被至親之人毀滅後的家庭，該如何重新修復與兒子之間的關係、該如何\n\
@@ -2066,7 +2065,7 @@ date: 2025-01-03
 reply_count: 4
 title: '[好雷] 【爸爸PAPA】既是親人也是仇人'
 url: https://www.ptt.cc/bbs/movie/M.1735917940.A.7D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我認為銀幕上父親的典型有三種
 
   好爸爸
@@ -2295,7 +2294,7 @@ date: 2019-07-02
 reply_count: 146
 title: '[討論] 誰最會演爸爸??'
 url: https://www.ptt.cc/bbs/movie/M.1562036136.A.FBA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -2327,7 +2326,7 @@ date: 2018-10-18
 reply_count: 13
 title: '[問片] 黑人主角為牧師(神父)爸爸復仇'
 url: https://www.ptt.cc/bbs/movie/M.1539794611.A.A56.html
---- !!python/object:movie_data.PublicReview
+---
 content: '版上的雷文一堆，這篇已經算是很晚的文章了
 
   因為好評不斷，於是也去看了這部電影
@@ -2410,7 +2409,7 @@ date: 2016-09-11
 reply_count: 11
 title: '[ 普雷] 同樣是爸爸，同樣會這樣做的屍速列車'
 url: https://www.ptt.cc/bbs/movie/M.1473554008.A.303.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問這部片會燒腦嗎 我對於那些燒腦片都沒興趣了 全面啟動&星際效應&頂尖對決
 
 
@@ -2437,7 +2436,7 @@ date: 2019-10-04
 reply_count: 5
 title: 'Re: [問片] 一部藉由舊對講機聯絡上死去的消防員爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1570188646.A.049.html
---- !!python/object:movie_data.PublicReview
+---
 content: "-小女孩好可愛-\n\n這部是一部很久的片惹，\n\n主打溫馨市場\n\n故事中一個弱智爸爸為了女兒的撫養權以免費律師麗塔，女兒露西，爸爸山姆為主角發生\n\
   \n\n--------------------\n\n\n\n\n一開始我真的嚇到了\n\n\n2001年的片居然拍的還不錯??(只是光線有點強，導致人物感覺很亮)\n\
   \n感覺手法都很前衛，居然和15年後的今天沒有太多差別!\n\n\n我認為1995以來的美國老片都拍的很有帝國大廈的感覺，像是楚門的世界，王牌天神，男人百分百。\n\
@@ -2457,7 +2456,7 @@ date: 2017-04-08
 reply_count: 15
 title: '[普雷] "他不笨，他是我爸爸"溫馨老片'
 url: https://www.ptt.cc/bbs/movie/M.1491638244.A.621.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一名很喜歡作詞作曲的美國高中生在校園殺人後自殺，他的爸爸到某個漁港隱世埋名，有
 
   天他發現自己兒子的作品，自己就組了一個樂團在餐廳駐唱，讓大家聽見這美好的歌曲。
@@ -2474,7 +2473,7 @@ date: 2016-11-13
 reply_count: 8
 title: '[問片] 一位男孩自殺後 爸爸組樂團'
 url: https://www.ptt.cc/bbs/movie/M.1478972563.A.228.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影開頭是說女主角找到媽媽留的一封信
 
   信中叫她去找她哥哥和爸爸
@@ -2529,7 +2528,7 @@ date: 2016-08-11
 reply_count: 6
 title: '[問片] 尋找爸爸跟哥哥的電影 有雷'
 url: https://www.ptt.cc/bbs/movie/M.1470862920.A.4A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "父親節要到了，來說說爸爸這件事吧！\n\n\n網誌走這邊：\n\n臉書連結：\n\n\n\n因為自己小說題材的緣故，\n曾有一小段時間專注的書籍和電影都是父親這個題材，\n\
   也因為如此，才發現小時候讀過的童書《狐狸爸爸萬歲！》\n居然曾被大導演魏斯‧安德森改編成動畫電影！   <嚇到從椅子上跌下來.>\n\n\n話說原著羅傑‧達爾，向來以充滿黑色幽默，又帶著童趣的筆法，\n\
   創作了不少經典的兒童文學，巧克力工廠、飛天巨桃、女巫……等等，\n這些傑作都是出自於他的妙筆之下。\n魏斯‧安德森也是非常不得了，《天才一族》替他贏回了奧斯卡原創劇本後，\n\
@@ -2569,7 +2568,7 @@ date: 2016-08-02
 reply_count: 2
 title: '[好雷]父親節準備來惹爸爸哭~《超級狐狸先生》~'
 url: https://www.ptt.cc/bbs/movie/M.1470141630.A.2B1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2627,7 +2626,7 @@ date: 2023-02-02
 reply_count: 3
 title: '[鳥雷] 小爸爸的天空'
 url: https://www.ptt.cc/bbs/movie/M.1675300679.A.9C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '為什麼關會被通緝？
 
   舞會現場沒有監視器？
@@ -2653,7 +2652,7 @@ date: 2023-06-25
 reply_count: 61
 title: '[討論] 蜘蛛人 關的爸爸？'
 url: https://www.ptt.cc/bbs/movie/M.1687657213.A.BD6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文版 (附攻略解答)
 
 
@@ -2813,7 +2812,7 @@ date: 2018-08-05
 reply_count: 7
 title: '[好雷] (泰)兩個爸爸：正能量的全攻略 '
 url: https://www.ptt.cc/bbs/movie/M.1533410964.A.EAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'IMDB: 8.0/10.0 (連結)
 
 
@@ -3285,7 +3284,7 @@ date: 2016-09-04
 reply_count: 122
 title: '[超好雷]屍速列車-爸爸們本來就比較吃虧'
 url: https://www.ptt.cc/bbs/movie/M.1472975887.A.8A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -3439,7 +3438,7 @@ date: 2021-10-06
 reply_count: 8
 title: '[好雷] 《不容易的爸爸》，當男人成為父親。'
 url: https://www.ptt.cc/bbs/movie/M.1633523285.A.FB9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了一下原來是 蟻人 保羅路德，沒想過
 
   會一起演同志片XD，不過這片名撞另一部 泰國電影
@@ -3455,7 +3454,7 @@ date: 2018-06-28
 reply_count: 4
 title: '[討論] 兩個爸爸 IDEAL HOME 預告'
 url: https://www.ptt.cc/bbs/movie/M.1530177827.A.966.html
---- !!python/object:movie_data.PublicReview
+---
 content: "節錄自IMDB:\n\nKelsey's father was born in Taiwan and raised in Africa. Kelsey's\
   \ paternal\ngrandparents moved from Mainland China to the Island of Taiwan in 1948.\n\
   Kelsey's mother is a white American, of English and German descent.\n\n她爺爺1948從大陸到台灣，估計就是撤退的那群。她老爸是出生在台灣，\n\
@@ -3471,7 +3470,7 @@ date: 2017-12-07
 reply_count: 26
 title: 'Re: [好雷] 極地追擊裡的 Natalie 爸爸是台灣人!?'
 url: https://www.ptt.cc/bbs/movie/M.1512613111.A.D69.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -3630,7 +3629,7 @@ date: 2019-07-05
 reply_count: 5
 title: '[普好雷] 《小島來了陌生爸爸》，人生就是這麼一'
 url: https://www.ptt.cc/bbs/movie/M.1562300270.A.A14.html
---- !!python/object:movie_data.PublicReview
+---
 content: '紐西蘭爸爸越洋尋子 紀錄片見台灣最美人情味
 
 
@@ -3714,7 +3713,7 @@ date: 2022-05-24
 reply_count: 17
 title: '[新聞] 紐西蘭爸爸越洋尋子 紀錄片見台灣最美人情味'
 url: https://www.ptt.cc/bbs/movie/M.1653400925.A.64E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '自己看過的三部西洋電影
 
   (雪地迷蹤、控制、人肉搜索)
@@ -3754,7 +3753,7 @@ date: 2019-02-06
 reply_count: 27
 title: '[請益] 關於爸爸、丈夫會被懷疑的設定'
 url: https://www.ptt.cc/bbs/movie/M.1549414336.A.3D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜！「小鬼當家」麥考利克金當爸爸 40歲添丁
 
 
@@ -3793,7 +3792,7 @@ date: 2021-04-14
 reply_count: 69
 title: '[新聞] 恭喜！「小鬼當家」麥考利克金當爸爸 40'
 url: https://www.ptt.cc/bbs/movie/M.1618329695.A.534.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3895,7 +3894,7 @@ date: 2025-01-03
 reply_count: 7
 title: '[  微雷] 爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1735909747.A.B3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3962,7 +3961,7 @@ date: 2023-07-06
 reply_count: 21
 title: '[好雷]陪爸爸一起見證當年的英雄 印第安納瓊斯 '
 url: https://www.ptt.cc/bbs/movie/M.1688582709.A.6C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   記得是好一陣子以前看的片
@@ -3984,7 +3983,7 @@ date: 2015-06-06
 reply_count: 2
 title: '[問片] 爸爸帶女兒找前女友們'
 url: https://www.ptt.cc/bbs/movie/M.1433522493.A.62E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '主角好像都住在船上，有次載兒子去上學時，剛好那天發生校園槍擊案，兒子去世了（後
 
   面大爆雷），他拿著兒子生前做的樂譜組一個樂團吧
@@ -3998,7 +3997,7 @@ date: 2017-04-19
 reply_count: 5
 title: '[問片] 爸爸組樂團'
 url: https://www.ptt.cc/bbs/movie/M.1492594008.A.FFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "爸爸是台大傑出校友　這樣養成《異星入境》原著作者\n\n文｜翁瑞怡\n\n《異星入境》讓原著作者姜峰楠成為好萊塢熱捧作家，但住在西雅圖的他仍然遠離鎂光燈\n\
   ，保持低調的生活。這次鏡週刊特別訪問到他定居紐約的父親姜復本，曾在台大土木工程\n系度過四年大學時光的姜教授，今年高齡81。講到四個孩子中長子的姜峰楠，滿滿的都是\n\
   驕傲。\n\n鏡週刊：有讀過兒子的短篇故事嗎？覺得如何？有哪一個故事是你特別喜歡或印象深刻的\n嗎？\n\n姜教授：有，但沒全部都看過。我不是科幻小說迷，很少看這類的著作。\n\
@@ -4017,7 +4016,7 @@ date: 2017-04-14
 reply_count: 28
 title: '[新聞] 爸爸是台大校友 這樣養成《異星入境》作'
 url: https://www.ptt.cc/bbs/movie/M.1492158708.A.5FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於排出時間要去看是枝裕和導演的新片<比海還深>，
 
   想說去看之前要複習一下導演的作品，
@@ -4210,7 +4209,7 @@ date: 2016-09-07
 reply_count: 56
 title: '[好雷] 我的意外爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1473189977.A.934.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片讓人讚嘆是如影隨形的對比與暗喻
 
 
@@ -4307,7 +4306,7 @@ date: 2019-08-16
 reply_count: 57
 title: '[請益] 《寄生上流》二刷，關於爸爸的疑問..'
 url: https://www.ptt.cc/bbs/movie/M.1565967526.A.6BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看了預告，川頓國王是西班牙白人Javier Bardem演的
 
 
@@ -4330,7 +4329,7 @@ date: 2023-03-14
 reply_count: 91
 title: '[請益] 小美人魚的爸爸為什麼是白人？'
 url: https://www.ptt.cc/bbs/movie/M.1678759941.A.9EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題 他不笨他是我爸爸
 
 
@@ -4361,7 +4360,7 @@ date: 2020-01-05
 reply_count: 40
 title: '[討論] 第四台很久沒演 他不笨他是我爸爸了嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1578205153.A.A3C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年父親節剛好又遭遇颱風，風強雨急的
 
   這個週末如果不便出門，不妨租片 DVD，
@@ -4426,7 +4425,7 @@ date: 2015-08-08
 reply_count: 58
 title: '[片單] 想和爸爸一起看的十部電影'
 url: https://www.ptt.cc/bbs/movie/M.1439040361.A.65C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請簡述自身需求片單理由 或 欲尋找電影的類型或特徵（請盡量描述清楚）
 
   想找子女老婆覺得爸爸很糟糕，不論是家暴或是 相處不睦
@@ -4463,7 +4462,7 @@ date: 2023-05-29
 reply_count: 23
 title: '[片單] 轉播爛爸爸拯救人類，進而拯救家庭關係'
 url: https://www.ptt.cc/bbs/movie/M.1685324874.A.A87.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -4671,7 +4670,7 @@ date: 2019-09-05
 reply_count: 13
 title: '[微負雷]《牠 第二章》，你還是爸爸的小女孩?'
 url: https://www.ptt.cc/bbs/movie/M.1567656080.A.765.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有內容
 
 
@@ -4742,7 +4741,7 @@ date: 2019-08-09
 reply_count: 46
 title: '[討論] 寄生上流爸爸一定出不來嗎？（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1565362514.A.6B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先給影片連結
 
 
@@ -4773,7 +4772,7 @@ date: 2019-11-29
 reply_count: 4
 title: '[討論] 感人版爸爸去哪兒微電影，賓士實境節'
 url: https://www.ptt.cc/bbs/movie/M.1574994649.A.D9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近一直想到某一部戲，可是年代大概多久也不確定，應是講英語的沒錯。
 
 
@@ -4802,7 +4801,7 @@ date: 2023-07-02
 reply_count: 29
 title: '[問片] 女科學家遇到裝扮爸爸的外星人（有雷'
 url: https://www.ptt.cc/bbs/movie/M.1688306857.A.ED4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《哭聲》上映至今，仍被到處幹譙中，主要是劇情邏輯混雜，剪接到處嫁接，那個鬼一會
 
   是人，人一會是鬼的，很難梳理正確的真相出來，劇情轉轉轉，頭暈放棄的大有人在，也
@@ -5315,7 +5314,7 @@ date: 2020-05-10
 reply_count: 110
 title: '[好雷] 哭聲：別裝了爸爸，你也想幹我吧！'
 url: https://www.ptt.cc/bbs/movie/M.1589094553.A.FD7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '轉錄網址：
 
 
@@ -5565,7 +5564,7 @@ date: 2020-01-18
 reply_count: 12
 title: '[轉錄] 為爸爸說完故事的兒子：《魔戒》傳人克'
 url: https://www.ptt.cc/bbs/movie/M.1579319514.A.519.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得沒錯應該是英國片
 
 
@@ -5589,7 +5588,7 @@ date: 2018-05-12
 reply_count: 3
 title: '[問片] 幫外婆慶生結果爆出爸爸秘密的片'
 url: https://www.ptt.cc/bbs/movie/M.1526138904.A.094.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可能跟自己的家庭狀況有關...
 
 
@@ -5622,7 +5621,7 @@ date: 2018-04-13
 reply_count: 10
 title: '[討論] 星銀島主角的爸爸?'
 url: https://www.ptt.cc/bbs/movie/M.1523634637.A.B81.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就是還以為爸爸會開外掛
 
 
@@ -5685,7 +5684,7 @@ date: 2016-12-30
 reply_count: 13
 title: '[討論] 屍速列車以為爸爸會開外掛'
 url: https://www.ptt.cc/bbs/movie/M.1483086802.A.1DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位好，小時後在國外看過一部電影，
 
   電影內容記得不多了，只依稀記得小女孩似乎有自閉症，
@@ -5708,7 +5707,7 @@ date: 2016-07-14
 reply_count: 7
 title: '[問片] 自閉症女孩，爸爸是意外死亡的歌手'
 url: https://www.ptt.cc/bbs/movie/M.1468472582.A.840.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1. 請簡述自身需求片單理由 或 欲尋找電影的類型或特徵（請盡量描述清楚）\n\n 最近看了幾部覺得這類型題材蠻吸引我的\n\n 喜歡父親與兒女克服兩人之間溝通或認知相關問題之類的過程\n\
   \n 當然還有那些溫馨到不行的結尾<3\n\n 無奈板上相關的資訊似乎比較少\n\n 力求板友推薦，\n\n 感恩\n\n2. 已知符合需求的電影或偏好的電影類型（為避免重複推文，請至少列舉一部）\n\
   \n 老爸行不行\n\n 我們買了動物園\n\n 紐澤西愛未眠\n\n 北京遇上西雅圖\n\n 只列舉近期比較有印象的幾部，\n\n 記得前陣子也有轉台看到一部國片是單親父親獨自扶養女兒的\n\
@@ -5718,7 +5717,7 @@ date: 2019-11-28
 reply_count: 50
 title: '[片單] 單親爸爸的愛情片'
 url: https://www.ptt.cc/bbs/movie/M.1574875523.A.F61.html
---- !!python/object:movie_data.PublicReview
+---
 content: '他不笨他是我爸爸(2001年)
 
 
@@ -5785,7 +5784,7 @@ date: 2017-11-19
 reply_count: 9
 title: '[請益] 他不笨 他是我爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1511089808.A.A7D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有一部片，開頭是一個小女孩和她的爸爸，
 
 
@@ -5806,7 +5805,7 @@ date: 2016-10-20
 reply_count: 8
 title: '[問片] 問一部愛情片開頭是女孩和爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1476912872.A.7B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在飛機上看到的一部片，
 
 
@@ -5837,7 +5836,7 @@ date: 2017-02-07
 reply_count: 4
 title: '[問片] 主角的媽媽得癌症/爸爸破產/女朋友懷孕'
 url: https://www.ptt.cc/bbs/movie/M.1486435275.A.FC1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -5919,7 +5918,7 @@ date: 2016-01-08
 reply_count: 8
 title: '[負雷] 《他媽媽的藏寶圖》，我還我爸爸的煙灰缸勒！'
 url: https://www.ptt.cc/bbs/movie/M.1452244891.A.DD5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '瑪莉貝爾維杜加盟《閃電俠》當媽！「貝瑞爸」比利克魯登則將缺席！
 
 
@@ -5969,7 +5968,7 @@ date: 2021-03-14
 reply_count: 21
 title: '[新聞] 《閃電俠》媽媽演員確認 爸爸不回歸'
 url: https://www.ptt.cc/bbs/movie/M.1615698995.A.A22.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，提姆波頓版的巧克力冒險工廠中，
 
   威利旺卡的回憶中演到小時候一次憤而離家出走，
@@ -5996,7 +5995,7 @@ date: 2018-10-28
 reply_count: 14
 title: '[請益] 威利旺卡的爸爸到底怎麼了?'
 url: https://www.ptt.cc/bbs/movie/M.1540697076.A.C82.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【影評】《小島來了陌生爸爸》重新發現勇氣的重要，孩子們的夏天奇幻之旅
 
 
@@ -6114,7 +6113,7 @@ date: 2019-09-18
 reply_count: 5
 title: '[好雷] 《小島來了陌生爸爸》重新發現勇氣的重要'
 url: https://www.ptt.cc/bbs/movie/M.1568779311.A.55B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是小時候在電視上看到的電影，感覺有點年代了
 
 
@@ -6170,7 +6169,7 @@ date: 2019-10-24
 reply_count: 9
 title: '[問片] 金髮女生誘惑有錢朋友的爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1571900886.A.63F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，
 
 
@@ -6195,7 +6194,7 @@ date: 2017-07-15
 reply_count: 9
 title: '[問片] 爸爸教小孩把馬桶蓋放下來'
 url: https://www.ptt.cc/bbs/movie/M.1500093505.A.DD6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "爸爸不出來這件事這個劇情\n其實是一個象徵 你不能用邏輯性的想法去檢視他\n\n地下室跟住在地下室那種蟑螂般的生活環境\n其實就是象徵社會低下階級與其生活方式\n\
   \n而爸爸不出來\n也就是在象徵低下階級的人 即使用盡心機想往上爬\n骨子裡也從來不被真正的上流階級當人看\n\n而在被整個階級拒絕後\n引發的憤怒(拿刀殺了老闆)及\n\
   對階級的拒絕和自我放棄\n(同樣是地下室 卻放棄了能夠掌握自我主體性的家 卻選擇寄生在地下室不出來)\n\n\n這其實前面就有鋪陳\n一家人的心態裡 就只有爸爸的最隨遇而安\n\
@@ -6215,7 +6214,7 @@ date: 2019-08-10
 reply_count: 33
 title: 'Re: [討論] 寄生上流爸爸疑問？（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1565371391.A.236.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以前曾經看過的一部片 有點久了
 
 
@@ -6242,7 +6241,7 @@ date: 2017-04-16
 reply_count: 36
 title: '[問片] 爸爸有雙重人格的偽鬼片'
 url: https://www.ptt.cc/bbs/movie/M.1492276191.A.1A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '國中時去電影院看的，
 
 
@@ -6324,7 +6323,7 @@ date: 2017-02-12
 reply_count: 7
 title: '[問片] [有雷] 問一部拯救爸爸的噁心片(?)'
 url: https://www.ptt.cc/bbs/movie/M.1486845155.A.59F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -6392,7 +6391,7 @@ date: 2019-06-16
 reply_count: 24
 title: '[討論] 皮卡丘的主角跟他爸爸熟嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1560652780.A.4FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '出差看到的,
 
   一個耳聾的孤兒(男, 反正就是爸爸消失了, 媽媽還在).
@@ -6409,7 +6408,7 @@ date: 2015-08-17
 reply_count: 4
 title: '[問片] 一個孤兒(?)媽媽找人來假扮爸爸的電影'
 url: https://www.ptt.cc/bbs/movie/M.1439749592.A.E43.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -6430,7 +6429,7 @@ date: 2020-12-27
 reply_count: 12
 title: '[新聞] 神力女超人2裡面的爸爸是拉丁亞洲人'
 url: https://www.ptt.cc/bbs/movie/M.1609069741.A.16C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6584,7 +6583,7 @@ date: 2023-04-19
 reply_count: 5
 title: '[好雷] 不跟爸爸說再見 Pink Moon'
 url: https://www.ptt.cc/bbs/movie/M.1681862998.A.6D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "腔棘魚是日本天然紀念魚，\n\n是要怎麼吃？\n\n結果日本人有人推測，\n\n米林是不是把腔棘魚跟石斑魚搞混了？\n\n\n「千と千尋」の謎食材は”シーラカンスの胃袋”！実物と比べてみたよ\n\
   \n\n\n 台湾ではシーラカンスが食べられます！？「生きた化石」のお味は？\n\n\n然後網路上找來的石斑魚的胃袋。\n\n\n\n\n\n\n呃…看來好像沒動畫中的那麼大啊。\n\
   \n\n然後網路上搜尋到的石班魚肚料理…\n\n酸辣石斑肚\n\n\n是有那個型，但跟動畫中的尺寸相差太遠了…\n\n\n所以米林倒底是參考什麼資料來作畫的啊？\n\
@@ -6593,7 +6592,7 @@ date: 2020-09-20
 reply_count: 44
 title: 'Re: [新聞] 《神隱少女》千尋爸爸一口吞的不是肉圓！19年謎團原畫師'
 url: https://www.ptt.cc/bbs/movie/M.1600583020.A.3A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完這篇文，每個人都有表達意見的權利，
 
 
@@ -6829,7 +6828,7 @@ date: 2017-09-02
 reply_count: 20
 title: 'Re: [負雷] 想問爸爸去哪裡？的紅衣小女孩2'
 url: https://www.ptt.cc/bbs/movie/M.1504338494.A.FA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在我印象中，片中爸爸好像是入獄
 
 
@@ -6856,7 +6855,7 @@ date: 2015-08-24
 reply_count: 11
 title: '[問片] 爸爸出獄後照顧到鬼小孩？'
 url: https://www.ptt.cc/bbs/movie/M.1440421426.A.FF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得是我小時候在第四台看到的國片
 
   應該是民國70幾或80幾年的片
@@ -6887,7 +6886,7 @@ date: 2021-12-27
 reply_count: 21
 title: '[問片] 國片有關爸爸生殖器放學校作教學研究'
 url: https://www.ptt.cc/bbs/movie/M.1640584129.A.6DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n1.影片名稱\
   \ :我的爸爸是壞蛋冠軍\n\n2.觀影時間 : 拒答\n\n3.觀影地點 : 拒答\n\n4.觀影方式 : 自行購票\n\n§其他防雷說明(非必要) : n刷等其他說明請於此區說明....可留空\n\
   \n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n此區為發文防雷頁\n可選擇性提供上列 1~4\
@@ -6907,7 +6906,7 @@ date: 2019-01-22
 reply_count: 9
 title: '[微好雷]我的爸爸是壞蛋冠軍 '
 url: https://www.ptt.cc/bbs/movie/M.1548126907.A.174.html
---- !!python/object:movie_data.PublicReview
+---
 content: "傳統性別價值？\n還是道德價值？\n\n\n\n\n 雖然我也不喜歡這結局，\n但電影中的紅衣真正成魔的原因，\n不是被復活，\n而是覺得被「最愛」的人「遺棄」了，\n\
   所以最後被小女兒用愛感動，\n破解誤會跟冤念沒了，\n昇天了也是合理啦，\n恨意已經沒了。\n\n\n\n\n林美華真正的死因是太愛孩子了，\n所以紅衣一死掉她就拼命想讓祂復活，\n\
   就算被外表嚇到，\n她在紅衣走上歪路殺人的時候，\n也只是選擇「封印」祂而已。\n\n\n林美華說過幾次，\n一次是說一年前有人破壞了「封印」，\n一次是說要去「封印」祂的地方，\n\
@@ -6935,7 +6934,7 @@ date: 2017-09-02
 reply_count: 34
 title: 'Re: [負雷] 想問爸爸去哪裡？的紅衣小女孩2'
 url: https://www.ptt.cc/bbs/movie/M.1504344260.A.CE8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影內容是一位很忙的爸爸，
 
   去買隻貓要當女兒生日禮物
@@ -6962,7 +6961,7 @@ date: 2016-08-03
 reply_count: 7
 title: '[  雷] 爸爸變成自己要送給女兒的寵物貓'
 url: https://www.ptt.cc/bbs/movie/M.1470155880.A.43F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我不是星際大戰的一代，九零年代和爸爸在客廳看電視台撥四五六星際大戰
 
   然後是大學時代每年跟著看一二三。星際大戰對我來說是上一輩的夢，是過去的童話。
@@ -7211,7 +7210,7 @@ date: 2017-12-20
 reply_count: 80
 title: '[極好雷]帶爸爸媽媽去看星際大戰8吧'
 url: https://www.ptt.cc/bbs/movie/M.1513769885.A.4D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '多年前看的
 
 
@@ -7242,7 +7241,7 @@ date: 2018-10-23
 reply_count: 10
 title: '[問片] 爸爸想害死兒女的片'
 url: https://www.ptt.cc/bbs/movie/M.1540289626.A.E27.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為熱愛看鬼片，但碟仙碟仙感覺評價不佳，雖然對凱吉抱持著一絲疑慮，依舊帶著不期
 
   不待的心情乖乖買了票去看，卻意外地比想像中好看。
@@ -7282,7 +7281,7 @@ date: 2015-11-22
 reply_count: 3
 title: '[微好雷] 爸爸終於派上用場的《邪尋》'
 url: https://www.ptt.cc/bbs/movie/M.1448156711.A.728.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看了阿湯哥缺氧死亡被電擊救醒的電影
 
 
@@ -7297,7 +7296,7 @@ date: 2015-08-01
 reply_count: 8
 title: '[問片] 一部殺手兒子殺死殺手爸爸的片?'
 url: https://www.ptt.cc/bbs/movie/M.1438418986.A.FDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '忘記開頭跟結局了
 
 
@@ -7333,7 +7332,7 @@ date: 2018-03-18
 reply_count: 19
 title: '[問片] 爸爸爸小女孩丟在樹林裡'
 url: https://www.ptt.cc/bbs/movie/M.1521350871.A.2B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '找一部爸爸囚禁女兒的片，好像還跟女兒生了四個孩子，最後是有孩子逃出去才獲救，劇情
 
   似乎有點類似不存在的房間那種感覺
@@ -7344,7 +7343,7 @@ date: 2021-10-23
 reply_count: 6
 title: '[問片] 找一部爸爸囚禁女兒的片'
 url: https://www.ptt.cc/bbs/movie/M.1634928405.A.24B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '版上很多討論花甲電影的優點和缺點
 
   有人很喜歡有人很不喜歡，我是覺得沒有那麼嚴肅
@@ -7445,7 +7444,7 @@ date: 2018-02-19
 reply_count: 23
 title: '[好雷] 花甲大人轉男孩 爸爸們的各種面相'
 url: https://www.ptt.cc/bbs/movie/M.1519017499.A.9A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部我是和小朋友一起在HBO上看的
 
 
@@ -7529,7 +7528,7 @@ date: 2020-12-30
 reply_count: 20
 title: '[ 好雷] 適合爸爸看的 WW84 '
 url: https://www.ptt.cc/bbs/movie/M.1609260769.A.658.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得一部片
 
   講一個男人認識很多怪人的經歷
@@ -7544,7 +7543,7 @@ date: 2016-05-24
 reply_count: 14
 title: '[問片] 認識很多怪人的爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1464067779.A.5A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大概兩三年前在電視上看的
 
 
@@ -7582,7 +7581,7 @@ date: 2016-05-22
 reply_count: 4
 title: '[問片] 親情片 爸爸是體育記者'
 url: https://www.ptt.cc/bbs/movie/M.1463928735.A.5E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文中只有微微雷
 
 
@@ -7687,7 +7686,7 @@ date: 2016-06-13
 reply_count: 30
 title: '[討論] 他不笨，他是我爸爸(I Am Sam)觀後感嘆'
 url: https://www.ptt.cc/bbs/movie/M.1465825002.A.71C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記者陳芊秀／綜合報導
 
 
@@ -7752,7 +7751,7 @@ date: 2020-09-19
 reply_count: 116
 title: '[新聞] 《神隱少女》千尋爸爸一口吞的不是肉圓！19年謎團原畫師說出'
 url: https://www.ptt.cc/bbs/movie/M.1600522708.A.5E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片是小時候看的，大約在2000年之後。主要就是有個爸爸是警察，但是他兒子當毒販
 
   。
@@ -7785,7 +7784,7 @@ date: 2016-08-26
 reply_count: 10
 title: '[問片] 一部爸爸是警察，兒子是毒販的電影'
 url: https://www.ptt.cc/bbs/movie/M.1472218943.A.691.html
---- !!python/object:movie_data.PublicReview
+---
 content: '印象中好幾年前有看過一部西洋片
 
 
@@ -7810,7 +7809,7 @@ date: 2020-08-20
 reply_count: 18
 title: '[問片] 爸爸是av男優（西洋片）'
 url: https://www.ptt.cc/bbs/movie/M.1597857994.A.B0A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是一部歐美片
 
   劇情好像是小孩要找爸爸，翻遍了電話簿，一個一個去拜訪
@@ -7828,7 +7827,7 @@ date: 2019-03-05
 reply_count: 6
 title: '[問片]一部小孩找爸爸的電影'
 url: https://www.ptt.cc/bbs/movie/M.1551788945.A.E67.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原來我看的網路上 阿凡達電影第一集延長版
 
 
@@ -7919,7 +7918,7 @@ date: 2022-12-17
 reply_count: 29
 title: '[討論] 阿凡達 義女的爸爸不是實驗員'
 url: https://www.ptt.cc/bbs/movie/M.1671272626.A.5D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -8174,7 +8173,7 @@ date: 2021-11-11
 reply_count: 20
 title: '[普好雷] 人肉搜索 - 我是你爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1636575616.A.71D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '爸爸一開始不讓女兒跟朋友一起去義大利或是法國
 
 
@@ -8196,7 +8195,7 @@ date: 2017-06-17
 reply_count: 40
 title: '[問片] 爸爸不讓女兒跟朋友一起去義大利'
 url: https://www.ptt.cc/bbs/movie/M.1497681798.A.F6B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "-------------------------------------------------------\n父親侵犯了我，\n但是，母親、妹妹、親戚卻沒有人願意相信我。\n\
   -------------------------------------------------------\n\n有預告跟劇照的上色網誌版： \n\n-------------------------------------------------------\n\
   \n《護家魔》為講述一名少女「海豚」遭受親生父親性侵的紀錄片。和其他社會事件不同在\n於，海豚的母親、兩位妹妹、姑姑、舅舅、外婆等所有親人，沒有一人願意相信她。面對\n\
@@ -8261,7 +8260,7 @@ date: 2015-09-30
 reply_count: 90
 title: ' [好雷] 《護家魔》爸爸強暴了我，但媽媽卻無視'
 url: https://www.ptt.cc/bbs/movie/M.1443556338.A.7DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '抱歉標題可能聳動了點
 
 
@@ -8330,7 +8329,7 @@ date: 2018-03-31
 reply_count: 14
 title: '[問片] 兒子與爸爸(捐精者)交往的西洋片(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1522500309.A.69A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '印象中是歐美的電影
 
   父親好像因為在睡夢中意外悶死自己的孩子
@@ -8354,7 +8353,7 @@ date: 2018-10-04
 reply_count: 2
 title: '[問片] 小孩疑似被睡夢中的爸爸悶死'
 url: https://www.ptt.cc/bbs/movie/M.1538597629.A.171.html
---- !!python/object:movie_data.PublicReview
+---
 content: '遺憾！《小鬼當家》 爸爸陳屍飯店房間　享壽72歲
 
 
@@ -8389,7 +8388,7 @@ date: 2017-07-22
 reply_count: 10
 title: '[新聞] 遺憾！《小鬼當家》 爸爸陳屍飯店房間　'
 url: https://www.ptt.cc/bbs/movie/M.1500735072.A.BA6.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'chris hemsworth (克里斯漢斯
 
   沃) 上班當超級英雄, 下班當超級
@@ -8429,7 +8428,7 @@ date: 2017-02-18
 reply_count: 7
 title: '[新聞] 索爾真男人好爸爸 下班回家再戰蜘蛛人+美國隊長'
 url: https://www.ptt.cc/bbs/movie/M.1487348171.A.CED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前在YouTube看到電影解說想重看但忘記片名
 
 
@@ -8481,7 +8480,7 @@ date: 2024-12-05
 reply_count: 14
 title: '[問片] 爸爸去輪流拜訪小孩的電影'
 url: https://www.ptt.cc/bbs/movie/M.1733373796.A.BCD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   我的印象只有白頭髮的小女生(不確定是不是女兒)，闖入家中 把爸爸殺掉之後心臟挖出來煮，媽媽不確定是不是躲起來了
@@ -8507,7 +8506,7 @@ date: 2018-10-05
 reply_count: 8
 title: '[問片] 女兒把爸爸的心臟挖出來煮'
 url: https://www.ptt.cc/bbs/movie/M.1538674011.A.506.html
---- !!python/object:movie_data.PublicReview
+---
 content: "衛視電影台  全台首播\n\n9/30 （六） 03:15 ~ 05:30\n\n原名：\n泣く子はいねぇが\n\n\n（2020）\n住在秋田縣南鹿半島的阿佑（仲野太賀\
   \ 飾）\n的太太櫻倉（吉岡里帆 飾）最近剛生下女兒\n，沉浸在身為人父的喜悅當中。\n\n除夕夜當天，阿佑參加了當地「生剝鬼節」\n的傳統節慶活動，原本和妻子約定好會早點\n\
   回家的忠雄卻喝得爛醉，並在大街上裸奔，\n隔天失態的畫面竟在全國電視台播出。阿佑\n的舉動不僅讓村莊蒙羞，更遭到居民排擠，\n受不了巨大壓力的他選擇拋棄妻小，逃到東\n\
@@ -8518,7 +8517,7 @@ date: 2023-09-30
 reply_count: 1
 title: '[Live] 不容易的爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1696015964.A.B33.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片中主角有一個嚴格的爸爸
 
   一直要求主角跟他的哥哥（或弟弟）練習打架
@@ -8542,7 +8541,7 @@ date: 2019-11-13
 reply_count: 46
 title: '[問片] 嚴格的爸爸要兄弟打架的片'
 url: https://www.ptt.cc/bbs/movie/M.1573575662.A.5AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由於只記得些微片段但是查不到片名，於是來請教各位～
 
   場景有點未來時空感，應該是美國或是歐系電影，三個小孩在尋找爸爸，有一幕來到沙灘
@@ -8561,7 +8560,7 @@ date: 2019-07-08
 reply_count: 6
 title: '[問片] 困在時空的爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1562601216.A.C48.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -8658,7 +8657,7 @@ date: 2019-10-13
 reply_count: 2
 title: '[好雷] 小島來了陌生爸爸(2019尼德蘭)'
 url: https://www.ptt.cc/bbs/movie/M.1570968033.A.6CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雖然中途尖叫了幾次，女性演員演技各種爆發、\n也加入考究過的民俗元素使劇本魅力大增...\n\n......但\n\n劇本所呈現的傳統性別價值\n\
   讓人看完還是森77啦!!!\n\n（至於會不會是導演的反諷呢？我是看不出來啦）\n\n--------- 防雷 ----------------------------------\n\
   \n對，動畫很差或劇情支離破碎\n其實都是本片瑕不掩瑜之處\n不過導演到2017年\n還在用宗教迷信威脅女性身體自主權、\n妖魔化墮胎手術、\n以及用愛不愛小孩來區分「好女人」與「壞女人」就很難接受。\n\
@@ -8695,7 +8694,7 @@ date: 2017-09-02
 reply_count: 150
 title: '[負雷] 想問爸爸去哪裡？的紅衣小女孩2'
 url: https://www.ptt.cc/bbs/movie/M.1504330215.A.651.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據 Observer 的最新獨家報導指出，去年以《別告訴她》享譽影壇的中國裔美國女導演
 
   「王子逸（Lulu Wang）」將執導美國翻拍版的《我的意外爸爸》。
@@ -8773,7 +8772,7 @@ date: 2020-08-13
 reply_count: 10
 title: '[情報] 美國翻拍版《我的意外爸爸》將由《別告訴她》導演執導'
 url: https://www.ptt.cc/bbs/movie/M.1597254728.A.840.html
---- !!python/object:movie_data.PublicReview
+---
 content: '印象中好像是韓國還是日本的片
 
 
@@ -8815,7 +8814,7 @@ date: 2023-06-23
 reply_count: 9
 title: '[問片]遺傳爸爸暴力傾向的片'
 url: https://www.ptt.cc/bbs/movie/M.1687517481.A.C28.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影最後一段
 
   金爸載朴夫人
@@ -8852,7 +8851,7 @@ date: 2020-02-14
 reply_count: 58
 title: '[討論] 寄生上流 爸爸載朴夫人去買派對食物'
 url: https://www.ptt.cc/bbs/movie/M.1581615373.A.FE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，然後這爸爸因為怨恨而有計劃的殺了相關的醫生等等的人。
 
 
@@ -8884,7 +8883,7 @@ date: 2015-10-04
 reply_count: 5
 title: '[問片] 一個爸爸大約3-5歲兒子生病送醫後死亡'
 url: https://www.ptt.cc/bbs/movie/M.1443972974.A.972.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想問以前上課時老師放過的電影
 
   是一部至少十幾年以上的美國電影
@@ -8916,7 +8915,7 @@ date: 2019-10-04
 reply_count: 19
 title: '[問片] 一部藉由舊對講機聯絡上死去的消防員爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1570186504.A.177.html
---- !!python/object:movie_data.PublicReview
+---
 content: '稱王世堅爸爸為《返校》主角原形　王浩宇：出賣同學飛黃騰達
 
   2023.01.15 11:12
@@ -8970,7 +8969,7 @@ date: 2023-01-15
 reply_count: 48
 title: '[新聞] 稱王世堅爸爸為《返校》主角原形　王浩宇'
 url: https://www.ptt.cc/bbs/movie/M.1673798098.A.5AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道是不是個人感覺
 
 
@@ -9052,7 +9051,7 @@ date: 2016-09-21
 reply_count: 9
 title: '[ 好雷] 屍速列車之爸爸真偉大？'
 url: https://www.ptt.cc/bbs/movie/M.1474444616.A.9CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果沒理解錯
 
 
@@ -9070,7 +9069,7 @@ date: 2016-12-10
 reply_count: 23
 title: '[請益] 鋼鐵英雄有關爸爸的部分'
 url: https://www.ptt.cc/bbs/movie/M.1481381772.A.670.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如題  這應該是90年代的片子\n\n    我好像是以前在東森洋片還是HBO看到的\n\n    印象很淡  但我記得這部片應該不是什麼有劇情的\n\
   \n    好像純粹就是給女主角賣風騷的題材\n\n    應該就是那種  專為女星量身打造的東西  像是梅根福克斯的\"辣得要命\"的那種\n\n    劇情好像就是念高中還是大學的女主去一個家庭當臨時保母\n\
   \n    這個家庭的夫妻晚上要出去還是幹嘛的  我也不記得只是一晚還是好幾次\n\n    總之就是這個女主天生自帶妲己狐狸精效果  可能還有天子傳奇的天仙銷魂術吧\n\
@@ -9088,7 +9087,7 @@ date: 2021-12-23
 reply_count: 16
 title: '[問片] 問一部年輕褓母勾引爸爸的電影'
 url: https://www.ptt.cc/bbs/movie/M.1640212851.A.4BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '女朋友已經被害夠慘了，結果男主角臨走前把自己老爸丟給女朋友照顧
 
 
@@ -9112,7 +9111,7 @@ date: 2021-08-30
 reply_count: 91
 title: '[討論] 當男人戀愛時，為啥要把爸爸丟給女朋友'
 url: https://www.ptt.cc/bbs/movie/M.1630317310.A.E26.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n流行 上戲 【踏遍50萬里路】 電影《失孤》真實爸爸24年後終於找到兒子　\n劉德華感動：佩服你的堅持\n\n上報流行 2021年07月13日\
   \ 17:30:00\n\n2015年由劉德華主演的電影《失孤》，改編自真人真事，\n講述一名農民花了15年尋找失蹤的兒子，無論歷經任何辛苦都不曾放棄過，\n\
   但電影結局這位農民並沒有尋獲兒子。\n\n但近日卻傳來好消息，故事中的角色原型郭剛堂證實已找回失蹤24年的兒子郭新振，\n劉德華聞訊也透過影片開心送上祝福，「佩服你的堅持」！\n\
@@ -9127,7 +9126,7 @@ date: 2021-07-13
 reply_count: 11
 title: '[新聞] 【踏遍50萬里路】 電影《失孤》真實爸爸2'
 url: https://www.ptt.cc/bbs/movie/M.1626186569.A.151.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天剛看完皮卡丘，
 
   真心覺得男主角的爸爸比男主角帥
@@ -9172,7 +9171,7 @@ date: 2019-05-11
 reply_count: 46
 title: '[討論]皮卡丘男主角的爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1557588932.A.40E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一家人的概念
 
   因為對比較傳統的人來說
@@ -9213,7 +9212,7 @@ date: 2021-08-30
 reply_count: 11
 title: 'Re: [討論] 當男人戀愛時，為啥要把爸爸丟給女朋友'
 url: https://www.ptt.cc/bbs/movie/M.1630317832.A.CA6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌版：
 
 
@@ -9317,7 +9316,7 @@ date: 2017-01-07
 reply_count: 7
 title: '[好雷] 顛父人生：喜歡嗎？爸爸買給妳 '
 url: https://www.ptt.cc/bbs/movie/M.1483720829.A.5D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '18歲的印地安辣妹 Natalie
 
   現實生活是 26歲美國人 Kelsey Chow
@@ -9373,7 +9372,7 @@ date: 2017-12-06
 reply_count: 31
 title: '[好雷] 極地追擊裡的 Natalie 爸爸是台灣人!?'
 url: https://www.ptt.cc/bbs/movie/M.1512570893.A.431.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我不算古墓奇兵腦粉。
 
 
@@ -9678,7 +9677,7 @@ date: 2018-03-12
 reply_count: 46
 title: '[負雷] 古墓奇兵-自投羅網的爸爸(大爆雷'
 url: https://www.ptt.cc/bbs/movie/M.1520786381.A.7A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '朋友的老爸聽說最近國片返校很紅，想請朋友帶他去看
 
 
@@ -9698,7 +9697,7 @@ date: 2019-10-07
 reply_count: 19
 title: '[請益] 朋友問該帶爸爸去看返校嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1570418799.A.29A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不過比起閃電俠，更重要的是:
 
 
@@ -9724,7 +9723,7 @@ date: 2021-03-14
 reply_count: 10
 title: 'Re: [新聞] 《閃電俠》媽媽演員確認 爸爸不回歸'
 url: https://www.ptt.cc/bbs/movie/M.1615704504.A.B22.html
---- !!python/object:movie_data.PublicReview
+---
 content: '共青團稱秦漢的爸爸是民族敗類 電影「八佰」正式撤檔
 
   聯合報 記者賴錦宏
@@ -9790,7 +9789,7 @@ date: 2019-06-26
 reply_count: 62
 title: '[新聞] 共青團稱秦漢的爸爸是民族敗類 電影「八'
 url: https://www.ptt.cc/bbs/movie/M.1561555263.A.0A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很簡單啊，我講我對人物的理解給你聽
 
 
@@ -9864,7 +9863,7 @@ date: 2019-08-10
 reply_count: 17
 title: 'Re: [討論] 寄生上流爸爸疑問？（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1565433204.A.E69.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前一陣子在電視看到的還是哪裡我也忘記了
 
 
@@ -9899,7 +9898,7 @@ date: 2017-03-17
 reply_count: 2
 title: '[問片] 想轉型當好爸爸？'
 url: https://www.ptt.cc/bbs/movie/M.1489697335.A.373.html
---- !!python/object:movie_data.PublicReview
+---
 content: "去年進戲院看的影片,幾乎沒有進金酸莓獎\n\n看來我的地雷運沒那麼高\n\n但是這片看以前,就知道是踩雷的\n\n(防雷)\n\n\n\n\n\n\
   \n\n\n\n\n\n為了長大後的超殺女,花了幾百\n\n結果超失望...\n\n\n這邊要討論的是\n\n超殺女爸爸帶著姊弟倆離家,去尋找難民營\n\n那背包右邊好像插著登山杖之類的\n\
   \n後來也有給超殺女一把Colt\n\n像這種大災難離家,通常該帶什麼呢?\n\n再考慮拖著兩個孩子,哪些又是必要多帶呢?\n\n--\n十大謊言\n 1.同學:我沒唸啊，不知道為何考這麼高。\
@@ -9910,7 +9909,7 @@ date: 2016-02-03
 reply_count: 3
 title: '[討論] 第五毀滅-爸爸應該帶什麼?'
 url: https://www.ptt.cc/bbs/movie/M.1454509412.A.253.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前陣子看到youtube跳出小獅王守護隊的片段
 
   點進去看發現蠻有趣的
@@ -9972,7 +9971,7 @@ date: 2019-08-01
 reply_count: 17
 title: 'Re: [請益] 獅子王裡女主角的爸爸是誰？'
 url: https://www.ptt.cc/bbs/movie/M.1564652610.A.CB4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，但好像不是即刻救援。我是在遊覽車上看到的，所以不知道片名，內容大概是爸爸
 
   和一個年輕女生對抗壞人，那個女生父母在車臣戰爭被殺害，然後女生要和主角一起合作
@@ -9996,7 +9995,7 @@ date: 2015-05-13
 reply_count: 7
 title: '[問片] 有爸爸救女兒的電影'
 url: https://www.ptt.cc/bbs/movie/M.1431486897.A.677.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這標題應該不算雷吧？
 
   畢竟當年動畫或今年電影裡也沒拍
@@ -10064,7 +10063,7 @@ date: 2019-07-18
 reply_count: 57
 title: '[請益] 獅子王裡女主角的爸爸是誰？'
 url: https://www.ptt.cc/bbs/movie/M.1563444007.A.3F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中國時報【（鍾志均）】
 
 
@@ -10099,7 +10098,7 @@ date: 2016-03-21
 reply_count: 2
 title: '[新聞] 《特工爺爺》華仔扮壞爸爸唱〈原諒我〉'
 url: https://www.ptt.cc/bbs/movie/M.1458563308.A.611.html
---- !!python/object:movie_data.PublicReview
+---
 content: '找一部電影
 
   男主為了獲得獎金完成一堆獵奇的任務
@@ -10117,7 +10116,7 @@ date: 2016-09-18
 reply_count: 10
 title: '[問片] 為了獎金的片最後被爸爸殺死'
 url: https://www.ptt.cc/bbs/movie/M.1474134110.A.C11.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -10156,7 +10155,7 @@ date: 2023-01-17
 reply_count: 22
 title: '[討論] 宮城的爸爸是不是很沒有存在感？'
 url: https://www.ptt.cc/bbs/movie/M.1673930007.A.922.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一直有看到這個粉絲團在下廣告
 
 
@@ -10192,7 +10191,7 @@ date: 2017-08-23
 reply_count: 1
 title: '[討論] 爸爸媽媽靠邊站到底是要演哪齣？'
 url: https://www.ptt.cc/bbs/movie/M.1503458715.A.879.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'goo.gl/dw9DyR
 
 
@@ -10206,7 +10205,7 @@ date: 2017-07-22
 reply_count: 4
 title: '[情報] 小鬼當家中的爸爸John Heard剛剛過世'
 url: https://www.ptt.cc/bbs/movie/M.1500732234.A.21A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '或許是前一天晚上被罵到很厭世，
 
 
@@ -10281,7 +10280,7 @@ date: 2019-03-11
 reply_count: 2
 title: '[ 好雷] 惹惱地方爸爸沒有好下場-酷寒殺手'
 url: https://www.ptt.cc/bbs/movie/M.1552276292.A.415.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   想找一個小時候半夜看過的電影
@@ -10303,7 +10302,7 @@ date: 2017-10-01
 reply_count: 5
 title: '[問片] 找一個男生被爸爸拋棄的片'
 url: https://www.ptt.cc/bbs/movie/M.1506788248.A.53F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我真的不知道怎麼打標題XD
 
   是這兩年的墨西哥片
@@ -10357,7 +10356,7 @@ date: 2015-06-07
 reply_count: 2
 title: '[問片] 小孩後來生病過世的片'
 url: https://www.ptt.cc/bbs/movie/M.1433608217.A.374.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   家父大約60，我們這年輕族群的娛樂完全不懂，不過倒是很喜歡看些動作片，像是：金牌特務、殺破狼、玩命關頭之類的
@@ -10377,7 +10376,7 @@ date: 2018-04-04
 reply_count: 120
 title: '[選片] 帶爸爸去看一級玩家合適嗎'
 url: https://www.ptt.cc/bbs/movie/M.1522797717.A.74E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '快十年前看的歐美電影
 
   當時還是小學生 看不懂電影內容 但由於印象很深刻 長大後時不時還是會惦記著這部片
@@ -10403,7 +10402,7 @@ date: 2016-08-12
 reply_count: 2
 title: '[問片] 爸爸蒐集郵票的片'
 url: https://www.ptt.cc/bbs/movie/M.1470995168.A.0BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該是三年內的片
 
 
@@ -10426,7 +10425,7 @@ date: 2018-08-26
 reply_count: 7
 title: '[問片] 女孩陪爸爸去探望智障的舅舅'
 url: https://www.ptt.cc/bbs/movie/M.1535247021.A.276.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很久以前 在cinmax 看得 斷斷續續的
 
 
@@ -10461,7 +10460,7 @@ date: 2020-10-31
 reply_count: 16
 title: '[問片] 爸爸訓練小孩殺人'
 url: https://www.ptt.cc/bbs/movie/M.1604102756.A.1AA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在在fox movie看明天過後
 
   山姆他爸已經透過電話要他待在室內取暖
@@ -10494,7 +10493,7 @@ date: 2021-09-26
 reply_count: 52
 title: '[討論]  明天過後 山姆的爸爸去找他幹嘛？'
 url: https://www.ptt.cc/bbs/movie/M.1632642346.A.B25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '發[問片]文時請把標題儘量寫清楚，至少附上一個情節特徵
 
 
@@ -10529,7 +10528,7 @@ date: 2021-09-09
 reply_count: 1
 title: '[問片] [有雷] 韓國一部爸爸跟女兒的片'
 url: https://www.ptt.cc/bbs/movie/M.1631170532.A.D00.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n1.影片名稱\
   \ : 兩個爸爸\n\n2.觀影時間 : 2018.10.1\n\n3.觀影地點 : 信義威秀\n\n4.觀影方式 : 片商邀約\n\n§其他防雷說明(非必要)\
   \ : n刷等其他說明請於此區說明....可留空\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
@@ -10550,7 +10549,7 @@ date: 2019-01-23
 reply_count: 5
 title: '[好雷] 《兩個爸爸》(Ideal Home) '
 url: https://www.ptt.cc/bbs/movie/M.1548251867.A.0CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想找一部內容應該是在義大利
 
   爸爸是一個很鬧的餐廳服務生，認識了一個女生然後一直稱呼她為公主
@@ -10586,7 +10585,7 @@ date: 2017-03-05
 reply_count: 47
 title: '[問片] 爸爸跟妻子小孩一起被抓進集中營'
 url: https://www.ptt.cc/bbs/movie/M.1488651186.A.7B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家的知道快銀的爸爸是萬磁王
 
   那快銀說他父母被史塔克的飛彈炸死了
@@ -10608,7 +10607,7 @@ date: 2015-05-03
 reply_count: 44
 title: '[請益] 快銀的爸爸 小雷'
 url: https://www.ptt.cc/bbs/movie/M.1430638056.A.61F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你是否也有過這樣的時刻呢？突然在某刻，覺得即使自己再怎麼努力，人生也沒辦法有所
 
   突破了。
@@ -10745,7 +10744,7 @@ date: 2021-10-14
 reply_count: 8
 title: '[好雷] 《不容易的爸爸》只是想自在地活著而已'
 url: https://www.ptt.cc/bbs/movie/M.1634186319.A.180.html
---- !!python/object:movie_data.PublicReview
+---
 content: '梁朝偉有多強？
 
   從征戰到鍾情、從喪妻之痛到坦然赴死
@@ -10927,7 +10926,7 @@ date: 2021-09-04
 reply_count: 102
 title: '[普雷] 尚氣，爸爸忘了把眼神傳給你'
 url: https://www.ptt.cc/bbs/movie/M.1630759413.A.114.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是歐美喜劇片
 
 
@@ -10953,7 +10952,7 @@ date: 2016-11-26
 reply_count: 20
 title: '[問片] 女兒和爸爸朋友談戀愛'
 url: https://www.ptt.cc/bbs/movie/M.1480164318.A.DB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '推 antibody27: 綠色奇蹟的雞掰人不就是那個踩死老鼠的獄卒嗎，不過他  11/19 21:51
 
   → antibody27: 有演他不笨？？有演他不笨嗎？                        11/19 21:51
@@ -10974,7 +10973,7 @@ date: 2017-11-19
 reply_count: 2
 title: 'Re: [請益] 他不笨 他是我爸爸(西恩潘)'
 url: https://www.ptt.cc/bbs/movie/M.1511103147.A.F42.html
---- !!python/object:movie_data.PublicReview
+---
 content: '爸爸可以幫我看看床底下嗎？
 
 
@@ -11011,7 +11010,7 @@ date: 2016-11-08
 reply_count: 27
 title: '[問片] 爸爸可以幫我看看床底下嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1478617210.A.997.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實國片跳脫loop在青澀校園、愛情笑鬧、幫派混混、新春賀歲……以外...
 
   還是有幾部很經典且令人印象深刻的好作品！
@@ -11098,7 +11097,7 @@ date: 2023-08-08
 reply_count: 47
 title: '[閒聊] 跟父親/爸爸有關的國片'
 url: https://www.ptt.cc/bbs/movie/M.1691508262.A.D67.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好看的電影通常窺見了某種程度的世界本質，所以會帶有某種預言性，於是翁子光的《爸爸》竟然有篇幅利用「洗碗」來闡述每個人在家裡的定位與狀態，真是令人佩服。
 
 
@@ -11125,7 +11124,7 @@ date: 2025-01-09
 reply_count: 11
 title: '[ 好微雷] 《爸爸》也是人'
 url: https://www.ptt.cc/bbs/movie/M.1736416844.A.659.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問一部美國電影，應該是2000年後拍的戀愛電影
 
 
@@ -11157,7 +11156,7 @@ date: 2022-12-25
 reply_count: 4
 title: '[問片] 聖誕節 黑人爸爸 紐約'
 url: https://www.ptt.cc/bbs/movie/M.1671972414.A.2BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '梅拉爸爸不開心！安柏赫德《水行俠2》戲分遭刪...杜夫朗格吐遺憾
 
 
@@ -11218,7 +11217,7 @@ date: 2024-01-18
 reply_count: 35
 title: '[新聞] 梅拉爸爸不開心！安柏赫德水行俠2戲分'
 url: https://www.ptt.cc/bbs/movie/M.1705508809.A.657.html
---- !!python/object:movie_data.PublicReview
+---
 content: '梁朝偉有夠帥的啦，看他用十環的動作戲在我心中是漫威電影前幾名
 
 
@@ -11238,7 +11237,7 @@ date: 2021-09-02
 reply_count: 21
 title: '[算好雷] 尚氣的爸爸好帥...'
 url: https://www.ptt.cc/bbs/movie/M.1630592403.A.C1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '說散就散，你的人生我的旅程
 
 
@@ -11479,7 +11478,7 @@ date: 2023-11-16
 reply_count: 1
 title: '[普雷]《尋父冒險記》腦海中那厲害爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1700068464.A.9A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '排班很怪請見諒
 
   是在飛機上看的，當時因為很累，所以只有看到片段
@@ -11534,7 +11533,7 @@ date: 2018-07-15
 reply_count: 7
 title: '[問片] 找爸爸還有黑魔法的女巫（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1531647369.A.6E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   劇情是有一個非常小氣的爸爸原本以為要出差去希臘，想說可以帶全家人去旅行
@@ -11563,7 +11562,7 @@ date: 2015-11-22
 reply_count: 3
 title: '[問片] 小氣爸爸帶全家人去希臘旅行的電影'
 url: https://www.ptt.cc/bbs/movie/M.1448177839.A.7AA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '喜獲千金！「榮恩」當爸爸了
 
 
@@ -11629,7 +11628,7 @@ date: 2020-05-08
 reply_count: 29
 title: '[新聞] 喜獲千金！「榮恩」當爸爸了'
 url: https://www.ptt.cc/bbs/movie/M.1588953223.A.01F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影片有《復仇者聯盟：無限之戰》的劇情雷，請先看過電影再看這部影片
 
 
@@ -11684,7 +11683,7 @@ date: 2018-05-05
 reply_count: 9
 title: '[翻譯] 薩諾斯只想當個好爸爸？—Just Write'
 url: https://www.ptt.cc/bbs/movie/M.1525493537.A.0E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '女兒離家一開始參加社運
 
   後來信仰奇怪的宗教，都不能洗澡
@@ -11703,7 +11702,7 @@ date: 2017-09-19
 reply_count: 7
 title: '[問片] 女兒離家出走，爸爸一直找，後來找到了'
 url: https://www.ptt.cc/bbs/movie/M.1505751073.A.FBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '陽光普照因為有上Netflix
 
   想說最近下大雨又有疫情
@@ -11762,7 +11761,7 @@ date: 2020-03-29
 reply_count: 56
 title: '[壞雷] 陽光普照 - 關於爸爸'
 url: https://www.ptt.cc/bbs/movie/M.1585470953.A.164.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n被譽為摔角界「百年難得一見的逸才」、拿過新日本IWGP重量級王座七次的紀錄保持人，\n棚橋弘至首次挑大樑主演【我的爸爸是壞蛋冠軍】，在摔角迷瘋狂敲碗下，伴隨著熱血的\n\
   汗水與感動的淚水，終於要登上台灣大銀幕。本片改編自日本暢銷兒童繪本，書中的英雄\n角色「飛龍喬治」正是以棚橋弘至為原型繪製，而他也笑說其實在收到角色邀約時非常驚\n\
   訝，「因為我一直以為會找我來演超級英雄的角色」。【我的爸爸是壞蛋冠軍】完全顛覆\n棚橋弘至現實中的爽朗形象，在片中飾演一名因負傷而暫時引退的王牌摔角手大村孝志，\n\
@@ -11782,7 +11781,7 @@ date: 2018-12-18
 reply_count: 3
 title: '[新聞] 棚橋弘至主演「我的爸爸是壞蛋冠軍」 七'
 url: https://www.ptt.cc/bbs/movie/M.1545144032.A.747.html
---- !!python/object:movie_data.PublicReview
+---
 content: '究竟他老爸是倪坤
 
 
@@ -11799,7 +11798,7 @@ date: 2020-05-23
 reply_count: 60
 title: '[請益] 無間道陳永仁的爸爸到底是誰？'
 url: https://www.ptt.cc/bbs/movie/M.1590231352.A.8B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情的開頭跟結尾我已經忘記了
 
 
@@ -11865,7 +11864,7 @@ date: 2017-11-25
 reply_count: 5
 title: '[問片] 一部日片 兒子跟不合的爸爸帶著癌末的媽媽找旅館'
 url: https://www.ptt.cc/bbs/movie/M.1511542974.A.EA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很小時侯有看過一部電影, 關於戰爭的
 
   忘了是國片還是大陸片....
@@ -11894,7 +11893,7 @@ date: 2015-10-07
 reply_count: 14
 title: '[問片] 一套去打扙的爸爸努力想回家的電影(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1444149514.A.AD2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '跟朋友聊起，有哪些突然有小孩跑來認爸爸的電影，
 
 
@@ -11923,7 +11922,7 @@ date: 2020-05-13
 reply_count: 38
 title: '[問片] 突然有孩子跑來認爸爸的電影'
 url: https://www.ptt.cc/bbs/movie/M.1589382683.A.C7E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天又重看李安的經典國片《喜宴》，高爸爸（郎雄老師）這個角色，我覺得沒那麼簡單
 
   。大家覺得高爸是不是同性戀？我個人給的答案是肯定的。
@@ -12005,7 +12004,7 @@ date: 2021-05-19
 reply_count: 44
 title: '[討論] 李安《喜宴》 高爸爸的性向'
 url: https://www.ptt.cc/bbs/movie/M.1621438131.A.5F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以前音樂課老師放給我們看的
 
   前幾天突然想到這個劇情
@@ -12034,7 +12033,7 @@ date: 2017-04-04
 reply_count: 9
 title: '[問片] 女主角因為爸爸的死變啞巴'
 url: https://www.ptt.cc/bbs/movie/M.1491281042.A.B1C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '只記得是東洋的電影，爸爸經營水族館，全家
 
 
@@ -12057,7 +12056,7 @@ date: 2021-11-15
 reply_count: 7
 title: '[問片] 某一部爸爸在經營水族館的電影'
 url: https://www.ptt.cc/bbs/movie/M.1636977032.A.95E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來想趁大考前休息放鬆一下
 
   於是挑了最愛的災難片-加州大地震
@@ -12373,7 +12372,7 @@ date: 2015-05-31
 reply_count: 48
 title: '[好雷]加州大地震-爸爸真的很重要'
 url: https://www.ptt.cc/bbs/movie/M.1433007259.A.076.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片真的很厲害！
 
 
@@ -12433,7 +12432,7 @@ date: 2020-01-07
 reply_count: 5
 title: 'Re: [討論] 第四台很久沒演 他不笨他是我爸爸了嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1578363955.A.41E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感謝大家
 
   終於找到了
@@ -12497,7 +12496,7 @@ date: 2023-01-09
 reply_count: 63
 title: '[問片] 戰爭中爸爸還能帶給兒子歡樂的電影'
 url: https://www.ptt.cc/bbs/movie/M.1673247882.A.14E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '除夕當天下午全家一起去看西遊記女兒國，電影的表現超過的我的預期。
 
 
@@ -12568,7 +12567,7 @@ date: 2018-02-18
 reply_count: 17
 title: '[好雷]爸爸媽媽看的都開心的西遊記女兒國 '
 url: https://www.ptt.cc/bbs/movie/M.1518923091.A.AD9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以前上西班牙語課時老師放給我們看的，
 
   是讓我認知到西班牙電影都很有病的一部片
@@ -12644,7 +12643,7 @@ date: 2022-05-09
 reply_count: 4
 title: '[問片] 爸爸為女兒報仇的西班牙片（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1652089740.A.BA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '暑假頭看了這片，暑假尾回味起來更有韻味。這部荷蘭兒童電影《小島來了陌生爸爸》中文名馬上爆大雷 XD 原文片名 "Mijn bijzonder rare
   week met Tess"則意指「我與黛絲的超怪一週」。話說台灣暑假小孩都跑夏令營與安親班，有的出國參加遊學團，簡直過得比學期間還充實！那荷蘭小孩的暑假做些什麼呢？一般技術勞工與中產上班族家庭，大概可撥至少兩週家庭旅遊，最遠離塵俗逍遙放空的，就是去荷蘭北部
   租間度假小屋啥也不用做。有時，一個荷蘭式放空暑假、比起一個台灣式充實暑假，對天地與人生還更有體悟呢？
@@ -12718,7 +12717,7 @@ date: 2019-08-30
 reply_count: 7
 title: '[好雷] 小島來了陌生爸爸，瓦登之戀'
 url: https://www.ptt.cc/bbs/movie/M.1567099711.A.28D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實硬要避開亂倫又相對合理的說法也是有，只是有點長、有點腦補。
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '在NETFLIX上看完第一集覺得很不錯
 
   雖然覺得最後的機械哥吉拉輸得太快
@@ -41,7 +40,7 @@ date: 2024-04-18
 reply_count: 23
 title: '[ 普好雷] 哥吉拉與金剛：新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1713425670.A.555.html
---- !!python/object:movie_data.PublicReview
+---
 content: '要不是幸好我在這邊有看到哥吉拉-1.0，
 
   不然哥粉如我看這部肯定吐血。
@@ -125,7 +124,7 @@ date: 2024-04-05
 reply_count: 62
 title: '[普負雷]哥吉拉與金剛：新帝國—命題錯誤'
 url: https://www.ptt.cc/bbs/movie/M.1712267699.A.AA7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看高雄威秀IMAX版15:00場次，滿滿的人潮，還看到滿多年輕爸媽帶著小孩來看，
 
   我想這就是一種傳承吧！
@@ -156,7 +155,7 @@ date: 2024-03-31
 reply_count: 11
 title: '[普雷]  哥吉拉與金剛：新帝國 另類彩蛋？'
 url: https://www.ptt.cc/bbs/movie/M.1711898374.A.921.html
---- !!python/object:movie_data.PublicReview
+---
 content: '高雄場-想看兩大巨獸聯手出擊
 
 
@@ -170,7 +169,7 @@ date: 2024-03-19
 reply_count: 30
 title: 'Re: [贈票] 【哥吉拉與金剛：新帝國】 特映會搶先看 '
 url: https://www.ptt.cc/bbs/movie/M.1710846537.A.2BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '預告滿滿的金剛 哥老只出現一下
 
   不知道是否跟上一步一樣主打金剛
@@ -189,7 +188,7 @@ date: 2023-12-04
 reply_count: 401
 title: '[討論] 哥吉拉與金剛 新帝國 官方預告'
 url: https://www.ptt.cc/bbs/movie/M.1701639004.A.AF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '自從上一部預告出現這一幕後
 
 
@@ -212,7 +211,7 @@ date: 2024-02-15
 reply_count: 8
 title: 'Re: [討論] 《哥吉拉與金剛：新帝國》 預告2'
 url: https://www.ptt.cc/bbs/movie/M.1708006716.A.0DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1. 原本我一直都很認真的累積吐嘲的笑點 大概累積十幾個了吧\n   但是很想讓人吐嘲的地方還是不斷泉湧\n   到了失重狀態動作戲的時候 我就真的放棄了\n\
   \   我想能本片做成這麼熱鬧非凡的樣子真的也不容易\n   這樣熱熱鬧鬧又歡樂起鬨的也很好啊\n   也許這就是這個世代所需要的簡單粗暴直線的快樂\n   吉雅也很可愛\
   \ 沒有懸念的給好雷\n\n--"
@@ -220,7 +219,7 @@ date: 2024-03-28
 reply_count: 12
 title: '[好雷] 哥吉拉x金剛: 新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1711638131.A.BB1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《哥吉拉與金剛：新帝國》新預告公開
 
 
@@ -267,7 +266,7 @@ date: 2024-02-15
 reply_count: 167
 title: '[討論] 《哥吉拉與金剛：新帝國》 預告2'
 url: https://www.ptt.cc/bbs/movie/M.1707932775.A.8EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '話說最近能跟4dx如此貼合又震撼
 
   的電影其實幾乎沒有幾部
@@ -298,14 +297,14 @@ date: 2024-03-30
 reply_count: 16
 title: '[好雷] 哥吉拉：新帝國 給好雷是因為我看了4dx'
 url: https://www.ptt.cc/bbs/movie/M.1711804466.A.459.html
---- !!python/object:movie_data.PublicReview
+---
 content: "GODZILLA X KONG: THE NEW EMPIRE\n\n\n\n\n\n《》\n\n首映爛番茄評分 \n\n\n\n\n\n\n\n\
   \n\n\n小熊維尼2也下降了"
 date: 2024-03-29
 reply_count: 188
 title: '[情報] 《哥吉拉 X 金剛：新帝國》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1711649606.A.1AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '基本上這部就是很經典的昭和二期哥吉拉系列電影基調
 
   只是相較於日本二期哥吉拉電影間隔太近
@@ -385,7 +384,7 @@ date: 2024-03-27
 reply_count: 23
 title: '[好雷]哥吉拉X金剛：新帝國 '
 url: https://www.ptt.cc/bbs/movie/M.1711547854.A.68E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實從票房來看並沒有「金剛在歐美人氣比較高」
 
 
@@ -453,7 +452,7 @@ date: 2024-04-08
 reply_count: 10
 title: 'Re: [普無雷] 《哥吉拉與金剛：新帝國》難以評價'
 url: https://www.ptt.cc/bbs/movie/M.1712584041.A.12F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2025/01/20 Apple TV 新春特價快報】
 
   沙丘：第二部／奧本海默／哥吉拉與金剛 : 新帝國／特技玩家／陰間大法師／威龍闖天
@@ -731,7 +730,7 @@ date: 2025-01-21
 reply_count: 10
 title: '[討論] Apple TV新春特價 沙丘2/特技玩家/新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1737430943.A.0E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -903,7 +902,7 @@ date: 2024-03-28
 reply_count: 29
 title: '[  雷] 哥吉拉-新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1711590555.A.31B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一集的快銀夫婦、第二集的米莉芭比布朗還有她爸、摩斯拉原本的獸控主人雙胞胎的章子
 
   怡、打撈基多拉斷頭的邪惡傭兵集團和他們的老大，就連上一集那麼關鍵重要的男主角亞歷
@@ -921,7 +920,7 @@ date: 2024-03-27
 reply_count: 19
 title: '[討論] 《哥吉拉x金剛：新帝國》的角色人物'
 url: https://www.ptt.cc/bbs/movie/M.1711541531.A.3C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本文無雷
 
 
@@ -985,7 +984,7 @@ date: 2024-03-26
 reply_count: 49
 title: '[好雷] 哥吉拉與金剛:新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1711467181.A.51D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文>>>
 
 
@@ -1122,7 +1121,7 @@ date: 2024-04-12
 reply_count: 55
 title: '[負雷] 《哥吉拉與金剛：新帝國》沒人類是正解？'
 url: https://www.ptt.cc/bbs/movie/M.1712934779.A.0F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '平常沒在看怪獸片
 
   也沒看過哥吉拉跟金剛相關的片
@@ -1260,7 +1259,7 @@ date: 2024-04-07
 reply_count: 29
 title: '[好雷] 哥吉拉與金剛：新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1712487766.A.340.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: dukemon (dukemon) 看板: C_Chat
 
   標題: [閒聊] 哥吉拉與金剛 新帝國（雷）
@@ -1337,7 +1336,7 @@ date: 2024-05-11
 reply_count: 7
 title: 'Fw: [閒聊] 哥吉拉與金剛 新帝國（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1715437565.A.01D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如提　看完這部片以後對哥吉拉的強度有問題
 
 
@@ -1406,7 +1405,7 @@ date: 2024-04-03
 reply_count: 59
 title: '[疑問雷] 金吉拉新帝國一問題請益'
 url: https://www.ptt.cc/bbs/movie/M.1712100485.A.E44.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好的部份給這片畫面呈現跟4dx的效果
 
   第一次看4dx看到要讓抓緊扶手
@@ -1542,7 +1541,7 @@ date: 2024-03-31
 reply_count: 15
 title: '[普好雷] 哥吉拉X金剛：新帝國@林口威秀4dx'
 url: https://www.ptt.cc/bbs/movie/M.1711835401.A.1AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "上作《哥吉拉大戰金剛》被批評人類角色與支線太多，本作回歸到讓怪獸自己說故事，這點算滿成功的，雖然我也很喜歡上作某些台詞，但本作也很有意思。\n\n\
   這系列的有些劇情就是會讓人吐槽，怪獸真的會這麼打架嗎？但是又忍不住會想看下去的類型。所以漫威有宇宙當然怪獸也有宇宙啊，只是怪獸宇宙劇情相對比較ㄎ一ㄤ一些。上作最後哥吉拉與大金剛合作打機械哥吉拉，本作則是大金剛烙人(烙哥吉拉)打刀疤王，這個電影預告早就劇透了，總之劇情還可以做到什麼事情是比較讓人好奇的部份。\n\
   \n話說為了看本作個人復習了幾部怪獸電影，怪獸電影除了是以怪獸作為主角的電影，這系列作看下來的心得是，因為可以吐槽的地方滿多的，原來怪獸宇宙是可以這麼無視物理法則又ㄎ一ㄤ又有趣\n\
@@ -1560,7 +1559,7 @@ date: 2024-03-29
 reply_count: 31
 title: '[  雷] 哥吉拉與金剛:新帝國-有點ㄎ一ㄤ但是好看'
 url: https://www.ptt.cc/bbs/movie/M.1711721593.A.107.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天中午去裕隆城看，難得一個人看電影，整場只有兩個人，我們一人坐一排好爽
 
 
@@ -1599,14 +1598,14 @@ date: 2024-04-02
 reply_count: 41
 title: '[普普雷] 哥吉拉金剛新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1712072767.A.412.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n哥吉拉與金剛-新帝國\n10-12(六) 21:00~22:55\n10-13(日) 13:05~15:00\n\n\n--\n  \
   \ \n\n--"
 date: 2024-10-12
 reply_count: 28
 title: '[LIVE] HBO 21:00 哥吉拉與金剛-新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1728720592.A.7DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '問過ai跟估狗還沒找到，只能上來求救了
 
 
@@ -1647,7 +1646,7 @@ date: 2024-12-14
 reply_count: 4
 title: '[問片] 關於感應在紙上畫圖的科幻片'
 url: https://www.ptt.cc/bbs/movie/M.1734107014.A.5B1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '此篇無雷 ~ 請放心
 
 
@@ -1692,7 +1691,7 @@ date: 2024-03-27
 reply_count: 32
 title: '[普無雷] 哥吉拉與金剛 新帝國 '
 url: https://www.ptt.cc/bbs/movie/M.1711555006.A.0EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》續集
 
 
@@ -1722,13 +1721,13 @@ date: 2023-11-30
 reply_count: 92
 title: '[情報] 哥吉拉與金剛：新帝國》前導海報'
 url: https://www.ptt.cc/bbs/movie/M.1701279192.A.455.html
---- !!python/object:movie_data.PublicReview
+---
 content: --
 date: 2024-04-02
 reply_count: 8
 title: '[討論] 哥吉拉與金剛：新帝國想問一下這個好看嗎'
 url: https://www.ptt.cc/bbs/movie/M.1712045648.A.6AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '哥吉拉新帝國真的沒那麼遭
 
   （故意不想提金剛，雖然金剛戲多，但真正靚仔還是哥吉拉）
@@ -1878,7 +1877,7 @@ date: 2024-03-29
 reply_count: 57
 title: '[微雷] 哥吉拉新帝國真的可以看，沒那麼遭，真的。'
 url: https://www.ptt.cc/bbs/movie/M.1711695717.A.D0D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1983,7 +1982,7 @@ date: 2024-03-27
 reply_count: 19
 title: '[好雷] 金哥拉 新帝國 但美術設計很爛'
 url: https://www.ptt.cc/bbs/movie/M.1711527917.A.EE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '連假想衝哥吉拉新帝國，上集有去台中遠百4dx感覺不錯，但沒有很震
 
   這次在新竹看，不知道效果如何？
@@ -2002,7 +2001,7 @@ date: 2024-03-29
 reply_count: 15
 title: '[請益] 哥吉拉：新帝國 4dx選擇'
 url: https://www.ptt.cc/bbs/movie/M.1711683442.A.506.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從預告粉紅哥吉拉跑步我就一直在思考要不要別去看了
 
 
@@ -2088,7 +2087,7 @@ date: 2024-03-29
 reply_count: 40
 title: '[普雷] 金剛 新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1711676748.A.683.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《哥吉拉與金剛：新帝國》蟬聯雙週票房冠軍 全台票房衝破1.8億
 
 
@@ -2123,7 +2122,7 @@ date: 2024-04-09
 reply_count: 6
 title: '[新聞] 《哥吉拉與金剛：新帝國》蟬聯雙週票房冠'
 url: https://www.ptt.cc/bbs/movie/M.1712621995.A.D27.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下幸運得獎人，可以搶先看【哥吉拉與金剛：新帝國】試映會。
 
   將以站內信通知領獎事宜，請各位得獎者收到通知信後
@@ -2225,7 +2224,7 @@ date: 2024-03-21
 reply_count: 81
 title: 'Re: [贈票] 【哥吉拉與金剛：新帝國】 特映會搶先看 '
 url: https://www.ptt.cc/bbs/movie/M.1710991818.A.067.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看了哥吉拉，誠如板上的討論
 
   猴子戲份也太多！
@@ -2265,7 +2264,7 @@ date: 2024-03-31
 reply_count: 14
 title: '[討論] 哥吉拉與金剛：新帝國的既視感'
 url: https://www.ptt.cc/bbs/movie/M.1711820980.A.C8A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: yuizero (14) 看板: C_Chat\n標題: [閒聊] 哥吉拉和金剛:新帝國 8+9的故事\n時間: Thu Mar 28\
   \ 02:30:48 2024\n\n   剛從電影院回來  爽片的話  這及格了\n\n剛好一掃一堆糞片的怨氣  哥吉拉並沒有像以前的電影情報\n\n古早時敗給霜魔那種事\n\
   \n\n  當然有雷囉   先防雷\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    再防雷\n\n\n\n\n\n\n\n\n\n\n\
@@ -2290,7 +2289,7 @@ date: 2024-03-28
 reply_count: 34
 title: ' [爽雷] 哥吉拉和金剛:新帝國 8+9的故事'
 url: https://www.ptt.cc/bbs/movie/M.1711565465.A.C59.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《哥吉拉與金剛：新帝國》導演預告下集「改以哥吉拉為主」！將享有金剛這次的主角待遇
 
 
@@ -2339,7 +2338,7 @@ date: 2024-03-31
 reply_count: 128
 title: '[新聞] 《哥吉拉與金剛：新帝國》導演預告下集'
 url: https://www.ptt.cc/bbs/movie/M.1711863627.A.5A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "十周年特別特別版預告:\n\n\n---------------------------------------------\n新聞網址： \n\
   \n《哥吉拉與金剛：新帝國》曝特別版預告！集結怪獸宇宙10周年畫面\n\nYahoo奇摩新聞（記者 許瑞麟）\n2024年3月14日 週四 下午3:59\n\n\
   《哥吉拉與金剛：新帝國》預售票開賣，官方也公布「怪獸宇宙10周年特別版預告」，可\n以看到該宇宙電影的許多畫面，包括《哥吉拉》、《金剛：骷髏島》、《哥吉拉 II\
@@ -2354,7 +2353,7 @@ date: 2024-03-14
 reply_count: 83
 title: '[新聞] 哥吉拉與金剛:新帝國 曝特別版預告!集結'
 url: https://www.ptt.cc/bbs/movie/M.1710410947.A.014.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2443,7 +2442,7 @@ date: 2024-03-27
 reply_count: 17
 title: '[爽雷] 《哥吉拉與金剛：新帝國》舒爽！'
 url: https://www.ptt.cc/bbs/movie/M.1711551714.A.011.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2518,7 +2517,7 @@ date: 2024-06-17
 reply_count: 9
 title: '[普雷] 哥吉拉與金剛：新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1718611206.A.D11.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2659,7 +2658,7 @@ date: 2024-04-02
 reply_count: 98
 title: '[新聞] 《哥吉拉與金剛：新帝國》首週票房全球'
 url: https://www.ptt.cc/bbs/movie/M.1712017765.A.9A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很幸運的，獲得台北場特映會的門票。
 
   昨晚大約六點二十幾分到達十樓，尋找報到處
@@ -2809,7 +2808,7 @@ date: 2024-03-27
 reply_count: 44
 title: '[微好雷] 哥吉拉與金剛：新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1711508693.A.A28.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《哥吉拉大戰金剛》續集
 
   《哥吉拉與金剛：新帝國》第二波「兩款」前導海報公開！
@@ -2842,7 +2841,7 @@ date: 2023-12-01
 reply_count: 51
 title: '[情報] 哥吉拉與金剛-新帝國 第二波海報公開'
 url: https://www.ptt.cc/bbs/movie/M.1701368299.A.2B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情的部分很多人講過了我只講我的觀影心得，我的感想如下
 
 
@@ -2861,7 +2860,7 @@ date: 2024-04-01
 reply_count: 1
 title: '[  好雷] 哥吉拉與金剛新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1711976978.A.23A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\nBy David 3 月 22, 2024\n\n\n導演亞當·溫高德已經為《哥吉拉與金剛：新帝國》下一部續集構思續集的想法。\n\
   \n\n亞當·溫高德執導了2021年的《哥吉拉大戰金剛》以及即將上映的《哥吉拉與金剛：新帝\n國》。\n\n\n\n亞當·溫高德表示 :「就像你所說的那樣，如果你已經拍了兩部電影，也許可以降級去做\n\
   第三部，因為這當中確實存在一個三部曲的架構。我絕對認為這個故事還有更多可挖掘的\n空間，我也認為我還有更多故事可以講述。但這完全取決於《新帝國》的表現以及事情的\n\
@@ -2876,7 +2875,7 @@ date: 2024-03-22
 reply_count: 55
 title: '[新聞]《哥吉拉與金剛:新帝國》導演已計劃下一部續集'
 url: https://www.ptt.cc/bbs/movie/M.1711120192.A.E2F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "開演前 一堆預告片已經把內容開箱光光惹\n\n想說進場後會不會沒多少驚喜可看\n\n殊不知..\n\n還可以啦\n\n傳奇系列應該值得再給機會往下拍\n\
   \n\n(防雷頁)\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n1.哥吉拉從直布羅陀懸崖縱身一躍!游穿地中海直達埃及 猶如游泳橫越日月潭一般~\n\
@@ -2887,7 +2886,7 @@ date: 2024-03-28
 reply_count: 35
 title: '[好雷] 哥吉拉x金剛:新帝國 哥吉拉不只會跑'
 url: https://www.ptt.cc/bbs/movie/M.1711564962.A.168.html
---- !!python/object:movie_data.PublicReview
+---
 content: "★ 大自然的守護者 人類的保衛者\n\n★ 泰坦巨獸 組團開戰\n\n★ 見證一個新帝國的崛起\n\n★ 電影預告：\n\n★【哥吉拉與金剛：新帝國】[保護級]\
   \ ，3月27日 (週三) 大銀幕開戰\n\n2D·3D·IMAX·D-BOX·4DX·MX4D·Atmos·Dolby Cinema 同步上映\n\n\n史詩級的戰鬥仍持續進行中！傳奇影業的怪獸宇宙系列繼【哥吉拉大戰金剛】的爆炸性對\n\
   決後，再度推出全新冒險故事；全能的金剛和駭人的哥吉拉即將聯手對抗隱藏在我們世界\n中未被發現的巨大威脅，那不僅挑戰了牠們的生存空間，更威脅了人類的存亡。【哥吉拉\n\
@@ -2905,7 +2904,7 @@ date: 2024-03-19
 reply_count: 1483
 title: '[贈票] 【哥吉拉與金剛：新帝國】 特映會搶先看 '
 url: https://www.ptt.cc/bbs/movie/M.1710842944.A.04B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '現在怪獸宇宙有五部分為兩個階段風格
 
   哥吉拉1跟2就是滿滿自我風格
@@ -3018,7 +3017,7 @@ date: 2024-04-05
 reply_count: 164
 title: '[負雷] 哥吉拉與金剛：新帝國—可憐哪～'
 url: https://www.ptt.cc/bbs/movie/M.1712301754.A.943.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3111,7 +3110,7 @@ date: 2024-04-12
 reply_count: 34
 title: '[好雷] 哥吉拉與金剛：新帝國 意外的不錯看'
 url: https://www.ptt.cc/bbs/movie/M.1712892439.A.4D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '趁看完台中遠百六點的場還有印象來寫一下
 
 
@@ -3167,7 +3166,7 @@ date: 2024-03-27
 reply_count: 7
 title: '[普雷] 哥吉拉x金剛 新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1711551223.A.84C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鐵粉，有怪獸打架就給好雷
 
 
@@ -3232,7 +3231,7 @@ date: 2024-03-27
 reply_count: 16
 title: '[ 好雷] 哥吉拉與金剛：新帝國'
 url: https://www.ptt.cc/bbs/movie/M.1711526486.A.ADA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如果把哥吉拉與金剛：新帝國當無腦爽片未免太小看她了\n在商業片的包裝下以怪獸喻人，實際上是充滿文藝氣息的藝術片\n問題是高級的隱喻一般觀眾看不看的出來\n\
   以下便是幾個例子\n\n1. 透過小猩猩從背刺到即刻救援的浪子回頭來象徵人性本善\n   同時引領金剛前往岩漿洞穴的過程更是如同咕魯帶哈比人前往魔多\n   開場不但具教育意義還能致敬經典電影，堪稱完美\n\
   \n2. 一群猩猩在岩漿洞穴裡搬石塊來隱喻封建時代的壓迫\n   雖然從頭到尾沒有看到任何建物，實在想不出搬石塊的必要\n   但無法抹滅的是編劇的對祖先社會結構的反思以及人文關懷\n\
@@ -3247,7 +3246,7 @@ date: 2024-04-07
 reply_count: 15
 title: 'Re: [負雷] 哥吉拉與金剛：新帝國—可憐哪～'
 url: https://www.ptt.cc/bbs/movie/M.1712426393.A.F55.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前很多人嫌人類劇情太多
 
   這邊縮減了很多人類劇情
@@ -3315,7 +3314,7 @@ date: 2024-04-08
 reply_count: 47
 title: '[普無雷] 《哥吉拉與金剛：新帝國》難以評價'
 url: https://www.ptt.cc/bbs/movie/M.1712561496.A.149.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3376,7 +3375,7 @@ date: 2024-03-27
 reply_count: 21
 title: '[好雷] 哥吉拉與金剛 新帝國 '
 url: https://www.ptt.cc/bbs/movie/M.1711552503.A.869.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家晚安
 
 
@@ -3411,7 +3410,7 @@ date: 2024-03-28
 reply_count: 12
 title: '[請益] 哥吉拉:新帝國3D效果好嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1711628587.A.B8A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '完整標題：
 
   《沙丘：第二部》《哥吉拉與金剛：新帝國》連霸，華納兄弟成為今年首個票房突破10億
@@ -3604,7 +3603,7 @@ date: 2024-04-17
 reply_count: 21
 title: '[新聞]沙丘2、哥吉拉與金剛：新帝國連霸，華納'
 url: https://www.ptt.cc/bbs/movie/M.1713315463.A.187.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《哥吉拉與金剛：新帝國》是怪獸版《致命武器》！導演預告：會出現很多不同版本的哥
 
   吉拉

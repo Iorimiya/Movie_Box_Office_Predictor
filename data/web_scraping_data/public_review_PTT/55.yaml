@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -109,7 +108,7 @@ date: 2021-08-05
 reply_count: 8
 title: '[新聞] 北影關注亞洲作品 金馬帝后濁水漂流首映'
 url: https://www.ptt.cc/bbs/movie/M.1628166517.A.806.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -207,7 +206,7 @@ date: 2021-06-13
 reply_count: 16
 title: '[新聞] 《濁水漂流》倒映露宿者 拷問香港底層問'
 url: https://www.ptt.cc/bbs/movie/M.1623562087.A.195.html
---- !!python/object:movie_data.PublicReview
+---
 content: "金馬獎、香港金像獎提名《翠絲》導演李駿碩最新編導作品\n\n《濁水漂流》定檔6/3香港上映\n\n\n\n正式預告：\n\n國際宣傳片段：\n\n\
   \n此片入圍今年鹿特丹國際影展競賽片 為今年華語片唯一入選\n\n也入圍今年香港國際電影節火鳥大獎競賽單元\n\n\n主演卡司有\n\n金馬影帝、香港金像獎得主\
   \ 《鎗火》《無間道2》吳鎮宇\n\n金馬影帝 《南海十三郎》《拆彈專家2》謝君豪\n\n金馬影后、香港金紫荊獎影后 《千言萬語》李麗珍\n\n香港金像獎提名、香港電影評論學會大獎得主\
@@ -218,7 +217,7 @@ date: 2021-04-21
 reply_count: 35
 title: '[情報] 吳鎮宇、李麗珍《濁水漂流》正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1619017091.A.06D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '＊強勢問鼎金馬獎最佳劇情片等12項大獎
 
   ＊好評席捲全球各大國際電影節
@@ -308,7 +307,7 @@ date: 2021-11-05
 reply_count: 48
 title: ［贈票］【濁水漂流】長春國賓 別無所求
 url: https://www.ptt.cc/bbs/movie/M.1636095888.A.366.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -376,7 +375,7 @@ date: 2021-10-02
 reply_count: 15
 title: '[普雷] 濁水漂流'
 url: https://www.ptt.cc/bbs/movie/M.1633169360.A.C20.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2021金馬獎強勢入圍12項大獎的香港電影《濁水漂流》將於11/19上映啦！
 
   金馬影展沒搶到票的影友也能在頒獎典禮前先看到了
@@ -454,7 +453,7 @@ date: 2021-11-02
 reply_count: 15
 title: '[情報] 金馬58提名大贏家《濁水漂流》11/19上映'
 url: https://www.ptt.cc/bbs/movie/M.1635838087.A.990.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -703,7 +702,7 @@ date: 2021-12-14
 reply_count: 29
 title: '[劇情雷]濁水漂流，實況困境乃至於幻影泡沫'
 url: https://www.ptt.cc/bbs/movie/M.1639446453.A.B20.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -786,7 +785,7 @@ date: 2021-10-05
 reply_count: 14
 title: '[新聞] 港片《濁水漂流》12項提名領跑金馬獎'
 url: https://www.ptt.cc/bbs/movie/M.1633432521.A.170.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1. 吳鎮宇這回講話都帶了點哭鼻腔\n   一直讓我回想到靚坤這個角色\n   雖然他演的很好, 但十分出戲\n\n2. 導演安排偷竊 跟蓋家的橋段都蠻好\n\
   \n3. 那個神婆蘭姑幫木仔看掌相說的,\n   被家人所害, 家境遇到困難根本都錯的嘛\n   木仔根本也是個富貴人家\n\n4. 承三, 導演好像在講, 上了樓就是變洋化的開始\n\
   \   所以木仔原本下的是象棋, 搬進家就改下西洋棋了\n   連神婆也是上了樓竟然就信上帝\n\n5. 後段發現原來吳鎮宇的小孩就叫木仔的橋段蠻好\n\n6.\
@@ -796,7 +795,7 @@ date: 2021-11-24
 reply_count: 8
 title: '[好雷] 濁水漂流'
 url: https://www.ptt.cc/bbs/movie/M.1637686550.A.697.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -851,7 +850,7 @@ date: 2021-11-28
 reply_count: 40
 title: '[新聞] 白靈觀眾席上一個舉動超暖《濁水漂流》劇'
 url: https://www.ptt.cc/bbs/movie/M.1638098852.A.0E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '同樣的街友遊民題材
 
   感覺麥路人拍的比較好
@@ -980,7 +979,7 @@ date: 2021-11-09
 reply_count: 16
 title: '[影評] 濁水漂流'
 url: https://www.ptt.cc/bbs/movie/M.1636391026.A.D7B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -1205,7 +1204,7 @@ date: 2021-11-19
 reply_count: 9
 title: '[普好雷] 《濁水漂流》，露宿無罪，滋擾無理。'
 url: https://www.ptt.cc/bbs/movie/M.1637297273.A.6CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜各位得獎人，可以參與【濁水漂流】電影特映會，我們會在今日11/9中午12:00前回
 
   信得獎通知給各得獎人，再請收到通知信後，11/11晚間19:00前往長春國賓出示身份證進
@@ -1244,7 +1243,7 @@ date: 2021-11-09
 reply_count: 2
 title: 'Re: ［贈票］【濁水漂流】長春國賓 別無所求'
 url: https://www.ptt.cc/bbs/movie/M.1636427361.A.068.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《濁水漂流》：作為金馬入圍最多項的作品，此片無疑在題材上是最平易近人，電影對於遊民的描寫非常深入，簡約的畫面與鉅細靡遺的內容細節彷彿紀錄片般謹慎含蓄，細節的不馬虎凸顯了演員與導演對真實性的講究，帶入感極強。在片中每個遊民對無家者的想法異同，是故事最大看點，理想與現實的拉扯，造就每個人走向不同的地步，電影對不公不義的現實為之發聲，透過《濁水漂流》一片，對觀眾而言可能會顯得有些乾硬難以入口，導演對於戲劇性的煽情內容能少則少，劇情層面薄弱，這使得電影節奏緩慢與不太在乎主線，但在越靠近結尾，則越顯得情緒渲染力強，
 
   每一條故事線的收束都具備了各式遊民的生活態度，若能耐住性子品味此片，其內容是相當的觸動人心，

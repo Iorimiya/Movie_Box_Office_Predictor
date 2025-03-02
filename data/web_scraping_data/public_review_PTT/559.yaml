@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -54,7 +53,7 @@ date: 2020-02-25
 reply_count: 8
 title: '[新聞] 【鳴鳥不飛：烏雲密布】激情性愛一刀不剪'
 url: https://www.ptt.cc/bbs/movie/M.1582632557.A.258.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有些雷
 
 
@@ -222,7 +221,7 @@ date: 2023-11-18
 reply_count: 30
 title: '[ 普好雷] 飢餓遊戲前傳-鳴鳥與游蛇'
 url: https://www.ptt.cc/bbs/movie/M.1700307310.A.A90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很明顯要反觀灌籃高手。
 
 
@@ -264,7 +263,7 @@ date: 2023-02-07
 reply_count: 58
 title: 'Re: [討論] 鳥山明如果拍七龍珠撒旦傳，大家會看嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1675733801.A.4C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -312,7 +311,7 @@ date: 2020-03-24
 reply_count: 8
 title: '[新聞] 鐵粉十刷【鳴鳥不飛】，原作導演傳感謝！'
 url: https://www.ptt.cc/bbs/movie/M.1585039911.A.642.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -363,7 +362,7 @@ date: 2021-11-15
 reply_count: 8
 title: '[新聞] <老鷹想飛>導演20年打造<尋找神話之鳥>'
 url: https://www.ptt.cc/bbs/movie/M.1636979810.A.C40.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n2019-08-18 18:28 聯合報 記者陳建嘉╱即時報導\n\n「憤怒鳥玩電影2：冰的啦」系列改編自暢銷遊戲，首集就創下驚人票房，續集口碑更上\n\
   一層樓，電影節奏明快，話題十足，連「神力女超人」蓋兒加朵都狂誇，網友之間也給出\n好評，紛紛列出3大看點，分別是配音陣容堅強，動畫特效精彩以及角色個性生動。\n\
   \n「憤怒鳥」前一集就找來許多知名影星配音，這次也不例外，除了前一集的諧星傑森蘇戴\n西斯、喬許蓋德以及「冰與火之歌」彼得汀克萊傑之外，這一集更找來「神力女超人」蓋\n\
@@ -376,7 +375,7 @@ date: 2019-08-18
 reply_count: 10
 title: '[新聞] 「憤怒鳥2」三大看點報你知！竟藏神力女超人DNA'
 url: https://www.ptt.cc/bbs/movie/M.1566125901.A.9B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '=============================================================================
 
 
@@ -496,7 +495,7 @@ date: 2016-08-19
 reply_count: 17
 title: '[贈票] 銷售奇姬  職場女王即將 面對菜鳥反撲！'
 url: https://www.ptt.cc/bbs/movie/M.1471598695.A.A29.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【影評】《你的鳥兒會唱歌》　適合大銀幕的小品\n\n\n\n--\n\n有人認為非在戲院看的是大卡司大場面的電影，\n我卻覺得這個場域的儀式感與專注性更適合《你的鳥兒會唱歌》這種片。\n\
   喜歡大悲大喜的會覺得索然無味，容易分心的可能會不知所云，\n平淡的戲劇性全靠細節和氛圍來支撐，但投入了卻會喜歡它樸拙裡的細膩。\n\n柄本佑飾演一個從頭到尾都不知道叫什麼名字，但劇情卻以他為核心的書店店員，\n\
   留著一頭過長而茂盛的亂髮，不想上班就去看場電影，別人打他小報告也不在意。\n但那身乾淨的穿著看來並不隨便，痛毆污衊女孩的同事顯示他有原則，\n幫室友招呼母親的誠懇無庸置疑，以及最後再一次默數時的激動，\n\
@@ -510,7 +509,7 @@ date: 2020-05-22
 reply_count: 3
 title: '[影評] 聞天祥評 / 你的鳥兒會唱歌'
 url: https://www.ptt.cc/bbs/movie/M.1590130442.A.9ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '事實上
 
 
@@ -544,7 +543,7 @@ date: 2015-01-20
 reply_count: 5
 title: 'Re: [好雷] 鳥人 短評'
 url: https://www.ptt.cc/bbs/movie/M.1421738540.A.040.html
---- !!python/object:movie_data.PublicReview
+---
 content: '給負雷就代表看不懂，沒做功課啦，多去看幾次，
 
 
@@ -588,7 +587,7 @@ date: 2015-01-19
 reply_count: 69
 title: '[負雷] 鳥人諷刺誰？'
 url: https://www.ptt.cc/bbs/movie/M.1421640006.A.A67.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -642,7 +641,7 @@ date: 2021-11-19
 reply_count: 6
 title: '[新聞] 梁皆得20年砸千萬拍攝【尋找神話之鳥】'
 url: https://www.ptt.cc/bbs/movie/M.1637324164.A.B2E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "(網誌圖文版 from 一個分析師的閱讀時間)\n\n\n\n[影評]鳥人(Birdman)──不管有多鳥，你都是個人！\n《鳥人》(Birdman)無疑地是2014年最受注目的電影，在金球獎獲得七項提名、兩座大獎\n\
   ，在奧斯卡獎中也榮獲九項提名，提名數為本年度之冠。從電影技術面看來，《鳥人》做\n了許多有趣的嘗試，這些嘗試對於大型電影獎例如奧斯卡而言相當討喜；從主題看來，本\n\
   片討論的「自我認同」更是主流到不行。不管編劇與導演有心或者無意，《鳥人》都注定\n成為今年影展上的話題。\n\n\n圖、男主角雷根在紐約街頭彷彿展開雙翼。這是預告片中最誤導觀眾的一幕。\n\
@@ -717,7 +716,7 @@ date: 2015-01-30
 reply_count: 72
 title: '[好雷] 鳥人─不管有多鳥，你都是個人！'
 url: https://www.ptt.cc/bbs/movie/M.1422609162.A.825.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說真的整體好看\n\n補滿各線一個圓滿\n\n但回頭看還是有些為了劇情走向太鳥的點\n\n1.一管粒子傳送整艘船？\n   機娘應該已經用掉最後一管回到現在時間\n\
   \   更別說還會操作機器\n\n2.把手套帶著跑後又跑回來衝進戰場找車\n   這其實可以戰後再傳吧\n   雖然是為了劇情走向\n   製造boss有機會拿到手套\n\
   \n3.怕傳奇哥太燒經費所以弄個水災擋？\n    我要看法術亂轟啊哪來的水\n\n4.寡婦跟鷹眼到底是不好說嗎這是\n    一個各種約一個有家\n    撇開愛情應該也不會最重要的人\n\
@@ -727,7 +726,7 @@ date: 2019-04-24
 reply_count: 45
 title: '[好雷] 復四一些為了劇情走向的鳥點'
 url: https://www.ptt.cc/bbs/movie/M.1556114362.A.E3C.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Rachel Zegler 和 Tom Blyth 在《飢餓遊戲：鳴鳥與遊蛇之歌》中的首張海報。
 
 
@@ -787,7 +786,7 @@ date: 2023-09-06
 reply_count: 29
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌 》海報'
 url: https://www.ptt.cc/bbs/movie/M.1694013846.A.D79.html
---- !!python/object:movie_data.PublicReview
+---
 content: '======================防雷================================================
 
 
@@ -849,7 +848,7 @@ date: 2015-01-17
 reply_count: 25
 title: '[好雷] 鳥人最後一幕'
 url: https://www.ptt.cc/bbs/movie/M.1421428460.A.938.html
---- !!python/object:movie_data.PublicReview
+---
 content: '導演：「恐懼的總和」李佛薛伯 Liev Schreiber
 
   演員：「魔戒三部曲」伊利亞伍德 Eljah Wood 、尤金赫茲 Eugene Hutz
@@ -980,7 +979,7 @@ date: 2007-08-08
 reply_count: 8
 title: '[心得]一切都鳥了 Everything Is Illuminated(微雷)'
 url: https://www.ptt.cc/bbs/movie/M.1186549997.A.591.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鳥山明如果重拾畫筆
 
 
@@ -1019,7 +1018,7 @@ date: 2023-02-07
 reply_count: 143
 title: '[討論] 鳥山明如果拍七龍珠撒旦傳，大家會看嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1675730765.A.12D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n第一次寫就獻給鳥人。\n\n這部片要不是它的拍攝手法救了它一點，不然我會給負雷。\n\n理由只有一個: \n\n可能有人會說，阿不就沒看懂、阿重點是男主角心境、\n\
   \n重點是反諷電影界和觀眾blablah...\n\n這些也是可以討論，但我覺得光是女配角們的形塑就足以毀了其他部分。\n\n\n\n首先是男主角Riggan顯然就是個對前妻和女兒都很糟的人。\n\
@@ -1050,7 +1049,7 @@ date: 2019-12-01
 reply_count: 53
 title: '[普雷] 鳥人，沒有靈魂的女配角們'
 url: https://www.ptt.cc/bbs/movie/M.1575141035.A.CCE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '潛水太久，上來呼吸一下分享心得
 
 
@@ -1237,7 +1236,7 @@ date: 2015-11-18
 reply_count: 19
 title: '[好雷]菜鳥 -看不見的界線 '
 url: https://www.ptt.cc/bbs/movie/M.1447860725.A.7C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1294,7 +1293,7 @@ date: 2020-12-28
 reply_count: 26
 title: '[鳥雷] 竊聽風暴'
 url: https://www.ptt.cc/bbs/movie/M.1609090025.A.015.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雖然能理解原PO可能是因為在飛機上看電影，\n精神不好，不舒服，難專心的緣故，以致有此看法，\n但我看到原P0提到說 <鳥人> 的劇本普通?!\n\
   就還是忍不住要回一下...\n\n因為這讓我聯想到了當初581球員看Lin打球時也說:\"Lin也不怎麼樣嗎?\"這件事。\n很感慨...\n今天就算它沒得最佳劇本獎，鳥人劇本也還是一樣的優秀無法掩蓋。\n\
   至少，它絕對不普通。\n\n< 不說在這樣題材的小品電影，能藉由這樣幽默的對白和衝突的情節設計，\n  讓敘事不顯得無聊，我覺得就已經很厲害。\n\n< 也不說那已經被很多人討論到爛的一堆反諷和調侃。\n\
@@ -1313,7 +1312,7 @@ date: 2015-03-16
 reply_count: 6
 title: 'Re: [  普雷] 令人疑惑的鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1426440348.A.28D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【 iTunes 特價半週報】
 
   海邊 / 聖誕夜驚魂 / 淑女鳥
@@ -1487,7 +1486,7 @@ date: 2018-10-23
 reply_count: 1
 title: '[情報] iTunes特價報 海邊 / 聖誕夜驚魂 / 淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1540271778.A.E21.html
---- !!python/object:movie_data.PublicReview
+---
 content: "葡萄牙於日前公布了報名明年奧斯卡「最佳國際電影」的作品，將以《鳥是海與樹的孩子\n》作為代表電影。\n\n\n\n《鳥是海與樹的孩子》為葡萄牙女導演\
   \ Catarina Vasconcelos 的首部長片作品，在 2020\n 年入選柏林影展的「邂逅單元」，並拿下費比西影評人獎。而後也入選台北電影節的「國\n\
   際新導演競賽單元」，最終獲得評審團特別獎。\n\n男人如海，遠颺漂浪；女人是樹，蔭蔽家園。這是一則反溯家族記憶的私密創作，從最初\n兩人的深情往復書簡，順此而成的生命誕造，以及其後伴懷自然、溫柔照料的哺育子女。\n\
@@ -1498,7 +1497,7 @@ date: 2021-11-03
 reply_count: 7
 title: '[情報] 2022 葡萄牙奧斯卡代表：《鳥是海與樹的孩子》'
 url: https://www.ptt.cc/bbs/movie/M.1635916575.A.AEF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下可能有雷
 
 
@@ -1634,7 +1633,7 @@ date: 2019-08-17
 reply_count: 5
 title: '[好雷]《憤怒鳥玩電影2：冰的啦！》好東西跟好朋友分享'
 url: https://www.ptt.cc/bbs/movie/M.1566054182.A.B0D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果抱持要看大場面、大爆破來看《鳥人》的觀眾，可能要失望了，
 
   因為與其將《鳥人》看作是一部好萊塢式商業電影，
@@ -1803,7 +1802,7 @@ date: 2015-02-02
 reply_count: 3
 title: '[普 雷] 鳥人：好萊塢糖衣下的劇場實驗電影'
 url: https://www.ptt.cc/bbs/movie/M.1422830927.A.712.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記者古明弘／專訪
 
 
@@ -1859,7 +1858,7 @@ date: 2014-11-01
 reply_count: 8
 title: '[新聞] 怪獸拍片變陰沉 幹譙菜鳥有障礙'
 url: https://www.ptt.cc/bbs/movie/M.1414851866.A.D57.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2014 時資深演員 Michael Keaton 以《鳥人》強勢回歸影壇，不只成為獎季中最佳男主
 
   角呼聲最高的人選之一，也讓他在此之後片邀不斷，而在這兩年當中 Michael Keaton 選
@@ -1904,7 +1903,7 @@ date: 2016-04-22
 reply_count: 13
 title: '[討論]《鳥人》米高基頓主演麥當勞秘辛傳記電影《The Founder》預告'
 url: https://www.ptt.cc/bbs/movie/M.1461255913.A.599.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然滿lag的 剛剛才看完鳥人
 
 
@@ -1943,7 +1942,7 @@ date: 2016-02-11
 reply_count: 86
 title: '[討論] 鳥人的奧斯卡實至名歸嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1455206232.A.CE0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文版請於連結：
 
 
@@ -2058,7 +2057,7 @@ date: 2018-03-05
 reply_count: 1
 title: '[有雷] 《淑女鳥》厭惡，卻比誰都愛著'
 url: https://www.ptt.cc/bbs/movie/M.1520249903.A.73A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我也不知道為什麼
 
   我一定要去瞧不起這些美好才能讓自己好過一點
@@ -2295,7 +2294,7 @@ date: 2018-03-05
 reply_count: 60
 title: '[好雷] 淑女鳥 - 最好的自己'
 url: https://www.ptt.cc/bbs/movie/M.1520245905.A.853.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2374,7 +2373,7 @@ date: 2015-01-19
 reply_count: 5
 title: '[新聞] 影聞其詳／「鳥人」極其華麗的蒼涼'
 url: https://www.ptt.cc/bbs/movie/M.1421656317.A.4E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鳥山明《沙漠大冒險》動畫電影
 
 
@@ -2429,7 +2428,7 @@ date: 2023-07-02
 reply_count: 37
 title: '[情報] 鳥山明《沙漠大冒險》動畫電影90秒預告'
 url: https://www.ptt.cc/bbs/movie/M.1688271796.A.3F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '"我站在人性的十字路口，看待正義是茫茫渺渺"
 
 
@@ -2637,7 +2636,7 @@ date: 2016-02-16
 reply_count: 25
 title: '[超好雷] 菜鳥－正義也能汙染人心'
 url: https://www.ptt.cc/bbs/movie/M.1455556847.A.C9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想問一部片，我很久以前看的，剛才看書到一半突然想到
 
 
@@ -2673,7 +2672,7 @@ date: 2016-06-11
 reply_count: 16
 title: '[問片]'
 url: https://www.ptt.cc/bbs/movie/M.1465657484.A.421.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影評網址：
 
 
@@ -2751,7 +2750,7 @@ date: 2020-12-11
 reply_count: 1
 title: '[影評]鳥為食亡　《人性爆走課》 '
 url: https://www.ptt.cc/bbs/movie/M.1607678615.A.568.html
---- !!python/object:movie_data.PublicReview
+---
 content: "----\n\n防\n\n雷\n\n----\n--\n\n鳥\n人\n\n結\n局\n\n解\n讀\n\n ↓\n\n--\n\n友人問我，你覺得他到底有沒有跳下去？\n\
   \n我說，拍的很像是女兒看到他飛起來了\n\n但是友人一句話點醒了我\n\"這是一部很現實的片\"\n\n片段馬上接連著秒速跳過\n有聽到卻被女兒表情吸引而忽略的警車聲\n\
   立即連貫，陷入悲喜無法交接的衝突感。\n\n\n心情因為帶著一絲期待，串聯結局後反而更墮入低潮。\n(舞台 ----> 醫院 ----> 結局)\n\n\n後來想想，因為沒有表現出明確的轉場\n\
@@ -2768,7 +2767,7 @@ date: 2015-01-25
 reply_count: 5
 title: 'Re: [有點雷] 鳥人的兩種結局'
 url: https://www.ptt.cc/bbs/movie/M.1422198367.A.1A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -2944,7 +2943,7 @@ date: 2018-07-12
 reply_count: 1
 title: '[負雷] 鬧鬼 - 背景不錯但拍得很鳥'
 url: https://www.ptt.cc/bbs/movie/M.1531329723.A.6B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好看
 
 
@@ -2959,7 +2958,7 @@ date: 2016-02-09
 reply_count: 2
 title: '[  雷] 啄木鳥與雨'
 url: https://www.ptt.cc/bbs/movie/M.1455027375.A.988.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感謝大家的支持！中獎名單如下：
 
   fireflylove
@@ -2982,7 +2981,7 @@ date: 2015-03-30
 reply_count: 2
 title: 'Re: [贈票] 【青春倒退嚕】快來追尋你的青春小鳥！'
 url: https://www.ptt.cc/bbs/movie/M.1427707035.A.FD6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是不曾去看過暗光鳥的電影
 
 
@@ -3009,7 +3008,7 @@ date: 2019-12-22
 reply_count: 21
 title: '[討論] 暗光鳥有什麼好片?'
 url: https://www.ptt.cc/bbs/movie/M.1577003242.A.F82.html
---- !!python/object:movie_data.PublicReview
+---
 content: "◎《憤怒鳥玩電影》(The Angry Birds Movie) - 怒所該怒\n\n圖文完整版： \n\n大約五年前，在全球造成旋風的手機遊戲「憤怒鳥」，終於被拍成電影了。\n\
   結果如何咧？是比想像中好，畢竟這遊戲本身非常簡單，跟魔獸、刺客教條\n那種等級的差太多，所以要變成電影的話，幾乎所有角色塑造與劇情發展都\n得靠編劇從零開始。從結果看來，編劇與導演算是完成一部及格作品，但說\n\
   實話，沒有特別值得觀賞之處。\n\n在一座島嶼上，住著一群不會飛的鳥。孤僻憤怒的Red（Jason Sudeikis配\n音）扮演派對小丑，卻與客人發生口角並造成意外，被法官要求參加情緒管\n\
@@ -3029,7 +3028,7 @@ date: 2016-06-08
 reply_count: 6
 title: '[普雷] 《憤怒鳥玩電影》- 怒所該怒'
 url: https://www.ptt.cc/bbs/movie/M.1465369596.A.EEB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版:
 
 
@@ -3220,7 +3219,7 @@ date: 2019-10-26
 reply_count: 33
 title: '[普好雷]《金翅雀》，被囚禁的鳥，被停住的時間。'
 url: https://www.ptt.cc/bbs/movie/M.1572098039.A.5F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說吧主線太奇怪
 
   其他片段還可以
@@ -3275,7 +3274,7 @@ date: 2023-04-22
 reply_count: 42
 title: '[雷] 龍與地下城  主線很鳥過程不錯'
 url: https://www.ptt.cc/bbs/movie/M.1682160344.A.543.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說結論,非常好看\n\n近期看到最觸動心裡的電影\n\n有個疑問想要請問\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   ＝＝＝＝＝＝＝＝防雷頁＝＝＝＝＝＝＝＝\n\nLady Bird到了紐約之後,行李箱有一疊手稿\n\n想要請問一下\n\n那疊手稿是爸爸將\n\n1.媽媽過去到現在\
   \ 一直以來揉掉的手稿蒐集起來\n\n2.媽媽最後一次在桌上寫了又揉 揉了又寫 的手稿蒐集起來\n\n請問是哪一個來源呢？\n\n感謝回答\n\n--\n--\n\
@@ -3285,7 +3284,7 @@ date: 2018-03-05
 reply_count: 23
 title: '[請益] 淑女鳥 Lady bird'
 url: https://www.ptt.cc/bbs/movie/M.1520263098.A.CAC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "==========防雷===========\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n電影鳥人是一部“不算十分好看”的電影\
   \  但不可否認 在另一方面 卻是比許多電影還要\n來得有意思 有意義 而且電影到了結尾所帶給我的後勁 確實在我心裡一直迴盪著 有種莫\n名的毒性 在我身上徘徊\
   \ 久之不去\n我認為鳥人最有意思的地方在於: 與其說是電影 不如說它是一種行為藝術 它對電影進行\n了一次結構面上、動機面上的破壞 給人一種新奇的感覺\n\n\
@@ -3315,7 +3314,7 @@ date: 2015-01-26
 reply_count: 10
 title: '[好雷] Birdman 鳥人 -- 119分鐘的打臉饗宴'
 url: https://www.ptt.cc/bbs/movie/M.1422271050.A.C9F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我很喜歡墨西哥導演伊納利圖的上一部電影＂最後的美麗＂。在世界最黑暗貧乏的角落，
 
   點一盞終將熄滅的光，是一部會把人掏空的泣血傑作。＂鳥人＂則完全不一樣，寫實又超
@@ -3397,7 +3396,7 @@ date: 2015-02-05
 reply_count: 2
 title: '[好雷+文長]鳥人 英雄不死，只是凋零 '
 url: https://www.ptt.cc/bbs/movie/M.1423147960.A.AAE.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'COVID-19疫情已滿一年了、對歐美來說已滿十個月、第一波疫情期間開始製作的電影已陸續出籠，去年就有《鬼弒訊》與《宅在瘟疫蔓延時》都在談「居家隔離」，還有些與疫情無關的如《加州聖誕戀曲》等，不論室內拍室外拍都在疫情初期篳路藍縷摸索了防疫拍片的準則，我個人是都願意買票鼓勵的。這部《末世戰疫：鳴鳥檔案》倒是其中比較商業動作片導向的、而且還有麥可貝監製甚至下海導幾場戲？當然此片創意發想到執行的編導都是名不見經傳的後輩，但老貝與其他前輩慧眼看中他們給予資源快速進行，居然也趕在去年十二月底完工上映？好不好看都值得觀察。
 
 
@@ -3503,7 +3502,7 @@ date: 2021-01-11
 reply_count: 8
 title: '[好雷] 末世戰疫：鳴鳥檔案 Songbird'
 url: https://www.ptt.cc/bbs/movie/M.1610344775.A.96A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【 iTunes 特價半週報】
 
   淑女鳥 / 三個夏天 / 蜘蛛巢城
@@ -3682,7 +3681,7 @@ date: 2019-03-08
 reply_count: 2
 title: '[情報] iTunes特價報 淑女鳥/三個夏天/蜘蛛巢城'
 url: https://www.ptt.cc/bbs/movie/M.1552038074.A.12A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有一幕是明哥拿120萬要去當舖贖他女朋友的弟弟
 
 
@@ -3719,7 +3718,7 @@ date: 2016-11-09
 reply_count: 2
 title: '[討論] 電影"菜鳥"的一個疑問'
 url: https://www.ptt.cc/bbs/movie/M.1478701592.A.2ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '呃……
 
   我覺得你沒看懂……
@@ -3782,7 +3781,7 @@ date: 2015-03-16
 reply_count: 1
 title: 'Re: [  普雷] 令人疑惑的鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1426464099.A.0FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '女主角最後前往紐約
 
   有幕結識新朋友（一名男孩）的對話：
@@ -3823,7 +3822,7 @@ date: 2018-03-14
 reply_count: 62
 title: '[請益] 淑女鳥最末劇情一問？有雷'
 url: https://www.ptt.cc/bbs/movie/M.1520988483.A.194.html
---- !!python/object:movie_data.PublicReview
+---
 content: '推薦給喜歡輕鬆小品，而且天馬行空的人
 
 
@@ -4033,7 +4032,7 @@ date: 2018-03-14
 reply_count: 10
 title: '[極好雷] 淑女鳥 - 雛鳥離巢還是老窩最溫暖'
 url: https://www.ptt.cc/bbs/movie/M.1520973899.A.298.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4093,7 +4092,7 @@ date: 2018-12-27
 reply_count: 6
 title: '[新聞] 茱麗葉畢諾許牽「鳥」裸奔　《新橋戀人》'
 url: https://www.ptt.cc/bbs/movie/M.1545866496.A.F17.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4137,7 +4136,7 @@ date: 2015-03-07
 reply_count: 13
 title: '[新聞] 「決勝焦點」開紅盤 威爾史密斯揮別鳥氣'
 url: https://www.ptt.cc/bbs/movie/M.1425732283.A.BAF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "=========================================================\n\n分享比較方便的 Facebook\
   \ 貼文版：\n\n=========================================================\n\n\n\n先前訪問柳廣輝導演有問到關於《鳥人》跟電影的關聯。\n\
   \n無奈這段跟編輯討論後，因字數限制不適合放進訪談。\n\n後來想來說另外寫成粉絲團貼文，讓導演設計理念可以給更多影迷知道，故寫了這篇。\n\n\n\n\n\n\
@@ -4162,7 +4161,7 @@ date: 2020-10-04
 reply_count: 18
 title: '[訪問] 《刻在你心底的名字》之於《鳥人》'
 url: https://www.ptt.cc/bbs/movie/M.1601782266.A.5AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在電視上看到的片段
 
   1.有一個有翅膀像鳥的小孩
@@ -4185,7 +4184,7 @@ date: 2015-09-01
 reply_count: 2
 title: '[問片] 像鳥的小孩 女主角叫蘿亞'
 url: https://www.ptt.cc/bbs/movie/M.1441053383.A.D2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文：
 
 
@@ -4245,7 +4244,7 @@ date: 2018-03-07
 reply_count: 8
 title: '[好雷] 淑女鳥-「留下什麼就成為什麼樣的大人」'
 url: https://www.ptt.cc/bbs/movie/M.1520410069.A.70C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "網誌: \n\n我還沒看膩超級英雄電影\n\n反倒是，我看膩某些腦殘粉絲不管英雄電影拍得好或濫，一昧的吹捧到天邊\n\n換句話說，好看的英雄電影我還是愛看，但是某些人已經忽略了英雄電影本身的\n\
   問題了\n\n隨便舉例，最顯而易見的Marvel系列電影的問題:把電影當成影集在拍，導演的\n風格不再重要，男主角也都選擇名氣不高的新秀\n\n真正掌控英雄電影製作方向的人是少數影業工作者\n\
   \n英雄電影已經成為電影公司生財的「道具」，而非藝術作品\n\n而且這種為了鋪陳世界觀做的種種意料之內的安排，觀眾遲早會看膩\n\n也就是說現在觀眾們很喜歡看英雄電影，但是五年十年後呢?這種沒甚麼創意的\n\
@@ -4268,7 +4267,7 @@ date: 2015-01-17
 reply_count: 7
 title: '[好雷] 鳥人:技巧華麗的舞台劇'
 url: https://www.ptt.cc/bbs/movie/M.1421491139.A.D7C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上片前就知道本片主角是《飢餓遊戲》正傳的大反派史諾總統，可以
 
   預期故事在描述史諾如何走向黑化(?)的過程。不過知道結果並不影響
@@ -4330,7 +4329,7 @@ date: 2023-11-18
 reply_count: 2
 title: '[好雷] 飢餓遊戲-鳴鳥與游蛇'
 url: https://www.ptt.cc/bbs/movie/M.1700312567.A.3F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下雷
 
 
@@ -4353,7 +4352,7 @@ date: 2014-11-17
 reply_count: 10
 title: '[請益] 鳥人 結局的含義 （雷）'
 url: https://www.ptt.cc/bbs/movie/M.1416202011.A.BC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "電影版的第一篇負雷就獻給憤怒鳥了!!!\n\n先補上心得及防雷\n\n\n這部片的動畫表現及視覺效果其實做得還算不錯\n\n會讓人聯想到以前在手機上玩憤怒鳥的畫面\n\
   \n\n\n笑點低俗\n\n劇情空洞\n\n前後矛盾\n\n重點是\n\n我看到有人說 \n\n才起了興致去看這部片\n\n然而這部片跟動物方城市比起來\n\n\
   不論是視效 配樂都力有未逮\n\n在劇情方面 真的真的真的是差了十萬八千里遠了\n\n\n我想說 這兩部片真的是\n\n\n\n一點都不像!!!\n\n\n\n\
@@ -4376,7 +4375,7 @@ date: 2016-06-12
 reply_count: 59
 title: '[負雷] 憤怒鳥 看完我都憤怒了!!!'
 url: https://www.ptt.cc/bbs/movie/M.1465710983.A.364.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌：
 
 
@@ -4545,7 +4544,7 @@ date: 2023-10-08
 reply_count: 52
 title: '[普負雷] 蒼鷺與少年:很鳥的設定，很鳥的故事 '
 url: https://www.ptt.cc/bbs/movie/M.1696745967.A.79B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '兩個都好想看
 
   但時間衝突
@@ -4573,7 +4572,7 @@ date: 2018-05-18
 reply_count: 121
 title: '[選片] 淑女鳥 vs 水底情深'
 url: https://www.ptt.cc/bbs/movie/M.1526623920.A.FBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4621,7 +4620,7 @@ date: 2014-12-04
 reply_count: 2
 title: '[新聞] THR 聯訪:鳥人.萬物論.模仿遊戲.Boyhood.Turner.Foxcatcher'
 url: https://www.ptt.cc/bbs/movie/M.1417665657.A.04C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大家晚安\n\n菜鳥新人王\n\nAdventureland\n\n是一部愛情片\n\n就來分析一下\n\n什麼樣的人適合看這片?\n\n1.\
   \ 沒交過女/男朋友的人\n\n2. 交不到女/男朋友的人\n\n3. 剛從學校畢業的新鮮人\n\n4. 快要從學校畢業的人\n---------------------------\n\
   以上只是防雷頁\n\n男主角就是臉書男\n\n講話結結巴巴不確定的生澀模樣\n\n本來想跟同學去歐洲畢業旅行\n\n不幸老爸工作出問題，經濟來源出了問題\n\n\
@@ -4641,7 +4640,7 @@ date: 2017-12-15
 reply_count: 2
 title: '[普雷] 菜鳥新人王 Adventureland '
 url: https://www.ptt.cc/bbs/movie/M.1513337553.A.BE1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "部落格版：\n\n（手機排版抱歉）\n\n\n如果寫封信給三十歲的自己，你會寫什麼？是寫夢想、家庭還是對愛情的憧憬？亦或，單\n純面對現在的問題寫信告訴未來的自己，向他訴苦？而長大以後的自己，又會寫些什麼給\n\
   對未來慌恐的自己呢？是會告訴他你現在的生活如何嗎？也許跟誰結了婚，生了幾個小孩\n，寫些鼓勵十五歲的自己，累了，就想起當年的自己，迷惘了，就想想將來的自己。\n\
   \n《再會吧！青春小鳥》真摯動人，當最後站上舞台唱著《手紙~拜啟 給十五歲的你~》，\n鋼琴聲一落下，看著舞台上的大家發自內心的笑，穿插著電影畫面，過去的回憶、傷心的\n\
@@ -4663,7 +4662,7 @@ date: 2015-09-05
 reply_count: 11
 title: '[好雷] 《再會吧！青春小鳥》，累了，就想起當'
 url: https://www.ptt.cc/bbs/movie/M.1441414652.A.078.html
---- !!python/object:movie_data.PublicReview
+---
 content: '關於全球十大禁片 我最近在好多板上都看見人熱烈迴響
 
 
@@ -4828,7 +4827,7 @@ date: 2004-11-24
 reply_count: 9
 title: '[閒聊] 全球十大禁片-鳥杰回應篇'
 url: https://www.ptt.cc/bbs/movie/M.1101252550.A.0A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "根據 Deadline 前日的獨家報導指出，近年因演出《淑女鳥》而獲得奧斯卡提名的美國資\n深女演員 Laurie Metcalf 將主演未命名的喜劇新片。\n\
   \n\n\n這部未命名的喜劇電影將由曾以電視劇《大家都愛雷蒙》而聞名的美國男演員 Ray Romano\n 自編自導，這也是他首次執導的影視作品。Ray Romano\
   \ 曾經以電視劇《大家都愛雷蒙》\n中編劇、演員及製作人的身分多次獲得艾美獎和金球獎的提名，也抱回過兩座艾美獎。此\n外也演出過不少知名電影，近年有包括兩部奧斯卡入圍作品《愛情昏迷中》和《愛爾蘭人\n\
@@ -4846,7 +4845,7 @@ date: 2021-02-15
 reply_count: 32
 title: '[情報] 《淑女鳥》蘿莉麥卡佛將睽違四年主演喜劇新片'
 url: https://www.ptt.cc/bbs/movie/M.1613368043.A.960.html
---- !!python/object:movie_data.PublicReview
+---
 content: "史蒂芬·索德柏執導、攝影和剪輯，塔賴爾·阿爾文·麥卡尼撰寫劇本\n\n主演包括安德烈·荷蘭、\n        薩琪·畢茲、\n       \
   \ 馬文·格雷格（Melvin Gregg）、\n        索尼婭·索恩、\n        柴克瑞·恩杜、凱爾·麥克拉蘭及比爾·杜克。\n\n故事敘述在美國職籃罷工期間，一名體育經紀人向一名新人籃球員提出了\n\
   一個有趣的商機，但這也將在業界引起廣大的爭議及改變。\n\n台灣網飛可以看了\n\n電影中間也會穿插一些球員的講話跟看法\n\n\n預告：\n\n對NBA有點瞭解的才會稍微看懂\n\
@@ -4855,7 +4854,7 @@ date: 2019-02-09
 reply_count: 3
 title: '[討論]空中飛鳥High Flying Bird 網飛上架'
 url: https://www.ptt.cc/bbs/movie/M.1549725222.A.E6A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "◎「暴風雪中的白鳥」(White Bird in a Blizzard) - 複雜的母女情\n\n圖文完整版： \n\n「暴風雪中的白鳥」算是偵探片與少女轉大人片的組合，看完全片回頭再思考\n\
   ，才發現很多之前看似無關緊要的瑣事，都是導演留給觀眾的線索。1988年，\n17歲少女Kat﹝雪琳伍德利﹞的媽媽Eve﹝伊娃葛林﹞失蹤了。Eve與丈夫Brock\n\
   ﹝Christopher Meloni﹞失和多年，與女兒的關係也怪怪的，她失蹤的那天，\n連張字條也沒留。到底真相是什麼？而Eve失蹤後，Kat的男友Phil﹝Shiloh\n\
@@ -4881,7 +4880,7 @@ date: 2015-06-18
 reply_count: 12
 title: '[普雷] 暴風雪中的白鳥 - 複雜的母女情'
 url: https://www.ptt.cc/bbs/movie/M.1434615475.A.BB2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -5041,7 +5040,7 @@ date: 2024-12-20
 reply_count: 9
 title: '[新聞]【我推的孩子】電影邁完結,齋藤飛鳥曝謊言'
 url: https://www.ptt.cc/bbs/movie/M.1734704500.A.30E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -5096,7 +5095,7 @@ date: 2020-02-05
 reply_count: 7
 title: '[新聞] 福山雅治迷BL,力讚<鳴鳥不飛：烏雲密布>'
 url: https://www.ptt.cc/bbs/movie/M.1580910366.A.BB9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2023/05/16 iTunes 特價報】
 
   惡棍特工／中央車站／少女離家記／淑女鳥／偷香／蠟筆小新：功夫小子之拉麵大亂鬥／
@@ -5238,7 +5237,7 @@ date: 2023-05-16
 reply_count: 2
 title: '[討論] iTunes特價 中央車站/少女離家記/淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1684225626.A.A12.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -5332,7 +5331,7 @@ date: 2020-04-18
 reply_count: 10
 title: '[鳥雷] 隱形人'
 url: https://www.ptt.cc/bbs/movie/M.1587139321.A.0CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天剛看完天氣之子，
 
 
@@ -5362,7 +5361,7 @@ date: 2019-09-20
 reply_count: 25
 title: '[討論] 天氣之子廢墟鳥居v.s.林百貨鳥居'
 url: https://www.ptt.cc/bbs/movie/M.1568914454.A.A8F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷~~~
 
 
@@ -5415,7 +5414,7 @@ date: 2015-01-25
 reply_count: 1
 title: '[好雷] Birdman 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1422199449.A.8C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無音樂圖文網誌版：
 
 
@@ -5478,7 +5477,7 @@ date: 2018-02-20
 reply_count: 9
 title: '[好雷]淑女鳥 Lady Bird:魯蛇進化史'
 url: https://www.ptt.cc/bbs/movie/M.1519132546.A.953.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一開始的長鏡頭(跟其他)拍攝手法值得觀賞!
 
   ================================
@@ -5540,7 +5539,7 @@ date: 2015-11-08
 reply_count: 73
 title: '[LIVE] 鳥人Birdman 星星台21:00全國首播'
 url: https://www.ptt.cc/bbs/movie/M.1446984716.A.347.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看完了這部~感覺有些不好懂~~
 
   比較特殊的片吧....
@@ -5571,7 +5570,7 @@ date: 2015-01-21
 reply_count: 16
 title: '[討論] 鳥人的結局一問....'
 url: https://www.ptt.cc/bbs/movie/M.1421831729.A.256.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -5609,7 +5608,7 @@ date: 2015-09-15
 reply_count: 3
 title: '[新聞] 喜劇一哥獲嘴砲超能力　先把小鳥變大鵰'
 url: https://www.ptt.cc/bbs/movie/M.1442331016.A.898.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原圖文 \n\n：我希望你成為最好的自己。\n：如果現在就已經是了呢?\n\n看完《淑女鳥》讓我想起瑟夏羅南的上一部電影《愛在他鄉》\n對我來說《愛在他鄉》由家鄉的遷移去帶出個人心境的轉變\n\
   進而重新定義家鄉\n而《淑女鳥》則是反過來\n在經過各種個人經歷後\n最終還是回到了\"家鄉\"\n\n這個\"家鄉\"包括的不只是地緣\n還包括血緣、友情、愛情\n\
   甚至是名字、意識\n凡是在一段關係中擁有最初的自己\n那麼那段關係就是你的\"家鄉\"\n當路走得越多\n我們會知道如何得到自己想要的東西\n進而延伸出目的性的交流\n\
@@ -5624,7 +5623,7 @@ date: 2018-03-04
 reply_count: 12
 title: '[好雷]淑女鳥-罵得最兇的愛得最深 '
 url: https://www.ptt.cc/bbs/movie/M.1520167775.A.DDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -5668,7 +5667,7 @@ date: 2019-01-31
 reply_count: 20
 title: '[新聞] 七龍珠超：布羅利 鳥山明規劃新故事線 '
 url: https://www.ptt.cc/bbs/movie/M.1548933398.A.8E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在被周圍各種悲劇的觀影經驗轟炸後
 
   還是衝著最佳影片的光環看了這部片子
@@ -5723,7 +5722,7 @@ date: 2015-03-01
 reply_count: 8
 title: '[好雷] 鳥人--屬於Michael Keaton的鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1425194455.A.A69.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部《地震鳥》是 Netflix最新上架的英語片，基於 2001 年的同名英國小說改編而來，
 
   談幾個西方外國人在日本 1989 的「迷失東京」之人生。其實電影並不是以這種工作移民
@@ -5928,7 +5927,7 @@ date: 2019-11-17
 reply_count: 18
 title: '[好雷] 地震鳥 Earthquake Bird'
 url: https://www.ptt.cc/bbs/movie/M.1573929175.A.476.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【樂搜搜片報】\n莉茲與青鳥 / 戲夢巴黎 / 高年級姐妹會\n\n此回帶來 19 部 iTunes 特價片，優惠只到 11/1 為止。此外，還有\
   \ 5 部新\n片，已上架到 iTunes 和 Google Play ，已開放租買，等候各位觀看。\n\n看到近期上映的《電影版 吹響吧！上低音號～誓言的終章～》為該系列畫下\n\
   句點，如果想補其他相關作品，正好同由京都動畫推出的《莉茲與青鳥》會是\n你的最好選擇。\n\n《戲夢巴黎》藉因興趣認識的三名年輕人，嶄露奧斯卡名導貝納多貝托魯奇的\n\
@@ -5950,7 +5949,7 @@ date: 2019-10-29
 reply_count: 4
 title: '[情報] 樂搜搜片報 莉茲與青鳥 / 戲夢巴黎 / '
 url: https://www.ptt.cc/bbs/movie/M.1572349534.A.643.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實我不喜歡看愛情片
 
 
@@ -6020,7 +6019,7 @@ date: 2021-05-02
 reply_count: 4
 title: '[討論] 日本版 那些年 和 台灣版 那些年'
 url: https://www.ptt.cc/bbs/movie/M.1619957083.A.50A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實好像在哪篇的訪問有說了,
 
 
@@ -6070,7 +6069,7 @@ date: 2016-07-25
 reply_count: 50
 title: '[討論] 《鳥人》的最大賣點就是"一鏡到底"嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1469448208.A.B1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文好讀版：
 
 
@@ -6138,7 +6137,7 @@ date: 2020-02-26
 reply_count: 2
 title: '[好雷] 他不知道那些鳥的名字-為了愛情我們願意'
 url: https://www.ptt.cc/bbs/movie/M.1582698152.A.362.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文章網頁版：
 
   幕迷影評：
@@ -6396,14 +6395,14 @@ date: 2015-01-21
 reply_count: 1
 title: '[影評] 鳥人 -崩潰邊緣搖搖欲墜的人生舞台 '
 url: https://www.ptt.cc/bbs/movie/M.1421835519.A.5EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n豬長得好奇怪。\n\n--\n                                         09/26\
   \ 11:51"
 date: 2015-09-24
 reply_count: 18
 title: '[新聞] 憤怒鳥電影版的預告釋出了！'
 url: https://www.ptt.cc/bbs/movie/M.1443054562.A.7B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天。
 
 
@@ -6548,7 +6547,7 @@ date: 2016-12-21
 reply_count: 27
 title: '[小負雷] 菜鳥-給剛做警察看的教育片'
 url: https://www.ptt.cc/bbs/movie/M.1482332047.A.0A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近面臨考試壓力，所以今天想放鬆一下，
 
 
@@ -6565,7 +6564,7 @@ date: 2015-11-21
 reply_count: 40
 title: '[選片] 灣生，菜鳥，老鷹選片'
 url: https://www.ptt.cc/bbs/movie/M.1448089401.A.02E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【2022/08/12 iTunes 特價報】\n軍官與魔鬼／辛德勒的名單／酷愛電影的龐波小姐／失速夜狂奔／亨利之書／魔鬼二世／\n大謊言家\n\
   －\n 這次 iTunes 更新了一波$90片單，其中首推金馬影展好評動畫片《酷愛電影的龐波小姐\n》，這部片將電影業界和創作者的百態以節奏感十足的畫面呈現，充滿個性的角色也讓人\n\
   印象深刻，很值得收藏。其他$90的必收經典還有卓別林的名作《摩登時代》，以及羅伯\n派汀森主演的《失速夜狂奔》也是難得特價，大推。\n－\n緊接著，這次$190片單的亮點除了詢問度很高的《辛德勒的名單》終於特價之外，我們也\n\
@@ -6586,7 +6585,7 @@ date: 2022-08-12
 reply_count: 2
 title: '[討論] iTunes特價 軍官與魔鬼/以父之名/淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1660276103.A.B68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實應該是要給好雷的 但第三篇章真的是很可惜
 
   明明是兩大主角角色轉折的最重要篇章
@@ -6632,7 +6631,7 @@ date: 2023-11-28
 reply_count: 30
 title: '[普好雷] 人性鬼故事的鳴鳥與游蛇之歌'
 url: https://www.ptt.cc/bbs/movie/M.1701154629.A.1F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看不懂這部電影\n\n\n\n通篇真是不知所云\n\n要好笑不好笑\n\n要刺激也不刺激\n\n搞一些暗諷的手法，曲高和寡\n\n凡夫俗子根本看不懂\n\
   \n像早期的國片\n\n讓人昏昏欲睡\n\n\n\n\n無意義 (對我來說看不懂就是無意義)的鏡頭不少\n\n女兒跟男演員在天台花一堆時間玩真心話大冒險\n\n\
   上台前鳥人跟前妻回憶以前離婚事由\n\n等等\n\n令人呵欠連連\n\n\n\n\n\n\n\n\n如此出色的藝術電影\n\n應該那些好棒棒的假影評人高潮了，吹捧連連\n\
@@ -6642,7 +6641,7 @@ date: 2015-09-01
 reply_count: 46
 title: '[負雷] 不知所云的鳥人 '
 url: https://www.ptt.cc/bbs/movie/M.1441120309.A.CE9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請描述欲尋找電影的類型或特徵（請盡量描述清楚）
 
 
@@ -6672,7 +6671,7 @@ date: 2017-05-30
 reply_count: 41
 title: '[片單] 推薦職場與老鳥相處之道的電影'
 url: https://www.ptt.cc/bbs/movie/M.1496077072.A.7C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近比較沒錢但又心癢想和朋友去看院線片
 
 
@@ -6751,7 +6750,7 @@ date: 2015-02-04
 reply_count: 89
 title: '[選片] 鳥人/進擊的鼓手/推拿 該選哪部進院線看'
 url: https://www.ptt.cc/bbs/movie/M.1422983964.A.AD2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有時候會想說若是真的有時光機可以回到過去，重新去體驗一次過去的人生會是什麼樣的
 
 
@@ -6824,7 +6823,7 @@ date: 2018-03-02
 reply_count: 2
 title: '[好雷] 淑女鳥 那些成長所留下的痕跡'
 url: https://www.ptt.cc/bbs/movie/M.1519924086.A.7A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -6905,7 +6904,7 @@ date: 2016-07-03
 reply_count: 35
 title: '[負雷]泰山傳奇--支離破碎的鳥作品'
 url: https://www.ptt.cc/bbs/movie/M.1467475433.A.196.html
---- !!python/object:movie_data.PublicReview
+---
 content: '被預告吸引進場看
 
 
@@ -6966,7 +6965,7 @@ date: 2017-12-03
 reply_count: 11
 title: '[普雷]菜鳥警校生'
 url: https://www.ptt.cc/bbs/movie/M.1512302009.A.78B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '朵拉與失落的黃金城，67分
 
 
@@ -6981,7 +6980,7 @@ date: 2019-08-06
 reply_count: 32
 title: '[討論] 憤怒鳥2 朵拉 爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1565070734.A.B9B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我非常欣賞淑女鳥的一個前後鏡頭呼應，就是當淑女鳥和茱莉漫步在街區以及淑\n女鳥在紐\n約街區神遊分別的三個連續鏡頭。前者是由畫面的右部走向左部，後者則相反，淑女鳥和\n\
   他摯友在街區上談論嚮往的居所、婚禮，這個畫面呈現給我的感覺就是期待，在不滿足當\n下狀態的欲求；而在後面的鏡頭則做了個呼應，克莉絲汀從畫面左側走向右側，我感受到\n\
   的是對於過去猖狂的懊悔以及對家庭溫暖的懷念，一種返璞歸真的感覺。所以簡單來說前\n者是對於未來嚮往的描繪，後者是對於過往思念的浸淫，製造出以空間走向具現化主角意\n\
@@ -6994,7 +6993,7 @@ date: 2018-03-05
 reply_count: 5
 title: '[ 好 雷] 淑女鳥心得'
 url: https://www.ptt.cc/bbs/movie/M.1520182716.A.11E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是一部大概快10年前的電影
 
 
@@ -7026,7 +7025,7 @@ date: 2015-05-29
 reply_count: 9
 title: '[問片] 問一部大概十年前關於鳥的旅行的片'
 url: https://www.ptt.cc/bbs/movie/M.1432894706.A.A38.html
---- !!python/object:movie_data.PublicReview
+---
 content: '初一晚上看了這部令我非常滿意、非常棒的動畫片～～
 
 
@@ -7085,7 +7084,7 @@ date: 2017-01-29
 reply_count: 4
 title: '[好雷] 送子鳥—過年闔家觀賞必須看'
 url: https://www.ptt.cc/bbs/movie/M.1485624015.A.2BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '世界日報
 
   2017年10月4日 下午6:00
@@ -7129,7 +7128,7 @@ date: 2017-10-04
 reply_count: 18
 title: '[新聞] 日翻拍「那些年」 齋藤飛鳥演沈佳宜'
 url: https://www.ptt.cc/bbs/movie/M.1507126862.A.E28.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n改編自九把刀暢銷小說，台灣同名賣座愛情電影【那些年，我們一起追的女孩】不僅紅遍\n全亞洲，今年更被大舉翻拍日本版。日本版除了神還原各段台版經典畫面外，也為整個故\n\
   事注入更多日系清新純愛氛圍。一場主角們一同放下課業壓力到海邊戲水，一行人追著浪\n花嬉戲，之後在防波堤上坐一排，大談各自對未來的憧憬，除了青春感十足之外，齋藤飛\n\
   鳥更戴上閨密松本穗香特製的可愛貓耳超萌下海，讓粉絲大飽眼福。但由於拍攝這場戲時\n已入冬，所以演員們儘管拍攝時露出燦爛笑容，上岸後都紛紛直呼終於拍完！好冷受不了\n\
@@ -7146,7 +7145,7 @@ date: 2018-11-01
 reply_count: 41
 title: '[新聞] 【那些年，我們一起追的女孩】齋藤飛鳥感'
 url: https://www.ptt.cc/bbs/movie/M.1541002259.A.5B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《菜鳥》像是奮力開出了一朵花，不論是對於台灣警匪題材的電影，或是對於
 
   社會底層深入的觀照，這朵花都開得無比燦爛。
@@ -7299,7 +7298,7 @@ date: 2015-11-20
 reply_count: 11
 title: '[好雷]《菜鳥》：生存之道 '
 url: https://www.ptt.cc/bbs/movie/M.1448033513.A.D87.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實這就是一部很真實的電影，部分人能在裡面找到自己的影子
 
   但對於那些無法在電影中看到自己的觀眾，那麼故事便是無趣的
@@ -7377,7 +7376,7 @@ date: 2015-01-20
 reply_count: 10
 title: 'Re: [負雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421723768.A.6C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -7461,7 +7460,7 @@ date: 2015-02-20
 reply_count: 23
 title: '[新聞] 奧斯卡最佳影片 鳥人與年少時代纏鬥'
 url: https://www.ptt.cc/bbs/movie/M.1424426197.A.506.html
---- !!python/object:movie_data.PublicReview
+---
 content: '墨西哥導演阿利安卓.崗札雷.伊納利圖(Alejandro Gonz嫮ez I鼁rritu)，他過往專拍一
 
   些議題嚴肅、非主流的文藝電影，《鳥人》是他首度把文藝電影拍得較主流，觀賞《鳥人
@@ -7546,7 +7545,7 @@ date: 2015-01-14
 reply_count: 6
 title: '[ 好雷] 《鳥人》非常高明又震撼的佳片'
 url: https://www.ptt.cc/bbs/movie/M.1421242665.A.6C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7724,7 +7723,7 @@ date: 2021-12-01
 reply_count: 1
 title: '[好雷] 尋找神話之鳥'
 url: https://www.ptt.cc/bbs/movie/M.1638290591.A.4DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近剛好拿到威秀的電影票
 
 
@@ -7748,7 +7747,7 @@ date: 2018-03-02
 reply_count: 90
 title: '[選片] 意外 淑女鳥 鎌倉物語'
 url: https://www.ptt.cc/bbs/movie/M.1520001507.A.38B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【送子鳥】movie版鄉民專屬電影特映會贈票，現正開跑!！\n\n★【樂高玩電影】與【快樂腳】技術團隊的最新力作！\n★ 台灣最強動畫聲優團隊，大銀幕首度全員集合！\n\
   ★【家有惡鄰】喜劇導演 尼可拉斯史托勒X【汽車總動員】動畫導演 道格史威藍德\n\n即刻起至9/20(二) 12:00，推文留言「【送子鳥】10/7快遞幸福到你家」，\n\
   並至，點選「想看」並送出，將完成投票的截圖後連同姓名、\nPTT帳號、電話寄至，就有機會前往【送子鳥】電影首映會！\n\n獎項內容：9/26(一) 21:00國賓影城微風廣場25名(一人中獎\
@@ -7767,7 +7766,7 @@ date: 2016-09-12
 reply_count: 190
 title: '[贈票] 史上最萌玩命快遞【送子鳥】來到！'
 url: https://www.ptt.cc/bbs/movie/M.1473681876.A.3BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '飾演的「淑女鳥」是一名出身平庸但渴望追尋冒險、優雅與機會的高三學生。
 
   故事述說著女主角純真直率、精采絕倫的高三生活。
@@ -7808,7 +7807,7 @@ date: 2018-02-02
 reply_count: 944
 title: '[贈票] 【淑女鳥】台北特映會搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1517540563.A.726.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完鳥人  突然好像被天外飛來的鳥屎給噴到一樣 濕濕的
 
 
@@ -7846,7 +7845,7 @@ date: 2015-02-19
 reply_count: 1
 title: '[ 好雷] 鳥人 '
 url: https://www.ptt.cc/bbs/movie/M.1424328020.A.98C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '平實一點的描述
 
   就是一個破碎的家庭
@@ -7872,7 +7871,7 @@ date: 2015-01-25
 reply_count: 5
 title: 'Re: [有點雷] 鳥人的兩種結局'
 url: https://www.ptt.cc/bbs/movie/M.1422148354.A.76B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是在看一場電影嗎？是在聽一個故事嗎?
 
 
@@ -7952,7 +7951,7 @@ date: 2015-11-28
 reply_count: 11
 title: '[贈票] 天空沒有了飛鳥，叫做天空嗎？老鷹想飛'
 url: https://www.ptt.cc/bbs/movie/M.1448644182.A.886.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先上電影宣傳海報
 
 
@@ -7982,7 +7981,7 @@ date: 2021-08-30
 reply_count: 2
 title: '[好無雷] 浴火鳥 Firebird (2021) 心得'
 url: https://www.ptt.cc/bbs/movie/M.1630310836.A.66A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -8079,7 +8078,7 @@ date: 2023-09-24
 reply_count: 11
 title: '[  雷] 鳥'
 url: https://www.ptt.cc/bbs/movie/M.1695537040.A.6FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '菜鳥新移民男主角Randall Park確認加盟了《蟻人與黃蜂女》
 
 
@@ -8104,7 +8103,7 @@ date: 2017-07-09
 reply_count: 53
 title: '[情報] 菜鳥新移民男主角加盟漫威宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1499598117.A.4E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本一點都不想看
 
 
@@ -8177,7 +8176,7 @@ date: 2015-05-16
 reply_count: 51
 title: '[好無雷] 預告片很鳥但其實很精彩的瘋狂麥斯'
 url: https://www.ptt.cc/bbs/movie/M.1431746137.A.7D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -8219,7 +8218,7 @@ date: 2020-03-03
 reply_count: 7
 title: '[新聞] 【鳴鳥不飛】票房起飛，美女立委也激讚！'
 url: https://www.ptt.cc/bbs/movie/M.1583238031.A.9EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '世界日報
 
   2017年9月30日 下午6:00
@@ -8270,7 +8269,7 @@ date: 2017-09-30
 reply_count: 111
 title: '[新聞] 老布回歸終極警探 菜鳥麥克連還在找'
 url: https://www.ptt.cc/bbs/movie/M.1506779565.A.E36.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -8455,7 +8454,7 @@ date: 2022-04-15
 reply_count: 18
 title: '[好雷] 鳥人 birdman'
 url: https://www.ptt.cc/bbs/movie/M.1649999049.A.F57.html
---- !!python/object:movie_data.PublicReview
+---
 content: "網誌流水好讀區：\n\nPTT部分會省去流水帳劇情及部分內容，若有需要可至網站閱讀\n\n另外由於接著將會講述到部分的電影劇情及內容\n\n若有興趣觀看電影建議直接拉到最下方看評分或上一頁離開。\n\
   \n還有這邊的心得大部分都不長且主觀，但是非常抱歉這就是我看完的感想心得。\n\n若是對電影的劇情或內容有誤解的地方，歡迎您提出見解來討論。\n\n請勿過度激昂，留下謾罵的文字。\n\
   \n防雷頁\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n因為想推薦大家去看  所以不想洩漏太多劇情QAQ\n\
@@ -8476,7 +8475,7 @@ date: 2017-05-05
 reply_count: 6
 title: '[好雷] 再會吧！青春小鳥'
 url: https://www.ptt.cc/bbs/movie/M.1493989036.A.254.html
---- !!python/object:movie_data.PublicReview
+---
 content: '負雷，是因為我level太低了...看不懂 = = 很抱歉。
 
 
@@ -8538,7 +8537,7 @@ date: 2015-02-08
 reply_count: 136
 title: '[負雷] 鳥人 '
 url: https://www.ptt.cc/bbs/movie/M.1423328191.A.A7C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好讀圖文版:
 
 
@@ -8642,7 +8641,7 @@ date: 2018-03-01
 reply_count: 4
 title: '[好雷]《淑女鳥》我們也都是這樣長大了。 '
 url: https://www.ptt.cc/bbs/movie/M.1519892100.A.510.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「你知道嗎？你是對的，你不重要，你一點都不重要。趕快習慣這件事吧。」\n\nAnd you know what? You're right. You\
   \ don't. It's not important. You're not\nimportant. Get used to it.\n\n阿利安卓岡札雷伊納圖的電影很神奇，即使偶有趣味橋段，你依舊能從電影裡面望見一些\n\
   悲劇的端倪，從他的成名作【愛是一條狗】開始著稱，無論是綁匪、中產階級夫妻或是熱\n愛鬥狗的癡情男，三條主線相互鏈結，變得如此清晰，隨即他佳作迭出，無論是【靈魂的\n\
@@ -8672,7 +8671,7 @@ date: 2015-01-17
 reply_count: 29
 title: '[極好雷]當我們討論超級英雄-鳥人〈Birdman〉 '
 url: https://www.ptt.cc/bbs/movie/M.1421459017.A.0B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本週新上映電影中，最有「藝術感」的應該是長達 169分鐘而且全片黑白拍攝的《異端鳥》，它改編自美國波蘭裔小說家 Jerzy Kosinski 的
   1965 年小說 "The Painted Bird" ，以一個在二次世界大戰時東歐大地上的無名孩子浪跡天涯之悲慘遭遇與炎涼世道為故事主軸。這本小說名叫「著了色的鳥」，是主角其中一站經歷看到的意象：有位捕鳥人把鳥抓來後、全身塗了彩色再放回去，結果那鳥的原生族群都視牠為非我族類、群起圍攻很快把牠給霸凌到死。這樣看來，本片中文片名「異端鳥」翻得很貼切，只要是「非我族類」或「和我不一樣」，就可以激起群體劣根性。
 
@@ -8740,7 +8739,7 @@ date: 2020-11-03
 reply_count: 8
 title: '[好雷] 異端鳥 The Painted Bird'
 url: https://www.ptt.cc/bbs/movie/M.1604350162.A.B83.html
---- !!python/object:movie_data.PublicReview
+---
 content: '藉這個標題問一下
 
 
@@ -8798,7 +8797,7 @@ date: 2017-08-02
 reply_count: 24
 title: 'Re: [請益] 鋼鐵人2的反派怎麼知道那不是他的鳥?'
 url: https://www.ptt.cc/bbs/movie/M.1501670285.A.A90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問一下，看國語版的不知道適合嗎？謝謝
 
 
@@ -8807,7 +8806,7 @@ date: 2016-10-16
 reply_count: 10
 title: '[問片] 送子鳥適合7歲小孩子看嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1476609702.A.B38.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -9046,7 +9045,7 @@ date: 2019-02-09
 reply_count: 18
 title: '[普雷] 蒙上你的眼 - 我說那隻鳥咧?'
 url: https://www.ptt.cc/bbs/movie/M.1549684992.A.9DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者鄭景雯台北24日電）米高基頓（MichaelKeaton）、艾瑪史東（Emily Jean
 
   Ston）及愛德華諾頓（Edward Harrison Norton）等人主演的「鳥人」奪奧斯卡4大獎在
@@ -9086,7 +9085,7 @@ date: 2015-02-24
 reply_count: 11
 title: '[新聞] 鳥人奧斯卡大贏家 電影場次加開'
 url: https://www.ptt.cc/bbs/movie/M.1424779215.A.709.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -9130,7 +9129,7 @@ date: 2021-01-07
 reply_count: 10
 title: '[鳥雷] 007 諾博士'
 url: https://www.ptt.cc/bbs/movie/M.1609982832.A.D68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部史上最黑暗的超級英雄電影
 
   先說優點：
@@ -9190,7 +9189,7 @@ date: 2018-02-16
 reply_count: 39
 title: '[鳥雷] 黑豹--政治正確，理想化過頭。'
 url: https://www.ptt.cc/bbs/movie/M.1518762169.A.0D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '＝＝＝＝＝防雷頁＝＝＝＝＝＝＝＝
 
 
@@ -9241,7 +9240,7 @@ date: 2016-06-09
 reply_count: 19
 title: '[極好雷] 憤怒鳥玩電影 '
 url: https://www.ptt.cc/bbs/movie/M.1465402495.A.40C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "劇場版動畫《鳴鳥不飛 The clouds gather》由 新垣樽助 與 羽多野渉 配音　2020年2\n月正式上映\n\nMr. Qoo 2019-10-29\
   \ 12:36\n\n改編自漫畫家 ヨネダコウ 筆下同名 BL 漫畫《鳴鳥不飛（囀る鳥は羽ばたかない）》，\n將在2020年2月改編為劇場版動畫《鳴鳥不飛 The\
   \ clouds gather》，聲優確定由廣播劇\n陣容再次出演。\n\n\n\n本作為富士電視台 BL 動畫品牌「BLUE LYNX」的第一彈作品，原作漫畫曾多次入選「這\n\
@@ -9258,7 +9257,7 @@ date: 2019-11-03
 reply_count: 5
 title: '[情報] 劇場版動畫《鳴鳥不飛》2020年2月正式上'
 url: https://www.ptt.cc/bbs/movie/M.1572751868.A.758.html
---- !!python/object:movie_data.PublicReview
+---
 content: '被神選中的美少女　齋藤飛鳥開球猿迷瘋狂
 
 
@@ -9292,7 +9291,7 @@ date: 2018-08-15
 reply_count: 4
 title: '[新聞] 被神選中的美少女　齋藤飛鳥開球猿迷瘋狂'
 url: https://www.ptt.cc/bbs/movie/M.1534334059.A.DE6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "在往英國的飛機上，睡眠不易，大部分時間就是李榮浩的專輯一直重複播放，因為一\n\n半以上的電影已經看過了。在廣播中聽過〈不搭〉，所以選擇李榮浩，雖然當初聽不懂歌\n\
   \n詞為什麼唱「伴隨我這樣好嗎？雖然不大」、「伴隨你這樣好嗎？別說不大」、「和我相\n\n愛誰都不大」……後來有歌詞看才知道，原來和大小一點關係也沒有。同樣地，下飛機之\n\
   \n後一直對那首唱著「快讓我在雪地上撒點鹽」的歌印象深刻，直到回程時看見螢幕上顯示\n\n「快讓我在雪地上撒點兒野」，才發現誤會大了。但即使知道錯了，十幾天下來對「雪地\n\
@@ -9323,7 +9322,7 @@ date: 2015-06-29
 reply_count: 1
 title: '[普雷] Gone Mother——暴風雪中的白鳥 '
 url: https://www.ptt.cc/bbs/movie/M.1435561581.A.008.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -9603,7 +9602,7 @@ date: 2018-02-28
 reply_count: 33
 title: '[好雷]《淑女鳥》屬於我們的成長足跡'
 url: https://www.ptt.cc/bbs/movie/M.1519821056.A.A26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '個人偏好看劇情片，張力十足那一種
 
 
@@ -9623,7 +9622,7 @@ date: 2015-01-22
 reply_count: 73
 title: '[選片] 永不屈服，美國狙擊手，鳥人建議看哪部？'
 url: https://www.ptt.cc/bbs/movie/M.1421888291.A.F27.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《鳥人》是一部殘忍的電影。
 
 
@@ -9682,7 +9681,7 @@ date: 2015-01-21
 reply_count: 15
 title: '[討論] 《鳥人》：演員們'
 url: https://www.ptt.cc/bbs/movie/M.1421852877.A.50D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下為圖文全開部落格網址，也可去看看其他文章喔：
 
 
@@ -9829,7 +9828,7 @@ date: 2018-01-19
 reply_count: 46
 title: '[好雷] 她不知道那些鳥的名字：片名的意思'
 url: https://www.ptt.cc/bbs/movie/M.1516369101.A.D1D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '讀中文系的人會知道，文學批評有「索隱」一派，即解讀詩文可從君臣關係著手。另一方
 
   面，馬克思主義在解釋歷史時則偏重經濟結構與生產關係的脈絡。我對兩者都不熟、甚至
@@ -9917,7 +9916,7 @@ date: 2012-10-05
 reply_count: 7
 title: '[好雷] 候烏來的季節'
 url: https://www.ptt.cc/bbs/movie/M.1349450514.A.8B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "現在HBO在播星戰7原力覺醒，雖然看很多遍但還是不爭氣的把它看下去了QQ\n\n\n\n\n\n\n\n\n\n防雷\n\n\n\n\n\n\n\
   \n話說那個凱羅忍一出場霸氣十足，強大的壓迫感，一手把雷射定住更是技驚全場，\n\n(當初在電影院看到這幕內心真的是很感動，還情不自禁的小聲驚嘆\"幹超屌啊\"\
   )\n\n結果沒多久手下讓目標跑掉，這廝面具男竟然拿著光劍怒砍儀表板跟牆壁，讓人傻眼\n\n活像個控制不了脾氣的中二生，之後面具拿掉那造型也毫無強者的霸氣，\n\
@@ -9938,7 +9937,7 @@ date: 2018-08-18
 reply_count: 191
 title: '[討論] 剛出場時霸氣非凡,後面就鳥掉的角色'
 url: https://www.ptt.cc/bbs/movie/M.1534593400.A.0F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷頁\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n   「鳥人」看似一鏡到底的技巧還蠻炫的，此外這個愛幻想的神經病大叔，嚴重的程度勝\n\
   過了白日夢冒險王，加上他女兒還有吸毒，最後的Ending，看似跳下去了，可是Emma Stone\n最後卻抬頭看了，是想說她老爸已歸天? 或是毒癮發作? 或是她老爸的這種幻想症，她也\n\
   遺傳了，所以看到她老爸真的變成鳥人飛天?\n\n    偏執的行動，讓自己有一種存在感，不管是演員在舞台上的表演，或者是Twitter、\nFacebook上的動態，都是在Show\
@@ -9951,7 +9950,7 @@ date: 2015-01-25
 reply_count: 1
 title: '[普雷]每個人心中是否都有一個鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1422198135.A.77B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌版：
 
 
@@ -10045,7 +10044,7 @@ date: 2015-01-17
 reply_count: 7
 title: '[超好雷]《鳥人》重打一記耳光'
 url: https://www.ptt.cc/bbs/movie/M.1421485030.A.62B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為曾經在美國高中唸過書
 
   所以有一些細節想分享給大家看可以看得更懂哈哈
@@ -10134,7 +10133,7 @@ date: 2018-03-13
 reply_count: 72
 title: '[討論] 淑女鳥小概念分享'
 url: https://www.ptt.cc/bbs/movie/M.1520947533.A.236.html
---- !!python/object:movie_data.PublicReview
+---
 content: '找一部片，大概是十年前在電視上看到的
 
   依稀記得片中的女角好像是短髮，而劇情中有一個類似埃及神的壯男，整部片呈現
@@ -10149,7 +10148,7 @@ date: 2017-05-19
 reply_count: 6
 title: '[問片] 暗色調 埃及神? 鳥頭人身'
 url: https://www.ptt.cc/bbs/movie/M.1495194918.A.442.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於看完鳥人了
 
   這部片本該是在電影院看的，只是到了國賓才發現票賣完了，改看進擊的鼓手。
@@ -10320,7 +10319,7 @@ date: 2015-10-21
 reply_count: 10
 title: '[好雷]鳥人的一些心得'
 url: https://www.ptt.cc/bbs/movie/M.1445418662.A.78D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去年就已經購入了《再會吧，青春小鳥！》這本書
 
   還記得翻開了第一頁之後，就無法停止的在一個下午看完他了
@@ -10448,7 +10447,7 @@ date: 2015-09-07
 reply_count: 10
 title: '[好雷] 再會吧，青春小鳥！'
 url: https://www.ptt.cc/bbs/movie/M.1441556574.A.6FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是看完這部倒是有跟你不一樣的想法、這片
 
   不適合剛入行的警察看、這片太沈重、沒有壞人抓光光的美好結局、而是一種貼近於現實
@@ -10512,7 +10511,7 @@ date: 2017-02-15
 reply_count: 9
 title: 'Re: [小負雷] 菜鳥-給剛做警察看的教育片'
 url: https://www.ptt.cc/bbs/movie/M.1487139481.A.F3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '啊啊啊啊啊啊啊阿！！！！！！！！！！！
 
 
@@ -10547,7 +10546,7 @@ date: 2017-12-05
 reply_count: 150
 title: '[情報] 《淑女鳥》中文預告釋出！！！'
 url: https://www.ptt.cc/bbs/movie/M.1512481704.A.3C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去年在鄭宜農的小型演唱會聽到鄭文堂導演(鄭宜農父親)
 
   將在今年年底推出新電影，我就十分期待這部戲的上映!
@@ -10676,7 +10675,7 @@ date: 2015-11-15
 reply_count: 13
 title: '[好雷] 【菜鳥】- 是與非的模糊界線'
 url: https://www.ptt.cc/bbs/movie/M.1447530749.A.0AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《強尼·凱克》以瞬間連動而成的飛鳥悖論\n\n幕迷影評 | \n\n\n在電影《強尼·凱克》中提出一個有趣的飛鳥悖論：「飛鳥展翅，在天空上翱翔的動作拆開成定格的畫面是不動的，但連起來又動了，那飛鳥究竟是動與不動？」這個悖論其實就是《強尼·凱克》的故事結構，一場場閒話家常的戲，看似毫無重點，但合起來就是執行了一個「建構人物」的動作，如同飛鳥悖論中的動與不動一般，斷片結合起來才成了鳥飛翔的樣貌，零散的故事連接起來才是《強尼·凱克》。\n\
   \n\n基本上《強尼·凱克》在前半段稍嫌冗長，該有的情感在電影後半段無法完整傳達，但漂亮的攝影與音樂仍讓這部電影成功的塑造了三個角色所挾帶的生活孤寂與矛盾之感，許多物件與角色的對比關係也很有趣，簡單來說看《強尼·凱克》看的不是故事而是人，人物塑造的成功讓觀眾得以引起共鳴，是這部電影最吸引人的地方。\n\
   \n#強尼凱克\n\n\n\n--\n真的假的啊XD 太猛了吧"
@@ -10684,7 +10683,7 @@ date: 2017-12-06
 reply_count: 11
 title: '[普好雷] 《強尼·凱克》以瞬間連動而成的飛鳥悖'
 url: https://www.ptt.cc/bbs/movie/M.1512571170.A.E40.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1打大鋼鐵人:除了出力比較強沒啥特別的
 
 
@@ -10711,7 +10710,7 @@ date: 2017-04-19
 reply_count: 119
 title: '[討論] 鋼鐵人三部的反派是不是都滿鳥的'
 url: https://www.ptt.cc/bbs/movie/M.1492588479.A.74E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '對了~先說我是帶小孩去看的，小朋友四歲
 
 
@@ -10757,7 +10756,7 @@ date: 2016-06-12
 reply_count: 5
 title: '[好雷]憤怒鳥玩電影(中配) '
 url: https://www.ptt.cc/bbs/movie/M.1465736304.A.CDE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "美國11月就上映了，佳評如潮，再加上金球獎入圍7項，可以說是期待已久。台灣隔了兩\n個月才上映，典型的獎季片處理方法，看完之後，果然是沒有失望。\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n看完之後，感覺最深的就是「劇評家」了。姑且不論我們是否以此為職業，當我們看完一\n\
   部電影，手指歡悅的在鍵盤上擊打出一篇篇的心得，甚至只是告訴身邊親朋好友自己對作\n品的評價，無形當中，我們都在扮演「評論家」的角色。當Riggan指控Tabitha的評論都\n\
@@ -10817,7 +10816,7 @@ date: 2015-01-19
 reply_count: 19
 title: '[好雷]鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421671687.A.919.html
---- !!python/object:movie_data.PublicReview
+---
 content: '給個中立的普雷 這部電影並不適合所有人看
 
 
@@ -10913,7 +10912,7 @@ date: 2015-06-01
 reply_count: 22
 title: '[普雷] 鳥人，戲中戲中戲'
 url: https://www.ptt.cc/bbs/movie/M.1433173209.A.273.html
---- !!python/object:movie_data.PublicReview
+---
 content: "用鳥山明當例子其實不太洽當就是了.\n\n這老鬼(?)只是當原案就真的就是在搞原作破壞,\n從神與神帶入破壞神進入世界觀開始,\n復活的F讓佛殺大王成為七龍珠後期以來一直欠缺那個亦敵亦友的存在,\n\
   甚至最近的超級英雄,則是讓比克跟廢掉很多的悟飯再站一次C位.\n\n更別說搞了一個以為是原創作品的宇宙刑事加克,\n結果是跟七龍珠世界觀一起,跟小時候的布馬就認識了,\n\
   靠著那個漫畫附錄的短篇,弄了一個主世界的巴達克.\n\n既然都有主世界的巴達克了,\n之前的龍珠超劇場版弄個主世界的布羅利當然也可以.\n\n不管是熟年以後對當年Jump體制的反彈也好,\n\
@@ -10924,7 +10923,7 @@ date: 2023-02-07
 reply_count: 16
 title: 'Re: [討論] 鳥山明如果拍七龍珠撒旦傳，大家會看嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1675764759.A.4C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -11088,7 +11087,7 @@ date: 2024-07-18
 reply_count: 4
 title: '[好雷] 鳥'
 url: https://www.ptt.cc/bbs/movie/M.1721288596.A.6F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "其實電影嘛你覺得他是什麼就什麼了 (煙)\n\n好啦，這種回答雖然是真實的，但沒什麼用，所以還是認真說一下。\n\n\n===============================\
   \ 防個雷 =================================\n\n\n這部電影應該很容易讓人想到《黑天鵝》，都是虛實之間切換，\n也都在寫演員為了藝術表現和現實困境掙扎的過程。\n\
   但相較於《黑天鵝》結局強調這種掙扎是人與自己的戰爭，\n《鳥人》的導演可能是有意譏諷或其他理由，\n感覺上就比較在意主角 Riggan 跟外在社會的對話。\n\n\
@@ -11103,7 +11102,7 @@ date: 2014-11-17
 reply_count: 4
 title: 'Re: [請益] 鳥人 結局的含義 （雷）'
 url: https://www.ptt.cc/bbs/movie/M.1416215013.A.54D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '推薦嗎？如果你願意把這部電影當作一種
 
   對於視覺經驗的挑戰，那我會推薦你去看。
@@ -11258,7 +11257,7 @@ date: 2015-01-22
 reply_count: 2
 title: '[討論]鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421881126.A.917.html
---- !!python/object:movie_data.PublicReview
+---
 content: "居然是在台中?!\n\n\n1.看莊凱勛x簡嫚書，這兩人表現很優秀\n2.看甜心教主宥勝(雖然造型很像周杰侖)\n3.片頭的字幕上的很好看\n\
   4.警察的故事，敘事銜接沒問題\n5.背景交代無力感的部分很到位\n\n\n1.若是你想看一個正義被伸張的故事，它沒有\n2.若你想看爽度夠的電影\n3.中後段的節奏不夠緊湊\n\
   4.若你不喜歡很多口白\n\n推薦程度：　（你若想看可以等二輪或租片）\n\n片長：扣掉片尾字幕約112分鐘\n\n其實這部我覺得給三星半是最合適的\n\n但是它後半段的節奏跟劇情卻沒辦法承接前半段的好看\n\
@@ -11306,7 +11305,7 @@ date: 2015-11-23
 reply_count: 17
 title: '[普雷]特雷--《菜鳥》像黑道宣戰'
 url: https://www.ptt.cc/bbs/movie/M.1448266276.A.E39.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社洛杉磯7日綜合外電報導）
 
 
@@ -11392,7 +11391,7 @@ date: 2015-02-09
 reply_count: 7
 title: '[新聞] 鳥人獲導演工會大獎 奪奧斯卡希望濃'
 url: https://www.ptt.cc/bbs/movie/M.1423411421.A.ED5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '板上對這片的討論度不高
 
 
@@ -11416,7 +11415,7 @@ date: 2016-10-12
 reply_count: 31
 title: '[請益] 送子鳥中文還是英文？'
 url: https://www.ptt.cc/bbs/movie/M.1476285664.A.21A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【再談《鳥人》的隱喻】
 
 
@@ -11499,7 +11498,7 @@ date: 2015-01-25
 reply_count: 10
 title: 'Re: [好雷] 鳥人－－Let''s Make A Comeback'
 url: https://www.ptt.cc/bbs/movie/M.1422129257.A.5EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "首先先紀念一下此刻，畢竟好久沒在PTT發文...\n\n\n\n剛剛看完鳥人，我想跟大部分看完的人一樣心裡都悶悶der但好像體會了甚麼\n\n\
   我是沒有做任何功課就進去看這部電影，甚至連主角以前演過蝙蝠俠都不知道\n但看完之後，個人覺得這部電影要表達的大方向並不難抓到，所以以下就不討論這部份了\n\n\
   回來爬文看到各種專業文，幫助我補充了許多細節的象徵跟手法上代表的意義\n不過找文找了很久，還是有幾個地方沒有弄懂希望有人可以解惑一下\n\n1. 電影最開始就有飛行火球(雖然我也很想問這個東西代表甚麼...但先不管了)，\n\
@@ -11514,7 +11513,7 @@ date: 2015-01-24
 reply_count: 19
 title: '[請益] 關於鳥人幾幕的象徵意義 (有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1422114117.A.9C4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我們是過去的影子。
 
 
@@ -11579,7 +11578,7 @@ date: 2018-02-11
 reply_count: 32
 title: '[好雷] 《淑女鳥》我們是過去的影子'
 url: https://www.ptt.cc/bbs/movie/M.1518336458.A.05A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -11785,7 +11784,7 @@ date: 2020-06-14
 reply_count: 4
 title: '[微好雷]《婚姻大崩壞》，夫妻本是同林鳥，大쌠'
 url: https://www.ptt.cc/bbs/movie/M.1592109437.A.6A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -11828,7 +11827,7 @@ date: 2019-08-16
 reply_count: 9
 title: '[新聞] 中國又撤一部！ 《郊區的鳥》"市場原因"延檔'
 url: https://www.ptt.cc/bbs/movie/M.1565962174.A.877.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「文藝復興」原文網址：
 
 
@@ -11911,7 +11910,7 @@ date: 2015-01-24
 reply_count: 5
 title: '[高張力雷] 鳥人：給我聚光燈'
 url: https://www.ptt.cc/bbs/movie/M.1422111044.A.995.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文章來源：
 
 
@@ -11977,7 +11976,7 @@ date: 2018-02-05
 reply_count: 5
 title: '[好雷] 她不知道些鳥的名字'
 url: https://www.ptt.cc/bbs/movie/M.1517817851.A.00F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌版：
 
 
@@ -12110,7 +12109,7 @@ date: 2014-12-29
 reply_count: 2
 title: '[好雷]《醫手遮天》菜鳥醫生的逆襲 '
 url: https://www.ptt.cc/bbs/movie/M.1419863360.A.88C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者王鴻國新北市25日電）平溪天燈揚名國際，日本改編翻拍「那些年，我們一
 
   起追的女孩」的電影，特別跨海赴新北平溪老街、菁桐車站浪漫取景。
@@ -12175,7 +12174,7 @@ date: 2017-10-25
 reply_count: 1
 title: '[新聞] 日片平溪取景 山田裕貴齋藤飛鳥大搞浪漫'
 url: https://www.ptt.cc/bbs/movie/M.1508945871.A.909.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不是文青片 是酸民片
 
 
@@ -12279,7 +12278,7 @@ date: 2015-05-16
 reply_count: 7
 title: '[好雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1431778035.A.E82.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
   挑戰一鏡到底　《鳥人》運鏡部分民眾喊暈
@@ -12333,7 +12332,7 @@ date: 2015-01-18
 reply_count: 4
 title: '[新聞]挑戰一鏡到底《鳥人》運鏡部分民眾喊暈'
 url: https://www.ptt.cc/bbs/movie/M.1421580050.A.FEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '說真的，鳥人真的就是給那些老蝠迷看的，緬懷過去的意淫之作。
 
 
@@ -12510,7 +12509,7 @@ date: 2015-02-27
 reply_count: 128
 title: '[負雷]鳥人就是自以為有品味。 '
 url: https://www.ptt.cc/bbs/movie/M.1424985539.A.692.html
---- !!python/object:movie_data.PublicReview
+---
 content: "★【紐約哈哈哈】導演又一清新幽默力作\n★班史提勒、娜歐蜜華茲、亞曼達塞芙瑞聯手搞笑\n★威尼斯影帝亞當崔佛演技再度挑戰\n\n4/17【青春倒退嚕】尋找心方向預告　\n\
   \n我的青春小鳥 怎麼一去就不回來？\n一板一眼的記錄片工作者賈許(班史提勒 飾)與他的老婆(娜歐蜜華茲 飾)總是過著千篇一\n律的生活，夫妻倆一直想要有個小孩卻始終無法如願，但就在一次偶然的機緣下他們結識\n\
   了一對充滿理想抱負且無拘無束的年輕情侶傑米(亞當崔佛 飾)與妲比(亞曼達塞佛瑞 飾)\n，就在彼此截然不同的生活撞擊下，他們離開了平時熟悉的生活圈而開始嘗試各種不同的\n\
@@ -12521,7 +12520,7 @@ date: 2015-03-13
 reply_count: 182
 title: '[贈票] 【青春倒退嚕】快來追尋你的青春小鳥！'
 url: https://www.ptt.cc/bbs/movie/M.1426232855.A.EDF.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Test
 
 
@@ -12530,7 +12529,7 @@ date: 2015-01-22
 reply_count: 9
 title: 'Re: [好雷] 鳥人(Birdman)'
 url: https://www.ptt.cc/bbs/movie/M.1421898974.A.DFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1.影片名稱 : 淑女鳥（Lady Bird）\n\n2.觀影時間 : 12/4 18:45\n\n3.觀影地點 : 師大校本部，誠101\n\n\
   4.觀影方式 : 師大人文電影節\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n\n\n方格子圖文版 \n\n\n\n我 12/4 去師大人文電影節二刷這部片。本片在今年初剛上映時，我就去電影院觀賞並寫\n\n了一篇文章  。而本文是以該篇文章為基礎，新增和改寫部分內容\n\
@@ -12557,7 +12556,7 @@ date: 2018-12-06
 reply_count: 11
 title: '[好雷] 淑女鳥：長大就是憧憬的幻滅'
 url: https://www.ptt.cc/bbs/movie/M.1544110487.A.3F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -12593,7 +12592,7 @@ date: 2023-11-30
 reply_count: 81
 title: '[討論] 飢餓遊戲：鳴鳥與游蛇之歌 票房3649萬'
 url: https://www.ptt.cc/bbs/movie/M.1701346878.A.D6E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鳥山明《沙漠大冒險》動畫電影公開主視覺海報 預定2023年8月18日上映
 
 
@@ -12751,7 +12750,7 @@ date: 2023-06-07
 reply_count: 38
 title: '[情報] 鳥山明《沙漠大冒險》動畫電影主視覺海報'
 url: https://www.ptt.cc/bbs/movie/M.1686134950.A.F2C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完"鳥人"後，有地方疑問：
 
   1.主角在酒吧見到惡毒影評後跑去買酒，此時在路邊那位先生演的是什麼？
@@ -12767,7 +12766,7 @@ date: 2015-02-09
 reply_count: 13
 title: '[請益] 有關於鳥人的幾個問題'
 url: https://www.ptt.cc/bbs/movie/M.1423469933.A.BCA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '[贈票] 鳥人特映會（一人中兩人看八個名額）
 
 
@@ -12850,7 +12849,7 @@ date: 2014-12-24
 reply_count: 321
 title: '[贈票] 鳥人特映會（一人中兩人看八個名額）'
 url: https://www.ptt.cc/bbs/movie/M.1419403114.A.EFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天跟小模女友去新竹巨城
 
 
@@ -12964,7 +12963,7 @@ date: 2014-10-14
 reply_count: 212
 title: '[爆炸大爛雷] 控制 - 控制你阿公，什麼鳥片 '
 url: https://www.ptt.cc/bbs/movie/M.1413290076.A.3F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請描述欲尋找電影的類型或特徵（請盡量描述清楚）
 
   配樂超神超好聽，但是劇情很無言
@@ -12991,7 +12990,7 @@ date: 2017-09-25
 reply_count: 80
 title: '[片單] 配樂超神但鳥劇情的片'
 url: https://www.ptt.cc/bbs/movie/M.1506338192.A.D15.html
---- !!python/object:movie_data.PublicReview
+---
 content: '據《綜藝》報導，動畫電影《憤怒鳥》續集已經開始運作。Rovio公司的CEO
 
   Kati Levoranta表示：“基於我們的遊戲以及這部奇妙電影的良好表現，“憤怒鳥”這塊
@@ -13019,7 +13018,7 @@ date: 2016-08-28
 reply_count: 10
 title: '[討論] 憤怒鳥電影將拍續集'
 url: https://www.ptt.cc/bbs/movie/M.1472359055.A.6E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：   \n\n\n改編自中田永一的同名暢銷小說，由三木孝浩執導，新垣結衣、木村文乃攜手年輕世代演\n員演出的青春片【再會吧！青春小鳥】，是繼【扶桑花女孩】後最勵志動人的青春物語。\n\
   新垣結衣之前因演出的電視劇《王牌大律師》在台播出後，在台知名度也大增，片中她飾\n演一個音痴律師，與堺雅人有許多爆笑互動，討喜的模樣深植人心。\n\n這次在【再會吧！青春小鳥】中，卻化身超有氣質的美女鋼琴教師，因原本的指導老師請\n\
   產假，所以由新垣結衣飾演的代課老師帶領一群國中生所組成的合唱團參加縣級合唱比賽\n，除了親自教唱、彈琴外，還陪伴著學生們將15歲的煩惱化為養分及生活的力量，對每個\n\
@@ -13041,7 +13040,7 @@ date: 2015-08-22
 reply_count: 5
 title: '[新聞] 音痴律師新垣結衣　【再會吧！青春小鳥】'
 url: https://www.ptt.cc/bbs/movie/M.1440224962.A.589.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -13255,7 +13254,7 @@ date: 2023-06-20
 reply_count: 28
 title: '[鳥雷] 八仙飯店 雨夜屠夫 人頭豆腐湯 踏血尋梅'
 url: https://www.ptt.cc/bbs/movie/M.1687251124.A.C51.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天同事的朋友給兩張票，
 
   因為上班時間沒辦法配合，
@@ -13278,7 +13277,7 @@ date: 2015-11-25
 reply_count: 5
 title: '[贈票] 菜鳥（新竹）'
 url: https://www.ptt.cc/bbs/movie/M.1448422602.A.1A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n一個當初紅透全球的演員，被拿掉當初稱霸影壇的資本以後，他還剩下什麼?\n\
   \ -一群想榨乾他剩餘價值以實現自我理想的同業\n -群眾叫不出他名字，只好叫他演過的英雄腳色\n -影評厭惡他，因為他是商業電影的代名詞\n -在浮華人生中迷失自己，造成家庭的失和\n\
   \ -還有一個如影隨形的幻影，不斷勸說自己去重操舊業\n他的生活是由剝奪感所堆砌而成，而這個生活何去何從，一點也由不得他\n\n在離婚但支持他的前妻面前，他顯得像個小男孩一樣無助\n\
@@ -13290,7 +13289,7 @@ date: 2015-01-08
 reply_count: 2
 title: '[好雷] 鳥人 戲說人生'
 url: https://www.ptt.cc/bbs/movie/M.1420681343.A.5D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷，雖然已經上映很久，而且內容爛到雷不雷根本沒差\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  之前到大銀幕看過鋼鐵墳墓一，老派動作巨星阿諾史特龍同臺主演，而且內容不是浴血任\n\
   務般的人間兇器外掛開到底，反而有用腦袋思考、推敲，運用分析環境、心理、地理知識、\n裡應外合等最後逃獄成功\n\n\n  之後聽說二跟三因為中資介入變成爛炸鳥片所以敬而遠之，前幾天電影臺有播第三集就加\n\
   減看\n\n 這片是什麼鬼？假設當時大螢幕有上映，買票進場的人應該會當場爆氣\n\n\n\n  劇情就第一集陷害史特龍入獄的反派兒子為了復仇，綁架中國3C巨擎的女兒（華為？）到\n\
@@ -13309,7 +13308,7 @@ date: 2020-12-05
 reply_count: 55
 title: '[雷] 鋼鐵墳墓三 有夠鳥的片'
 url: https://www.ptt.cc/bbs/movie/M.1607163933.A.887.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -13379,7 +13378,7 @@ date: 2014-12-12
 reply_count: 1
 title: '[新聞] 金球獎揭曉　《鳥人》入圍7項傲視群雄'
 url: https://www.ptt.cc/bbs/movie/M.1418377162.A.C0B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -13431,7 +13430,7 @@ date: 2023-08-04
 reply_count: 2
 title: '[好雷] 三宅唱《你的鳥兒會唱歌》'
 url: https://www.ptt.cc/bbs/movie/M.1691112815.A.DBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'movie首po，另一個角度的鳥人，有雷：)
 
 
@@ -13483,7 +13482,7 @@ date: 2015-01-20
 reply_count: 4
 title: '[好雷] 另一個鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421687489.A.504.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛考完期中考 想跟朋友一起去看個電影消遣一下
 
   本身 愛好電影 什麼電影都看
@@ -13510,7 +13509,7 @@ date: 2015-11-27
 reply_count: 30
 title: '[選片] 菜鳥 殭屍教戰手則 紅衣小女孩'
 url: https://www.ptt.cc/bbs/movie/M.1448605766.A.254.html
---- !!python/object:movie_data.PublicReview
+---
 content: '借標一問
 
 
@@ -13582,7 +13581,7 @@ date: 2017-08-02
 reply_count: 26
 title: 'Re: [請益] 鋼鐵人2的反派怎麼知道那不是他的鳥?'
 url: https://www.ptt.cc/bbs/movie/M.1501648681.A.2F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '欸欸欸  嗨嗨嗨  哈嘍哈嘍哈嘍  hihihi
 
 
@@ -13744,7 +13743,7 @@ date: 2018-02-17
 reply_count: 135
 title: '[ 超鳥雷] 欸欸欸欸 攻敵必救在亂演什麼啊？'
 url: https://www.ptt.cc/bbs/movie/M.1518871414.A.48D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實這個問題有點怪....
 
 
@@ -13770,7 +13769,7 @@ date: 2016-06-20
 reply_count: 26
 title: '[請益] 請問有看過憤怒鳥的朋友一個簡單問題'
 url: https://www.ptt.cc/bbs/movie/M.1466352637.A.EAF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有一群快樂鳥，
 
 
@@ -13802,7 +13801,7 @@ date: 2016-05-05
 reply_count: 7
 title: '[討論] 憤怒鳥玩電影 台配 Circus'
 url: https://www.ptt.cc/bbs/movie/M.1462422863.A.20E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '建議使用無廣告圖文好讀版
 
 
@@ -13944,7 +13943,7 @@ date: 2016-04-12
 reply_count: 4
 title: '[好雷] 路邊野餐，為了尋找你我住進鳥的眼睛'
 url: https://www.ptt.cc/bbs/movie/M.1460444360.A.E24.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【 31 天電影熱浪】 7 月 iTunes 電影每天都特價：\n正義聯盟/送子鳥/絕地救援/布裏斯比熊\n\n 偉哉 Apple ！趁著放暑假，每天都特價一部片！從今天起我們每天會推一波，\n\
   大家留意囉！\n\n今日為雙重特價片，一週一次的 NT$90 是動畫《送子鳥》， 4K HDR 畫質！\n而 NT$150 竟然是強片《正義聯盟》，小編當初可是用原價買的啊啊！\n\
   \n再來是讓人期盼的《七月與安生》，終於在金馬都頒完獎，又等待了好一陣子，\n院線也上映完畢後，來到了 iTunes Store 。等到花兒都謝了，但很值得。\n\
@@ -13966,7 +13965,7 @@ date: 2018-07-06
 reply_count: 19
 title: '[情報] iTunes 報：正義聯盟/送子鳥/七月與安生'
 url: https://www.ptt.cc/bbs/movie/M.1530831128.A.E52.html
---- !!python/object:movie_data.PublicReview
+---
 content: "請問菜鳥裡面幾個小問題\n\n一、小葉被栽贓毒品那一段是什麼時候放進車裡的,如果小葉在吃飯時不那麼白目,\n\n    表面上附和長官及議長,應該是不會被栽贓啊？但看起來那包毒品好像一開始就放了,\n\
   \n    另外明哥稍早前也一直打電話給小葉,是要提醒他小心車裡有毒品嗎？\n\n二、小葉跟明哥最後去抄毒窟拍證據時,有被認出是警察嗎？不然第九分局那個爛警察\n\
   \n    怎麼會隔天在分局長的新書記者會後,找小葉要他交出影片跟錢呢？\n\n三、明哥最後抄毒窟時是已經預謀要拿光那邊的錢了嗎？拿了那些錢居然就辭職不幹了？\n\
@@ -13975,7 +13974,7 @@ date: 2015-11-20
 reply_count: 5
 title: '[請益] 菜鳥（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1447958075.A.A95.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -14049,7 +14048,7 @@ date: 2020-02-28
 reply_count: 1
 title: '[好雷] 憤怒鳥玩電影 神預測'
 url: https://www.ptt.cc/bbs/movie/M.1582903911.A.57D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知為何我對鳥人的一鏡到底很反感
 
 
@@ -14085,7 +14084,7 @@ date: 2015-05-18
 reply_count: 56
 title: '[討論] 鳥人 一鏡到底 我看了 1/4 就離場'
 url: https://www.ptt.cc/bbs/movie/M.1431949349.A.B54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是被你囚禁的鳥
 
   已經忘了天有多高
@@ -14153,7 +14152,7 @@ date: 2024-10-05
 reply_count: 13
 title: '[ 問號雷] 《絕命大平台2》我是被你囚禁的鳥'
 url: https://www.ptt.cc/bbs/movie/M.1728131300.A.655.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今年戰況真的太詭譎啦\n\n\n首先是年少時代在獎季的大部分影評人獎項都穩定領先\n\n接著金球也奪得最佳影片、最佳導演兩項大獎\n\n殊不知最近風向開始逆轉\n\
   \n鳥人先是拿下PGA、SAG最佳整體\n\n接著在獎季中從未領先過的導演獎竟然也在DGA拿下了\n\n不過今天公布的BAFTA年少時代卻又橫掃影片、導演\n\n\
   搞得我好亂兒阿～～～\n\n不過發現似乎小評審團制度的獎項都是年少掄元\n\n而牽扯到大量會員投票的獎項如各種工會獎就都是鳥人得了\n\n所以說公關定生死？\n\
@@ -14163,7 +14162,7 @@ date: 2015-02-09
 reply_count: 34
 title: '[討論] 年少時代 VS 鳥人 鹿死誰手？'
 url: https://www.ptt.cc/bbs/movie/M.1423438558.A.30D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '豐富圖文版:
 
 
@@ -14263,7 +14262,7 @@ date: 2015-02-23
 reply_count: 1
 title: '[好雷] 鳥人～人如戲 戲如人生'
 url: https://www.ptt.cc/bbs/movie/M.1424704427.A.5BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '早晨七點，我睜開眼，正考慮睡個回籠覺，卻因突然想起昨天看的電影《鳥人》
 
   （Birdman），越想越起勁，索性離開被窩，坐到電腦前敲鍵盤。
@@ -14555,7 +14554,7 @@ date: 2015-01-25
 reply_count: 25
 title: '[好雷] 今日鋼鐵人，明日的《鳥人》'
 url: https://www.ptt.cc/bbs/movie/M.1422173697.A.16D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文好讀版本 無事生花部落格\n\n\n\n\n「一生背負歷史宿命，違逆國境的拘束，他自由的心靈向世界投出沉痛的呼\n\n喊，讓夢境在故事裡嗚咽，霧在河的對岸蔓延……」安哲羅普洛斯於1月24日\n\
   \n的意外身亡至今仍令人難以平復，當天在部落格裡留下這些句子之後，我找\n\n出一本許久之前向友人借來的電影場刊。該場刊由東寶電影出版，是當年\n\n《鸛鳥踟躕》在日上映時發行的，據說是在二手片商店中很幸運地以數百日\n\
   \n幣挖到它，內含影片基本資料及多篇影評，還有內容相當充實的導演訪談，\n\n揭露了不少拍攝本片的立意與構思。即使不諳法語或希臘語，至少有幸讀到\n\n翻成日語的版本，一面試著捕捉大師腦中的靈光，一面與自身的觀影經驗相\n\
@@ -14619,7 +14618,7 @@ date: 2012-02-02
 reply_count: 10
 title: '[訪談]【鸛鳥踟躕】安哲羅普洛斯訪談'
 url: https://www.ptt.cc/bbs/movie/M.1328191565.A.C5A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不是吧，後來鳥人不是飛出窗外了嗎？
 
   如果感染而死，那女兒看的是什麼？
@@ -14632,7 +14631,7 @@ date: 2017-11-30
 reply_count: 9
 title: 'Re: [心得] 鳥人（下）'
 url: https://www.ptt.cc/bbs/movie/M.1512055318.A.211.html
---- !!python/object:movie_data.PublicReview
+---
 content: '淑女鳥 Lady Bird | 我們都曾有過的青春
 
 
@@ -14655,7 +14654,7 @@ date: 2018-03-12
 reply_count: 7
 title: '[好雷] 淑女鳥 Lady Bird | 我們都曾有過的青春'
 url: https://www.ptt.cc/bbs/movie/M.1520866237.A.4F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看了入圍奧斯卡的諷刺電影  鳥人
 
 
@@ -14712,7 +14711,7 @@ date: 2015-02-05
 reply_count: 53
 title: '[請益] 鳥人的諷刺'
 url: https://www.ptt.cc/bbs/movie/M.1423136685.A.3EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "------一樣會有雷----------\n\n\n（續）\n\n\n\n就我個人而言，這是本齣電影中最困難、最抽像，卻也是最主要的議題，那便是「界限」的探討。當然，作為一個觀眾，我們大可單純地接收劇情所傳達的角色心境就好，但「界限」卻老是反覆出現……（補充，利用長鏡頭所帶來的視角切換，也順勢地鋪陳了界限的存在與跨越，那個長鏡頭真的很不錯！）\n\
   \n明顯的就有「舞台上vs.舞台下」的界限、「穿著超能力服裝vs.穿著一般衣服vs.禿頭vs.裸體」的界限（這裡包含了時間上的界限=老化）、「家庭關係vs.非家庭關係」的界限；而這些界限，又全部呼應到一個大項目，那便是「外我vs.內我」的界限（這邊導演大量使用了好多好多導演都愛用的鏡子手法，使得界限這個議題之張揚，讓人想不正視都難）。\n\
   \n界限的關鍵，在於對界限的經營，這也是人在世上永遠必須思考的議題。它是個人往外與環境共處，平行與親密的人共處，和往內與真實的自我共處時的關鍵；它影響著我們在對面各種愛、事業、如何自我滿足…上的態度。\n\
@@ -14730,7 +14729,7 @@ date: 2017-11-30
 reply_count: 3
 title: '[心得] 鳥人（下）'
 url: https://www.ptt.cc/bbs/movie/M.1512050032.A.768.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次po文 有什麼不妥部分請告知會改QQ
 
 
@@ -14757,7 +14756,7 @@ date: 2015-01-18
 reply_count: 23
 title: '[請益] 鳥人 中後段問題'
 url: https://www.ptt.cc/bbs/movie/M.1421584598.A.1B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天下午公司滿閒的
 
 
@@ -14961,7 +14960,7 @@ date: 2015-01-26
 reply_count: 97
 title: '[無言破爛雷] 鳥人！故弄玄虛、下流當有趣'
 url: https://www.ptt.cc/bbs/movie/M.1422254427.A.7DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天晚上和家人一起去看了送子鳥
 
   內容就不說了
@@ -15020,7 +15019,7 @@ date: 2016-10-09
 reply_count: 26
 title: '[請益] 送子鳥最後幾幕的小亮點(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1475952906.A.081.html
---- !!python/object:movie_data.PublicReview
+---
 content: '時間：今晚七點
 
 
@@ -15040,7 +15039,7 @@ date: 2019-08-07
 reply_count: 1
 title: '[贈票] 憤怒鳥玩電影2(京華城場)'
 url: https://www.ptt.cc/bbs/movie/M.1565139462.A.DE4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果單看這種屁股跟拍運鏡的話，大概會以為是Darren Aronofsky的作品吧。
 
 
@@ -15118,7 +15117,7 @@ date: 2015-02-07
 reply_count: 1
 title: '[好雷] 鳥人-故事的框架'
 url: https://www.ptt.cc/bbs/movie/M.1423321039.A.07C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -15243,7 +15242,7 @@ date: 2018-12-26
 reply_count: 21
 title: '[ 好雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1545760829.A.EF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不好意思，我還沒有看這部片，今天在電視上第一次看到它的片段，
 
   不過我有個問題想請教一下:
@@ -15270,7 +15269,7 @@ date: 2015-02-23
 reply_count: 16
 title: 'Re: [新聞] 奧斯卡/《鳥人》連奪最佳影片,導演(影片)　'
 url: https://www.ptt.cc/bbs/movie/M.1424695652.A.609.html
---- !!python/object:movie_data.PublicReview
+---
 content: '近年來，日本相當流行「致鬱系」的作品，
 
   「致鬱」為「治癒」之諧音，
@@ -15605,7 +15604,7 @@ date: 2018-05-28
 reply_count: 8
 title: 《她還不知道那些鳥的名字》談空虛和親情
 url: https://www.ptt.cc/bbs/movie/M.1527449119.A.62C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文版 \n\n《鳥人》這齣諷刺劇，炮火四射。評論人、超級英雄電影的演員、超級英雄電影的粉絲、\n附庸風雅的舞臺劇觀衆、喜歡在臉書上跟風按贊的人等全部中槍。兼具上述幾種身分的觀\n\
   衆，看完電影會發現自己被掃得千瘡百孔。因此，對這部片寫心得和評論實在是有點尷尬\n的事，畢竟電影還特地拿一長段臺詞對戲劇評論這件事開刀呢。\n\n影片諷刺滿溢，行走在高明的黑色幽默和過頭的尖酸刻薄之間，可以感受到編導對社會和\n\
   電影界有相當多意見要宣泄。導演在訪談和電影臺詞裏，都用了「文化滅絕」(cultural\ngenocide)形容超級英雄電影風潮，措辭比大衛柯能堡（David\
@@ -15644,7 +15643,7 @@ date: 2015-02-24
 reply_count: 6
 title: '[好雷] 《鳥人》：無所不在的鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1424780214.A.F0E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌版：
 
 
@@ -15767,7 +15766,7 @@ date: 2015-02-05
 reply_count: 3
 title: '[好雷] 鳥人：失敗者的飛翔'
 url: https://www.ptt.cc/bbs/movie/M.1423070233.A.C07.html
---- !!python/object:movie_data.PublicReview
+---
 content: '"妳喜歡我嗎？"
 
   .
@@ -15913,7 +15912,7 @@ date: 2018-03-01
 reply_count: 2
 title: '[好無雷] 嗑電影：淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1519897908.A.198.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -15977,7 +15976,7 @@ date: 2022-07-12
 reply_count: 181
 title: '[討論] 進擊的鼓手vs鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1657639398.A.221.html
---- !!python/object:movie_data.PublicReview
+---
 content: '已經好久沒看電影，看到大家挺推送子鳥和怒火地平線，剛好這兩部好像快下
 
 
@@ -16103,7 +16102,7 @@ date: 2016-10-21
 reply_count: 2
 title: '[好雷] 怒火地平線和送子鳥'
 url: https://www.ptt.cc/bbs/movie/M.1477064021.A.E67.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛好看了之前的美隊2跟3
 
   復仇者看了一次
@@ -16190,7 +16189,7 @@ date: 2019-11-19
 reply_count: 87
 title: '[討論] 不覺得復仇者4的結尾很鳥嗎？(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1574122425.A.F0A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說有雷喔！\n就不做防雷頁了！\n\n\n今天跟朋友一起去看了鳥人。\n看完的感覺：最佳攝影應該沒什麼懸念了。\n(這種長鏡頭一開始看不慣，\n\
   覺得頭好暈。)\n(布達佩斯大飯店應該是藝術設計)\n\n奧斯卡大部分的片子要看懂，\n通常都不是怎麼容易。\n\n不過鳥人的主線劇情其實滿好理解的。\n\n\
   就是一個過氣的演員巨星，\n試圖靠音樂劇力求東山再起的心路歷程。\n\n只是說這劇本最後假戲真做，\n自絕於自己的舞台劇上。\n\nPS：雖然編劇最後很刻意的，\n\
@@ -16200,7 +16199,7 @@ date: 2015-01-17
 reply_count: 13
 title: '[好雷] 鳥人劇情好像在哪看過？'
 url: https://www.ptt.cc/bbs/movie/M.1421484715.A.2F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《柏靈頓熊2》的上一部電影《柏靈頓-熊愛趴趴走》也同樣是2015年的1月在美國上映。
 
 
@@ -16229,7 +16228,7 @@ date: 2017-05-29
 reply_count: 7
 title: '[情報] 柏靈頓熊 寶貝老闆 憤怒鳥續集確定！'
 url: https://www.ptt.cc/bbs/movie/M.1496051644.A.2EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好 打給厚 胎嘎賀
 
 
@@ -16265,7 +16264,7 @@ date: 2022-05-12
 reply_count: 11
 title: '[討論] 暗光鳥電影沒有上院線'
 url: https://www.ptt.cc/bbs/movie/M.1652285520.A.03F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '---防雷---
 
 
@@ -16413,7 +16412,7 @@ date: 2015-01-20
 reply_count: 6
 title: '[好雷]關於鳥人 我想說的是'
 url: https://www.ptt.cc/bbs/movie/M.1421684845.A.9CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "目前台中萬代福還有上映的動畫「送子鳥」，意外地竟是佳片，\n\n適合闔家光臨，自己看也夠好笑。無意中買到中文配音的票時，\n\n本來還以為會很慘，沒想到配得很好，整體表現突出，上次聽\n\
   \n到水準這麼好的中配，已是怪獸電力公司了。中配畢竟是專業，\n\n還是別找歌手或主持人來詮釋比較好。\n\n\n雖然送子鳥的設定已有版友吐槽，不過對本宅我而言還是無損\n\
   \n它的娛樂性，尤其是與企鵝搶嬰的片段真是可圈可點XDD\n\n我覺得編劇把每種動物的特性與性格鮮活表現，狼潛水艇是什\n\n麼東西啦！XD這樣的創意卻不令我感到勉強，反而認同美術設\n\
@@ -16426,7 +16425,7 @@ date: 2017-01-09
 reply_count: 21
 title: '[好雷] 送子鳥～'
 url: https://www.ptt.cc/bbs/movie/M.1483934501.A.FE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -16482,7 +16481,7 @@ date: 2014-12-28
 reply_count: 4
 title: '[新聞] 《鳥人》配樂落選奧斯卡最佳原創音樂獎'
 url: https://www.ptt.cc/bbs/movie/M.1419740785.A.2FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好久沒有在電影院開懷大笑了
 
   題材雖然是想給小朋友看的
@@ -16581,7 +16580,7 @@ date: 2016-10-10
 reply_count: 25
 title: '[好雷] 送子鳥'
 url: https://www.ptt.cc/bbs/movie/M.1476075630.A.F78.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看完
 
 
@@ -16935,7 +16934,7 @@ date: 2023-11-22
 reply_count: 90
 title: '[好雷] 飢餓遊戲:鳴鳥與游蛇之歌  的現實體悟'
 url: https://www.ptt.cc/bbs/movie/M.1700654260.A.2AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'or (The Unexpected Virtue of Ignorance)
 
 
@@ -17008,7 +17007,7 @@ date: 2014-11-28
 reply_count: 19
 title: '[好雷] 鳥人 Birdman'
 url: https://www.ptt.cc/bbs/movie/M.1417105389.A.DE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "比較霍金和鳥人的演技\n霍金演技好 沒錯\n是那種3歲小孩都看的出的好\n凡夫俗子沒看過電影的人都看的出好\n\n但給我一種感覺\n就是看他一直在很用力演戲\n\
   \"表面上\"的演技很好  沒話說\n但是說真的  沒有演出精神和味道\n角色的特質性格內心也不夠深入\n而且影片後半段\n根本焦點都被 Felicity Jones搶走\n\
   女主角在這部片給我驚豔多了\n\n反觀鳥人\n一般人可能無法直接看出演技\n不過就是一直擺張屎臉?\n但是電影看夠多或是歷練豐富的人\n才知道這種表面壓抑但暗潮洶湧的才最難\n\
@@ -17022,7 +17021,7 @@ date: 2015-02-23
 reply_count: 115
 title: '[討論] 最佳男主角應該給鳥人?'
 url: https://www.ptt.cc/bbs/movie/M.1424669814.A.EB7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "吳君如不計片酬交鋒詐騙菜鳥 香港票房狂飆\n\n2024/10/22 05:30\n\n\n吳君如不計片酬演出《我談的那場戀愛》，讓導演、監製充滿感激。（甲上娛樂提供）\n\
   \n〔記者廖俐惠／綜合報導〕吳君如闊別21年再度問鼎金馬影后，新片《我談的那場戀愛》\n昨天曝光電影前導預告及正式海報，並宣布將定檔11月29日全台上映。\n\n\
   該片以「網戀詐騙」為題材，吳君如收放自如的細膩詮釋令人不禁噴笑又飆淚，成功締造\n香港票房佳績，上映1個月以來票房累積突破7000萬台幣，逆勢衝進今年香港電影票房前\n\
@@ -17033,7 +17032,7 @@ date: 2024-10-22
 reply_count: 4
 title: '[新聞] 吳君如不計片酬交鋒詐騙菜鳥 香港票房狂飆'
 url: https://www.ptt.cc/bbs/movie/M.1729611738.A.750.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為太懶得打她的英文片名了哈哈哈
 
 
@@ -17187,7 +17186,7 @@ date: 2015-01-24
 reply_count: 8
 title: '[好雷] 鳥人 or the unex..balabala'
 url: https://www.ptt.cc/bbs/movie/M.1422087926.A.CFB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記者翁新涵／台北報導
 
 
@@ -17231,7 +17230,7 @@ date: 2014-12-24
 reply_count: 18
 title: '[新聞] 《鳥人》奪奧斯卡、金球在望　30天神拍攝'
 url: https://www.ptt.cc/bbs/movie/M.1419434039.A.DE2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題, 之前刑事訴訟課堂上放的片子, 應該是有些年代了
 
 
@@ -17254,7 +17253,7 @@ date: 2015-04-28
 reply_count: 4
 title: '[問片] 菜鳥律師舅舅幫姪子辯護的搞笑法庭片'
 url: https://www.ptt.cc/bbs/movie/M.1430194617.A.F79.html
---- !!python/object:movie_data.PublicReview
+---
 content: '四大探長   還有雷洛  顏同  名氣都遠遠超過藍剛
 
 
@@ -17284,7 +17283,7 @@ date: 2020-07-12
 reply_count: 49
 title: '[討論] 為何當初不拍顏同傳  拍沒人鳥的藍剛?'
 url: https://www.ptt.cc/bbs/movie/M.1594518018.A.8B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大概就是
 
   受詛咒的那個錄影帶
@@ -17306,7 +17305,7 @@ date: 2016-07-11
 reply_count: 5
 title: '[問片] 一部蠻鳥的恐怖片（模仿七夜怪談）'
 url: https://www.ptt.cc/bbs/movie/M.1468227075.A.C26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌:
 
 
@@ -17486,7 +17485,7 @@ date: 2023-11-18
 reply_count: 29
 title: '[好雷] 飢餓遊戲前傳 鳴鳥與游蛇之歌 '
 url: https://www.ptt.cc/bbs/movie/M.1700303890.A.30F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文/藍祖蔚
 
 
@@ -17587,7 +17586,7 @@ date: 2016-03-03
 reply_count: 6
 title: '[ 好雷] 少女離家記：鳥籠戰役'
 url: https://www.ptt.cc/bbs/movie/M.1457018328.A.8EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部《菜鳥》感覺會很好看
 
 
@@ -17611,7 +17610,7 @@ date: 2015-10-22
 reply_count: 3
 title: 'Re: [好雷] 菜鳥 - 鄭文堂作品(台北電影節開幕片)'
 url: https://www.ptt.cc/bbs/movie/M.1445516381.A.B7B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《淑女鳥》—學習長大、長大學習
 
 
@@ -17714,7 +17713,7 @@ date: 2018-02-28
 reply_count: 14
 title: '[好雷] 淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1519790759.A.DCA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這是一部難以定位的有趣電影，導演Inarritu被迫把它分類為「黑色喜劇」。這個分\n類很難令人滿意，因為在我看來它既是喜劇，又是悲劇，也是浪漫劇，更是諷刺劇\n\
   (satire)。它的悲劇性在於主角雷根（Michael Keaton飾，我想各位大概都已經注意到\nKeaton在現實生活中的90年代代表作”Batman”與20多年後演的”Birdman”之間微妙的\n\
   關係了）是個困於自己二十年前的生涯顛峰之作Birdman的「標籤」的過氣演員。他已不\n再輝煌。於是來到百老匯發展事業第二春。他與老夥伴經紀人獨自籌措資金，改編劇本、\n\
@@ -17786,7 +17785,7 @@ date: 2015-01-18
 reply_count: 30
 title: '[  雷] 《鳥人》作為悲傷諷刺浪漫的哲學喜劇'
 url: https://www.ptt.cc/bbs/movie/M.1421566730.A.FCB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '哈哈哈哈標題有沒有會心一笑的感覺
 
 
@@ -17885,7 +17884,7 @@ date: 2015-11-16
 reply_count: 8
 title: '[好無雷] 菜鳥，愛琳娜前傳（誤）'
 url: https://www.ptt.cc/bbs/movie/M.1447641286.A.7E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '衝著這部片多項獎項和鄉民提名，
 
   以為會有「美麗境界」的澎湃起伏.
@@ -17931,7 +17930,7 @@ date: 2015-01-17
 reply_count: 88
 title: '[ 負雷] 以為不會很鳥的鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421460282.A.908.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文版：\n\n------------------------------------------------------------------------------\n\
   \n鳥(The Birds)\n\n影片年份：1963\n出品國：USA\n導演：希區考克(Alfred Hitchcock)\n編劇：Daphne Du Maurier\n\
   演員：Rod Taylor\n      Jessica Tandy\n      Suzanne Pleshette\n      Tippi Hedren\n\
@@ -17971,7 +17970,7 @@ date: 2008-11-29
 reply_count: 9
 title: '[好雷] 希區考克的飛禽驚魂記：《鳥》（The Birds）'
 url: https://www.ptt.cc/bbs/movie/M.1227904999.A.57C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家晚安
 
   剛剛突然想到鳥人這部片
@@ -17997,7 +17996,7 @@ date: 2020-03-17
 reply_count: 16
 title: '[討論] 鳥人的最後一幕(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1584378760.A.F1C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部是國小看的 大部分都忘記了 所以可能有些出入(>﹏<)
 
 
@@ -18021,7 +18020,7 @@ date: 2018-05-12
 reply_count: 16
 title: '[問片] 一部送鳥回家的電影'
 url: https://www.ptt.cc/bbs/movie/M.1526139261.A.197.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完熱騰騰
 
 
@@ -18092,7 +18091,7 @@ date: 2015-01-21
 reply_count: 6
 title: 'Re: [討論] 鳥人的結局一問....'
 url: https://www.ptt.cc/bbs/movie/M.1421844175.A.CE2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《我願意》是一部沒有刻意營造跌宕起伏和振奮人心的小品冒險片，故事改編自真人真事
 
 
@@ -18284,7 +18283,7 @@ date: 2018-08-27
 reply_count: 1
 title: '[好雷] 我願意：陸鳥與汪洋的自我成長故事'
 url: https://www.ptt.cc/bbs/movie/M.1535350701.A.EA1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -18314,7 +18313,7 @@ date: 2019-02-13
 reply_count: 65
 title: '[新聞] 鳥山明差點忘記『布羅利』'
 url: https://www.ptt.cc/bbs/movie/M.1550035913.A.95E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「當我們討論鳥人，我們討論的是什麼」
 
 
@@ -18421,7 +18420,7 @@ date: 2015-01-18
 reply_count: 3
 title: '[有意思雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421590000.A.DCB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當我前幾天要看鳥人的時候，信義華納已經要下檔，沒有適合我的時間。
 
 
@@ -18619,7 +18618,7 @@ date: 2015-02-28
 reply_count: 32
 title: '[普雷] 鳥人--後設史詩劇場'
 url: https://www.ptt.cc/bbs/movie/M.1425116854.A.814.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'HBO 10/04 21：00
 
 
@@ -18655,7 +18654,7 @@ date: 2017-10-04
 reply_count: 27
 title: '[LIVE] 送子鳥 HBO 今晚九點'
 url: https://www.ptt.cc/bbs/movie/M.1507120186.A.466.html
---- !!python/object:movie_data.PublicReview
+---
 content: '心得
 
 
@@ -18743,7 +18742,7 @@ date: 2018-06-30
 reply_count: 11
 title: '[好雷] 「不愉快」但很棒－她不知道那些鳥的名字'
 url: https://www.ptt.cc/bbs/movie/M.1530364290.A.E5A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '精彩預告
 
 
@@ -18799,7 +18798,7 @@ date: 2018-08-11
 reply_count: 119
 title: '[贈票] 《暗算》8.13特映會‧菜鳥當心'
 url: https://www.ptt.cc/bbs/movie/M.1533967922.A.6A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2015年02月12日 徐定遠／綜合報導
 
 
@@ -18833,7 +18832,7 @@ date: 2015-02-12
 reply_count: 35
 title: '[新聞] 《鳥人》原始結局 強哥淪為過氣明星'
 url: https://www.ptt.cc/bbs/movie/M.1423736073.A.A72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果沒有瑞瑪席丹的自然演出  得了金馬
 
 
@@ -18902,7 +18901,7 @@ date: 2017-12-22
 reply_count: 3
 title: '[普雷] 強尼凱克'
 url: https://www.ptt.cc/bbs/movie/M.1513878950.A.FA5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》預告
 
 
@@ -18941,7 +18940,7 @@ date: 2023-04-28
 reply_count: 99
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌》預告'
 url: https://www.ptt.cc/bbs/movie/M.1682634707.A.05C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '也是在長榮上看完的
 
   真的覺得不是很好看
@@ -18994,7 +18993,7 @@ date: 2015-03-15
 reply_count: 49
 title: '[  普雷] 令人疑惑的鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1426428382.A.6BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文並茂網誌版：
 
 
@@ -19144,7 +19143,7 @@ date: 2015-02-22
 reply_count: 2
 title: '[好雷]Birdman鳥人－一齣荒誕鬧劇裡的一個丑角'
 url: https://www.ptt.cc/bbs/movie/M.1424584217.A.E06.html
---- !!python/object:movie_data.PublicReview
+---
 content: "無意間在生命中聽到一句話，改變我對世人評價與反應的看法，於此之前，很多話語擾亂\n于我，不止是內心的小對話的話，更是藉由碰撞激發出的產物的影響，但還好世界上充斥\n\
   著很多聲音，選擇與他們共存，卻又保持自己生而為人的禮物，也許過程中常一不小心腿\n軟導致不小心跌倒，在羞辱完地板的不平穩，在指責完路人的視而不見後，還是得自己靠\n\
   自己的骨骼、肌肉、運動記憶、對抗地心引力的決心，拍拍身上的塵土，從跌倒的地方往\n要去的路上，前往。\n\n［不到那個程度的人，他說的話你聽不懂，因為你還沒到達。］\n\
@@ -19177,7 +19176,7 @@ date: 2022-06-20
 reply_count: 15
 title: '[天雷] 2014《鳥人》已無人尋希格斯粒子嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1655735866.A.322.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2024/10/11 Apple TV 特價報】
 
   飢餓遊戲：鳴鳥與游蛇之歌／美麗境界／險路勿近／騎士風雲錄／霹靂追魂彈／電影哆啦
@@ -19359,7 +19358,7 @@ date: 2024-10-11
 reply_count: 2
 title: '[討論] Apple TV特價 鳴鳥與遊蛇之歌/騎士風雲錄'
 url: https://www.ptt.cc/bbs/movie/M.1728635157.A.E84.html
---- !!python/object:movie_data.PublicReview
+---
 content: "見證強權崛起\n\n\n\n《飢餓遊戲：鳴鳥與游蛇之歌》\n\n\n\n最新正式預告公開！\n\n\n\n第10屆飢餓遊戲即將開始\n\n見證改變飢餓遊戲的傳奇原點！\n\
   \n《飢餓遊戲：鳴鳥與游蛇之歌》\n\n11月17日 (五) 與全美同步上映\n\nIMAX、Dolby Cinema、4DX、MX4D 全版本\n\n同步上映\n\
   \n #車庫娛樂 #飢餓遊戲\n\n資料來源：\n\n\n--\n好像沒有她\n她之後還有《白雪公主》。"
@@ -19367,7 +19366,7 @@ date: 2023-09-21
 reply_count: 48
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌》正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1695229871.A.90E.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'BLOGGER好讀連結：
 
 
@@ -19598,7 +19597,7 @@ date: 2015-01-16
 reply_count: 23
 title: '[好雷] 鳥人－－Let''s Make A Comeback'
 url: https://www.ptt.cc/bbs/movie/M.1421386037.A.DF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年威尼斯影展開幕作品《鳥人》（Birdman）目前獲得多數媒體的高度評價，曾經奪得
 
   坎城影展最佳導演的阿利安卓崗札雷伊納利圖（Alejandro Gonzalez Inarritu）是否透
@@ -19669,7 +19668,7 @@ date: 2014-10-18
 reply_count: 19
 title: '[新聞] 《鳥人》導演：英雄電影已經危害社會'
 url: https://www.ptt.cc/bbs/movie/M.1413562550.A.A1F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -19725,7 +19724,7 @@ date: 2021-12-22
 reply_count: 34
 title: '[鳥雷] 布萊德彼特的特洛伊'
 url: https://www.ptt.cc/bbs/movie/M.1640180987.A.489.html
---- !!python/object:movie_data.PublicReview
+---
 content: '三個感覺都是勵志方面
 
   美國狙擊上映滿久的，但是我幾乎看到每個評論都是好雷
@@ -19749,7 +19748,7 @@ date: 2015-01-26
 reply_count: 15
 title: '[選片] 鳥人 推拿 美國GG手'
 url: https://www.ptt.cc/bbs/movie/M.1422232771.A.4A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -19899,7 +19898,7 @@ date: 2015-01-18
 reply_count: 2
 title: '[好鳥 雷] 鳥人在馬倫巴'
 url: https://www.ptt.cc/bbs/movie/M.1421594274.A.161.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完這部  真的覺得漏洞百出   而且很多劇情都不合理
 
 
@@ -19936,7 +19935,7 @@ date: 2021-01-16
 reply_count: 1
 title: '[討論] 末世戰疫-鳴鳥檔案  (有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1610780911.A.9B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《飢餓遊戲》的前傳小說《鳴鳥與游蛇之歌The Ballad of Songbirds and Snakes》於20
 
   20 年中出版，廣受各界好評，隨即會快就進入電影翻拍階段，而如今官方也發布了《飢
@@ -19995,7 +19994,7 @@ date: 2023-03-26
 reply_count: 26
 title: '[情報] 《飢餓遊戲》前傳《鳴鳥與游蛇之歌》'
 url: https://www.ptt.cc/bbs/movie/M.1679775900.A.C2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '相信很多朋友都看過下面這支影片：
 
 
@@ -20034,7 +20033,7 @@ date: 2021-07-11
 reply_count: 1
 title: '[無雷] 閃光少女/百鳥朝鳳'
 url: https://www.ptt.cc/bbs/movie/M.1626006945.A.7FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '實在不應該連續看好幾部電影，心思會有些混淆。
 
 
@@ -20075,7 +20074,7 @@ date: 2016-10-12
 reply_count: 2
 title: '[有雷] 送子鳥'
 url: https://www.ptt.cc/bbs/movie/M.1476274400.A.8ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是我這輩子第一次寫下對於韓國電影的心得，原因無他，因為這部片給我的反思不下<12
 
   怒漢>，而且在板上也沒有任何討論，我想藉此抒發，讓剛看完的我平靜一下
@@ -20163,7 +20162,7 @@ date: 2020-08-19
 reply_count: 9
 title: '[好雷] 韓片—菜鳥陪審團'
 url: https://www.ptt.cc/bbs/movie/M.1597849286.A.788.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為我對長鏡頭攝影手法有興趣,之前就知道這部片大量運用此技術
 
   加上奧斯卡提名名單這部片有上榜,昨天剛上映就衝去看了
@@ -20304,7 +20303,7 @@ date: 2015-01-17
 reply_count: 61
 title: '[好雷] 鳥人(Birdman)觀後感想'
 url: https://www.ptt.cc/bbs/movie/M.1421461286.A.407.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片中主角的超能力隨著劇情的進展
 
 
@@ -20523,7 +20522,7 @@ date: 2015-04-14
 reply_count: 5
 title: ' [心得] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1429025302.A.AF6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說這是不公平的評論\n因為我太愛星火燎原，所以3不管怎樣都會給好雷\n\n實際上受限只能改拍小說的一半，節奏變得很慢\n再度告訴我們一本書不要再拆成兩半拍了\n\
   當然更不要像某個不要臉的東西把一本書拆成三部電影，亂七八糟\n前面鋪陳了整整90分鐘\n鋪到我在挖鼻孔，不過其實星火燎原一樣前面也鋪了超過1小時\n只是學舌鳥上鋪得太狗血又有點無聊\n\
   後面終於精彩的來了，精神一振，結果就結束了...\n\nKatniss，大餅珍又來了，這次演得有點over，我不喜歡\n馬修麥康納演的黑秘契，這次戲分沒5分鐘，虧我很愛他\n\
@@ -20537,7 +20536,7 @@ date: 2014-11-21
 reply_count: 42
 title: '[好雷] 學舌鳥Part1'
 url: https://www.ptt.cc/bbs/movie/M.1416550699.A.4F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看了這部片，背景在台中市的第八分局，講述警界的黑暗面，看過這片鄭文堂導演的前幾部片，幾乎都在闡述警界黑暗面，警察看了應該很囧才對，在台中騎機車時有看過宥勝在空曠的環中路大馬路上慢跑健身，他拍的片也幾乎都在台中，在中友百貨也看到宥勝的運動服廣告看板，難道他是台中人?
 
   .
@@ -20570,7 +20569,7 @@ date: 2017-04-18
 reply_count: 13
 title: '[好雷] 菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1492501214.A.155.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不要浪費時間看了
 
 
@@ -20621,7 +20620,7 @@ date: 2019-06-22
 reply_count: 19
 title: '[鳥雷] 我們 US'
 url: https://www.ptt.cc/bbs/movie/M.1561155260.A.795.html
---- !!python/object:movie_data.PublicReview
+---
 content: '<無音樂有圖好讀網誌版>
 
 
@@ -21020,7 +21019,7 @@ date: 2014-11-24
 reply_count: 38
 title: '[好雷] 飢餓遊戲:自由幻夢part1~鳥籠中的學舌鳥'
 url: https://www.ptt.cc/bbs/movie/M.1416821163.A.FC0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本篇無雷，只是想要討論一個現象。
 
 
@@ -21079,7 +21078,7 @@ date: 2015-01-17
 reply_count: 5
 title: '[討論] 鳥人看鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421491240.A.1C7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台北電影獎最佳導演 鄭文堂 繼《眼淚》後，更硬更兇猛的轉型正義二部曲
 
   金鐘影帝 莊凱勛 宥勝 簡嫚書 歐陽靖   攜手力作
@@ -21273,7 +21272,7 @@ date: 2015-11-12
 reply_count: 20
 title: '[好無雷] 《菜鳥》正義及理想消磨殆盡要花上多久的時間'
 url: https://www.ptt.cc/bbs/movie/M.1447292364.A.32D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "獲全美觀眾票選最期待電影！\n\n《》\n\n11/17 ( 五 ) IMAX、Dolby Cinema、Dolby Atmos、4DX、MX4D\
   \ 全版本盛大上映\n\n見證飢餓遊戲傳奇起點\n\n全球狂賣1000億動作冒險經典\n\n《》系列最新章\n\n系列原著全球暢銷賣破1億冊\n\nAmazon網路書店史上最暢銷系列小說\n\
   \n\n《》\n\n11/17 (五) 與全美同步上映\n\n\n全球票房賣座超過1000億《》系列最新電影\n\n全球暢銷破1億冊反烏托邦經典《飢餓遊戲》系列前傳小說改編\n\
@@ -21286,7 +21285,7 @@ date: 2023-11-11
 reply_count: 13
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌》上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1699693620.A.A04.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然此文原 po 對「自由派」與「保守派」這兩個字眼的選用有點陷入二分法，
 
   不過我是很認同原 po 在此片中找到的議題，它真的也是個青年（文青？）間常見問題。
@@ -21397,7 +21396,7 @@ date: 2018-03-14
 reply_count: 29
 title: 'Re: [極好雷] 淑女鳥-一部打臉偽自由派的爽片'
 url: https://www.ptt.cc/bbs/movie/M.1521003334.A.C54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在《瘋狂亞洲富豪》引起的風潮之後，由亞裔影人主導的電影在美國遍地開花，如 2019
 
   的《別告訴她》、2020 年的《Minari》，又或是像是趙婷等這樣的亞裔導演都逐漸的受
@@ -21466,7 +21465,7 @@ date: 2021-01-20
 reply_count: 11
 title: '[情報] 《菜鳥新移民》台裔作者執導電影《布吉》預告公開！'
 url: https://www.ptt.cc/bbs/movie/M.1611074644.A.116.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想問個老國片片名，線索如下，希望有高手可以解答。
 
 
@@ -21496,7 +21495,7 @@ date: 2023-09-12
 reply_count: 2
 title: '[問片] 舊國片-戲台/鳥籠/國台語-80～90年代'
 url: https://www.ptt.cc/bbs/movie/M.1694517832.A.1DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n那些年日版沈佳宜齋藤飛鳥「在台灣作聖地巡禮覺得十分興奮」\n\n2011年在台灣上映，10人中就有1人觀賞過的熱門青春電影『那些年，我們一起追的女孩\n\
   』。作為日本重啟版（2018年預定上映）的女主角，選上了在乃木坂46裡人氣急速上升的\n新Ace，即使作為模特兒也十分活躍的齋藤飛鳥。\n\n要來“追求”這樣的她，在作為電影舞台的台灣。在街上拍了剛剛才結束首次主演作品拍\n\
   攝的飛鳥。\n\n和她一起走在台北市區裡遺留下來的人氣老街，迪化街上。在拍攝電影時，似乎找不到能\n夠悠閒散步的時間，用著“情緒高漲”看不見疲累模樣的笑容，來談論了關於台灣的回憶\n\
@@ -21511,7 +21510,7 @@ date: 2018-02-14
 reply_count: 2
 title: '[新聞] 那些年日版沈佳宜齋藤飛鳥「在台灣作聖地'
 url: https://www.ptt.cc/bbs/movie/M.1518540044.A.A22.html
---- !!python/object:movie_data.PublicReview
+---
 content: '試論《啄木鳥與雨》：從伐木工到臨演以及一點也不導演的導演
 
 
@@ -21645,7 +21644,7 @@ date: 2016-08-01
 reply_count: 1
 title: '[微雷]啄木鳥與雨：從伐木工到臨演以及一點也不 '
 url: https://www.ptt.cc/bbs/movie/M.1470059652.A.A44.html
---- !!python/object:movie_data.PublicReview
+---
 content: '推
 
 
@@ -21654,7 +21653,7 @@ date: 2016-10-02
 reply_count: 3
 title: 'Re: [普雷] 警匪片黑白與菜鳥 '
 url: https://www.ptt.cc/bbs/movie/M.1475352386.A.5F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -21869,7 +21868,7 @@ date: 2018-02-28
 reply_count: 7
 title: '[好雷]《淑女鳥》，我們都是叛逆的Lady Bird。'
 url: https://www.ptt.cc/bbs/movie/M.1519790778.A.CAF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文網站：
 
 
@@ -21975,7 +21974,7 @@ date: 2015-12-02
 reply_count: 5
 title: '[好雷] 《菜鳥》關於社會化的入門'
 url: https://www.ptt.cc/bbs/movie/M.1449049781.A.828.html
---- !!python/object:movie_data.PublicReview
+---
 content: "不得不承認  這部片對人物刻畫不錯\n\n   不過他的劇情實在是普通的不得了\n\n   舉例來說  淑女鳥其實就是奇蹟男孩母女劇情的詳細版本\n\
   \n   差別在於  淑女鳥人物感覺比較真實  奇蹟男孩找的主角太美化了\n\n   其餘  所包含的元素幾乎差不多\n\n   例如：\n\n   都有個路人老爸\n\
   \n   女兒都渴望母親認同\n\n   母女常吵嘴\n\n   女兒都參加話劇社  也都在話劇社交到男友\n\n   女兒都有麻吉  麻吉之間有背叛的劇情\n\
@@ -21986,7 +21985,7 @@ date: 2018-03-04
 reply_count: 56
 title: '[普雷] 淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1520172901.A.85F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影海報：
 
 
@@ -22051,7 +22050,7 @@ date: 2015-12-18
 reply_count: 1
 title: '[討論] 送子鳥 Storks 2016年 前導電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1450401072.A.831.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文版閱讀:\n\n鳥人是一部後勁很強的電影 看完後久坐在影廳椅子上 慢慢消化情緒...\n我當下看完 呆坐在戲院裡 無法言語慢慢消化且心臟跳超快\n\
   鏡頭呈現真的有點高壓(且我坐太前面><)\n\n演員最具感染力的時候就是演到忘我的境界!!\n『鳥人』米高基頓最後ㄧ幕登場那神情，讓我直瞪螢幕落淚！！\n光是入圍奧斯卡的『愛的萬物論』的艾迪及『鳥人』米高基頓，我已經不知要選誰了..。\n\
   (難怪網友們說針對這屆入圍的男演員們指出『入圍真的已經是很肯定了』..)\n\n\n\n喜歡看舞台劇/熟悉舞台劇的運作的人ㄧ定要看!!這部戲其實在講ㄧ齣舞台劇公演前幾天\n\
@@ -22065,7 +22064,7 @@ date: 2015-01-25
 reply_count: 1
 title: '[好雷] 高壓張力精彩十足的鳥人 '
 url: https://www.ptt.cc/bbs/movie/M.1422172069.A.1B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "…情不自禁，想要佔有你…　　　.\n【#鳴鳥不飛：Don’t stay gold】#3月19日 全台威秀影城獨家獻映！#全球唯一台灣版\n海報同步公開\n\
   \n———  不得不看！精彩看點 ———\n\n【鳴鳥不飛】系列 #最新作品，台灣大銀幕震撼登場！\n #台灣影史最賣座BL動畫電影，經典篇章全球唯一大銀幕呈獻！\n\
   \ 台灣漫迷爭相傳頌「這本BL不得了！」#禁忌神作再登大銀幕！\n 改編【無法觸碰的愛】BL漫畫界天后Kou Yoneda同名作品！\n 富士電視台BL動畫品牌「BLUE\
@@ -22078,7 +22077,7 @@ date: 2021-03-05
 reply_count: 5
 title: '[情報] 鳴鳥不飛：Don’t stay gold 3/19上映 '
 url: https://www.ptt.cc/bbs/movie/M.1614938489.A.781.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -22148,7 +22147,7 @@ date: 2019-11-29
 reply_count: 6
 title: '[好雷] 地震鳥Earthquake Bird'
 url: https://www.ptt.cc/bbs/movie/M.1575003173.A.30D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2022/01/07 iTunes 特價報】
 
   細物警探／醉後大丈夫／地獄新娘
@@ -22312,7 +22311,7 @@ date: 2022-01-07
 reply_count: 1
 title: '[討論] iTunes特價 細物警探/醉後大丈夫/送子鳥'
 url: https://www.ptt.cc/bbs/movie/M.1641529259.A.1F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次在電影板發文，如有不周請見諒。
 
 
@@ -22463,7 +22462,7 @@ date: 2018-10-21
 reply_count: 31
 title: '[好無雷] 《莉茲與青鳥》'
 url: https://www.ptt.cc/bbs/movie/M.1540057292.A.C7F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -22508,7 +22507,7 @@ date: 2015-02-26
 reply_count: 7
 title: '[新聞] 成功鍍金 「鳥人」全台加場'
 url: https://www.ptt.cc/bbs/movie/M.1424891577.A.C3C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "好的文學，初讀時，即感喜悅，反覆閱讀後，喜悅更增。\n\n                                     －科幻小說大師Gene\
   \ Wolfe\n\n\nGood literature is that which can be read with pleasure by an educated\n\
   audience, and reread with increased pleasure.\n\n\n                            \
@@ -22572,7 +22571,7 @@ date: 2008-04-18
 reply_count: 27
 title: '[影評]《銀翼殺手》：觀看黑鳥的六種方式'
 url: https://www.ptt.cc/bbs/movie/M.1208512152.A.B60.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天看完第三部飢餓遊戲後
 
 
@@ -22610,7 +22609,7 @@ date: 2014-11-23
 reply_count: 15
 title: '[討論] 飢餓遊戲學舌鳥VS爆走兄弟配樂'
 url: https://www.ptt.cc/bbs/movie/M.1416711583.A.047.html
---- !!python/object:movie_data.PublicReview
+---
 content: "鳥山明去世｜周潤發演《龍珠》龜仙人　內容大改遭粉絲唾棄\n\n香港01\n\n撰文：許育民出版：2024-03-08 12:15更新：2024-03-08\
   \ 12:26\n\n鳥山明創作的人氣漫畫有《龍珠》、《IQ博士》等，其中《龍珠》就曾於2009年改編成真\n人電影《七龍珠：全新進化》（Dragonball\
   \ Evolution），由 20 世紀霍士製作及發行，\n當時更找來周潤發飾演悟空的師父龜仙人，成為熱話。\n\n《龍珠》系列是90年代的人氣漫畫。（《龍珠》動畫截圖）\n\
@@ -22624,7 +22623,7 @@ date: 2024-03-08
 reply_count: 22
 title: '[新聞] 鳥山明去世｜周潤發演《龍珠》龜仙人　'
 url: https://www.ptt.cc/bbs/movie/M.1709876923.A.5E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -22830,7 +22829,7 @@ date: 2018-11-06
 reply_count: 23
 title: '[普雷] 淑女鳥－能不能先只是「喜歡」我？'
 url: https://www.ptt.cc/bbs/movie/M.1541481882.A.BC7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在菜鳥這部電影中
 
   飾演王水清的女兒蠻漂亮的
@@ -22845,7 +22844,7 @@ date: 2015-11-20
 reply_count: 1
 title: '[請益] 菜鳥演員'
 url: https://www.ptt.cc/bbs/movie/M.1448030399.A.8A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "哈比人跟魔戒一樣早已經有動畫,是1977年\n\n哈比人1977比較忠實於原著\n\n作為魔幻史詩的哈比人真人版,\n\nPJ拿掉了一個魔幻設定,那就是畫眉鳥的角色\
   \ (感謝starleague版友補充)\n\n實際上\n\n在原著中, smaug和比爾博在地下金庫中,並非只有他們兩人,\n\n還有一隻畫眉鳥聽他們對話\n\
   \n\n\n動畫片段\n\n\n就是這隻畫眉鳥聽到比爾博發現smaug身上有一缺口\n\n\n\n然後比爾博請畫眉鳥去長湖鎮通風報信\n\n\n\n所以原著中,是畫眉鳥跟巴德說smaug身上有缺口的\n\
@@ -22859,7 +22858,7 @@ date: 2018-10-19
 reply_count: 22
 title: '[分享]哈比人1977動畫smaug片段 & 畫眉鳥的設定'
 url: https://www.ptt.cc/bbs/movie/M.1539963710.A.3C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文/Jean
 
 
@@ -22944,7 +22943,7 @@ date: 2015-01-04
 reply_count: 6
 title: '[新聞] 米高基頓談鳥人：可能不會再有這樣的體驗'
 url: https://www.ptt.cc/bbs/movie/M.1420361303.A.2D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -22983,7 +22982,7 @@ date: 2016-05-18
 reply_count: 10
 title: '[新聞] 憤怒鳥「射」下美國隊長票房奪冠　端午節'
 url: https://www.ptt.cc/bbs/movie/M.1463524804.A.030.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當初看這部電影是因為同學拉我去看
 
   看完其實我心裡真的是不怎麼高興
@@ -23078,7 +23077,7 @@ date: 2015-01-20
 reply_count: 76
 title: '[負雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421700261.A.19C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '王晶的訪問有提到
 
 
@@ -23116,7 +23115,7 @@ date: 2020-07-12
 reply_count: 10
 title: 'Re: [討論] 為何當初不拍顏同傳  拍沒人鳥的藍剛?'
 url: https://www.ptt.cc/bbs/movie/M.1594529866.A.B6E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好 第一次來電影版問片
 
 
@@ -23149,7 +23148,7 @@ date: 2015-10-02
 reply_count: 7
 title: '[問片] 驚見大鳥'
 url: https://www.ptt.cc/bbs/movie/M.1443757206.A.3F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -23230,7 +23229,7 @@ date: 2019-05-29
 reply_count: 4
 title: '[新聞] 豬對手變豬隊友!《憤怒鳥2》這點偷學超級英雄'
 url: https://www.ptt.cc/bbs/movie/M.1559140381.A.076.html
---- !!python/object:movie_data.PublicReview
+---
 content: '要怎麼把幽默「humor」跟恐懼「horror」放在同一部電影裡呢？
 
   Liev Schreiber在Everything is illuminated中作了一個很好的
@@ -23333,7 +23332,7 @@ date: 2007-08-19
 reply_count: 3
 title: '[好雷] 一切都鳥了 Everything is illuminated '
 url: https://www.ptt.cc/bbs/movie/M.1187521615.A.33D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -23405,7 +23404,7 @@ date: 2022-01-18
 reply_count: 5
 title: '[新聞] 菜鳥導演大小事都管　柯震東磨戲操翻宋柏緯'
 url: https://www.ptt.cc/bbs/movie/M.1642485593.A.803.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -23460,7 +23459,7 @@ date: 2018-08-29
 reply_count: 2
 title: '[新聞] 【美國動物】中二屁孩搶3.7億珍奇"鳥"書!'
 url: https://www.ptt.cc/bbs/movie/M.1535539261.A.7B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "很高興有機會看到導演鄭文堂作品'菜鳥'首映/2015台北電影節開幕片\n\n電影劇本節奏明快緊湊，運鏡流暢\n莊凱勛/宥勝兩大主角驚豔演出 (尤其是莊凱勛,老鳥的角色精練到忘了他是演員)\n\
   劇本寫出人性正義與誘惑兩面的掙扎。\n警察也是血肉之軀，鄭導寫實的紀錄下來～\n\n菜鳥精神\n許多事不要視而不見\n不要視為理所當然\n莫忘初衷\n要熱血一下、勇敢一下\n\
   \n映後座談時\n宥勝提到鄭導處理方式讓人會感受真實到像是紀錄片!!\n\n鄭導說，他拍這部片最主要的用意\n是提醒台灣人要時時保有菜鳥的精神\n如果有一天，所有人都已沒有這樣精神\n\
@@ -23470,7 +23469,7 @@ date: 2015-06-27
 reply_count: 16
 title: '[好雷] 菜鳥 - 鄭文堂作品'
 url: https://www.ptt.cc/bbs/movie/M.1435371376.A.839.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上禮拜有幸看了鳥人特映場，快兩個小時的電影裡，
 
   感受到的不斷的情感的爆炸，每個演員毫不間斷地在宣洩角色的情緒，
@@ -23568,7 +23567,7 @@ date: 2015-01-20
 reply_count: 2
 title: '[好雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421739981.A.5EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在facebook上無意間看到的
 
   只看到一點點片頭 是講述一對夫妻撿到一隻長的像小女嬰的鳥
@@ -23593,7 +23592,7 @@ date: 2021-03-26
 reply_count: 2
 title: '[請益] 一對夫妻撿到鳥女孩希尼的片名'
 url: https://www.ptt.cc/bbs/movie/M.1616756070.A.748.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有德古拉雷 和 蜘蛛人2雷
 
 
@@ -23801,7 +23800,7 @@ date: 2014-10-13
 reply_count: 55
 title: '[負雷] 德古拉 劇情鳥到不行'
 url: https://www.ptt.cc/bbs/movie/M.1413214400.A.A00.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《她不知道那些鳥的名字》蒼井優「慾」求不滿一女大戰三男\n\n文章連結\n\n\n改編自沼田真帆香留暢銷懸疑愛情小說《她不知道那些鳥的名字》，不只掀起「翻開書頁\n\
   就停不下來」的話題，由新銳鬼才導演白石和彌改編成電影搬上大銀幕，更是主打「共感\n度0%，不快度100%」，以及爽快度破表的驚人結局。\n\n繼上一部作品《愛情，突如其來》背部全裸的酒家女，蒼井優已從大銀幕上的清純繆斯女\n\
   神畢業，在《她不知道那些鳥的名字》挑戰從影以來最大情慾尺度，化身「慾」求不滿的\n肉食女，成天揮霍阿部貞夫賺來的辛苦錢，卻又嫌棄對方又髒又醜，拒絕與他炒飯，害阿\n\
@@ -23815,7 +23814,7 @@ date: 2018-01-10
 reply_count: 4
 title: '[新聞] 《她不知道那些鳥的名字》蒼井優「慾」求'
 url: https://www.ptt.cc/bbs/movie/M.1515569585.A.5FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '繼上部作品《眼淚》之後，鄭文堂跑去當了好一陣子的宜蘭文化局長，才在今年以新作《
 
   菜鳥》回歸影壇。鄭文堂可以說是台灣導演群像中，少見會對社會議題開砲且砲火都相當
@@ -23917,7 +23916,7 @@ date: 2015-12-08
 reply_count: 2
 title: '[好雷] 《菜鳥》，關於社會化的入門'
 url: https://www.ptt.cc/bbs/movie/M.1449544201.A.12E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '找一部很久以前在公視上面播過的電影，
 
   電影中的主角好像跟弟弟還有腳有問題的爺爺相依為命，
@@ -23948,7 +23947,7 @@ date: 2018-07-12
 reply_count: 3
 title: '[問片]'
 url: https://www.ptt.cc/bbs/movie/M.1531328521.A.8A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -24333,7 +24332,7 @@ date: 2019-01-09
 reply_count: 30
 title: '[好雷] 帶子母狼，幸福青鳥：《蒙上你的眼》'
 url: https://www.ptt.cc/bbs/movie/M.1547010764.A.69E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道原音是如何
 
 
@@ -24345,7 +24344,7 @@ date: 2016-08-19
 reply_count: 12
 title: '[情報]送子鳥萌萌噠中文配音版官方預告'
 url: https://www.ptt.cc/bbs/movie/M.1471592182.A.FFA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '朋友說因應獎季而在近期上映的《老娘叫譚雅》、《意外》與本片，都是充滿髒話的電影
 
   。觀看《淑女鳥》預告的確會有這樣的感覺，但實際觀影後才會知道其實電影柔軟得多，
@@ -24569,7 +24568,7 @@ date: 2018-03-03
 reply_count: 55
 title: '[好雷] 淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1520070638.A.5BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恩...感覺預告把一些電影重點都剪光了
 
 
@@ -24701,7 +24700,7 @@ date: 2023-11-28
 reply_count: 15
 title: '[微雷] [極簡評] 飢餓遊戲前傳: 鳴鳥與游蛇之歌'
 url: https://www.ptt.cc/bbs/movie/M.1701181985.A.A51.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n每年到了一月初，許多觀眾都等著國家評論報的影評人阿蒙懷特（Armond White）發表精\n采的比較大賽，阿蒙習慣用兩部電影做為天秤的兩邊，找出相似之處並評斷兩者的好壞，\n\
   而通常阿蒙的評論都會與其他媒體、影評的大相逕庭，今年當然也不例外。\n\n阿蒙直接將剛剛金球獎七項大獎全拿的《樂來越愛你》（La La Land），與李安導演新片\n\
   《比利林恩的中場戰事》（Billy Lynn’s Long Halftime Walk）做比較，指出達米恩查\n澤雷的《樂來越愛你》是一部鴕鳥心態的愚蠢之作，儘管先前阿蒙已經表示過《樂來越愛\n\
@@ -24717,7 +24716,7 @@ date: 2017-01-09
 reply_count: 33
 title: '[新聞] 國家評論報阿蒙懷特：《樂來越愛你》是一部鴕鳥心態的愚蠢'
 url: https://www.ptt.cc/bbs/movie/M.1483954064.A.B0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家安安,
 
   早上去看了這部,
@@ -24738,7 +24737,7 @@ date: 2020-02-29
 reply_count: 7
 title: '[討論] 鳴鳥不飛的彩蛋是什麼意思?'
 url: https://www.ptt.cc/bbs/movie/M.1582970618.A.C14.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: weitzern (高級雜工) 看板: JapanMovie\n標題: [心得] 鳥掉的《姑獲鳥の夏》電影版\n時間: Sun Jul\
   \ 27 15:16:42 2008\n\n圖文版：\n\n-----------------------------------------------------\n\
   \n姑獲鳥之夏(Summer of Ubume)\n\n原著：京極夏彥\n導演：實相寺昭雄\n原作：京極夏彥\n演員：堤真一、永瀨正敏、阿部寬、宮迫博之、田中麗奈、\n\
@@ -24767,7 +24766,7 @@ date: 2008-07-27
 reply_count: 8
 title: '[心得] 鳥掉的《姑獲鳥の夏》電影版'
 url: https://www.ptt.cc/bbs/movie/M.1217143035.A.F39.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完之後，當下確一直再想，主角是否跳了
 
 
@@ -24834,7 +24833,7 @@ date: 2015-01-31
 reply_count: 8
 title: 'Re: [有點雷] 鳥人的兩種結局'
 url: https://www.ptt.cc/bbs/movie/M.1422674694.A.085.html
---- !!python/object:movie_data.PublicReview
+---
 content: "影城點數還差幾點可以換票 除了預計想看的兩部外,要再選一部..\n所以窩挑了以下三部 打算三選一,來看 本人喜歡:劇情 推理 喜劇 動畫等等的片型\n\
   \n蒼鷺與少年-宮崎駿大師再次退休前的作品\n飢餓遊戲:鳴鳥與游蛇之歌-飢餓遊戲的前傳,三部曲都看過\n旺卡-也是前傳,可是本傳窩沒看過..\n\n請問各位電影眾,會建議選哪部呢?\n\
   \n--\n小人說過：，\n\n不知 把小加蛋養到出鍋的老加蛋人，看到這話做何感想....\n                                \
@@ -24843,7 +24842,7 @@ date: 2023-12-21
 reply_count: 14
 title: '[選片] 蒼鷺與少年vs飢餓遊戲:鳥與蛇vs旺卡'
 url: https://www.ptt.cc/bbs/movie/M.1703174127.A.DAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -24888,7 +24887,7 @@ date: 2015-02-17
 reply_count: 17
 title: '[討論] 有雷！ 請問鳥人問題'
 url: https://www.ptt.cc/bbs/movie/M.1424152860.A.9A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -24946,7 +24945,7 @@ date: 2023-02-02
 reply_count: 3
 title: '[鳥雷] 小爸爸的天空'
 url: https://www.ptt.cc/bbs/movie/M.1675300679.A.9C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '歡迎高雄的朋友一起來共襄盛舉!
 
 
@@ -25005,7 +25004,7 @@ date: 2017-11-03
 reply_count: 5
 title: '[揪團]韓國電影菜鳥警校生高雄包場意願調查'
 url: https://www.ptt.cc/bbs/movie/M.1509690449.A.617.html
---- !!python/object:movie_data.PublicReview
+---
 content: '朋友寫的，幫他轉載過來
 
 
@@ -25210,7 +25209,7 @@ date: 2015-01-20
 reply_count: 2
 title: '[好雷]鳥人_愛是絕對的 '
 url: https://www.ptt.cc/bbs/movie/M.1421761950.A.313.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -25301,7 +25300,7 @@ date: 2015-01-20
 reply_count: 10
 title: '[普負雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421685128.A.4EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -25373,7 +25372,7 @@ date: 2017-12-27
 reply_count: 5
 title: '[新聞] 片名有看沒懂！《那些鳥的名字》是懸疑片'
 url: https://www.ptt.cc/bbs/movie/M.1514384709.A.7B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -25499,7 +25498,7 @@ date: 2023-11-26
 reply_count: 28
 title: '[雷] 飢餓遊戲 鳴鳥與游蛇之歌'
 url: https://www.ptt.cc/bbs/movie/M.1700976841.A.BF8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【 iTunes 特價報】
 
   美國女子 / 當幸福來敲門 / 從前，有個好萊塢
@@ -25679,7 +25678,7 @@ date: 2020-04-11
 reply_count: 2
 title: '[情報] iTunes Store特價報 當幸福來敲門 / 菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1586599105.A.696.html
---- !!python/object:movie_data.PublicReview
+---
 content: '<無音樂好讀網誌版>
 
 
@@ -25884,7 +25883,7 @@ date: 2015-11-22
 reply_count: 10
 title: '[好雷] 菜鳥~一線之隔的差異~'
 url: https://www.ptt.cc/bbs/movie/M.1448203331.A.25F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '運鏡很酷，基本上是剪接成一鏡到底的感覺，說基本上是因為我中途才注意到所以可能開
 
   頭有斷掉。另外結尾有斷掉是確定的。純鼓點的配樂也很酷。我不太喜歡結局所以只給他
@@ -26011,7 +26010,7 @@ date: 2014-10-27
 reply_count: 10
 title: '[好雷] Birdman 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1414363843.A.C9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -26155,7 +26154,7 @@ date: 2019-04-27
 reply_count: 22
 title: '[好雷] MCU菜鳥也能看的 復仇者聯盟4'
 url: https://www.ptt.cc/bbs/movie/M.1556369884.A.171.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -26318,7 +26317,7 @@ date: 2020-02-18
 reply_count: 6
 title: '[好雷] 鳴鳥不飛：烏雲密布'
 url: https://www.ptt.cc/bbs/movie/M.1582039033.A.7BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天(打完字變今天了)要上映飢餓遊戲新作-鳴鳥與游蛇之歌
 
 
@@ -26352,7 +26351,7 @@ date: 2023-11-17
 reply_count: 45
 title: '[問題] 沒看過飢餓遊戲看得懂鳥蛇前傳嗎'
 url: https://www.ptt.cc/bbs/movie/M.1700150565.A.FBD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "註：此新聞有透露電影「控制」部分關鍵劇情，請自行斟酌閱讀\n\n這週在台上映的電影《控制》（Gone Girl）全球評價非常火熱，夾帶著近幾部作品的優\n\
   秀成績，大衛芬奇（David Fincher）可望再次衝擊明年奧斯卡更項獎項，不過本片另一\n個討論點卻落在於班艾佛列克（Ben Affleck）於片尾「露鳥」鏡頭，雖然只有一閃即過\n\
   ，即造成影迷的注意，不過《控制》另一位演員尼爾派翠克哈里斯（Neil Patrick\nHarris）在接受The Daily Beast訪問時，被問及觀眾能不能在片中看到他的「老二」給\n\
@@ -26367,7 +26366,7 @@ date: 2014-10-14
 reply_count: 11
 title: '[新聞] 尼爾派翠克哈里斯：在控制中我也露鳥了'
 url: https://www.ptt.cc/bbs/movie/M.1413218596.A.EA1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -26414,7 +26413,7 @@ date: 2018-08-30
 reply_count: 7
 title: '[新聞] 新科人夫露鳥百萬人看！《銀魂2》上映10'
 url: https://www.ptt.cc/bbs/movie/M.1535587515.A.E78.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近大肆開學
 
   期初考失利，四位老師全部給我F的分數(FAIL)
@@ -26472,7 +26471,7 @@ date: 2018-03-04
 reply_count: 77
 title: '[選片] 意外.淑女鳥.郵報  都擠？'
 url: https://www.ptt.cc/bbs/movie/M.1520133108.A.585.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整部戲很悶 一個女主角 就是一直殺來殺去
 
 
@@ -26503,7 +26502,7 @@ date: 2024-10-08
 reply_count: 5
 title: 'Re: [ 問號雷] 《絕命大平台2》我是被你囚禁的鳥'
 url: https://www.ptt.cc/bbs/movie/M.1728373826.A.26E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我不知道日裔美籍導演Greg Araki的專長是不是有包括「處理」青
 
   春的肉體，但是從十年前為他打出國際知名度的《神秘肌膚》到現
@@ -26693,7 +26692,7 @@ date: 2015-06-25
 reply_count: 5
 title: '[好雷]《暴風雪中的白鳥》的母女情節和青春肉體 '
 url: https://www.ptt.cc/bbs/movie/M.1435213453.A.FFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近板上較多討論的就屬狙擊手與鳥人
 
   所以打算兩部都看, 但不知道要先看哪部QQ
@@ -26734,7 +26733,7 @@ date: 2015-01-20
 reply_count: 8
 title: '[請益] 有關鳥人跟美國狙擊手'
 url: https://www.ptt.cc/bbs/movie/M.1421698544.A.4FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這天，二月的第一天，再睏也是按原計劃地前往長春國賓看心心念念的「她不知道那些鳥
 
   的名字」。
@@ -27191,7 +27190,7 @@ date: 2018-02-02
 reply_count: 29
 title: '[好雷]她不知道那些鳥的名字 電影+小說融合心得'
 url: https://www.ptt.cc/bbs/movie/M.1517524703.A.DC3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "去年底偶然在藝文特區看到鳥人的預告片，就抱著極大興趣與期待\n不過我看電影不太喜歡做太多功課，頂多看一下評價的分佈\n一直到開演前10分鐘才知道他原來是一部黑色喜劇\n\
   原本認為是純劇情片，與我的想像有點出入\n\n拍攝手法\n整部片用了一鏡到底的方式讓觀眾的視線彷彿在看一場大型的舞台劇\n到處充滿了細碎的低語、空泛抽象的台詞、陰暗抑鬱的空間、荒唐的人事物\n\
   讓整部戲看起來如此真實，而真實就是像這樣的一堆狗屁。\n鏡頭像是聚光燈一樣，對演員的每一次開口都做足了臉部特寫\n大量的畫面推進與對話不斷湧入彷彿無法歇息，\n\
@@ -27214,7 +27213,7 @@ date: 2015-01-28
 reply_count: 11
 title: '[普雷] 鳥人：過猶不及'
 url: https://www.ptt.cc/bbs/movie/M.1422432000.A.A94.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -27259,7 +27258,7 @@ date: 2016-06-04
 reply_count: 10
 title: '[新聞] 憤怒鳥登上大銀幕！《憤怒鳥玩電影》衝破'
 url: https://www.ptt.cc/bbs/movie/M.1465005933.A.FEF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這些問題可能會帶到劇情，先告知。\n\n\n\n小弟看完菜鳥後，雖然沒有涵養知道哪裡好看，但卻著魔的看完了，到底是為什麼呢0.0\n\n好像有微妙的吸引力，可能是他敘述的方式吧。\n\
   \n簡嫚書、莊凱勛演得滿到位的，很有帶入感。宥勝也不錯，但沒前面兩位這麼有張力\n\n倒是主角的女友總覺得跟這部片的味道有點距離(？)\n\n我有一些在電影中看到的疑惑想跟大家請教\n\
   \n1.分局跟派出所有什麼不同呢？\n\n我在wiki查到分局是負責統管轄區內派出所的總部，是這樣嗎\n\n2.分局跟派出所的勤務有不同嗎？還是相差無幾，只是多了較多行政業務？\n\
@@ -27271,7 +27270,7 @@ date: 2016-06-23
 reply_count: 9
 title: '[討論] 菜鳥Maverick的數個問題 '
 url: https://www.ptt.cc/bbs/movie/M.1466646894.A.85E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》全新篇章！\n\n【】\n\nThe Hunger Games: The Ballad of Songbirds & Snakes\n\n\
   11/17(週五) 與全美同步上映\n\n  \n\n回到\n所有傳奇\n的起點\n\n《》\n\n11月17日　與全美同步上映\n\n     全球票房賣座超過30億美金《飢餓遊戲》系列前傳電影\n\
   \n     全球暢銷3600萬冊反烏托邦經典《飢餓遊戲》系列前傳小說改編\n\n     揭露正傳三部曲大反派「史諾總統」化身魔頭前的故事\n\n    《康斯坦汀：驅魔神探》《飢餓遊戲系列》導演法蘭西斯勞倫斯回歸執導\n\
@@ -27281,7 +27280,7 @@ date: 2023-09-13
 reply_count: 57
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌》預告'
 url: https://www.ptt.cc/bbs/movie/M.1694572182.A.FFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看完玩8
 
   覺得菜鳥真的多餘
@@ -27323,7 +27322,7 @@ date: 2017-04-23
 reply_count: 57
 title: ' [討論] 看完玩8只有我覺得菜鳥很煩嗎'
 url: https://www.ptt.cc/bbs/movie/M.1492944082.A.868.html
---- !!python/object:movie_data.PublicReview
+---
 content: "〔娛樂頻道／綜合報導〕第87屆奧斯卡金像獎完美落幕，但呼聲極高的《鳥人》男主角米\n高基頓卻與影帝擦肩而過，而讓年輕的艾迪瑞德曼奪下小金人，讓許多影迷惋惜不已，當\n\
   艾迪上台領獎時，有眼尖觀眾捕捉到米高基頓偷偷的把準備好的得獎感言草稿塞回口袋裡\n。\n\n63歲的米高基頓憑《鳥人》入圍奧斯卡影帝，他已搶先拿下有「奧斯卡風向球」之稱的金\n\
   球獎音樂喜劇類影帝，有許多人極看好他也在奧斯卡奪獎，等到當天頒獎時，他被拍到手\n裡握著已經寫好的致詞草稿，直到聽到影帝不是自己後，才落寞的在眾人掌聲中低頭把致\n\
@@ -27333,7 +27332,7 @@ date: 2015-02-25
 reply_count: 94
 title: '[新聞]《鳥人》米高基頓沒得影帝 落寞塞回致謝文'
 url: https://www.ptt.cc/bbs/movie/M.1424846106.A.03F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有一點雷
 
 
@@ -27433,7 +27432,7 @@ date: 2018-03-03
 reply_count: 2
 title: '[好雷] 愛與專心－淑女鳥Lady Bird'
 url: https://www.ptt.cc/bbs/movie/M.1520084765.A.FE0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有錢無罪，沒錢判刑，這大概就是社會的寫照吧
 
 
@@ -27534,7 +27533,7 @@ date: 2015-12-02
 reply_count: 12
 title: '[普雷] 菜鳥 (台灣警察都該看看的電影) '
 url: https://www.ptt.cc/bbs/movie/M.1449026898.A.2B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明明有上百部沒看過的電影可以選，但我去程的飛機上看一次，回程的班機再看一次，
 
   加上當初預告片都沒看過就去電影院看，二輪一上又去看一次，我四刷了鳥人。
@@ -27570,7 +27569,7 @@ date: 2015-06-09
 reply_count: 13
 title: '[好雷] 四刷鳥人 '
 url: https://www.ptt.cc/bbs/movie/M.1433857382.A.399.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論（用劇中主角大罵劇評家的標籤式寫法）：
 
   上乘的黑色喜劇，嘲諷滿點，技術與內容統一的神奇之作。
@@ -27676,7 +27675,7 @@ date: 2015-01-17
 reply_count: 11
 title: '[好雷] 嘲諷滿點的鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421476799.A.445.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來不想看屁孩的~~但屁孩演成這樣還真好看!
 
   很喜歡這部好好把生活故事演好演滿的朱朱人
@@ -27697,7 +27696,7 @@ date: 2017-07-08
 reply_count: 7
 title: '[討論] 愛屁孩更愛鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1499516495.A.A8A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下10位幸運得獎人，可以搶先看【淑女鳥】特映會
 
   將以站內信通知領獎事宜，逾時回覆恕不受理。
@@ -27729,7 +27728,7 @@ date: 2018-02-12
 reply_count: 30
 title: 'Re: [贈票] 【淑女鳥】台北特映會搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1518409193.A.702.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本文轉載自超連結圖文版：
 
 
@@ -27774,7 +27773,7 @@ date: 2006-11-01
 reply_count: 2
 title: '[金馬] (14) 國王與鳥（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1162374917.A.218.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2022/10/18 iTunes 特價報】
 
   驚魂記／鳥／從地心竄出：地獸島／超世紀封神榜／殺無赦／追殺黑名單／緊急搜捕令
@@ -27944,7 +27943,7 @@ date: 2022-10-18
 reply_count: 2
 title: '[討論] iTunes特價 驚魂記/鳥/克林伊斯威特特價'
 url: https://www.ptt.cc/bbs/movie/M.1666066596.A.787.html
---- !!python/object:movie_data.PublicReview
+---
 content: '那個不是七龍珠魔界之王達普拉 他是主角貝爾傑布的爸爸 撒旦大人
 
 
@@ -27968,7 +27967,7 @@ date: 2023-07-03
 reply_count: 16
 title: 'Re: [情報] 鳥山明《沙漠大冒險》動畫電影90秒預告'
 url: https://www.ptt.cc/bbs/movie/M.1688349856.A.46A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下或許有雷
 
 
@@ -28124,7 +28123,7 @@ date: 2015-01-18
 reply_count: 188
 title: '[普負雷]  鳥人只是鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421513821.A.1B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -28186,7 +28185,7 @@ date: 2018-08-16
 reply_count: 8
 title: '[新聞] 「被神選中的美少女」齋藤飛鳥出演日版「'
 url: https://www.ptt.cc/bbs/movie/M.1534429555.A.3B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可惡，差點我就失去理智了，趕緊使用我那一絲的理智線作為皮帶提住我那鬆垮垮的褲袋
 
   ，別急我只是來發表一下我這部片的觀後感，別左轉的這麼快。告訴你們我可是無所不能
@@ -28285,7 +28284,7 @@ date: 2015-01-18
 reply_count: 10
 title: '[好無雷] 大家快看，樓主裸奔啦！'
 url: https://www.ptt.cc/bbs/movie/M.1421576949.A.36D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\nDnD Movie BTS Videos Show Off The Amazingly Practical Creatures\n\
   (Even Jarnathan!)\n\n龍與地下城：盜賊榮耀近日上映，在基哥捍衛任務4強勢登場後，本片依然\n開出不錯票房，國外媒體就在本日報導導演分享的幕後花絮。\n\
   \n可以見到本片出場時間極少，甚至是眨眼即錯過的角色，其實都是花了許多\n心血打造出來的戲偶裝搭配操偶師才能登上螢幕。\n\n報導跟以下文字應該都沒有暴雷，只是講到角色名，請安心服用\n\
@@ -28303,7 +28302,7 @@ date: 2023-04-04
 reply_count: 35
 title: '[新聞] 龍與地下城鳥人強納森/貓孩紙幕後花絮.'
 url: https://www.ptt.cc/bbs/movie/M.1680540547.A.9D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "暴風雪中的白鳥(White Bird in a Blizzard) 2015/6/18\nIMDB:6.4/10\n  我認為一部片最重要就是它的配樂(當然前提是劇情要流暢),如果穿插的不錯我想就是\n\
   一部好片,既大衛芬奇的《班傑明的奇幻旅程》《控制》我想大家就可以知道一部片的配\n樂是多麼的重要!這部是雪琳伍德蕾《分歧者》系列爆紅前所演出的獨立製片,從本片就可\n\
   看出她的演技是那麼的自然不做作,當然飾演她媽媽伊娃格林更是沒話說,把神經質又易怒\n的情緒演得那麼到位,我是從《萬惡城市2》才開始注意到這位出色的女演員。\n\
@@ -28313,7 +28312,7 @@ date: 2016-01-25
 reply_count: 6
 title: '[討論] 暴風雪中的白鳥'
 url: https://www.ptt.cc/bbs/movie/M.1453730612.A.284.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影板的大大們午安～
 
   這是小妹我電影板首po，
@@ -28483,7 +28482,7 @@ date: 2018-05-07
 reply_count: 16
 title: '[好雷]《鳥人》觀後小感'
 url: https://www.ptt.cc/bbs/movie/M.1525675137.A.E69.html
---- !!python/object:movie_data.PublicReview
+---
 content: '過去大家都很推崇長鏡頭
 
 
@@ -28504,7 +28503,7 @@ date: 2015-11-07
 reply_count: 41
 title: '[討論] 鳥人 的 長鏡頭 是不是反而是缺點 ?'
 url: https://www.ptt.cc/bbs/movie/M.1446904937.A.644.html
---- !!python/object:movie_data.PublicReview
+---
 content: "$90 淑女鳥 : \n\n-\n\n(只限今日) $190 驚奇隊長 : \n\n-\n\n$90 邁阿密風雲 : \n\n-\n\n$90\
   \ 哆啦A夢劇場版-大雄的南極冰天雪地大冒險 : \n\n-\n\n$90 俺物語!! : \n\n-\n\n$90 愛 : \n\n-\n\n$90 極光之愛\
   \ : \n\n-\n\n$190 捍衛戰士 : \n\n-\n\n(出租) $15 心靈獨奏 : \n\n\n\n\n--"
@@ -28512,7 +28511,7 @@ date: 2020-01-17
 reply_count: 4
 title: '[情報] iTunes多部$90起 淑女鳥.驚奇隊長'
 url: https://www.ptt.cc/bbs/movie/M.1579227914.A.1C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "在前天晚上看完這部受到很多獎項提名的鳥人，是帶著很期待的心情去\n\n看一個演員在飾演自己人生的電影，一直覺得很興奮，不知道會不會打\n\n到自己心坎裡，由於下面個人心得有爆雷，所以如果有單純想知道好不\n\
   \n好看的人，如果你是享受觀察角色一個讓你難以忘懷的眼神，或是內心\n\n掙扎搏鬥的，鳥人很值得你看，但如果你喜歡看大動畫特效，英雄主義\n\n的動作片，建議不要嘗試，可能會覺得在幹三小，很悶。\n\
   \n\n以下是我的個人看法，比較主觀，也因為過了兩天可能有一些小錯誤，\n\n還請見諒，希望有興趣的大家能一起討論。\n\n\n               \
@@ -28537,7 +28536,7 @@ date: 2015-01-18
 reply_count: 10
 title: '[好雷]鳥人-拋不開的光環 '
 url: https://www.ptt.cc/bbs/movie/M.1421557430.A.088.html
---- !!python/object:movie_data.PublicReview
+---
 content: '個人三片看完預告都有點想去看
 
 
@@ -28568,7 +28567,7 @@ date: 2015-11-22
 reply_count: 14
 title: '[選片] 愛情失控點、危機女王、菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1448124172.A.F74.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先講結論~
 
   就我的觀點,鳥人是一部"相當不好看"的電影,但不可否認它"非常有意思"
@@ -28773,7 +28772,7 @@ date: 2015-01-18
 reply_count: 74
 title: '[鳥雷] 鳥人 - 爛戲爛攤子,誰也不去收拾'
 url: https://www.ptt.cc/bbs/movie/M.1421512293.A.BF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   小弟我還沒看過鳥人這部電影
@@ -28796,7 +28795,7 @@ date: 2015-01-17
 reply_count: 10
 title: '[請益] 鳥人音樂？'
 url: https://www.ptt.cc/bbs/movie/M.1421429580.A.C53.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2015-05-23 03:23:19 聯合報 記者蘇詠智／綜合報導
 
 
@@ -28844,7 +28843,7 @@ date: 2015-05-23
 reply_count: 22
 title: '[新聞] 「暴風雪中的白鳥」 雪琳尺度大突破'
 url: https://www.ptt.cc/bbs/movie/M.1432351496.A.F59.html
---- !!python/object:movie_data.PublicReview
+---
 content: '能明白你說的女演員的情緒人格被犧牲了。
 
 
@@ -28888,7 +28887,7 @@ date: 2019-12-01
 reply_count: 2
 title: 'Re: [普雷] 鳥人，沒有靈魂的女配角們'
 url: https://www.ptt.cc/bbs/movie/M.1575181590.A.CF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小時候和家人一起在電視上看過一部與鳥有關的恐怖片
 
 
@@ -28932,7 +28931,7 @@ date: 2024-07-03
 reply_count: 6
 title: '[問片] 年代久遠的鳥類恐怖片（不是希區考克的'
 url: https://www.ptt.cc/bbs/movie/M.1720018339.A.2D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去年我還在當兵
 
 
@@ -29026,7 +29025,7 @@ date: 2016-02-22
 reply_count: 60
 title: '[討論] 不喜歡鳥人卻很喜歡神鬼獵人'
 url: https://www.ptt.cc/bbs/movie/M.1456136564.A.75E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有這種悟空
 
 
@@ -29073,7 +29072,7 @@ date: 2017-08-24
 reply_count: 17
 title: '[鳥雷] 悟空傳'
 url: https://www.ptt.cc/bbs/movie/M.1503567624.A.E4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文豐富網誌版：\n\n\n我滿喜歡這部電影，比預期精彩，演員表現跟劇情安排都不錯，\n尤其是簡嫚書跟莊凱勛的表現非常棒，印象深刻!!!　\n\n\
   看電影過程中生氣很多次，\n因為真的讓人想到職場、生活中的很多無奈與憤怒……\n對於也算是初入職場的我來說，有些部分看了挺有共鳴，\n也帶入會很多社會現象的諷刺，充滿熱情理想的人，最後又是怎麼同流合汙。\n\
   \n\n\n\n\n\n\n劇情主軸圍繞在職場為主、愛情為輔，\n我相信很多人選擇當警察、記者、法官等等，最初都充滿遠大理想，\n希望藉由自己的力量，扭轉社會上的不平等，揭發世界上的黑暗面，\n\
@@ -29098,7 +29097,7 @@ date: 2015-11-13
 reply_count: 2
 title: '[好雷] 菜鳥－各方面表現俱佳的社會寫實片'
 url: https://www.ptt.cc/bbs/movie/M.1447386519.A.F87.html
---- !!python/object:movie_data.PublicReview
+---
 content: '居然默默在HBO首播。
 
 
@@ -29132,7 +29131,7 @@ date: 2019-02-02
 reply_count: 50
 title: '[Live] 淑女鳥 HBO'
 url: https://www.ptt.cc/bbs/movie/M.1549075191.A.62C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n布穀鳥\n2/15(六) (21:00)\n2/19 (01:10), 2/19 (21:00), 2/23 (19:15), 2/28\
   \ (23:45)\n\n導演 : Tilman Singer\n演出 : 杭特沙弗、馬頓裘柯西\n\n在和父親跟繼母前往德國阿爾卑斯山旅遊途中，葛瑞琴發現他們落腳的度假小鎮\n\
   藏著邪惡秘密。怪異聲響和如影隨形的駭人幻象女子都讓她飽受煎熬。\n-------------------------------------------------------------------------\n\
@@ -29141,7 +29140,7 @@ date: 2025-02-15
 reply_count: 26
 title: '[LIVE] HBO 21:00 布穀鳥'
 url: https://www.ptt.cc/bbs/movie/M.1739608748.A.7F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完 《淑女鳥》《紐約哈哈哈》非常喜歡
 
   請問類似的女孩成長電影有哪些呢
@@ -29160,7 +29159,7 @@ date: 2019-02-25
 reply_count: 36
 title: '[片單] 請問少女成長電影(類似淑女鳥)'
 url: https://www.ptt.cc/bbs/movie/M.1551082854.A.78B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -29248,7 +29247,7 @@ date: 2015-11-19
 reply_count: 8
 title: '[極好雷]心目中今年最佳國片 菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1447938153.A.787.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -29418,7 +29417,7 @@ date: 2017-03-31
 reply_count: 56
 title: '[好雷] 《目擊者》，誰殺了知更鳥？'
 url: https://www.ptt.cc/bbs/movie/M.1490936863.A.29D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很幸運的在前幾天的特映先睹為快，期待這部很久(卡司很強，題材也很吸引。)
 
   在上一週還有其他場次的試片跟特映，普遍的評價都是好評的。
@@ -29510,7 +29509,7 @@ date: 2017-03-24
 reply_count: 23
 title: '[好雷] 《目擊者》是誰殺了知更鳥？'
 url: https://www.ptt.cc/bbs/movie/M.1490336414.A.96E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -29573,7 +29572,7 @@ date: 2021-03-05
 reply_count: 1
 title: '[新聞] 賣座BL動畫推新作《鳴鳥不飛：Don’t sta'
 url: https://www.ptt.cc/bbs/movie/M.1614951095.A.877.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果說進擊的鼓手專注於描寫
 
   追求領域內部完美的極限
@@ -29648,7 +29647,7 @@ date: 2015-02-06
 reply_count: 10
 title: '[好雷] 鳥人 '
 url: https://www.ptt.cc/bbs/movie/M.1423230161.A.9D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -29692,7 +29691,7 @@ date: 2018-03-01
 reply_count: 2
 title: '[新聞] 《步步》國王爆露鳥 傳訊「我硬了」'
 url: https://www.ptt.cc/bbs/movie/M.1519852058.A.A0E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老實說其實剛看完星戰7真的對裡面的動作戲蠻失望
 
 
@@ -29730,7 +29729,7 @@ date: 2015-12-26
 reply_count: 81
 title: '[討論] 有人覺得星際大戰7的武打動作戲很鳥嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1451112952.A.29F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "↑↑有圖有真相..原來是這樣啊@@\n\n\n        \n\n\n        超跑競速電影風靡全球，但這些讓人看的過癮又興奮的飆速情節\n\
   \        卻可能是假的！美國一家電玩開發商推出一輛夢幻道具車「黑鳥」，\n        只要在拍攝前輸入車款的基本數據、運算出模擬車型，拍攝的時\n\
   \        候就能透過電腦直接看到超炫跑車在公路上高速奔馳，加上最新\n        的AR技術，道具車還能一秒變成法拉利，令人嘖嘖稱奇。\n\n  \
@@ -29745,7 +29744,7 @@ date: 2017-03-07
 reply_count: 13
 title: '[新聞] 電影飆速情節是假的　超跑全靠「黑鳥」'
 url: https://www.ptt.cc/bbs/movie/M.1488828542.A.468.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在joke看到這張圖
 
 
@@ -29777,7 +29776,7 @@ date: 2022-12-18
 reply_count: 4
 title: '[問片] 3D動畫 臉像貓的鳥'
 url: https://www.ptt.cc/bbs/movie/M.1671319979.A.A24.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實真的是滿好看的一部電影，電影裡面的諷刺成分或許就只是一種現實的狀態再現
 
 
@@ -29813,7 +29812,7 @@ date: 2015-01-16
 reply_count: 6
 title: '[普雷] 鳥人Birdman'
 url: https://www.ptt.cc/bbs/movie/M.1421352486.A.230.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -29844,7 +29843,7 @@ date: 2014-12-11
 reply_count: 4
 title: '[新聞] 金球獎入圍揭曉　《鳥人》搶7獎最風光'
 url: https://www.ptt.cc/bbs/movie/M.1418306655.A.25B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '[電影短評-鳥人]
 
 
@@ -30035,7 +30034,7 @@ date: 2015-01-19
 reply_count: 9
 title: '[好雷] 鳥人 短評 '
 url: https://www.ptt.cc/bbs/movie/M.1421621874.A.A6E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '淑女鳥：吾家有女初長成。
 
 
@@ -30271,7 +30270,7 @@ date: 2018-03-04
 reply_count: 6
 title: '[好雷] 淑女鳥Lady Bird：吾家有女初長成'
 url: https://www.ptt.cc/bbs/movie/M.1520175517.A.05B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -30379,7 +30378,7 @@ date: 2015-01-21
 reply_count: 20
 title: '[好雷]給看完鳥人覺得被婊的人'
 url: https://www.ptt.cc/bbs/movie/M.1421846732.A.C91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我會看啊，我很璽歡這類強運的角色甘草人物
 
 
@@ -30452,7 +30451,7 @@ date: 2023-02-07
 reply_count: 8
 title: 'Re: [討論] 鳥山明如果拍七龍珠撒旦傳，大家會看嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1675742627.A.4D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "◎《淑女鳥》(Lady Bird) - 女孩學著長大，媽媽學著放手\n\n圖文完整版： \n\n家鄉、家人，常令人又愛又恨。跟他們的距離太近，所有缺點都無法被忽視，\n\
   生活的一切必受其限制。《淑女鳥》的主角Christine（瑟夏羅南），在2002\n年即將高中畢業，將自己取名為\"Lady Bird\"，非常想離開家鄉──加州的沙\n\
   加緬度(Sacramento)，但媽媽Marion（蘿莉麥卡佛）不贊同，或者應該說，這\n對母女對任何事情的意見都相左。\n\n《淑女鳥》是孩子的轉大人故事，也是母親的放手故事。兩人各自從自己角度\n\
@@ -30495,7 +30494,7 @@ date: 2018-02-23
 reply_count: 27
 title: '[好雷] 《淑女鳥》- 女孩學著長大，媽媽學著放手'
 url: https://www.ptt.cc/bbs/movie/M.1519397268.A.411.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這週要和朋友去看電影，
 
   從本週新片來看的話，
@@ -30524,7 +30523,7 @@ date: 2015-01-15
 reply_count: 65
 title: '[選片] 鳥人和美國狙擊手該選誰勒？'
 url: https://www.ptt.cc/bbs/movie/M.1421258897.A.43F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在知乎上看到大陸網友熱烈討論，反而ptt完全沒有這方面的文章，是不是大家真的把辛
 
   普森一家的編劇寫的劇本，當成是拍給小孩子看的?
@@ -30569,7 +30568,7 @@ date: 2016-06-19
 reply_count: 17
 title: '[討論] 憤怒鳥電影版的隱喻'
 url: https://www.ptt.cc/bbs/movie/M.1466316107.A.0B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -30595,7 +30594,7 @@ date: 2018-12-01
 reply_count: 7
 title: '[新聞] 邪神洛基 日語啵溜 閃電俠背後靈好鳥'
 url: https://www.ptt.cc/bbs/movie/M.1543628652.A.354.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -30668,7 +30667,7 @@ date: 2019-04-13
 reply_count: 13
 title: '[鳥雷]  拼圖殺機 韓片'
 url: https://www.ptt.cc/bbs/movie/M.1555168025.A.712.html
---- !!python/object:movie_data.PublicReview
+---
 content: '翻了一下板上的影評，發現只要給到普雷以下的，
 
   幾乎都會被指責「沒水準」、「看不懂」，真是令我不勝惶恐XD
@@ -30823,7 +30822,7 @@ date: 2015-01-31
 reply_count: 20
 title: '[普雷] 鳥人：象徵就代表著深刻？'
 url: https://www.ptt.cc/bbs/movie/M.1422675415.A.B04.html
---- !!python/object:movie_data.PublicReview
+---
 content: '華納卡通《嗶嗶鳥和威利狼》中的威利狼將推出動畫電影
 
 
@@ -30866,7 +30865,7 @@ date: 2018-08-29
 reply_count: 28
 title: '[新聞] 華納卡通《嗶嗶鳥和威利狼》中的威利狼將'
 url: https://www.ptt.cc/bbs/movie/M.1535531372.A.9A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有人看過黑鳥這部電影嗎
 
 
@@ -30879,7 +30878,7 @@ date: 2014-11-16
 reply_count: 1
 title: '[討論] 黑鳥'
 url: https://www.ptt.cc/bbs/movie/M.1416137499.A.3C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "鳥人整部看完\n 覺得寓意很深\n\n 一鏡到底的運鏡方式，加上主角他內心對於戲劇的執著\n 沒想到竟然因為曾經演過鳥人的陰影，最後讓自己大賣座，甚至還轟了自己的鼻子\n\
   \n 最後主角在醫院\n 從窗戶跳下去\n\n 主角的女兒竟來\n 雙手巴著窗戶看著窗外\n 先是一陣驚愕\n 後來又突然目光又下往天空看去 深深滿意的微笑\n\
   \n 有甚麼寓意嗎??\n 說真的看不懂這一幕結局的意思是甚麼\n 主角女兒吸毒產生幻覺?\n\n--\n你是不是產生幻覺了.."
@@ -30887,7 +30886,7 @@ date: 2016-10-15
 reply_count: 20
 title: '[討論] 鳥人最後妹子在笑甚麼??'
 url: https://www.ptt.cc/bbs/movie/M.1476512921.A.8BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一部描述青少年成長、自我探索與和解的電影，聽起來沒什麼特別；親情、友情、校園、
 
   舞會、學業、未來憧憬、戀愛與性在這類型電影裡也不是什麼新鮮元素。然而我在電影院
@@ -31085,7 +31084,7 @@ date: 2018-03-03
 reply_count: 51
 title: '[好雷] 淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1520089858.A.0F7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前天跟閃光回去中原吃夜市，中間有段時間沒事情做，毅然決然選了二輪戲院的送子鳥+
 
   怪奇孤兒院
@@ -31116,7 +31115,7 @@ date: 2016-12-26
 reply_count: 28
 title: '[好雷] 大推特推送子鳥'
 url: https://www.ptt.cc/bbs/movie/M.1482742032.A.1D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一個滿腔熱血正義感的菜鳥警官進入偵查隊，面對理想不斷被「官商勾結」現況磨滅甚至
 
   被陷害的窘況該何去何從呢？
@@ -31158,7 +31157,7 @@ date: 2015-11-19
 reply_count: 7
 title: '[好雷] 菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1447901699.A.74A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社台北29日電）國片《菜鳥》發布極具張力的前導海報，透過前期不斷地討論與激
 
   盪，終於從電影裡宥勝與莊凱勛兩人攜手，將要逆轉菜鳥弱勢處境的高潮戲中，千中選一
@@ -31217,7 +31216,7 @@ date: 2015-08-29
 reply_count: 2
 title: '[新聞] 打破社會框架 菜鳥刑警宥勝屢踩紅線'
 url: https://www.ptt.cc/bbs/movie/M.1440860667.A.D46.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -31270,7 +31269,7 @@ date: 2014-11-27
 reply_count: 2
 title: '[新聞] 美獨立精神獎 「鳥人」6項入圍稱霸'
 url: https://www.ptt.cc/bbs/movie/M.1417043671.A.CF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~菜鳥<牙痛與提款機…>~~
 
   .
@@ -31387,7 +31386,7 @@ date: 2015-11-13
 reply_count: 16
 title: '[好雷] 嗑電影：菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1447391395.A.D49.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完電影
 
   忽然想起之前一部類英雄電影
@@ -31416,7 +31415,7 @@ date: 2019-10-09
 reply_count: 45
 title: '[討論] 這部小丑應該和鳥人來對比'
 url: https://www.ptt.cc/bbs/movie/M.1570582138.A.500.html
---- !!python/object:movie_data.PublicReview
+---
 content: '真正的自由 是有選擇的權利 與有為決定負責的能力
 
   只能乖乖上教會的小孩沒有自由，因為他不能選
@@ -31454,7 +31453,7 @@ date: 2018-03-13
 reply_count: 14
 title: 'Re: [極好雷] 淑女鳥-一部保守派打臉自由派的爽片 '
 url: https://www.ptt.cc/bbs/movie/M.1520950848.A.9C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -31489,7 +31488,7 @@ date: 2021-03-05
 reply_count: 1
 title: '[新聞] 【鳴鳥不飛】系列新作，全球唯一台灣上映'
 url: https://www.ptt.cc/bbs/movie/M.1614957059.A.677.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~送子鳥<小孩開心、大人抒壓！>~
 
   "樂高狼！"
@@ -31598,7 +31597,7 @@ date: 2016-10-09
 reply_count: 50
 title: '[好雷] 嗑電影--送子鳥'
 url: https://www.ptt.cc/bbs/movie/M.1476007721.A.559.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【影音】紀錄片《菜鳥記者94狂》 精彩再現體育記者工作點滴\n\n程士華／台北報導 2017-12-13 17:00\n\n由台北市勞動局發起、公視蔡侑勳導演團隊承辦的紀錄片《菜鳥記者94狂》於今（13）日\n\
   在光點華山電影院進行首映會，影片忠實記錄3名媒體新鮮人懷著理想，投入體育新聞產\n業，以及參與世大運採訪與播報的心酸、血淚與歡笑。影片初衷雖是關心青年勞動者，但\n\
   卻意外拍出年輕記者們跌跌撞撞、加倍努力的心路歷程，全片也將於12月16日於公視2台\n播映。\n\n勞動局表示，勞動紀錄片《菜鳥記者94狂》片長51分鐘，以影像精彩地描繪3位對體育充\n\
@@ -31614,7 +31613,7 @@ date: 2017-12-14
 reply_count: 1
 title: '[新聞] 紀錄片《菜鳥記者94狂》 精彩再現體育記者工作點滴'
 url: https://www.ptt.cc/bbs/movie/M.1513217603.A.2C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我在客運上看到這部片子
 
 
@@ -31655,7 +31654,7 @@ date: 2016-02-28
 reply_count: 4
 title: '[問片] 有一位殘障者製作有兩隻鳥的3D動畫紀錄片'
 url: https://www.ptt.cc/bbs/movie/M.1456644059.A.842.html
---- !!python/object:movie_data.PublicReview
+---
 content: "根據外電指出，知名饒舌女歌手 Nicki Minaj 加入《憤怒鳥玩電影2》（The Angry Birds\n Movie 2）配音陣容。\n\
   \n《憤怒鳥玩電影》在全球熱賣 3.52 億，而在明年迎接遊戲問世十周年之際則將推出續集\n電影。\n\n續集《憤怒鳥玩電影2》導演陣容皆換人接棒，由《飛天小女警》編劇\
   \ Thurop Van Orman\n和 《瑞克和莫蒂》導演 John Rice  共同執導。\n\n首集角色和配音員多數都將回歸，包括 Jason Sudeikis,\
@@ -31668,7 +31667,7 @@ date: 2018-12-25
 reply_count: 9
 title: '[情報] 妮姬米娜加入《憤怒鳥玩電影》續集電影'
 url: https://www.ptt.cc/bbs/movie/M.1545709120.A.0A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鳥人 博物館驚魂夜3 即將分別於本周日 以及下周日 首播了
 
 
@@ -31684,7 +31683,7 @@ date: 2015-11-03
 reply_count: 11
 title: '[閒聊]  鳥人 博物館驚魂夜3'
 url: https://www.ptt.cc/bbs/movie/M.1446491927.A.609.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大家都知道連恩尼遜的沉默是在台灣拍的\n尤其是影片中時不時會出現一種我們很熟悉的鳥叫聲\n當年聽到這個鳥叫聲，從此就一直困擾\n這到底是什麼鳥\n\
   找了好久才知道原來是五色鳥\n\n\n好奇問一下，日本有五色鳥嗎?如果日本沒有五色鳥\n那麼背景中一直錄到的五色鳥叫聲，算是穿幫嗎?\n\n--\n\n\n \
   \      約翰藍儂爬上椅子，用放大鏡觀察天花板， 他看到幾個很小的字‥‥‥\n\n\n--"
@@ -31692,7 +31691,7 @@ date: 2021-06-19
 reply_count: 2
 title: '[討論] 沉默裡的鳥叫聲'
 url: https://www.ptt.cc/bbs/movie/M.1624035361.A.C4E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我站在人性的十字路口，
 
 
@@ -31909,7 +31908,7 @@ date: 2015-11-30
 reply_count: 8
 title: '[好無雷] 菜鳥，劇情深度與大眾口味平衡的傲菜味'
 url: https://www.ptt.cc/bbs/movie/M.1448891958.A.F75.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鳥人 劇情雷
 
 
@@ -32071,7 +32070,7 @@ date: 2015-05-21
 reply_count: 5
 title: '[討論] 鳥人  '
 url: https://www.ptt.cc/bbs/movie/M.1432183319.A.FE2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近一直想到一部同志電影，大概是2009年以前的
 
   只記得下列幾項內容：
@@ -32097,7 +32096,7 @@ date: 2014-11-11
 reply_count: 9
 title: '[問片] 一部同志電影'
 url: https://www.ptt.cc/bbs/movie/M.1415684408.A.B39.html
---- !!python/object:movie_data.PublicReview
+---
 content: "欸欸欸  嗨嗨嗨  yoyoyo  哈嘍哈嘍哈嘍\n\nhihihi\n\n各位版友大家好 晚上好  晚上平安 hello everyone \
   \     hello  my friend\n\n(≧ω≦)/     （∩▽∩）    *\\(^o^)/*\n\n\n\n今天是大年初三嘛  理所當然要看個電影啊啊啊啊\n\
   \n所以我今天去看了大家之前很推的頂尖對決\n\n可似我看完後覺得好難看欸\n\n整個崩潰\n\n o(╥﹏╥)o\n\n\n------雷雷雷雷雷雷-----\n\
@@ -32115,7 +32114,7 @@ date: 2018-02-18
 reply_count: 92
 title: '[鳥蛋雷] 欸欸欸 頂尖對決實在是很難看欸'
 url: https://www.ptt.cc/bbs/movie/M.1518960417.A.2E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實「主角有沒有打敗鳥人？」這個問題就問錯了。
 
 
@@ -32184,7 +32183,7 @@ date: 2015-01-18
 reply_count: 12
 title: 'Re: [請益] 鳥人 中後段問題'
 url: https://www.ptt.cc/bbs/movie/M.1421585847.A.F17.html
---- !!python/object:movie_data.PublicReview
+---
 content: "乍看南轅北轍的兩片，但仔細想想共通點還不少~\n\n1.女主角都有潛在暴力傾向：譚雅曾在屋裡    開槍，十和子則已慣性買刀XD\n\n2.兩人卻都比較常被當沙包打：很慘的是譚雅比十和子更習慣被用暴力。\n\
   \n3.兩人都曾有真心愛她們的男人，但跟對方都沒好下場，真愛她們的人對她們的幫助只是\n讓她們的殘酷人生懲罰緩刑一下，沒真的幫忙到。（陣治的犧牲效果未知）\n\n\
   4.兩人都有看透她們情況，卻也幫不到她們什麼的直系親屬。\n\n5.兩人都曾被狠甩，然後崩潰大哭，造成嚴重陰影：譚雅是第四任繼父，十和子是被人渣\n黑崎。\n\n\
@@ -32207,7 +32206,7 @@ date: 2018-02-02
 reply_count: 19
 title: '[ 好雷] 她不知道那些鳥的名字＆老娘叫譚雅'
 url: https://www.ptt.cc/bbs/movie/M.1517509511.A.FC7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近回去看了鐵人2
 
 
@@ -32234,7 +32233,7 @@ date: 2017-08-01
 reply_count: 43
 title: '[請益] 鋼鐵人2的反派怎麼知道那不是他的鳥?'
 url: https://www.ptt.cc/bbs/movie/M.1501591071.A.32D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "菜鳥警校生 Midnight Runners\n\n播出時間 /07/08 (日) 21:00\n\n          07/11 (三) 21:00\n\
   \n          07/14 (六) 18:35\n\n片長 / 01時49分\n導演 /金周煥\n演員 /朴敘俊、姜河那、成東鎰、朴河宣\n\n介紹 /\n\
   \n「請讓我們試試身手吧！」\n\n熱血行動派的警大生奇俊（朴敘俊 飾）和冷靜理論派的熙烈（姜河那 飾）是一對超級好\n麻吉。某天，兩人在外出時偶然目擊了一起綁架案，他們立刻依照學校教導的程序報警處\n\
@@ -32244,7 +32243,7 @@ date: 2018-07-08
 reply_count: 16
 title: '[Live] 菜鳥警校生 LS TIME龍祥電影台21：00首播'
 url: https://www.ptt.cc/bbs/movie/M.1531051720.A.6FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "因為有點舊了，尤其一時聲名大噪，不少人看過了，不好意思用X雷當標題…（羞）\n\n終於看了2015年火熱熱的「鳥人」，確實很好看。其實自己有個狀況，就是遇到比較具深度探討的作品時，明知道它值得一看，也會因備感壓力而一直擱置著，因為知道一旦看了，就會忍不住好幾天揪在一個議題或情緒上…\n\
   \n總而言之，看了很多篇影評，對幾個暫時沒看到有極相似論述的自己的想法，整理分享一下。\n\n\n\n\n\n-----------防雷一下-------------\n\
   \n\n\n\n幾乎佔整部電影的超長長鏡頭，可說是這部電影最值得津津樂道之處。有人讚嘆它的精彩，有人嫌棄它的譁眾取寵；而在我看來，它的存在目的卻是精準而必要的。\n\
@@ -32261,7 +32260,7 @@ date: 2017-11-30
 reply_count: 12
 title: '[心得] 鳥人（上）'
 url: https://www.ptt.cc/bbs/movie/M.1512049918.A.3E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "Penguin 其實是一隻喜鵲的名字\nBloom 是主角一家的姓氏\n\n改編自真人真事的《希望鳥》，描述在泰國渡假卻意外墜樓，導致半身癱瘓的\n\
   \ Samantha Bloom，如何從一隻受傷掉落在家中的喜鵲身上重拾生存勇氣與意\n義的經過，當然，親友不懈的支持也功不可沒。\n\n片中幾段衝浪、遠眺、俯瞰的鏡頭拍的十分唯美，家人之間重新凝聚向心力的\n\
   過程還算細膩，值得一看。\n\n附註：\n\n1. 片中的 Penguin 應該都是電腦後製，不然哪找如此聽話的野生喜鵲？\n2. 主角一家餐桌上有罐澳洲人不可或缺的\
@@ -32271,7 +32270,7 @@ date: 2021-01-31
 reply_count: 1
 title: '[無雷] 希望鳥 Penguin Bloom'
 url: https://www.ptt.cc/bbs/movie/M.1612102992.A.1B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完了，是近期最喜歡的電影。
 
   不過不是很明白最後媽媽氣到不再說話的原因。
@@ -32294,7 +32293,7 @@ date: 2019-02-02
 reply_count: 125
 title: '[討論] 淑女鳥的媽媽為什麼這麼生氣？'
 url: https://www.ptt.cc/bbs/movie/M.1549084733.A.B69.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -32332,7 +32331,7 @@ date: 2021-12-17
 reply_count: 6
 title: '[新聞] 【尋找神話之鳥】獲讚【看見台灣】後最佳'
 url: https://www.ptt.cc/bbs/movie/M.1639735368.A.640.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你是認真的嗎? 癡肥中年男?
 
 
@@ -32376,7 +32375,7 @@ date: 2016-02-25
 reply_count: 14
 title: 'Re: [討論] 007惡魔四伏  鳥片...'
 url: https://www.ptt.cc/bbs/movie/M.1456330444.A.F22.html
---- !!python/object:movie_data.PublicReview
+---
 content: '每次看這種哲學成分高的電影，
 
 
@@ -32509,7 +32508,7 @@ date: 2015-05-02
 reply_count: 30
 title: '[討論] 事實求是的偏執狂想討論鳥人結局～'
 url: https://www.ptt.cc/bbs/movie/M.1430555102.A.D9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大概每個人的成長過程，都有段叛逆而迷惘的時期。那時候總想逃離與生俱來的一切，急\n著想證明自己是特別的，急著想跟上長大的浪潮——即使不知道會漂向何方。\n\
   \n於是為自己取了新的綽號，想丟開父母給的名字，過去喜愛的人事物突然覺得好像很遜，\n想跟那些看起來「比較酷」的同儕廝混，即使自己內心深處根本不認同他們。憤世嫉俗的\n\
   覺得自己的生長環境不堪，用輕蔑的態度對深愛自己的人，一心一意想逃離原生家庭的掌\n握，否定自己的故鄉，像一隻急著離巢的鳥，對擁有的一切都覺得不滿足。飛離了受傷了\n\
@@ -32524,7 +32523,7 @@ date: 2018-03-01
 reply_count: 5
 title: '[好雷] 淑女鳥Lady Bird：致青春'
 url: https://www.ptt.cc/bbs/movie/M.1519840824.A.503.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下微雷 兩部都有\n\n\n\n\n\n  看完黑白許久 想要分享一下 黑白  在來討論菜鳥\n又是一個好劇爛片 台灣不管從偶像劇 音樂劇 電影\
   \ 一堆都是好劇爛片\n\n就是劇情很棒 拍得很爛\n\n1.黑白靠李妍景救了整部片 演騷貨 霸氣女 根本就是演她自己\n\n2.很不流暢斷斷續續的\n\n3.武打場面非常悲劇\n\
   \n4.主題歌非常之爛 不知道是誰 被菜鳥屌打\n\n\n還有最爛的就是 問什麼主角都只講北京話 然後黑道都要閩南語?\n\n黨國時代的遺毒 污名閩南語要污名到什麼時候?\n\
@@ -32536,7 +32535,7 @@ date: 2016-09-20
 reply_count: 9
 title: '[普雷] 警匪片黑白與菜鳥 '
 url: https://www.ptt.cc/bbs/movie/M.1474303251.A.6EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "FOX_Movies\n蜂鳥計畫(The Hummingbird Project)\n03-08(日) 21:00~23:15\n蜂鳥計畫\n\
   03-11(三) 21:00~23:15\n蜂鳥計畫\n03-13(五) 12:45~15:00\n\n導演:\nKim Nguyen\n主演:\n傑西艾森柏格\
   \ (Jesse Eisenberg)\n亞歷山大斯卡加德 (Alexander Skarsgard)\n莎曼海耶克 (Salma Hayek)\n\n\n\n\
@@ -32545,7 +32544,7 @@ date: 2020-03-08
 reply_count: 12
 title: '[Live] FOX_Movies 21:00 蜂鳥計畫'
 url: https://www.ptt.cc/bbs/movie/M.1583668374.A.D97.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -32644,7 +32643,7 @@ date: 2022-12-26
 reply_count: 86
 title: '[負雷] 阿凡達水之道-這什麼鳥片啊'
 url: https://www.ptt.cc/bbs/movie/M.1671985979.A.0A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先來個無雷\n\n這部片其實劇情還滿老梗的\n\n講白一點就是熱血菜鳥警官遇到的事\n\n但角色真的選的一級棒\n\n而且音樂也處理的不錯\n\n\
   (台灣有很多電影都沒有上配樂的習慣 看到一半就開始在和睡神摶鬥)\n\n除了主線外 副線也處理的不錯\n\n比起鄭導上一部\"眼淚\" 這部配色明亮許多\n\n\
   劇情也沒眼淚沉重\n\n剪接也比較有完整的故事 (眼淚的某一條支持被剪的超破碎)\n\n如果我沒記錯的話 這應該是鄭導轉型正義系列的第2部作品\n\n以下有雷\n\
@@ -32665,7 +32664,7 @@ date: 2015-11-19
 reply_count: 20
 title: '[好雷] 菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1447899907.A.509.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《鳥人》勇奪最佳導演 阿利安卓：永遠保持信念
 
 
@@ -32699,7 +32698,7 @@ date: 2015-02-24
 reply_count: 9
 title: '[新聞] 《鳥人》勇奪最佳導演 阿利安卓：永遠保'
 url: https://www.ptt.cc/bbs/movie/M.1424709781.A.FA5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛在臉書上看見有人分享 ：
 
 
@@ -32749,7 +32748,7 @@ date: 2024-03-10
 reply_count: 42
 title: '[閒聊] 真人版《七龍珠：全新進化》男星向鳥山'
 url: https://www.ptt.cc/bbs/movie/M.1710057453.A.AC7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '菜鳥，一部道地台灣氣味的社會寫實片
 
   當擁有正義熱血的新警察踩在是非模糊的灰色地帶時
@@ -32899,7 +32898,7 @@ date: 2015-11-25
 reply_count: 2
 title: '[好雷] 菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1448401973.A.4FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據日媒的報導，《愛情是什麼》女演員「岸井ゆきの」（岸井雪乃）將主演《你的鳥兒
 
   會唱歌》導演「三宅唱」執導的新片《ケイコ 目を澄ませて》。
@@ -32942,7 +32941,7 @@ date: 2022-01-07
 reply_count: 2
 title: '[情報] 岸井雪乃將主演《你的鳥兒》導演三宅唱拳擊題材新片！'
 url: https://www.ptt.cc/bbs/movie/M.1641552902.A.E98.html
---- !!python/object:movie_data.PublicReview
+---
 content: '義大利的什麼超寫實主義老電影
 
 
@@ -32981,7 +32980,7 @@ date: 2019-05-11
 reply_count: 6
 title: '[鳥雷] 單車失竊記'
 url: https://www.ptt.cc/bbs/movie/M.1557523231.A.E89.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請教各位看過薩利機長電影的朋友
 
   看完覺得太震撼了
@@ -32997,7 +32996,7 @@ date: 2016-10-03
 reply_count: 48
 title: '[請益] 薩利機長中的鳥襲'
 url: https://www.ptt.cc/bbs/movie/M.1475496989.A.D87.html
---- !!python/object:movie_data.PublicReview
+---
 content: "☆導演：丹斯坎隆(Dan Scanlon)\n 、 奧塔薇亞\n史班森(Octavia Spencer)\n\n，湯姆霍蘭德、克里斯普瑞特、奧塔薇亞史班森幕後獻聲。在魔法早已被\n\
   現代科技遺忘的時候，兩個精靈兄弟在父親過世後，踏入一趟探索他們魔法世界被遺忘面\n貌的旅程。\n\n\n \n☆導演：麥特伊斯坎達里(Matt Eskandari)\n\
   、 查德麥可莫瑞(Chad Michael Murray) 、\n莉迪亞赫爾(Lydia Hull)\n\n布魯斯威利領銜演出，一對搶匪，在犯案時被子彈擊中，並闖入法蘭克家中，劫持了他的\n\
@@ -33028,7 +33027,7 @@ date: 2020-05-22
 reply_count: 18
 title: '[情報] 1/2魔法 靠北 30分鐘 鳥兒 怨鈴 響 13+2片'
 url: https://www.ptt.cc/bbs/movie/M.1590142653.A.8E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "製作電影的人 有一定要把人物都朔造成聖人\n\n才較好片嗎?\n\n如果星爺的重點 就是要描述這些社會上低階的人\n\n那我認為他很成功耶\n\n\
   小狄在片中 就是一個普通窮小孩的形象阿\n\n他老爸 是個沒知識的民工\n\n外星白目狗 也真夠白目\n\n戲裡的人 沒有人是完美的 也許就是星爺要表達的\n\n\
   這也沒甚麼阿!\n\n1.醜化胖妞 這個社會不是都習慣於如此嗎?\n(也許這部片是要我們反省 身為成人的我們 就某種角度\n 不是跟那些無知的孩子一樣不懂事)\n\
@@ -33041,7 +33040,7 @@ date: 2008-04-29
 reply_count: 27
 title: 'Re: [負雷] 長江七號-這什麼鳥阿=  ='
 url: https://www.ptt.cc/bbs/movie/M.1209405922.A.27C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌版
 
 
@@ -33130,7 +33129,7 @@ date: 2018-06-29
 reply_count: 21
 title: '[好雷]淑女鳥心得 Lady Bird '
 url: https://www.ptt.cc/bbs/movie/M.1530275965.A.85C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然威秀快下片了，但還是提供給好奇這部的人參考。我自己對二戰片很有興趣，尤其喜
 
   歡看穿軍服的軍人，和二戰時期的少婦，但這部軍人很少，主要是刻畫死老百姓比較多，
@@ -33363,7 +33362,7 @@ date: 2020-11-05
 reply_count: 13
 title: '[好雷] 異端鳥'
 url: https://www.ptt.cc/bbs/movie/M.1604547944.A.B1A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文好讀版：
 
 
@@ -33461,7 +33460,7 @@ date: 2018-03-08
 reply_count: 10
 title: '[好雷]《淑女鳥》對自己的愛與在乎誠實才是長大'
 url: https://www.ptt.cc/bbs/movie/M.1520446237.A.FD0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《尋找神話之鳥》，是梁皆得導演歷時二十餘年的拍攝成果。
 
 
@@ -33616,7 +33615,7 @@ date: 2021-12-30
 reply_count: 9
 title: '[感動雷] 《尋找神話之鳥》'
 url: https://www.ptt.cc/bbs/movie/M.1640873463.A.95A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n記者華少甫／台北報導\n\n《鳥人》23日成為第87屆奧斯卡金像獎的大贏家，除了奪下最佳影片外，也拿下最佳導演\n、最佳攝影以及最佳原著劇本等4個主要獎項，劇情描述超級英雄「鳥人」米高基頓（\n\
   Michael Keaton）年老之後的故事，讓同樣飾演英雄的休傑克曼（Hugh Jackman）看完後\n大呼感動，對老婆說希望能演「金鋼狼」演到死為止。\n\
   \n休傑克曼日前接受《Cigar Aficionado》專訪時說，「我一直想要在每一部作品的演出都\n做得比上一部來得更好。」還說起俗語：「學如逆水行舟，不進則退」，「尤其在拍《金\n\
@@ -33628,7 +33627,7 @@ date: 2015-02-25
 reply_count: 28
 title: '[新聞] 看完《鳥人》休傑克曼到死都要演金鋼狼！'
 url: https://www.ptt.cc/bbs/movie/M.1424859669.A.629.html
---- !!python/object:movie_data.PublicReview
+---
 content: '已經訂了明天晚上忍者龜
 
 
@@ -33652,7 +33651,7 @@ date: 2016-06-09
 reply_count: 31
 title: '[選片] 忍者龜2 魔獸 憤怒鳥 擇一'
 url: https://www.ptt.cc/bbs/movie/M.1465438061.A.D86.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來不想發文
 
   但還是有一些東西不太懂 發個文騙騙P幣兼討論好了
@@ -33756,7 +33755,7 @@ date: 2015-01-18
 reply_count: 26
 title: '[普雷] Birdman 鳥人~!!'
 url: https://www.ptt.cc/bbs/movie/M.1421558902.A.EDC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -33805,7 +33804,7 @@ date: 2022-05-02
 reply_count: 17
 title: '[新聞] 《飢餓遊戲》前傳《鳴鳥與游蛇之歌》電影版宣佈上映檔期！'
 url: https://www.ptt.cc/bbs/movie/M.1651429906.A.B28.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n週二下班時間跟朋友約了去長春國賓看了《隱藏的畫家》，挑了晚上8:45的場次，人少少\n的，在影廳內享受了兩個小時的魔幻時刻。\n\
   \n原先很害怕看這種類型的人物傳記型電影，多半讓人感到「我認識這個人幹嘛？」而且本\n部片的主角安東尼奧‧利加布（Antonio Ligabue），在國內很少有人討論到，片商引進\n\
   這部片算是相當大膽的舉動。\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
@@ -33825,7 +33824,7 @@ date: 2020-08-13
 reply_count: 1
 title: '[好 雷]《 隱藏的畫家》不善交際更傾聽飛鳥走獸'
 url: https://www.ptt.cc/bbs/movie/M.1597303508.A.4C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛用itunes store下載看完007惡魔四伏
 
   心得感想就是:根本一部鳥片......
@@ -33878,7 +33877,7 @@ date: 2016-02-24
 reply_count: 52
 title: '[討論] 007惡魔四伏  鳥片...'
 url: https://www.ptt.cc/bbs/movie/M.1456308704.A.FA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1. 女主角抱的是第一集的男主角Goreng\n   他們應該是情侶？\n   女主角狗狗雕像誤殺的是他的小孩\n\n2. 女主角在吃畫中毒、吸瓦斯、撞頭流血後\n\
   \    應該就掛了，導演受訪時提到\n    第333層底下的最底層實際上不存在\n    或許死後獄友的意識都來到某個虛幻之處\n    他們來到這裡和自己和解，獲得平靜\n\
   \n3. 管理階層在全球各地建立了絕命坑\n    除了共產/資本體制的更迭\n    第333層的小孩可能也是社會實驗的一環\n\n    小孩象徵純真與希望，讓世界變得更美好\n\
@@ -33889,7 +33888,7 @@ date: 2024-10-06
 reply_count: 4
 title: 'Re: [ 問號雷] 《絕命大平台2》我是被你囚禁的鳥'
 url: https://www.ptt.cc/bbs/movie/M.1728148979.A.C72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作品上演的背後，有多少不為人知的爾虞我詐，競爭角力，如火如荼地消長著，且看導演
 
   以幾乎一鏡到底的炫技，帶著觀影者走訪布幕之後的眾生相，一針見血地刺穿為彰顯存在
@@ -34033,7 +34032,7 @@ date: 2015-01-18
 reply_count: 1
 title: '[好雷] 鳥人-布幕之後所渴望的掌聲 '
 url: https://www.ptt.cc/bbs/movie/M.1421586450.A.E54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前陣子跨年在回顧2014年最讓我感動的電影時
 
 
@@ -34318,7 +34317,7 @@ date: 2015-01-18
 reply_count: 12
 title: '[好雷]鳥人-名為光輝歲月的鴉片'
 url: https://www.ptt.cc/bbs/movie/M.1421595489.A.32A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '身為一個被麥當勞養大的孩子，這部片這是太有趣了
 
 
@@ -34377,7 +34376,7 @@ date: 2017-01-11
 reply_count: 10
 title: '[好雷] 速食遊戲  比鳥人還好看 '
 url: https://www.ptt.cc/bbs/movie/M.1484135565.A.2ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '勢如破竹！ 《鳥人》強勢問鼎奧斯卡多項大獎
 
 
@@ -34459,7 +34458,7 @@ date: 2015-01-15
 reply_count: 3
 title: '[新聞] 勢如破竹！ 《鳥人》強勢問鼎奧斯卡多項'
 url: https://www.ptt.cc/bbs/movie/M.1421335772.A.9FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《鳥人》像一窟寶藏。你沒做好心理準備就闖入，四處的瑰麗讓你下巴一直掉，\n    上頭歲月的痕跡、時間的紋路又勾起些微思緒，而一切還沒反應過來，兩小時已\n\
   \    經過了。你帶走很多東西，不確定它們是什麼，只知道很重要，而且一定要再來\n    一次。你眼花撩亂，他們天花亂墜，這一切這麼紮實，這麼深重又同時開闊，火\n\
   \    風齊發。\n\n      《鳥人》是一幅奇觀。沒什麼比曾經擁有一切、又失去的人，更飄搖空虛的了。\n    他注定要比不曾擁有過的更惶惶然。他極渴望成功，為了「COMEBACK」擲入所有\n\
@@ -34497,7 +34496,7 @@ date: 2015-01-19
 reply_count: 11
 title: '[好雷] 《鳥人》by（時光之硯）'
 url: https://www.ptt.cc/bbs/movie/M.1421670533.A.E91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '觀看之前 聽說評價兩極 有的激賞有人覺的劇情詭異
 
   原本還猶豫要不要看 不過看到電影簡介後喜歡劇情片的我決定還是入坑好了XD
@@ -34647,7 +34646,7 @@ date: 2015-09-11
 reply_count: 16
 title: '[好雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1441907704.A.E3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本人不是ＤＣ粉
 
 
@@ -35028,7 +35027,7 @@ date: 2016-08-06
 reply_count: 62
 title: '[負雷] 自殺突擊隊的超鳥劇情'
 url: https://www.ptt.cc/bbs/movie/M.1470491173.A.EB8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.
 
 
@@ -35074,7 +35073,7 @@ date: 2015-01-16
 reply_count: 2
 title: 'Re: [討論] 鳥人的第一個長鏡頭長度(無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1421386847.A.383.html
---- !!python/object:movie_data.PublicReview
+---
 content: '對 簡嫚書演很好
 
 
@@ -35134,7 +35133,7 @@ date: 2015-11-16
 reply_count: 28
 title: '[好雷] 菜鳥根本就是今年劇本最好的台灣電影吧'
 url: https://www.ptt.cc/bbs/movie/M.1447605696.A.BBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一身軍官模樣的飛鳥
 
 
@@ -35197,7 +35196,7 @@ date: 2015-01-30
 reply_count: 16
 title: '[請益] 永不屈服的飛鳥軍階小權力大'
 url: https://www.ptt.cc/bbs/movie/M.1422592859.A.40A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '睡前看到這篇身為UC Davis在校生的我一定要回一下XD
 
   有些部分恕刪～
@@ -35286,7 +35285,7 @@ date: 2018-03-16
 reply_count: 2
 title: 'Re: [討論] 淑女鳥小概念分享'
 url: https://www.ptt.cc/bbs/movie/M.1521188958.A.A31.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -35423,7 +35422,7 @@ date: 2015-10-08
 reply_count: 9
 title: '[普好雷]《華麗上班族》，小菜鳥逛大職場。'
 url: https://www.ptt.cc/bbs/movie/M.1444304888.A.C57.html
---- !!python/object:movie_data.PublicReview
+---
 content: "Medium網誌好讀版 \n\n這部由同名小說《她不知道那些鳥的名字》改編而成的電影，在2017年上映。精彩的劇情\n跟演員的演技，分別讓導演白石和彌、女主角蒼井優以及男主角阿部隆史，紛紛拿下了最\n\
   佳導演、最佳女主角以及最佳男主角。\n\n自己第一次看的時候其實非常震動，好啦，蒼井優在這部片真的也演得很精采，不管是床\n戲的部分或是跟男主角的對手戲。\n\n\
   \n\n-------------雷文分隔線--------------\n\n\n\n\n\n\n跟傳統的愛情電影不同，沒有童話故事的包裝，片中所表現的，我認為都是某種程度上「\n\
@@ -35445,7 +35444,7 @@ date: 2020-02-25
 reply_count: 13
 title: '[好雷] 他不知道那些鳥的名字'
 url: https://www.ptt.cc/bbs/movie/M.1582612494.A.495.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《鳥人》通殺３大獎 鍍金一步之遙
 
 
@@ -35495,7 +35494,7 @@ date: 2015-02-11
 reply_count: 5
 title: '[新聞] 《鳥人》通殺３大獎 鍍金一步之遙'
 url: https://www.ptt.cc/bbs/movie/M.1423616589.A.4FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -35653,7 +35652,7 @@ date: 2019-08-18
 reply_count: 2
 title: '[普好雷] 憤怒鳥2 & 朵拉微雷心得 '
 url: https://www.ptt.cc/bbs/movie/M.1566123374.A.B1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "自從鳥人上映後，網路、版上充斥著褒貶不一的各樣見解\n這也讓我忍不住想抒發自己對於這部片的解釋，記錄下這部片所帶給我的感動\n畢竟導演是不會現身解釋一切的，就請各位容忍一下我的\"\
   藍色窗簾\"吧\n\n\n\n[以下雷]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"Birdman\" or \"The Unexpected\
   \ Virtue of Ignorance\"\n\n＠戲中舞台劇的最後一幕，是雷根內心掙扎的呈現\n  男主角是雷根作為百老匯夢想的自身，而女主角象徵著觀眾\n\
@@ -35680,7 +35679,7 @@ date: 2015-01-27
 reply_count: 14
 title: '[好雷] 鳥人，藍色窗簾'
 url: https://www.ptt.cc/bbs/movie/M.1422303009.A.949.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「你是否得到你人生所期望的？我得到了。你想得到什麼？稱自己為摯愛，感受到我自己
 
   被世人所愛。」《晚期斷章》瑞蒙‧卡佛
@@ -35759,7 +35758,7 @@ date: 2015-02-03
 reply_count: 1
 title: '[好無雷]鳥人：請別把愛與崇拜混為一談 '
 url: https://www.ptt.cc/bbs/movie/M.1422974697.A.8A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文完整版
 
 
@@ -35856,7 +35855,7 @@ date: 2015-01-17
 reply_count: 28
 title: '[普雷]【鳥人】找到自己的價值就能證明自己活著 '
 url: https://www.ptt.cc/bbs/movie/M.1421497895.A.8BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我昨天先爬過版
 
   看版上幾乎一片好雷
@@ -35908,7 +35907,7 @@ date: 2015-01-19
 reply_count: 48
 title: '[普雷] 鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1421634589.A.5F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '包法利有一些翻拍
 
 
@@ -35977,7 +35976,7 @@ date: 2019-05-13
 reply_count: 1
 title: '[鳥雷] 慾見包法利夫人'
 url: https://www.ptt.cc/bbs/movie/M.1557718613.A.CE9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近要跟朋友去看電影
 
   看來看去只對這三部有興趣
@@ -35990,7 +35989,7 @@ date: 2015-12-01
 reply_count: 8
 title: '[選片] 僵屍教戰守則 紅衣 菜鳥'
 url: https://www.ptt.cc/bbs/movie/M.1448937626.A.21B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -36027,7 +36026,7 @@ date: 2021-03-15
 reply_count: 3
 title: '[新聞] <鳴鳥不飛：Don''t stay gold>入場禮公開'
 url: https://www.ptt.cc/bbs/movie/M.1615814549.A.E8F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "主角簡單來說有兩人\n宥勝飾演的菜鳥刑警小葉，跟莊凱勛飾演的老鳥明哥\n女角則是簡嫚書飾演的小安，跟歐陽靖飾演的小敏\n\n明哥真的演得沒話說\n\
   小安個性活潑生動，我覺得這兩人的演技撐起了本劇\n小葉跟小敏則是在可接受範圍之內，中規中矩\n\n我很喜歡那些拍台中市華麗高樓大廈的鏡頭\n在繁榮的背後，藏著很多見不得人的事\n\
   也和貧困人家的房子形成強烈對比\n像小安的阿嬤住的房子，還有中間螺絲起子殺人犯住的房子\n殺人放火金腰帶，就是這樣的吧\n\n但有一幕我不太了解\n中間明哥把警槍領出去，跟小安去高利貸那邊要贖回她弟弟\n\
@@ -36039,7 +36038,7 @@ date: 2015-11-14
 reply_count: 16
 title: '[好雷] 菜鳥  非常推薦！ '
 url: https://www.ptt.cc/bbs/movie/M.1447514043.A.420.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鳥人這部電影的結局 導演的手法讓觀眾有著無限的遐想空間
 
 
@@ -36096,7 +36095,7 @@ date: 2015-01-23
 reply_count: 16
 title: '[有點雷] 鳥人的兩種結局'
 url: https://www.ptt.cc/bbs/movie/M.1422023029.A.2FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌好讀無音樂版
 
 
@@ -36245,7 +36244,7 @@ date: 2015-01-17
 reply_count: 17
 title: '[大好雷] 鳥人:逆風高灰'
 url: https://www.ptt.cc/bbs/movie/M.1421508447.A.C62.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩部我都很喜歡，都會去看
 
   只是今天放假不知道要先看哪部
@@ -36266,7 +36265,7 @@ date: 2018-02-28
 reply_count: 49
 title: '[選片] 紅雀 跟 淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1519788985.A.9D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛才發現威秀下片了...
 
 
@@ -36284,7 +36283,7 @@ date: 2015-12-14
 reply_count: 5
 title: '[請益] 目前首輪還有哪一家菜鳥還在上映的'
 url: https://www.ptt.cc/bbs/movie/M.1450065335.A.1BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看在板上沒有負雷的情況
 
 
@@ -36323,7 +36322,7 @@ date: 2018-05-29
 reply_count: 198
 title: '[鳥雷] 淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1527555447.A.CB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁--------------------------------------------
 
 
@@ -36388,7 +36387,7 @@ date: 2015-01-17
 reply_count: 10
 title: '[普雷] 鳥人不鳥也不猛 '
 url: https://www.ptt.cc/bbs/movie/M.1421507436.A.024.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個東西叫做姑獲鳥
 
   我記得好像很久以前有一部日本電影有這個東西
@@ -36406,7 +36405,7 @@ date: 2018-07-31
 reply_count: 6
 title: '[請益] 姑獲鳥的電影'
 url: https://www.ptt.cc/bbs/movie/M.1532981205.A.525.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實鳥人整部戲你可以發現是虛幻與現實、幕前與幕後交錯的表現
 
 
@@ -36475,7 +36474,7 @@ date: 2015-01-25
 reply_count: 23
 title: 'Re: [有點雷] 鳥人的兩種結局'
 url: https://www.ptt.cc/bbs/movie/M.1422118502.A.BED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看了黃驥的笨鳥，
 
   除了導演的鏡頭很大膽之外，
@@ -36507,7 +36506,7 @@ date: 2021-06-18
 reply_count: 2
 title: '[請益] 關於笨鳥的一些情節疑問（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1624016517.A.B19.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -36542,7 +36541,7 @@ date: 2018-08-22
 reply_count: 90
 title: '[新聞] 日版「那些年」最新片花釋出 齋藤飛鳥與'
 url: https://www.ptt.cc/bbs/movie/M.1534947313.A.9DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -36609,7 +36608,7 @@ date: 2016-06-09
 reply_count: 4
 title: '[新聞] 瘋電影／憤怒鳥玩電影　外人欺負家園時'
 url: https://www.ptt.cc/bbs/movie/M.1465446457.A.271.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《異端鳥》：只因被漆上了顏色，你就是異類
 
 
@@ -36789,7 +36788,7 @@ date: 2022-06-08
 reply_count: 3
 title: '[心得雷] 《異端鳥》：只因被漆上了顏色，你就是'
 url: https://www.ptt.cc/bbs/movie/M.1654675817.A.09F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   想知道那是什麼花
@@ -36811,7 +36810,7 @@ date: 2017-03-18
 reply_count: 5
 title: '[請益] 鳥人裡病房主角女兒送的花'
 url: https://www.ptt.cc/bbs/movie/M.1489810705.A.778.html
---- !!python/object:movie_data.PublicReview
+---
 content: "菜鳥小葉當時最大的困擾是持有毒品的案件\n        那這個毒品是誰放的？這是個未知數。\n        只是個想把他\"弄死\"的理由\n\
   \n        在家族會議時，他曾說：還有什麼方法？，代表他已經放棄了\n        因為正直的小葉從來就沒有想過要用非法的手段。\n        但是明哥給了他一條路。\n\
   \n        我想這就是老鳥跟菜鳥最大的不同吧，非常時期要用非常手段!!\n\n\n        搶案事後，他拿到了談判的籌碼。\n        如果選A跟選B，基本上是十分不智的。\n\
@@ -36830,7 +36829,7 @@ date: 2016-03-05
 reply_count: 7
 title: 'Re: [普雷] 特雷--《菜鳥》向黑道宣戰'
 url: https://www.ptt.cc/bbs/movie/M.1457171981.A.567.html
---- !!python/object:movie_data.PublicReview
+---
 content: '全新預告登場啦!!!
 
   看來剩藍色鳥還沒出現
@@ -36850,7 +36849,7 @@ date: 2016-04-13
 reply_count: 9
 title: '[討論] 憤怒鳥全新預告'
 url: https://www.ptt.cc/bbs/movie/M.1460517260.A.A3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「日本沈佳宜」齋藤飛鳥穿制服開球　空靈照正翻：被神選中的美少女\n\n記者蕭采薇／台北報導\n\n2011年改編自九把刀的同名小說的青春愛情電影《那些年，我們一起追的女孩》風靡全亞\n\
   洲，相隔七年，日本更大動作將本片翻拍日本版，女主角更找來人氣偶像團體「乃木坂46\n」成員飾演。齋藤飛鳥近日來台拍攝廣告，也特別抽空於\n\n為了還原電影中放天燈的場景，日本劇組特地飛到台灣平溪取景，成為台灣電影外銷國際\n\
   的成功典範。男主角找來新生代人氣男星飾演，他更特地為了電影理了一個大平\n頭，希望能更接近「柯景騰」一角。\n\n女主角齋藤飛鳥在日本有「被神選中的美少女」之稱，人氣非常高。她15日晚間在桃猿主\n\
@@ -36863,7 +36862,7 @@ date: 2018-08-16
 reply_count: 26
 title: '[新聞] 「日本沈佳宜」齋藤飛鳥穿制服開球　空靈'
 url: https://www.ptt.cc/bbs/movie/M.1534385608.A.12F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防
 
   .
@@ -37002,7 +37001,7 @@ date: 2015-01-22
 reply_count: 42
 title: '[超負雷] 鳥人(心得分享)'
 url: https://www.ptt.cc/bbs/movie/M.1421919119.A.734.html
---- !!python/object:movie_data.PublicReview
+---
 content: '.
 
   .
@@ -37140,7 +37139,7 @@ date: 2016-06-11
 reply_count: 19
 title: '[微好雷] 憤怒鳥玩電影'
 url: https://www.ptt.cc/bbs/movie/M.1465654231.A.478.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有點急
 
 
@@ -37162,7 +37161,7 @@ date: 2015-01-24
 reply_count: 39
 title: '[選片] 鳥人 vs 重返20歲'
 url: https://www.ptt.cc/bbs/movie/M.1422056485.A.FC9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "欸欸欸欸欸欸！！！！！！！！\n\n欸欸欸欸欸欸  嗨嗨嗨嗨  嘿嘿嘿  嘻嘻嘻\n\n啾啾啾啾  哈哈哈  喲喲喲\n\n各位版友大家好\n\n\
   打給後\n\n泥棉豪啊！！！！！！！！！！\n\nhello my friend ！！！！！！ ^ ^\n\n\n(≧ω≦)/\n\n*\\(^o^)/*\n\n\
   \ (/^▽^)/\n\n\n事情是這樣啦！！！！！！！\n\n這幾天閒在家裡發慌看了一堆電影！！！！！！\n\n\n還把之前一堆人推薦的黑暗騎士系列都看完了！！！！！！！\n\
@@ -37185,7 +37184,7 @@ date: 2018-03-14
 reply_count: 269
 title: '[鳥蛋雷] 黑暗騎士-過譽鳥片  莫此為甚！！'
 url: https://www.ptt.cc/bbs/movie/M.1521019354.A.3A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -37224,7 +37223,7 @@ date: 2015-08-11
 reply_count: 11
 title: '[新聞] 再會吧！青春小鳥   新垣結衣主演'
 url: https://www.ptt.cc/bbs/movie/M.1439303207.A.624.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -37258,7 +37257,7 @@ date: 2017-10-03
 reply_count: 9
 title: '[新聞] 那些年，將由山田裕貴以及齋藤飛鳥擔綱'
 url: https://www.ptt.cc/bbs/movie/M.1507004872.A.B3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '把最近比較熱門的電影都看完了，這幾部好像沒什麼評價，想問推不推薦～
 
 
@@ -37288,7 +37287,7 @@ date: 2018-02-11
 reply_count: 12
 title: '[選片] 王牌業務員 輕鬆+愉快 淑女鳥'
 url: https://www.ptt.cc/bbs/movie/M.1518325292.A.6D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -37509,7 +37508,7 @@ date: 2018-01-04
 reply_count: 5
 title: '[新聞] 金球獎倒數 賭盤︰水底、淑女鳥大贏家'
 url: https://www.ptt.cc/bbs/movie/M.1514996112.A.49F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -37595,7 +37594,7 @@ date: 2021-01-31
 reply_count: 7
 title: '[鳥雷] 悲憐上帝的女兒 爛到爆 還得過獎??'
 url: https://www.ptt.cc/bbs/movie/M.1612054496.A.5C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我們是不是都在某些人生的轉彎路，渴望著成為別人，並以自己的不完美自嘲呢？
 
 
@@ -37839,7 +37838,7 @@ date: 2018-02-19
 reply_count: 12
 title: '[大好微雷] Lady Bird-害怕沒能成為自己'
 url: https://www.ptt.cc/bbs/movie/M.1519043938.A.1C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完之後 好奇去看以往評價
 
 
@@ -37908,7 +37907,7 @@ date: 2015-04-10
 reply_count: 42
 title: '[鳥雷] 宮崎駿的風起'
 url: https://www.ptt.cc/bbs/movie/M.1428631793.A.EB7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文完整版： \n\n每個人一生都在等待一種凝視。我們渴望被看見、被注意、被愛。寶寶\n啼哭希望得到爸媽的關注，青少年期待著戀人的深情眼神，進入社會希\n\
   望獲得老闆同事的賞識與欽佩，公眾人物在意人氣、知名度與支持度，\n年邁的父母向孩子們抱怨不停希望能得到注意、關心與陪伴。每個人都\n想要被愛，被聚精會神地凝視，從而確認自己的存在價值。\n\
   \n沒錯，東西的本質不會因他人的看法或批評而改變﹝如同主角休息室鏡\n子上的字條\"A thing is a thing, not what is said of\
@@ -37972,7 +37971,7 @@ date: 2015-02-20
 reply_count: 10
 title: '[好雷] 鳥人(Birdman) - 等愛的人們'
 url: https://www.ptt.cc/bbs/movie/M.1424442916.A.DE7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鳥人對我的感覺就是一部引戰片
 
 
@@ -38060,7 +38059,7 @@ date: 2015-01-20
 reply_count: 9
 title: '[好雷]鳥人- The play within the play '
 url: https://www.ptt.cc/bbs/movie/M.1421683291.A.F56.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -38108,7 +38107,7 @@ date: 2020-03-12
 reply_count: 11
 title: '[新聞] 【鳴鳥不飛】雄霸台灣今年至今最賣座日片'
 url: https://www.ptt.cc/bbs/movie/M.1584010670.A.84A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '================================防雷=================================
 
 
@@ -38157,7 +38156,7 @@ date: 2015-07-19
 reply_count: 6
 title: '[請益] 鳥人裡的劇中劇'
 url: https://www.ptt.cc/bbs/movie/M.1437283840.A.7D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "--\n\n網誌圖文版 \n\n--\n\n\n今天要來分享一部看完會有好心情的溫馨喜劇動畫片～送子鳥。\n\n這部片不是皮克斯的影片，是由《樂高玩電影》製作團隊做的最新動畫片，\n\
   \n覺得畫面精緻度一點也不輸皮克斯耶，色彩很豐富又流暢，角色也都很討人喜歡。\n\n\n\n在西方傳說中，小嬰兒是由大鸛鳥(stork)帶來的，所以稱鸛鳥為送子鳥，\n\
   \n本片的故事背景就是由送子鳥這宅配寶寶公司發展出去的，\n\n一位名叫朱尼爾的送子鳥運送員，和一個不知道自己父母是誰的人類孤兒小麗，\n\n不小心啟動了久未使用的「寶寶製造機」，意外的蹦出一個超可愛小女娃來，\n\
@@ -38170,7 +38169,7 @@ date: 2017-05-18
 reply_count: 6
 title: '[好雷] 送子鳥～看了會有滿滿好心情的動畫電影!'
 url: https://www.ptt.cc/bbs/movie/M.1495114647.A.3A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完預告之後，
 
 
@@ -38258,7 +38257,7 @@ date: 2019-11-16
 reply_count: 34
 title: '[  雷] Netflix地震鳥'
 url: https://www.ptt.cc/bbs/movie/M.1573877295.A.96D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -38304,7 +38303,7 @@ date: 2019-11-30
 reply_count: 8
 title: '[好雷] 鳥人的演技互飆好精彩'
 url: https://www.ptt.cc/bbs/movie/M.1575110049.A.4BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實光聽片名  本來不是很想看的
 
 
@@ -38391,7 +38390,7 @@ date: 2016-10-11
 reply_count: 17
 title: '[好雷] 送子鳥  嬰兒能改變你的世界'
 url: https://www.ptt.cc/bbs/movie/M.1476116889.A.50F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【影評】《鳴鳥不飛：烏雲密布》: 黑道、淫亂與忠犬，BL 虐心電影讓你一刷再刷
 
 
@@ -38561,7 +38560,7 @@ date: 2020-05-14
 reply_count: 7
 title: '[好雷] 鳴鳥不飛烏雲密布-黑道/淫亂/忠犬BL虐心'
 url: https://www.ptt.cc/bbs/movie/M.1589453082.A.D92.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部拍的比本傳好非常多
 
   不愧是小說改編，150分鐘劇情很飽滿
@@ -38582,7 +38581,7 @@ date: 2023-11-21
 reply_count: 26
 title: '[好無雷] 飢餓遊戲：鳴鳥與游蛇之歌 '
 url: https://www.ptt.cc/bbs/movie/M.1700565069.A.2F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -38629,7 +38628,7 @@ date: 2018-08-15
 reply_count: 3
 title: '[新聞] 乃木坂46齋藤飛鳥為中華職棒開球 主演電'
 url: https://www.ptt.cc/bbs/movie/M.1534347995.A.567.html
---- !!python/object:movie_data.PublicReview
+---
 content: "文/ Sebox\n\n2009年發跡的超人氣遊戲將翻拍成動畫電影《憤怒鳥》（Angry Bird），這款遊戲不用\n我說大家應該都很熟悉，在Facebook上有高達2750萬的粉絲，然而在我們想像這些小鳥\n\
   對抗綠豬要怎麼拍成電影時，有一件更令人驚訝的事情，就是這部動畫電影將花費1億\n8500萬美金製作。Cineuropa 報導，《憤怒鳥》的動畫製作成本大概是7500萬歐元，而\n\
   宣傳以及發行成本約1億歐元，換算成美金大概1億8500萬，換算成台幣的話，我想就不\n需要了。\n\n《憤怒鳥》所屬的Rovio公司總裁Pekka Rantala擔任電影的製作人，他對於這樣的預算\n\
@@ -38645,7 +38644,7 @@ date: 2015-04-15
 reply_count: 21
 title: '[新聞] 憤怒鳥的動畫電影 將花費1.8億美金製作'
 url: https://www.ptt.cc/bbs/movie/M.1429112620.A.48E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '比預期中的好看，
 
   劇情流暢不會跳來跳去，
@@ -38679,7 +38678,7 @@ date: 2016-06-13
 reply_count: 12
 title: '[有雷] 憤怒鳥玩電影'
 url: https://www.ptt.cc/bbs/movie/M.1465819413.A.665.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影拍的很平淡 內容卻很極為豐富
 
 
@@ -38926,7 +38925,7 @@ date: 2018-03-13
 reply_count: 155
 title: '[極好雷] 淑女鳥-一部保守派打臉自由派的爽片'
 url: https://www.ptt.cc/bbs/movie/M.1520940905.A.E4E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問一下有推薦在哪個特殊廳看嗎？
 
   還是看2D就好？
@@ -38944,7 +38943,7 @@ date: 2023-11-22
 reply_count: 7
 title: 'Re: [情報] 《飢餓遊戲：鳴鳥與游蛇之歌》上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1700656658.A.B90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有部非英語的電影
 
 
@@ -38973,7 +38972,7 @@ date: 2020-12-11
 reply_count: 10
 title: '[問片] 北歐/德國家庭片 有企鵝或大隻的鳥'
 url: https://www.ptt.cc/bbs/movie/M.1607697428.A.BD7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是個愛看電影的小影迷
 
 
@@ -39053,7 +39052,7 @@ date: 2016-02-05
 reply_count: 51
 title: '[好雷] 比鳥人好看的神鬼獵人'
 url: https://www.ptt.cc/bbs/movie/M.1454612676.A.E92.html
---- !!python/object:movie_data.PublicReview
+---
 content: '"People,they love blood.They love action.
 
   Not this talky, depressing,philosophical bullshit"
@@ -39130,7 +39129,7 @@ date: 2015-03-16
 reply_count: 10
 title: 'Re: [  普雷] 令人疑惑的鳥人'
 url: https://www.ptt.cc/bbs/movie/M.1426439240.A.50D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格圖文版：
 
 
@@ -39268,7 +39267,7 @@ date: 2015-11-14
 reply_count: 20
 title: '[好雷] 菜鳥-看演員演技的電影'
 url: https://www.ptt.cc/bbs/movie/M.1447496413.A.EF0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天爬了一下電影板的推薦文，在鳥人、美國狙擊手和博物館驚魂夜中選擇了本片。
 
 
@@ -39842,7 +39841,7 @@ date: 2015-01-19
 reply_count: 50
 title: '[有雷] 鳥人─無知的意外之喜'
 url: https://www.ptt.cc/bbs/movie/M.1421605664.A.D71.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看了失控的審判
 
   裡面辯護律師與體制的對抗 突然想到另一部和監獄有關的類似辯護電影
@@ -39868,7 +39867,7 @@ date: 2021-11-14
 reply_count: 25
 title: '[問片] 菜鳥士兵虐待致死的官司片'
 url: https://www.ptt.cc/bbs/movie/M.1636891337.A.5DD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說這部不太適合被雷完再去看……\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n《她不知道那些鳥的名字》\n對我來說，就是在現實社會中，一個女孩並不容易了解每個男人心中究竟想的是什麼，誰\n\
   才是愛她的，或者……誰愛著她對她來說來說或許並不真的重要……等到歲月成熟…青春\n燒盡了…才懂得他們與自己\n\n雖然劇情中間有點驚悚又亂(!?\n但那些角色的價值觀正血淋淋的上演在這個社會上，所以想了一下就覺得也不算荒唐是吧\n\
@@ -39878,7 +39877,7 @@ date: 2018-01-21
 reply_count: 17
 title: '[好雷] 她不知道那些鳥的名字'
 url: https://www.ptt.cc/bbs/movie/M.1516469442.A.B08.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無音樂網誌好讀版：
 
 
@@ -40194,7 +40193,7 @@ date: 2015-01-17
 reply_count: 12
 title: '[好雷] 鳥人 - 超級英雄之他和你想的不同 '
 url: https://www.ptt.cc/bbs/movie/M.1421493459.A.C72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文長，建議點選看圖文排版無廣告好讀版
 
 
@@ -40422,7 +40421,7 @@ date: 2015-01-26
 reply_count: 15
 title: '[好雷] 鳥人，失敗者的飛翔 '
 url: https://www.ptt.cc/bbs/movie/M.1422260483.A.CFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《淑女鳥》乍看之下與它得到的聲譽很不相襯。至今爛蕃茄的評價仍維持在99%，也挾著\n\n金球獎音樂喜劇類最佳影片、紐約影評人協會獎最佳影片與美國電影學院獎年度十大電影\n\
   \n肯定等榮譽，入圍了奧斯卡最佳影片、最佳導演、最佳女主角、最佳女配角、最佳原創劇\n\n本。這麼多顯赫的名聲，但《淑女鳥》意走偏鋒，劇情節奏大致偏快的故事中，結構不能\n\
   \n說是嚴謹，甚至近乎鬆散破碎；衝突與起伏在青少年成長類型電影中都很常見；角色雖然\n\n不多，但大量呈現的對白其實都樸素日常，仿似紀錄片的風格。\n\n\n\n\
@@ -40464,7 +40463,7 @@ date: 2018-03-01
 reply_count: 70
 title: '[好雷]《淑女鳥》別人愛你，你要誠實。'
 url: https://www.ptt.cc/bbs/movie/M.1519873652.A.BF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '曾有的夏天，嬉戲的水池，離別前的派對，將要實現的未來
 
   在歲月的某個時段，一切看似如此美好
@@ -40547,7 +40546,7 @@ date: 2006-11-29
 reply_count: 1
 title: '[心得] 驚弓森林-囚鳥的自由'
 url: https://www.ptt.cc/bbs/movie/M.1164808101.A.D5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "最近補看了這部電影，想請問女主角到紐約後,在酒吧中遇到男子問他：\nDo you believe in God?,男子回他不相信因為覺得很荒謬,接著Ladybird不以為然的說：\n\
   “People call each other their names through their parents made up for them,\n but\
   \ they won't believe in god”,對這句話特別有印象也覺得很有意思，但實在是\n悟不出這句話的道理何在，有人可以分享一下這句話女主角所要陳述的是什麼嗎？\n\
@@ -40558,7 +40557,7 @@ date: 2018-04-15
 reply_count: 21
 title: '[請益] 淑女鳥台詞一問'
 url: https://www.ptt.cc/bbs/movie/M.1523781515.A.4DD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "隔壁影評－寂寞的慢速飆車-《鳴鳥不飛：烏雲密布》\n\n圖文好讀 : \n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n大家好，我是老王。\n\n對，我也沒想到我會去看這部作品。\n\n對，我也沒想到這部作品比我想得好看。\n\n對，我後面坐了超過30位女性但我相信他們都對我沒興趣。\n\
   \n準備好了嗎？\n\n那麼，我們開始吧。\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
@@ -40576,7 +40575,7 @@ date: 2020-02-18
 reply_count: 2
 title: '[普雷] 寂寞的慢速飆車-《鳴鳥不飛：烏雲密布》'
 url: https://www.ptt.cc/bbs/movie/M.1582027101.A.0F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -40664,7 +40663,7 @@ date: 2023-08-17
 reply_count: 5
 title: '[好雷] 二刷《你的鳥兒會唱歌》'
 url: https://www.ptt.cc/bbs/movie/M.1692237475.A.CA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '<無音樂有圖好讀網誌版>
 
 
@@ -40945,7 +40944,7 @@ date: 2015-01-20
 reply_count: 1
 title: '[好雷] 鳥人~真實與超現實的最佳融合~'
 url: https://www.ptt.cc/bbs/movie/M.1421762649.A.66A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（本文有雷，已於 2015/02/12 發表於個人網誌。）
 
 
@@ -41507,7 +41506,7 @@ date: 2015-03-06
 reply_count: 4
 title: '[好雷] 繁華落盡復繁華：《鳥人》'
 url: https://www.ptt.cc/bbs/movie/M.1425647709.A.4B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '他諷刺的是"電影"目前的運作方式
 
   本雅明在機械複製時代的藝術作品中講到
@@ -41564,7 +41563,7 @@ date: 2015-02-07
 reply_count: 14
 title: 'Re: [好雷]【鳥人】導演到底是想諷刺誰？！ '
 url: https://www.ptt.cc/bbs/movie/M.1423314561.A.1E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "不知道有多少人受不了同家公司每年量產一狗票「超級英雄」，一下前傳續集、\n\n一下重開機。又不知道有多少困在面具下的演員，在漫長的演藝生涯中，好像除\n\
   \n了超級英雄之外，他什麼也不是。去年底金球獎橫空出世殺出了一部「骨骼清奇\n\n」的《鳥人》，請來在《蝙蝠俠大顯神威》後就沒再風光過的第一任「蝙蝠俠」\n\n\
   米高基頓，意有所指的在電影裡扮演也曾以「鳥人」角色叱吒大銀幕的過氣電影\n\n明星。看著這個年近半百，好萊塢混不下去，想藉著到百老匯自導自演舞台劇，\n\n提高所謂「藝術成就」、拼個東山再起的過氣超級英雄演員，不得不對敢拿自己\n\
@@ -41585,7 +41584,7 @@ date: 2015-01-08
 reply_count: 8
 title: '[好雷]《鳥人》前任Batman的黑暗騎士崛起 '
 url: https://www.ptt.cc/bbs/movie/M.1420723465.A.8B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問一下
 
 
@@ -41606,7 +41605,7 @@ date: 2015-01-18
 reply_count: 11
 title: '[請益]鳥人的拍攝手法算是一鏡到底的嗎??'
 url: https://www.ptt.cc/bbs/movie/M.1421574235.A.662.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本標題是想打：
 
 
@@ -41896,7 +41895,7 @@ date: 2015-01-22
 reply_count: 2
 title: '[好雷] 鳥人(Birdman)'
 url: https://www.ptt.cc/bbs/movie/M.1421860946.A.645.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部時間很短，所以戰鬥很快
 
 
@@ -42022,7 +42021,7 @@ date: 2021-04-17
 reply_count: 2
 title: '[普雷] 劇場短篇 假面騎士聖刃 不死鳥的劍士與破'
 url: https://www.ptt.cc/bbs/movie/M.1618626277.A.0BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文版請點閱\n\n\n\n之前特映去看的，推薦給歌迷們。\n是一部很輕鬆可愛，很誠懇的電影。\n以下有雷\n\n\n\n\n\n\n\n\n\n\
   意外的這片相當清新可愛，沒有什麼包袱，很適合放鬆腦袋，不用花力氣理\n解或分析。畫面中韋禮安的臉孔和其他原素都嗅得出青澀感，但也正因如此，\n才讓觀眾感受得到職業老將手下難以出現的輕鬆和快樂。\n\
   \n\n昨天在電視上看了韋禮安的訪問，深覺是個有禮貌，言行樸實大方的好孩子。\n在這部片中他扮演的就是他自己，氣質毫無矯飾。為什麼敢不加修飾就讓他以\n原汁原味上戲呢？與其說劇組是抱著初生之犢的勇氣，不如說這個年輕歌手／\n\
@@ -42038,7 +42037,7 @@ date: 2012-04-07
 reply_count: 7
 title: '[好雷] 什麼鳥日子：那隻拯救世界的怪鳥'
 url: https://www.ptt.cc/bbs/movie/M.1333812573.A.A12.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天在第四台看到馬來西亞電影，上網查找資料很少，對於劇情有些看不懂，煩請各位前
 
   輩指點，謝謝！
@@ -42106,7 +42105,7 @@ date: 2017-09-17
 reply_count: 6
 title: '[問片] 交叉點interchance鳥人與儀式'
 url: https://www.ptt.cc/bbs/movie/M.1505584520.A.72D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '從愛是一條狗(Amores Perros)、火線交錯(Babel)、最後的美麗(Biutiful)，到鳥人
 
   (Birdman)。導演亞利安卓(Alejandro González Iñárritu)屢屢使用一些暗喻強烈的
@@ -42387,7 +42386,7 @@ date: 2015-01-31
 reply_count: 28
 title: '[好雷] 鳥人 (BiRDMAN)'
 url: https://www.ptt.cc/bbs/movie/M.1422704516.A.E95.html
---- !!python/object:movie_data.PublicReview
+---
 content: '著名影評人李大師超展開的復4影評，把復仇者聯盟掛上楊德昌、蔡明亮、雷奈與費里尼X
 
   DD不知道是很認真還是亂寫(?)；如果平常沒接觸藝術類型電影的各位就別噓了，姑且看
@@ -42438,7 +42437,7 @@ date: 2019-05-02
 reply_count: 11
 title: '[有雷] 復4影評 by 李幼鸚鵡鵪鶉小白文鳥'
 url: https://www.ptt.cc/bbs/movie/M.1556795374.A.873.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先來個小評分
 
 
@@ -42485,7 +42484,7 @@ date: 2018-09-23
 reply_count: 39
 title: '[負雷] 惡魔鳥 偷渡多元成家概念的電影 影評'
 url: https://www.ptt.cc/bbs/movie/M.1537699026.A.FC9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '幫老爸問一部劇情片
 
 
@@ -42503,7 +42502,7 @@ date: 2016-02-14
 reply_count: 5
 title: '[問片] 女學生 論文 鳥名 追殺'
 url: https://www.ptt.cc/bbs/movie/M.1455436751.A.8E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我個人是覺得還蠻喜歡這片的，
 
   這篇提到的吐槽點稍微薄弱，

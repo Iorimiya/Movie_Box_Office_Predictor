@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "內文有雷且具個人觀點，推薦觀影後再讀。\n\n\n\n　　　　圖文網頁版：\n\n　　　　\n\n\n　　　　預告片：\n\n　　　　\n\n\n\
   \n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\n\n燦爛傷口，空無海洋：《愛是一把槍》\n\
   \n\n\n　　因開槍傷人服刑三年，甫從監獄出來的番薯，想要過上「良民」的日\n\n子。但學歷、前科難以找到穩定的工作，母親永遠還不完的賭債、朋友「帽\n\n\
@@ -20,7 +19,7 @@ date: 2023-12-26
 reply_count: 2
 title: '[好雷] 燦爛傷口，空無海洋：《愛是一把槍》'
 url: https://www.ptt.cc/bbs/movie/M.1703603343.A.1EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '只能說我輸了
 
 
@@ -384,7 +383,7 @@ date: 2023-12-18
 reply_count: 3
 title: '[好雷]《愛是一把槍》  再次認識電影'
 url: https://www.ptt.cc/bbs/movie/M.1702868632.A.67D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《愛是一把槍》 8/10分\n\n《愛是一把槍》 是近期我能直接說出：\n「我蠻喜歡的。」\n 的一部片\n\n其他《富都青年》、《老狐狸》、《小曉》\n\
   雖然也都不錯\n但總有一些很明顯的 個人不喜歡的點\n\nX\n\n相較之下\n《愛是一把槍》 是一氣呵成的觀影體驗\n很純粹 很乾脆\n沒有太多的角色或台詞甚至分鏡運鏡\n\
   但卻不沉悶\n只有一開始在談話中簡單透露了一些主角的背景後\n我們不知道再來有什麼劇情\n應該說\n主角自己也不知道會怎麼樣\n他只是想重新開始生活\n但過去的人事物卻陰魂不散\n\
@@ -398,7 +397,7 @@ date: 2023-12-17
 reply_count: 16
 title: '[ 好無雷]  愛是一把槍 - 近期好看國片'
 url: https://www.ptt.cc/bbs/movie/M.1702800296.A.505.html
---- !!python/object:movie_data.PublicReview
+---
 content: '李鴻其自編自導自演的首部劇情長片《愛是一把槍》透過 Screen International 釋出了
 
   首支預告。
@@ -435,7 +434,7 @@ date: 2023-08-16
 reply_count: 11
 title: '[情報] 李鴻其執導《愛是一把槍》首支預告'
 url: https://www.ptt.cc/bbs/movie/M.1692120513.A.770.html
---- !!python/object:movie_data.PublicReview
+---
 content: '金馬50 看著一個個 巨星
 
   從你眼前走過 對你揮手 微笑

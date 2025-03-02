@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "電影板的各位好\n\n大前天有發一篇異形 IMAX版本推薦文\n\n同時也很疑惑，為什麼影城方都沒特別宣傳\n\n昨天在好奇心的驅使之下\n\n\
   分別私訊了美麗華、美麗新、in89影城\n\n以及在威秀的粉專留言\n\n\n\n\n的小編蠻用心的\n\n有回覆表示近期忙碌，疏忽了這塊\n\n他們會盡快補充宣傳！\n\
   \n\n果然今天就出圖了，效率不錯！\n\n\n\n以下美麗華粉專原文\n===================================\n\n【異形：羅穆路斯】\
@@ -15,7 +14,7 @@ date: 2024-08-20
 reply_count: 35
 title: '[討論] 異形羅穆路斯 IMAX 畫幅宣傳'
 url: https://www.ptt.cc/bbs/movie/M.1724140021.A.B4C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -135,7 +134,7 @@ date: 2024-12-05
 reply_count: 14
 title: '[好雷] 懷舊的《異形：羅穆路斯》'
 url: https://www.ptt.cc/bbs/movie/M.1733393117.A.CF1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -308,7 +307,7 @@ date: 2024-08-19
 reply_count: 61
 title: '[普負雷] 4Dx異形-羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1724006203.A.8C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完出來
 
 
@@ -354,7 +353,7 @@ date: 2024-08-15
 reply_count: 37
 title: '[好無雷] 異形:羅穆路斯-異形粉可以看><'
 url: https://www.ptt.cc/bbs/movie/M.1723697327.A.345.html
---- !!python/object:movie_data.PublicReview
+---
 content: "##########前面無雷##########\n \n大家安安\n \n剛看完期待已久的異形新作，\n也是我在板橋威秀IMAX初體驗，\n\
   更是我在戲院第一次看異形電影\n看完感想就是….Fucking awesome!!!\n我電影1-4和普羅米修斯、聖約都有看過，\n遊戲也玩過異形：孤立和異形：黑暗血統\n\
   應該也算是個不專業的異形迷了。\n \n本片雖然不是由異形之父 雷利史考特執導，\n也不是由第二集的導演詹姆斯卡麥隆執導，\n而是找來執導過「暫時停止呼吸」和「屍變」\n\
@@ -379,7 +378,7 @@ date: 2024-08-16
 reply_count: 28
 title: '[  雷] 異形：羅穆路斯……真的超讚！'
 url: https://www.ptt.cc/bbs/movie/M.1723792779.A.0A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不得不說這是我近期看過帶入感最高的電影
 
   不論氣氛營造跟驚悚感都很足夠
@@ -428,7 +427,7 @@ date: 2024-08-17
 reply_count: 27
 title: '[請益] 異形：羅穆路斯幾個疑問'
 url: https://www.ptt.cc/bbs/movie/M.1723904220.A.B92.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -541,7 +540,7 @@ date: 2024-08-20
 reply_count: 35
 title: '[好雷] 異形：羅穆路斯-有個地方不喜歡'
 url: https://www.ptt.cc/bbs/movie/M.1724167662.A.6D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我自己是非常喜歡「普羅米修斯」、「聖約」的科幻神話粉絲，也看完過所有本傳
 
   四集，在看本片以前，心裡是抱著希望跟前傳有所連結，也想看看專門拍驚悚動作片的阿
@@ -573,7 +572,7 @@ date: 2024-08-19
 reply_count: 17
 title: '[  好無雷] scxeenX 異形 羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1724007221.A.2D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在水管演算法跑出來的，好像沒人貼
 
   建議有看過電影再來看，可以看到小組是怎麼拍的
@@ -630,7 +629,7 @@ date: 2024-08-17
 reply_count: 14
 title: '[討論] 異形：羅穆路斯 幕後花絮'
 url: https://www.ptt.cc/bbs/movie/M.1723908675.A.FC7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影是疫情過後少數優秀的系列續作
 
   這片不敢說滿分
@@ -688,7 +687,7 @@ date: 2024-08-16
 reply_count: 28
 title: '[好無雷] 異形-羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1723808550.A.2BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -755,7 +754,7 @@ date: 2024-09-10
 reply_count: 38
 title: '[負雷]  異形羅穆路斯 過多致敬'
 url: https://www.ptt.cc/bbs/movie/M.1725928686.A.3E8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -844,7 +843,7 @@ date: 2024-08-15
 reply_count: 39
 title: '[好雷] 《異形：羅穆路斯》'
 url: https://www.ptt.cc/bbs/movie/M.1723699684.A.F69.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是一部令人滿意的異形續作，
 
   此外，對於科幻片而言也一樣是佳作，
@@ -942,7 +941,7 @@ date: 2024-08-18
 reply_count: 34
 title: '[好雷] 異形：羅穆路斯 4DX'
 url: https://www.ptt.cc/bbs/movie/M.1723916737.A.469.html
---- !!python/object:movie_data.PublicReview
+---
 content: '手機排版請見諒
 
 
@@ -1364,7 +1363,7 @@ date: 2024-08-18
 reply_count: 43
 title: '[好雷] 異形：羅穆路斯 - 新舊混合很感動'
 url: https://www.ptt.cc/bbs/movie/M.1723996462.A.9A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -1402,7 +1401,7 @@ date: 2024-09-29
 reply_count: 20
 title: '[討論] 異形：羅穆路斯 票房1.03億'
 url: https://www.ptt.cc/bbs/movie/M.1727600997.A.539.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \ 剛剛看完了，想來發表一下心得\n 純粹個人感想，有雷，我也怕自己看得不夠仔細，所以只是第一時間的心得而已\n 我必須說批評會多過讚美的，覺得不愉快的話請不要看下去\n\
@@ -1456,7 +1455,7 @@ date: 2024-09-06
 reply_count: 36
 title: '[普雷]異形羅穆路斯-不錯但非雷利史考特(上)'
 url: https://www.ptt.cc/bbs/movie/M.1725565046.A.75D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1602,7 +1601,7 @@ date: 2024-08-16
 reply_count: 115
 title: '[好雷] 異形：羅穆路斯，有情懷的異形迷必看 '
 url: https://www.ptt.cc/bbs/movie/M.1723779871.A.FBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次體驗4DX影廳就直接獻給異形了
 
   這部真的很適合看4DX！
@@ -1668,7 +1667,7 @@ date: 2024-08-15
 reply_count: 33
 title: '[好雷] 異形：羅穆路斯 4DX 極致體驗'
 url: https://www.ptt.cc/bbs/movie/M.1723708319.A.B9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防
 
 
@@ -1771,7 +1770,7 @@ date: 2024-09-04
 reply_count: 71
 title: '[雷] 異形 羅穆路斯 幾個問題'
 url: https://www.ptt.cc/bbs/movie/M.1725387654.A.A1C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2026,7 +2025,7 @@ date: 2024-08-22
 reply_count: 30
 title: '[好雷] 【異形：羅穆路斯】遲來的異形娛樂電影'
 url: https://www.ptt.cc/bbs/movie/M.1724259656.A.31E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "第一次看到異形是在異形戰場\n心想：真是集美麗與暴力於一身的生物（大衛上身\n於是我愛上了異形,這些年從異形戰場一路到現在\n順帶一起看終極戰士系列（也是很棒啦\n\
   當時聖約上映我隔天要月考照樣衝\n下場就是成績比被抱臉蟲寄生還慘\n但我甘之如飴（其實是根本不在乎成績\n不過我是偏愛前傳的那邊,所以有些想法還請見諒\n\n\n\
   \n\n\n\n防雷\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n基本上這部電影就是本傳四集那派的\n我不太說四集誰好誰壞,而是各有千秋\n\
@@ -2043,7 +2042,7 @@ date: 2024-08-18
 reply_count: 7
 title: '[  雷] 異形：羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1723991040.A.F51.html
---- !!python/object:movie_data.PublicReview
+---
 content: '推給恐怖片愛好者，這部是我近期看過驚嚇程度最高的驚悚爽片
 
   為了更好的被嚇（？ 我跟朋友還跑去看ScreenX
@@ -2130,7 +2129,7 @@ date: 2024-08-17
 reply_count: 42
 title: '[ 好雷] 異形：羅穆路斯 '
 url: https://www.ptt.cc/bbs/movie/M.1723866342.A.604.html
---- !!python/object:movie_data.PublicReview
+---
 content: '異形系列中
 
   我很喜歡普羅米修斯和聖約這種不同風格的
@@ -2192,7 +2191,7 @@ date: 2024-08-15
 reply_count: 29
 title: '[好無雷] 《異形：羅穆路斯》'
 url: https://www.ptt.cc/bbs/movie/M.1723694448.A.978.html
---- !!python/object:movie_data.PublicReview
+---
 content: "窩本身是異形正傳1~4 前傳1~2都有看  雖然3看得斷斷續續的\n\n先說,建議還沒看過預告片的,\n雖然還是有藏一些東西沒放出來,\n但這種探索未知領域的劇情,還是保持未知進影廳比較好\n\
   \n大致上窩給中上,\n所以有些評語給系列最佳什麼的,還是自己看比較準~\n\n(防雷頁)\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n有人說這次做宵小去偷東西,是把格局做小了,窩覺得是還好\n\n\
@@ -2204,7 +2203,7 @@ date: 2024-08-15
 reply_count: 7
 title: '[好雷] 異形:羅穆路斯  該有的元素都有了'
 url: https://www.ptt.cc/bbs/movie/M.1723699228.A.818.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本片首映當天陪朋友去看，後來陪家人二刷。
 
 
@@ -2287,7 +2286,7 @@ date: 2024-08-27
 reply_count: 70
 title: '[ 有雷] 異形：羅穆路斯-最慘的角色'
 url: https://www.ptt.cc/bbs/movie/M.1724727069.A.E0F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部算是1.5集了吧
 
   看完以後真的覺得這次的感覺就像《俠盜一號》一樣是另外一群人再衍伸出來的故事
@@ -2325,7 +2324,7 @@ date: 2024-08-26
 reply_count: 29
 title: '[討論] 《羅穆路斯》夾在續集與續集中間的續集'
 url: https://www.ptt.cc/bbs/movie/M.1724609849.A.BE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -2404,7 +2403,7 @@ date: 2024-08-18
 reply_count: 60
 title: '[討論] 二刷異形：羅穆路斯 稍嫌不合理處(步槍)'
 url: https://www.ptt.cc/bbs/movie/M.1723996178.A.37F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2543,7 +2542,7 @@ date: 2024-08-19
 reply_count: 43
 title: '[好雷] 異形羅穆路斯-合理的腦殘'
 url: https://www.ptt.cc/bbs/movie/M.1724053496.A.F15.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不正常
 
   不過反正每部片子速度都不同
@@ -2593,7 +2592,7 @@ date: 2024-08-18
 reply_count: 9
 title: 'Re: [請益] 異形：羅穆路斯一些問題 （有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1723988799.A.01A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇中女主角為了拯救被困在抱臉蟲冷凍倉的男主角們，跑去取下半身科學家合成人的晶片，
 
   給安迪裝上以取得開門權限
@@ -2627,7 +2626,7 @@ date: 2024-08-29
 reply_count: 33
 title: '[討論] 異形: 羅穆路斯 一問(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1724890604.A.B6A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2685,7 +2684,7 @@ date: 2024-08-17
 reply_count: 13
 title: '[好雷] 誠意滿滿的異形：羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1723889575.A.BF2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '地獄黑洞即將解鎖！《#異形：#羅穆路斯》全新預告
 
   衝擊性無預警現身　銀幕恐怖新霸主
@@ -2710,7 +2709,7 @@ date: 2024-07-19
 reply_count: 82
 title: '[情報] 異形：羅穆路斯》全新預告'
 url: https://www.ptt.cc/bbs/movie/M.1721319279.A.6B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先放個仙仙照防雷
 
 
@@ -2760,7 +2759,7 @@ date: 2024-08-21
 reply_count: 31
 title: '[請益] 異形：羅穆路斯一開頭那邊'
 url: https://www.ptt.cc/bbs/movie/M.1724190994.A.B6A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 為什麼最後像工程師的異形會殺母親？
 
 
@@ -2800,7 +2799,7 @@ date: 2024-08-17
 reply_count: 27
 title: '[好雷] 異形羅穆路斯兩個細節設定問題'
 url: https://www.ptt.cc/bbs/movie/M.1723907149.A.587.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我自己只看過異形1跟普羅米修斯
 
 
@@ -2872,7 +2871,7 @@ date: 2024-08-17
 reply_count: 26
 title: '[好雷] 異形:羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1723884840.A.8BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "暑假話題電影之一-異形:羅穆路斯\n\n滿滿的致敬元素 導演也還是放進了一些新趣味\n\n看完幾天後,窩還是給了中上的評價(之前六部都看過了)\n\
   \n(防雷頁)\n\n\n\n\n\n\n\n\n\n\n\n\n1.小雨對那瓶\"黑水\"的注射液說了:窩不信任這東西,\n\n  可是為何後來又跟凱說:先注射這東西,再回傑克森星球\
   \    這個矛盾太大了吧?\n\n2.為何中華人民共和國的翻譯片名,叫《異形:奪命艦》?\n\n  就算要這麼繞口,又忽略官方給的明顯副標:Romulus\n\
@@ -2881,7 +2880,7 @@ date: 2024-08-18
 reply_count: 51
 title: '[討論] 異形:羅穆路斯  兩個小疑問'
 url: https://www.ptt.cc/bbs/movie/M.1723910936.A.E1C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩部在版上的評價好像都還行，想問在沒看過任何異形前作的前提下，會比較推薦去看
 
   哪一部呢？
@@ -2892,7 +2891,7 @@ date: 2024-08-16
 reply_count: 77
 title: '[選片] 鬼才之道vs異形：羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1723750367.A.548.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年必看科幻鉅作《#異形：#羅穆路斯》11月21日Disney+即將上線
 
 
@@ -2912,7 +2911,7 @@ date: 2024-11-08
 reply_count: 35
 title: '[情報] 異形：羅穆路斯11/21 Disney +獨佔上線'
 url: https://www.ptt.cc/bbs/movie/M.1731004862.A.BF6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '[ 好 雷] 異形羅穆路斯，和目前中國科幻片的思辯
 
 
@@ -3058,7 +3057,7 @@ date: 2024-09-06
 reply_count: 12
 title: '[ 好 雷] 異形羅穆路斯，和目前中國科幻片的思辯'
 url: https://www.ptt.cc/bbs/movie/M.1725630493.A.38C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '關於這點我看的時候就很疑惑
 
 
@@ -3113,7 +3112,7 @@ date: 2024-09-04
 reply_count: 50
 title: 'Re: [雷] 異形 羅穆路斯 幾個問題'
 url: https://www.ptt.cc/bbs/movie/M.1725432759.A.567.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖說我很喜歡異形，但我膽小只敢等到上串流才看，因為可以快轉
 
 
@@ -3199,7 +3198,7 @@ date: 2024-11-25
 reply_count: 47
 title: '[請益] 看完異形 羅穆路斯，覺得設定怪怪的'
 url: https://www.ptt.cc/bbs/movie/M.1732519652.A.B72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下無據透。
 
 
@@ -3243,7 +3242,7 @@ date: 2024-08-24
 reply_count: 37
 title: '[好評無雷] 異形：羅穆路斯4DX 大推科幻恐怖爽片'
 url: https://www.ptt.cc/bbs/movie/M.1724463135.A.19B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '內文無劇情雷請安心
 
 
@@ -3306,7 +3305,7 @@ date: 2024-08-25
 reply_count: 15
 title: '[好無雷] 異形：羅穆路斯 4DX'
 url: https://www.ptt.cc/bbs/movie/M.1724593016.A.5A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今夏，你的恐懼將突破天際！
 
 
@@ -3351,7 +3350,7 @@ date: 2024-06-04
 reply_count: 55
 title: '[情報] 科幻鉅作《異形：羅穆路斯》海報登場'
 url: https://www.ptt.cc/bbs/movie/M.1717433249.A.965.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上週末看了一個早場、一個下午場
 
 
@@ -3415,7 +3414,7 @@ date: 2024-08-19
 reply_count: 22
 title: '[討論] 二刷異形：羅穆路斯 觀眾年齡層 (無雷)'
 url: https://www.ptt.cc/bbs/movie/M.1724067192.A.154.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: ellis5566 (愛麗絲．格雷拉特) 看板: C_Chat
 
   標題: [情報] 異形：羅穆路斯爛番茄新鮮度83%
@@ -3471,7 +3470,7 @@ date: 2024-08-15
 reply_count: 19
 title: 'Fw: [情報] 異形：羅穆路斯爛番茄新鮮度83%'
 url: https://www.ptt.cc/bbs/movie/M.1723692879.A.E89.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我非常喜歡普羅米修斯這部
 
 
@@ -3498,7 +3497,7 @@ date: 2024-08-27
 reply_count: 61
 title: '[討論] 羅穆路斯VS普羅米修斯??'
 url: https://www.ptt.cc/bbs/movie/M.1724717565.A.BB1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是我第一次看異形系列，
 
   個人覺得蠻有趣的
@@ -3566,7 +3565,7 @@ date: 2024-11-22
 reply_count: 36
 title: '[雷] 好雷 異形 ：羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1732290564.A.489.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3643,7 +3642,7 @@ date: 2024-10-21
 reply_count: 46
 title: '[新聞] 《異形：羅穆路斯》將推VHS錄影帶版'
 url: https://www.ptt.cc/bbs/movie/M.1729523422.A.36B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '［防雷警告］
 
 
@@ -3737,7 +3736,7 @@ date: 2024-08-24
 reply_count: 97
 title: 異形：羅穆路斯 心得及劇情請益（雷）
 url: https://www.ptt.cc/bbs/movie/M.1724497079.A.06F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '按目前的電影順序看
 
 
@@ -3773,7 +3772,7 @@ date: 2024-09-05
 reply_count: 95
 title: '[討論] 所以目前的異形弱點有哪些'
 url: https://www.ptt.cc/bbs/movie/M.1725540395.A.1C9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到這次是由費德阿瓦雷茲執導，雷導監製的時候
 
   讓我對這部片產生了一點期待
@@ -3834,7 +3833,7 @@ date: 2024-08-16
 reply_count: 13
 title: '[普好雷] 異形：羅穆路斯觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1723802741.A.067.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最後女主角要帶她弟弟 在無重力狀態下逃離太空艙 在電梯那邊 突然重力狀態解除 掉下
 
   去
@@ -3860,7 +3859,7 @@ date: 2024-08-18
 reply_count: 56
 title: '[討論] 異形 羅穆路斯 出戲的地方'
 url: https://www.ptt.cc/bbs/movie/M.1723990562.A.5A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一，小雨工時加長，調職礦區
 
   小雨爸媽死於三周前，死在礦區
@@ -3988,7 +3987,7 @@ date: 2024-09-07
 reply_count: 25
 title: '[討論] 有雷，異形羅穆路斯的彩蛋小整理'
 url: https://www.ptt.cc/bbs/movie/M.1725698395.A.F29.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問，最新的異形羅穆路斯，如果沒看過前面的集數，會不會導致劇情看不懂？這系列是劇
 
   情連貫，還是彩蛋出場？可以單看最新一集嗎？以前真的沒看過異形電影，最近才在串流看
@@ -4001,7 +4000,7 @@ date: 2024-08-19
 reply_count: 40
 title: '[請益] 看異形：羅穆路斯需要補完前面集數嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1724070749.A.1E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "異形：羅穆路斯：\n1.重回一二集冷冽、陰暗風格的佳作。\n2.異形從來都不是打打殺殺、主角威能殺爆全場的電影。\n3.異形經典的地方在於全場的緊張、壓迫感，隨著劇情一步步解開故事中的謎題。\n\
   4.導演Fede Alvarez擅長拍恐怖、懸疑、獵殺電影，這部異形有帶出沉重的壓迫感。\n5.整部片沒有大牌明星，全是由新生代演員撐起。\n6.電影原訂於串流平台直接上映，最後決定在戲院上映（真是太好了）。\n\
   7.異形：羅穆路斯雖然沒有好到創造出另一個經典，但是傳承了一二集的風格、懸疑。\n8.如果你是異形的粉絲，異形：羅穆路斯不會讓你失望。\n-----\nSent\
@@ -4012,7 +4011,7 @@ date: 2024-08-16
 reply_count: 24
 title: '[無雷] 異形：羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1723792388.A.465.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4061,7 +4060,7 @@ date: 2024-08-17
 reply_count: 60
 title: '[好雷] 異形 羅穆路斯 這部真的好看'
 url: https://www.ptt.cc/bbs/movie/M.1723892715.A.2E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '超好看
 
   但是沒印象之前的破胸體會結繭（或說是鮑魚？）
@@ -4085,7 +4084,7 @@ date: 2024-08-15
 reply_count: 61
 title: '[討論] 異形羅穆路斯討論 有雷'
 url: https://www.ptt.cc/bbs/movie/M.1723737266.A.4BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4199,7 +4198,7 @@ date: 2024-08-13
 reply_count: 217
 title: '[新聞]《異形:羅穆路斯》首波評價出爐:系列最佳'
 url: https://www.ptt.cc/bbs/movie/M.1723553551.A.899.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《異形：羅穆路斯》用 CG 復活已故男星「伊恩霍姆」遭批不逼真！導演特別花錢在 DVD\n 修復了\n\n\n\n（圖片來源：二十世紀影業）\n\
   \n《異形：羅穆路斯》（Alien：Romulus）去年暑假上映後，創下全球 3.5 億美元的票房\n佳績，觀眾口碑亦不俗，普遍收穫好評居多，唯獨有個部份是評價兩極的，那就是片中有\n\
   透過 CGI 還原了伊恩霍姆（Ian Holm）的臉模，讓曾經在第一集飾演過合成人「艾許」\n，再次「復活」演出另一名合成人「盧克」。\n\n雖然這安排有先得到霍姆的家人准許，但仍有觀眾認為不尊重死者的肖像，亦有人純粹只\n\
@@ -4214,7 +4213,7 @@ date: 2025-01-13
 reply_count: 54
 title: '[新聞] 異形：羅穆路斯用CG復活已故男星遭批'
 url: https://www.ptt.cc/bbs/movie/M.1736724378.A.942.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次在電影板發文，手機排版請見諒~
 
   廢話很多，請斟酌觀看
@@ -4398,7 +4397,7 @@ date: 2024-08-17
 reply_count: 35
 title: '[好雷] 異形：羅穆路斯4DX心得'
 url: https://www.ptt.cc/bbs/movie/M.1723866154.A.D1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4508,7 +4507,7 @@ date: 2024-10-09
 reply_count: 29
 title: '[雷] 《異形-羅穆路斯》不讓老粉與票房失望的回'
 url: https://www.ptt.cc/bbs/movie/M.1728403844.A.304.html
---- !!python/object:movie_data.PublicReview
+---
 content: '要不是片尾20分鐘 還算有點驚喜
 
   否則差一點給負雷
@@ -4577,7 +4576,7 @@ date: 2024-08-15
 reply_count: 105
 title: '[普雷] 沒什麼驚喜的《異形：羅穆路斯》'
 url: https://www.ptt.cc/bbs/movie/M.1723726353.A.FE4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \  嗯....好吧，一時太著迷打了快10頁，只能用第二篇來分隔比較好\n\n  上一篇有講羅穆路斯向異形系列\"致敬\"的部分\n  基本上這些致敬加起來構成了這部羅穆路斯\n\
@@ -4667,7 +4666,7 @@ date: 2024-09-06
 reply_count: 47
 title: '[普雷]異形羅穆路斯-不錯但非雷利史考特(下)'
 url: https://www.ptt.cc/bbs/movie/M.1725574407.A.289.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不是系列作粉絲 沒印象有沒有看過前作
 
 
@@ -4749,7 +4748,7 @@ date: 2024-09-01
 reply_count: 125
 title: '[請益] 異形：羅穆路斯 有算恐怖嗎==？'
 url: https://www.ptt.cc/bbs/movie/M.1725192842.A.512.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去電影院看
 
   竟然全場只有四個人!!
@@ -4776,7 +4775,7 @@ date: 2024-09-05
 reply_count: 13
 title: '[討論] 異形 羅穆路斯 小疑問'
 url: https://www.ptt.cc/bbs/movie/M.1725467169.A.BA2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最後那隻長得很像人的
 
 
@@ -4819,7 +4818,7 @@ date: 2024-08-18
 reply_count: 21
 title: '[討論] 異形：羅穆路斯 造型設計 有雷'
 url: https://www.ptt.cc/bbs/movie/M.1723979488.A.C89.html
---- !!python/object:movie_data.PublicReview
+---
 content: '安迪的演技我真的完全不能接受...
 
 
@@ -5596,7 +5595,7 @@ date: 2024-08-21
 reply_count: 243
 title: '[超負雷] 異形：羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1724173325.A.DBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5688,7 +5687,7 @@ date: 2024-08-28
 reply_count: 9
 title: '[好雷]'
 url: https://www.ptt.cc/bbs/movie/M.1724860771.A.4C3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是一部標準的異形電影
 
   起承轉合非常完整 該有的都有
@@ -5737,7 +5736,7 @@ date: 2024-08-17
 reply_count: 47
 title: '[好雷] 異形：羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1723829402.A.6DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -5772,7 +5771,7 @@ date: 2024-08-29
 reply_count: 88
 title: '[討論] 異形：羅穆路斯 票房6760萬'
 url: https://www.ptt.cc/bbs/movie/M.1724941699.A.6E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5833,7 +5832,7 @@ date: 2024-09-03
 reply_count: 43
 title: '[新聞] 這不是特效《異形：羅穆路斯》幕後曝光'
 url: https://www.ptt.cc/bbs/movie/M.1725297063.A.03A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（推文有雷注意）
 
 
@@ -5954,7 +5953,7 @@ date: 2024-08-21
 reply_count: 71
 title: '[極好無雷] 異形 羅穆路斯-完美的現代化與新意'
 url: https://www.ptt.cc/bbs/movie/M.1724221524.A.BA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
   雷
@@ -6002,7 +6001,7 @@ date: 2024-08-17
 reply_count: 10
 title: '[請益] 異形：羅穆路斯 終幕的一個小疑問'
 url: https://www.ptt.cc/bbs/movie/M.1723860320.A.45F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以前普羅米修斯跟聖約 被罵到臭頭
 
 
@@ -6024,7 +6023,7 @@ date: 2024-08-19
 reply_count: 84
 title: '[討論] 為什麼羅穆路斯出了後 突然跑出一堆前傳'
 url: https://www.ptt.cc/bbs/movie/M.1724078661.A.6EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《異形：羅穆路斯》導演：完全的創作自由不一定能讓你拍出好片，很多導演拍的串流電影
 
   ，根本不是他們最好的作品
@@ -6092,7 +6091,7 @@ date: 2024-09-03
 reply_count: 38
 title: '[討論] 異形羅穆路斯導演：完全創作自由不一定'
 url: https://www.ptt.cc/bbs/movie/M.1725364405.A.9E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好 今天去觀賞完最新的異形電影之後有幾個問題
 
 
@@ -6158,7 +6157,7 @@ date: 2024-08-18
 reply_count: 87
 title: '[請益] 異形：羅穆路斯一些問題 （有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1723983301.A.803.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先防個雷
 
 
@@ -6235,7 +6234,7 @@ date: 2024-09-12
 reply_count: 40
 title: '[討論] 異形：羅穆路斯的凱'
 url: https://www.ptt.cc/bbs/movie/M.1726101966.A.72E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6468,7 +6467,7 @@ date: 2024-08-16
 reply_count: 67
 title: '[好雷] 異形 羅穆路斯 -好雷 -爛尾'
 url: https://www.ptt.cc/bbs/movie/M.1723821499.A.C6B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很幸運地抽到4DX的電影票，所以昨天看完了。
 
   這次真的很好看。算是讓這部老IP有拍出新的味道。
@@ -6526,7 +6525,7 @@ date: 2024-08-15
 reply_count: 72
 title: '[好無雷] 異形:羅穆路斯無雷心得'
 url: https://www.ptt.cc/bbs/movie/M.1723688449.A.F65.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我想問為啥後面跑出一堆異形啊?
 
 

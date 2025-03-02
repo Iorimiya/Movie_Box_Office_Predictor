@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '差點被電影版害到錯過這部好片
 
 
@@ -82,7 +81,7 @@ date: 2024-07-19
 reply_count: 16
 title: '[好雷] 寂噤計畫   宇宙第一爆幹超好看'
 url: https://www.ptt.cc/bbs/movie/M.1721379004.A.4EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看預告
 
   兩部片風暴跟寂噤選一部去看
@@ -122,7 +121,7 @@ date: 2024-07-21
 reply_count: 5
 title: '[雷] 寂噤計畫 看到睡著'
 url: https://www.ptt.cc/bbs/movie/M.1721558805.A.E99.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位日安大家好
 
   昨天很臨時的被同事們cue去威秀
@@ -180,7 +179,7 @@ date: 2024-07-20
 reply_count: 25
 title: '[普好雷] 寂噤計畫其實還蠻好看啊'
 url: https://www.ptt.cc/bbs/movie/M.1721444968.A.CA0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '預告片連結><
 
 
@@ -218,7 +217,7 @@ date: 2024-07-21
 reply_count: 33
 title: '[討論] 寂噤計畫好看嗎'
 url: https://www.ptt.cc/bbs/movie/M.1721573210.A.ECF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有點不知道該怎麼評論
 
 
@@ -350,7 +349,7 @@ date: 2024-07-17
 reply_count: 7
 title: '[負雷] 寂噤計畫-剛看完-不能帶頭腦去看@@'
 url: https://www.ptt.cc/bbs/movie/M.1721206947.A.997.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在等龍卷風暴前，先看一片墊墊肚子
 
   哇塞，這什麼大爛片
@@ -409,7 +408,7 @@ date: 2024-07-17
 reply_count: 20
 title: '[負無雷] 《寂噤計畫》我幹，有夠難看'
 url: https://www.ptt.cc/bbs/movie/M.1721208551.A.BE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "第76屆坎城影展「午夜放映」單元正式入選！\n\n《》團隊斥資304億\n\n打造動作災難鉅獻！\n\n\n\n《》\n\n7月17日(三) 全台震撼上映\n\
   \n\n\n\n所有倖存者\n都成為\n目標\n\n\n《》Project Silence\n\n7月17日(三) 全台上映\n\n第76屆坎城影展 #午夜單元\
   \ 正式入選\n\n《》《》製作團隊動作災難鉅獻\n\n猶如《噤界》結合《屍速列車》！\n\n斥資304億打造浩大巨作！\n\n《與神同行》特效團隊「DEXTER\
@@ -421,7 +420,7 @@ date: 2024-06-24
 reply_count: 5
 title: '[情報] 李善均 朱智勛《寂噤計畫》電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1719223195.A.6D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "登頂韓國票房冠軍！\n\n 領銜主演\n\n今夏最強動作災難巨作《》\n\n7/17 (三) 全台上映\n\n\n\n《》7月17日 (三) 全台震撼上映\n\
   \n警告 所有倖存者都成為目標！\n\n電影預告：\n\n\n\n上映戲院：\n\n\n\n第76屆坎城影展 午夜單元 正式入選\n\n《白頭山：半島浩劫》《機密同盟2》製作團隊動作災難鉅獻\n\
   \n猶如《噤界》結合《屍速列車》！\n\n斥資304億打造浩大巨作！\n\n《與神同行》特效團隊「DEXTER STUDIOS」傾力打造驚心動魄災難場面\n\n\

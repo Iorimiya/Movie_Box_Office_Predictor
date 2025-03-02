@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '國片傳佳音《金門》入選美國影藝學院 最佳紀錄短片獎 15部短名單之列
 
 
@@ -41,7 +40,7 @@ date: 2023-12-22
 reply_count: 7
 title: '[新聞] 國片傳佳音《金門》入選 美國影藝學院 最'
 url: https://www.ptt.cc/bbs/movie/M.1703219827.A.E21.html
---- !!python/object:movie_data.PublicReview
+---
 content: '十公里外的自由：金門如何成為中國「敏感電影」的觀影天堂
 
 
@@ -339,7 +338,7 @@ date: 2025-01-31
 reply_count: 43
 title: '[新聞] 金門如何成為中國「敏感電影」觀影天堂'
 url: https://www.ptt.cc/bbs/movie/M.1738292150.A.DA2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當男人服役時，迷彩色的金門追憶
 
 
@@ -551,7 +550,7 @@ date: 2023-08-28
 reply_count: 1
 title: '[普雷]《金門留念》當阿兵哥成為往事'
 url: https://www.ptt.cc/bbs/movie/M.1693237484.A.2AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天在二輪戲院看了幾部電影 魔鬼終結者和加州大地震
 
 
@@ -574,7 +573,7 @@ date: 2015-10-05
 reply_count: 9
 title: '[討論] 電影中的金門大橋... (影片雷)'
 url: https://www.ptt.cc/bbs/movie/M.1444054545.A.475.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鍾志均
 
 
@@ -626,7 +625,7 @@ date: 2024-01-23
 reply_count: 30
 title: '[新聞] 奧斯卡入圍》台片《金門》報佳音！創紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1706020802.A.036.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一個曾是年薪200萬的軟體工程師、一個是在地的婚禮攝影，兩個金門子弟人生原與
 
   紀錄片勾不上關係，因緣際會之下，成為紀錄短片「金門」的幕後團隊，第一次參與
@@ -773,7 +772,7 @@ date: 2024-03-10
 reply_count: 2
 title: '[新聞] 金門前進奧斯卡 當地子弟轉換跑道掌鏡'
 url: https://www.ptt.cc/bbs/movie/M.1710072786.A.101.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -950,7 +949,7 @@ date: 2024-01-31
 reply_count: 40
 title: '[負雷] 《金門》《奶奶和外婆》'
 url: https://www.ptt.cc/bbs/movie/M.1706689287.A.DF9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1014,7 +1013,7 @@ date: 2024-01-24
 reply_count: 5
 title: '[新聞] 《金門》以父親當兵回憶紀錄短片  創下台'
 url: https://www.ptt.cc/bbs/movie/M.1706101665.A.973.html
---- !!python/object:movie_data.PublicReview
+---
 content: '花帔阿獺3D動畫續集來了 再為金門水獺發聲
 
 
@@ -1109,7 +1108,7 @@ date: 2019-04-18
 reply_count: 2
 title: '[新聞] 花帔阿獺3D動畫續集來了 再為金門水獺發聲'
 url: https://www.ptt.cc/bbs/movie/M.1555579729.A.2FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "有一部在金門拍攝的日本片\n\n  內容記得是  金蘋果  銀蘋果  紅蘋果\n\n\n  男女主角分別是  藤原龍也  戶田香\n\n\n \
   \ 類似像是算計7日的片  是哪一部??\n\n\n  再問一下  是在金門的哪邊拍的???\n\n  感謝回答\n\n\n\n\n\n\n\n\n--\n\n\
   \n\n\n\n\n\n--"
@@ -1117,7 +1116,7 @@ date: 2014-12-21
 reply_count: 46
 title: '[問片] 藤原龍也,戶田香主演 金門拍攝'
 url: https://www.ptt.cc/bbs/movie/M.1419148560.A.EAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者黃慧敏金門縣5日電）導演魏德聖今天在金門大學表示，將來如拍攝與金門
 
   有關的電影，會是部奇幻荒謬片；他並勉勵學生單純地追求最喜歡做的事。
@@ -1178,7 +1177,7 @@ date: 2014-12-05
 reply_count: 18
 title: '[新聞] 魏德聖：金門適合拍奇幻片'
 url: https://www.ptt.cc/bbs/movie/M.1417792564.A.9E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
   奧斯卡／「金門」導演江松長 將攜同志伴侶走紅毯

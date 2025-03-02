@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '防雷
 
 
@@ -144,7 +143,7 @@ date: 2024-06-11
 reply_count: 4
 title: '[  雷] 腦海中的橡皮擦'
 url: https://www.ptt.cc/bbs/movie/M.1718084316.A.3C7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由鄭雨盛和孫藝珍在 2004 年主演的經典愛情電影《腦海中的橡皮擦》將在台重映！
 
 
@@ -184,7 +183,7 @@ date: 2021-08-20
 reply_count: 51
 title: '[情報] 鄭雨盛、孫藝珍《腦海中的橡皮擦》台灣 9/10 重映！'
 url: https://www.ptt.cc/bbs/movie/M.1629439227.A.EAC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '孫藝真經典代表作《腦海中的橡皮擦》4K修復版即將在9月10日上映！
 
 
@@ -243,7 +242,7 @@ date: 2021-08-27
 reply_count: 13
 title: '[情報]孫藝真代表作《腦海中的橡皮擦》9/10重映'
 url: https://www.ptt.cc/bbs/movie/M.1630047253.A.CC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌無音樂好讀版:
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '馬克華柏格飾演的越野探險家，帶著一隻叫做亞瑟的狗
 
   爛番茄上面只有64分
@@ -15,7 +14,7 @@ date: 2024-03-20
 reply_count: 30
 title: '[討論] 極限長征的評價好像很兩極耶'
 url: https://www.ptt.cc/bbs/movie/M.1710873904.A.11B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -133,7 +132,7 @@ date: 2024-03-06
 reply_count: 2
 title: '[新聞] 【極限長征】劉思慕被蟲咬全身'
 url: https://www.ptt.cc/bbs/movie/M.1709733450.A.783.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -247,7 +246,7 @@ date: 2024-02-26
 reply_count: 3
 title: '[新聞] 馬克華柏格拍【極限長征】膝蓋撕裂不喊卡'
 url: https://www.ptt.cc/bbs/movie/M.1708948314.A.BBA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實這種拍法比較正常
 
 
@@ -288,7 +287,7 @@ date: 2024-03-29
 reply_count: 3
 title: 'Re: [討論] 極限長征的評價好像很兩極耶'
 url: https://www.ptt.cc/bbs/movie/M.1711702077.A.440.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -400,7 +399,7 @@ date: 2024-03-14
 reply_count: 5
 title: '[新聞] 【極限長征】劉思慕異國遇「她」一見鍾情'
 url: https://www.ptt.cc/bbs/movie/M.1710427713.A.2C7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

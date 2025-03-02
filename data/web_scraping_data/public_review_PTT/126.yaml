@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '《》本週五重返大銀幕
 
 
@@ -25,7 +24,7 @@ date: 2024-03-06
 reply_count: 8
 title: '[情報] 【蜘蛛人：穿越新宇宙】重返大銀幕'
 url: https://www.ptt.cc/bbs/movie/M.1709711382.A.1F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷線－－－－－－－－－－
 
 
@@ -135,7 +134,7 @@ date: 2023-06-26
 reply_count: 65
 title: '[討論] 蜘蛛人：穿越新宇宙有雷疑問'
 url: https://www.ptt.cc/bbs/movie/M.1687750319.A.77A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: dragon803 (AZKiちゃん大好き) 看板: C_Chat
 
   標題: [情報] 蜘蛛人 穿越新宇宙 新預告
@@ -170,7 +169,7 @@ date: 2023-05-12
 reply_count: 30
 title: 'Fw: [情報] 蜘蛛人 穿越新宇宙 新預告'
 url: https://www.ptt.cc/bbs/movie/M.1683871315.A.1B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看起來前面有一篇傳聞湯姆的蜘蛛人有參與
 
 
@@ -185,7 +184,7 @@ date: 2023-04-04
 reply_count: 85
 title: '[討論] 蜘蛛人：穿越新宇宙 - 國際版預告'
 url: https://www.ptt.cc/bbs/movie/M.1680592303.A.23A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -269,7 +268,7 @@ date: 2023-06-25
 reply_count: 11
 title: '[好雷] 蜘蛛人穿越新宇宙-關於成長的故事'
 url: https://www.ptt.cc/bbs/movie/M.1687672008.A.077.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -341,7 +340,7 @@ date: 2023-07-05
 reply_count: 15
 title: '[ 眼睛好酸雷] 蜘蛛人穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1688541523.A.758.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蜘蛛人新宇宙系列共同製作人與編劇
 
   克里斯多夫米勒在推特發佈
@@ -377,7 +376,7 @@ date: 2023-05-28
 reply_count: 180
 title: '[討論] 蜘蛛人：穿越新宇宙中國版海報'
 url: https://www.ptt.cc/bbs/movie/M.1685233356.A.34A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該沒暴任何雷，但防個雷
 
 
@@ -449,7 +448,7 @@ date: 2023-06-21
 reply_count: 75
 title: '[討論] 蜘蛛人：穿越新宇宙 國語版'
 url: https://www.ptt.cc/bbs/movie/M.1687358373.A.BC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我先講我的結論，我還是覺得閃電俠比較蜘蛛人好看
 
   雖然說兩個劇情都有一些小漏洞，也可以看到很多平行世界多元宇宙的套路，不過對我來
@@ -499,7 +498,7 @@ date: 2023-06-27
 reply_count: 34
 title: 蜘蛛人穿越新宇宙vs閃電俠 心得（微雷）
 url: https://www.ptt.cc/bbs/movie/M.1687841206.A.168.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\n\n\n\
   \   走出電影院  我心裡亂糟糟  美術 分鏡 特效不錯\n\n但是我實在無法理解劇情  尤其是領隊想法\n\n抱歉  我連他名字都沒記住\n\n\n\n\n\
@@ -520,7 +519,7 @@ date: 2023-06-24
 reply_count: 121
 title: '[負雷]蜘蛛人 穿越新宇宙  邏輯在哪?'
 url: https://www.ptt.cc/bbs/movie/M.1687539200.A.68B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '問一下大家
 
 
@@ -548,7 +547,7 @@ date: 2023-06-27
 reply_count: 2
 title: 'Re: [討論] 關於蜘蛛人:穿越新宇宙的結尾'
 url: https://www.ptt.cc/bbs/movie/M.1687864056.A.1C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '奇摩中文影視新聞網址：
 
 
@@ -812,7 +811,7 @@ date: 2023-06-24
 reply_count: 226
 title: '[新聞] 【蜘蛛人：穿越新宇宙】動畫師遭壓榨'
 url: https://www.ptt.cc/bbs/movie/M.1687600147.A.DBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '除了這個大鬧天宮版本外
 
 
@@ -835,7 +834,7 @@ date: 2023-06-11
 reply_count: 23
 title: 'Re: [討論] 蜘蛛人：穿越新宇宙中國版海報'
 url: https://www.ptt.cc/bbs/movie/M.1686451717.A.F84.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'You do not know 《蜘蛛人：穿越新宇宙》
 
 
@@ -941,7 +940,7 @@ date: 2023-06-22
 reply_count: 5
 title: '[好雷]You do not know 《蜘蛛人：穿越新宇宙》 '
 url: https://www.ptt.cc/bbs/movie/M.1687444061.A.668.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   過幾天生日
@@ -977,7 +976,7 @@ date: 2023-06-23
 reply_count: 121
 title: '[選片] 閃電俠VS蜘蛛人穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687524632.A.65A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n雖然說標題寫普雷\n\
   但是我心底以前作帶來的信心是想給負雷的\n\n\n我對幾個地方給很大差評\n\n1.世界線的修正\n\n蜘蛛人作品常被開玩笑一定要死班叔/親友來刺激成長不然世界會毀滅\n\
@@ -994,7 +993,7 @@ date: 2023-06-04
 reply_count: 60
 title: '[普雷] 大失望的蜘蛛人穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685892607.A.D7F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【】
 
 
@@ -1032,7 +1031,7 @@ date: 2023-07-18
 reply_count: 73
 title: '[情報] 《蜘蛛人：穿越新宇宙》全台票房破億'
 url: https://www.ptt.cc/bbs/movie/M.1689675807.A.7AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "東森洋片\n蜘蛛人：穿越新宇宙 (Spider-Man: Across the Spider-Verse)\n電影-動畫-英美\n02-13(二)\
   \ 20:00~23:00\n\n導演:\nJoaquim Dos Santos\nKemp Powers\nJustin K. Thompson\n配音:\n\
   Shameik Moore\nHailee Steinfeld\nBrian Tyree Henry\nLauren Velez\nJake Johnson\n\
@@ -1046,7 +1045,7 @@ date: 2024-02-13
 reply_count: 15
 title: '[Live] 東森洋片 20:00 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1707816276.A.8A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先覺得台灣要延到6/21才上映真的拖太久了，裡面一堆驚奇跟彩蛋，被暴雷就少了一半
 
   樂趣，能包場就包場吧。
@@ -1135,7 +1134,7 @@ date: 2023-06-03
 reply_count: 12
 title: '[極好雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685791123.A.D43.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1298,7 +1297,7 @@ date: 2023-06-29
 reply_count: 5
 title: '[極好雷] 建立史詩典範的蜘蛛人穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1688025622.A.B38.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1337,7 +1336,7 @@ date: 2023-02-28
 reply_count: 51
 title: '[新聞] 傳T.Holland將出演《蜘蛛人:穿越新宇宙》'
 url: https://www.ptt.cc/bbs/movie/M.1677595215.A.81D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2024/12/06 Apple TV 特價報】
 
   中土世界套裝特價／蜘蛛人：穿越新宇宙／屍樂園／返家十萬里／玩命鈔劫／超＂人＂氣
@@ -1525,7 +1524,7 @@ date: 2024-12-06
 reply_count: 7
 title: '[討論] Apple TV 特價報 魔戒/蜘蛛人:穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1733465938.A.DC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n \n \n \n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n \n\
   \ \n \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n \n～圖文好讀版\
   \  ～\n \n \n \n \n \n \n \n \n距離上一次蜘蛛人動畫電影『蜘蛛人：新宇宙』（2018上映)，已經過了5年。記得上一次\n的新宇宙在美術風格與音樂搭配都拿到很好的口碑，尤其是Sunflower這一首主題曲，真\n\
@@ -1584,7 +1583,7 @@ date: 2023-10-05
 reply_count: 19
 title: '[好雷] 淺談 蜘蛛人：穿越新宇宙 觀後分享'
 url: https://www.ptt.cc/bbs/movie/M.1696490618.A.B62.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟剛看完日配版，
 
   在這之前只有看過早鳥包場，
@@ -1617,7 +1616,7 @@ date: 2023-07-14
 reply_count: 15
 title: '[請益] 《蜘蛛人：穿越新宇宙》日配版畫面有比較'
 url: https://www.ptt.cc/bbs/movie/M.1689346944.A.78C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '目前看了三次，統整一下自己跟一些網友的有趣發現，和板上大家討論。
 
 
@@ -1716,7 +1715,7 @@ date: 2023-06-22
 reply_count: 62
 title: '[討論] 【蜘蛛人：穿越新宇宙】多刷小發現'
 url: https://www.ptt.cc/bbs/movie/M.1687433508.A.26A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去年的搶先看片段：
 
 
@@ -1747,7 +1746,7 @@ date: 2022-12-14
 reply_count: 81
 title: '[情報] 《蜘蛛人：穿越新宇宙》新預告'
 url: https://www.ptt.cc/bbs/movie/M.1670950835.A.452.html
---- !!python/object:movie_data.PublicReview
+---
 content: '安安，我口國社畜肥宅啦
 
 
@@ -1892,7 +1891,7 @@ date: 2023-06-18
 reply_count: 18
 title: '[ 好雷] 蜘蛛人穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687072302.A.85E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蜘蛛人：穿越新宇宙》票房破新紀錄！打破索尼動畫電影歷史上最高紀錄
 
 
@@ -2036,7 +2035,7 @@ date: 2023-07-05
 reply_count: 45
 title: '[新聞] 《蜘蛛人：穿越新宇宙》票房破新紀錄！'
 url: https://www.ptt.cc/bbs/movie/M.1688496088.A.AD1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蜘蛛人：穿越新宇宙》全球首週票房賣破 2 億美元！北美開片票房相較首集翻漲近三
 
   倍
@@ -2077,7 +2076,7 @@ date: 2023-06-05
 reply_count: 15
 title: '[新聞]蜘蛛人：穿越新宇宙全球首週票房賣破 2 '
 url: https://www.ptt.cc/bbs/movie/M.1685971802.A.5A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蜘蛛人：穿越新宇宙》北美6/2上映，
 
   目前可靠消息來源為7/18上架Amazon Prime及iTunes，
@@ -2110,7 +2109,7 @@ date: 2023-06-05
 reply_count: 40
 title: '[討論] 《蜘蛛人:穿越新宇宙》7/18上架串流'
 url: https://www.ptt.cc/bbs/movie/M.1685902633.A.EF8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天去看了avant premiere。
 
 
@@ -2162,7 +2161,7 @@ date: 2023-05-31
 reply_count: 42
 title: '[無雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685522139.A.252.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為是搶先版
 
   工作人員說不行劇透
@@ -2221,7 +2220,7 @@ date: 2023-06-11
 reply_count: 16
 title: '[好無雷] 蜘蛛人：穿越新宇宙 動作色彩不錯'
 url: https://www.ptt.cc/bbs/movie/M.1686485111.A.2D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '兩部電影的雷都有，且是大大雷，請慎入
 
 
@@ -2309,7 +2308,7 @@ date: 2023-06-21
 reply_count: 19
 title: '[有雷] 穿越新宇宙之於閃電俠'
 url: https://www.ptt.cc/bbs/movie/M.1687313644.A.8FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2399,7 +2398,7 @@ date: 2023-06-23
 reply_count: 223
 title: '[失望普雷]便祕般的劇情，蜘蛛人穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687456500.A.BC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '話說第一部新宇宙是在串流平台看了
 
   看完後發誓如果有續集一定要進電影院看
@@ -2519,7 +2518,7 @@ date: 2023-07-03
 reply_count: 69
 title: '[討論] 蜘蛛人:穿越新宇宙 後續發展猜測'
 url: https://www.ptt.cc/bbs/movie/M.1688357326.A.64E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '瑪利歐台灣有上日配上映，不知道蜘蛛人有沒有機會！！
 
   日文主題曲是LiSA唱的
@@ -2535,7 +2534,7 @@ date: 2023-05-25
 reply_count: 27
 title: '[討論] 蜘蛛人：穿越新宇宙 日配'
 url: https://www.ptt.cc/bbs/movie/M.1685010508.A.0FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我只有八個字概括這部電影：美術封神、劇本深刻。
 
 
@@ -2724,7 +2723,7 @@ date: 2023-06-21
 reply_count: 58
 title: '[好雷] 誰說超英疲勞？蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687354187.A.0F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2892,7 +2891,7 @@ date: 2023-06-29
 reply_count: 10
 title: '[好雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687973654.A.82C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '打敗小美人魚！《蜘蛛人：穿越新宇宙》北美票房衝破37億　獲讚超越前作
 
 
@@ -2963,7 +2962,7 @@ date: 2023-06-05
 reply_count: 46
 title: '[新聞]打敗小美人魚！《蜘蛛人：穿越新宇宙》北美'
 url: https://www.ptt.cc/bbs/movie/M.1685971177.A.92A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完整部印象最深的是米蓋爾那永遠都苦大仇深的表情，背影彷彿一座聖母峰壓在肩上，有一堆鳥事要處理，偏偏部下一堆特立獨行，B帕克女兒在米蓋爾苦瓜臉上爬真的笑死
 
 
@@ -3001,7 +3000,7 @@ date: 2023-06-26
 reply_count: 42
 title: '[ 好雷] 穿越新宇宙 當老闆好痛苦'
 url: https://www.ptt.cc/bbs/movie/M.1687759461.A.D2C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '國外是6/2正式上映
 
   台灣硬生生就是要等到端午連假才上
@@ -3014,7 +3013,7 @@ date: 2023-05-12
 reply_count: 49
 title: '[討論] 蜘蛛人：穿越新宇宙 搶先看包場'
 url: https://www.ptt.cc/bbs/movie/M.1683865954.A.582.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蜘蛛人：穿越新宇宙》叫好叫座！全球猛破5億美金登年度第4
 
 
@@ -3069,7 +3068,7 @@ date: 2023-06-23
 reply_count: 441
 title: '[新聞] '
 url: https://www.ptt.cc/bbs/movie/M.1687529981.A.188.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3211,7 +3210,7 @@ date: 2023-06-21
 reply_count: 5
 title: '[極雷] 蜘蛛人：穿越新宇宙  另一種風貌動畫'
 url: https://www.ptt.cc/bbs/movie/M.1687347429.A.DA1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '人剛好在馬來西亞，便請馬來西亞友人帶我去看這部
 
 
@@ -3348,7 +3347,7 @@ date: 2023-06-03
 reply_count: 50
 title: '[失望雷]蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685785588.A.CFD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蜘蛛人：穿越新宇宙的製作預算為100M
 
 
@@ -3359,7 +3358,7 @@ date: 2023-05-31
 reply_count: 59
 title: '[情報] 蜘蛛人：穿越新宇宙製作預算為100M'
 url: https://www.ptt.cc/bbs/movie/M.1685543753.A.C8C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蜘蛛人新宇宙是我看過最好看的動畫電影，也是我最喜歡的超級英雄電影。當我看到這部
 
   片要有續集的時後，我內心其實有點糾結，一方面我很想看到這個故事的後續，但另一方
@@ -3776,7 +3775,7 @@ date: 2023-06-28
 reply_count: 199
 title: '[好雷] 蜘蛛人 穿越新宇宙－“反派”太正確'
 url: https://www.ptt.cc/bbs/movie/M.1687950137.A.992.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本說好不上PTT了，結果氣到跑上來發心得文
 
   是我超級情弱，對不起
@@ -3883,7 +3882,7 @@ date: 2023-06-17
 reply_count: 61
 title: '[大負無雷] 《蜘蛛人穿越新宇宙》為什麼這麼好'
 url: https://www.ptt.cc/bbs/movie/M.1686980093.A.4F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -3934,7 +3933,7 @@ date: 2023-06-26
 reply_count: 32
 title: '[請益] 蜘蛛人穿越新宇宙雷 關於新宇宙的角色'
 url: https://www.ptt.cc/bbs/movie/M.1687740334.A.596.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新世界電影裡面屢次提及的正史、偏離正史
 
   指的是在任何平行世界都必定會發生的事件
@@ -3963,7 +3962,7 @@ date: 2023-06-26
 reply_count: 3
 title: 'Re: [討論] 蜘蛛人：穿越新宇宙有雷疑問'
 url: https://www.ptt.cc/bbs/movie/M.1687758107.A.27B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '觀影日期: 6/12 松仁威秀 TITAN見面場
 
 
@@ -4106,7 +4105,7 @@ date: 2023-06-21
 reply_count: 11
 title: '[好雷] 蜘蛛人 穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687352460.A.27B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4185,7 +4184,7 @@ date: 2023-05-26
 reply_count: 93
 title: '[新聞] 《蜘蛛人：穿越新宇宙》首波評價出爐：'
 url: https://www.ptt.cc/bbs/movie/M.1685084251.A.311.html
---- !!python/object:movie_data.PublicReview
+---
 content: '狂賀《蜘蛛人：穿越新宇宙》本週在無勁敵下，
 
 
@@ -4234,7 +4233,7 @@ date: 2023-06-26
 reply_count: 121
 title: '[討論] 蜘蛛人:穿越新宇宙重返北美票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1687712194.A.F71.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文好讀：\n\n說個笑話，當年漫威快要破產時，把自己的超級英雄IP（的電影改編權）打包起來\n要賣給索尼，結果索尼呵呵兩聲，說他們只要蜘蛛人，不收垃圾。\n\
   \n不要看現在漫威被迪士尼收購後好像如日中天，英雄們各個如雷貫耳，就覺得索尼\n當年好像太高傲了。事實上是，漫威拍了十幾年、幾十部電影和影集，才敢把多元\n宇宙這題材搬出來拍；索尼自己呢？一看多元宇宙好像有搞頭，直接用「蜘蛛人」\n\
   這三個字就給拍了。這還不算他們正在搞的蜘蛛人反派宇宙呢。\n\n你算出幾個蜘蛛人呢？（《蜘蛛人：穿越新宇宙》國際版預告）\n\n光是蜘蛛人這IP，就有無限的故事、無限的可能性，這就是正港漫威一哥的通天威\n\
@@ -4250,7 +4249,7 @@ date: 2023-06-21
 reply_count: 10
 title: '[宇宙神作] 《蜘蛛人：穿越新宇宙》的絢麗萬花筒'
 url: https://www.ptt.cc/bbs/movie/M.1687345380.A.E3C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看完想看版上討論文才發現台灣還沒上映
 
 
@@ -4285,7 +4284,7 @@ date: 2023-06-14
 reply_count: 20
 title: '[好無雷] 蜘蛛人 穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1686697599.A.58C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【預定日期】6/2（五）\n【預定時間】20點後\n【預定地點】第一順位台北松仁威秀、第二順位信義威秀\n【版本】英文配音\n【人數】70~75人\n\
   【票價】一人最低280元（75人下的狀況，會依人數調整）\n\n\n\n  預告片：\n\n\n意願調查（已結束）：\n\n調查人數已達標先關閉表單了，週一會聯絡業務，確認時間地點後會發送正式報名表單至\n\
   mail，再請大家靜待消息了～謝謝各位！\n第一次包場有什麼經驗或意見都歡迎提出！\n\n--"
@@ -4293,7 +4292,7 @@ date: 2023-05-19
 reply_count: 30
 title: 包場 《蜘蛛人：穿越新宇宙》台北6/2意願調查
 url: https://www.ptt.cc/bbs/movie/M.1684470677.A.8F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -4344,7 +4343,7 @@ date: 2023-07-03
 reply_count: 14
 title: '[請益] 蜘蛛人 新宇宙的台詞'
 url: https://www.ptt.cc/bbs/movie/M.1688392794.A.139.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
   早場10:40的松仁泰坦廳，進場前看到滿多小孩想說要跟觀影體驗說再見了，結果正片開始到結束都挺安靜的
@@ -4398,7 +4397,7 @@ date: 2023-06-22
 reply_count: 10
 title: '[好雷] 蜘蛛人:穿越新宇宙 '
 url: https://www.ptt.cc/bbs/movie/M.1687420628.A.DBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情亂七八糟,跟 媽的多重宇宙 有 87% 像
 
 
@@ -4435,7 +4434,7 @@ date: 2023-06-21
 reply_count: 114
 title: '[大負雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687349150.A.0BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '簡單流水帳心得
 
 
@@ -4475,7 +4474,7 @@ date: 2023-06-05
 reply_count: 7
 title: '[無雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685899717.A.FBA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蜘蛛人：穿越新宇宙》釋出最新預告影片 拯救一人？抑或是拯救全宇宙
 
 
@@ -4544,7 +4543,7 @@ date: 2023-04-04
 reply_count: 1
 title: 《蜘蛛人：穿越新宇宙》釋出最新預告影片拯救一人?抑或是拯救全宇宙
 url: https://www.ptt.cc/bbs/movie/M.1680606009.A.72A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次參加這種電影馬拉松連映，雖然《蜘蛛人：新宇宙》我已經看過無數次，但每次看都
 
   會有不同的感受。距離第一集上映已經隔了6年，馬拉松連映活動剛好幫忙複習第一集(是說
@@ -4595,7 +4594,7 @@ date: 2023-06-05
 reply_count: 24
 title: '[極好無雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685894605.A.F7B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看了網路評價不錯的蜘蛛人電影
 
 
@@ -4632,7 +4631,7 @@ date: 2023-07-08
 reply_count: 2
 title: '[雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1688829737.A.546.html
---- !!python/object:movie_data.PublicReview
+---
 content: '下周應有2部電影被選名單,想選1部看 其中《小行星城》表定也下周,但影城網頁沒放出
 
   本人喜歡 動作 劇情 動畫 推理 喜劇 等等的片型
@@ -4661,7 +4660,7 @@ date: 2023-06-17
 reply_count: 22
 title: '[選片] 蜘蛛人:穿越新宇宙 vs. 小行星城'
 url: https://www.ptt.cc/bbs/movie/M.1687012001.A.DB1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當然是都看呀
 
 
@@ -4722,7 +4721,7 @@ date: 2023-06-23
 reply_count: 15
 title: 'Re: [選片] 閃電俠VS蜘蛛人穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687535605.A.751.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4861,7 +4860,7 @@ date: 2023-06-24
 reply_count: 6
 title: '[好雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687599605.A.E02.html
---- !!python/object:movie_data.PublicReview
+---
 content: '別再敲碗啦，這不就來了嗎！
 
 
@@ -4912,7 +4911,7 @@ date: 2023-07-05
 reply_count: 7
 title: '[情報] 《蜘蛛人：穿越新宇宙》日語配音版'
 url: https://www.ptt.cc/bbs/movie/M.1688561807.A.8CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '還是防一下雷
 
   .
@@ -5027,7 +5026,7 @@ date: 2023-06-27
 reply_count: 37
 title: '[普通雷] 蜘蛛人：穿越新宇宙中配版'
 url: https://www.ptt.cc/bbs/movie/M.1687871552.A.0EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蜘蛛人：穿越新宇宙》 Netflix 12/06
 
 
@@ -5045,7 +5044,7 @@ date: 2023-11-26
 reply_count: 8
 title: '[討論] 《蜘蛛人：穿越新宇宙》 Netflix 12/06'
 url: https://www.ptt.cc/bbs/movie/M.1700928397.A.71C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛好人在外地出差抽空到當地戲院觀賞穿越新宇宙，
 
 
@@ -5153,7 +5152,7 @@ date: 2023-06-08
 reply_count: 13
 title: '[微好雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1686162144.A.901.html
---- !!python/object:movie_data.PublicReview
+---
 content: "電影板心得首Po，若哪裡有誤或觸犯到板規請讓我知道～\n \n我會盡量在不劇透任何東西的狀況下跟大家分享我的心得，當然如果完全不想被爆雷到任何\n\
   資訊的朋友請自己斟酌。\n \n還是以防萬一防個雷\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n_\n\
   \ \n小弟有幸能在加拿大先看到這部電影。\n \n我看的是一般版所以IMAX的表現如何我不知道。\n \n雖然片長136分鐘但體感完全不這麼覺得，很過癮。\n\
@@ -5168,7 +5167,7 @@ date: 2023-06-02
 reply_count: 41
 title: '[極好無雷]蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685666890.A.DF1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天滑Apple TV的時候看到8/8上映
 
   結果今天已經偷跑啦！
@@ -5193,7 +5192,7 @@ date: 2023-08-07
 reply_count: 53
 title: '[討論] 蜘蛛人穿越新宇宙上串流了！'
 url: https://www.ptt.cc/bbs/movie/M.1691418858.A.0E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天特地跑去看1+2聯映
 
 
@@ -5302,7 +5301,7 @@ date: 2023-06-04
 reply_count: 117
 title: '[好雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685893081.A.3CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小情侶閃光防雷頁
 
 
@@ -5380,7 +5379,7 @@ date: 2023-06-05
 reply_count: 74
 title: '[討論] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685972208.A.345.html
---- !!python/object:movie_data.PublicReview
+---
 content: "第一集找Post Malone唱sunflower\n\n但是個人更愛第二集中Gwen第一次見面在擺盪的Mona Lisa\n\n還有ED的Am\
   \ I Dreaming，搭配那結尾真的是很惆悵\n\nGwen開頭打鼓的也是超級動感\n\n\n2099的配樂出來也有異常壓迫感跟科技感\n\n覺得第二集的配樂音樂有超越第一集嗎\\\
   ?\n\n--\n\n\n\n                                                   by \n\n\n--"
@@ -5388,7 +5387,7 @@ date: 2023-07-01
 reply_count: 115
 title: '[討論] 穿越新宇宙音樂有比第一集神嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1688202469.A.E1D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '目前有46個評論，好評數96%，均分為8.9
 
 
@@ -5410,7 +5409,7 @@ date: 2023-06-01
 reply_count: 87
 title: '[討論] 蜘蛛人：穿越新宇宙 爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1685548979.A.A3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2024/07/04 暑期特價快速整理－第二週】
 
   水行俠 失落王國／沙丘／蜘蛛人：穿越新宇宙／小行星城／香草天空／魔戒三部曲加長
@@ -5540,7 +5539,7 @@ date: 2024-07-04
 reply_count: 6
 title: '[討論] Apple TV特價 蜘蛛人穿越新宇宙/中土世界'
 url: https://www.ptt.cc/bbs/movie/M.1720078068.A.8A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有電影劇情雷，強烈建議看完電影再往下看
 
 
@@ -5630,7 +5629,7 @@ date: 2023-06-23
 reply_count: 34
 title: '[討論] 《蜘蛛人:穿越新宇宙》的幾個橋段'
 url: https://www.ptt.cc/bbs/movie/M.1687532113.A.2CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -5652,7 +5651,7 @@ date: 2023-06-15
 reply_count: 156
 title: '[選片] 蜘蛛人：穿越新宇宙 vs 閃電俠'
 url: https://www.ptt.cc/bbs/movie/M.1686825765.A.C46.html
---- !!python/object:movie_data.PublicReview
+---
 content: '邁爾斯.莫拉雷斯的多重宇宙,動畫電影版 第一集就有去看 很好看 也是看3D~
 
 
@@ -5678,7 +5677,7 @@ date: 2023-06-06
 reply_count: 31
 title: '[討論] 蜘蛛人：穿越新宇宙 會推薦看3D版嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1685986576.A.2AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如標題普雷原本想給好雷
 
   但在我沒被雷到2是沒結局要等3的前提下只能給普雷
@@ -5733,7 +5732,7 @@ date: 2023-06-27
 reply_count: 22
 title: '[普雷] 穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687845986.A.89F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我文筆不好,想到什麼就寫什麼:
 
 
@@ -5790,7 +5789,7 @@ date: 2023-06-03
 reply_count: 10
 title: '[好無雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1685799458.A.936.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完蜘蛛人穿越新宇宙
 
 
@@ -5823,7 +5822,7 @@ date: 2023-06-24
 reply_count: 44
 title: '[討論] 蜘蛛人穿越新宇宙:根本是動畫界張藝謀'
 url: https://www.ptt.cc/bbs/movie/M.1687537121.A.3D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '兩部都不錯
 
   但是你如果沒看過新宇宙第一集
@@ -5891,7 +5890,7 @@ date: 2023-06-23
 reply_count: 26
 title: 'Re: [選片] 閃電俠VS蜘蛛人穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687526449.A.0CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，
 
 
@@ -5913,7 +5912,7 @@ date: 2023-06-29
 reply_count: 3
 title: '[討論] 蜘蛛人穿越新宇宙海報交換 板橋'
 url: https://www.ptt.cc/bbs/movie/M.1688020047.A.C00.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完蜘蛛人穿越新宇宙，能說的只有一句話，快去看！最好多看三次！
 
 
@@ -5977,7 +5976,7 @@ date: 2023-06-22
 reply_count: 24
 title: ［超好雷］蜘蛛人穿越新宇宙，還沒看真的趕快去
 url: https://www.ptt.cc/bbs/movie/M.1687436814.A.017.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《蜘蛛人：穿越新宇宙》勇奪全球票房冠軍打破多項紀錄 好評如潮席捲全球
 
 
@@ -6056,7 +6055,7 @@ date: 2023-06-05
 reply_count: 19
 title: '[新聞] 《蜘蛛人：穿越新宇宙》勇奪全球票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1685964723.A.4A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想要請教一下
 
 
@@ -6073,7 +6072,7 @@ date: 2023-06-21
 reply_count: 19
 title: '[請益] 蜘蛛人 穿越新宇宙 4DX/IMAX請益'
 url: https://www.ptt.cc/bbs/movie/M.1687351741.A.D8D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6309,7 +6308,7 @@ date: 2023-06-25
 reply_count: 5
 title: '[好雷]【穿越新宇宙】轟炸眼球的絢爛視覺饗宴'
 url: https://www.ptt.cc/bbs/movie/M.1687662340.A.744.html
---- !!python/object:movie_data.PublicReview
+---
 content: '安安
 
 
@@ -6336,7 +6335,7 @@ date: 2023-06-27
 reply_count: 29
 title: '[討論] 蜘蛛人：穿越新宇宙換角'
 url: https://www.ptt.cc/bbs/movie/M.1687880132.A.FDB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '結尾
 
   Miles來到一個不屬於他的宇宙
@@ -6373,7 +6372,7 @@ date: 2023-06-27
 reply_count: 117
 title: '[討論] 關於蜘蛛人:穿越新宇宙的結尾'
 url: https://www.ptt.cc/bbs/movie/M.1687853805.A.1F1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作為近年被重啟最多次的超級英雄之一，5 年前的《蜘蛛人：新宇宙》宛如平地一聲雷，
 
   剛看完時腦袋轟隆隆，心想「這絕對是我看過最精彩的蜘蛛人電影。」
@@ -6512,7 +6511,7 @@ date: 2023-06-25
 reply_count: 43
 title: '[心情複雜雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687707450.A.7F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這集最後的設定真的很讚
 
   讓人很想看下一集
@@ -6576,7 +6575,7 @@ date: 2023-06-24
 reply_count: 208
 title: '[負雷] 蜘蛛人穿越新宇宙-無聊煩躁的家庭戲太多'
 url: https://www.ptt.cc/bbs/movie/M.1687568386.A.CBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天嘉義in89試片場看的，真不是三言兩語可以形容【蜘蛛人:穿越新宇宙】的好，上一
 
   次有這種沉浸的觀影體驗應該是【寄生上流】、【黑暗騎士】了。
@@ -6635,7 +6634,7 @@ date: 2023-06-20
 reply_count: 16
 title: '[極好無雷] 蜘蛛人:穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687246004.A.32E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6771,7 +6770,7 @@ date: 2023-06-23
 reply_count: 84
 title: '[好雷] 蜘蛛人 穿越新宇宙 劇情討論'
 url: https://www.ptt.cc/bbs/movie/M.1687476905.A.EED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -6850,7 +6849,7 @@ date: 2023-06-21
 reply_count: 91
 title: '[神雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687331982.A.4D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文恕刪
 
 
@@ -7007,7 +7006,7 @@ date: 2023-11-07
 reply_count: 15
 title: 'Re: [好雷] 蜘蛛人 穿越新宇宙－“反派”太正確'
 url: https://www.ptt.cc/bbs/movie/M.1699335018.A.F2A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7229,7 +7228,7 @@ date: 2023-06-21
 reply_count: 108
 title: '[超級英雄極好雷] 電影史上最好“看”的蜘蛛人'
 url: https://www.ptt.cc/bbs/movie/M.1687347869.A.1CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "第一次體驗南紡威秀的imax\n不過只覺得比一般的大了一些些\n可能是美麗華看太多胃口被養大\n不過還是個不錯的體驗啦\n \n \n \n \n\
   \ \n \n \n \n \n防雷\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
   \ \n \n \n \n \n \n \n \n \n \n \n \n五年前的我當時再幾個月就學測考大學了\n但老子就是不用功翹掉補習班去電影院晃\n然後看到了當時的新宇宙,當時就感到一陣新鮮感\n\
@@ -7251,7 +7250,7 @@ date: 2023-06-24
 reply_count: 59
 title: '[  雷] 蜘蛛人：穿越新宇宙'
 url: https://www.ptt.cc/bbs/movie/M.1687618239.A.3E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '多重宇宙的問題，以下有雷
 
 
@@ -7335,7 +7334,7 @@ date: 2023-06-21
 reply_count: 33
 title: '[討論] 蜘蛛人-穿越新宇宙（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1687318239.A.698.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7442,7 +7441,7 @@ date: 2023-06-01
 reply_count: 38
 title: '[ 極好雷] 蜘蛛人：穿越新宇宙 超越前作的續作'
 url: https://www.ptt.cc/bbs/movie/M.1685584702.A.716.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完第二集
 
   覺得畫風好像比第一集又更濃烈許多了？

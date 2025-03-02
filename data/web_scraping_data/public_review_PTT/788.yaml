@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '《海洋奇緣2》演員配音完成 故事比前作更大
 
 
@@ -82,7 +81,7 @@ date: 2024-09-10
 reply_count: 11
 title: '[新聞] 《海洋奇緣2》演員配音完成 故事比前作'
 url: https://www.ptt.cc/bbs/movie/M.1725975608.A.016.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來看版友的評價普通但看到新聞上週票房是第一（腦波很弱的我....
 
   小孩說同學都有去看所以一直吵著說也要看
@@ -115,7 +114,7 @@ date: 2024-12-08
 reply_count: 10
 title: '[好雷] 海洋奇緣2 推中文版 適合帶小朋友一起看'
 url: https://www.ptt.cc/bbs/movie/M.1733650574.A.4CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -188,7 +187,7 @@ date: 2024-12-16
 reply_count: 13
 title: '[負雷] 海洋奇緣2'
 url: https://www.ptt.cc/bbs/movie/M.1734319453.A.96F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   其實本來是要重溫星際效應的，\n結果因為小朋友都想看海洋奇緣2所以作為爸爸只好捨棄了\n\n不過現在想想居然兩片有點類似之處??\n\n\n\n\n\n莫娜上一集是被迫出海\n\
@@ -211,7 +210,7 @@ date: 2024-12-21
 reply_count: 8
 title: '[好雷] 海洋奇緣2--沒有政治正確的迪士尼就是強'
 url: https://www.ptt.cc/bbs/movie/M.1734789562.A.EC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '‧
 
 
@@ -295,7 +294,7 @@ date: 2024-11-28
 reply_count: 34
 title: '[普無雷] 海洋奇緣2 這波海浪打不進心底'
 url: https://www.ptt.cc/bbs/movie/M.1732807652.A.3E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '************雷文防雷資訊*********
 
 
@@ -390,7 +389,7 @@ date: 2024-12-06
 reply_count: 12
 title: '[好雷] 海洋奇緣2 自我成長的好故事'
 url: https://www.ptt.cc/bbs/movie/M.1733500603.A.31C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有部份雷
 
 
@@ -590,7 +589,7 @@ date: 2024-12-01
 reply_count: 34
 title: '[好雷] 海洋奇緣2'
 url: https://www.ptt.cc/bbs/movie/M.1733020703.A.D9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*\n\n\n\n~~~~~~雷文 主文分隔線\
   \ ~~~~~~\n\n先說我還是覺得第一集更好看，但第二集也還是沒讓人太失望啦。畢竟第一集我是有被Te\n kā就是Te Fiti騙到的，那種被大地之母逆襲，不就是現在的地球被大自然反撲的現象\n\
   嗎？不就是所謂的水能載舟，亦能覆舟嗎？\n\n（回到第二集）一開始海浪的環繞感就讓人目眩神迷，山與海的配合實在美麗。本人非常\n喜歡南島文化的氛圍，我認為依然有延續第一集那種美好的風格。Moana能撥開海洋這個\n\
@@ -609,7 +608,7 @@ date: 2024-11-30
 reply_count: 22
 title: '[微好雷] 海洋奇緣2第一位有神格的公主？'
 url: https://www.ptt.cc/bbs/movie/M.1732928424.A.AB1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "喜歡海洋奇緣系列的人應該都期待這次的歌吧\n至少我自己是蠻想知道2會出什麼歌XD\n今天中配版公布，有Makav 真愛、MATZKA、ABAO\
   \ 阿爆\n對Makav 真愛很印象深刻，因為她在金曲上的表演很驚艷\n是很有實力的唱將，莫娜感覺也很適合她的聲線\n感覺這次挑的三位唱將都蠻對味的，很有量身打造的感覺！！期待\n\
   \n\n\n--\n                                       11/13 21:15"
@@ -617,7 +616,7 @@ date: 2024-11-13
 reply_count: 10
 title: '[情報] 海洋奇緣2 中文版歌曲歌手公開'
 url: https://www.ptt.cc/bbs/movie/M.1731503384.A.041.html
---- !!python/object:movie_data.PublicReview
+---
 content: '延續第一集Moana仍在找尋新的島嶼是否還有其他族人
 
   作為背負帶領族人前進的使命的首領
@@ -702,7 +701,7 @@ date: 2024-12-06
 reply_count: 10
 title: '[好雷] 海洋奇緣2 觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1733485999.A.DDC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了很多評論說留在串流就好的續集
 
   其實看完沒想像中的爛
@@ -733,7 +732,7 @@ date: 2024-11-30
 reply_count: 4
 title: '[普無雷] 海洋奇緣2:沒期望就沒傷害'
 url: https://www.ptt.cc/bbs/movie/M.1732972177.A.35D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看到有人提到說這部沒被政治正確汙染
 
 
@@ -848,7 +847,7 @@ date: 2024-05-30
 reply_count: 21
 title: 'Re: [情報] 迪士尼動畫《海洋奇緣2》前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1717041227.A.6D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '觀影影院:林口威秀
 
 
@@ -880,7 +879,7 @@ date: 2024-11-29
 reply_count: 1
 title: '[好雷] 猶如海盜船的4DX海洋奇緣2'
 url: https://www.ptt.cc/bbs/movie/M.1732879442.A.4CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《海洋奇緣2》首張官方海報發布
 
 
@@ -897,7 +896,7 @@ date: 2024-05-29
 reply_count: 5
 title: '[情報] 《海洋奇緣2》首張官方海報發布'
 url: https://www.ptt.cc/bbs/movie/M.1716915525.A.2F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -949,7 +948,7 @@ date: 2024-12-30
 reply_count: 5
 title: '[討論] 星際效應和海洋奇緣2，劇情有什麼相同之'
 url: https://www.ptt.cc/bbs/movie/M.1735512721.A.60E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n\n經典動畫《海洋奇緣2》在今年美國感恩節假期，創下感恩節最高票房紀錄，迪士尼透露\n，電影11月27日上映後，光是感恩節當天就達2800萬美元（約9.08億台幣）票房，超過\n\
   2019年《冰雪奇緣2》1490萬美元（約4.8億台幣），目前預測《海洋奇緣2》在假期周末\n後，很有可能進帳達2億美元（約64億台幣）票房，超過原本1.75億美元（約56億台幣）\n\
   的目標。\n《海洋奇緣》2016年推出第一部，當時締造超高人氣，根據外媒報導，這次續集上映不到\n5天，電影的全球票房累積1.096億美元（約35億台幣）。續集的開片票房更僅次於《死侍\n\
@@ -962,7 +961,7 @@ date: 2024-12-01
 reply_count: 61
 title: '[新聞] 海洋奇緣2》刷新迪士尼開片票房紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1733007223.A.2AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '目前71%評價來自於51個評價
 
   不過看了一些油土伯看起來更慘
@@ -975,7 +974,7 @@ date: 2024-11-27
 reply_count: 37
 title: '[討論] 海洋奇緣2 爛番茄71 開局不太好'
 url: https://www.ptt.cc/bbs/movie/M.1732644569.A.9D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -1015,7 +1014,7 @@ date: 2024-12-11
 reply_count: 10
 title: '[普雷] 海洋奇緣2'
 url: https://www.ptt.cc/bbs/movie/M.1733930730.A.B9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本不抱任何期望被朋友拉去看
 
   結果最後濕著眼角出來
@@ -1069,7 +1068,7 @@ date: 2024-12-11
 reply_count: 8
 title: '[好雷] 海洋奇緣2 感動大哭'
 url: https://www.ptt.cc/bbs/movie/M.1733918039.A.EBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '迪士尼動畫《海洋奇緣2》前導預告現身！
 
 
@@ -1092,7 +1091,7 @@ date: 2024-05-29
 reply_count: 36
 title: '[情報] 迪士尼動畫《海洋奇緣2》前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1716986537.A.044.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -1164,7 +1163,7 @@ date: 2024-11-29
 reply_count: 13
 title: '[微好雷] IMAX海洋奇緣2觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1732881873.A.EC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '海洋奇緣2拿下驚人的3.89億美金票房，對於串流影集為原本規劃來說爽翻了
 
 
@@ -1190,7 +1189,7 @@ date: 2024-12-03
 reply_count: 45
 title: '[討論] 上周票房 海洋奇緣2拿3.86億'
 url: https://www.ptt.cc/bbs/movie/M.1733221874.A.81F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -1329,7 +1328,7 @@ date: 2024-12-04
 reply_count: 11
 title: ' [好雷] 海洋奇緣2 略遜於第一集的佳作'
 url: https://www.ptt.cc/bbs/movie/M.1733300026.A.540.html
---- !!python/object:movie_data.PublicReview
+---
 content: '[美]
 
   片尾版(唱: Auli''i Cravalho)
@@ -1375,7 +1374,7 @@ date: 2024-11-30
 reply_count: 16
 title: '[分享] 海洋奇緣2 主題曲 (美台日韓)'
 url: https://www.ptt.cc/bbs/movie/M.1732962184.A.B80.html
---- !!python/object:movie_data.PublicReview
+---
 content: "2024年迪士尼 #動畫 電影壓軸鉅作《海洋奇緣2》要與影迷見面啦\n11月28日（四）全台戲院大銀幕，邀你一同出航，破解未知詛咒，\n迎向全新刺激又有趣的大冒險！\n\
   \n海洋公主莫娜，受到先靈召喚、再次領航眾出海，面對神秘詛咒，要如何將四散汪洋的\n族人們找回呢?\n當然這一路怎麼能少了百變半神人毛伊，與莫娜重逢搭檔，呀!\
   \ 對了還有可愛到不行的\n小雞嘿嘿和小豬噗噗也會一同加入航程，絕對超有趣的~\n這次的挑戰不單要面對全新大反派外，一路上還會有各種危險與邪惡的怪物出沒，這又\n\
@@ -1386,7 +1385,7 @@ date: 2024-10-09
 reply_count: 3
 title: '[情報] 最新《海洋奇緣2》預告'
 url: https://www.ptt.cc/bbs/movie/M.1728481859.A.F66.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1451,7 +1450,7 @@ date: 2024-12-12
 reply_count: 6
 title: '[好雷] 海洋奇緣2真人演出？'
 url: https://www.ptt.cc/bbs/movie/M.1733977862.A.08E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看板上沒什麼人在討論這部，剛好有看到國外的新聞似乎票房很不錯
 
   就稍微分享一下自己的心得
@@ -1505,7 +1504,7 @@ date: 2024-12-01
 reply_count: 38
 title: '[普雷] 海洋奇緣2在台灣是不是被低估？'
 url: https://www.ptt.cc/bbs/movie/M.1733035386.A.833.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然當年看的第一集內容幾乎忘光
 
   還在沒看過預告的狀況下觀影完畢
@@ -1568,7 +1567,7 @@ date: 2024-11-28
 reply_count: 10
 title: '[好雷] 在海洋奇緣2中 看見冒險的勇氣'
 url: https://www.ptt.cc/bbs/movie/M.1732806878.A.E26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '#迪士尼《#海洋奇緣2》 全新歌曲搶先聽，11/28 (四) 進戲院 揚帆冒險去
 
 
@@ -1604,7 +1603,7 @@ date: 2024-09-29
 reply_count: 6
 title: '[情報] 迪士尼《#海洋奇緣2》 全新歌曲搶先聽 '
 url: https://www.ptt.cc/bbs/movie/M.1727594335.A.2DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這支預告其實沒啥畫面
 
   只是透露上映日期而已了
@@ -1617,7 +1616,7 @@ date: 2024-02-08
 reply_count: 26
 title: '[討論] 海洋奇緣2 超前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1707345595.A.30D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '海洋奇緣2敘述莫娜在與合作無間的毛伊展開浩瀚無際的冒險航程3年後
 
   再度受到為她指路的祖先們召喚
@@ -1657,7 +1656,7 @@ date: 2024-11-12
 reply_count: 3
 title: '[情報] 海洋奇緣2 11/12預售票開賣'
 url: https://www.ptt.cc/bbs/movie/M.1731406891.A.158.html
---- !!python/object:movie_data.PublicReview
+---
 content: '來自迪士尼YT和D23推特
 
 
@@ -1684,7 +1683,7 @@ date: 2024-08-10
 reply_count: 11
 title: '[新聞] 迪士尼海洋奇緣2正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1723257384.A.BDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是第一集的粉絲
 
   看到第二集出來也是擔憂的成分比較多

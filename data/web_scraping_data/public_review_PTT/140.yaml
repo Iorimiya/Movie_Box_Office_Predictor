@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -110,7 +109,7 @@ date: 2023-08-01
 reply_count: 2
 title: '[新聞] <長路將盡>老牌演員<一個人的朝聖>再合體'
 url: https://www.ptt.cc/bbs/movie/M.1690896895.A.816.html
---- !!python/object:movie_data.PublicReview
+---
 content: "劇情：★★★★\n\n節奏：★★★★☆\n(片長只有108分鐘)\n\n配樂：★★★★\n(很簡單的鋼琴音樂，配上英國歌曲，最後高潮時的配樂有點煽情，但\n\
   把劇情轉折點綴得很好)\n\n攝影：★★★★★\n(大量的近拍鏡頭，男主角的眼神與面容捕捉得非常清楚，甚\n至露骨，非常吃演員演技)\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n「我是哈洛，我從很遠的地方一路走過來，我要來拯救昆妮」\n\n\
@@ -126,7 +125,7 @@ date: 2023-08-04
 reply_count: 1
 title: '[好雷]《一個人的朝聖》啟程出發為了什麼？ '
 url: https://www.ptt.cc/bbs/movie/M.1691163093.A.D93.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -316,7 +315,7 @@ date: 2023-08-08
 reply_count: 19
 title: '[好雷] 一個人的朝聖'
 url: https://www.ptt.cc/bbs/movie/M.1691487032.A.190.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然我覺得這部就算雷到也沒差，
 
   畢竟每個人的體悟不一樣，
@@ -544,7 +543,7 @@ date: 2023-08-27
 reply_count: 2
 title: '[好雷] 一個人的朝聖 雞湯片'
 url: https://www.ptt.cc/bbs/movie/M.1693135327.A.034.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 

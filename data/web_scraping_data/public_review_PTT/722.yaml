@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '資料來源：全國票房統計資訊
 
 
@@ -26,7 +25,7 @@ date: 2024-10-30
 reply_count: 16
 title: '[討論] 猛毒最終章：最後一舞 票房 5894 萬'
 url: https://www.ptt.cc/bbs/movie/M.1730293614.A.0EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n結論寫在前，不用看過系列作，依然是年末最後一周的娛樂首選\n\
   \n\n寫這篇不為別的，主要是前述有篇心得文被質疑是業配，\n\n老實說，他吹得是有點了.....\n\n\n\n但是我同意他說的，畢竟看完特映會的我，\n\n\
   \n\n醜話先說在前頭，這部片是普遍級，也就是所謂的「子供向」的電影，裡頭文戲中\n\n人類的互動確實有段拖舀與冗長，上篇有提到「隔壁那個觀眾甚至哭到發抖」，\n\
@@ -42,7 +41,7 @@ date: 2024-12-26
 reply_count: 29
 title: '[好雷]《音速小子3》2024閉門娛樂最後一舞'
 url: https://www.ptt.cc/bbs/movie/M.1735222915.A.41A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -72,7 +71,7 @@ date: 2024-10-23
 reply_count: 12
 title: '[還好雷] 猛毒:最後一舞 領到狗狗卡'
 url: https://www.ptt.cc/bbs/movie/M.1729658772.A.9A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看過第一集，沒看過第二集
 
 
@@ -120,7 +119,7 @@ date: 2024-10-23
 reply_count: 11
 title: '[好無雷] 猛毒最終章：最後一舞'
 url: https://www.ptt.cc/bbs/movie/M.1729663429.A.791.html
---- !!python/object:movie_data.PublicReview
+---
 content: "11/5（二）晚間到美麗華看《幸福國度》的特映\n本片的時間線在《南山的部長們》跟《首爾之春》之間\n講述1979年總統暗殺事件後\n當中唯一一位現役軍人需要接受一審定讞無法上訴的軍事審判\n\
   所展開的法庭攻防\n全片的安排妥當而且剪輯流暢\n雖說是2小時的劇情片但一點也不會無聊\n深深體會到大時代下小人物的身不由己\n是部好看但惆悵的電影\n片名真的是很諷刺\n\
   主題曲在片尾播放時更是有味道\n\n\n曹政奭飾演的律師跟李善均飾演的軍官\n一動一靜的對比很有趣\n最喜歡後來兩人比較熟後\n在監獄聊天剝橘子的那一幕\n\n\
@@ -130,7 +129,7 @@ date: 2024-11-08
 reply_count: 36
 title: '[好無雷] 《幸福國度》李善均的最後一舞'
 url: https://www.ptt.cc/bbs/movie/M.1731059354.A.65A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '和你，直到永遠
 
 
@@ -144,7 +143,7 @@ date: 2024-09-12
 reply_count: 37
 title: '[情報] 猛毒 最終章 ：最後一舞 最新預告'
 url: https://www.ptt.cc/bbs/movie/M.1726146283.A.99A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '版上討論度好低阿
 
   根本沒幾篇
@@ -162,7 +161,7 @@ date: 2024-10-24
 reply_count: 63
 title: '[討論] 猛毒3:最後一舞 爛番茄39%'
 url: https://www.ptt.cc/bbs/movie/M.1729742741.A.7AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天快瘋了
 
   趕緊看個電影紓壓紓壓一下
@@ -211,7 +210,7 @@ date: 2024-10-23
 reply_count: 11
 title: '[好無雷] 《猛毒最終章：最後一舞》'
 url: https://www.ptt.cc/bbs/movie/M.1729656165.A.A9B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部比起魔比斯 蜘蛛夫人 猛毒
 
 
@@ -278,7 +277,7 @@ date: 2024-12-15
 reply_count: 31
 title: '[好雷]  獵人克萊文 反派宇宙最後一舞'
 url: https://www.ptt.cc/bbs/movie/M.1734236294.A.639.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -361,7 +360,7 @@ date: 2024-10-27
 reply_count: 20
 title: '[普雷]猛毒3-最後一舞'
 url: https://www.ptt.cc/bbs/movie/M.1730017799.A.9B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有幸看了美麗華今日舉辦的猛毒3試映會
 
   恰好今天有新的杜比影廳開幕

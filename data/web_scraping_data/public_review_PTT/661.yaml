@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '部落格版：
 
 
@@ -123,7 +122,7 @@ date: 2024-09-14
 reply_count: 21
 title: '[普雷] 《超完美家政婦》，愛麗絲撞到了頭，傷害'
 url: https://www.ptt.cc/bbs/movie/M.1726287096.A.038.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n超完美家政婦(Subservience)\n2024-12-28(六) 21:00\n\n導演： 斯科特戴爾\n演員： 梅根福克斯\n\
   米歇爾莫羅尼\n瑪蒂爾達佛斯\n\n《至死不渝》斯科特戴爾執導，《浴血任務4》梅根福克斯、《重磅腥聞》瑪德琳茲馬主\n演。\n\n在女兒的懇求下，尼克購買了最新的精密人工智慧機器人——愛麗絲（梅根福克斯\
   \ 飾）\n協助家務，沒想到「她」逐漸失控，並威脅到尼克與家人的性命……。\n\n梅根福克斯曾於2009年的邪典恐怖喜劇《辣的要命》中展現她作為尖叫女王的潛力，《超\n\
@@ -137,7 +136,7 @@ date: 2024-12-28
 reply_count: 27
 title: '[LIVE] HBO 21:00 超完美家政婦(Subservience)'
 url: https://www.ptt.cc/bbs/movie/M.1735375617.A.96D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -376,7 +375,7 @@ date: 2025-01-06
 reply_count: 30
 title: '[好雷] 底特律變人之超完美家政婦'
 url: https://www.ptt.cc/bbs/movie/M.1736129216.A.5E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '車庫代理 9/13上映
 
   由“梅根”福克斯主演機器家政婦

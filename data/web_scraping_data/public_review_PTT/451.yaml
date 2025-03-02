@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '沒看預告片就進去戲院了，才發現這部片不是運動片，是情慾片，而且很難看，把一件簡單的三人行刻意弄得很複雜，完全看不出三個人有熱愛網球的部分
 
 
@@ -21,7 +20,7 @@ date: 2024-05-03
 reply_count: 12
 title: '[無雷]  不是運動片的挑戰者'
 url: https://www.ptt.cc/bbs/movie/M.1714676903.A.945.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影片連結：
 
 
@@ -59,7 +58,7 @@ date: 2023-06-21
 reply_count: 35
 title: '[討論] 《挑戰者》預告'
 url: https://www.ptt.cc/bbs/movie/M.1687280582.A.13F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -91,7 +90,7 @@ date: 2024-10-02
 reply_count: 12
 title: '[ 負雷] 挑戰者'
 url: https://www.ptt.cc/bbs/movie/M.1727800258.A.228.html
---- !!python/object:movie_data.PublicReview
+---
 content: '日前美國演員工會正式發起罷工，即將迎來的秋季各大影展都瑟瑟發抖，仰賴好萊塢大片
 
   撐場的威尼斯、多倫多和特柳瀨德等影展雖然不至於無片可放，但沒有大牌明星們的助陣
@@ -144,7 +143,7 @@ date: 2023-07-23
 reply_count: 7
 title: '[情報] 辛蒂亞《挑戰者》確定取消威尼斯影展首映'
 url: https://www.ptt.cc/bbs/movie/M.1690046110.A.DF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '版上各位電影茼蒿、帥哥正妹晚安
 
 
@@ -247,7 +246,7 @@ date: 2014-11-01
 reply_count: 41
 title: '[討論] 《鐵達尼號》愛情片王者 能被超越嗎'
 url: https://www.ptt.cc/bbs/movie/M.1414852198.A.37B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -303,7 +302,7 @@ date: 2024-06-13
 reply_count: 7
 title: '[好雷] 挑戰者Challengers'
 url: https://www.ptt.cc/bbs/movie/M.1718267528.A.538.html
---- !!python/object:movie_data.PublicReview
+---
 content: "借助有雷文跟回\n\n\n撇開過於拖時長的慢動作 (這麼簡單的劇本 90分鐘綽綽有餘)\n\n以及過於狗血的連續劇三角戀\n\n(\n上秒打巴掌\
   \ 臭臉 下秒擁吻 上秒吐口水 下秒車震上床 像極了愛情?!\n宛如廢片 \n)\n\n\n\n本片當競技體育片看實在過於微妙\n\n有沒有懂網球的來說說?\n\
   \n以 ATP Tour (剛好對應 Art Tashi Patrick 男女男三人) 來說\n\n十幾年來 球王 Art 從來沒贏過 Patrick (長期外圍\
@@ -315,7 +314,7 @@ date: 2024-05-04
 reply_count: 15
 title: 'Re: [極好雷]挑戰者-完美三角'
 url: https://www.ptt.cc/bbs/movie/M.1714777474.A.75A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -464,7 +463,7 @@ date: 2024-05-08
 reply_count: 43
 title: '[負雷]  節奏與關係都曖昧不清的《挑戰者》'
 url: https://www.ptt.cc/bbs/movie/M.1715103613.A.EE7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《挑戰者》在爛番茄上首次亮相
 
   就獲得了 100% 的好評。
@@ -489,7 +488,7 @@ date: 2024-04-13
 reply_count: 10
 title: '[情報] 《挑戰者》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1712957756.A.2B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下幸運得獎人，可以搶先看【挑戰者】試映會。
 
   將以站內信通知領獎事宜，請各位得獎者收到通知信後
@@ -584,7 +583,7 @@ date: 2024-04-24
 reply_count: 31
 title: 'Re: [贈票] 【挑戰者】 特映會搶先看 '
 url: https://www.ptt.cc/bbs/movie/M.1713950445.A.77A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "辛蒂亞不懂網球演高手 《挑戰者》舞出架式\n\n2024/04/22 05:30\n\n\n辛蒂亞在《挑戰者》飾演的塔希尋求自我認同，她表示感同身受。（華納兄弟提供）\n\
   \n〔記者許世穎／台北－洛杉磯連線報導〕今年目前評價最高的電影之一《挑戰者》，於台\n灣時間昨凌晨舉行國際線上記者會，導演盧卡格達戈尼諾率領主要演員辛蒂亞、喬許歐康\n\
   納、麥克費斯等人出席。3人在片中飾演極有天賦的網球高手，辛蒂亞自爆對網球一無所\n知，「訓練第一天我一直把球打到樹上！」\n\n\n導演盧卡格達戈尼諾（右起）、麥克費斯、辛蒂亞、喬許歐康納日前一同出席《挑戰者》\n\
@@ -600,7 +599,7 @@ date: 2024-04-22
 reply_count: 7
 title: '[新聞] 辛蒂亞不懂網球演高手 《挑戰者》舞出架式'
 url: https://www.ptt.cc/bbs/movie/M.1713800401.A.24F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請教各位大大
 
   1 帝國浩劫/2犯罪都市/
@@ -621,7 +620,7 @@ date: 2024-05-04
 reply_count: 57
 title: '[選片] 帝國浩劫/犯罪都市/挑戰者/哥吉拉'
 url: https://www.ptt.cc/bbs/movie/M.1714807287.A.2A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '觀影後，興奮感爆發，最末在影院中不禁與朋友們驚呼聲來，然後是爽快地大笑。
 
 
@@ -670,7 +669,7 @@ date: 2024-05-12
 reply_count: 8
 title: '[極好雷]  挑戰者-勝利女神的挑逗'
 url: https://www.ptt.cc/bbs/movie/M.1715518427.A.7B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影本身不多做贅述 大師之作
 
 
@@ -699,7 +698,7 @@ date: 2024-05-07
 reply_count: 10
 title: '[好雷] 挑戰者的女主角最後到底是不是故意的'
 url: https://www.ptt.cc/bbs/movie/M.1715087428.A.DF8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "內文有雷且具個人觀點，推薦觀影後再讀。\n\n　　　　本片已上映數週，有意請把握場次。\n\n\n\n　　　　圖文網頁版：\n\n　　　　\n\n\
   \n　　　　預告片：\n\n　　　　\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\
   \n\n\n人生《挑戰者》的三個面向\n\n\n\n　　知名導演盧卡格達戈尼諾的全新電影《挑戰者》用不斷插敘的方式交代\n\n三人的過往與複雜關係：才華洋溢但因為受傷而中斷的塔希鄧肯，丈夫亞特\n\
@@ -719,7 +718,7 @@ date: 2024-06-17
 reply_count: 2
 title: '[好雷] 人生《挑戰者》的三個面向'
 url: https://www.ptt.cc/bbs/movie/M.1718632662.A.E4E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然我知道還有一天才上映啦
 
   但照理來說也差不多要公佈場次時間了
@@ -745,7 +744,7 @@ date: 2024-04-29
 reply_count: 8
 title: '[討論]《挑戰者》的上映場次'
 url: https://www.ptt.cc/bbs/movie/M.1714405292.A.142.html
---- !!python/object:movie_data.PublicReview
+---
 content: "美國片\n\n電影這一個片段是一個男生在跟主角解釋美國挑戰者號太空梭的爆炸事件\n\n台詞內容有很清楚的提到 製作O型環的材料的耐溫程度\n原本NASA評估是可以應付佛羅里達當地的溫差\n\
   想不到太空梭發射的前一晚佛羅里達的溫度驟降\n\nO型環功能受損，太空梭因而爆炸\n\n\n因為想很久真的想不起來\n想問有沒有人可以知道是哪部電影\n\n大大感謝!!!\n\
   \n\n\n\n--\n                     HEY~~~HEY~~~CHAAAAARLIE~!\n   　    。。。。。   ◣  \
@@ -755,7 +754,7 @@ date: 2015-01-30
 reply_count: 12
 title: '[問片] 台詞有講到挑戰者號太空梭爆炸事件的片'
 url: https://www.ptt.cc/bbs/movie/M.1422606619.A.511.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《挑戰者》口碑爆棚 網球甜心尋找自我認同\n\n2024/05/01 05:30\n\n\n辛蒂亞主演《挑戰者》，表示女性能從中找到自我影子。（華納兄弟提供）\n\
   \n〔記者鍾志均／綜合報導〕導演盧卡格達戈尼諾執導新片《挑戰者》聚焦網球場上的愛情\n角力，也有令人神魂顛倒的情慾魅力；該片上週在美國首週開出1500萬美金（約台幣4.89\n\
   億元）票房，創下盧卡格達戈尼諾在美國生涯最佳開片紀錄，口碑爆棚。\n\n女主角辛蒂亞說：「塔希（角色名）的初戀可說是『網球』，網球賦予她力量和權力，使\n她成為自己的樣子。」透露本身也是透過工作尋找自我認同。\n\
@@ -766,7 +765,7 @@ date: 2024-05-01
 reply_count: 44
 title: '[新聞] 《挑戰者》口碑爆棚 網球甜心尋找自我認同'
 url: https://www.ptt.cc/bbs/movie/M.1714563391.A.C47.html
---- !!python/object:movie_data.PublicReview
+---
 content: "★ 爛番茄97％高分好評，影評盛讚今年最性感的電影之一\n★【以你的名字呼喚我】【骨肉的總和】盧卡格達戈尼諾 導演作品\n★ 辛蒂亞、麥克費斯、喬許歐康納\
   \ 激情演出\n★ 電影預告：\n★【挑戰者】[輔12] 5月1日 (週三) 大銀幕鉅獻\n\n\n《抽獎方式》\n4月23日 23:59前，推文留言你想要參加【挑戰者】的〈場次〉與〈原因〉，就有機會搶\n\
   先看電影！\n（如：台北場，我想看挑戰者，想看辛蒂亞如何面對三角戀）\n\n《獎項內容》\n【挑戰者】電影試映券（一組2張）\n\n\n《特映會場次》\n台北場：4/29\
@@ -779,7 +778,7 @@ date: 2024-04-19
 reply_count: 560
 title: '[贈票] 【挑戰者】 特映會搶先看 '
 url: https://www.ptt.cc/bbs/movie/M.1713528685.A.CF4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -841,7 +840,7 @@ date: 2024-06-04
 reply_count: 22
 title: '[無雷] 挑戰者-超級好看'
 url: https://www.ptt.cc/bbs/movie/M.1717514467.A.255.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1125,7 +1124,7 @@ date: 2024-07-15
 reply_count: 10
 title: '[好雷]《挑戰者 網球就像性愛 心靈合一就能高潮'
 url: https://www.ptt.cc/bbs/movie/M.1721057868.A.630.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1377,7 +1376,7 @@ date: 2024-05-03
 reply_count: 42
 title: '[極好雷]挑戰者-完美三角'
 url: https://www.ptt.cc/bbs/movie/M.1714750593.A.961.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看完《挑戰者》，腦中迸出的第一個詞是「性感」。\n\n.\n身兼本片監製的辛蒂亞，在本片展示一雙修長美腿、以及充滿侵略性的攻方氣場，喬許歐\n\
   康納與麥可費斯特雙男主，一個不羈狂野、一個斯文內斂，但球場上噴灑的汗水、球衫下\n的緊實翹臀卻都流露欲蓋彌彰的煽情，在鏡頭之下，三位主角都被拍出在其他作品未曾見\n\
   過的魅力。\n\n.\n但性感的不只是身材和氣質，更是角色之間的化學效應。網球是孤獨的運動，對單打選手\n來說，團隊僅限於事前的訓練，踏上球場除了對手、就只剩下你自己，你越想戰勝對手、\n\

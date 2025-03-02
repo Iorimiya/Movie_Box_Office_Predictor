@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '時間：4/28起算的一週內
 
   地點：西門樂聲
@@ -22,7 +21,7 @@ date: 2023-05-02
 reply_count: 2
 title: '[贈票] 魯蛇大翻身 西門樂聲首週免費電影票'
 url: https://www.ptt.cc/bbs/movie/M.1683014242.A.7A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片很好看，但本版討論度滿少的。
 
 
@@ -46,7 +45,7 @@ date: 2023-05-01
 reply_count: 13
 title: '[好雷] 魯蛇大翻身'
 url: https://www.ptt.cc/bbs/movie/M.1682949683.A.109.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天去看了魯蛇大翻身
 
 
@@ -109,7 +108,7 @@ date: 2023-04-30
 reply_count: 23
 title: '[ 好雷] 魯蛇大翻身'
 url: https://www.ptt.cc/bbs/movie/M.1682823917.A.609.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今天是車庫護照會員的最後一天且還剩一張電影票沒用\n\n所以想從這2部車庫的電影挑一部來看\n\n但光看預告真的覺得似乎都不太好看\n\n所以想問一下若要從這2部挑該挑哪部?\n\
   \n謝謝\n\n\n\n我把車庫護照停掉了\n\n原因真的是福利越來越差\n\n且鈴牙之旅和捍衛任務居然沒辦法用護照訂票\n\n似乎只要是熱門片都沒辦法用護照訂票\n\
   \n訂了那麼多年的會員真的心死\n\n--\n \n \n \n \n \n \n\n--"
@@ -117,7 +116,7 @@ date: 2023-04-29
 reply_count: 17
 title: '[選片] 魯蛇大翻身  限時追捕'
 url: https://www.ptt.cc/bbs/movie/M.1682731509.A.29C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去看的時候~ 想說是不是只是單純跟風灌籃高手才推出
 
   但沒想到這麼好看，而且看之前沒做功課~看了才知道居然還是真人真事改編

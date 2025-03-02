@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '現在編劇怎麼好像覺得當君主有這麼簡單的
 
 
@@ -44,7 +43,7 @@ date: 2023-11-19
 reply_count: 39
 title: 'Re: [討論] 迪士尼星願看來不妙 - 巨雷'
 url: https://www.ptt.cc/bbs/movie/M.1700384737.A.9A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這週末跨年假期想要帶爸媽去電影院看電影
 
   不知道那部比較適合
@@ -70,7 +69,7 @@ date: 2023-12-26
 reply_count: 57
 title: '[選片] 星願or旺卡'
 url: https://www.ptt.cc/bbs/movie/M.1703546503.A.F4D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '迪士尼《星願》票房差 連鎖戲院股價慘跌
 
 
@@ -135,7 +134,7 @@ date: 2023-11-29
 reply_count: 78
 title: '[新聞] 迪士尼《星願》票房差 連鎖戲院股價慘跌'
 url: https://www.ptt.cc/bbs/movie/M.1701229823.A.8B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前陣子看完<氣象戰>
 
   本以為吳彥祖的戲份會很多
@@ -199,7 +198,7 @@ date: 2018-01-31
 reply_count: 76
 title: '[討論] 為啥某些知名亞洲影星願意去好萊塢打醬油'
 url: https://www.ptt.cc/bbs/movie/M.1517395065.A.DB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Disney’s ‘WISH’ opens at #3 worldwide with $49M.
 
 
@@ -223,7 +222,7 @@ date: 2023-11-27
 reply_count: 144
 title: ' [情報] 星願目前全球票房$49M'
 url: https://www.ptt.cc/bbs/movie/M.1701018175.A.C5E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: silentknight (清純男) 看板: C_Chat\n標題: [悲報] 星願=0.25冰雪2\n時間: Tue Nov 28 12:15:16\
   \ 2023\n\n\n華特迪士尼動畫工作室與旗下皮克斯動畫工作室\n感恩節上映動畫電影\n\n\n\n\n------------------------------------------------------------------------\n\
   \nRank   Released   Movie           感恩節5日票房   總票房         占比\n\n1      2019    \
@@ -244,7 +243,7 @@ date: 2023-11-28
 reply_count: 70
 title: '[轉錄] 星願=0.25冰雪2'
 url: https://www.ptt.cc/bbs/movie/M.1701147143.A.42A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有色公主快要看不到了
 
   且看且珍惜
@@ -259,7 +258,7 @@ date: 2023-09-28
 reply_count: 68
 title: '[討論] 迪士尼公主「星願」長版預告'
 url: https://www.ptt.cc/bbs/movie/M.1695833577.A.1E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '迪士尼口碑票房都悽慘的最新動畫片《星願》
 
 
@@ -332,7 +331,7 @@ date: 2023-12-09
 reply_count: 51
 title: 'Re: [討論] 迪士尼《星願》台灣版主題曲 王心凌演唱'
 url: https://www.ptt.cc/bbs/movie/M.1702081491.A.6E2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》 在爛番茄上以64% 的支持率開映，這是迪士尼動畫近十年來的最低支持率。
 
 
@@ -350,7 +349,7 @@ date: 2023-11-18
 reply_count: 117
 title: '[情報] 迪士尼《星願》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1700243942.A.639.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -457,7 +456,7 @@ date: 2023-12-30
 reply_count: 36
 title: '[ 負雷]  星願'
 url: https://www.ptt.cc/bbs/movie/M.1703912425.A.95A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '迪士尼口碑票房都悽慘的最新動畫片《星願》
 
 
@@ -495,7 +494,7 @@ date: 2023-12-08
 reply_count: 42
 title: '[討論] 迪士尼《星願》台灣版主題曲 王心凌演唱'
 url: https://www.ptt.cc/bbs/movie/M.1701970866.A.F5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感恩節周末票房 迪士尼「星願」輸「飢餓遊戲」
 
 
@@ -554,7 +553,7 @@ date: 2023-11-27
 reply_count: 14
 title: '[新聞] 感恩節周末票房 迪士尼「星願」輸「飢餓'
 url: https://www.ptt.cc/bbs/movie/M.1701098556.A.520.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在羅薩斯王國（Kingdom of Rosas），17歲的亞莎公主感知到了其他人都未能察覺的黑暗
 
   ，導致她在需要的時刻向天上的星星許願。終於，天空中一顆星星回應了亞莎的願望。
@@ -572,7 +571,7 @@ date: 2023-04-27
 reply_count: 259
 title: '[討論] 迪士尼100周年動畫大片 星願 前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1682603915.A.A9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "上映前原本預估5天感恩節票房是：\n星願$50M， 拿破崙$20M\n（感恩節贏家是飢餓約$41M，驚奇掉出前5，國內最終票房將低於$85M，小贏魔比斯）\n\
   \n今日為止星願開低走低，調整後。\n星願預估$31M ，拿破崙$32M小贏\n（這兩部都是$200M成本，都會虧錢就是了）\n\n而且星願還有偷偷灌水把週二早場約$5M加進去實際是6天。\n\
   \n老鼠連爆放煙火喜慶 100週年\n老鼠在星願砸重本，玩具週邊已經洗頭洗下去，應該會虧到脫褲。不過教育是不計成本的。\n希望老鼠繼續保持。\n\n--\n\n\
@@ -582,7 +581,7 @@ date: 2023-11-27
 reply_count: 30
 title: '[討論] 美國感恩節五天票房 拿破崙打敗星願'
 url: https://www.ptt.cc/bbs/movie/M.1701018036.A.1FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片比奇異冒險和看阿，一堆人不信
 
 
@@ -616,7 +615,7 @@ date: 2023-11-25
 reply_count: 21
 title: 'Re: [轉錄] 迪士尼"星願"首2日票房是"奇異冒險"近2倍'
 url: https://www.ptt.cc/bbs/movie/M.1700892506.A.427.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本週末北美哥吉拉負一開出超越預期的票房，達到$8.4M。 對比星願的次週票房$7.7M。\n\n更難得的是 哥吉拉只有2500家戲院上映，星願第二週還有3900左右。\n\
   \n另外本週末北美票房冠軍一二三名是 宮崎駿，飢餓與 哥吉拉，史上首次有日本電影同時攻\n佔北美前三名內。\n\n--\n                  \
   \                    12/11 03:37"
@@ -624,7 +623,7 @@ date: 2023-12-11
 reply_count: 92
 title: '[討論] 北美票房哥吉拉第二週超越星願第二週'
 url: https://www.ptt.cc/bbs/movie/M.1702236631.A.522.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n《星願》電影劇透與讀後感 - 演出比預期好看的動畫\n\n這部是2023年底播映的電影，為迪士尼成立滿100週年的紀念作品。描述一個17歲的少女\n\
   艾霞在羅莎王國向著一顆星星許願開始的故事。我當初看影評評價不高，票房也普通，再\n看看這個SJW人設擺滿的宣傳畫面，一直在糾結要不要進場看這電影，但是看了以後意外\n\
   地還不錯。本作沒什麼冷場，比想像中好看，也順便解釋了為什麼迪士尼動畫的吉祥物都\n會說話的設定。\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
@@ -647,7 +646,7 @@ date: 2023-12-31
 reply_count: 27
 title: '[  雷] 星願電影劇透讀後感 - 演出比預期好看'
 url: https://www.ptt.cc/bbs/movie/M.1703993427.A.0D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '迪士尼動畫電影《星願》公開中文主題曲音樂宣傳影片
 
 
@@ -687,7 +686,7 @@ date: 2023-12-15
 reply_count: 8
 title: '[情報] 迪士尼動畫電影《星願》王心凌中文主題曲'
 url: https://www.ptt.cc/bbs/movie/M.1702616098.A.54C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: silentknight (清純男) 看板: C_Chat\n標題: [贏了] 迪士尼\"星願\"首2日票房是\"奇異冒險\"近2倍 \n\
   時間: Sat Nov 25 11:52:56 2023\n\n\n\n\n\n迪士尼新片\"星願\"首2日(含預映)北美票房為12M鎂\n\nDate   \
   \         Gross         % Change    Total Gross     Days\nNov 22, 2023     $8,300,000\
@@ -707,7 +706,7 @@ date: 2023-11-25
 reply_count: 92
 title: '[轉錄] 迪士尼"星願"首2日票房是"奇異冒險"近2倍 '
 url: https://www.ptt.cc/bbs/movie/M.1700888953.A.4A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "水行俠跨年檔億哥 星願稱霸新片\n\n2024/01/03 05:30\n\n\n《水行俠 失落王國》穩坐跨年檔冠軍，全台票房突破1.44億。（華納兄弟提供）\n\
   \n〔記者許世穎／台北報導〕2023年最後一個週末加上跨年檔票房出爐，12月29日於全台正\n式破億的《水行俠 失落王國》穩坐跨年檔冠軍，截至元旦全台票房正式突破1.44億。歡\n\
   慶迪士尼100周年的動畫《星願》則拿下新片冠軍，全台票房突破2448萬。\n\n\n迪士尼動畫新片《星願》在跨年檔勇奪新片票房冠軍。（迪士尼提供）\n\n由「甜茶」提摩西夏勒梅主演的《旺卡》在台上映近1個月，上週末拿下全台票房第3名，\n\
@@ -719,7 +718,7 @@ date: 2024-01-03
 reply_count: 3
 title: '[新聞] 水行俠跨年檔億哥 星願稱霸新片'
 url: https://www.ptt.cc/bbs/movie/M.1704290069.A.BC6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前看到板上資訊已經知道大不推
 
   國外也是票房口碑都不佳
@@ -871,7 +870,7 @@ date: 2024-01-06
 reply_count: 24
 title: '[好雷]  逆風推一下星願其實還不錯看'
 url: https://www.ptt.cc/bbs/movie/M.1704553655.A.240.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -912,7 +911,7 @@ date: 2023-11-24
 reply_count: 90
 title: '[新聞] 感恩節票房預測“星願”可能不敵飢餓遊'
 url: https://www.ptt.cc/bbs/movie/M.1700835915.A.A5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有巨雷與彩蛋 就是如此弱智 不想被雷請左轉
 
 
@@ -985,7 +984,7 @@ date: 2023-11-18
 reply_count: 208
 title: 'Re: [討論] 迪士尼星願看來不妙 - 巨雷'
 url: https://www.ptt.cc/bbs/movie/M.1700237279.A.272.html
---- !!python/object:movie_data.PublicReview
+---
 content: "老鼠昨天放出這部片\nDisney's Wish | Wish Around the World\n\n\n說星願大熱門，全球爆紅，跟冰雪一樣是現象級的片子。\n\
   ———————————————————————\n這大概是很久前就拍好的吧。表示老鼠內部的預估有多失真，這些人活在小圈圈拍出爛片還\n沒自覺。像蟻人3 也是，被觀眾唾棄內部還說很驚訝。老鼠還好意思放出這部星願行銷短片\n\
   表示他們根本不知道問題在哪。繼續爆放煙火沒關係。\n\n政確人都很喜歡搞這套，那個亞馬遜的偽魔戒也是放這種假熱門的短片來自慰，笑死。\n\n--\n     \
@@ -994,7 +993,7 @@ date: 2023-12-02
 reply_count: 58
 title: '[討論] 老鼠：星願全球大熱成現象級影片'
 url: https://www.ptt.cc/bbs/movie/M.1701529478.A.6E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1051,7 +1050,7 @@ date: 2023-12-06
 reply_count: 30
 title: '[ 負雷]  星願'
 url: https://www.ptt.cc/bbs/movie/M.1701853031.A.7BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "就是對星願的不滿。\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\
   \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n還是一樣先講點好話。\n\
   \n1. 首先是我覺得山羊挺可愛的。\n\n   跟木偶奇遇記的驢子很像，但是說話不說話的流程卻是反過來的XD\n\n2. 彩蛋爆幹多。但是這其實也是缺點，後述。\n\
@@ -1117,7 +1116,7 @@ date: 2024-01-07
 reply_count: 18
 title: '[負雷] 星願'
 url: https://www.ptt.cc/bbs/movie/M.1704574465.A.272.html
---- !!python/object:movie_data.PublicReview
+---
 content: '迪士尼一年兩部動畫電影，
 
 
@@ -1148,7 +1147,7 @@ date: 2023-12-03
 reply_count: 75
 title: '[請益] 為啥這次迪士尼星願台灣檔期這麼晚？'
 url: https://www.ptt.cc/bbs/movie/M.1701605800.A.DA4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1290,7 +1289,7 @@ date: 2024-01-04
 reply_count: 18
 title: '[負雷] 星願'
 url: https://www.ptt.cc/bbs/movie/M.1704336688.A.846.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是學組織管理的，最近看到一篇論文
 
   Stealthy Footsteps to the Boardroom
@@ -1312,7 +1311,7 @@ date: 2023-12-03
 reply_count: 46
 title: 'Re: [新聞] 星願票房口碑全翻車！迪士尼CEO 說重話'
 url: https://www.ptt.cc/bbs/movie/M.1701561855.A.E48.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《星願》票房口碑全翻車！迪士尼CEO說重話：創作者忘記了首要工作是娛樂觀眾，不是\n推銷價值！\n\n\n\n今年慶祝迪士尼100周年，年末最後一檔壓軸大片《》（Wish）即將於12月29日在台\n\
   灣上映，配音卡司都打出一線陣容，中國版女主角找來劉亦菲、張靚穎演唱主題曲，台灣\n還待公布。\n\n不過這部原創迪士尼公主動畫新作早已於感恩節提早在美國上映，《》全球上映首周\n\
   票房竟只收入4900萬美元，成績甚至贏不過已經上映第二周的《\n》和歷史戰爭大片《》，跌破業界眼鏡。\n\n\n\n《星願》是迪士尼歡慶100周年的2023壓軸大片Photo\
@@ -1333,7 +1332,7 @@ date: 2023-12-03
 reply_count: 201
 title: '[新聞] 星願票房口碑全翻車！迪士尼CEO 說重話'
 url: https://www.ptt.cc/bbs/movie/M.1701535540.A.99C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '片商FB，
 
   應該算是暗示已經有準備了。
@@ -1378,7 +1377,7 @@ date: 2023-12-12
 reply_count: 32
 title: 'Re: [討論] 北美票房哥吉拉第二週超越星願第二週'
 url: https://www.ptt.cc/bbs/movie/M.1702359553.A.73F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "底下有微雷\n\nReddit上今天看完口碑場的心得\n\nIt’s a hot garbage 一個垃圾\n\n整片在趕場，塞太多歌一個80分鐘的電影前25分鐘就塞了四首歌。也沒啥記憶點。\n\
   \n反派根本不是反派（這預告就有人提出這問題），原本運作好的願望機制因為女角自己的”\nfeeling”硬是要挑戰原本的制度，硬是把白男變成反派。衝突點等級就冰雪2那麼低能。\n\
   \n穿插整片的是無意義漫威等級對話與笑點，已經很短的電影插了一段2分鐘雞跳舞，但全程\n沒人笑。劇本等級跟拉雅差不多。\n\n老鼠的編劇真的死光了，這部再爆看還有啥藉口。\n\
@@ -1387,7 +1386,7 @@ date: 2023-11-17
 reply_count: 82
 title: '[討論] 迪士尼星願看來不妙'
 url: https://www.ptt.cc/bbs/movie/M.1700224025.A.E50.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這就是你們感謝老白男的方式嗎?
 
   一點都不尊重
@@ -1402,7 +1401,7 @@ date: 2023-10-26
 reply_count: 12
 title: '[討論] 迪士尼「星願」邪惡老白男新歌'
 url: https://www.ptt.cc/bbs/movie/M.1698288740.A.A37.html
---- !!python/object:movie_data.PublicReview
+---
 content: '假日無聊就看disney+
 
 
@@ -1594,7 +1593,7 @@ date: 2024-04-07
 reply_count: 115
 title: '[討論] 迪士尼還有片能爛過星願的嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1712476571.A.CC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1777,7 +1776,7 @@ date: 2023-12-31
 reply_count: 30
 title: '[負雷] 星願—曾向星星許願，再也回不去的迪士尼'
 url: https://www.ptt.cc/bbs/movie/M.1704014627.A.075.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為小孩想看所以才去看
 
   我們是去林口三井的威秀
@@ -1905,14 +1904,14 @@ date: 2024-01-06
 reply_count: 120
 title: '[普雷] 迪士尼《星願》差強人意的百年大作'
 url: https://www.ptt.cc/bbs/movie/M.1704514211.A.558.html
---- !!python/object:movie_data.PublicReview
+---
 content: "奧斯卡得主  飾 艾霞\n\n\n\n歡慶100周年動畫大片《》\n\n主角隆重登場\n\n 飾 摩尼菲國王\n\n年度動畫《》\n\n12月29日\
   \ 年末壓軸登場\n\n前導預告：\n\n\n\n\n資料來源：\n\n--"
 date: 2023-07-21
 reply_count: 83
 title: '[情報] 迪士尼100週年《星願》公佈角色海報'
 url: https://www.ptt.cc/bbs/movie/M.1689947553.A.BB4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《冰雪奇緣》導演操刀迪士尼百年新作《星願》透露「克里斯潘恩」大反派是最大特色！
 
 
@@ -1957,7 +1956,7 @@ date: 2023-10-06
 reply_count: 18
 title: '[新聞] 迪士尼百年大作《星願》反派是最大特色！'
 url: https://www.ptt.cc/bbs/movie/M.1696599852.A.E08.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前面的劇透有一些錯誤，根據某些消息，星願的老白男真的蠻壞的，就好像賈伯斯沒
 
   有分我一半的財產，壓榨勞工賺那麼多錢一樣壞
@@ -1988,7 +1987,7 @@ date: 2023-11-21
 reply_count: 22
 title: 'Re: [討論] 迪士尼星願看來不妙 - 巨雷'
 url: https://www.ptt.cc/bbs/movie/M.1700535927.A.510.html
---- !!python/object:movie_data.PublicReview
+---
 content: '星願本來開盤有64，現在已經剩下永恆族的47，117個影評
 
   頂尖影評甚至只有28
@@ -2003,7 +2002,7 @@ date: 2023-11-23
 reply_count: 77
 title: '[討論] 星願爛番茄崩到不能自理(目前47)'
 url: https://www.ptt.cc/bbs/movie/M.1700709746.A.FC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '哇你居然自願去看這部！（我也看了……）
 
 
@@ -2091,7 +2090,7 @@ date: 2024-04-07
 reply_count: 2
 title: 'Re: [討論] 迪士尼還有片能爛過星願的嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1712495472.A.B41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -2125,7 +2124,7 @@ date: 2024-01-11
 reply_count: 29
 title: '[討論] 星願 票房3214萬'
 url: https://www.ptt.cc/bbs/movie/M.1704934108.A.D04.html
---- !!python/object:movie_data.PublicReview
+---
 content: "現在負責老鼠動畫的 創意長Jeniffer Lee, 是冰雪1的編劇團之一，不過老鼠的編劇團很大\n，所以一個人影響還好。但在2就變成主寫手，後來升任創意長。其後有破壞王2，魔法滿屋\n\
   ，奇異，星願。\n\n冰雪2的反白人反殖民\n破壞王2 拉爾夫變成智障\n魔法滿屋的女性當家\n拉雅女力\n奇異lgbtqabcde\n星願的反威權反白男\n\n\
   這有一系列的脈絡可尋，她主導後的風格與敘事就整個偏掉。\n\n奇異與星願雙核爆，她如果還沒下台大概之後的冰雪3之類也不用太期待。\n\n跟盧卡斯的KK一樣，人家女生耶，無法被開除。\n\

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '如題三選二
 
 
@@ -26,7 +25,7 @@ date: 2022-03-12
 reply_count: 41
 title: '[選片] 在車上/平行母親/該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1647093751.A.496.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
   文
@@ -135,7 +134,7 @@ date: 2022-04-04
 reply_count: 14
 title: '[好雷]《該死的阿修羅》: 探究阿修羅之怒 '
 url: https://www.ptt.cc/bbs/movie/M.1649077376.A.178.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由樓一安導演執導，於2021年獲金馬獎最佳女配角獎、2022台北電影獎最佳編劇/最佳女
 
   配角/最佳配樂獎之《該死的阿修羅》，經文化部影視及流行音樂產業局召開之甄選會議
@@ -190,7 +189,7 @@ date: 2022-08-15
 reply_count: 152
 title: '[情報] 2023 台灣奧斯卡代表：《該死的阿修羅》'
 url: https://www.ptt.cc/bbs/movie/M.1660546925.A.544.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -233,7 +232,7 @@ date: 2022-11-12
 reply_count: 6
 title: '[新聞]「該死的阿修羅」進軍奧斯卡 洛杉磯辦特映'
 url: https://www.ptt.cc/bbs/movie/M.1668248145.A.EBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好～想分享本週日
 
   #該死的阿修羅 包場放映資訊
@@ -286,7 +285,7 @@ date: 2022-03-23
 reply_count: 11
 title: '[包場］該死的阿修羅3/27台北場'
 url: https://www.ptt.cc/bbs/movie/M.1648050539.A.14E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -360,7 +359,7 @@ date: 2022-03-13
 reply_count: 2
 title: '[好雷] 該死的阿修羅-悲劇或更悲劇'
 url: https://www.ptt.cc/bbs/movie/M.1647186201.A.DED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文>>>
 
 
@@ -491,7 +490,7 @@ date: 2022-04-01
 reply_count: 12
 title: '[好雷]《該死的阿修羅》為何你會這樣做'
 url: https://www.ptt.cc/bbs/movie/M.1648802846.A.DD9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看見標題請先別急著噓
 
 
@@ -1306,7 +1305,7 @@ date: 2022-03-14
 reply_count: 30
 title: '[好雷] 該死的阿修羅--台灣社會寫實版的小丑？'
 url: https://www.ptt.cc/bbs/movie/M.1647263143.A.EE7.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'vita的第二段輪迴的戲
 
 
@@ -1337,7 +1336,7 @@ date: 2022-03-26
 reply_count: 17
 title: '[請益] 該死的阿修羅裡的vita跟阿盛'
 url: https://www.ptt.cc/bbs/movie/M.1648283854.A.1D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首發電影版+手機排版，請鞭小力一點
 
   先說結論：「該死的阿修羅」讓我對樓一安導演改觀了XD
@@ -1444,7 +1443,7 @@ date: 2022-03-14
 reply_count: 9
 title: '[好雷] 該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1647193280.A.F7B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '找尋後五碼91439
 
   匯款200元
@@ -1530,7 +1529,7 @@ date: 2022-03-25
 reply_count: 3
 title: '[包場] 該死的阿修羅台北3/30包場'
 url: https://www.ptt.cc/bbs/movie/M.1648210733.A.42F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1619,7 +1618,7 @@ date: 2023-02-10
 reply_count: 1
 title: '[無雷]《該死的阿修羅》-「佛系」溫情感 '
 url: https://www.ptt.cc/bbs/movie/M.1676037075.A.42F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1724,7 +1723,7 @@ date: 2022-03-14
 reply_count: 42
 title: '[新聞] 影迷嘆《該死的阿修羅》被金馬獎虧待'
 url: https://www.ptt.cc/bbs/movie/M.1647241690.A.A7B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '！！！    天使場本週末再度登場    ！！！
 
 
@@ -1772,7 +1771,7 @@ date: 2022-03-17
 reply_count: 6
 title: '[情報］該死的阿修羅 天使學生包場'
 url: https://www.ptt.cc/bbs/movie/M.1647504131.A.142.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1885,7 +1884,7 @@ date: 2021-11-12
 reply_count: 88
 title: '[好雷] 《青春弒戀》、《該死的阿修羅》心得'
 url: https://www.ptt.cc/bbs/movie/M.1636728609.A.749.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部的劇本我還滿喜歡的
 
   所有人都不是單一線的互相關連
@@ -2122,7 +2121,7 @@ date: 2022-03-12
 reply_count: 33
 title: '[好雷] 該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1647021736.A.573.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【該死的阿修羅】3月11日(週五) 全台上映\n    ★ 電影級數：輔12級，片長：1小時54分\n    ★ 觀看預告片：\n\n《贈票內容》\n\
   \n    ★ 3月9日(週三) 台中TIGER CITY威秀影城 試映券一組兩張，共20組。\n\n《電影介紹》\n    ★ 2021金馬獎最佳女配角 王渝萱\n\
   \    ★ 2021金馬獎三項大獎入圍 最佳原著劇本、最佳女配角、最佳新演員\n    ★ 每條岔路都將帶你走向不同結局\n    ★ 黃聖球、莫子儀、黃姵嘉、潘綱大、王渝萱、賴澔哲\
@@ -2141,7 +2140,7 @@ date: 2022-03-04
 reply_count: 12
 title: '[贈票]金馬三項入圍電影【該死的阿修羅】'
 url: https://www.ptt.cc/bbs/movie/M.1646403039.A.30A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '同樣是去年金馬獎入圍片
 
   可能是因為隨機殺人這題材
@@ -2279,7 +2278,7 @@ date: 2022-03-25
 reply_count: 2
 title: '[好雷] 該死的阿修羅 嘿~這次換你當鬼 '
 url: https://www.ptt.cc/bbs/movie/M.1648176291.A.E4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天才第一次看該死的阿修羅，
 
   中間一段打電話的畫面在第一部分和第二部分都有出現，
@@ -2333,7 +2332,7 @@ date: 2022-10-11
 reply_count: 9
 title: '[請益] 該死的阿修羅片段畫面衝突？'
 url: https://www.ptt.cc/bbs/movie/M.1665494903.A.FA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '來自威秀影城網站的海報。
 
 
@@ -2538,7 +2537,7 @@ date: 2022-03-19
 reply_count: 13
 title: '[好雷] 值得永流傳的好片《該死的阿修羅》'
 url: https://www.ptt.cc/bbs/movie/M.1647657272.A.8B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌圖文版：
 
 
@@ -2715,7 +2714,7 @@ date: 2022-03-16
 reply_count: 24
 title: '[好雷] 該死的阿修羅：善惡的分岔路'
 url: https://www.ptt.cc/bbs/movie/M.1647367141.A.AE5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家安安
 
 
@@ -2793,7 +2792,7 @@ date: 2023-02-13
 reply_count: 6
 title: '[普負雷] 該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1676222288.A.3C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '乳題
 
 
@@ -2816,7 +2815,7 @@ date: 2022-08-08
 reply_count: 16
 title: '[請益] 該死的阿修羅都沒上串流或二輪'
 url: https://www.ptt.cc/bbs/movie/M.1659924825.A.8B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '手機發文，排版請見諒
 
 
@@ -2977,7 +2976,7 @@ date: 2022-10-08
 reply_count: 25
 title: '[普雷] 該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1665190792.A.114.html
---- !!python/object:movie_data.PublicReview
+---
 content: '暫時關閉表單 目前統計中
 
 
@@ -3078,7 +3077,7 @@ date: 2022-03-16
 reply_count: 12
 title: '[包場] 該死的阿修羅 台南包場'
 url: https://www.ptt.cc/bbs/movie/M.1647432159.A.AA9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '偶然滑到預告後
 
   就一直很想看但都沒時間
@@ -3214,7 +3213,7 @@ date: 2022-09-01
 reply_count: 21
 title: '[好雷] 終於看到該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1662016112.A.D93.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3266,7 +3265,7 @@ date: 2020-11-18
 reply_count: 16
 title: '[新聞] 燒腦！莫子儀新片《該死的阿修羅》 引爆'
 url: https://www.ptt.cc/bbs/movie/M.1605684894.A.390.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -3347,7 +3346,7 @@ date: 2022-03-13
 reply_count: 22
 title: '[普好雷] 該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1647159469.A.B9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「如果我知道你會難過的話，也許我就不會做了。」
 
 
@@ -3458,7 +3457,7 @@ date: 2022-03-11
 reply_count: 28
 title: '[好無雷]  該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1647005191.A.320.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這讓我想到荀子的人性論\n\n他其實對於人性本惡還是本善沒有太多的想法\n\n他只是想提出一個相對有普遍性的解決方法\n\n人性本善，很好，那教化與法治只會放大這些善\n\
   \n人性本惡？那也很好，教化與法治可以有效的抑制這些惡\n\n\n\n我其實很討厭甚麼\"人人都推了一把\"這種說法\n\n就如原PO所說過了臨界值好了\n\n\
   但有些人只是選擇傷害自己\n\n有人選擇逃避有人瘋掉\n\n就只有那些人選擇傷害別人\n\n這世界本來就不可能盡善盡美\n\n教改二十年，學生沒有壓力？沒有人自盡？\n\
@@ -3481,7 +3480,7 @@ date: 2022-03-15
 reply_count: 39
 title: 'Re: [好雷] 該死的阿修羅--台灣社會寫實版的小丑？'
 url: https://www.ptt.cc/bbs/movie/M.1647308569.A.357.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本文涉及劇情，建議觀影後再讀。\n\n\n　　　　圖文網頁版：\n\n\n　　　　\n\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n誰該死，誰又是地獄：《該死的阿修羅》\n\n\n\n　　《該死的阿修羅》以「夜市隨機殺人案」為故事的主軸，導演樓一安多\n\n線並行六個角色：高中畢業生詹文（黃聖球飾）和阿興（潘綱大飾），一起\n\
   \n創作漫畫《憤怒的零》；白天是公務員，晚上是「王者世界」遊戲直播主的\n\n小盛（賴澔哲飾），與及其未婚妻、同時是遊戲廣告設計主管的Vita（黃姵\n\n嘉飾）；小盛在遊戲裡的皇后，是就讀夜校、與母親相依為命、經濟最為困\n\
@@ -3520,7 +3519,7 @@ date: 2022-03-20
 reply_count: 16
 title: '[好雷] 誰該死，誰又是地獄：《該死的阿修羅》 '
 url: https://www.ptt.cc/bbs/movie/M.1647745637.A.540.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《該死的阿修羅》莫子儀甩憂鬱變身雅痞記者追求真相
 
 
@@ -3614,7 +3613,7 @@ date: 2022-01-09
 reply_count: 10
 title: '[新聞] 《該死的阿修羅》莫子儀甩憂鬱變身雅痞記'
 url: https://www.ptt.cc/bbs/movie/M.1641743553.A.43A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好～想幫友人分享
 
   本次包場是黃聖球慶生場
@@ -3658,7 +3657,7 @@ date: 2022-04-24
 reply_count: 1
 title: '[包場］5/1該死的阿修羅電影台北包場'
 url: https://www.ptt.cc/bbs/movie/M.1650796834.A.F2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '謝謝電影版
 
   抱歉又來打擾
@@ -3771,7 +3770,7 @@ date: 2022-04-07
 reply_count: 3
 title: '[包場] 該死的阿修羅 新竹/台北包場'
 url: https://www.ptt.cc/bbs/movie/M.1649336481.A.C3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '預告網址：
 
 
@@ -3820,7 +3819,7 @@ date: 2021-10-05
 reply_count: 5
 title: '[情報] 《該死的阿修羅》前導預告'
 url: https://www.ptt.cc/bbs/movie/M.1633448694.A.685.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想找類似的電影，劇情不外乎可包含從小時家暴或學校霸凌、父母不夠關愛  等
 
 
@@ -3856,7 +3855,7 @@ date: 2022-09-27
 reply_count: 33
 title: '[問片] 類似「該死的阿修羅」電影'
 url: https://www.ptt.cc/bbs/movie/M.1664239919.A.E73.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 

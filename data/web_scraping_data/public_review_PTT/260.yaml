@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '紀錄片赤心巔峰花2年場勘 越野跑者感受生命脆弱[影]
 
 
@@ -54,7 +53,7 @@ date: 2023-12-08
 reply_count: 1
 title: '[新聞] 紀錄片赤心巔峰花2年場勘 越野跑者感受生命脆弱'
 url: https://www.ptt.cc/bbs/movie/M.1702000716.A.8C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先講電影感想，其實整部電影對兩位登山者的大縱走畫面比重沒有想像的多，
 
   這是比較失望但可以理解的部分，
@@ -177,7 +176,7 @@ date: 2023-12-25
 reply_count: 23
 title: '[普雷] 赤心巔峰'
 url: https://www.ptt.cc/bbs/movie/M.1703479467.A.AB9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可能因為自己有在登山的關係所以特別有感覺吧
 
   兩個小時的紀錄片看下來後
@@ -204,7 +203,7 @@ date: 2023-12-15
 reply_count: 25
 title: '[ 好無雷]  赤心巔峰讓我淚流滿面'
 url: https://www.ptt.cc/bbs/movie/M.1702651659.A.C21.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次進電影院看紀錄片
 
   意外的感動好看
@@ -280,7 +279,7 @@ date: 2023-12-17
 reply_count: 25
 title: '[好雷]赤心巔峰 '
 url: https://www.ptt.cc/bbs/movie/M.1702824853.A.9B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前就知道這片因為有在運動登山看過預告，
 
   能把紀錄片拍的流暢有趣真的很不容易，

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -87,7 +86,7 @@ date: 2025-01-27
 reply_count: 31
 title: '[極好雷] 艾諾拉'
 url: https://www.ptt.cc/bbs/movie/M.1737961566.A.F3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '演脫衣舞孃「拜託父親幫忙」《艾諾拉》女主角身體下苦功
 
 
@@ -179,7 +178,7 @@ date: 2024-11-30
 reply_count: 22
 title: '[新聞] 演脫衣舞孃「拜託父親幫忙」《艾諾拉》女主角身體下苦功'
 url: https://www.ptt.cc/bbs/movie/M.1732957951.A.2FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '得獎名單公布
 
 
@@ -237,7 +236,7 @@ date: 2024-11-25
 reply_count: 32
 title: 'Re: [贈票] 金棕櫚獎【艾諾拉】特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1732519236.A.30F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '‧
 
 
@@ -353,7 +352,7 @@ date: 2024-12-05
 reply_count: 2
 title: '[好雷] 艾諾拉。灰姑娘的午夜時刻'
 url: https://www.ptt.cc/bbs/movie/M.1733407831.A.FEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《艾諾拉》摘金棕櫚不忘本 性工作者搶先看\n\n2024/09/29 05:30\n\n〔記者許世穎／綜合報導〕美國名導西恩貝克編導的新片《艾諾拉》以性工作者為題材，\n\
   在今年坎城影展首映後大放異彩，更拿下金棕櫚大獎。電影日前特地為性工作者和脫衣舞\n孃舉行特別放映，向她們送上關懷與尊重，女主角米琪麥迪遜和另一位演員琳賽諾明頓現\n\
   身主持，受到現場觀眾手腳並用鼓掌熱情歡迎。\n\n導演西恩貝克雖然未到場，但他本人長期給予包括性工作者及中下階層群體很多關注；米\n琪則特別感謝影片的編舞肯娜迪史奈德，在拍攝過程中幫她掌握性感動作，「她教會了我\n\
@@ -363,7 +362,7 @@ date: 2024-09-29
 reply_count: 1
 title: '[新聞] 《艾諾拉》摘金棕櫚不忘本 性工作者搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1727625073.A.ADE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -619,7 +618,7 @@ date: 2024-12-17
 reply_count: 31
 title: '[好雷]艾諾拉- 她的名字'
 url: https://www.ptt.cc/bbs/movie/M.1734371925.A.919.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片的故事其實很簡單
 
 
@@ -704,7 +703,7 @@ date: 2024-12-09
 reply_count: 86
 title: '[好雷] 真的還滿好看的《艾諾拉》'
 url: https://www.ptt.cc/bbs/movie/M.1733727512.A.2CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "榮獲2024坎城金棕櫚獎\n\n目前還在熱映中\n\n\n\n\n\n\n\n\n雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n  (刊登於網誌有圖片的原文)\n\
   \n\n\n作為沒有太喜歡導演西恩貝克Sean Baker過往作品的觀眾，如《歡迎光臨奇幻城堡》對其\n描述底層過於浪漫的憐憫或相互取暖頗不以為然。自己好像比較喜歡那種我們認為底層很\n\
@@ -727,7 +726,7 @@ date: 2024-12-14
 reply_count: 3
 title: '[好雷] 《艾諾拉》Anora - 野蠻世界 歡喜就好 '
 url: https://www.ptt.cc/bbs/movie/M.1734162909.A.CD1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '獨一無二的感官經驗，從一段火辣的愛情故事開始！
 
 
@@ -775,7 +774,7 @@ date: 2024-11-18
 reply_count: 321
 title: '[贈票] 金棕櫚獎【艾諾拉】特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1731916492.A.111.html
---- !!python/object:movie_data.PublicReview
+---
 content: '坎城金棕梠 真的好片
 
 

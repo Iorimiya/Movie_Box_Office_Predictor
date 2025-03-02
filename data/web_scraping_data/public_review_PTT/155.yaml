@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '消息來源:原創娛樂
 
 
@@ -30,7 +29,7 @@ date: 2023-08-30
 reply_count: 7
 title: '[情報] 高橋一生 《岸邊露伴在羅浮》海外宣傳'
 url: https://www.ptt.cc/bbs/movie/M.1693404178.A.F30.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -108,7 +107,7 @@ date: 2023-09-25
 reply_count: 29
 title: '[好微雷]岸邊露伴在羅浮'
 url: https://www.ptt.cc/bbs/movie/M.1695603222.A.9BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -202,7 +201,7 @@ date: 2023-10-14
 reply_count: 6
 title: '[普雷]岸邊露伴在羅浮 觀後心得'
 url: https://www.ptt.cc/bbs/movie/M.1697242017.A.B78.html
---- !!python/object:movie_data.PublicReview
+---
 content: '高橋一生主演《岸邊露伴在羅浮》真人版電影正式預告公開
 
 

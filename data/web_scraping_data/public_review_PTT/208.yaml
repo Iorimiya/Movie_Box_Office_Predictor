@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '《飢餓遊戲》的前傳小說《鳴鳥與游蛇之歌The Ballad of Songbirds and Snakes》於20
 
   20 年中出版，廣受各界好評，隨即會快就進入電影翻拍階段，而如今官方也發布了《飢
@@ -57,7 +56,7 @@ date: 2023-03-26
 reply_count: 26
 title: '[情報] 《飢餓遊戲》前傳《鳴鳥與游蛇之歌》'
 url: https://www.ptt.cc/bbs/movie/M.1679775900.A.C2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "見證強權崛起\n\n\n\n《飢餓遊戲：鳴鳥與游蛇之歌》\n\n\n\n最新正式預告公開！\n\n\n\n第10屆飢餓遊戲即將開始\n\n見證改變飢餓遊戲的傳奇原點！\n\
   \n《飢餓遊戲：鳴鳥與游蛇之歌》\n\n11月17日 (五) 與全美同步上映\n\nIMAX、Dolby Cinema、4DX、MX4D 全版本\n\n同步上映\n\
   \n #車庫娛樂 #飢餓遊戲\n\n資料來源：\n\n\n--\n好像沒有她\n她之後還有《白雪公主》。"
@@ -65,7 +64,7 @@ date: 2023-09-21
 reply_count: 48
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌》正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1695229871.A.90E.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Rachel Zegler 和 Tom Blyth 在《飢餓遊戲：鳴鳥與遊蛇之歌》中的首張海報。
 
 
@@ -125,7 +124,7 @@ date: 2023-09-06
 reply_count: 29
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌 》海報'
 url: https://www.ptt.cc/bbs/movie/M.1694013846.A.D79.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有些雷
 
 
@@ -293,7 +292,7 @@ date: 2023-11-18
 reply_count: 30
 title: '[ 普好雷] 飢餓遊戲前傳-鳴鳥與游蛇'
 url: https://www.ptt.cc/bbs/movie/M.1700307310.A.A90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看完
 
 
@@ -647,7 +646,7 @@ date: 2023-11-22
 reply_count: 90
 title: '[好雷] 飢餓遊戲:鳴鳥與游蛇之歌  的現實體悟'
 url: https://www.ptt.cc/bbs/movie/M.1700654260.A.2AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "獲全美觀眾票選最期待電影！\n\n《》\n\n11/17 ( 五 ) IMAX、Dolby Cinema、Dolby Atmos、4DX、MX4D\
   \ 全版本盛大上映\n\n見證飢餓遊戲傳奇起點\n\n全球狂賣1000億動作冒險經典\n\n《》系列最新章\n\n系列原著全球暢銷賣破1億冊\n\nAmazon網路書店史上最暢銷系列小說\n\
   \n\n《》\n\n11/17 (五) 與全美同步上映\n\n\n全球票房賣座超過1000億《》系列最新電影\n\n全球暢銷破1億冊反烏托邦經典《飢餓遊戲》系列前傳小說改編\n\
@@ -660,7 +659,7 @@ date: 2023-11-11
 reply_count: 13
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌》上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1699693620.A.A04.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -786,7 +785,7 @@ date: 2023-11-26
 reply_count: 28
 title: '[雷] 飢餓遊戲 鳴鳥與游蛇之歌'
 url: https://www.ptt.cc/bbs/movie/M.1700976841.A.BF8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問一下有推薦在哪個特殊廳看嗎？
 
   還是看2D就好？
@@ -804,7 +803,7 @@ date: 2023-11-22
 reply_count: 7
 title: 'Re: [情報] 《飢餓遊戲：鳴鳥與游蛇之歌》上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1700656658.A.B90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文網誌:
 
 
@@ -984,7 +983,7 @@ date: 2023-11-18
 reply_count: 29
 title: '[好雷] 飢餓遊戲前傳 鳴鳥與游蛇之歌 '
 url: https://www.ptt.cc/bbs/movie/M.1700303890.A.30F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1033,7 +1032,7 @@ date: 2022-05-02
 reply_count: 17
 title: '[新聞] 《飢餓遊戲》前傳《鳴鳥與游蛇之歌》電影版宣佈上映檔期！'
 url: https://www.ptt.cc/bbs/movie/M.1651429906.A.B28.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -1069,7 +1068,7 @@ date: 2023-11-30
 reply_count: 81
 title: '[討論] 飢餓遊戲：鳴鳥與游蛇之歌 票房3649萬'
 url: https://www.ptt.cc/bbs/movie/M.1701346878.A.D6E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部拍的比本傳好非常多
 
   不愧是小說改編，150分鐘劇情很飽滿
@@ -1090,7 +1089,7 @@ date: 2023-11-21
 reply_count: 26
 title: '[好無雷] 飢餓遊戲：鳴鳥與游蛇之歌 '
 url: https://www.ptt.cc/bbs/movie/M.1700565069.A.2F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實應該是要給好雷的 但第三篇章真的是很可惜
 
   明明是兩大主角角色轉折的最重要篇章
@@ -1136,7 +1135,7 @@ date: 2023-11-28
 reply_count: 30
 title: '[普好雷] 人性鬼故事的鳴鳥與游蛇之歌'
 url: https://www.ptt.cc/bbs/movie/M.1701154629.A.1F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恩...感覺預告把一些電影重點都剪光了
 
 
@@ -1268,7 +1267,7 @@ date: 2023-11-28
 reply_count: 15
 title: '[微雷] [極簡評] 飢餓遊戲前傳: 鳴鳥與游蛇之歌'
 url: https://www.ptt.cc/bbs/movie/M.1701181985.A.A51.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》全新篇章！\n\n【】\n\nThe Hunger Games: The Ballad of Songbirds & Snakes\n\n\
   11/17(週五) 與全美同步上映\n\n  \n\n回到\n所有傳奇\n的起點\n\n《》\n\n11月17日　與全美同步上映\n\n     全球票房賣座超過30億美金《飢餓遊戲》系列前傳電影\n\
   \n     全球暢銷3600萬冊反烏托邦經典《飢餓遊戲》系列前傳小說改編\n\n     揭露正傳三部曲大反派「史諾總統」化身魔頭前的故事\n\n    《康斯坦汀：驅魔神探》《飢餓遊戲系列》導演法蘭西斯勞倫斯回歸執導\n\
@@ -1278,7 +1277,7 @@ date: 2023-09-13
 reply_count: 57
 title: '[情報] 《飢餓遊戲：鳴鳥與游蛇之歌》預告'
 url: https://www.ptt.cc/bbs/movie/M.1694572182.A.FFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》預告
 
 

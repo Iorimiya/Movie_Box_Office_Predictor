@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '我自己沒想過這個問題，看了幾篇討論後才把這部片和男性凝視連結起來。
 
 
@@ -57,7 +56,7 @@ date: 2024-10-22
 reply_count: 34
 title: '[好雷]懼裂 男性不曾想過的凝視'
 url: https://www.ptt.cc/bbs/movie/M.1729581282.A.907.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本微笑2和懼裂在選
 
   不過後來決定「我要犬步！」
@@ -178,7 +177,7 @@ date: 2024-10-29
 reply_count: 38
 title: '[普雷] 懼裂-我到底看了三小'
 url: https://www.ptt.cc/bbs/movie/M.1730178337.A.8D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷資訊頁
 
 
@@ -295,7 +294,7 @@ date: 2024-10-16
 reply_count: 45
 title: '[普好雷] 懼裂-基本上看5分鐘就知道後面發展了'
 url: https://www.ptt.cc/bbs/movie/M.1729038013.A.E68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -362,7 +361,7 @@ date: 2024-10-26
 reply_count: 37
 title: '[普雷] 懼裂 感覺不算肉體恐懼最極限'
 url: https://www.ptt.cc/bbs/movie/M.1729915052.A.39A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看大家幾乎一致好評所以準備跑到台中看
 
 
@@ -445,7 +444,7 @@ date: 2024-10-28
 reply_count: 16
 title: '[選片] 搭配“懼裂”的電影'
 url: https://www.ptt.cc/bbs/movie/M.1730108187.A.B81.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先不論台灣拍不拍得出這種作品
 
 
@@ -491,7 +490,7 @@ date: 2024-11-04
 reply_count: 89
 title: '[討論] 台版的《懼裂》如何選角？'
 url: https://www.ptt.cc/bbs/movie/M.1730704775.A.7BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天看完懼裂，蠻喜歡的，尤其對那個給藥方的(藥廠？)背後的設定很好奇
 
 
@@ -575,7 +574,7 @@ date: 2024-11-03
 reply_count: 43
 title: '[討論] 懼裂激素的一些想法(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1730578327.A.F41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '黛咪·摩爾在收到食譜的時候 做了很多料理
 
   請問這是代表什麼含意嗎? 這邊看不太懂
@@ -594,7 +593,7 @@ date: 2024-10-29
 reply_count: 22
 title: '[討論] 懼裂的問題(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1730198160.A.CEF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '全球飆破24億台幣票房，黛咪摩爾 金球獎 封影后之作
 
   電影《懼裂》即將於本週五(1/17)起，重回全台大銀幕
@@ -615,7 +614,7 @@ date: 2025-01-14
 reply_count: 38
 title: '[情報] 《懼裂》1/17重回大銀幕&同時上架平台'
 url: https://www.ptt.cc/bbs/movie/M.1736785578.A.34A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先，我覺得這個片名翻譯很爛，不知道有沒有人有同感？
 
 
@@ -675,7 +674,7 @@ date: 2024-10-22
 reply_count: 6
 title: '[普大概無雷] 充滿冗贅的《懼裂》'
 url: https://www.ptt.cc/bbs/movie/M.1729593530.A.E63.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看版上很多人推薦
 
   今天就去看了
@@ -737,7 +736,7 @@ date: 2024-10-26
 reply_count: 27
 title: '[討論] ［好雷］懼裂全程無冷場'
 url: https://www.ptt.cc/bbs/movie/M.1729942932.A.C6A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如標題，看完的第一個感想是，這部根本是叫大家不要因容貌而感到焦慮的勸世片吧
 
 
@@ -879,7 +878,7 @@ date: 2024-10-23
 reply_count: 25
 title: '[好雷] 懼裂：簡單暴力的勸世片？'
 url: https://www.ptt.cc/bbs/movie/M.1729615366.A.0F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個意識問題也是在我和朋友看完後深入探討的地方。我有一些自己的看法。
 
 
@@ -963,7 +962,7 @@ date: 2024-10-28
 reply_count: 54
 title: 'Re: [討論雷] 關於懼裂女主角'
 url: https://www.ptt.cc/bbs/movie/M.1730046640.A.2D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我認為他們意識和記憶是共通的, 但不是很清晰, 而是模糊的狀態, 休眠是在深沉狀態,
 
   無法控制另一方的行為, 注意, 他們轉換時都是驚醒的
@@ -990,7 +989,7 @@ date: 2024-10-20
 reply_count: 14
 title: 'Re: [討論雷] 關於懼裂女主角'
 url: https://www.ptt.cc/bbs/movie/M.1729389274.A.62D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '可能因為看過《異形》系列電影，我對片中同等血腥程度算是免疫。意外的被片中的武打
 
   動作場面踩到哭點，「難道我們就真的這麼討厭自己嗎？」
@@ -1009,7 +1008,7 @@ date: 2024-10-19
 reply_count: 29
 title: '[好無雷] 懼裂'
 url: https://www.ptt.cc/bbs/movie/M.1729280705.A.E3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -1033,7 +1032,7 @@ date: 2024-10-16
 reply_count: 36
 title: '[選片] 懼裂 / 鄰家密友 / 默殺 / 雪中真相'
 url: https://www.ptt.cc/bbs/movie/M.1729060208.A.21C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n看《懼裂》是我近期最不舒服的觀影體驗（好的那種）。\n\
   \n做為恐怖驚悚類型的電影，它充滿了噁心、腥臭，和導演在鏡頭上刻意的壓迫與逼近。但\n一切最讓人作嘔的，是整部片層層遞進，不斷切開又縫補而成的扭曲人性。\n\n\
@@ -1053,7 +1052,7 @@ date: 2024-10-15
 reply_count: 16
 title: '[好雷]《懼裂》對鎂光燈的執拗，那才是我的血肉'
 url: https://www.ptt.cc/bbs/movie/M.1728924239.A.C80.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《懼裂》：「越疼痛，越美麗。」
 
 
@@ -1162,7 +1161,7 @@ date: 2024-10-19
 reply_count: 14
 title: '[好雷] 《懼裂》：「越疼痛，越美麗。」 '
 url: https://www.ptt.cc/bbs/movie/M.1729270870.A.44D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '互通的
 
   客服強調好幾遍
@@ -1212,7 +1211,7 @@ date: 2024-10-20
 reply_count: 73
 title: 'Re: [討論雷] 關於懼裂女主角'
 url: https://www.ptt.cc/bbs/movie/M.1729359332.A.DB7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "已經很多討論資訊不再贅述。\n\n\n很多藝文朋友推，但自己說真的沒很喜歡。大概就如同電影迂迴劇情，在覺得無聊時，喔\n，又出現好像有些新意，然後又開始無聊，最後則是B級片，OK好喔。\n\
   \n\n\n\n\n雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\
   \n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n  (發表在方格子的原文含圖片)\n\
@@ -1236,7 +1235,7 @@ date: 2024-11-03
 reply_count: 2
 title: '[微好雷] 《懼裂》The Substance '
 url: https://www.ptt.cc/bbs/movie/M.1730624867.A.39C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先來點無雷評論的部分
 
 
@@ -1547,7 +1546,7 @@ date: 2024-10-21
 reply_count: 35
 title: '[負雷] 懼裂-缺乏現實基礎的幻想之作'
 url: https://www.ptt.cc/bbs/movie/M.1729514014.A.1A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -1600,7 +1599,7 @@ date: 2025-01-11
 reply_count: 12
 title: '[負雷] 懼裂'
 url: https://www.ptt.cc/bbs/movie/M.1736581008.A.C2F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "一樣有雷   未看過本片勿入\n\n\n強烈推薦\n\n沒想到居然有人敢拍出來\n\n就像<傲慢與偏見> 完全沒在遮掩 就是要告訴你\"女的要年輕要正\
   \ 男的要帥要有錢\"\n\n這片也沒在遮 就是要告訴你\"女的要年輕要正\" 價值觀強勢洗腦\n\n居然有人敢拍出來\n\n以下有雷\n\n\n\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\n\n\n\
@@ -1624,7 +1623,7 @@ date: 2025-01-19
 reply_count: 7
 title: '[好雷] 創意滿分! 懼裂 '
 url: https://www.ptt.cc/bbs/movie/M.1737302109.A.C9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "全球票房破10億！導演親曝《懼裂》3大核心象徵\n\n03:45 2024/10/26 中時 杜欣穎\n\n\n《懼裂》導演透露，電影當中反覆出現巨大疤痕的脊椎是象徵電影的核心。\n\
   （圖／CATCHPLAY提供）\n\n全球票房飆破10億台幣、全台口碑炸裂的《懼裂》好評連連，導演柯洛里法吉特\n(Coralie Fargeat)和她的攝影師日前接受媒體訪問時提到，關於電影中一幕經典畫面是\n\
   黛咪摩爾(Demi Moore)飾演的過氣女星伊莉莎白施打「完美物質」後倒臥在浴室，一旁站\n著由瑪格麗特庫利(Margaret Qualley)飾演、穿著印有龍紋浴袍的分裂者蘇，該幕其實是\n\
@@ -1647,7 +1646,7 @@ date: 2024-10-26
 reply_count: 17
 title: '[新聞] 全球票房破10億！導演親曝《懼裂》3大核心象徵'
 url: https://www.ptt.cc/bbs/movie/M.1729957452.A.DC7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，這兩部都18禁的
 
 
@@ -1672,7 +1671,7 @@ date: 2024-10-26
 reply_count: 35
 title: '[選片] 劊樂小丑 or 懼裂'
 url: https://www.ptt.cc/bbs/movie/M.1729922780.A.FCD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '下午看完震撼到現在
 
   技術類關於鏡頭語言/音效的讚譽就不多提了
@@ -1736,7 +1735,7 @@ date: 2024-10-27
 reply_count: 7
 title: '[討論] ［好雷］懼裂—伊不悔之一個別出心裁的Ha'
 url: https://www.ptt.cc/bbs/movie/M.1730041664.A.A25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '媒體很愛小題大作的「斷崖式衰老」、資深女星代言醫美的「與時光逆行」，這些崇尚美
 
   麗的浮誇流行語，在《懼裂》面前都不足一提 – 它先凝視著年華老去的皮囊，再把歪腦
@@ -1884,7 +1883,7 @@ date: 2024-10-19
 reply_count: 16
 title: '[好雷] 懼裂：人不愛美天誅地滅'
 url: https://www.ptt.cc/bbs/movie/M.1729340324.A.E36.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本片不合理之處太多了，但如果你知道導演Coralie Fargeat人生最愛的4部電影其中之一
 
   是David Lynch的《穆荷蘭大道》，你大概可以窺見一二了
@@ -1929,7 +1928,7 @@ date: 2024-10-22
 reply_count: 29
 title: 'Re: [討論雷] 懼裂 主角意識問題和結局處理的看法'
 url: https://www.ptt.cc/bbs/movie/M.1729569183.A.EF2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有一段時間沒去電影院看電影了
 
 
@@ -2140,7 +2139,7 @@ date: 2024-10-27
 reply_count: 23
 title: '[ 普雷] 懼裂——生涯規劃勸世片'
 url: https://www.ptt.cc/bbs/movie/M.1730036129.A.4A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有些人在議論的主角意識問題, 重新整理一下我的理解。
 
   同一個意識在兩個身體間切換移動, 不過無論在那個身體都是短視的本位思考, 完全不會去考
@@ -2259,7 +2258,7 @@ date: 2024-10-22
 reply_count: 106
 title: '[討論雷] 懼裂 主角意識問題和結局處理的看法'
 url: https://www.ptt.cc/bbs/movie/M.1729561318.A.315.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《懼裂》深度不足，獵奇有餘。
 
 
@@ -2330,7 +2329,7 @@ date: 2024-10-23
 reply_count: 22
 title: '[普雷] 《懼裂》只有噁心和大師有了差距'
 url: https://www.ptt.cc/bbs/movie/M.1729649754.A.D22.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2360,7 +2359,7 @@ date: 2024-10-18
 reply_count: 9
 title: '[  雷] 懼裂 – 青春肉體'
 url: https://www.ptt.cc/bbs/movie/M.1729229336.A.BCA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說無雷結論, the hype is real, The Substance is full of style
 
   and substance, 瞬間的邪典經典!
@@ -2551,7 +2550,7 @@ date: 2024-10-15
 reply_count: 31
 title: '[好算無雷]《懼裂》的傳說是真的, 激賞大推!'
 url: https://www.ptt.cc/bbs/movie/M.1728955075.A.545.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到有討論關於女主角伊莉莎白跟蘇的意識是同一個人互通的，還是兩個人各自分開的，
 
   我自己的理解是分裂前的記憶是一樣的，分裂後就沒有互通，不過也有看到是覺得一直都
@@ -2571,7 +2570,7 @@ date: 2024-10-20
 reply_count: 86
 title: '[討論雷] 關於懼裂女主角'
 url: https://www.ptt.cc/bbs/movie/M.1729357688.A.04F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷資訊頁
 
 
@@ -2790,7 +2789,7 @@ date: 2024-11-10
 reply_count: 9
 title: '[微好雷] 懼裂 雖很B級 但比小丑2好看 贏了'
 url: https://www.ptt.cc/bbs/movie/M.1731240771.A.FE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天要去看恐怖片
 
   想被嚇死噁心死都可以，想獲得滿滿將近兩小時的娛樂刺激
@@ -2821,7 +2820,7 @@ date: 2024-10-19
 reply_count: 69
 title: '[選片] 懼裂／微笑2'
 url: https://www.ptt.cc/bbs/movie/M.1729352489.A.B09.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -2867,7 +2866,7 @@ date: 2024-11-11
 reply_count: 67
 title: '[討論] 懼裂電影想表達什麼'
 url: https://www.ptt.cc/bbs/movie/M.1731254495.A.B00.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2916,7 +2915,7 @@ date: 2025-01-06
 reply_count: 69
 title: '[新聞] 金球獎黛咪摩兒「懼裂」封后 從影逾40年'
 url: https://www.ptt.cc/bbs/movie/M.1736138931.A.2DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '超狂！女導拒絕漫威只為專注《懼裂》 堅持到底搶到奧斯卡門票
 
 
@@ -2972,7 +2971,7 @@ date: 2025-02-01
 reply_count: 8
 title: '[新聞] 超狂！女導拒絕漫威只為專注《懼裂》 堅'
 url: https://www.ptt.cc/bbs/movie/M.1738383512.A.2BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很喜歡這部，但想問大家在最後熱血跨年晚會那段音效也會極度不適嗎？
 
   那幾分鐘的音效真的大到覺得耳！膜！要！破！了！！
@@ -2998,7 +2997,7 @@ date: 2024-10-27
 reply_count: 32
 title: '[討論] 懼裂  某段音效的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1730039033.A.B3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '建議千萬不要帶吃的，尤其不要帶葷食
 
 
@@ -3040,7 +3039,7 @@ date: 2024-10-18
 reply_count: 126
 title: '[無雷] 懼裂 我只有變態可以形容'
 url: https://www.ptt.cc/bbs/movie/M.1729260747.A.F09.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3146,7 +3145,7 @@ date: 2024-11-10
 reply_count: 7
 title: '【好雷】懼裂-女人的星光大道 '
 url: https://www.ptt.cc/bbs/movie/M.1731172894.A.421.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n防雷\n\n防雷\n\n防雷\n\n\n防雷\n\n\n防雷\n\n\n防雷\n\n\n防雷\n\n\n\n\n\n\n\
   ~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文\
   \ 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n關鍵字：老化、審美觀、複製人、賽局\n\n(一) 懼裂(The Substance)這部電影起初從預告片開始就讓我想到怪醫黑傑克漫畫其中一\n\
@@ -3162,7 +3161,7 @@ date: 2024-10-22
 reply_count: 2
 title: '[好雷]懼裂，感官刺激 & 反思兼具的好片'
 url: https://www.ptt.cc/bbs/movie/M.1729527899.A.70D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是蠻屌的一部片
 
 
@@ -3196,7 +3195,7 @@ date: 2024-10-21
 reply_count: 85
 title: '[好雷] 懼裂結尾拍成那樣真的有必要嗎'
 url: https://www.ptt.cc/bbs/movie/M.1729510398.A.434.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《A Different Man》★★★★★★★☆☆☆\n\n\n\n剛剛看了Sebastian Stan演的川普傳記片《The Apprentice》\n\
   想起他今年有奪下柏林影展最佳演員，\n好在加拿大還有上映這部《A Different Man》\n有幸能在這一週欣賞完Sebastian Stan在三大影展中的作品\n\
   有趣的是今年坎城影展主競賽的《懼裂》，談到演藝明星的女性容貌焦慮\n而《A Different Man》則是提到了在兩性關系中的男性容貌焦慮\n\n\n\n\n\
@@ -3215,7 +3214,7 @@ date: 2024-11-10
 reply_count: 14
 title: '[好雷]《A Different Man》－懼裂的姊妹篇'
 url: https://www.ptt.cc/bbs/movie/M.1731218483.A.D31.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我知道，我知道
 
   這部片是在講女人的容貌焦慮，
@@ -3371,7 +3370,7 @@ date: 2024-10-22
 reply_count: 57
 title: '[好雷]懼裂 是曾經滄海難為水的痛'
 url: https://www.ptt.cc/bbs/movie/M.1729601846.A.ED5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影仔看電影 － 懼裂 / The Substance　(2024)
 
 
@@ -3460,7 +3459,7 @@ date: 2024-10-22
 reply_count: 2
 title: '[好雷]懼裂 / The Substance　(2024)(影仔)'
 url: https://www.ptt.cc/bbs/movie/M.1729601488.A.6A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '建議看懼裂 雖你預知這部戲的結果 但是過程不冷場
 
 
@@ -3485,7 +3484,7 @@ date: 2024-10-21
 reply_count: 8
 title: 'Re: [討論] 懼裂 VS 小丑2，哪部比較讓人不舒服'
 url: https://www.ptt.cc/bbs/movie/M.1729473283.A.FBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為時間有限
 
   想請問各位大大
@@ -3506,7 +3505,7 @@ date: 2024-10-25
 reply_count: 114
 title: '[選片] 請問懼裂和猛毒3擇一'
 url: https://www.ptt.cc/bbs/movie/M.1729816891.A.278.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大概看清這類電影的套路了
 
   故意用誇張的視覺效果和B級片的血漿
@@ -3537,7 +3536,7 @@ date: 2024-10-25
 reply_count: 54
 title: '[心得] 媽的多重宇宙和懼裂'
 url: https://www.ptt.cc/bbs/movie/M.1729786202.A.1F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3610,7 +3609,7 @@ date: 2024-10-21
 reply_count: 4
 title: '[ 好雷] 懼裂'
 url: https://www.ptt.cc/bbs/movie/M.1729479408.A.AC9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n1.黛咪摩爾保養得還不錯啊\n\
   \n2.視覺跟音效實在太屌了，個人認為應該可以入圍奧斯卡，有些畫面真的讓人，極端的不舒服，太屌了。\n\n3.第二女主角選角也很好，只是後面各種犧牲，慘\n\n\
@@ -3624,7 +3623,7 @@ date: 2024-10-21
 reply_count: 83
 title: '[好雷] 懼裂   藝術跟科學觀點來看aging'
 url: https://www.ptt.cc/bbs/movie/M.1729441800.A.34D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3719,7 +3718,7 @@ date: 2024-10-18
 reply_count: 37
 title: '[好雷] 懼裂The Substance'
 url: https://www.ptt.cc/bbs/movie/M.1729229555.A.5D3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在臉書上看到許多影評人給《懼裂》好評
 
   但板上好像還沒有什麼討論，明天10/18上映先來轉文分享一下，看影評感覺這部片血漿
@@ -3794,7 +3793,7 @@ date: 2024-10-16
 reply_count: 5
 title: '[轉錄] 《懼裂》 好評影評'
 url: https://www.ptt.cc/bbs/movie/M.1729064196.A.248.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3873,7 +3872,7 @@ date: 2024-10-23
 reply_count: 45
 title: '[好雷]懼裂 音效堆疊的恐怖'
 url: https://www.ptt.cc/bbs/movie/M.1729694806.A.CBD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看最近懼裂的討論很像滿踴躍
 
   但看完大家的心得

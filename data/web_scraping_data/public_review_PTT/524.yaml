@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '請問大家:
 
 
@@ -45,7 +44,7 @@ date: 2024-06-24
 reply_count: 11
 title: '[討論] 黑水巷的銀幕比例?'
 url: https://www.ptt.cc/bbs/movie/M.1719166382.A.129.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'RT
 
 

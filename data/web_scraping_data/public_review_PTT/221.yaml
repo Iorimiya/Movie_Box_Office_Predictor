@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '預告:
 
 
@@ -20,7 +19,7 @@ date: 2023-10-27
 reply_count: 7
 title: '[討論] 無聲夜怎麼沒人討論'
 url: https://www.ptt.cc/bbs/movie/M.1698389026.A.DBA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《無聲夜》6/10分
 
 
@@ -132,7 +131,7 @@ date: 2023-12-01
 reply_count: 3
 title: '[普無雷] 《無聲夜》整體普通 偶有亮點'
 url: https://www.ptt.cc/bbs/movie/M.1701431354.A.E54.html
---- !!python/object:movie_data.PublicReview
+---
 content: "吳宇森回歸好萊塢《無聲夜》零對白\n\n04:10 2023/11/18 中國時報 翁紫曦\n\n\n《無聲夜》由喬爾金納曼擔綱演出，全片毫無對白挑戰演技。（車庫娛樂提供）\n\
   \n香港名導吳宇森暌違20年回歸好萊塢，這也是他繼2017年的《追捕》之後，再推新作《無\n聲夜》。電影除了找來《捍衛任務4》團隊打造動作場面，男主角由《自殺突擊隊：集結\n\
   》性格男星喬爾金納曼主演，喬爾有著帥氣外表、健壯身材，但電影居然全片「毫無對白\n」。\n\n吳宇森近20年來將重心挪回亞洲市場，前後推出了《赤壁》、《太平輪》等票房大作。這\n\
@@ -145,7 +144,7 @@ date: 2023-11-18
 reply_count: 15
 title: '[新聞] 吳宇森回歸好萊塢《無聲夜》零對白'
 url: https://www.ptt.cc/bbs/movie/M.1700303032.A.2EB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大家好\n我是專看恐怖片的LittleDiDi\n我又來介紹恐片啦\n這次要來談一部密室追殺片\n聽說評價很不錯\n大家可以參考看看\n\n\n\
   \nBlog圖文版會更精采\n\n\n年份：2016\n\n國別：美國\n\n類型：驚悚、殺人魔\n\n導演：Mike Flanagan\n\n\n[劇情簡介]\n\
   \n一名聾啞女作家躲在郊區小別墅獨力對抗面具怪客恐怖侵襲的故事。\n\n\n\n\n\n最近稍微follow了一下阿揚(這邊幫小老弟他廣告一下\n，也是一個對恐怖片與創作有濃厚興趣的有為青年，只是說年紀輕輕就哈這味，真不知\n\
@@ -182,7 +181,7 @@ date: 2017-03-21
 reply_count: 7
 title: '[微好雷]寂林殺機(無聲夜)-就兩個人不無聊嗎? '
 url: https://www.ptt.cc/bbs/movie/M.1490049888.A.967.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天在飛機上偶然點到這部片
 
 
@@ -284,7 +283,7 @@ date: 2024-02-03
 reply_count: 27
 title: '[大負雷]無聲夜 我看過最爛的復仇片'
 url: https://www.ptt.cc/bbs/movie/M.1706951260.A.760.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無聲夜是我今年看過最好的電影，我實在太喜歡了，想四處分享，所以請原諒我的熱情。
 
 
@@ -333,7 +332,7 @@ date: 2023-12-02
 reply_count: 11
 title: '[雷] 無聲夜是我今年最喜歡的電影'
 url: https://www.ptt.cc/bbs/movie/M.1701456089.A.9A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -407,7 +406,7 @@ date: 2023-12-01
 reply_count: 26
 title: '[雷] 無聲夜-及格以上，佳作未滿'
 url: https://www.ptt.cc/bbs/movie/M.1701434051.A.960.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -571,7 +570,7 @@ date: 2023-12-08
 reply_count: 7
 title: '[大負雷]無聲夜'
 url: https://www.ptt.cc/bbs/movie/M.1702033840.A.167.html
---- !!python/object:movie_data.PublicReview
+---
 content: '吳宇森重返好萊塢的「無聲夜」爛番茄7個評分只有一個負面評價
 
 
@@ -585,7 +584,7 @@ date: 2023-11-28
 reply_count: 34
 title: '[討論] 吳宇森《無聲夜》爛番茄86'
 url: https://www.ptt.cc/bbs/movie/M.1701111368.A.5D6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》\n\n國際動作電影大師 最新動作巨作\n\n「吳宇森再創生涯巔峰 」\n\n- Ashley Hajimirsadeghi,Movieweb\n\
   \n「保證讓你目瞪口呆 」\n\n- Scott Mantz,Ktla\n\n\n\n《》 Silent Night\n\n12月1日（五）與全美同步上映！\n\
   \n坐而言不如起而刑\n\n《》製作團隊歲末壓軸動作鉅獻\n\n《》國際動作電影大師最新力作\n\n《》性格男星 領銜主演\n\n #車庫娛樂 #吳宇森\n\n\
@@ -594,7 +593,7 @@ date: 2023-11-26
 reply_count: 1
 title: '[情報] 《無聲夜》 Silent Night 上映戲院列表'
 url: https://www.ptt.cc/bbs/movie/M.1700992490.A.C25.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文版部落格:\n\n級別 : 限制級\n\n上映日期 : 2016年\n\n片長 : 1時21分\n\nIMDb : 6.8/10(6515票)\n\
   \n爛番茄 : 100%(11票)\n\n\n\n你沒看錯，這部片爛番茄滿意度竟然有100%，連IMDb也給到6.8分，還能不來瞧瞧嗎?\n\n[劇情介紹]\n\
   \n一個聾啞女人獨自居住在樹林深處，某天深夜一個面具惡魔突然到訪。可憐的女人命懸一\n線，幸運的是....然而，悲劇不幸接憧而至。在這個無聲的夜晚，聾啞女究竟能否逃離魔\n\
@@ -615,7 +614,7 @@ date: 2016-04-22
 reply_count: 4
 title: '[好雷] 無聲夜-Hush'
 url: https://www.ptt.cc/bbs/movie/M.1461319874.A.44D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1. 劇情很單純, 一丁點拐彎都沒有\n   是說連以前吳宇森自己港片都不會搞那麼簡單了\n   這部電影竟然直線成這樣也是了不起\n\n2.\
   \ 預告大多把劇情演完了\n   反正你就是要起念報復的, 結果前半段憂傷的情節顯得很冗長\n   講到這我想起以前溫子仁拍的death sentence\n\
   \   一模一樣的故事但是就是劇情有拍出來\n\n3. 訓練那段時間拍得不錯就是\n   跟音樂搭得很熱血, 牛頓的搖籃這個元素也不錯\n   讓畫面有趣一些\n\
@@ -626,7 +625,7 @@ date: 2023-12-02
 reply_count: 16
 title: '[普雷] 無聲夜'
 url: https://www.ptt.cc/bbs/movie/M.1701488885.A.A57.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片說是吳宇森和捍衛任務制作團隊的作品，裡面真的是這兩方的風格
 
   融合。

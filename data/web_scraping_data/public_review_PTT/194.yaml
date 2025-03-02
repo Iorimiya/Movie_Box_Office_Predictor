@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '一部有關一個脫北者到了南韓想回北韓，
 
 
@@ -28,7 +27,7 @@ date: 2017-11-25
 reply_count: 5
 title: '[問片] 一部有關脫北者的南韓電影'
 url: https://www.ptt.cc/bbs/movie/M.1511542497.A.1FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '又去看了一次《修行》。這部非典型敘事帶有意識流手法的電影，是近年來台灣少見的類
 
   型，但是是我很喜歡的。雖然這部電影沒有要交代故事情節——更主要的是創造一個情境
@@ -59,7 +58,7 @@ date: 2022-01-18
 reply_count: 3
 title: '[無雷] 《修行》：日常中的困獸之鬥'
 url: https://www.ptt.cc/bbs/movie/M.1642481334.A.216.html
---- !!python/object:movie_data.PublicReview
+---
 content: "大家好 首次發問犯規請不吝指教\n\n朋友提及一部電影\n\n只記得片名應該是困獸之鬥\n\n(似乎不是celda)\n\n劇情是 很多不同階級的民眾參加實驗\n\
   \n分成獄警&犯人兩大區塊\n\n一開始相安無事很客氣\n\n後來演變成械鬥 霸凌 甚至出人命\n\n想請問是否有版友知道這部電影正確片名?\n\n\n感激不盡!\n\
   \n--\n   感謝樓上二位!"
@@ -67,7 +66,7 @@ date: 2015-10-03
 reply_count: 5
 title: '[問片] 片名類似困獸之鬥'
 url: https://www.ptt.cc/bbs/movie/M.1443856319.A.686.html
---- !!python/object:movie_data.PublicReview
+---
 content: '導演:彭順
 
   主演:張兆輝 吳鎮宇 鍾漢良 古斌 張國強
@@ -259,7 +258,7 @@ date: 2024-01-26
 reply_count: 8
 title: '[好雷] 困獸'
 url: https://www.ptt.cc/bbs/movie/M.1706261548.A.12D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛開始看金基德《困獸之網》的時候，我感覺有些困惑，透過一個北韓漁夫因故讓漁船飄
 
   到南韓海域所開展的情節，不管是議題性和教條感都比過往明顯，斧鑿的痕跡也比較重。
@@ -347,7 +346,7 @@ date: 2019-02-14
 reply_count: 1
 title: '[好雷] 困獸之網—金基德作品'
 url: https://www.ptt.cc/bbs/movie/M.1550077690.A.CF6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，最近想去電影院，但想看的電影普遍都看完了
 
 
@@ -373,7 +372,7 @@ date: 2017-03-05
 reply_count: 16
 title: '[請益] 有人看過小丑的眼淚和困獸之網嗎'
 url: https://www.ptt.cc/bbs/movie/M.1488713762.A.D53.html
---- !!python/object:movie_data.PublicReview
+---
 content: '>>網誌圖文好讀版：
 
 
@@ -444,7 +443,7 @@ date: 2015-10-23
 reply_count: 6
 title: '[普好雷]無處可逃-絕望的困獸之鬥'
 url: https://www.ptt.cc/bbs/movie/M.1445592426.A.E15.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文長，建議直接點網址，排版較方便閱讀
 
 
@@ -837,7 +836,7 @@ date: 2019-10-18
 reply_count: 36
 title: '[新聞] 中國電影審查實錄：撤檔潮中 影人的困獸'
 url: https://www.ptt.cc/bbs/movie/M.1571393051.A.777.html
---- !!python/object:movie_data.PublicReview
+---
 content: '找老婆當然選林襄
 
   但看電影會選邵雨薇

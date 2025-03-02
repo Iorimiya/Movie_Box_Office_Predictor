@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '聖誕節假期因為寒假有兩個禮拜，有小孩的家庭可能選擇平常日去看，而不是擠在週末，
 
   所以會開局比較低，但是默默賺大錢。
@@ -58,7 +57,7 @@ date: 2025-01-04
 reply_count: 40
 title: '[討論] 音速小子3 vs 木法沙 美加票房咬緊緊'
 url: https://www.ptt.cc/bbs/movie/M.1735927193.A.2EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '截至2月2日止，《音速小子 3》票房來到4.62億美元，擠下《名偵探皮卡丘》(4.5億美元)
 
   ，成為遊戲改編電影第二名。
@@ -82,7 +81,7 @@ date: 2025-02-04
 reply_count: 49
 title: '[情報] 《音速小子 3》票房成遊戲改編電影第二'
 url: https://www.ptt.cc/bbs/movie/M.1738680911.A.9B3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -124,7 +123,7 @@ date: 2024-12-27
 reply_count: 23
 title: '[好雷] 超神級娛樂片「音速小子3」'
 url: https://www.ptt.cc/bbs/movie/M.1735276703.A.816.html
---- !!python/object:movie_data.PublicReview
+---
 content: '基努李維讚金凱瑞超級天才 替《音速小子3》反派配音有壓力
 
 
@@ -211,7 +210,7 @@ date: 2024-12-25
 reply_count: 10
 title: '[新聞] 基努李維讚金凱瑞超級天才 替《音速小子3》反派配音有壓力'
 url: https://www.ptt.cc/bbs/movie/M.1735085411.A.1CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -290,7 +289,7 @@ date: 2024-12-28
 reply_count: 20
 title: '[負雷] 音速小子3 '
 url: https://www.ptt.cc/bbs/movie/M.1735352808.A.612.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: dragon803 (AZKiちゃん大好き) 看板: C_Chat
 
   標題: [情報] 基努李維 將會替音速小子3配音
@@ -328,7 +327,7 @@ date: 2024-08-26
 reply_count: 10
 title: 'Fw: [情報] 基努李維 將會替音速小子3配音'
 url: https://www.ptt.cc/bbs/movie/M.1724607217.A.7E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n結論寫在前，不用看過系列作，依然是年末最後一周的娛樂首選\n\
   \n\n寫這篇不為別的，主要是前述有篇心得文被質疑是業配，\n\n老實說，他吹得是有點了.....\n\n\n\n但是我同意他說的，畢竟看完特映會的我，\n\n\
   \n\n醜話先說在前頭，這部片是普遍級，也就是所謂的「子供向」的電影，裡頭文戲中\n\n人類的互動確實有段拖舀與冗長，上篇有提到「隔壁那個觀眾甚至哭到發抖」，\n\
@@ -344,7 +343,7 @@ date: 2024-12-26
 reply_count: 29
 title: '[好雷]《音速小子3》2024閉門娛樂最後一舞'
 url: https://www.ptt.cc/bbs/movie/M.1735222915.A.41A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個跟之前的劇情簡介有點不一樣
 
   音速小子不是要和蛋頭博士合作嗎?
@@ -357,7 +356,7 @@ date: 2024-11-25
 reply_count: 70
 title: '[討論] 音速小子3 正式電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1732545572.A.706.html
---- !!python/object:movie_data.PublicReview
+---
 content: '金凱瑞：「我原本很開心在《音速小子3》一人分飾兩角...
 
   直到發現這是雙倍工作卻只拿一份薪水」
@@ -419,7 +418,7 @@ date: 2024-12-09
 reply_count: 91
 title: '[新聞] 金凱瑞：「我原本很開心在《音速小子3》'
 url: https://www.ptt.cc/bbs/movie/M.1733719588.A.DDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整體看了是會被娛樂的爆米花片
 
   以下有雷
@@ -535,7 +534,7 @@ date: 2025-01-02
 reply_count: 45
 title: '[普雷]  音速小子3'
 url: https://www.ptt.cc/bbs/movie/M.1735812704.A.553.html
---- !!python/object:movie_data.PublicReview
+---
 content: '基努李維將在《音速小子3》 中飾演影子。
 
 
@@ -596,7 +595,7 @@ date: 2024-04-16
 reply_count: 44
 title: '[情報] 基努李維正式加盟《音速小子3》'
 url: https://www.ptt.cc/bbs/movie/M.1713212912.A.CD3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "音速小子這次美術超級用心，做了超多經典聖誕電影海報，先賣個關子，看大家有沒有認\n出來。\n\n原來是美術公司不是電影公司\n\n1. \n\n\
   \n2. \n\n\n3. \n\n\n4. \n\n\n5. \n\n\n6\n\n\n7 \n\n\n8 \n\n\n9 \n\n\n10 \n\n\n然後影子的海報會不會太帥\n\
   \n11\n\n\n12\n\n\n13\n\n\n14\n\n\n15\n\n\n16\n\n\n17\n\n\n--"
@@ -604,7 +603,7 @@ date: 2024-12-13
 reply_count: 30
 title: '[討論] 音速小子3 聖誕電影海報'
 url: https://www.ptt.cc/bbs/movie/M.1734065349.A.B23.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台中場- 有基哥必支持
 
 
@@ -618,7 +617,7 @@ date: 2024-12-04
 reply_count: 12
 title: 'Re: [贈票] 【音速小子3】北中南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1733314583.A.E5D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "爭霸北美票房 獅子王、音速小子3分居寶座\n\n2024/12/30 16:08\n\n（中央社洛杉磯29日綜合外電報導）北美院線耶誕檔期有2部強片爭霸，由「獅子王：木\n\
   法沙」與「音速小子3」分別位居5天耶誕假期、3天週末假期的冠軍寶座。\n\n根據追蹤票房數字的北美院線聯盟（Exhibitor Relations），迪士尼動畫片「獅子王：\n\
   木法沙」（Mufasa: The Lion King）於25至29日期間在北美吸金6380萬美元，排名居冠\n。\n\n法新社報導，在上述5天假期中，動作喜劇片「音速小子3」（Sonic\
@@ -636,7 +635,7 @@ date: 2024-12-30
 reply_count: 10
 title: '[新聞] 爭霸北美票房 獅子王、音速小子3分居寶座'
 url: https://www.ptt.cc/bbs/movie/M.1735573397.A.6B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上一部看的好片是荒野機器人
 
   後來幾部都看到快吐血
@@ -666,7 +665,7 @@ date: 2024-12-31
 reply_count: 22
 title: '[好雷] 音速小子3，今年下半年好片'
 url: https://www.ptt.cc/bbs/movie/M.1735643386.A.282.html
---- !!python/object:movie_data.PublicReview
+---
 content: "代PO資訊\n主辦到處奔波準備紀念品，樣式很多還有抽獎\n詳情可以看籌備Plurk\n\n--\n\n\n\n分享轉貼感謝！！\n音速小子3電影應援包場召集中！\
   \ 活動倒數，僅此一場，名額有限！\n 參加理由看這裡！\n\n特典好禮：參加就送限定特典，收藏價值滿分！\n抽獎活動：專屬應援包場才有的超值好禮，等你帶回家！\n\
   \n報名即將截止，錯過不再有！\n 名額有限，動作快手，快來加入這場熱血應援吧！\n\n\n 活動日期：2025年01月04日\n 活動地點：台南focus華納威秀\n\
@@ -676,7 +675,7 @@ date: 2024-12-23
 reply_count: 4
 title: '[包場]1/4 台南focus華納威秀 音速小子3應援場'
 url: https://www.ptt.cc/bbs/movie/M.1734900648.A.B60.html
---- !!python/object:movie_data.PublicReview
+---
 content: "＋再度攜手掀起藍色旋風\n\n獻聲全新敵人：\n 金凱瑞一人分飾二角 \n\n\n【音速小子3】精彩預告:\n12月27日 跨年壓軸首選 中英文版同步\n\
   \n\n英文版特映會場次（一人得獎兩人同行）\n中午場：12月17日 12:30 欣欣秀泰影城 ScreenX版\n台北場：12月18日 19:00 欣欣秀泰影城\
   \ ScreenX版\n台中場：12月18日 19:00 站前秀泰影城 ScreenX版\n高雄場：12月18日 19:00 夢時代秀泰影城 ScreenX版\n\
@@ -686,7 +685,7 @@ date: 2024-12-04
 reply_count: 732
 title: '[贈票] 【音速小子3】北中南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1733295722.A.5AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《音速小子3》首波宣傳影片曝光！金凱瑞確認回歸演出「蛋頭博士」
 
 
@@ -762,7 +761,7 @@ date: 2024-02-03
 reply_count: 35
 title: '[新聞] 《音速小子3》曝光！金凱瑞確認回歸演出'
 url: https://www.ptt.cc/bbs/movie/M.1706917259.A.F0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這集看的蠻爽的人類劇情少到不行了
 
 
@@ -824,7 +823,7 @@ date: 2025-01-12
 reply_count: 9
 title: '[好雷] 音速小子3 好看 彩蛋疑問'
 url: https://www.ptt.cc/bbs/movie/M.1736622476.A.A0E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -857,7 +856,7 @@ date: 2024-12-27
 reply_count: 18
 title: '[好無雷] 音速小子3 金凱瑞粉絲的禮物'
 url: https://www.ptt.cc/bbs/movie/M.1735312810.A.611.html
---- !!python/object:movie_data.PublicReview
+---
 content: '全新冒險 全新敵人
 
   立即觀賞
@@ -876,7 +875,7 @@ date: 2024-08-27
 reply_count: 80
 title: '[情報] 音速小子3最新預告公開，12/27上映'
 url: https://www.ptt.cc/bbs/movie/M.1724764064.A.A61.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《音速小子 3》首週票房登冠、把《獅子王》壓著打！《木法沙》相較首集、票房下滑 1
 
   .5 億美元
@@ -943,7 +942,7 @@ date: 2024-12-23
 reply_count: 48
 title: '[新聞] 音速小子3首週票房登冠 把獅子王壓著打！'
 url: https://www.ptt.cc/bbs/movie/M.1734933220.A.BC3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "基努李維為《音速小子3》配音 滿足粉絲期待\n\n\n《音速小子》劇照。（派拉蒙影業提供）\n\n【大紀元2024年04月25日訊】（大紀元記者葉子杰編譯報導）真人動畫《音速小子》系列\n\
   製片人托比·阿舍爾最近透露，第三部電影的劇情很大一部份來自2001年《音速小子大冒\n險2》遊戲的啟發。該片中的暗影刺蝟「夏特」將由好萊塢巨星基努·李維獻聲配音。\n\
   \n真人電影《音速小子3》（Sonic the Hedgehog 3）將於2024年12月20日在美國上映，據\n外媒報導，《駭客任務》及《捍衛任務》系列男主角基努·李維（Keanu\
@@ -963,7 +962,7 @@ date: 2024-04-26
 reply_count: 3
 title: '[新聞]基努李維為《音速小子3》配音 滿足粉絲期待'
 url: https://www.ptt.cc/bbs/movie/M.1714107025.A.A36.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1026,7 +1025,7 @@ date: 2024-12-27
 reply_count: 3
 title: '[[好雷］] 音速小子3'
 url: https://www.ptt.cc/bbs/movie/M.1735299042.A.310.html
---- !!python/object:movie_data.PublicReview
+---
 content: '‧
 
 
@@ -1103,7 +1102,7 @@ date: 2024-12-18
 reply_count: 7
 title: '[好無雷] 「音速小子3」金凱瑞再次登板救援'
 url: https://www.ptt.cc/bbs/movie/M.1734533961.A.677.html
---- !!python/object:movie_data.PublicReview
+---
 content: "金凱瑞重返《音速小子3》 反派變盟友\n\n2024/08/29 05:30\n\n\n金凱瑞（左）再度於《音速小子3》化身蛋頭博士，這回和音速小子索尼克結盟。\n\
   （UIP提供）\n\n〔記者許世穎／綜合報導〕賣座電影系列新篇章《音速小子3》前晚曝光首支預告，音速\n小子索尼克、納克魯斯和塔爾斯組成「索尼克小隊」，共同對抗由「基哥」基努李維獻聲\n\
   、力量強大的全新敵人「夏特」，展開精彩刺激的冒險。 前兩部《音速小子》分別於\n2020及2022年推出，全球累積票房高達7.07億美金（約台幣225.95億元），第3部也由班\n\
@@ -1115,7 +1114,7 @@ date: 2024-08-29
 reply_count: 22
 title: '[新聞] 金凱瑞重返《音速小子3》 反派變盟友'
 url: https://www.ptt.cc/bbs/movie/M.1724945179.A.A54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1183,7 +1182,7 @@ date: 2024-12-21
 reply_count: 11
 title: '[  雷] 很好看的音速小子3'
 url: https://www.ptt.cc/bbs/movie/M.1734762510.A.D72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天四刷完
 
   沒想到秀泰又送新的海報
@@ -1233,7 +1232,7 @@ date: 2025-01-11
 reply_count: 7
 title: '[討論] 音速小子3 原作截圖對照 內肯定有雷'
 url: https://www.ptt.cc/bbs/movie/M.1736608020.A.560.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為阿母很少看電影，這片又好評不斷，特地帶她去看。
 
   到國賓看，會員230元，敬老票155，兩人花了385元。
@@ -1287,7 +1286,7 @@ date: 2024-12-28
 reply_count: 12
 title: '[好無雷]'
 url: https://www.ptt.cc/bbs/movie/M.1735369032.A.870.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文長，連結如下：
 
 
@@ -1399,7 +1398,7 @@ date: 2025-01-04
 reply_count: 32
 title: '[好雷]情懷和娛樂兼顧的最佳電玩改編：音速小子3'
 url: https://www.ptt.cc/bbs/movie/M.1735980165.A.B71.html
---- !!python/object:movie_data.PublicReview
+---
 content: '截至2025年1月19日，《音速小子 3》全球票房突破4.2億美元，打破《音速小子 2》的4.05
 
   億美元記錄。
@@ -1419,7 +1418,7 @@ date: 2025-01-20
 reply_count: 49
 title: '[情報] 《音速小子 3》票房破系列記錄'
 url: https://www.ptt.cc/bbs/movie/M.1737349665.A.DE1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《音速小子 3》導演Jeff Fowler日前表示電影已完成拍攝。
 
 
@@ -1435,7 +1434,7 @@ date: 2024-04-01
 reply_count: 39
 title: '[情報] 《音速小子 3》完成拍攝'
 url: https://www.ptt.cc/bbs/movie/M.1711950743.A.450.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1467,7 +1466,7 @@ date: 2025-01-02
 reply_count: 6
 title: '[ 超好雷] 音速小子3 真他X的好看 '
 url: https://www.ptt.cc/bbs/movie/M.1735793914.A.58A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《音速小子3》索尼克長大了 導演曝找來基努李維全因《捍衛任務》
 
 
@@ -1539,7 +1538,7 @@ date: 2024-12-29
 reply_count: 55
 title: '[新聞] 《音速小子3》索尼克長大了 導演曝找來基'
 url: https://www.ptt.cc/bbs/movie/M.1735410899.A.C07.html
---- !!python/object:movie_data.PublicReview
+---
 content: '#Sonic3首映國內票房將超過 7,000 萬美元
 
 
@@ -1565,7 +1564,7 @@ date: 2024-12-21
 reply_count: 93
 title: '[討論] 音速小子3 美國首映票房是 木法沙 兩倍'
 url: https://www.ptt.cc/bbs/movie/M.1734755618.A.DC5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1684,7 +1683,7 @@ date: 2024-12-26
 reply_count: 11
 title: '[ 好雷] 音速小子3'
 url: https://www.ptt.cc/bbs/movie/M.1735220356.A.777.html
---- !!python/object:movie_data.PublicReview
+---
 content: '得獎名單公布
 
 
@@ -1769,7 +1768,7 @@ date: 2024-12-11
 reply_count: 52
 title: 'Re: [贈票] 【音速小子3】北中南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1733889855.A.9FA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '納克魯斯有自己的影集
 
   真的比較幼稚
@@ -1800,7 +1799,7 @@ date: 2025-01-03
 reply_count: 2
 title: 'Re: [普雷]  音速小子3'
 url: https://www.ptt.cc/bbs/movie/M.1735845499.A.63A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '爛番茄目前還沒算分數
 
   只有6個負評而已
@@ -1825,7 +1824,7 @@ date: 2024-12-18
 reply_count: 36
 title: '[討論] 音速小子3 開局大順風'
 url: https://www.ptt.cc/bbs/movie/M.1734532342.A.6F1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好雷，
 
   最初看的動機，
@@ -1933,7 +1932,7 @@ date: 2024-12-28
 reply_count: 33
 title: '[雷] 音速小子3,沒看過1/2,沒玩過遊戲,大推'
 url: https://www.ptt.cc/bbs/movie/M.1735379801.A.E3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不太會把有雷無雷分開講
 
   所以直接說整篇都會爆雷
@@ -2232,7 +2231,7 @@ date: 2024-12-27
 reply_count: 56
 title: '[好雷] 音速小子3 遊戲粉的心得'
 url: https://www.ptt.cc/bbs/movie/M.1735283953.A.0CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2308,7 +2307,7 @@ date: 2024-12-31
 reply_count: 29
 title: '[雷] 音速小子3 個人對結局安排的感想'
 url: https://www.ptt.cc/bbs/movie/M.1735611876.A.EAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蓄勢待發！
 
 

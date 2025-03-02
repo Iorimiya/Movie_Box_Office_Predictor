@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '盧貝松的台北追緝令破台北拍電影申請最多道路管制的紀錄
 
   本人僅看預告片，過幾天打算進戲院支持，看過的覺得如何?
@@ -66,7 +65,7 @@ date: 2024-09-27
 reply_count: 56
 title: '[討論] 台北追緝令在台拍攝地'
 url: https://www.ptt.cc/bbs/movie/M.1727407932.A.225.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -180,7 +179,7 @@ date: 2024-09-20
 reply_count: 10
 title: '[新聞] <台北追緝令>台星齊聚首映，市長現身送禮'
 url: https://www.ptt.cc/bbs/movie/M.1726769193.A.0AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -288,7 +287,7 @@ date: 2024-09-30
 reply_count: 29
 title: '[新聞] 【台北追緝令】路克伊凡斯回憶台灣颱風假'
 url: https://www.ptt.cc/bbs/movie/M.1727688944.A.74B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -346,7 +345,7 @@ date: 2024-09-29
 reply_count: 20
 title: '[好雷] 台北追緝令'
 url: https://www.ptt.cc/bbs/movie/M.1727611519.A.152.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -456,7 +455,7 @@ date: 2024-08-22
 reply_count: 6
 title: '[新聞] 台灣團隊專業拍攝<台北追緝令>獲導演盛讚'
 url: https://www.ptt.cc/bbs/movie/M.1724328701.A.3F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -526,7 +525,7 @@ date: 2024-09-09
 reply_count: 5
 title: '[新聞] 強檔電影將上映！小丑.台北追緝令.流氓驅'
 url: https://www.ptt.cc/bbs/movie/M.1725855809.A.438.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n有幾點讓我印象深刻（出戲）的地方：\n1.長髮\n為什麼15年前的劇情，演員都要用長髮來呈現，看到約翰長頭髮真的笑出來！\n\
   桂綸鎂，也長頭髮！\n韓哥，又長頭髮！\n難道只能用長短髮來區別了嗎？\n\n2.配樂\n古典風的配樂...\n\n3.輸血\n約翰受傷需要輸血，醒來桂綸鎂說是兒子捐的，幸好兒子同血型。\n\
   但我腦中浮現的是...\n「光晞不行，他不能捐。」\n \n照我的印象，直系血親不能（不宜）輸血吧？！而且小孩也不像混血兒，所以結論是兒子不\n是約翰的小孩吧，那是誰的？\n\
@@ -535,7 +534,7 @@ date: 2024-10-01
 reply_count: 14
 title: '[負雷] 台北追緝令之疑問'
 url: https://www.ptt.cc/bbs/movie/M.1727794654.A.273.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -649,7 +648,7 @@ date: 2024-08-09
 reply_count: 10
 title: '[新聞] 【台北追緝令】12條台北道管創拍攝新紀錄'
 url: https://www.ptt.cc/bbs/movie/M.1723215796.A.4AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道是不是經費不足的關係
 
   整部打戲幾乎都集中在前1小時
@@ -670,7 +669,7 @@ date: 2024-09-25
 reply_count: 2
 title: '[好雷] 台北追緝令:經費用光怎麼辦?'
 url: https://www.ptt.cc/bbs/movie/M.1727279295.A.14A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '十年前《露西》在台灣大賣3.8億票房
 
 
@@ -688,7 +687,7 @@ date: 2024-09-26
 reply_count: 72
 title: '[討論] 《台北追緝令》的最終票房'
 url: https://www.ptt.cc/bbs/movie/M.1727340035.A.AE2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -886,7 +885,7 @@ date: 2024-09-29
 reply_count: 49
 title: '[負雷] 台北追緝令之台男悲歌'
 url: https://www.ptt.cc/bbs/movie/M.1727614540.A.6B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '路克伊凡斯、桂綸鎂、韓哥聯手演出盧貝松監製的動作喜劇片
 
 
@@ -915,7 +914,7 @@ date: 2024-08-01
 reply_count: 91
 title: '[情報] 台北追緝令(Weekend in Taipei)預告'
 url: https://www.ptt.cc/bbs/movie/M.1722468163.A.FFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於在北美上映的台北追緝令
 
   爛番茄在15個評論中只拿下47%的好評
@@ -932,7 +931,7 @@ date: 2024-11-09
 reply_count: 15
 title: '[討論] 台北追緝令 爛番茄47'
 url: https://www.ptt.cc/bbs/movie/M.1731154082.A.931.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1024,7 +1023,7 @@ date: 2024-08-30
 reply_count: 14
 title: '[新聞] 【台北追緝令】加碼盧貝松夫婦再訪台灣！'
 url: https://www.ptt.cc/bbs/movie/M.1725028449.A.9DA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '貌似有釋出更多未曝光片段～
 
 
@@ -1054,7 +1053,7 @@ date: 2024-08-03
 reply_count: 25
 title: '[情報] 《台北追緝令》法國版 電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1722676296.A.E8D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1176,7 +1175,7 @@ date: 2024-09-10
 reply_count: 13
 title: '[新聞] 金鐘視帝視后加盟共演【台北追緝令】!'
 url: https://www.ptt.cc/bbs/movie/M.1725970465.A.936.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1272,7 +1271,7 @@ date: 2024-08-13
 reply_count: 7
 title: '[新聞]【台北追緝令】影人訪台，9/1與民眾紅毯見'
 url: https://www.ptt.cc/bbs/movie/M.1723550152.A.100.html
---- !!python/object:movie_data.PublicReview
+---
 content: '尬到不行的台詞和橋段
 
   邏輯一團垃圾的劇情
@@ -1326,7 +1325,7 @@ date: 2024-09-26
 reply_count: 41
 title: '[負雷] 台北追緝令'
 url: https://www.ptt.cc/bbs/movie/M.1727361656.A.53C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說這部看完覺得還可以，
 
   姑且不論劇情，
@@ -1362,7 +1361,7 @@ date: 2024-10-06
 reply_count: 11
 title: '[討論] 台北追緝令 結局到底是？'
 url: https://www.ptt.cc/bbs/movie/M.1728174194.A.844.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1449,7 +1448,7 @@ date: 2024-10-01
 reply_count: 14
 title: '[好雷] 台北追緝令Weekend in Taipei'
 url: https://www.ptt.cc/bbs/movie/M.1727750458.A.90A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '.
 
   ..
@@ -1539,7 +1538,7 @@ date: 2024-09-26
 reply_count: 31
 title: '[好雷] 台北追緝令的幾點疑問'
 url: https://www.ptt.cc/bbs/movie/M.1727346247.A.BF8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一開始看到盧貝松又要拍有關於台灣的題材
 
   就不由得想到露西...
@@ -1681,7 +1680,7 @@ date: 2024-09-25
 reply_count: 86
 title: '[好雷] 台北追緝令，台北蠻多的'
 url: https://www.ptt.cc/bbs/movie/M.1727274492.A.756.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了一下IMDb上的出品國有台灣
 
 
@@ -1702,7 +1701,7 @@ date: 2024-09-27
 reply_count: 35
 title: '[討論] 《台北追緝令》可以報金馬獎嗎'
 url: https://www.ptt.cc/bbs/movie/M.1727426086.A.5BA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1806,7 +1805,7 @@ date: 2024-09-24
 reply_count: 38
 title: '[新聞] 全球看見台灣！<台北追緝令>版權熱銷68國'
 url: https://www.ptt.cc/bbs/movie/M.1727173035.A.C5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我有看小丑1，覺得不錯
 
 
@@ -1834,7 +1833,7 @@ date: 2024-10-10
 reply_count: 41
 title: '[選片] 小丑2或台北追緝令？'
 url: https://www.ptt.cc/bbs/movie/M.1728489695.A.0F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1936,7 +1935,7 @@ date: 2024-08-01
 reply_count: 100
 title: '[新聞] 盧貝松《台北追緝令》全片台灣取景！桂'
 url: https://www.ptt.cc/bbs/movie/M.1722483095.A.893.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -2166,7 +2165,7 @@ date: 2024-10-03
 reply_count: 23
 title: '[好雷] 台北追緝令'
 url: https://www.ptt.cc/bbs/movie/M.1727943771.A.002.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完《台北追緝令》，查了一下他的英文片名叫Weekend in Taipei
 
 
@@ -2202,7 +2201,7 @@ date: 2024-09-29
 reply_count: 23
 title: '[負雷]台北追緝令，一部獻給台灣爸媽的恐怖片'
 url: https://www.ptt.cc/bbs/movie/M.1727542415.A.03A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '戲中的反派總部（今周刊圖）
 
 
@@ -2298,7 +2297,7 @@ date: 2024-09-27
 reply_count: 34
 title: '[負雷] 台北追緝令：劇情問題很大'
 url: https://www.ptt.cc/bbs/movie/M.1727395037.A.D6C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個月特別選了這部當公司電影社標的，首映當天就拿下
 
 
@@ -2743,7 +2742,7 @@ date: 2024-09-27
 reply_count: 41
 title: '[偏好雷] 不後悔進電影院的台北追緝令'
 url: https://www.ptt.cc/bbs/movie/M.1727404007.A.41B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2897,7 +2896,7 @@ date: 2024-09-02
 reply_count: 5
 title: '[新聞] 路克伊凡斯驚喜現身【台北追緝令】記者會'
 url: https://www.ptt.cc/bbs/movie/M.1725276553.A.EDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《台北追緝令》台灣風景躍上國際大螢幕 導演：盼父母驕傲
 
 
@@ -2988,7 +2987,7 @@ date: 2024-11-10
 reply_count: 20
 title: '[新聞] 《台北追緝令》台灣風景躍上國際大螢幕 導'
 url: https://www.ptt.cc/bbs/movie/M.1731225353.A.AFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷，首先陶朱隱園廣告打很大，第一次看到裡面的樣子。然後姜成鎬被綠很大，老婆十五
 
   年沒愛他，幫別人養小孩十五年，兒子還出賣他。老婆還讓外國警察不戴套直接內射。最後
@@ -3004,7 +3003,7 @@ date: 2024-09-26
 reply_count: 8
 title: '[雷] 好雷台北追緝令 反派真可憐'
 url: https://www.ptt.cc/bbs/movie/M.1727342328.A.9AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '目前看這部片似乎沒什麼好萊塢大咖
 
   主角路克伊凡斯平常大多是演出配角及反派
@@ -3031,7 +3030,7 @@ date: 2024-09-17
 reply_count: 115
 title: '[討論] 會因“台北追緝令”的台灣元素特別進場'
 url: https://www.ptt.cc/bbs/movie/M.1726526281.A.DD0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防一下雷
 
 
@@ -3073,7 +3072,7 @@ date: 2024-10-02
 reply_count: 14
 title: '[請益] 雷 關於台北追緝令最後的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1727854399.A.2FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3207,7 +3206,7 @@ date: 2024-09-26
 reply_count: 15
 title: '[好雷] 台北追緝令(2024)'
 url: https://www.ptt.cc/bbs/movie/M.1727365223.A.D28.html
---- !!python/object:movie_data.PublicReview
+---
 content: "姜成鎬宣傳《台北追緝令》 將合體桂綸鎂\n\n04:10 2024/08/14 中國時報 李承陽\n\n\n桂綸鎂（右）與童星楊明偉在片中上演絕命逃亡。（采昌提供）\n\
   \n\n姜成鎬確定訪台參與電影宣傳，並期待體驗更多體育活動。（采昌提供）\n\n由億萬票房名導盧貝松監製暨編劇，影史首部全片在台灣取景拍攝的好萊塢動作強片《台\n\
   北追緝令》，劇組13日公開重磅消息，宣布導演黃嘉智將率領主要演員桂綸鎂、「韓哥」\n姜成鎬與童星楊明偉，於8月31日至9月3日期間訪台宣傳，9月1日傍晚出席台北信義威秀\n\
@@ -3219,7 +3218,7 @@ date: 2024-08-14
 reply_count: 7
 title: '[新聞] 姜成鎬宣傳《台北追緝令》 將合體桂綸鎂'
 url: https://www.ptt.cc/bbs/movie/M.1723648117.A.D2A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來是帶著想被娛樂坐看無腦爽片的期待進片場，沒想到最後還是帶著失望的心情離開影
 
   院!
@@ -3267,7 +3266,7 @@ date: 2024-10-27
 reply_count: 24
 title: （普雷）台北追緝令觀後感
 url: https://www.ptt.cc/bbs/movie/M.1729991374.A.A9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -3413,7 +3412,7 @@ date: 2024-09-01
 reply_count: 10
 title: '[新聞] 【台北追緝令】紅毯見面會擠爆3000台粉！'
 url: https://www.ptt.cc/bbs/movie/M.1725199098.A.07E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為今天有一段時間空檔需要打發
 
 
@@ -3436,7 +3435,7 @@ date: 2024-10-09
 reply_count: 19
 title: '[選片] 台北追緝令和危機航線'
 url: https://www.ptt.cc/bbs/movie/M.1728449536.A.106.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

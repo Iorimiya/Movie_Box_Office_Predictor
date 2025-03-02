@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '泰國耽美劇2gether<<只因我們天生一對>>的電影終於要在台灣上映了！！
 
 
@@ -70,7 +69,7 @@ date: 2021-12-11
 reply_count: 4
 title: '[包場] 2gether the movie包場及首映資訊'
 url: https://www.ptt.cc/bbs/movie/M.1639224989.A.82A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《聖☆哥傳 THE MOVIE～HOLYMEN VS 惡魔軍團～》藤原龍也將飾演墮天使路西法\n\n\n\n以中村光的漫畫為原著改編，預定 12\
   \ 月 20 日在日本上映的真人版電影《聖☆哥傳\n THE MOVIE～HOLYMEN VS 惡魔軍團～》，官方宣布墮天使路西法將由藤原龍也詮釋演出\n的消息。\n\
   \n\n\n《聖☆哥傳》故事描述佛陀與耶穌這兩位宗教始祖，在安然度過世紀末的危機之後，來到\n人間世界渡假。兩個人在日本東京的立川合租一間便宜的公寓，過著悠閒的渡假生活。但\n\
@@ -81,7 +80,7 @@ date: 2024-09-23
 reply_count: 2
 title: '[情報] 《聖☆哥傳 THE MOVIE～HOLYMEN VS 惡魔'
 url: https://www.ptt.cc/bbs/movie/M.1727095881.A.823.html
---- !!python/object:movie_data.PublicReview
+---
 content: '晚上的場次不多，就將就買了台配版
 
 
@@ -166,7 +165,7 @@ date: 2023-08-11
 reply_count: 1
 title: '[好雷] 蠟筆小新 The movie'
 url: https://www.ptt.cc/bbs/movie/M.1691744522.A.748.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天看完了
 
 
@@ -187,7 +186,7 @@ date: 2023-08-05
 reply_count: 1
 title: 'Re: [好雷]新次元！蠟筆小新THE MOVIE觀感 '
 url: https://www.ptt.cc/bbs/movie/M.1691237779.A.ED1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "相對於 Lego The Movie ，這部就年齡層更低一點。\n\n整體上就是一部更加歡樂的大嘉年華。但是並沒有\n\nLego The Movie\
   \ 那麼的神作。\n\n\n整場歡笑不斷，就算不是DC粉/美國文化熟悉者，應該\n\n也是可以理解到笑點。但因為主音樂是用重金搖滾風，\n\n就沒有The Lego\
   \ Movie的 Everything is alsome~~ 那\n\n麼洗腦，反而看完後腦袋是The Lego Movie的主題曲…。\n\n\n\n是說，玩具一定會賣翻的…\
@@ -199,7 +198,7 @@ date: 2017-02-04
 reply_count: 21
 title: '[普好雷] Lego Batman the movie'
 url: https://www.ptt.cc/bbs/movie/M.1486217242.A.424.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下無雷
 
 
@@ -285,7 +284,7 @@ date: 2025-02-22
 reply_count: 34
 title: '[無雷] Doctor-X the movie FINAL 派譴女醫X劇場版'
 url: https://www.ptt.cc/bbs/movie/M.1740202946.A.990.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昨天看 EASeries版有篇文章，說高齡 88 歲的老演員 Alex Cord 不久前去世了，就是八零年代影集《飛狼》裡演「大天使」的那位！話說影集播出時我可能太小了，對霍克沈大佬大天使（還有一位凱玲？）這些台柱都印象模糊、反而對\
   \ 1987 起辛金阿嬌帥哥黑天使這些有點鄰家幽默的二代還歷歷在目 XD 不過顯然初代主角群在比我老一輩的觀眾中才是真正的永恆，譬如我老師因年少崇拜大天使長大一直留鬍子穿白西裝（只差沒獨眼）...\
   \ 總之對演員說聲 RIP，今天來把我沒啥印象的《飛狼》從頭看起。\n\n如同許多八零影集的第一季前以一集長度較長製作價值也較高的「電視電影」領航，《飛狼》故事的起始也是\
@@ -326,7 +325,7 @@ date: 2021-10-01
 reply_count: 24
 title: '[好雷] 飛狼電影 Airwolf: The Movie (1984)'
 url: https://www.ptt.cc/bbs/movie/M.1633066847.A.AB6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '標題雖然打THE LAST，但根本就不是最後一部XDD
 
   電影結束後已經預告明年八月要出新的電影版，
@@ -379,7 +378,7 @@ date: 2014-12-06
 reply_count: 2
 title: '[普雷] THE LAST NARUTO THE MOVIE'
 url: https://www.ptt.cc/bbs/movie/M.1417875537.A.689.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -508,7 +507,7 @@ date: 2023-08-04
 reply_count: 7
 title: '[好雷]新次元！蠟筆小新THE MOVIE觀感'
 url: https://www.ptt.cc/bbs/movie/M.1691160051.A.697.html
---- !!python/object:movie_data.PublicReview
+---
 content: '『聖☆おにいさん THE MOVIE』新CAST
 
 

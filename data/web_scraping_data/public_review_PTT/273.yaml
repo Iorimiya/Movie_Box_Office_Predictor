@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '多年以前從【與神同行】之後，
 
   采昌國際的電影排片就屏除國賓體系。
@@ -19,7 +18,7 @@ date: 2024-03-08
 reply_count: 11
 title: '[情報] 采昌發行【坂本龍一：OPUS】加入國賓映演'
 url: https://www.ptt.cc/bbs/movie/M.1709881654.A.446.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -131,7 +130,7 @@ date: 2023-12-07
 reply_count: 4
 title: '[新聞] 音樂大師【坂本龍一：OPUS】的最後謝幕'
 url: https://www.ptt.cc/bbs/movie/M.1701953369.A.A88.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -254,7 +253,7 @@ date: 2024-01-03
 reply_count: 5
 title: '[新聞] 【坂本龍一：OPUS】南韓上映獲譽票房黑馬'
 url: https://www.ptt.cc/bbs/movie/M.1704283079.A.4C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "[新聞] 中國電影《長津湖》熱賣174億　小粉紅要\n\n\n推 AYUMIX      : 台灣真多雜魚報導 隨便微博一個留言也可以寫新聞 \
   \    10/11 20:56\n→ AYUMIX      : 塔綠班看了也跟著高潮                              10/11\
   \ 20:57\n\n噓 doomsday1234: 塔綠班小豬捐款，笑而不語         10/12 01:52\n\n\n [新聞] 票房咬不住？柯震東《鱷魚》跌幅直直落\n\
@@ -271,7 +270,7 @@ date: 2021-10-12
 reply_count: 3
 title: '[公告] 水桶+警告 & 政治文宣導'
 url: https://www.ptt.cc/bbs/movie/M.1634016865.A.87C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '複習 007不知不覺上了癮、複習到羅傑摩爾倒數第二部《八爪女》、看上一篇版友推文頗愛這部更令我充滿期待！不過我自己對這部印象卻是最模糊的，儘管我媽言之鑿鑿說我小時候有陪她看過，可是我怎麼看都覺得啥也不記得，除了馬戲團小丑這事讓我依稀想起「好像
   007也扮過小丑」... 也許這就是此片的好看之處卻也是個弱點：在羅傑摩爾這代中，它可能算是比較細火慢熬製造懸疑與迷情、卻相較比較少天馬行空奇觀的，對當年才小一小二的我留不下什麼印象，那年頭童心印象較深的都是「太空城」「海底城」「潛水艇車」「大鋼牙」「金門大橋飛船」這類的。
 
@@ -343,7 +342,7 @@ date: 2021-10-17
 reply_count: 21
 title: '[好雷] 007 八爪女 Octopussy (1983)'
 url: https://www.ptt.cc/bbs/movie/M.1634468352.A.484.html
---- !!python/object:movie_data.PublicReview
+---
 content: '活動出處--采昌亞洲電影世界：
 
 
@@ -428,7 +427,7 @@ date: 2024-01-03
 reply_count: 1
 title: '[活動] 【坂本龍一：OPUS】北中南生日紀念特別場'
 url: https://www.ptt.cc/bbs/movie/M.1704279702.A.679.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這片其實也沒什麼好雷的啦...還是防雷一
 
 
@@ -509,7 +508,7 @@ date: 2024-03-16
 reply_count: 17
 title: '[雷] 坂本龍一OPUS - 100分鐘的音樂會'
 url: https://www.ptt.cc/bbs/movie/M.1710592048.A.D47.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -539,7 +538,7 @@ date: 2024-03-09
 reply_count: 5
 title: '[好雷]  坂本龍一：OPUS'
 url: https://www.ptt.cc/bbs/movie/M.1709994899.A.21A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -645,7 +644,7 @@ date: 2024-03-19
 reply_count: 5
 title: '[新聞] 影評人馬欣講座分享【坂本龍一：OPUS】'
 url: https://www.ptt.cc/bbs/movie/M.1710850453.A.41C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -783,7 +782,7 @@ date: 2024-03-14
 reply_count: 21
 title: '[好雷] 坂本龍一：Opus'
 url: https://www.ptt.cc/bbs/movie/M.1710399556.A.158.html
---- !!python/object:movie_data.PublicReview
+---
 content: "5/27 AirOctopus   R: [分享] 復聯4  全球票房已達26.775億美金\n6/02 AirOctopus   R: [分享]\
   \ 復聯4  全球票房已破27億美金\n6/10 AirOctopus   R: [分享] 復聯4  全球票房已達27.306億美金\n8/24 AirOctopus\
   \   R: [分享] 復聯4  全球票房已達27.306億美金\n8/24 AirOctopus   \n\n15.禁止 明顯灌水、未滿三行或30字、同(推)文一再重貼、置底FAQ\n\
@@ -793,7 +792,7 @@ date: 2022-08-25
 reply_count: 8
 title: '[公告] 水桶 AirOctopus'
 url: https://www.ptt.cc/bbs/movie/M.1661369990.A.2E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -949,7 +948,7 @@ date: 2023-12-13
 reply_count: 5
 title: '[新聞] 【坂本龍一：OPUS】跨年特別場搶先看！'
 url: https://www.ptt.cc/bbs/movie/M.1702471882.A.8CF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -991,7 +990,7 @@ date: 2024-03-25
 reply_count: 22
 title: 坂本龍一：OPUS請慎選戲院
 url: https://www.ptt.cc/bbs/movie/M.1711376927.A.3D6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 

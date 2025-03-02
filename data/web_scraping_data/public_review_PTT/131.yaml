@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '電影已上院線一周
 
   看得人似乎不多
@@ -121,7 +120,7 @@ date: 2023-07-15
 reply_count: 3
 title: '[好雷] 暗湧情事（Passion）- 戀愛（者）形上學 '
 url: https://www.ptt.cc/bbs/movie/M.1689350902.A.57E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.《暗湧情事》二刷，濱口龍介粉必看之作。人物糾結匪疑所思的路數在此已經淋漓盡
 
   致，被後面作品嚇過的人，可以來朝聖一下。不過個人覺得不適合作為濱口片入門，雖說
@@ -158,7 +157,7 @@ date: 2024-03-18
 reply_count: 4
 title: '[好雷] 暗湧情事'
 url: https://www.ptt.cc/bbs/movie/M.1710741357.A.65E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '濱口竜介寫的劇本不離日常，但極具戲劇張力，
 
   是我很欣賞的編劇與導演。

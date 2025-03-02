@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '圖文版：
 
 
@@ -45,7 +44,7 @@ date: 2018-03-19
 reply_count: 1
 title: '[好雷] 《不思議女人》不只為愛奔走更要證明自己'
 url: https://www.ptt.cc/bbs/movie/M.1521466351.A.366.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -175,7 +174,7 @@ date: 2017-11-11
 reply_count: 19
 title: '[普雷]《不思議女人》，為愛奔走，為愛奮戰。 '
 url: https://www.ptt.cc/bbs/movie/M.1510409188.A.4B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '========================================
 
   以下有雷，但我覺得這部電影不太需要防雷。
@@ -277,7 +276,7 @@ date: 2018-04-29
 reply_count: 4
 title: '[好雷] 不思議女人'
 url: https://www.ptt.cc/bbs/movie/M.1525014353.A.DD4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "- 以下有《》劇情雷 -\n\n\n\n\n\n《不思議女人》是一部跨性別者的電影愛情故事，專注在伴侶死亡之後，身份上所\n帶來的困窘與歧視。不走大放大鳴的情節，只有無聲靜默的沉厚；沒有浮誇喧囂的\n\
   節奏，只留孤獨寂寞的忍受。或許說來悲傷，電影既非勵志樂觀，也不充滿希望，\n反而殘忍的告訴大家愛與祝福也是看對象的。\n\n故事主軸明確寫實，講述著愛的一樣與不一樣，明明擁有同樣的幸福與同樣的份量\n\
   ，卻無平等的重量。而電影請來丹尼爾維加(Daniela Vega)飾演女主角瑪蓮娜，其\n本身就是位跨性別女性，為故事帶來更具穿透的渲染力，一舉一動精確演繹出面對\n\
@@ -296,7 +295,7 @@ date: 2017-11-20
 reply_count: 5
 title: '[好雷] 《不思議女人》其實豈止歧視'
 url: https://www.ptt.cc/bbs/movie/M.1511186644.A.AB3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據 Deadline 前日的獨家報導指出，在 2020 年以《她們》入圍奧斯卡最佳女配角的英
 
   國女演員 Florence Pugh 將主演《不思議女人》導演 Sebastián Lelio 的最新英語作品

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '如題
 
   小弟喜歡看湯姆哈迪演狠角色
@@ -60,7 +59,7 @@ date: 2024-10-17
 reply_count: 13
 title: '[請益] 不羈騎士 湯姆哈迪戲份多嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1729168552.A.A92.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年暑假 無畏勇者 奔放自由
 
 
@@ -103,7 +102,7 @@ date: 2024-07-18
 reply_count: 325
 title: '[贈票] 【不羈騎士】台北台南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1721291549.A.D8C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下得獎者獲得搶先看【不羈騎士】
 
   請於7月25日16:00前主動站內信回覆現場領票者資料，恕不接受逾期回覆
@@ -169,7 +168,7 @@ date: 2024-07-24
 reply_count: 16
 title: 'Re: [贈票] 【不羈騎士】台北台南特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1721805373.A.29A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇情沒啥特別，預告看看就可以知道大概了。
 
 
@@ -209,7 +208,7 @@ date: 2024-07-17
 reply_count: 4
 title: '[好無雷] 美國60年代版的山道猴子-不羈騎士'
 url: https://www.ptt.cc/bbs/movie/M.1721195217.A.3A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "7/31(三)17:30長春國賓A廳《不羈騎士》(The Bikeriders)特映，講述六十年代美國摩托車俱樂部的崛起\n透過紀錄片訪談女主角凱西(Kathy)的形式，紀錄班尼(Benny)加入強尼(Johnny)建立的芝加哥搗亂幫\n\
   搗亂幫從一開始熱愛重機的俱樂部，並擴大勢力範圍在各地出現分部，最後漸漸變質走向幫派化\n劇情有點悶但看到強尼雖為創辦人卻無力阻止，班尼則是急流勇退還算是不錯的犯罪紀錄片，俱樂部的結局雖不勝唏噓但熱愛重機的心卻不會變\n\
   特映還特別放了台帥氣哈雷機車可以合照，長春國賓A廳的銀幕小而且高低間距非常糟糕，很容易被前面擋住，唯一值得稱讚音響效果不錯有呈現出重機由後往前騎去的聲音變化\n\

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '《薩滿》登台5天吸金1300萬 女星自爆拍片「真遇神靈」
 
 
@@ -96,7 +95,7 @@ date: 2021-08-31
 reply_count: 30
 title: '[新聞] 《薩滿》登台5天吸金1300萬女星自爆拍片'
 url: https://www.ptt.cc/bbs/movie/M.1630357043.A.615.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前面真的超好睡的拉
 
 
@@ -245,7 +244,7 @@ date: 2021-08-29
 reply_count: 15
 title: '[負雷] 薩滿前面看到睡著'
 url: https://www.ptt.cc/bbs/movie/M.1630236516.A.AFA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -306,7 +305,7 @@ date: 2021-08-31
 reply_count: 10
 title: '[討論] 《薩滿》求解惑'
 url: https://www.ptt.cc/bbs/movie/M.1630376861.A.B57.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果要以一句話說明薩滿給我的感覺，那就是 ‘’泰國人演繹的日式怪談‘’。日式怪談向來都在講求"穢"跟"詛咒"的概念，而這兩點就是今天"薩滿"整部片的核心。貫徹了  有某人中邪-->尋求大師協助-->大師也死了--->全部人都死了的順序，屬於最慘的日式怪談結局
 
 
@@ -351,7 +350,7 @@ date: 2021-08-26
 reply_count: 38
 title: '[雷] 薩滿-日骨泰皮的怪談'
 url: https://www.ptt.cc/bbs/movie/M.1629939876.A.AB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我有一度往巴揚=對敏爸家族復仇鬼這個方向想 。平常巴揚可能就是鄉野靈體（可以做好事）但遇到敏爸那家人就容易觸發詛咒然後大暴走。
 
   這點的主要證據是敏被徹底附身後說「我是巴揚」。而這樣一來驅魔儀式要把諾伊跟敏隔開作法也有了合理的解釋：桑提說過家族詛咒加上一堆有的沒的怨靈全部疊在一起導致情況很難處理，所以他們先把敏（家族詛咒）用符鎮在房子裡，再用諾伊當餌把紡織廠的牛鬼蛇神灌進陶壺裡，想分開鎮壓
@@ -388,7 +387,7 @@ date: 2021-09-08
 reply_count: 5
 title: 'Re: [好雷] 薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1631116254.A.5DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'IMDB: 6.6/10 (連結)
 
 
@@ -649,7 +648,7 @@ date: 2021-10-17
 reply_count: 9
 title: '[普雷] <薩滿> 你真的知道你信仰的是甚麼嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1634453956.A.683.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這可以從象徵層面解釋：看不到的不代表不存在，看到的也不是以為的那樣。
 
 
@@ -686,7 +685,7 @@ date: 2021-09-09
 reply_count: 4
 title: 'Re: [請益] 一些薩滿的問題'
 url: https://www.ptt.cc/bbs/movie/M.1631125753.A.582.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -755,7 +754,7 @@ date: 2021-09-05
 reply_count: 6
 title: '[普雷] 薩滿：奇特的拼盤'
 url: https://www.ptt.cc/bbs/movie/M.1630842812.A.ABE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看完薩滿了
 
 
@@ -790,7 +789,7 @@ date: 2021-09-05
 reply_count: 13
 title: '[請益] 一些薩滿的問題'
 url: https://www.ptt.cc/bbs/movie/M.1630830803.A.F50.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《薩滿》驚駭恐怖程度獲官方認證 複審兩次都遭列18禁
 
 
@@ -857,7 +856,7 @@ date: 2021-08-25
 reply_count: 43
 title: '[新聞] 《薩滿》驚駭恐怖程度獲官方認證列18禁'
 url: https://www.ptt.cc/bbs/movie/M.1629824310.A.470.html
---- !!python/object:movie_data.PublicReview
+---
 content: "東森電影\n薩滿\n09-03(六) 21:00~23:45\n\n導演：\n班莊比辛達拿剛 (Banjong Pisonthanakun)\n\
   主演：\n納利亞桾蒙空傣(Narilya Gulmongkolpech)\n薩娃妮烏托瑪(Sawanee Utoomma)\nSirani Yankittikan\n\
   Yasaka Chaisorn\n\n\n\n--\n   \n\n--"
@@ -865,7 +864,7 @@ date: 2022-09-03
 reply_count: 47
 title: '[Live] 東森電影 21:00 薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1662201905.A.AE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為貪小便宜用了車庫娛樂的15天串流免費看方案  看完了韓國片哭聲
 
   老實說電影內容好像跟哭聲關連不大  但劇情和影片技術留下的印象是蠻不錯的
@@ -995,7 +994,7 @@ date: 2021-08-26
 reply_count: 28
 title: '[好雷]薩滿--哭聲的姊妹作 '
 url: https://www.ptt.cc/bbs/movie/M.1629987121.A.935.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'RT
 
 
@@ -1441,7 +1440,7 @@ date: 2021-10-13
 reply_count: 13
 title: '[雷] 薩滿 優缺點都很明顯的恐怖片'
 url: https://www.ptt.cc/bbs/movie/M.1634055435.A.DE6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '提醒看這部片一定要坐後面
 
   鏡頭有點晃 屬於偽紀錄片
@@ -1466,7 +1465,7 @@ date: 2021-08-25
 reply_count: 30
 title: '[ 無雷] 薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1629900935.A.F0B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天忽然很想看恐怖片
 
   爬文發現以前最害怕的《鬼影》導演出新的電影《薩滿》了 還有《暫時停止呼吸2》之前
@@ -1479,7 +1478,7 @@ date: 2021-08-29
 reply_count: 36
 title: '[選片] 請問看薩滿好還是暫時停止呼吸2好呢？'
 url: https://www.ptt.cc/bbs/movie/M.1630211255.A.AF2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -1790,7 +1789,7 @@ date: 2021-11-05
 reply_count: 9
 title: '[好雷] 薩滿 - 神仙難救無命客'
 url: https://www.ptt.cc/bbs/movie/M.1636052195.A.0F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '目前都只有看預告跟口碑
 
 
@@ -1820,7 +1819,7 @@ date: 2021-09-10
 reply_count: 21
 title: '[選片] 蝸牛之家/疾厄/薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1631237973.A.573.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先薩滿他的確有掌握到厲害恐怖片的精髓-
 
 
@@ -1933,7 +1932,7 @@ date: 2021-11-05
 reply_count: 1
 title: '[負雷] 成事不足敗事有餘的薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1636121850.A.424.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不確定有沒有雷到。
 
 
@@ -1969,7 +1968,7 @@ date: 2021-08-28
 reply_count: 34
 title: '[討論] 薩滿 暈到不行'
 url: https://www.ptt.cc/bbs/movie/M.1630138029.A.909.html
---- !!python/object:movie_data.PublicReview
+---
 content: "泰韓兩國恐怖大師聯手打造！\n「今年最嚇人的恐怖驚悚電影」\n\n《》8月25日 全台上映\n\n了解更多\n\n\n\n上映強勢擊退《黑寡婦》空降韓國票房冠軍\n\
   韓國富川國際影展拿下最大獎【最佳作品獎】\n\n韓國媒體嚇破膽口碑好評噴發\n\n「恐怖電影嶄新的里程碑！完全無法喘息的程度！」\n—「iMBC」金慶熙記者\n\
   \n「深入骨髓的恐怖，簡直讓我想逃出戲院！」\n—《CINE21》裴東美記者\n\n「一定要在戲院觀賞！看完走不回家的史上最可怕惡靈體驗！」\n—《CINE21》南善宇記者\n\
@@ -1983,7 +1982,7 @@ date: 2021-08-21
 reply_count: 108
 title: '[情報] 《薩滿》電影預告  '
 url: https://www.ptt.cc/bbs/movie/M.1629539036.A.947.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2142,7 +2141,7 @@ date: 2021-08-29
 reply_count: 50
 title: '[大負雷]《薩滿》行銷做很好'
 url: https://www.ptt.cc/bbs/movie/M.1630173309.A.189.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完薩滿
 
   突然很想看女角的其他18+的作品
@@ -2155,7 +2154,7 @@ date: 2024-08-18
 reply_count: 3
 title: '[問片] 薩滿女主角有演色色的片嗎'
 url: https://www.ptt.cc/bbs/movie/M.1723912942.A.684.html
---- !!python/object:movie_data.PublicReview
+---
 content: '盲?
 
   只是一個引子
@@ -2272,7 +2271,7 @@ date: 2021-08-30
 reply_count: 14
 title: 'Re: [討論] 薩滿 意義不明的片段'
 url: https://www.ptt.cc/bbs/movie/M.1630301817.A.A6E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -2331,7 +2330,7 @@ date: 2021-08-22
 reply_count: 99
 title: '[新聞] 台灣創舉！《薩滿》看完後勁太強 影院設「膽小鬼場次」全程開燈'
 url: https://www.ptt.cc/bbs/movie/M.1629639397.A.84C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一點感想…以下有雷
 
 
@@ -2440,7 +2439,7 @@ date: 2021-08-28
 reply_count: 16
 title: 'Re: [ 巨雷] 薩滿 轉念一想也是充滿了歡樂啦'
 url: https://www.ptt.cc/bbs/movie/M.1630157210.A.F96.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2533,7 +2532,7 @@ date: 2021-09-09
 reply_count: 18
 title: '[普雷] 神離開的那天：《薩滿》 '
 url: https://www.ptt.cc/bbs/movie/M.1631159546.A.6F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2678,7 +2677,7 @@ date: 2021-08-28
 reply_count: 20
 title: '[ 巨雷] 薩滿 轉念一想也是充滿了歡樂啦'
 url: https://www.ptt.cc/bbs/movie/M.1630129754.A.24D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本文有雷，兩部都有
 
 
@@ -2915,7 +2914,7 @@ date: 2021-09-26
 reply_count: 14
 title: '[討論] 現代驅魔師/薩滿，關於信仰（信念）的一'
 url: https://www.ptt.cc/bbs/movie/M.1632640366.A.98C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3109,7 +3108,7 @@ date: 2021-09-08
 reply_count: 5
 title: '[好雷] 薩滿 '
 url: https://www.ptt.cc/bbs/movie/M.1631112691.A.73B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》第一波 『』場次時間公布！
 
 
@@ -3126,7 +3125,7 @@ date: 2021-08-26
 reply_count: 41
 title: '[情報] 《薩滿》「膽小鬼場」場次時間公布！'
 url: https://www.ptt.cc/bbs/movie/M.1629935803.A.9BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '真的沒有非看不可的必要
 
   。。。防雷
@@ -3163,7 +3162,7 @@ date: 2022-03-19
 reply_count: 48
 title: '[  雷] 咒就是鏡頭不晃的薩滿而已'
 url: https://www.ptt.cc/bbs/movie/M.1647695140.A.6E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天下午剛好有點空檔
 
   就來當一下勇者
@@ -3229,7 +3228,7 @@ date: 2021-12-24
 reply_count: 5
 title: '[普 無雷]噩兆：是薩滿mini還是杏林醫院pro?'
 url: https://www.ptt.cc/bbs/movie/M.1640356224.A.D36.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看完電影，前面覺得頭有點小暈，但鋪陳不錯\n\n精彩的都在後面，但是看完有幾個疑問 :\n\n1.女主角被主管開除，是因為從攝影機看到女主在跟男生\
   \ X 交，那也算是邪靈?\n\n2.有意思的來了，承上，第一幕是男生背對鏡頭女主坐在上面搖，可以看到男生\n  背部都是刺青，後面一幕不小心看到女主的叔叔也有刺青，當下有點毀三觀，\n\
   \  但有一幕是女主大法師化後，自己把衣服撕開露出胸部，然後把她叔叔手抓過\n  觸碰並大聲嘶喊 : 這不就是你想要的嗎.......?\n\n  這兩個點有大大可以解惑嗎\
@@ -3238,7 +3237,7 @@ date: 2021-08-30
 reply_count: 16
 title: '[請益] 薩滿一些問題'
 url: https://www.ptt.cc/bbs/movie/M.1630328897.A.662.html
---- !!python/object:movie_data.PublicReview
+---
 content: '是部看了意猶未盡的片，
 
   深夜去看完真的很舒壓！
@@ -3295,7 +3294,7 @@ date: 2021-08-29
 reply_count: 14
 title: '[請益] 薩滿結局 (有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1630171124.A.C82.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完回來 趁還有些記憶點回應一下
 
 
@@ -3343,7 +3342,7 @@ date: 2021-09-10
 reply_count: 1
 title: 'Re: [請益] 薩滿一些問題'
 url: https://www.ptt.cc/bbs/movie/M.1631271112.A.E61.html
---- !!python/object:movie_data.PublicReview
+---
 content: "因為對於想看的片\n\n基本上都不會去看預告、分享那類的\n\n所以不太了解這部在說啥\n\n只耳聞說蠻恐怖的\n\n是保持想被嚇的心情看的\n\
   \n恐怖與否看個人\n\n但想請問\n\n這部是藝術片嗎？\n\n還是至少有個劇情，不會太跳！？\n\n懇請開釋，謝謝！\n\n----\nSent from\
   \ \n\n--"
@@ -3351,7 +3350,7 @@ date: 2021-11-03
 reply_count: 33
 title: '[請益] 請問「薩滿」是藝術片嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1635900939.A.D1A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '終於看了去年討論度頗高的《薩滿》。當時看到許多宣傳說是超越尺度的恐怖，但後續許
 
   多討論則好像持相反意見（宣傳太浮誇）。室友是恐怖片愛好者，上映不久就去看了。他
@@ -3403,7 +3402,7 @@ date: 2022-01-12
 reply_count: 5
 title: '[普雷] 薩滿The Medium'
 url: https://www.ptt.cc/bbs/movie/M.1641958577.A.868.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -3435,7 +3434,7 @@ date: 2021-08-27
 reply_count: 24
 title: '[ 問雷]  問一個大BUG  有結局雷'
 url: https://www.ptt.cc/bbs/movie/M.1630004858.A.FFA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "此篇為抱怨文+尚氣+薩滿心得\n\n抱怨威秀的部分兼防雷分隔\n1. 我是週五早上定位週六尚氣的票，然後第一張275（花旗）也沒想太多。然後上ptt問第二部推薦什麼，然後預告看一看就訂了薩滿。結果薩滿只要180（花旗）\
   \ 。\n2. 接近11點的時候就有自稱威秀的人打來說他們設定錯誤，週六是平日才對。希望我退票重訂。然後我就問了手續費的問題，她說手續費他們會吸收也設定好了。\n\
   3. 今天早上收信才發現一張20元手續費的發票，跟275元的退票通知….嗯 果然還是被扣手續費了。不過打市話去吵應該比20更貴 。還是算了\n\n\n\n\n\n\
@@ -3452,7 +3451,7 @@ date: 2021-09-13
 reply_count: 13
 title: '[雷] 抱怨威秀+尚氣/薩滿好雷'
 url: https://www.ptt.cc/bbs/movie/M.1631511693.A.B68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來要評負雷的
 
 
@@ -3648,7 +3647,7 @@ date: 2022-07-17
 reply_count: 21
 title: '[好雷] 薩滿，被低估的一部電影'
 url: https://www.ptt.cc/bbs/movie/M.1658008652.A.6C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '泰國在日前公布了申報名年奧斯卡「最佳國際電影」的作品，將以《薩滿》作為代表電影
 
   。
@@ -3691,7 +3690,7 @@ date: 2021-11-03
 reply_count: 66
 title: '[情報] 2022 泰國奧斯卡代表：《薩滿》'
 url: https://www.ptt.cc/bbs/movie/M.1635870951.A.A5A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完薩滿，其中有一個點不太懂
 
 
@@ -3727,7 +3726,7 @@ date: 2021-09-18
 reply_count: 10
 title: '[請益] 薩滿問題'
 url: https://www.ptt.cc/bbs/movie/M.1631971879.A.536.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昨天剛看完，因為後面被嚇到\n才上來看大家的影評，發現爭議很大\n很多人抱怨前面太悶  ，但前半段的步調我覺得很適合愛看旅遊節目、風土紀錄的人看\n\
   \ 微微的恐怖感加上風俗 元素\n讓人習慣「真實故事不會太恐怖」這點，然後急轉直下到誇張情節，還有許多道高一\n尺 魔高一丈的暗寓，看完很毛～～～～～\n-----\n\
   Sent from JPTT on my iPhone\n\n--"
@@ -3735,7 +3734,7 @@ date: 2021-08-31
 reply_count: 12
 title: '[好雷] 適合愛看discovery的人看的鬼片'
 url: https://www.ptt.cc/bbs/movie/M.1630385916.A.5BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "（無音樂，無圖片，文字很長很無聊～）（歡迎引用轉寄，請註明作者出處）\n\n薩滿之心：阿凡達\n\n一個軀體的死亡，是一個靈魂的重生。\n阿凡達用最炫麗的視覺效果、最商業的宣傳手法，\n\
   拍出最感動人心的薩滿（shaman）世界觀。\n\n（開始）\n\n雙胞胎哥哥的死亡和弟弟Jake不良於行的萎縮雙腿一樣，\n是面朝死亡以及無法、也不願意前進的暗喻。\n\
   \n（一）看見無法被教導\n\nJake來到納美族生活的地方，\n因為他是以一個外來者（註）的姿態去研究這個叢林並且與之為敵，\n所以才會被狼群攻擊，\n經女主角Neytiri援救脫困，\n\
@@ -3771,7 +3770,7 @@ date: 2009-12-20
 reply_count: 154
 title: '[好雷] 薩滿之心：阿凡達'
 url: https://www.ptt.cc/bbs/movie/M.1261322720.A.B6D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天看了「咒」之後
 
 
@@ -3904,7 +3903,7 @@ date: 2022-04-05
 reply_count: 17
 title: '[討論] 薩滿 最終決戰'
 url: https://www.ptt.cc/bbs/movie/M.1649099968.A.FF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想說一個人晚上無聊，女友又不敢看恐怖片，只好自己去看個恐怖片嚇嚇自己，結果看完滿滿問號，懷疑人生。
 
 
@@ -3951,7 +3950,7 @@ date: 2021-08-29
 reply_count: 32
 title: '[爛雷] [ 超大負爛雷]薩滿-女主身材很讚的爛片'
 url: https://www.ptt.cc/bbs/movie/M.1630234585.A.1C7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來不會想po文
 
   但電影公司鋪天蓋地的宣傳
@@ -4210,7 +4209,7 @@ date: 2021-08-28
 reply_count: 74
 title: '[ 負雷]  薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1630088561.A.091.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到大家很多的疑問和吐槽都蠻類似的，來說一下我的想法拋磚引玉一下。
 
 
@@ -4551,7 +4550,7 @@ date: 2021-08-29
 reply_count: 46
 title: '[ 好雷] 薩滿-宗教要堅持相信才有力量'
 url: https://www.ptt.cc/bbs/movie/M.1630170976.A.3B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4623,7 +4622,7 @@ date: 2021-08-26
 reply_count: 63
 title: '[新聞]《薩滿》上映首日全台賣破百萬 觀眾「還沒演完就逃出電影院」'
 url: https://www.ptt.cc/bbs/movie/M.1629981004.A.260.html
---- !!python/object:movie_data.PublicReview
+---
 content: "薩滿只加了海報的圖文版心得：\n\n \n個人是泰國恐怖片愛好者，聽到這部韓泰合作的恐怖片消息之後，一直很期待。\n \n但今天看完之後覺得很微妙，雖然有看到一些亮眼的部份，但整體來說還是覺得沒對到這\n\
   部的電波，對這部片的感覺有點複雜，沒辦法直接說推薦或不推薦，整理心得分享一下。\n然後中度鬼片愛好者的我覺得，這部沒有可怕到需要看開燈場….\n \n不過這部我應該不會想重看，反而是鬼影、厲鬼將映、嚇死鬼、鬼亂5、鬼4虐和邪降2:惡\n\
   魔的藝術，這幾部舊泰國鬼片比較合個人的口味。\n \n鬼影心得可參考：\n\n \n嚇死鬼心得可參考：\n\n \n薩滿講述的是泰國東北（伊善地區）一個信奉祖傳地方性神明的巫覡家族的故事，家族中\n\
@@ -4653,7 +4652,7 @@ date: 2021-08-26
 reply_count: 63
 title: '[  雷] 薩滿—斧鑿痕跡過重的恐怖片'
 url: https://www.ptt.cc/bbs/movie/M.1629987152.A.886.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -4722,7 +4721,7 @@ date: 2021-08-28
 reply_count: 10
 title: 'Re: [討論] 薩滿 暈到不行'
 url: https://www.ptt.cc/bbs/movie/M.1630160106.A.7A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4843,7 +4842,7 @@ date: 2021-08-29
 reply_count: 37
 title: '[超好雷]  偽中探真的《薩滿》'
 url: https://www.ptt.cc/bbs/movie/M.1630177821.A.56D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n本人看過的恐怖電影應該超過300\n\n而這片光看導演監製就覺得今年必看了\n\n加上我又熱愛宗教及異文化性質的電影\n\
   \n於是就滿懷期待的衝第一天進場拉\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n本文無太多雷，主要以自身心得為主。\n\n這裡直接說要我先給這片打分數的話，我給7.5分\n\
@@ -4860,7 +4859,7 @@ date: 2021-08-25
 reply_count: 60
 title: '[好雷] 薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1629882419.A.2D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我記得有一幕敏坐車要去給人家收驚（？
 
 
@@ -4900,7 +4899,7 @@ date: 2021-09-19
 reply_count: 35
 title: '[討論] 薩滿某一幕場面'
 url: https://www.ptt.cc/bbs/movie/M.1632024505.A.B3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得前陣子有出一片恐怖片
 
 
@@ -4918,7 +4917,7 @@ date: 2022-03-05
 reply_count: 7
 title: '[問片] 台灣前陣子很像薩滿的一個恐怖片'
 url: https://www.ptt.cc/bbs/movie/M.1646456668.A.9BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "薩滿一詞是台灣常說的乩身、靈媒。\n故事內容講述泰國東北地區一村落，\n以神祇巴揚女神為該村落的信仰。\n\n其通靈媒介為尼姆一家歷代傳承，\n\
   平時幫村落眾人解決有關超自然的疑難雜症。\n在巴揚女神尋找下一位家族女性為乩身時，\n會有所謂的「薩滿熱」。\n簡單說就是莫名的身體極度不適，如月經天天來、發燒等找不到原因的病狀作為徵兆。\n\
   若確定接受巴揚女神的天命，則會有相關繼承儀式。\n\n本片以某團隊為拍攝薩滿題材為開頭，\n以紀錄片形式拍攝，將觀眾視角帶入「真實事件」的錯覺。\n\n在某次拍攝過程中，尼姆參加姊夫的喪禮，\n\
@@ -4946,7 +4945,7 @@ date: 2021-08-27
 reply_count: 45
 title: '[雷] [好雷] 薩滿午夜場'
 url: https://www.ptt.cc/bbs/movie/M.1629997151.A.C41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去看國片噩兆
 
   從預告片來看完全讓人提不起興趣啊！
@@ -5003,7 +5002,7 @@ date: 2021-12-26
 reply_count: 20
 title: '[微雷] 噩兆，手法根本是薩滿吧～'
 url: https://www.ptt.cc/bbs/movie/M.1640533441.A.0A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '安安
 
   今天去看電影薩滿
@@ -5102,7 +5101,7 @@ date: 2021-09-05
 reply_count: 9
 title: '[好雷] 看薩滿差點被嚇死'
 url: https://www.ptt.cc/bbs/movie/M.1630771559.A.95D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '巴揚神到底存不存在，是整部片看下來比較好奇的問題，根據前半段的鋪陳，巴揚神存在應該很理所當然，不過從結尾 Nim 的訪談，似乎又要打上一個問號。
 
 
@@ -5153,7 +5152,7 @@ date: 2021-08-28
 reply_count: 115
 title: '[討論] 薩滿 — 巴揚神存在嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1630163946.A.532.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鬼月想帶家人看恐怖片，
 
   目前考慮「鬼門」跟「薩滿」，
@@ -5184,7 +5183,7 @@ date: 2021-08-25
 reply_count: 76
 title: '[請益] 薩滿有人去看了嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1629878580.A.2A8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我看完只覺得好多以為是伏筆的片段
 
   最後都沒有解釋
@@ -5251,7 +5250,7 @@ date: 2021-08-30
 reply_count: 17
 title: '[討論] 薩滿 意義不明的片段'
 url: https://www.ptt.cc/bbs/movie/M.1630300172.A.2F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "前情提要:\n\n剛看完的時候很呆滯\n\n甚至我還在洗手間問從同個廳出來的觀眾:\"有看懂他在演什麼嗎?\"\n\n\n如果就這樣結束的話可能會給個負雷\n\
   \n不過沈澱一陣子之後覺得還是有優點\n\n\n以下有雷\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n1.前半段一如眾多爆雷文說的沈悶\n\
@@ -5268,7 +5267,7 @@ date: 2021-10-05
 reply_count: 3
 title: '[普雷] 敘述性詭計? 薩滿心得 '
 url: https://www.ptt.cc/bbs/movie/M.1633449111.A.F4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鏡頭到底在晃三小？ 害我超暈==
 
 
@@ -5316,7 +5315,7 @@ date: 2021-09-18
 reply_count: 37
 title: '[負雷] 薩滿 這到底什麼垃圾=='
 url: https://www.ptt.cc/bbs/movie/M.1631974505.A.98F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "不知名神秘力量發威\n上映第六天票房排名逆襲\n《》一舉登全台票房冠軍‼\n\n上映短短六天，總票房已突破1582萬，昨日(8/30)更以全台票房272萬上演大逆襲，一舉\n\
   拿下全台票房冠軍！\n\n全台票房市占率達27.3%，單廳票房6.6萬。\n\n目前《薩滿》更打破 今年度恐怖片 最高票房紀錄，限制級恐怖懼作《薩滿》熱映中！\n\
   \n今年最駭人的恐怖電影《薩滿》\n【哭聲】 導演羅泓軫 企劃監製\n【鬼影】 導演班莊比辛達拿剛 執導\n\n — 泰韓兩國恐怖大師聯手打造 —\n\n「讓你無法知道劇情的走向，堆疊式的恐怖」\n\
@@ -5325,7 +5324,7 @@ date: 2021-09-01
 reply_count: 45
 title: '[情報] 《薩滿》全台票房冠軍！'
 url: https://www.ptt.cc/bbs/movie/M.1630446912.A.945.html
---- !!python/object:movie_data.PublicReview
+---
 content: "哭聲、鬼影都是我喜歡的恐怖電影之一\n所以兩位導演合作\n就一定要支持一下！\n整體影片品質，是好的！\n因為是偽紀錄片手法，所以說明的很仔細\n\
   也科普很多薩滿知識！\n但鏡頭的晃動 跟冗長的鋪陳\n實在有點累….\n因為鋪陳夠長夠久\n所以劇情上不會讓人有 ㄟ….的感覺！\n結局也很淺顯易懂\n但如果要享受被嚇快感\
   \ 大概只有1-2次吧！\n整體來說\n品質給5星\n嚇人給1星\n劇情給3星\n算是近期品質好的恐怖片了！\n想看還是可以進電影院看看\n\n劇情：哭聲》鬼影》邪降》薩滿\n\
@@ -5335,7 +5334,7 @@ date: 2021-08-26
 reply_count: 28
 title: '[ 普雷] 薩滿～品質可、嚇人指數普'
 url: https://www.ptt.cc/bbs/movie/M.1629910482.A.211.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《薩滿男孩》揭蒙古Z世代對未來迷惘
 
 
@@ -5382,7 +5381,7 @@ date: 2024-09-02
 reply_count: 23
 title: '[新聞] 《薩滿男孩》揭蒙古Z世代對未來迷惘'
 url: https://www.ptt.cc/bbs/movie/M.1725240124.A.766.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5459,7 +5458,7 @@ date: 2021-08-29
 reply_count: 23
 title: '[ 負雷] 薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1630208504.A.BF1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '買票的時候
 
   我就一直很好奇為什麼英文片名是the medium
@@ -5573,7 +5572,7 @@ date: 2021-09-02
 reply_count: 17
 title: '[  好雷]'
 url: https://www.ptt.cc/bbs/movie/M.1630556009.A.C97.html
---- !!python/object:movie_data.PublicReview
+---
 content: '泰國把生雞蛋當作是聖潔之物
 
   有些佛寺甚至拿生雞蛋當作供品
@@ -5662,7 +5661,7 @@ date: 2021-08-31
 reply_count: 8
 title: 'Re: [討論] 《薩滿》求解惑'
 url: https://www.ptt.cc/bbs/movie/M.1630379681.A.24D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，我明天剛好有空可以看，想說片單這兩部感覺好像還不錯，不知道有去看過的各
 
   位，疾厄和薩滿會比較推哪部？一邊是票房冠軍一邊是溫導作品。
@@ -5674,7 +5673,7 @@ date: 2021-09-05
 reply_count: 59
 title: '[選片] 疾厄和薩滿該選哪部？'
 url: https://www.ptt.cc/bbs/movie/M.1630849120.A.814.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5767,7 +5766,7 @@ date: 2021-09-22
 reply_count: 46
 title: '[負雷] 傻眼的薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1632256159.A.FA2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5977,7 +5976,7 @@ date: 2021-08-28
 reply_count: 15
 title: '[好雷] 薩滿 - 神經敏感者先吃暈車藥'
 url: https://www.ptt.cc/bbs/movie/M.1630159274.A.01B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n對不起（小弟第一次打影評\
   \ 請多見諒\n\n剛剛看完了\n\n只覺得套路蠻好猜得\n\n最後就因為一些白痴原因 驅魔失敗了\n\n一堆人跟中邪一樣狂犬病的動物亂咬人\n\n最後87錄影都不救也發呆發到最後被殺的錄影人也是\n\
@@ -5989,7 +5988,7 @@ date: 2021-09-20
 reply_count: 9
 title: '[爆雷]  薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1632074288.A.8AD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前半段敘事的過程我就被晃到很想中離了
 
 
@@ -6010,7 +6009,7 @@ date: 2021-08-29
 reply_count: 8
 title: 'Re: [討論] 薩滿 暈到不行'
 url: https://www.ptt.cc/bbs/movie/M.1630205439.A.F61.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -6085,7 +6084,7 @@ date: 2021-12-29
 reply_count: 31
 title: '[新聞]《噩兆》拍到靈異畫面　導演駁抄襲薩滿：那恐怖片不用玩了'
 url: https://www.ptt.cc/bbs/movie/M.1640782020.A.CC1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近聽到有人說這部好看
 
   蠻好奇多好看
@@ -6219,7 +6218,7 @@ date: 2022-02-19
 reply_count: 9
 title: '[普雷] 薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1645207190.A.519.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天剛看完薩滿
 
 
@@ -6239,7 +6238,7 @@ date: 2021-09-10
 reply_count: 3
 title: 'Re: [請益] 薩滿一些問題'
 url: https://www.ptt.cc/bbs/movie/M.1631279261.A.C54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近上映的這兩部
 
   感覺都是不錯的恐怖片
@@ -6254,7 +6253,7 @@ date: 2021-08-28
 reply_count: 31
 title: '[片單] 薩滿 vs 噤界2'
 url: https://www.ptt.cc/bbs/movie/M.1630126929.A.F15.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說我的總結 看完有點不知所以
 
   滿分10分，我大概只會給2分
@@ -6303,7 +6302,7 @@ date: 2021-09-05
 reply_count: 28
 title: '[大負雷] 薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1630833756.A.E52.html
---- !!python/object:movie_data.PublicReview
+---
 content: "最近對薩滿文化很好奇，想找一些關於薩滿文化的電影來看。據我微薄的了解，薩滿除了\n與人類學領域相關之外，其實也和所謂的精神醫學領域相關。因此，想在電影版上詢問看\n\
   看，有哪些電影是和薩滿文化相關的呢？\n\n\n若有稍微提到一點點（或引發聯想及延伸），不算電影主要內容的也可以，例如，《青春\n倒退嚕》，裡面其實就有提到一些些，只不過，劇中男女主角前往的靈修場合，靈修帶領\n\
   者，我感覺上是有點詐騙的意謂！\n\n\n目前主要已知大約類型有：\n\n《最後的薩滿》、《盲國薩滿》、\n《前任薩滿》、《哭聲》、《阿凡達》\n\n\n期盼大家的推薦，感恩！謝謝！\n\
@@ -6312,7 +6311,7 @@ date: 2019-08-21
 reply_count: 11
 title: '[片單] 「薩滿文化/身心精神醫學相關的電影」'
 url: https://www.ptt.cc/bbs/movie/M.1566391088.A.EAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '安安雷一個
 
   本來很期待會很恐怖，還開什麼膽小鬼場。
@@ -6338,7 +6337,7 @@ date: 2021-08-30
 reply_count: 17
 title: '[超負雷]薩滿 做過頭就不可怕了'
 url: https://www.ptt.cc/bbs/movie/M.1630307801.A.D6D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6472,7 +6471,7 @@ date: 2021-08-27
 reply_count: 68
 title: '[ 負雷]  薩滿'
 url: https://www.ptt.cc/bbs/movie/M.1630002076.A.3F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

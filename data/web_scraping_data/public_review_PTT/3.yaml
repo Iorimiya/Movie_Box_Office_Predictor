@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "「情書」，一部經典的日本純愛電影，儘管過了20年載，\n再次上到大螢幕，一樣深深的觸動內心。\n沒有煽情的對白、沒有刻意的肢體動作、沒有華麗的場面，簡單、緩慢的透過一來一往的\n\
   書信，帶出一段深藏在內心的，告白。\n\n\n電影的一開頭，藤井樹（阿樹）的未婚妻博子躺在白雪地裡，感受著什麼？\n無止盡的思念，雪地裡的冰冷是否如天國裡的未婚夫一樣？\n\
   緩緩起身、走向那個遙遠的小屋，三年的忌日追思會，生者藉著悼念死者的情感而多貪杯\n、圖的是什麼？也許只是想暫時麻痺想念的痛苦。\n父母完整的保存了阿樹的房間，沒有做變動，彷彿告訴著自己，兒子其實一直沒有離開，\n\
@@ -49,7 +48,7 @@ date: 2016-09-17
 reply_count: 7
 title: '[好雷] 情書《藏得最深的，告白》'
 url: https://www.ptt.cc/bbs/movie/M.1474120902.A.D3F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -142,7 +141,7 @@ date: 2016-05-16
 reply_count: 6
 title: '[新聞] 瘋電影／北京遇上西雅圖之不二情書　眾'
 url: https://www.ptt.cc/bbs/movie/M.1463400875.A.7ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近好多經典作品都要重新上映了
 
   這兩部經典作品也該來一下了吧......
@@ -158,7 +157,7 @@ date: 2020-07-29
 reply_count: 55
 title: '[討論] 電子情書 西雅圖夜未眠 湯姆漢克 '
 url: https://www.ptt.cc/bbs/movie/M.1595989594.A.9D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我會知道與想看這部電影，主因是男主角吳秀波，中年型男大叔，副因
 
   是湯唯，氣質長相正中我心中完美女人形象。
@@ -206,7 +205,7 @@ date: 2017-02-03
 reply_count: 3
 title: '[好雷]《北京遇上西雅圖之不二情書》 '
 url: https://www.ptt.cc/bbs/movie/M.1486133387.A.B6D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電子情書   好看
 
 
@@ -234,7 +233,7 @@ date: 2019-09-13
 reply_count: 79
 title: '[討論] 這年代還能拍出電子情書這種味道的電影嗎'
 url: https://www.ptt.cc/bbs/movie/M.1568383133.A.003.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下有雷\n\n\n——————\n\n《從前，有個好萊塢》充滿昆汀塔倫提諾的作者印記，熟稔昆汀的影迷能在此作中發現許\n多昆汀的風格元素，並找到極大樂趣，武術、戀足癖、義大利西部片、美國老式B級片、\n\
   非線性敘事手法、《惡棍特工》中火焰槍的惡趣味（將曼森視作納粹）等等，片名《Once\n Upon a Time In Hollywood》更揭示了全片在寫實中充滿想像空間（與時間）的童話故\n\
   事性（呼應充滿逆轉性的結尾），令人感受到昆汀對於曼森家族血案的浪漫憧憬，並帶著\n觀眾想像世界的未來能有一點不一樣。\n\n* 片名甚至也可看做對經典義大利西部片《狂沙十萬里》（1968）的致敬，此作英文片名\n\
@@ -261,7 +260,7 @@ date: 2019-07-26
 reply_count: 13
 title: '[好雷] 《從前，有個好萊塢》昆汀式的老派情書'
 url: https://www.ptt.cc/bbs/movie/M.1564154759.A.026.html
---- !!python/object:movie_data.PublicReview
+---
 content: "\"お元気ですか，私は元気です\"\n\n在未婚夫藤井樹因為山難過世的三年祭之後\n\n心情混亂的渡邊博子意外發現未婚夫高中時期在北海道小樽的舊家地址\n\
   \n雖然原址已經因為政府徵收而夷為平地\n\n但博子還是忍不住 將一封帶著濃濃思念的信寄往已經不存在的地址\n\n不久之後 竟然收到了屬名藤井樹的回信...\n\
   \n\n\n二十年前風靡亞洲 岩井俊二的經典作品\"情書\"\n\n就算在二十年之後看來還是相當細膩\n\n不論是故事本身的敘事方式以及在神戶以及小樽的取景\n\
@@ -277,7 +276,7 @@ date: 2016-10-08
 reply_count: 5
 title: '[好雷] 情書 '
 url: https://www.ptt.cc/bbs/movie/M.1475893807.A.3DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這是一部 關於愛情、關於緣分、關於異域、關於人生的感人電影\n\n在愛情裏，每個人都在等待那麼一位'對的人'出現。\n\n在那個人出現之前我們總有許多幻想，究竟他有多高？長得如何？\n\
   \n有錢與否？浪漫不浪漫？如今在這網路傳遞快速，人手一機的時代\n\n我們似乎沒有這麼多想像。手指頭動一動就可以看見對方的模樣，按下傳送鍵便可\n\n與對方溝通。想像變得是一種很費時的行為。\n\
   \n\n                     速食愛情 V.S 日久生情\n\n\n只好讓電影內的教授與小蝦來教教各位觀眾即使戶不見面甚至不知對方的名和姓，\n\
@@ -294,7 +293,7 @@ date: 2016-05-16
 reply_count: 15
 title: '[好雷]北京遇上西亞圖之不二情書'
 url: https://www.ptt.cc/bbs/movie/M.1463393389.A.2C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "[以下巨量劇情洩漏]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n延續前面某串討論，拿鋼巴斯達來對比環太平洋的話，\n\
   須知鋼巴斯達本身就是試圖在八零末總結Anime的作品。\n\n(當然不限於男生 -- 鋼巴斯達大部分也是致敬網球甜心的呢)\n\n但若站在這個角度看的話，或許環太平洋只是西方式致敬60~80s\
   \ Anime次文化的總結?\n只是這個總結，在參雜了西方的技術力，與影視文化底蘊之後，又是另一番風貌。\n\n而這個風貌似乎是獻給廣大東西方已成年的，曾經是孩子的大人們。\n\
@@ -340,7 +339,7 @@ date: 2013-07-15
 reply_count: 64
 title: '[好雷] 給童年的情書 -- 環太平洋'
 url: https://www.ptt.cc/bbs/movie/M.1373850591.A.D7B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -377,7 +376,7 @@ date: 2016-05-17
 reply_count: 20
 title: '[新聞] 《不二情書》口碑爆棚　票房36億破愛情'
 url: https://www.ptt.cc/bbs/movie/M.1463488600.A.DEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這裡有心得，和大量的劇情，總覺得還是有人會踩到.......\n再轟隆轟隆一下好了  @@\"\n\n\n\n\n\n\n\n\n\n\n\n\n\
   \n\n\n\n\n\n\n女主角信中的語氣很惶急、很哀傷，\n彷彿她知道男主角艾利斯應該收不到她寫的這封警示的信；\n這一切，遠在兩年前發生的事，\n是否已成定局了呢？\n\
   \n\n這是［跳越時空的情書］的片尾，是我很喜歡，也是很多人頗有爭議的部份。\n\n\n原片名是：The Lake House。湖畔的小屋，是片中最主要的場景。\n\
@@ -408,7 +407,7 @@ date: 2006-11-24
 reply_count: 9
 title: '[心得] 跳越時空的情書 (有雷、轟隆轟隆)'
 url: https://www.ptt.cc/bbs/movie/M.1164366694.A.A6A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者程啟峰高雄27日電）金馬獎最佳紀錄片導演郭珍弟隨漁船出海拍攝的紀錄片
 
   「海上情書」，傳達討海人的鄉愁，觸動名鋼琴家陳瑞斌自幼旅外身為遊子的心弦，為影
@@ -476,7 +475,7 @@ date: 2015-10-27
 reply_count: 1
 title: '[新聞] 為海上情書譜曲 陳瑞斌感觸多'
 url: https://www.ptt.cc/bbs/movie/M.1445953795.A.894.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -511,7 +510,7 @@ date: 2024-12-10
 reply_count: 17
 title: '[新聞] 中山美穗身影重返大銀幕「情書」20日起限定重映'
 url: https://www.ptt.cc/bbs/movie/M.1733814144.A.62A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在一個晴朗的午後，終於看了這部電影，
 
   而其後勁發酵至今，閉上雙眼依然能浮現整部電影的色澤，
@@ -662,7 +661,7 @@ date: 2018-03-06
 reply_count: 25
 title: '[好雷] 水底情深-給孤獨者的蒼藍情書'
 url: https://www.ptt.cc/bbs/movie/M.1520342713.A.5B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這部片上映的時候我還在媽媽砸摳的時代，二十年後因為重映才知道這一部片，昨天看完了，沒有落淚但是感觸很深\n\n\n\n中山美穗的演技沒話說，博子的內斂跟大放的女樹都演得很棒，同一個臉但是有真的不同人的感覺，唸信時的口味也有所差異，博子是以斯文的口氣，而女樹則是較為輕快活潑\n\
   \n這部片藉著玩弄光線把很多場景拍得很美，像是一直有中山美穗仰望的鏡頭或是可能電死一堆女生的柏原崇窗邊鏡頭，朦朧中的唯美\n\n對博子來說，她尋找的是一個她不認識的未婚夫，藉由寄出一封一封的信走出樹圍繞在她身邊的回憶\n\
   \n對女樹來說，雖是一段因名字而起的孽緣卻也是她青春一頁的寫照，最後終於了解到彼此的心意而自私地藏著最後一封信\n\n情書\n\n青春歲月最怕的就是在錯的時間遇到對的人\n\
@@ -672,7 +671,7 @@ date: 2016-11-19
 reply_count: 7
 title: '[ 好雷] 情書-告別青春也告別回憶'
 url: https://www.ptt.cc/bbs/movie/M.1479570771.A.BA1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '岩井俊二《情書》將翻拍中國版電影，新原野娛樂傳媒操刀製作已獲原片版權，目前尚在
 
   劇本籌備期，導演和主演人選尚未確定。
@@ -709,7 +708,7 @@ date: 2017-03-18
 reply_count: 56
 title: '[討論] 岩井俊二《情書》翻拍中國版電影'
 url: https://www.ptt.cc/bbs/movie/M.1489813289.A.90E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '金馬獎導演楊力州耗時2年多，終於要在3月4日再度推出他的最新紀錄片「我們的那時此
 
   刻」，該片融貫台灣半世紀以來的電影，並結合近50年來的台灣社會時代變化和重要事件
@@ -763,7 +762,7 @@ date: 2016-02-23
 reply_count: 6
 title: '[新聞] 楊力州拍「那時此刻」獻給台灣人電影情書'
 url: https://www.ptt.cc/bbs/movie/M.1456232189.A.13E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我只有明信片上的...\nCD 上的聽不懂 =  =a\n\n（註：明信片上有打錯的地方，下面擅自修正了 XDD）\n\n***\n\n妳固執不講理、愛玩愛流行…\n\
   我卻如此受不住的迷戀妳…\n只是好不容易妳畢業了，我們卻戰敗了…\n\n***\n\n友子，妳是南方艷陽下成長的學生，\n而我是從飄雪的北方渡洋過海的老師，\n\
   我們是這麼的不同，為何卻會如此的相愛\n\n***\n\n妳知道我們現在所看到的星光，\n是自幾億光年遠的星球上所發射過來的光嗎？\n幾億年前的台灣島和日本島又是什麼樣子呢…\n\
@@ -775,7 +774,7 @@ date: 2008-08-25
 reply_count: 7
 title: 'Re: [請益] 海角七號的情書'
 url: https://www.ptt.cc/bbs/movie/M.1219596941.A.0A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -1089,7 +1088,7 @@ date: 2020-08-23
 reply_count: 27
 title: '[好雷]《最後的情書》閃耀著光芒的燦爛青春'
 url: https://www.ptt.cc/bbs/movie/M.1598178121.A.9B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '至以下頁面依說明送出回應即可參加，
 
 
@@ -1109,7 +1108,7 @@ date: 2016-08-20
 reply_count: 4
 title: '[贈票] 經典日影「情書」20周年特映會贈票'
 url: https://www.ptt.cc/bbs/movie/M.1471706133.A.99A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '故事是未來的女主角在湖邊小屋留信 與兩年前的男主角聯絡上 然後談戀愛的故事
 
 
@@ -1139,7 +1138,7 @@ date: 2016-03-09
 reply_count: 10
 title: '[請益] 請問跳躍時空的情書結局ㄧ問（有劇情雷'
 url: https://www.ptt.cc/bbs/movie/M.1457528622.A.F56.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【公視國際影展】
 
 
@@ -1169,7 +1168,7 @@ date: 2019-07-05
 reply_count: 5
 title: '[情報]《情書》數位修復版 7/6 晚間十點公視３台'
 url: https://www.ptt.cc/bbs/movie/M.1562336142.A.6BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n2018-12-23 17:46 聯合報 記者陳建嘉╱即時報導\n\n英國小鮮肉亞歷克斯勞瑟在新片「初戀手作中」扮演宅宅魯蛇賣萌，為幫校園天菜同學追\n\
   求心儀的文青女孩，下海當導演拍攝短片，果然一舉擄獲女孩芳心。他在片中與「東京未\n婚妻」的甜美女星寶琳耶媞各自拍攝多支內容天馬行空的16釐米短片，另類的情場過招復\n\
   古又可愛。而這幾段別出心裁的「戲中戲」，也被權威媒體銀幕雜誌大讚：「具有「王牌\n冤家」名導米歇爾龔特利的神采。」該片目前已陸續在全球多個影展亮相，而台灣則會搶\n\
@@ -1181,7 +1180,7 @@ date: 2018-12-23
 reply_count: 1
 title: '[新聞] 厭世小鮮肉 「初戀手作中」拍16厘米膠卷寫情書'
 url: https://www.ptt.cc/bbs/movie/M.1545560839.A.7F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2019年 陳意涵主演的[情書]翻拍版
 
 
@@ -1200,7 +1199,7 @@ date: 2024-12-16
 reply_count: 1
 title: '[請益] 陳意涵演的[情書]翻拍版,有上映過嗎??'
 url: https://www.ptt.cc/bbs/movie/M.1734318864.A.B1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為電影還沒上映  我盡量不要暴雷
 
   但還是會提到一些請斟酌
@@ -1316,7 +1315,7 @@ date: 2018-03-20
 reply_count: 9
 title: '[好雷]一級玩家  一封給數位娛樂產業的情書'
 url: https://www.ptt.cc/bbs/movie/M.1521522683.A.283.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論：
 
   走出戲院的第一瞬間評價大概是7.5/10左右
@@ -1479,7 +1478,7 @@ date: 2024-07-27
 reply_count: 83
 title: '[感動雷] 死侍與金鋼狼 宛如一封對英雄片的情書'
 url: https://www.ptt.cc/bbs/movie/M.1722064612.A.215.html
---- !!python/object:movie_data.PublicReview
+---
 content: '獨來獨往的美國大兵約翰（查寧塔圖飾）在休假中，意外在海邊邂逅了活潑甜美的大學生
 
   莎瓦娜（亞曼達賽芙莉飾），兩人迅速墜入愛河，短短的兩週已然令他們不可自拔。假期
@@ -1581,7 +1580,7 @@ date: 2016-08-13
 reply_count: 3
 title: '[普雷] 最後一封情書 '
 url: https://www.ptt.cc/bbs/movie/M.1471099927.A.9E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老實說，要理解整部片的梗
 
   可說是十分困難，尤其台灣普遍對西部片冷感
@@ -1663,7 +1662,7 @@ date: 2019-08-03
 reply_count: 6
 title: '[好雷]《從前，有個好萊塢》-給好萊塢的情書 '
 url: https://www.ptt.cc/bbs/movie/M.1564780047.A.A9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是一封瞿導給奶奶的情書，一部獻給所有奶奶的電影．
 
 
@@ -1842,7 +1841,7 @@ date: 2016-02-05
 reply_count: 5
 title: '[普雷] 親愛的奶奶:給奶奶的情書 '
 url: https://www.ptt.cc/bbs/movie/M.1454640858.A.1EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實本來不是很想去看，
 
 
@@ -1980,7 +1979,7 @@ date: 2023-06-23
 reply_count: 40
 title: '[好雷] 閃電俠 DC宇宙誠意滿滿的情書'
 url: https://www.ptt.cc/bbs/movie/M.1687508209.A.89B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '聽音樂CD打的～日文原文!
 
 
@@ -2180,7 +2179,7 @@ date: 2008-08-29
 reply_count: 7
 title: 'Re: [請益] 海角七號的情書(雷!)'
 url: https://www.ptt.cc/bbs/movie/M.1219943304.A.FEE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2285,7 +2284,7 @@ date: 2022-07-23
 reply_count: 7
 title: '[好雷] 不 / Nope 給老派膠卷電影的情書'
 url: https://www.ptt.cc/bbs/movie/M.1658509889.A.6C9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "隔了二十年再看情書 沒想到還是一樣的感動\n\n   但突然想到一個問題\n\n   \"男藤井的畢業紀念冊怎麼來的呢?\"\n\n   女藤井說正月辦完爸爸喪事還要照顧媽媽\
   \ 所以開學了還沒去上課\n\n   此時男藤井拿書請女藤井代為歸還\n\n   女藤井一週後去學校才得知男藤井突然轉學\n\n   此時應該是國三下學期剛開學沒多久\
   \ 可能是二到三月\n\n   而博子也在再度去男藤井家查閱畢業紀念冊時發現沒有男藤井的住址\n\n   可見在編撰畢業紀念冊時 男藤井已經轉學 所以沒登記他的住址\n\
@@ -2295,7 +2294,7 @@ date: 2016-09-19
 reply_count: 16
 title: '[請益] 情書的畢業紀念冊問題'
 url: https://www.ptt.cc/bbs/movie/M.1474226677.A.92B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中山美穗主演的經典電影《情書》
 
 
@@ -2323,7 +2322,7 @@ date: 2024-12-21
 reply_count: 10
 title: '[討論] 中山美穗 情書 開場'
 url: https://www.ptt.cc/bbs/movie/M.1734796259.A.7F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '情書這部電影對我來說是很特別的一部電影
 
 
@@ -2796,7 +2795,7 @@ date: 2016-03-02
 reply_count: 32
 title: 'Re: [討論] 1996年中山美穗、柏原崇「情書」感動的點?'
 url: https://www.ptt.cc/bbs/movie/M.1456923831.A.F4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: "二十年前看情書的時候就覺得他是日本純愛電影的極品\n    每個畫面都如此空靈，或許每個小男生國中小畢業時都有\n    一份說不出口的感情，以及期待再長大後久別重逢的深深盼望\n\
   \    九把刀書中的沈佳宜 、日本電影「情書」中的藤井樹、笑傲江湖裡的岳靈珊\n    這種女生通常在男人青澀少年時出現，\n    甚至在國小還沒有性慾時就出現\
   \ ，\n    這種女生是當時男人對人生幸福與愛情未來的全部憧憬，\n    如果跟這種女生糾纏久一點到二十歲以上才放棄或被放棄\n    這種感情很容易成為男人青春記憶的全部與精神靈魂不可分割的組成\n\
@@ -2808,7 +2807,7 @@ date: 2016-09-15
 reply_count: 4
 title: 'Re: [回憶雷] 情書，那死去的回憶 '
 url: https://www.ptt.cc/bbs/movie/M.1473926591.A.927.html
---- !!python/object:movie_data.PublicReview
+---
 content: "[好雷] SUEDE/《麂皮：永不滿足》（2018）：給團員與樂迷的一封懺情書。\n\n\n\n  。SUEDE的《Coming Up》（1996）是自己早期接觸西洋流行音樂時\n\
   所購買的專輯之一（那時這種曲風在台灣還被叫做「另類音樂」…）\n。當時只覺得主唱的唱腔詭異扭曲，造型整體風格華麗妖豔，但旋律\n卻又異常順耳、朗朗上口易於傳唱，專輯整張都好聽。接下來的《He\n\
   ad Music》（1999）、《A New Morning》（2002）風格與路線卻都\n不同。雖然之後自己也去補買了首張同名（1993）與犬人星（1994）\n\
@@ -2834,7 +2833,7 @@ date: 2019-12-02
 reply_count: 12
 title: '[好雷] 麂皮永不滿足：給團員與樂迷的一封懺情書'
 url: https://www.ptt.cc/bbs/movie/M.1575297300.A.85D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當年五專修了電影課程
 
   某一堂播的是 日本的經典名片 情書
@@ -3068,7 +3067,7 @@ date: 2016-02-22
 reply_count: 104
 title: '[討論] 情書感動的點?'
 url: https://www.ptt.cc/bbs/movie/M.1456075140.A.748.html
---- !!python/object:movie_data.PublicReview
+---
 content: "在白雪紛飛的季節，追尋逝去的足跡，以為躺在雪坡上摒住呼吸，就可以更接近天堂的他\n，卻止不住思念如雪花飄落，刺骨冰冷地被喚醒。\n\n凝視著遠方，遙想著天邊，那每一片飛舞的雪花，就是一份縈繞心頭的思念。\n\
   \n\n\n「你好嗎？我很好。」\n\n一封寄往天國的書信，一句簡單的心靈寄託，卻飄落在同名同姓的女藤井樹手上，意外拼\n湊出男藤井樹深埋內心的感情樣貌，那是一段曾經錯過的初戀情懷。\n\
   \n\n\n時光如水，歲月流轉，曾經的記憶飄散，唯有空氣中飄蕩的那一抹光影，卻依舊纏繞在心\n底，青澀的戀曲總是懵懵懂懂，一如初戀般純淨又刻骨銘心。\n\n\n\
@@ -3080,7 +3079,7 @@ date: 2016-09-28
 reply_count: 7
 title: '[好雷] 情書 - 你好嗎？我很好。'
 url: https://www.ptt.cc/bbs/movie/M.1475077646.A.E53.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看完這部電影，對於Alex和Kate的時間軸爬完版上的文以及精華區後還是很不解？
 
 
@@ -3122,7 +3121,7 @@ date: 2016-12-27
 reply_count: 31
 title: '[請益] 跳越時空的情書 時間軸問題'
 url: https://www.ptt.cc/bbs/movie/M.1482816326.A.7E1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很少看中國電影的我
 
 
@@ -3205,7 +3204,7 @@ date: 2016-05-31
 reply_count: 7
 title: '[好雷] 北京遇上西雅圖之不二情書'
 url: https://www.ptt.cc/bbs/movie/M.1464665029.A.1BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -3252,7 +3251,7 @@ date: 2022-06-28
 reply_count: 5
 title: '[好雷] 嬰兒轉運站-給失親兒的一封情書'
 url: https://www.ptt.cc/bbs/movie/M.1656408195.A.314.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格圖文版：
 
 
@@ -3298,7 +3297,7 @@ date: 2016-06-12
 reply_count: 2
 title: '[普雷]《北京遇上西雅圖之不二情書》 '
 url: https://www.ptt.cc/bbs/movie/M.1465739288.A.637.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本篇有原作劇情＋電影劇情雷，為了不影響觀影樂趣\n\n建議還沒看過電影的大家改看其他無雷心得分享喔\n\n\n\n\n++++++++++++++++++++++++++++++\n\
   \n     防       雷       線\n\n++++++++++++++++++++++++++++++\n\n\n\n\n\n\n漫畫改編電影向來都是爭議很大，評價很容易兩極的一塊\n\
   \n尤其是越人氣的漫畫改編，就越容易遭到原作粉絲的反彈\n\n\n記得這部電影當初在發表選角的時候\n\n網路上就一片評論說，兩位主角最高跟秋人的選角根本相反了！\n\
@@ -3339,7 +3338,7 @@ date: 2015-12-12
 reply_count: 53
 title: '[好雷] 爆漫王-給創作者的一封情書'
 url: https://www.ptt.cc/bbs/movie/M.1449854772.A.B07.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2021/10/19 iTunes 特價報】
 
   布魯克林孤兒/威鯨闖天關/安娜貝爾/情書
@@ -3497,7 +3496,7 @@ date: 2021-10-19
 reply_count: 1
 title: '[討論] iTunes特價報 威鯨闖天關/安娜貝爾/情書'
 url: https://www.ptt.cc/bbs/movie/M.1634612153.A.004.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前言：
 
 
@@ -4005,7 +4004,7 @@ date: 2016-10-08
 reply_count: 55
 title: '[好雷] 《情書》用諮商心理學觀點看人物情感'
 url: https://www.ptt.cc/bbs/movie/M.1475940984.A.FC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4039,7 +4038,7 @@ date: 2019-06-28
 reply_count: 40
 title: '[新聞] 陳意涵將主演中國翻拍版《情書》'
 url: https://www.ptt.cc/bbs/movie/M.1561693733.A.644.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上個禮拜看了灣生我那一整排的就我這老妹最年輕...
 
 
@@ -4072,7 +4071,7 @@ date: 2015-10-27
 reply_count: 15
 title: '[選片] 幫選~  海上情書/間諜橋/黑勢力'
 url: https://www.ptt.cc/bbs/movie/M.1445882215.A.C2F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2022/12/23 iTunes 特價報】
 
   王牌冤家／鬼靈精／戀愛沒有假期／琳老師卡好／法拉利312B：革命的開端／電子情書
@@ -4234,7 +4233,7 @@ date: 2022-12-23
 reply_count: 1
 title: '[討論] iTunes特價報 王牌冤家/鬼靈精/電子情書'
 url: https://www.ptt.cc/bbs/movie/M.1671768757.A.D9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天隨家人至威秀看了獨行俠
 
   對於劇中所有人物 劇情 場景 感情 無一不滿意
@@ -4397,7 +4396,7 @@ date: 2022-06-10
 reply_count: 19
 title: '[極好雷] 捍衛戰士2：給粉絲積累36年的大情書'
 url: https://www.ptt.cc/bbs/movie/M.1654868510.A.184.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影以前學生時代，學校學生會曾在禮堂播放過。
 
   最近公視重播，突然產生一疑問，男藤井樹不是後來轉學了嗎？
@@ -4413,7 +4412,7 @@ date: 2017-10-22
 reply_count: 6
 title: 'Re: [新聞] 【釜山影展】中山美穗重演《情書》經典　'
 url: https://www.ptt.cc/bbs/movie/M.1508666491.A.0F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請描述欲尋找電影的類型或特徵（請盡量描述清楚）
 
 
@@ -4454,7 +4453,7 @@ date: 2017-09-06
 reply_count: 39
 title: '[片單] 有情書橋段的電影'
 url: https://www.ptt.cc/bbs/movie/M.1504691337.A.E19.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -4526,7 +4525,7 @@ date: 2020-01-23
 reply_count: 38
 title: '[好雷] 肥龍過江-給港式動作片的老梗情書 '
 url: https://www.ptt.cc/bbs/movie/M.1579776949.A.66F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上個月初上映的《幸福路上》，
 
   整體算是叫好不叫座，但在許多戲院相挺之下
@@ -4626,7 +4625,7 @@ date: 2018-02-09
 reply_count: 6
 title: '[好雷] 幸福路上：給台灣人的情書'
 url: https://www.ptt.cc/bbs/movie/M.1518183918.A.E2D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "最佳原著劇本=\"= 不懂\n\n\n1.小品愛情喜劇，在文學中找到心靈伴侶\n2.畫面質感高，燈光美氣氛佳\n3.淡雅的感情，塑造人海茫茫中的巧妙緣分\n\
   4.男女主角表現好，爺爺奶奶的配角表現也不錯\n5.中國的時事議題帶入表現佳\n\n\n1.小品的劇情演了126分鐘偏長\n2.劇情沒有懸念也沒什麼驚喜，就是兩個人的日記\n\
   3.雙線的故事，卻沒有明顯的主題性，滿雜的\n\n推薦程度：　（時間是個致命傷)\n\n片長：扣掉片尾字幕約分鐘\n\n========================以下防雷，特雷================================\n\
@@ -4684,7 +4683,7 @@ date: 2016-10-12
 reply_count: 13
 title: '[普雷] 特雷--《北京遇上西雅圖之不二情書》最佳原著劇本'
 url: https://www.ptt.cc/bbs/movie/M.1476287595.A.AC8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '散場，身旁路人討論著電影劇情。
 
   「一開始藤井樹收到信打字時我還以為她要Google 耶！」
@@ -4747,7 +4746,7 @@ date: 2016-09-10
 reply_count: 22
 title: '[經典雷] 情書 - 你好嗎？我很好。'
 url: https://www.ptt.cc/bbs/movie/M.1473441517.A.BF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本周新片有七夕情人節戀愛電影：告白代表《可不可以，你也剛好喜歡我》、少女純愛《\n午夜0時的吻》、《你好，之華》日本原著《最後的情書》、時空輪迴+愛情《棕櫚泉不思\n\
   議》；連恩尼遜與兒子主演《下一站 托斯卡尼》，法國漫畫《高盧英雄歷險記 魔法藥水\n\n\n\n\n☆導演：簡學彬\n\n。描述暗中喜歡著青梅竹馬的筱湘，藉由塔羅牌算出了告白的最佳\n\
   時機，但沒想到要告白時，青梅竹馬和她的好友卻告白！？筱湘的初戀會有結果嗎？\n\n\n \n☆導演：黃程瀚\n\n。面對食物、生活皆追求完美的態度，也\n揭開他捨棄名利、結束新加坡米其林二星餐廳的原委。\n\
@@ -4772,7 +4771,7 @@ date: 2020-08-21
 reply_count: 21
 title: '[情報] 初心 剛好喜歡 托斯卡尼 棕櫚泉 情書 14新'
 url: https://www.ptt.cc/bbs/movie/M.1597968759.A.58B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《情書》講座 聞天祥從岩井俊二看 90 年代日本電影\n\n\n\n2016 年 9 月 10 日\n\n可樂電影 COLA FILMS\n\n\
   --\n\n《情書》描寫一位無法從未婚夫的山難意外走出的女子，\n寫了一封信寄到未婚夫過去的地址，理論上這個地址早因國道建設而已不存在，\n沒想到卻接到了回信。不是天國來的，而是一個與未婚夫同名同姓的女人寫來。\n\
   原來，從未婚夫中學畢業紀念冊抄下的地址是她的。於是兩個女人開始了魚雁往返。\n也勾起了對方中學生活的回憶，挖出彼此心照不宣的祕密。\n最後她們終將告別，而得以新生。\n\
@@ -4835,7 +4834,7 @@ date: 2017-04-12
 reply_count: 7
 title: '[評論] 聞天祥談 / 情書與 90 年代日本電影'
 url: https://www.ptt.cc/bbs/movie/M.1492011301.A.E74.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -4950,7 +4949,7 @@ date: 2016-04-10
 reply_count: 5
 title: '[好雷] 《廢柴電影夢》，電影人的情書。'
 url: https://www.ptt.cc/bbs/movie/M.1460287828.A.4C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -5111,7 +5110,7 @@ date: 2016-06-18
 reply_count: 10
 title: '[好雷]《搖滾青春戀習曲》，獻給80年代搖滾樂的情書。'
 url: https://www.ptt.cc/bbs/movie/M.1466179599.A.804.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5495,7 +5494,7 @@ date: 2021-11-22
 reply_count: 14
 title: '[好雷] 迷離夜蘇活：給搖擺60倫敦的情書'
 url: https://www.ptt.cc/bbs/movie/M.1637589496.A.00B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前看到捷運廣告時，因為是中國電影就沒有太大的興趣...
 
 
@@ -5560,7 +5559,7 @@ date: 2016-09-03
 reply_count: 20
 title: '[好雷]北京遇見西雅圖之不二情書'
 url: https://www.ptt.cc/bbs/movie/M.1472913893.A.9E8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先說說之所以殺來看這部電影的緣起\n話說我有個平常一起打遊戲的朋友，他的ID就叫「隨風狂飆」，綽號飆哥\n\n平常人在南部，上週恰好要上來北部約我們吃飯\n\
   然後就因緣際會看到這部電影的廣告，預告片就寫著四個字\n\n直覺地就想約他去看，但因為他另有行程最後沒約成\n我就另外約了一個喜歡車子、現任賣車業務的朋友一起去看──\n\
   \n\n\n\n剛看完電影出來以後跟朋友討論，我們給的評分其實是不高的\n滿分如果五顆星，我覺得我只會給到3.5分\n\n因為劇情編排實在讓我覺得太莫名其妙了XD\n\
@@ -5624,7 +5623,7 @@ date: 2022-10-22
 reply_count: 31
 title: '[好雷] 《極速甩尾》：一部獻給甩尾迷的熱血情書'
 url: https://www.ptt.cc/bbs/movie/M.1666374731.A.8B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '美國作家海倫漢芙1970著作的「查令十字路84號」，曾被改編成電視電影與舞台劇，這本
 
   書竟錯有錯著也讓電影《北京遇上西雅圖之不二情書》裡的澳門陪賭女郎（湯唯）與美國
@@ -5728,7 +5727,7 @@ date: 2016-05-16
 reply_count: 6
 title: '[好雷]《北京遇上西雅圖之不二情書》，讓我看見了外公外婆的書情'
 url: https://www.ptt.cc/bbs/movie/M.1463380102.A.6F0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我說的是岩井俊二的〈情書〉。
 
 
@@ -5791,7 +5790,7 @@ date: 2022-10-19
 reply_count: 88
 title: '[討論] 一點也不讓人感動的《情書》'
 url: https://www.ptt.cc/bbs/movie/M.1666149292.A.B27.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無雷
 
 
@@ -5843,7 +5842,7 @@ date: 2020-03-05
 reply_count: 16
 title: '[極好雷] A+瞎妹─致學生時代最強死黨的情書'
 url: https://www.ptt.cc/bbs/movie/M.1583390851.A.F24.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文網誌版：\n\n\n\n幾週前在誠品看到海報就直接密ㄎ一ㄤ姐說要來看\n\n其實國二時老師有在課堂上播過\n\n當時屁孩如我只想聊天根本沒看\n\
   \n這次看完之後心裡雖然是暖暖的\n\n但是又帶有一絲絲覺得可惜的情緒\n\n另外就是電影裡的秋葉先生一直讓我出神XD\n\n想知道原因可以直接拉到文末看看！\n\
   \n我跟ㄎ一ㄤ姐都崩潰阿\n\n防雷\n\n防雷\n\n防雷\n\n防雷\n\n防雷\n\n防雷\n\n防雷\n\n防雷\n\n防雷\n\n防雷\n\n防雷\n\
@@ -5880,7 +5879,7 @@ date: 2016-09-13
 reply_count: 4
 title: '[好雷] 情書 - 經典愛情永垂不朽'
 url: https://www.ptt.cc/bbs/movie/M.1473708540.A.2AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如果稍微懂日文可以上這個網站看看\n電影的資料很齊全\n\n\n可樂電影願意安排電影重新上映真的要給予鼓勵\n不過字幕這方面真的可以做的在更好\n\
   畢竟不是每個人都懂原文\n好的字幕可以讓人在電影院當下有更好的觀影感受\n對電影有比較好的掌握度，而不是中途頻頻出戲\n\n==================================================================\n\
   推 cosmogony: 有幾句不懂日文也覺得怪 比如樹被載去醫院，媽媽和房\n→ cosmogony: 仲交談，提及彼此關係時\n推 mcadam: 謝謝！！XD\n\
@@ -5922,7 +5921,7 @@ date: 2016-10-02
 reply_count: 2
 title: 'Re: [討論] 情書電影翻譯'
 url: https://www.ptt.cc/bbs/movie/M.1475380343.A.891.html
---- !!python/object:movie_data.PublicReview
+---
 content: "(前言)\n這是一篇愛情童話，給不合時宜的，老派的，緬懷那些寫信歲月的，在世\n界的中心靠北空虛寂寞覺得冷的，還痴痴相信緣分，苦苦尋找soulmate的\n\
   ....老骨灰。有人去看湯唯，有人想接著看上集的後續，有人為了波淑，\n有人為了【查令十字路84號】這本書，我卻從電影中看到了高中那年騙過\n我幾滴眼淚，現在讀來多少有點老派矯作的學生純愛小說【蓉與牧童】。\n\
   \n\n---\n\n　拍電影這事跟談戀愛也有點像，特別還是沒辦法加碼爆破、提高火力、\n兩倍灑血、搞成史詩的都會愛情片，最好別活在「前任」的陰影裡逃不出\n\
@@ -5952,7 +5951,7 @@ date: 2016-05-09
 reply_count: 7
 title: '[普雷]《北京遇上西雅圖之不二情書》純屬筆交'
 url: https://www.ptt.cc/bbs/movie/M.1462726516.A.5D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看完了這部片，會很想看片中提到的書《查令十字街84號》。(片尾有提到兩人通信二十\n年，都沒見面。)    維基介紹 \n\n「手寫書信」是現在生活中，已經比較少使用的溝通方式。「手寫」有一種特別的魔力，\n\
   在「書寫」跟「閱讀」的時候，彷彿就跟那個不在眼前的對象傾訴一樣。\n\n電影中信件的內容，用旁白的方式表達。兩人的書信往來，因為不像即時訊息可以快速傳\n達，\"\
   自白\"需要彼此等待回覆(或是可能無回覆)。時間會發酵這樣的情感，而想像出某一\n個對象，可以分享彼此生活的點滴。\n\n然而我們並不是活在沒有電話、手機、網路的年代，但是方便的工具，卻不見得能解決我\n\
@@ -5970,7 +5969,7 @@ date: 2017-07-22
 reply_count: 9
 title: '[好雷心得] 北京遇上西雅圖之不二情書 (2016)'
 url: https://www.ptt.cc/bbs/movie/M.1500715443.A.4EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌圖文：
 
 
@@ -6108,7 +6107,7 @@ date: 2017-02-19
 reply_count: 14
 title: '[好雷]北京遇上西雅圖之不二情書'
 url: https://www.ptt.cc/bbs/movie/M.1487434460.A.36A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "昨天與男友去了微風國賓\n看了下午三點二十的場\n\n蠻多帶著小孩的家長\n整個廳都坐滿滿\n\n果然神奇寶貝的魅力是延續世代的呀\n\n\n\
   電影場景帶入萊姆市容瞬間就感動滿滿\n\n身為一個神奇寶貝陪伴走過童年的人\n真心感受看到真實模樣的神奇寶貝\n整個感動到會哭\n\n劇情不複雜\n可以開心的細數出現了那些神奇寶貝\n\
   \n但不得不說主角與皮卡丘的情誼建立很感人\n以及與父親的和解也給人許多暖心畫面\n\n可以感覺到製作團隊及導演有對神奇寶貝滿滿的愛\n\n電影中處處可見驚喜與神奇寶貝的彩蛋\n\
@@ -6122,7 +6121,7 @@ date: 2019-05-19
 reply_count: 17
 title: '[好雷]  名偵探皮卡丘 獻給童年的一封情書'
 url: https://www.ptt.cc/bbs/movie/M.1558251097.A.08E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '照慣例先來打預防針的時間~
 
 
@@ -6583,7 +6582,7 @@ date: 2016-08-05
 reply_count: 70
 title: '[感動雷]瘋狂又叛逆的異色情書—《自殺突擊隊》'
 url: https://www.ptt.cc/bbs/movie/M.1470399361.A.715.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文連結：
 
 
@@ -6670,7 +6669,7 @@ date: 2016-09-29
 reply_count: 13
 title: '[好雷] 情書：心目中最佳青春電影'
 url: https://www.ptt.cc/bbs/movie/M.1475163847.A.BC0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "巧遇，改變了兩個男人的生命線，在他們都需要一個值得信任的朋友時。\n多年未曾謀面的查理和艾倫在曼哈頓街角偶遇，他們在大學時代是同居室\n友，五年前的恐怖攻擊中，查理失去了他所有的親人，這個傷痛徹底將他\n\
   擊倒；對好友的不幸感到震驚的同時，艾倫也獨自品嘗著自己的苦惱。\n\n\n\n飛機衝撞進摩天大樓的那一天，親眼見證了烈燄焚身與尖叫墜樓的人們滿\n身是灰、雙目失神地在紐約街道上晃盪著，像是失去重量的無主遊魂一樣\n\
   。從那一天起、直到六年後的今天，有些人至今仍在街道上徘徊來去，尚\n未從驚嚇與恐懼中甦醒過來，還沒能從失去家園與親人的夢魘中逃脫出來\n。也之所以，以後911創傷為題的《從心開始》Reign\
@@ -6690,7 +6689,7 @@ date: 2007-11-08
 reply_count: 1
 title: 從心開始：寫給紐約的療傷情書
 url: https://www.ptt.cc/bbs/movie/M.1194506086.A.09A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因為Netflix推薦看到這部片
 
 
@@ -6734,7 +6733,7 @@ date: 2023-11-20
 reply_count: 3
 title: '[好雷] 寄往天堂的情書：席琳狄翁音樂大加分'
 url: https://www.ptt.cc/bbs/movie/M.1700493832.A.F9D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '＝＝＝＝防雷頁＝＝＝＝
 
 
@@ -6817,7 +6816,7 @@ date: 2017-12-01
 reply_count: 25
 title: '[好雷] 帶我去月球，給青中年的一封情書'
 url: https://www.ptt.cc/bbs/movie/M.1512127176.A.2A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然情書是1995上映的，但是這部調性比較慢熱，一直到隔年七日晴上映時，台北還是可以
 
 
@@ -6854,7 +6853,7 @@ date: 2024-12-08
 reply_count: 30
 title: '[討論] 情書/七月七日晴'
 url: https://www.ptt.cc/bbs/movie/M.1733648186.A.758.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《情書》是我最愛的日本純愛電影了。
 
 
@@ -6981,7 +6980,7 @@ date: 2016-09-09
 reply_count: 12
 title: '[經典雷]《情書》—我們如此眷戀青春。 '
 url: https://www.ptt.cc/bbs/movie/M.1473430018.A.618.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文版： \n\n先說一下，就如同許多人會把哈利波特的「火盃的考驗」唸成\n「考(靠)盃的火焰」，我有一次也把「跳越時空的情書」唸成\n「跳越晴空的時蔬」。那個畫面還蠻有趣的，不是嗎？可愛的\n\
   蔬菜寶寶蹦蹦跳跳地飛越美麗的晴空...\n\n言歸正傳。我沒有看過本片的韓國原版「觸不到的戀人」，不\n知兩個版本的故事架構哪個比較好。另外先警告，以下文章有\n\
   劇情，也有結局的暗示﹝沒有明說，但我怕有人猜得出來﹞，\n想看本片但還沒看的人，在閱讀本文前請三思。我覺得看這部\n片之前，知道劇情與否還不要緊，但先別知道結局會比較好。\n\
@@ -7023,7 +7022,7 @@ date: 2007-10-11
 reply_count: 8
 title: '[好雷] 跳躍時空的情書──The Lake House'
 url: https://www.ptt.cc/bbs/movie/M.1192110622.A.4C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '向《情書》致敬！周迅主演、岩井俊二導演首支華語片《你好，之華》最新預告曝光
 
 
@@ -7085,7 +7084,7 @@ date: 2018-09-20
 reply_count: 14
 title: '[新聞] 向《情書》致敬！周迅主演、岩井俊二導演'
 url: https://www.ptt.cc/bbs/movie/M.1537451727.A.2D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -7159,7 +7158,7 @@ date: 2017-02-10
 reply_count: 70
 title: '[新聞] 岩井俊二“情書”竟然真的要翻拍中國版！'
 url: https://www.ptt.cc/bbs/movie/M.1486699127.A.860.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【 iTunes 特價報】
 
   瘋狂亞洲富豪 / 電子情書 / 曼哈頓戀習曲
@@ -7336,7 +7335,7 @@ date: 2020-02-14
 reply_count: 1
 title: '[情報] iTunes Store特價報 電子情書/一屍到底'
 url: https://www.ptt.cc/bbs/movie/M.1581664068.A.634.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近在你水管上看到這支片的預告
 
 
@@ -7401,7 +7400,7 @@ date: 2016-05-11
 reply_count: 27
 title: '[請益] 北京遇上西雅圖之不二情書-需要看前集嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1462963034.A.A16.html
---- !!python/object:movie_data.PublicReview
+---
 content: '週日想要沉澱一下
 
   自己一個人去看電影
@@ -7420,7 +7419,7 @@ date: 2016-09-19
 reply_count: 22
 title: '[選片] 明天別再來敲門 情書'
 url: https://www.ptt.cc/bbs/movie/M.1474291454.A.669.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n   桂:我不是桂，是桂綸鎂。\n\n《情書》導演岩井俊二再登台 點名最愛桂綸鎂\n\n2016/03/11 16:30\n\n\n\
   \n導演岩井俊二來台宣傳新片《被遺忘的新娘》。（記者潘少棠攝）\n\n〔記者粘湘婉／台北報導〕日本青春名導岩井俊二過去靠著《情書》、《花與愛麗絲》在\n亞洲吹起一股純愛旋風，這次導演暌違多年，力邀綾野剛、氣質女星黑木華、Cocco等人\n\
   演出純愛新片《被遺忘的新娘》，並特地選在311這天登台宣傳電影。他透露這麼多年沒\n來，台灣粉絲還是一樣熱情，讓他感到相當溫暖難忘，台灣女星當中最愛桂綸鎂，希望未\n\
@@ -7436,7 +7435,7 @@ date: 2016-03-11
 reply_count: 10
 title: '[新聞] 《情書》導演岩井俊二再登台 點名最愛桂'
 url: https://www.ptt.cc/bbs/movie/M.1457688940.A.73A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不可能！
 
   首先，光就這兩位演員來說，這兩部片稱不上經典
@@ -7511,7 +7510,7 @@ date: 2020-07-29
 reply_count: 31
 title: 'Re: [討論] 電子情書 西雅圖夜未眠 湯姆漢克'
 url: https://www.ptt.cc/bbs/movie/M.1596015505.A.C4A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電子情書小時候就看過
 
 
@@ -7604,7 +7603,7 @@ date: 2020-07-29
 reply_count: 11
 title: 'Re: [討論] 電子情書 西雅圖夜未眠 湯姆漢克'
 url: https://www.ptt.cc/bbs/movie/M.1596033354.A.F10.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -7758,7 +7757,7 @@ date: 2020-08-23
 reply_count: 9
 title: '[普雷] 《最後的情書》，日文版的《你好，之華》'
 url: https://www.ptt.cc/bbs/movie/M.1598156610.A.A71.html
---- !!python/object:movie_data.PublicReview
+---
 content: "電影：情書（Love Letter，ラヴレター）\n年份：1995\n導演、編劇、原作：岩井俊二\n主要演員：中山美穗 豐川悅司 柏原崇 酒井美紀\n\
   \n--\n\n隔了多年再看一次重新上映的『情書』，就好像20年前的青年導演岩井俊二站在面前，說\n：請看看吧。這就是我所知道的「已流逝的美好過去」，還有「青春」與「初戀」。\n\
   \n（以下有劇情透露。但是文字根本無法取代電影本身，所以應該沒關係吧。）\n\n\n\n\n\n\n\n\n博子（中山美穗）寫了一封信，寄給已過世兩年的未婚夫藤井樹（柏原崇）。這本來是不\n\
@@ -7779,7 +7778,7 @@ date: 2016-09-19
 reply_count: 21
 title: '[微雷] 『情書』二十年後再映觀後感 '
 url: https://www.ptt.cc/bbs/movie/M.1474299697.A.D90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -7894,7 +7893,7 @@ date: 2024-08-17
 reply_count: 19
 title: '[好雷] 一封來自陰間的情書—鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723902045.A.246.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文網誌:\n\n【捍衛戰士：獨行俠】：一封獻給空中王者的情書\n\n上映時間：2022/05/25　　導演： Joseph Kosinski\n\
   \n觀看時間：2022/05/25\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \n　　身為魯斯粉，今年最期待的電影，絕對是睽違了4年的新片，也是睽違36年的續集，\n\n【捍衛戰士：獨行俠】，上映第一天就衝了。看完感想：滿滿的情懷，但就是好看啊！\n\
@@ -7921,7 +7920,7 @@ date: 2022-05-29
 reply_count: 26
 title: '[好雷] 捍衛戰士獨行俠 一封獻給空中王者的情書'
 url: https://www.ptt.cc/bbs/movie/M.1653786865.A.B11.html
---- !!python/object:movie_data.PublicReview
+---
 content: "N年前的某段時間\n\n  我陸續看了\"新天堂樂園\",\"雨果的冒險\"和\"我們的那時此刻\"\n\n  深深覺得，這些都是獻給電影的情書\n\
   \n  其中對電影深深的愛及情感\n\n  雖然我不是相關從業人員，也深受感動\n\n  當時想著，若有影展以此為主題，一定很有意義\n\n  等了多年，還是沒有遇到這樣的影展，有些遺憾\n\
   \n  (也許有過  但我錯過?)\n\n\n  剛剛看了最近板上大推的某偽恐怖神片\n\n  笑到肚痛之餘\n\n  對於電影從業人員的敬佩  又讓我想起這樁心事\n\
@@ -7935,7 +7934,7 @@ date: 2018-09-25
 reply_count: 35
 title: '[片單] 給電影的情書/向電影從業者致敬'
 url: https://www.ptt.cc/bbs/movie/M.1537888162.A.833.html
---- !!python/object:movie_data.PublicReview
+---
 content: '曾幾何時，玩遊戲變得越來越像是「沈溺」與「逃避」？
 
   當我們不善交際、又缺乏自信，
@@ -8068,7 +8067,7 @@ date: 2018-03-30
 reply_count: 12
 title: '[好雷] 一級玩家-給宅男宅女的一封情書 '
 url: https://www.ptt.cc/bbs/movie/M.1522400716.A.469.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這部片非常推薦給情侶看，看完會有滿滿的幸福感\n\n\n 此為防雷段落，順便說個觀影前的心中小劇場，昨天下午去看這部的時候，因為是冷門\n時段，所以開演後只有我一個人，心想終於要解鎖包場的成就了嗎~而且這部片剛好就演\n\
   女主角從電影裡跑出來和男主角相愛的故事，因此帶入感很重，想說該不會等等綾瀨遙\n真的從電影裡跑出來>////<但後來十分鐘後一對情侶遲到進來，我的幻想就破滅了QAQ\n\
   \n以上防雷結束，進入正文\n\n  <<今夜，在浪漫劇場與妳相遇>>是一部有點奇幻的浪漫愛情喜劇，一個夢想成為導演的\n男主角健司，總是喜歡在浪漫劇場打烊後，包場看從前的黑白電影，尤其是對於劇中的女\n\
@@ -8092,7 +8091,7 @@ date: 2018-05-19
 reply_count: 5
 title: '[好雷] 今夜，在浪漫劇場與妳相遇-給予你愛的角色的一封情書'
 url: https://www.ptt.cc/bbs/movie/M.1526663358.A.B27.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《海上情書》講討海人辛酸　2千噸漁船變電影院超酷！
 
 
@@ -8137,7 +8136,7 @@ date: 2015-09-23
 reply_count: 3
 title: '[新聞] 《海上情書》講討海人辛酸　2千噸漁船變'
 url: https://www.ptt.cc/bbs/movie/M.1443003235.A.214.html
---- !!python/object:movie_data.PublicReview
+---
 content: "經典名曲《去年聖誕節》 拍成給倫敦的情書\n\n更新: 2019-11-13 7:13 PM\n\n標籤: 去年聖誕節, 艾蜜莉亞克拉克, 亨利高汀,\
   \ 楊紫瓊, 柯芬園\n\n【大紀元2019年11月13日訊】一部靈感來自35年前喬治麥可經典名曲（last X’mas）的\n浪漫喜劇片《去年聖誕節》，由艾蜜莉亞克拉克與亨利高汀攜手主演。導演保羅費格表示\n\
   ，《去年聖誕節》是獻給倫敦的情書，並使用倫敦真正的聖誕裝飾燈，什麼都比不上這些\n璀璨燈光，用這一切打造出一個令人感動的經驗，絕對是最感人的聖誕故事。\n\n\
@@ -8160,7 +8159,7 @@ date: 2019-11-13
 reply_count: 10
 title: '[新聞] 經典名曲《去年聖誕節》 拍成給倫敦的情書'
 url: https://www.ptt.cc/bbs/movie/M.1573657546.A.DD5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "跳躍時空的情書 《The Lake House》\n\n    故事從2006年，Kate搬離河畔小屋那天開始，也從2004年，Alex搬進河畔小屋那天\n\
   開始。將Alex設定在過去的時間，就註定了他必須扮演的是一個被動的角色。從來自Kate\n有關未來的訊息，還有小狗Jack的牽引下，Alex撿到了那本Kate忘在麥迪遜車站的書，\n\
   \"Persuad\"，也在Morgan的家裡遇見了Kate。他雖然知道眼前的就是他深愛的女子，卻無法\n傾吐思念之情，因為此時跨越在兩人之間的，是一條無法跨越的時間鴻溝...。Alex所能做\n\
@@ -8182,7 +8181,7 @@ date: 2006-08-04
 reply_count: 7
 title: '[心得] 跳躍時空的情書  (雷)'
 url: https://www.ptt.cc/bbs/movie/M.1154664513.A.894.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好讀圖文網誌版:
 
 
@@ -8767,7 +8766,7 @@ date: 2016-05-20
 reply_count: 11
 title: '[普雷] 北京遇上西雅圖之不二情書'
 url: https://www.ptt.cc/bbs/movie/M.1463683469.A.F5B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '11/2增加導演回覆
 
 
@@ -8895,7 +8894,7 @@ date: 2015-11-01
 reply_count: 9
 title: '[好雷] 海上情書(有劇透及導演講解)'
 url: https://www.ptt.cc/bbs/movie/M.1446309304.A.88C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電子情書是我很喜歡的一部愛情電影，他有一種令人懷念的過氣感，在那個時代，不新也
 
   不舊。世界準備要快起來，但還是很慢。
@@ -9013,7 +9012,7 @@ date: 2016-10-09
 reply_count: 8
 title: '[好 雷]愛情的影分身之術─評電子情書 '
 url: https://www.ptt.cc/bbs/movie/M.1476027704.A.14E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網頁好讀版：
 
 
@@ -9294,7 +9293,7 @@ date: 2015-10-14
 reply_count: 7
 title: '[好雷] 《跨越世紀的情書》(The Words)'
 url: https://www.ptt.cc/bbs/movie/M.1444793683.A.EF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "推 mcadam: 我記得還有幾幕翻得不到位：（1）秋葉問為什麼信無法投遞   09/27 19:33\n→ mcadam: 給住在國道上的人，博子應該是回「因為不能隨便住國道上？\
   \  09/27 19:34\n→ mcadam: 」（2）山谷中大喊那段，秋葉大喊博子要嫁給我了，應該是   09/27 19:34\n推 mcadam: 「博子是我的人了！」(不知有無聽錯記錯)\
   \ 才夠霸氣XD       09/27 19:37\n推 mcadam: 家門口寫信擅自主張誤把「戀人」翻成「未婚夫」真的是非常  09/27 19:40\n\
@@ -9313,7 +9312,7 @@ date: 2016-09-28
 reply_count: 12
 title: 'Re: [討論] 情書電影翻譯'
 url: https://www.ptt.cc/bbs/movie/M.1475064354.A.D1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '亞洲純愛電影拍的感覺當然跟歐美愛情觀差很多，有各對照組就是我的野蠻女友
 
 
@@ -9352,7 +9351,7 @@ date: 2016-09-21
 reply_count: 2
 title: 'Re: [普無雷] 情書 20年前的電影'
 url: https://www.ptt.cc/bbs/movie/M.1474473188.A.B36.html
---- !!python/object:movie_data.PublicReview
+---
 content: "二十年前看《情書》的時候， 就覺得他是日本純愛電影的極品\n    每個畫面都如此空靈，，皚皚白雪似乎浸透了每個人的靈魂深處。\n\n    或許很多小男生國中小畢業時都有一份說不出口的感情，\n\
   \    以及期待再長大後再與她久別重逢的深深盼望。\n    九把刀書中的沈佳宜 、「情書」中的藤井樹、笑傲江湖裡的岳靈珊\n    這種女生通常在男人青澀少年時出現，\n\
   \    甚至在國小還沒有性慾時就出現 ，\n    這種女生是當時男生對人生幸福與青春愛情的全部憧憬，\n\n\n    這種感情很容易成為男人青春記憶的全部，\n\
@@ -9365,7 +9364,7 @@ date: 2017-10-14
 reply_count: 10
 title: 'Re: [新聞] 【釜山影展】中山美穗重演《情書》經典　'
 url: https://www.ptt.cc/bbs/movie/M.1507977201.A.BF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在疫情背景底下的故事，看似充滿壓力卻又治癒，把簡單基礎的故事拍得好看就不錯，演
 
   員表現的流暢自然，角色各有特點，尤其是男女主角的互動是一大亮點看完還是會回味一
@@ -9421,7 +9420,7 @@ date: 2022-11-11
 reply_count: 94
 title: '[好雷] 《窄路微塵》疫情下給香港的一封家書'
 url: https://www.ptt.cc/bbs/movie/M.1668172410.A.89C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -9586,7 +9585,7 @@ date: 2016-09-11
 reply_count: 21
 title: '[好雷]《情書》，你好嗎？我，很好。 '
 url: https://www.ptt.cc/bbs/movie/M.1473577730.A.A3B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '二十年後，岩井俊二執導的電影，情書，再次於大螢幕放映。當藤井小姐決定將藤井先生
 
   在普魯斯特的作品追憶似水年華第七卷背後的借書卡畫上了藤井小姐素描這件事給打住不
@@ -9663,7 +9662,7 @@ date: 2016-09-15
 reply_count: 4
 title: '[回憶雷] 情書，那死去的回憶'
 url: https://www.ptt.cc/bbs/movie/M.1473870276.A.15A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文字的溫度《北京遇上西雅圖之不二情書》
 
 
@@ -9732,7 +9731,7 @@ date: 2016-05-15
 reply_count: 11
 title: '[微好雷]《北京遇上西雅圖之不二情書》觀影心得'
 url: https://www.ptt.cc/bbs/movie/M.1463317415.A.D29.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近電影情書熱映，其原聲帶也順勢發行。
 
 
@@ -9753,7 +9752,7 @@ date: 2016-09-21
 reply_count: 13
 title: '[請益] 岩井俊二情書電影原聲帶'
 url: https://www.ptt.cc/bbs/movie/M.1474433915.A.96A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近想約曖昧對象去看電影
 
   想看感性的劇情片
@@ -9776,7 +9775,7 @@ date: 2016-09-19
 reply_count: 36
 title: '[選片] 比海還深/情書'
 url: https://www.ptt.cc/bbs/movie/M.1474256578.A.D1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位午安
 
   剛剛突然想到一部電影
@@ -9805,7 +9804,7 @@ date: 2016-08-31
 reply_count: 5
 title: '[問片] 一部跟圖書館有關的電影'
 url: https://www.ptt.cc/bbs/movie/M.1472625325.A.8B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是這次情書重映後才觀看的
 
 
@@ -9925,7 +9924,7 @@ date: 2016-10-03
 reply_count: 1
 title: '[好雷]情書-不愧是日本純愛經典 '
 url: https://www.ptt.cc/bbs/movie/M.1475431137.A.59D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老實說我還真喜歡小基和珊卓搭配
 
   選擇避開下午場那種一窩蜂的場面
@@ -10016,7 +10015,7 @@ date: 2006-07-31
 reply_count: 4
 title: '[心得] 跳越時空的情書(小雷)'
 url: https://www.ptt.cc/bbs/movie/M.1154273916.A.AD0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來沒有想看這部電影，但是看到是IMAX 1.43:1，似乎是今年唯一，就還是衝了
 
 
@@ -10059,7 +10058,7 @@ date: 2022-07-27
 reply_count: 6
 title: 'Re: [好雷] 不 / Nope 給老派膠卷電影的情書'
 url: https://www.ptt.cc/bbs/movie/M.1658901525.A.C7A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "二十年前看《情書》的時候， 就覺得他是日本純愛電影的極品\n    每個畫面都如此空靈，，皚皚白雪似乎浸透了每個人的靈魂深處。\n    或許很多小男生國中小畢業時都有一份說不出口的感情，\n\
   \    以及期待再長大後再與她久別重逢的深深盼望。\n    九把刀書中的沈佳宜 、「情書」中的藤井樹、笑傲江湖裡的岳靈珊\n    這種女生通常在男人青澀少年時出現，\n\
   \    甚至在國小還沒有性慾時就出現 ，\n    這種女生是當時男生對人生幸福與青春愛情的全部憧憬，\n\n    如果跟這種女生糾纏久一點\n    這種感情很容易成為男人青春記憶的全部，與精神靈魂不可分割的組成\n\
@@ -10072,14 +10071,14 @@ date: 2016-09-30
 reply_count: 7
 title: 'Re: [好雷] 情書：心目中最佳青春電影'
 url: https://www.ptt.cc/bbs/movie/M.1475241257.A.C8B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "版上對特公爺爺此片好像只有對洪胖丁有滿滿的雷\n\n此片雖然有華仔&眾港星的加持\n\n但因武打&劇本不嘉看來只能走入歷史\n\n就讓我們美好的回憶留在殺破狼&葉問二的洪師傅吧~\n\
   \n\n\n洪金寶大哥和小羋月的合唱曲<爺爺的情書>\n\nR&B與古典音樂混音而成的主題曲\n\n不錯聽喔!\n\n--\n\n\n \n\n\n\n\n--"
 date: 2016-04-11
 reply_count: 2
 title: '[討論] 電影雷卻有好MV 特公爺爺MV <爺爺的情書>'
 url: https://www.ptt.cc/bbs/movie/M.1460350922.A.FDC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實看這一片心情是很複雜的，我本身是吃素，討厭殺生，昨天早上又看到抹香鯨死亡的
 
   新聞，主因是因為胃裡面有太大量的漁網，不禁對部分惡劣漁民產到非常憤怒
@@ -10124,7 +10123,7 @@ date: 2015-10-26
 reply_count: 3
 title: '[ 好雷]  海上情書'
 url: https://www.ptt.cc/bbs/movie/M.1445825913.A.78C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "（獨家專訪1）藉小丑女重生女神 昆汀《好萊塢》寫情書\n\n2019/07/20 21:17\n\n〔記者許世穎／洛杉磯專訪〕鬼才導演昆汀塔倫提諾最新力作《從前，有個好萊塢》描繪\n\
   60年代末的好萊塢光景，除了致敬，更充滿他喜愛的「電影」元素，完全像他形容的，像\n一封「獻給好萊塢的情書」。提到「小丑女」瑪格羅比在片中飾演的莎朗蒂，昆汀更感性\n\
   表示：「讓她（莎朗蒂）在大銀幕重生對我來說相當重要。」\n\n\n瑪格羅比在《從前，有個好萊塢》飾演的莎朗蒂，是導演昆汀塔倫提諾拍攝該片的原因之\n一。（双喜提供）\n\
@@ -10140,7 +10139,7 @@ date: 2019-07-20
 reply_count: 6
 title: '[新聞] 藉小丑女重生女神 昆汀《好萊塢》寫情書'
 url: https://www.ptt.cc/bbs/movie/M.1563637507.A.F91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過第一集，也是看了之後查資料才發現有第一集XD
 
   覺得真的是一部好電影！希望分享給更多人，讓更多人去欣賞它！
@@ -10231,7 +10230,7 @@ date: 2016-05-28
 reply_count: 5
 title: '[感動落淚 雷] 北京遇上西雅圖之不二情書 '
 url: https://www.ptt.cc/bbs/movie/M.1464424015.A.36D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看慣了感官刺激重口味 無限反轉 驚悚燒腦
 
   就像天天麻辣火鍋 鹽酥雞 韓式燒烤 咖啡啤酒
@@ -10438,7 +10437,7 @@ date: 2024-03-15
 reply_count: 38
 title: '[ 好雷] 青春18x2  一杯餘韻的好茶'
 url: https://www.ptt.cc/bbs/movie/M.1710474801.A.896.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《情書》星光特映券贈票活動\n\n★ 岩井俊二最美麗的必看愛情經典，在台上映後 20 週年重返大銀幕。\n★ 中山美穗 x 豐川悅司 x 柏原崇\n\
   \n 更多電影介紹與預告 >> \n\n▇ 主辦單位 >> 影劇圈圈│電影電視劇社群網\n▇ 活動時間 >> 即日起 ~ 2016/08/28(日)23：59止\n\
   ▇ 活動頁面 >> \n\n《情書》星光特映券 兩張\n9/01 (四) 21:00，國賓影城 ＠ 台北長春廣場。\n名額：5 名\n\n▇【其他免費贈票】▶\n\
@@ -10448,7 +10447,7 @@ date: 2016-08-17
 reply_count: 4
 title: '[贈票] 20周年重返大銀幕~《情書》星光特映券'
 url: https://www.ptt.cc/bbs/movie/M.1471422245.A.83A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '長大之後才知道這部片致敬雙面薇若妮卡
 
   當然情書不像雙面薇若妮卡這麼難懂
@@ -10489,14 +10488,14 @@ date: 2014-12-30
 reply_count: 27
 title: '[神雷] 情書 '
 url: https://www.ptt.cc/bbs/movie/M.1419940651.A.536.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《北京遇上西雅圖之不二情書》特映會 台北場\n\n\n\n\n特映會時間: 5/9(一) 19:00\n\n特映會地點: 台北大直美麗華影城\n\
   \n票2張\n       請與開演前一小時 畫位\n\n\n請鄉民推薦 喜愛感動 愛情片  如:  我愛念念\n\n\n\n\n--\n\n--"
 date: 2016-05-06
 reply_count: 52
 title: '[贈票] 《北京遇上西雅圖之不二情書》特映會5/9'
 url: https://www.ptt.cc/bbs/movie/M.1462512214.A.0CE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -10535,7 +10534,7 @@ date: 2019-06-02
 reply_count: 56
 title: '[超好雷] 哥吉拉2 給怪獸迷的一封情書'
 url: https://www.ptt.cc/bbs/movie/M.1559410041.A.7EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '愛書人免費看《北京遇上西雅圖之不二情書》，5/11(三)19:00@信義威秀影城。
 
 
@@ -10585,7 +10584,7 @@ date: 2016-05-10
 reply_count: 3
 title: '[贈票] 5/11【北京遇上西雅圖不二情書】特映會'
 url: https://www.ptt.cc/bbs/movie/M.1462857248.A.88D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最後一幕終止，工作人員字幕緩緩浮現時，我按照慣例，轉頭搜尋身旁那雙溼潤發亮的眼
 
 
@@ -11117,7 +11116,7 @@ date: 2016-09-14
 reply_count: 44
 title: '[極好雷]《情書》皚皚白雪中的守望者 '
 url: https://www.ptt.cc/bbs/movie/M.1473826724.A.902.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看預告還以為自己看的是情書
 
   其實是岩井俊二的新片
@@ -11153,7 +11152,7 @@ date: 2020-08-17
 reply_count: 19
 title: '[情報] 最後的情書'
 url: https://www.ptt.cc/bbs/movie/M.1597667455.A.DC0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '心得
 
 
@@ -11242,7 +11241,7 @@ date: 2016-09-03
 reply_count: 13
 title: '[心得] 岩井俊二之情書（Love Letter）'
 url: https://www.ptt.cc/bbs/movie/M.1472863804.A.0C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《情書》票房突破百萬大關 中山美穗續留台灣再起純愛熱潮\n\n可樂電影 2016/09/19 18:17:26\n\n現正熱映中的岩井俊二導演經典作品《情書》，自首映以來便在影迷間話題不斷。中山美\n\
   穗更在親自到台北戲院支持後，留在台灣來個初次寶島行，但也不忘關注《情書》。不但\n是日本名導岩井俊二的經典作品，更有女神本人的宣傳加持，讓《情書》打破近年重映電\n\
   影的首周票房冠軍。不僅北市票房突破百萬大關，全台票房更大破一百五十萬！\n\n中山美穗續留台灣賞寶島　影迷不斷再刷挺《情書》\n中山美穗的經典代表作《情書》，讓廣大影迷經過20年仍念念不忘。中山美穗本人在抵台\n\
@@ -11259,7 +11258,7 @@ date: 2016-09-21
 reply_count: 10
 title: '[新聞] 《情書》票房突破百萬大關 中山美穗續留'
 url: https://www.ptt.cc/bbs/movie/M.1474441672.A.A53.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這部真的是一部值得細細品味的電影，而且從一開始就得非常認真的看，不然就會忽略一\n些小細節後面會看不懂。\n\n下面有心得也有雷哦\n\n\n\
   故事大綱----有雷------------\n\n\n\n\n\n\n\n\n--------------心得-----------------\n\n其實看來看去一直覺得很奇怪為甚麼明明寄到英國的信兩人會互相收到，原來都是因為這\n\
   個 \n\n--"
@@ -11267,7 +11266,7 @@ date: 2016-05-06
 reply_count: 4
 title: '[好雷] 北京遇上西雅圖之不二情書'
 url: https://www.ptt.cc/bbs/movie/M.1462533746.A.6D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "她喜歡男樹沒錯 電影跟小說都非常明顯 但跟男樹一樣很低調\n  兩人是有曖昧的(也許那位怪怪女同學 是有感覺到部分兩人的感情?)\n  像電影中\
   \ 女樹被迫牽線 趁機質問男樹那邊就是想知道男樹心意 確認兩人關係\n  女樹那邊有點像女朋友/老婆在逼問男朋友/老公的樣子\n  男樹說謊 說沒有喜歡的女生後\
   \ 女樹就生氣了\n\n  小說中 三年級兩人自願當圖書委員那邊也是 女樹說喜歡上當圖書委員才舉手\n  怎麼看都是想跟男樹繼續一起當 在圖書室繼續兩人世界\n\
@@ -11284,7 +11283,7 @@ date: 2019-03-14
 reply_count: 12
 title: 'Re: [請益] 《情書》一些疑問(有電影跟小說雷)'
 url: https://www.ptt.cc/bbs/movie/M.1552545775.A.9AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2021/12/21 iTunes 特價報】
 
   情書（NT$40）／波斯語課 ／腦筋急轉彎
@@ -11420,7 +11419,7 @@ date: 2021-12-21
 reply_count: 3
 title: '[討論] iTunes特價 情書$40/波斯語課/言葉之庭'
 url: https://www.ptt.cc/bbs/movie/M.1640064287.A.249.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌圖文版：
 
 
@@ -11486,7 +11485,7 @@ date: 2017-01-20
 reply_count: 4
 title: '[開箱] 台版 情書 Love Letter 藍光BD'
 url: https://www.ptt.cc/bbs/movie/M.1484891488.A.0FD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~ 本文無雷，請安心服用 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -11566,7 +11565,7 @@ date: 2022-01-14
 reply_count: 33
 title: '[無雷]驚聲尖叫，獻給恐怖片迷的情書'
 url: https://www.ptt.cc/bbs/movie/M.1642155933.A.AD4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   又到了聖誕節
@@ -11605,7 +11604,7 @@ date: 2017-12-23
 reply_count: 11
 title: '[請益] 台南買情書DVD'
 url: https://www.ptt.cc/bbs/movie/M.1514001229.A.503.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: rerun (禮讓) 看板: JapanMovie
 
   標題: [心得] 最後的情書(vs."你好,之華")
@@ -11677,7 +11676,7 @@ date: 2020-08-30
 reply_count: 5
 title: 'Fw: [心得] 最後的情書(vs."你好,之華")'
 url: https://www.ptt.cc/bbs/movie/M.1598767395.A.518.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完情書已經第二天了
 
   但它給我的餘韻還在心中旋繞啊...
@@ -11753,7 +11752,7 @@ date: 2017-03-21
 reply_count: 16
 title: '[神雷] 寫給過去回憶的「情書」'
 url: https://www.ptt.cc/bbs/movie/M.1490027126.A.747.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1996的夏天，剛好是國中升高中的暑假…
 
 
@@ -11909,7 +11908,7 @@ date: 2016-09-30
 reply_count: 3
 title: '[討論] 情書~20年後的首次觀影'
 url: https://www.ptt.cc/bbs/movie/M.1475247393.A.B75.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上週末上架的 Netflix英國片《戀人的最後情書》The Last Letter from Your Lover ，是《我就要你好好的》原著作者
   Jojo Moyes 又一浪漫小說改編的電影！只是很可惜，以我個人很愛《我》片的期待下，看這部《戀》片倒是相當失望。這兩個故事雖然不同但我認為基本體質應該都是好的，責任恐怕還在於主導電影呈現的導演。《戀》片走一個不算新鮮的文學愛情套路：時間分現在過去兩線、兩線各有一對情侶主角，過去那一對淒美愛情留下了很多書信、現在這一對考古書信爬梳文字也濃情蜜意了起來...
 
@@ -11967,7 +11966,7 @@ date: 2021-07-28
 reply_count: 1
 title: '[普雷] 戀人的最後情書 (Netflix 英國片)'
 url: https://www.ptt.cc/bbs/movie/M.1627444216.A.DDF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "先感謝許多同好們 版友們的好文心得與分析\n受益匪淺\n\n我是情書嚴重中毒患者(1年多前才首次看電影 最近又複習 再補完小說)\n電影跟小說都不知道多少刷了\
   \ 還是覺得百看不膩 這部電影在各方面都美到極點\n也不知為何 我總是對男主女主無法在一起 錯過之類的純愛神作跟經典缺乏抵抗力XD\n\n男樹對女樹的心意很明白了\
   \ 這篇主要想談女樹對男樹的情感\n\n個人觀感\n\n女藤井樹國中也喜歡男藤井樹\n\n只是初戀懵懵懂懂 後來爸爸死後 心上人又轉學 對她造成記憶上的傷心連結\
@@ -12010,7 +12009,7 @@ date: 2019-03-11
 reply_count: 53
 title: '[討論] 她喜歡他(有情書電影跟小說雷)'
 url: https://www.ptt.cc/bbs/movie/M.1552287855.A.EFB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以前就有收藏DVD版和電影原聲帶了\n但在這次重新上映時，發現在電影院時的感覺整個level up啊！\n情書是一部經典的電影了，但是他的音樂也同樣經典\n\
   我花了一點時間把電影原聲帶內的歌曲一一找出他出現的場景，跟大家分享\n\n            <防雷頁> 是說20年的老電影還有需要防雷嗎＝＝\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n01 His Smile\n        開頭神戶的雪景、山屋內博子講當初男藤井求婚的回憶\n\n02\
@@ -12034,7 +12033,7 @@ date: 2016-09-23
 reply_count: 11
 title: '[好雷] 情書的電影原聲帶'
 url: https://www.ptt.cc/bbs/movie/M.1474631117.A.0B5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "岩井俊二的電影《情書》裡有一個小小的橋段，中文翻譯並沒有把劇中的梗翻譯出來。\n\n\n\n\n\n\n\n防雷\n\n\n\n\n\n\n\n\
   \n女藤井回憶小時候和男藤井被同學捉弄的往事時，有一次是兩人當值日生，黑板邊兩個同\n名值日生的名字被同學畫上了愛情傘。女藤井把字和圖擦掉，男藤井問了她：\n\n\
   「今天數學課上什麼？」\n 「方程式。」\n 「什麼方程式呢？」\n\n壞就壞在方程式（houteishiki）和藤井樹（Fujii Itsuki）日文唸起來有一點點點點相\n\
@@ -12051,7 +12050,7 @@ date: 2015-12-07
 reply_count: 21
 title: '[好雷]情書----一組聯立方程式的故事'
 url: https://www.ptt.cc/bbs/movie/M.1449487969.A.37F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '順帶一提，我真的無法理解劇中的情節，當一個人被愛的那樣深，真的會完全一無所知?
 
 
@@ -12104,7 +12103,7 @@ date: 2017-10-14
 reply_count: 4
 title: '[新聞] 【釜山影展】中山美穗重演《情書》經典　'
 url: https://www.ptt.cc/bbs/movie/M.1507941683.A.4C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【 31 天電影熱浪 Day17】 7 月 iTunes 電影每天都特價：\n情書 / 三月的獅子\n\n 偉哉 Apple ！趁著放暑假，每天都特價一部片！從今天起我們每天會推一波，\n\
   大家留意囉！\n\n今天特價的，是小編小時候已經看過錄影帶，但很難得在這兩年有重上大螢幕，\n並且推出高畫質藍光版的《情書》。\n\n那時候年紀小，還很難體會中山美穗對著山谷大喊：「你還好嗎？我很好！」\n\
   的心境，長大之後，也就懂了這種思念的苦楚。\n\n另外同為日本電影，為漫畫改編，講述將棋的《三月的獅子前、後篇》，\n特價各為 NT$150 ，聽說改編得很不錯，值得一看。\n\
@@ -12117,7 +12116,7 @@ date: 2018-07-17
 reply_count: 1
 title: '[情報] iTunes 特價報：情書/三月的獅子'
 url: https://www.ptt.cc/bbs/movie/M.1531782424.A.601.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這篇沒什麼高深大論，只是想給個小評
 
   我不至於給這部負雷，因為我覺得他拍的蠻美的，然後把「懷念」這件事
@@ -12177,7 +12176,7 @@ date: 2016-09-21
 reply_count: 23
 title: '[普無雷] 情書 20年前的電影'
 url: https://www.ptt.cc/bbs/movie/M.1474469627.A.1CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看見無盡的思念《灣生回家&海上情書》11月7日星期六\n連結：\n\n《灣生回家》出品人 田中實加座談會 下午3點~4點\n《海上情書》電影放映\
   \ 星期六下午6點~8點 (台中唯一場)\n\n活動線上購票： \n活動地點：台中《有時》順應時節的自然角落有間會呼吸的房子。共學共享共食 柴燒料\n理 瑜珈靜心\
   \ 親子手作\n\n《灣生回家》座談 下午3點~4點\n正式預告 \n這是一段對落葉歸根的嚮往、對故親好友的思念、對原生土地的情感，\n跨越種族與時空 被許多人遺忘的美好情誼。讓我們一起歡迎灣生回家\n\
@@ -12190,7 +12189,7 @@ date: 2015-11-04
 reply_count: 5
 title: '[情報]灣生回家田中實加座談會&海上情書台中放映'
 url: https://www.ptt.cc/bbs/movie/M.1446594651.A.903.html
---- !!python/object:movie_data.PublicReview
+---
 content: "是不是很多男生都曾在畢業紀念冊留言裡 尋找心儀女生留言\n    曖昧暗示的蛛絲馬跡?\n\n    二十年前看《情書》的時候， 就覺得他是日本純愛電影的極品\n\
   \    每個畫面都如此空靈，，皚皚白雪似乎浸透了每個人的靈魂深處。\n    或許很多小男生國中小畢業時都有一份說不出口的感情，\n    以及期待再長大後再與她久別重逢的深深盼望。\n\
   \    九把刀書中的沈佳宜 、「情書」中的藤井樹、笑傲江湖裡的岳靈珊\n    這種女生通常在男人青澀少年時出現，\n    甚至在國小還沒有性慾時就出現 ，\n\
@@ -12204,7 +12203,7 @@ date: 2016-09-19
 reply_count: 4
 title: 'Re: [請益] 情書的畢業紀念冊問題'
 url: https://www.ptt.cc/bbs/movie/M.1474249527.A.E5D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n趁Disney+更新，全家一起看了Elemental元素方城市。\n\
   \n這是一個移民第二代與移民第一代和解的情書。\n\n相較於Zootopia寫第一代進城工作的苦悶、\n\nTurning Red寫移民第二代從小接受第一代的文化傳承，\n\
@@ -12221,7 +12220,7 @@ date: 2023-09-20
 reply_count: 5
 title: '[普雷] Elemental - 兩代移民和解的情書'
 url: https://www.ptt.cc/bbs/movie/M.1695139853.A.CAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "前幾天去看時電影院的字幕是用港版R3的\nDVD港版R3翻的還算可以的，不過還是有些地方翻的不怎麼樣\n台版翻譯小說(東販出版)翻的最好，幾乎沒有什麼問題\n\
   學者VCD的翻譯真的是很...\n想說把電影院裡翻不好的地方打出來\n換成台版小說的翻譯，再加上自己的修改，因為還是有些增減的地方\n讓大家參考看看，翻譯這種事沒有絕對，如果有更好的翻法請指教\n\
   上色的部分是翻譯很明顯不一樣的地方\n日文是參考腳本和原文小說\n不懂日文就直接看中文就可以了\n\n\n\n\n(1)\n藤井母親被父親扶上博子的車之後\n\
@@ -12374,7 +12373,7 @@ date: 2016-09-19
 reply_count: 49
 title: '[討論] 情書電影翻譯'
 url: https://www.ptt.cc/bbs/movie/M.1474284966.A.876.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文版：
 
 
@@ -12497,7 +12496,7 @@ date: 2016-09-10
 reply_count: 25
 title: '[有雷]《情書》：北國厚雪埋藏的情意 '
 url: https://www.ptt.cc/bbs/movie/M.1473519759.A.999.html
---- !!python/object:movie_data.PublicReview
+---
 content: "「情書」再次來台上映 中山美穗深夜現身台北影院\n\n\n日本名導岩井俊二的經典作品「情書」1996年在台上映，拿下3000萬元的票房佳績，不但\n\
   \n成為他個人生涯代表作，也為他創造電影盛名。20年後的今天，在影迷聲聲呼喚下，「情\n\n書」將於9日再次於台灣上映，沒想到飾演女主角渡邊博子的中山美穗，在電影上映前一\n\
   \n日現身台北電影院，還在情書海報前合影留念，帶給台灣粉絲超大驚喜！\n\n\n「情書」是純愛電影代表，劇情敘述渡邊博子因對亡夫藤井樹的思念，寄信到他的舊址，\n\
@@ -12509,14 +12508,14 @@ date: 2016-09-09
 reply_count: 27
 title: '[新聞] 「情書」再次來台上映 中山美穗深夜現身'
 url: https://www.ptt.cc/bbs/movie/M.1473358676.A.718.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下為片單 :\n\n$90 亞洲瘋狂富豪 : \n(4K+花絮特典)\n\n-\n\n$190 電子情書 : \n\n-\n\n$15 遊戲夜殺必死(出租)\
   \ : \n\n--- 特價倒數快結束 ---\n\n$150 殺人回憶 : \n\n-\n\n$190 真愛每一天 : \n\n\n\n--"
 date: 2020-02-14
 reply_count: 5
 title: '[情報] iTunes$90起 亞洲瘋狂富豪.電子情書'
 url: https://www.ptt.cc/bbs/movie/M.1581650016.A.10F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '情書雖然是老電影了
 
   但經典不愧為經典
@@ -12556,7 +12555,7 @@ date: 2020-04-06
 reply_count: 30
 title: '[片單] 像"情書"這種模式的電影'
 url: https://www.ptt.cc/bbs/movie/M.1586169412.A.2BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文完整版： \n\n「曼哈頓戀習曲」是當年執導「曾經，愛是唯一」(Once)的愛爾蘭導演John\nCarney的新作。「曾經，愛是唯一」的精神可以如此概述：人生充滿不完美\n\
   、遺憾與妥協，但音樂﹝或可延展到其他藝術﹞可以助人療癒、克服痛苦。\n而「曼哈頓戀習曲」的精神也很接近，只是背景從都柏林換成紐約。\n\n若要簡單敘述劇情，就是剛失業的唱片公司製作人Dan﹝馬克魯法洛﹞，與\n\
   剛失戀的詞曲創作人Gretta﹝綺拉奈特莉﹞，在意外相遇之後對彼此人生產\n生極大影響。兩人認識的源起，是因一首歌。失意的Gretta在酒吧被朋友拱\n上台唱自己寫的歌，現場反應普通，但Dan卻聽出歌的潛力。\n\
@@ -12585,7 +12584,7 @@ date: 2014-12-24
 reply_count: 10
 title: '[好雷] 曼哈頓戀習曲 - 給紐約的音樂情書'
 url: https://www.ptt.cc/bbs/movie/M.1419408371.A.811.html
---- !!python/object:movie_data.PublicReview
+---
 content: "網誌版:\n\n\n\n\n\n上星期受華映娛樂之邀，去信義威秀參加即將於5月13日上映的《北京遇上西雅圖之不二\n情書》特映會，由於我不想踩雷，也不想有什麼先入為主的想法或期待，因此完全沒查資\n\
   料就去看了。\n\n後來才知道，原來這部片是由2013年大受歡迎的《北京遇上西雅圖》原班人馬──男女主\n角湯唯與吳秀波，以及導演薛曉路再度合作的「續集」，說是這麼說，但兩部片的內容其\n\
   實不相連，也跟北京、西雅圖八竿子打不著關係（倒是充份表達出男女主角位於地球兩端\n的背景）。因此沒看過前作的人，直接看這部也沒有問題。\n\n男女主角雖然一不住北京，一不住西雅圖，但確實是一個在中國一個在美國。年輕卻世故\n\
@@ -12629,7 +12628,7 @@ date: 2016-05-14
 reply_count: 13
 title: '[好雷]北京遇上西雅圖之不二情書─真摯所以動人'
 url: https://www.ptt.cc/bbs/movie/M.1463240652.A.4B1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原po資深七龍珠迷，\n但超的動畫版只追到2018年*吧\n力量大會沒追完但知道吉連\n\n上一部電影版 七龍珠超 布羅利看的是4DX\n\n\
   最喜歡的角色就是比克!!!!!!!!!!!!!!!!!!!!\n\n今天臨下班時看到松仁威秀有‧TITAN SCREEN ＃一番賞 搶先特別場‧\n手刀就買票了，最後抽到F賞，哈，除主要獎外最大的獎但我不愛XD\n\
   \  (圖片來源:威秀影城)\n\n一番賞\n\n\n原本想說80抽但位子已經售出超過100張這樣怎麼公平地抽\n原來是兩階段，先憑票抽一個\"抽獎資格\"然後映後再真正抽一番賞\n\
@@ -12649,7 +12648,7 @@ date: 2022-09-06
 reply_count: 36
 title: '[好雷] 七龍珠超：超級英雄 給比克的情書'
 url: https://www.ptt.cc/bbs/movie/M.1662472140.A.6AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想請問一下這部電影裡面
 
   那個中間轉信者(湯瑪士先生)是一個怎樣的角色?
@@ -12669,7 +12668,7 @@ date: 2017-01-28
 reply_count: 12
 title: 'Re: [好雷]北京遇見西雅圖之不二情書'
 url: https://www.ptt.cc/bbs/movie/M.1485608400.A.4C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '北京遇上西雅圖之不二情書，老實說我完全不知道他還有前作，聽到同一場的民眾再說我
 
   才知道這件事，不過好在劇情是獨立的故事，完全跟前作沒有太大的關聯，所以就安心地
@@ -12740,7 +12739,7 @@ date: 2016-05-13
 reply_count: 16
 title: '[好雷]最熟悉的陌生人-北京遇上西雅圖不二情書 '
 url: https://www.ptt.cc/bbs/movie/M.1463143614.A.99C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "轉錄自: 開眼電影網\n\n\n\n20周年重返大螢幕，岩井俊二最美麗的感人愛情經典。中山美穗、豐川悅司、柏原崇、酒\n井美紀主演。一封寄往天國的情書，開啟了兩段刻骨銘心的愛情。一場追尋「藤井樹」的\n\
   愛情故事在回憶與思念中娓娓道來...\n\n\n片長：117分 上映日期：2016/09/09\n\n\n\n\n\n\n\n\n\n\n\n\n\n**************\n\
   \n以下有劇情簡介 (防雷頁)\n\n**************\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
@@ -12755,7 +12754,7 @@ date: 2016-08-15
 reply_count: 16
 title: '[情報] 情書 Love Letter (1995)'
 url: https://www.ptt.cc/bbs/movie/M.1471257699.A.E50.html
---- !!python/object:movie_data.PublicReview
+---
 content: '經同學推薦今天去看了海上情書，之前聽他說是個畫面很美，音樂好聽的紀錄片，
 
 
@@ -12821,7 +12820,7 @@ date: 2015-10-24
 reply_count: 6
 title: '[好雷] 海上情書～是失落的遠航，還是充滿希望'
 url: https://www.ptt.cc/bbs/movie/M.1445689636.A.8DD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '張學友的歌曲+岩井俊二的電影+中山美穗的演出
 
 
@@ -12841,7 +12840,7 @@ date: 2024-12-06
 reply_count: 20
 title: '[討論] 中山美穗電影版-張學友情書'
 url: https://www.ptt.cc/bbs/movie/M.1733498431.A.A3D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由於Netflix即將下架情書，趕緊趁剛開學不忙
 
 

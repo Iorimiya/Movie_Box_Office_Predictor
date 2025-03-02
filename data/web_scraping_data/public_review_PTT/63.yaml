@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "《鈦》生猛尺度超限制級力奪坎城金棕櫚，登上奧斯卡殿堂震撼全球影壇\n\n\n2021年坎城影展放映後引發正反兩造極大話題，由法國新銳女導演茱莉亞迪克諾執導最新\n\
   震撼力作《鈦》，在一片驚呼聲中奪下最高榮譽「金棕櫚獎」，成為這次頒獎典禮最大贏\n家。這部是繼該導演在2016年坎城影展國際影評人週以《肉獄》獲得費比西獎後，個人的\n\
   第二部作品再度掄元坎城獎項。而在1993年紐西蘭女導演珍康萍執導的《鋼琴師與她的情\n人》之後，女性導演睽違28年再度獲得金棕櫚獎，她也成為影史第二位獲得金棕櫚獎肯定\n\
@@ -18,7 +17,7 @@ date: 2021-12-19
 reply_count: 5
 title: '[新聞] 《鈦》生猛尺度超限制級力奪坎城金棕櫚，'
 url: https://www.ptt.cc/bbs/movie/M.1639927155.A.CB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看到電影鈦(Titane)的預告
 
 
@@ -52,7 +51,7 @@ date: 2021-12-31
 reply_count: 24
 title: '[討論] 鈦的血腥程度'
 url: https://www.ptt.cc/bbs/movie/M.1640920558.A.A41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2021金馬影展將於本週六（10/30）下午一點於金馬官方售票系統開賣！今日加碼曝光專
 
   刊上沒有的「#神祕影片」，法國新銳女導茱莉亞迪古何諾一舉拿下坎城最高榮譽金棕櫚
@@ -93,7 +92,7 @@ date: 2021-10-28
 reply_count: 5
 title: '[情報] 坎城影展金棕櫚《鈦》神祕！金馬影展搶先'
 url: https://www.ptt.cc/bbs/movie/M.1635401709.A.50D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《肉獄》（RAW）導演茱莉亞迪古何諾（Julia DUCOURNAU）睽違五年帶來第二部長片《
 
   鈦》（Titane），已入選本屆坎城影展主競賽單元，將在7月首映。
@@ -129,7 +128,7 @@ date: 2021-06-22
 reply_count: 5
 title: '[討論] 肉獄女導演新作《鈦》預告'
 url: https://www.ptt.cc/bbs/movie/M.1624299340.A.3D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今年坎城影展金棕櫚大獎得主\n已經在金馬影展上映過\n不知道上院線是何時，就先po上來分享了。\n\n\n\n\n雷文防雷資訊頁\n\n\n\n\
   ~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文\
   \ 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n (刊登於方格子的圖文並茂版本)\n\n\n\n電影的前三十分鐘，十足暴力的激進意圖，不禁聯想到探討身體與人類文明物質關係的電\n\
@@ -150,7 +149,7 @@ date: 2021-11-24
 reply_count: 5
 title: '[好雷] 《鈦》-「共融」的新世界｜金馬影展 '
 url: https://www.ptt.cc/bbs/movie/M.1637767294.A.FBA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完前面的殺人片段就想要給五顆星
 
   中間去到消防隊之後的偏文戲也是不錯
@@ -184,7 +183,7 @@ date: 2021-11-20
 reply_count: 19
 title: '[好雷] 鈦 短評 有雷'
 url: https://www.ptt.cc/bbs/movie/M.1637413394.A.0A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《鈦》：看預告那寫實硬派的人機合體畫面，原以為會像尼爾布洛姆坎普的《第九禁區》《極樂世界》般專門講述賽伯格與人的倫理繕寫，怎料竟是一部政確奇片。
 
 
@@ -202,7 +201,7 @@ date: 2022-01-23
 reply_count: 10
 title: '[好雷] 《鈦》：異種移植的政確奇片'
 url: https://www.ptt.cc/bbs/movie/M.1642928460.A.AC8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -410,7 +409,7 @@ date: 2024-07-12
 reply_count: 6
 title: '[普雷] 鈦'
 url: https://www.ptt.cc/bbs/movie/M.1720733712.A.F59.html
---- !!python/object:movie_data.PublicReview
+---
 content: '爬過版上許多文之後
 
 
@@ -437,7 +436,7 @@ date: 2022-01-08
 reply_count: 46
 title: '[選片] 鈦 VS 金牌特務:金士曼起源'
 url: https://www.ptt.cc/bbs/movie/M.1641609073.A.60A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -500,7 +499,7 @@ date: 2022-10-24
 reply_count: 14
 title: '[好雷]鈦Titane '
 url: https://www.ptt.cc/bbs/movie/M.1666580325.A.812.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我的媽阿 這裡同溫層是有多厚
 
 
@@ -547,7 +546,7 @@ date: 2022-01-08
 reply_count: 48
 title: 'Re: [選片] 鈦 VS 金牌特務:金士曼起源'
 url: https://www.ptt.cc/bbs/movie/M.1641624016.A.A21.html
---- !!python/object:movie_data.PublicReview
+---
 content: '★2021年 坎城影展金棕櫚獎
 
 
@@ -847,7 +846,7 @@ date: 2022-01-11
 reply_count: 23
 title: '[有雷] 鈦'
 url: https://www.ptt.cc/bbs/movie/M.1641831925.A.E8E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -947,7 +946,7 @@ date: 2021-10-11
 reply_count: 8
 title: '[普雷] 鈦'
 url: https://www.ptt.cc/bbs/movie/M.1633911046.A.BC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n之前看法蘭西特派週報時，正巧播了鈦的預告片\n\
   \n引起了個人的興趣\n\n不管預告或看板，都把本片形容的很驚世駭俗，既瘋狂又大膽\n\n\nimdb也把鈦歸類在恐怖片/驚悚片/科幻片(?)\n\n\n終於12/30院線上映，2021最後一天，進場看了鈦\n\
@@ -1020,7 +1019,7 @@ date: 2022-01-02
 reply_count: 43
 title: '[好雷] 鈦 '
 url: https://www.ptt.cc/bbs/movie/M.1641106353.A.346.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛好Google新分頁從演算法中把這篇心得推薦給我
 
   看完這篇，我才知道
@@ -1049,7 +1048,7 @@ date: 2022-04-02
 reply_count: 12
 title: '[請益] 所以我根本沒有看懂《鈦》！？'
 url: https://www.ptt.cc/bbs/movie/M.1648902922.A.CA7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '法國在稍早公布了申報名年奧斯卡「最佳國際電影」的作品，將以《鈦》作為代表電影。
 
 
@@ -1107,7 +1106,7 @@ date: 2021-10-13
 reply_count: 31
 title: '[情報] 2022 法國奧斯卡代表：《鈦》'
 url: https://www.ptt.cc/bbs/movie/M.1634057497.A.CC0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一樣用來自IMDB的海報當文鎮。
 
 
@@ -1299,7 +1298,7 @@ date: 2022-01-05
 reply_count: 18
 title: '[普好雷] 這部片有點塞《鈦》多東西了'
 url: https://www.ptt.cc/bbs/movie/M.1641333724.A.B37.html
---- !!python/object:movie_data.PublicReview
+---
 content: '鼎鼎大名的《鈦》上了金馬影展年底還要上院線！醫學世家出身很愛玩「肉」的法國青年導演 Julia Ducournau、繼 2016 年獸醫片《肉獄》後再次帶老班底
   Garance Marillier交出最新肉痛片！三度力挺她肉片的 Marillier這次不但加碼痛到乳頭去、竟還開場沒多久就口吐白沫領便當？還好她在《肉獄》還沒賣過的肉這次都賣好賣滿了、一堆臃腫皮囊的小模出浴戲也演到觀眾不忍多看了、這次要抬轎的倒是淋浴間裡另一具傷痕累累的皮囊：媒體出身兼職模特再轉戰電影一鳴驚人的Agatha
   Rousselle，這次擔綱女主角 Alexia 已從肉體進化到「鈦極身」？

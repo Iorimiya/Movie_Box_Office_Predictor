@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '雷文防雷資訊頁
 
 
@@ -200,7 +199,7 @@ date: 2020-08-10
 reply_count: 1
 title: '[好雷] 聖雅各的天空'
 url: https://www.ptt.cc/bbs/movie/M.1597072249.A.C49.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下無雷，請安心服用。
 
 

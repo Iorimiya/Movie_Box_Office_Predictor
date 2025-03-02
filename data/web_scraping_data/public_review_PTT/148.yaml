@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '具體內容已經忘記了
 
   至少15年以上了(我覺得)
@@ -32,7 +31,7 @@ date: 2014-12-20
 reply_count: 1
 title: '[問片] 一部很老很老的鬼片(國片)(有雷?)'
 url: https://www.ptt.cc/bbs/movie/M.1419090867.A.6BC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天看到Netflix 上架了於是點來播放
 
   看完之後只覺得浪費了快兩小時
@@ -194,7 +193,7 @@ date: 2023-12-20
 reply_count: 6
 title: '[  雷] 粽邪3鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1703043091.A.ED6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者江佩凌台北22日電）電影「紅衣小女孩2」挑今天「鬼門開」舉辦世界首映
 
   會，導演程偉豪及演員楊丞琳、許瑋甯等人出席宣傳。楊丞琳表示，近日因跑宣傳情緒又
@@ -248,7 +247,7 @@ date: 2017-08-22
 reply_count: 2
 title: '[新聞] 紅衣2鬼門開首映 楊丞琳想和角色告別'
 url: https://www.ptt.cc/bbs/movie/M.1503413919.A.EB7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "唉... 雖然說故事一定要這樣才能發展，不過看到這種三寶還是會很生氣\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   1.女主因為一場車禍而失去了她的兒子，傷心欲絕，\n  其實也真的差點開場就BYE了(想吞藥自殺，被老公送醫救回來)\n\n2.在旁的女傭看不下去，告訴了女主1個妙方，但要求女主一定要按照SOP走\n\
   \n3.結果女主因為愛子心切沒遵守到SOP，意外的把兒子放回了陽間\n\n4.女主看到兒子回來了很高興，瞞著丈夫跟兒子恩恩愛愛\n\n5.因為死者返回陽界，造成陰陽失調，一連串的靈異事件接踵而來，\n\
@@ -262,7 +261,7 @@ date: 2016-06-27
 reply_count: 4
 title: '[普雷] 鬼門開 - 公親變事主，好心被雷親'
 url: https://www.ptt.cc/bbs/movie/M.1467038164.A.A9E.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'ET Today
 
 
@@ -304,7 +303,7 @@ date: 2019-08-02
 reply_count: 69
 title: '[新聞] 鬼門開影城看「人生消極掰」散場他不離開'
 url: https://www.ptt.cc/bbs/movie/M.1564718845.A.27E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《紅衣小女孩2》挑鬼門開辦世界首映　楊丞琳與許瑋甯雙后首度同框飆戲\n\n\n\n台灣影史最賣座恐怖片《紅衣小女孩》續集《紅衣小女孩2》昨（22）日特別挑選在農曆7\n\
   月1日鬼門開之吉時舉辦世界首映會，電影未演先轟動，續集已熱銷海外美日港新馬等19\n國！今日台灣率先舉行世界首映，監製曾瀚賢、導演程偉豪、楊丞琳、許瑋甯、高慧君、\n\
   黃河、龍劭華、黃鐙輝、吳念軒、詹宛儒全員齊聚。這是許瑋甯和楊丞琳二大影后首次在\n台合體宣傳，與高慧君一同登場時，被主持人黃子佼戲稱是「三媽上菜」，原來三人在《\n\
@@ -326,7 +325,7 @@ date: 2017-08-23
 reply_count: 9
 title: '[新聞] 《紅衣小女孩2》挑鬼門開辦世界首映　楊'
 url: https://www.ptt.cc/bbs/movie/M.1503493986.A.63E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -477,7 +476,7 @@ date: 2023-08-26
 reply_count: 27
 title: '[普雷] 《粽邪3：鬼門開》，七身七命，誓殺鍾馗'
 url: https://www.ptt.cc/bbs/movie/M.1693046984.A.808.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完內心覺得....
 
 
@@ -589,7 +588,7 @@ date: 2016-02-27
 reply_count: 16
 title: '[負雷] 鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1456565240.A.0BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台灣向來即很少產出鬼片，也許是觀眾普遍對這類影片接受度不高的關係，
 
   趁著鬼門開之際今晚先睹為快
@@ -724,7 +723,7 @@ date: 2015-08-13
 reply_count: 7
 title: '[好雷] 屍憶  鬼門開先睹為快'
 url: https://www.ptt.cc/bbs/movie/M.1439480396.A.B3E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這篇文就是來吐槽的
 
 
@@ -861,7 +860,7 @@ date: 2023-08-27
 reply_count: 40
 title: '[雷] [負雷]粽邪3：主題不是鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1693137630.A.79E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一點點劇情雷
 
 
@@ -920,7 +919,7 @@ date: 2023-08-26
 reply_count: 33
 title: '[負雷] 粽邪3：鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1693030639.A.BA6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想去看電影~目前有興趣的片有標題這兩片
 
 
@@ -942,7 +941,7 @@ date: 2016-03-02
 reply_count: 24
 title: '[請益] 荷魯斯之眼 V.S 鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1456907804.A.A34.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先人權
 
 
@@ -1039,7 +1038,7 @@ date: 2023-09-05
 reply_count: 14
 title: '[好雷] 粽邪3：鬼門開（含劇透且文中長)'
 url: https://www.ptt.cc/bbs/movie/M.1693927146.A.211.html
---- !!python/object:movie_data.PublicReview
+---
 content: "對於這幾年國片學術評價與市場票房的嚴峻，在此批評也不是故意漏氣。而是，電影中有\n幾點的十分明顯的觀察，不得不提。\n\n\n\n\n\n\n\n\
   雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n (刊登於方格子的版本)\n\n\n\n雖然《粽邪3：鬼門開》是商業片，但傳達的意義過於廉價空洞，有便宜行事之嫌疑。相\n\
@@ -1062,7 +1061,7 @@ date: 2023-12-19
 reply_count: 8
 title: '[負雷] 粽邪3：鬼門開 - 恐怖版的「雞排英雄」? '
 url: https://www.ptt.cc/bbs/movie/M.1702988891.A.968.html
---- !!python/object:movie_data.PublicReview
+---
 content: "潛水了好幾年第一次在Movie版上發文,請大家多多包涵:)\n\n昨天趁著明天放假跑去看鬼門開\n原本在板上還沒看到有人分享心得，還在猶豫要不要去看\n\
   但在IMDB看到有高達7.0的高分後，就決定衝了~~~\n\n\n以下為防雷頁-----------------------------------------\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-----------------------------------------防雷---------------------------------\n\
@@ -1097,7 +1096,7 @@ date: 2016-02-27
 reply_count: 13
 title: '[ 好雷]鬼門開the other side of the door '
 url: https://www.ptt.cc/bbs/movie/M.1456555670.A.53B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上映第一天跟我同場的人還是蠻多的，坐了7成吧
 
 
@@ -1160,7 +1159,7 @@ date: 2023-08-26
 reply_count: 60
 title: '[普雷] 粽邪3：鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1693049225.A.770.html
---- !!python/object:movie_data.PublicReview
+---
 content: '板上好像還沒有人寫心得雷
 
 
@@ -1194,7 +1193,7 @@ date: 2016-02-27
 reply_count: 27
 title: '[請益] 鬼門開 恐怖氣氛？'
 url: https://www.ptt.cc/bbs/movie/M.1456547062.A.574.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
   抽到粽邪3特映看完覺得浪費時間
@@ -1256,7 +1255,7 @@ date: 2023-08-20
 reply_count: 9
 title: '[  負雷]粽邪3鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1692523117.A.89D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "靈異乍現，Brightburn\n\n上映日期：019-08-07\n片長：1時30分\n類型：恐怖，懸疑/驚悚\n\n看到sony電影臉書的預告，有點血腥恐怖\n\
   昨天剛好放颱風駕，\n就趁時間第一次騎車去林口威秀影城看看\n其實我原本想去買哆啦A夢造型杯\n但是員工說沒貨了，\n只好選擇看，靈異乍現，Brightburn\n\
   \n片中一個小男孩，在用除草機，\n發現身上有一種神秘的力量，\n到了中間好像被惡靈控制的感覺\n到後面就有點神不知鬼不覺的劇情，\n香港好像翻，魔童？\n\n\
@@ -1271,7 +1270,7 @@ date: 2019-08-10
 reply_count: 9
 title: '[半雷] 電影(靈異乍現)，中元普渡，鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1565445124.A.CDD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '晚安電影版
 
 
@@ -1378,7 +1377,7 @@ date: 2023-09-09
 reply_count: 12
 title: '[好雷] 粽邪3：鬼門開'
 url: https://www.ptt.cc/bbs/movie/M.1694269991.A.16C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒看過
 
   大家覺得這部鬼片水準如何
@@ -1434,7 +1433,7 @@ date: 2017-02-12
 reply_count: 30
 title: '[Live] 鬼門開 星星台手剝21:00'
 url: https://www.ptt.cc/bbs/movie/M.1486902779.A.22F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去找朋友，在高雄看的
 
   路上差點被三寶害死，騎機車時右側中卡車突然開車門，我就往快車道閃進去，還好當時
@@ -1526,7 +1525,7 @@ date: 2016-03-03
 reply_count: 12
 title: '[普雷] 今天看鬼門開...'
 url: https://www.ptt.cc/bbs/movie/M.1456945535.A.DA5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1582,7 +1581,7 @@ date: 2023-08-28
 reply_count: 21
 title: '[新聞] 鬼門開沒在怕！《粽邪3》奪全台票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1693236638.A.307.html
---- !!python/object:movie_data.PublicReview
+---
 content: "電影的最後女主角回到了那個廟門口...\n(而且可以隨心所欲地講自己想講的話)\n所以就代表回來的真的是奧利佛\n那我想奧立佛的心機真的太重了\n\
   一開始的假裝離開讓女主角開門\n\n另外就是 最後女主角其實可以好好講...\n那麼腦衝真的是很沒有辦法...\n\n--\n     \n     \n  \
   \ \n   \n：->->  \n    \n\n--"

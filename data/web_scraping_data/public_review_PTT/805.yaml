@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '新聞網址：
 
 
@@ -124,7 +123,7 @@ date: 2024-12-10
 reply_count: 7
 title: '[新聞] 影后長澤雅美<消失的豪門妻>大跳華麗歌舞'
 url: https://www.ptt.cc/bbs/movie/M.1733846022.A.830.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老婆消失的理由？在日本大男主社會下
 
 
@@ -373,7 +372,7 @@ date: 2024-12-05
 reply_count: 37
 title: '[普雷] 《消失的豪門妻》我的腦公像人間煙火'
 url: https://www.ptt.cc/bbs/movie/M.1733413705.A.928.html
---- !!python/object:movie_data.PublicReview
+---
 content: '情報出處：
 
 
@@ -438,7 +437,7 @@ date: 2024-11-15
 reply_count: 16
 title: '[情報] 三谷幸喜新片【消失的豪門妻】，12/6台映'
 url: https://www.ptt.cc/bbs/movie/M.1731666571.A.7A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -570,7 +569,7 @@ date: 2024-12-04
 reply_count: 3
 title: '[新聞] 影視帝演技派男星集結【消失的豪門妻】！'
 url: https://www.ptt.cc/bbs/movie/M.1733316108.A.121.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -688,7 +687,7 @@ date: 2024-11-26
 reply_count: 12
 title: '[新聞] 【消失的豪門妻】長澤雅美千面女郎秀中文'
 url: https://www.ptt.cc/bbs/movie/M.1732618646.A.C6C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "《》\n\n\n今夏首部鯊魚電影 ！\n\n《》團隊打造最新災難鉅獻\n\n《》6月14日 ( 週五 ) 全台上映\n\n\n\n「如果你喜歡\
   \ #鯊魚電影 或 #驚悚片，這部電影絕對適合你。」\n\n  –《                                             \
   \    》\n\n「這部電影緊張刺激讓你 #心跳瘋狂加速。」\n\n–《                                》\n\n\n《》6月14日\
@@ -8,7 +7,7 @@ date: 2024-06-10
 reply_count: 11
 title: '[情報] 《逃出狂鯊島》全台上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1718031790.A.972.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》特效團隊\n\n打造最新災難鉅獻！\n\n\n\n【】Something in the Water\n\n\n\n\n2024.6月 全台上映\n\
   \n\n不要闖進海洋霸主的領域……\n\n\n《《》特效團隊\n\n打造最新災難鉅獻\n\n宛如人間天堂的島嶼，驚現來自地獄的惡魔\n\n五位多年未見的閨密，因為參加其中一人在加勒比海舉行的海島婚禮而再度聚首，閒暇之\n\
   餘，她們決定搭船前往一個無人島探險，沒想到該島的周圍潛藏著飢腸轆轆的鯊魚，五人\n必須設法從鯊口逃生…\n\n #車庫娛樂\n\n\n資料來源：\n\n--"
@@ -16,7 +15,7 @@ date: 2024-05-19
 reply_count: 16
 title: '[情報] 《逃出狂鯊島》電影預告'
 url: https://www.ptt.cc/bbs/movie/M.1716113100.A.A66.html
---- !!python/object:movie_data.PublicReview
+---
 content: "嚴格意義上來說，實在不能說這部難看\n\n\n畢竟沒有什麼太誇張到不合理的事情\n\n也沒有太敷衍的劇情\n\n而且確實5個角色，沒有一個讓你感覺特別雷、或特別花瓶的存在\n\
   \n但就是覺得...給鯊魚的片酬似乎不太夠\n\n且與其說是「逃出」狂鯊島\n\n更像那種國家地理頻道會拍的那種汪洋求生紀錄片\n\n只是變成女生版\n\n沒有特別厲害的角色或特別明確的目標，就是幾個女生被困在大海上會碰著的事情\n\
   \n甚至有不少段落根本沒鯊魚的戲，感覺就算沒鯊魚也會領便當的那種場景\n\n\n簡而言之...\n\n如果當作看國家地理頻道的加長版海上災難求生片的話會還不錯吧？\n\
@@ -28,7 +27,7 @@ date: 2024-06-15
 reply_count: 22
 title: '[普雷] 逃出狂鯊島'
 url: https://www.ptt.cc/bbs/movie/M.1718388135.A.BEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一群女生出遊就是災難的開始
 
   一開始鯊魚很溫柔的只咬了小腿一小口
@@ -179,7 +178,7 @@ date: 2024-06-16
 reply_count: 29
 title: '[負雷]逃出狂鯊島'
 url: https://www.ptt.cc/bbs/movie/M.1718514599.A.4F7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '—————————-更新———————————
 
   想看鯊魚請直接看巴黎深淵

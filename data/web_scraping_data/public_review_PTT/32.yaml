@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '觀看電影:壞教育
 
 
@@ -100,7 +99,7 @@ date: 2020-05-02
 reply_count: 13
 title: '[好雷] 壞教育-我們人生中都有個法蘭克'
 url: https://www.ptt.cc/bbs/movie/M.1588417803.A.557.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近突然想回味一部關於樂團的電影，
 
   場景是在英國，是一個Keyboard手誤打誤撞加入一個樂團的故事
@@ -119,7 +118,7 @@ date: 2023-03-28
 reply_count: 7
 title: '[問片] 一部英國關於樂團的電影'
 url: https://www.ptt.cc/bbs/movie/M.1679994620.A.A62.html
---- !!python/object:movie_data.PublicReview
+---
 content: "有些政治話題就不提了，在那邊論戰看起來很好笑，\n而且一定會被某些政治狂熱腦給歪樓。\n\n\n其實這就是一個非常貼近現實世界的議題，\n擁有比較高的權力(特異功能)，該不該受監督?\n\
   需不需要防範他們有一天會濫用，或是遭人操弄，欺騙?\n甚至產生邪惡的作為?\n\n在Justice league : Doom 裡面，\n杯麵把這個概念發揮到淋漓盡致，\n\
   他自己偷偷摸摸的就設計了一套可以\"immobilize\"(致其無法行動)的計畫，\n可以制服所有的正義聯盟的成員。\n\n雖然笨到被偷走，差點害死其他成員，但是他在故事最後，\n\
@@ -137,7 +136,7 @@ date: 2016-03-13
 reply_count: 23
 title: 'Re: [討論] ★法蘭克★【美國隊長3:內戰】預告分析!'
 url: https://www.ptt.cc/bbs/movie/M.1457869118.A.963.html
---- !!python/object:movie_data.PublicReview
+---
 content: '=========================防雷============================
 
 
@@ -233,7 +232,7 @@ date: 2015-05-12
 reply_count: 8
 title: '[好雷]法蘭克'
 url: https://www.ptt.cc/bbs/movie/M.1431435881.A.AE8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '消息來源:
 
   聯影電影臉書
@@ -290,7 +289,7 @@ date: 2020-12-21
 reply_count: 16
 title: '[情報] 法蘭克 1.22怪咖再上路 萬辭王重返大銀幕'
 url: https://www.ptt.cc/bbs/movie/M.1608554087.A.DB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文版：\n\n文／Quiff\n\n法蘭克米勒則是從漫畫界跨足到電影圈的另一知名例子。近年來雖先後\n出現兩部將他筆下經典漫畫作品搬上大銀幕的改編電影《萬惡城市》、\n\
   《300壯士》，讓法蘭克米勒這位早已縱橫漫畫界數十年的一代宗師，\n頓時在原本不熟悉美漫文化的影迷族群之間聲名大噪，與近來亦有多部\n作品改編電影的亞倫摩爾並稱一時瑜亮；但其實早在將近二十年前，法\n\
   蘭克米勒便曾試圖向好萊塢叩關，野心勃勃地想一展鴻圖壯志。\n\n1990年，在《機器戰警》以血腥殘酷意象探討機械文明與人類天性之間\n的角力，而成功襲捲全球影壇過後三年，電影製片找上了當時正因〈黑\n\
@@ -334,7 +333,7 @@ date: 2010-05-25
 reply_count: 15
 title: 美漫電影專題4-2：法蘭克米勒夢碎好萊塢
 url: https://www.ptt.cc/bbs/movie/M.1274777316.A.605.html
---- !!python/object:movie_data.PublicReview
+---
 content: '老實說我沒有很喜歡這部片，所以一開始我就給了普雷這樣的定義。
 
   因為標題就有說［有雷］，所以內文就是有［劇情雷］啦。
@@ -475,7 +474,7 @@ date: 2015-05-08
 reply_count: 7
 title: '[普雷]法蘭克:羅普眼裡出西施'
 url: https://www.ptt.cc/bbs/movie/M.1431091739.A.2A0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n原標題：引領黑暗超英雄電影風潮的漫畫大師法蘭克米勒，對「真愛粉絲」查克史奈德的\nDC 電影公開真心話評論\n\n有些觀眾熱愛諾蘭執導的《黑暗騎士》(The\
   \ Dark Knight)、有些觀眾喜愛查克史奈德的\n黑暗 DC 宇宙、有些觀眾偏好《漫威夜魔俠》裡黑到不行的地獄廚房……\n\n發現到了嗎？上面三部作品的風格都可以用「黑暗」來形容，為什麼\
   \ 21 世紀的超英雄電\n影共同瀰漫著黑暗氣息？這都是因為漫畫大師法蘭克米勒，大量電影改編或取材自他的漫\n畫，這位從 80年代開始改變超英雄漫畫歷史的大師，最近首次對史奈德的\
@@ -519,7 +518,7 @@ date: 2021-10-12
 reply_count: 55
 title: '[新聞] 法蘭克米勒：查克史奈德的DC電影很棒'
 url: https://www.ptt.cc/bbs/movie/M.1634032414.A.CBE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -575,7 +574,7 @@ date: 2021-02-17
 reply_count: 2
 title: '[新聞] 梅爾吉勃遜<迴路追殺令>屌虐法蘭克葛里洛'
 url: https://www.ptt.cc/bbs/movie/M.1613570453.A.FB4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小魯後天想去看電影
 
   忠犬追殺令
@@ -600,7 +599,7 @@ date: 2015-05-05
 reply_count: 16
 title: '[選片] 忠犬追殺令、法蘭克'
 url: https://www.ptt.cc/bbs/movie/M.1430814481.A.86E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "〔記者陳建嘉／綜合報導〕電影《蝙蝠俠對超人：正義曙光》上映以來，成績與預設評價\n有不小差距，雖然全球票房破8億美金，影評卻不買帳，讓「蝙蝠俠」班艾佛列克在受訪\n\
   時也難掩其失望，就連演出「管家阿福」的影帝傑瑞米艾朗，也認為電影確實不夠優秀，\n不過影迷喜歡還是最重要。\n\n但沒有關係，曾畫過《蝙蝠俠：黑暗騎士歸來》的知名漫畫家法蘭克米勒倒是非常力挺，\n\
   日前他在《DCCOMICSMOVIE》接受專訪，他被問及小班的表現，立即讚不絕口，還說小班\n的表現很好，整體風格非常接近他在《黑暗騎士歸來》中，想呈現的那個又老又累，但依\n\
@@ -620,7 +619,7 @@ date: 2016-06-01
 reply_count: 37
 title: '[新聞] 蝙蝠俠編劇法蘭克米勒說小班的表現很好'
 url: https://www.ptt.cc/bbs/movie/M.1464757850.A.E33.html
---- !!python/object:movie_data.PublicReview
+---
 content: "老導演不凋零！馬丁史柯西斯《法蘭克辛納屈》傳記片將由李奧納多主演，史蒂芬史匹柏\n計劃再拍外星人電影\n\n\n\n\n\n馬丁史柯西斯以《花月殺手》入圍了十項奧斯卡獎的提名後，現年\
   \ 81 歲的他已針對接下\n來的兩部電影計劃展開了構思。根據最新的傳聞，他接下來將會讓這兩項計劃「背靠背」\n發展，第一部將會講述耶穌的生平故事，而第二部則為美國歌手法蘭克辛納屈的傳記電影\n\
   。\n\n馬丁史柯西斯曾於 1970 年代幫助了好萊塢新浪潮的興起，而他目前打算要繞過大型片商\n系統，並以獨立電影的形式為《耶穌的生涯》進行募資，本片改編自日本作家遠藤周作於\n\
@@ -647,7 +646,7 @@ date: 2024-04-18
 reply_count: 23
 title: '[新聞] 老導演不凋零！馬丁史柯西斯《法蘭克辛 '
 url: https://www.ptt.cc/bbs/movie/M.1713441988.A.202.html
---- !!python/object:movie_data.PublicReview
+---
 content: '美國隊長3，再3天就要上映了...
 
 
@@ -731,7 +730,7 @@ date: 2016-04-24
 reply_count: 93
 title: 'Re: [討論] ★法蘭克★【美國隊長3:內戰】預告分析!'
 url: https://www.ptt.cc/bbs/movie/M.1461474218.A.83C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "當初看過預告就對這部電影一直很感興趣\n\n加上版上好雷居多, 許多人都推薦\n\n因此上映二話不說就衝了\n\n電影劇情跟過程都十分的有戲劇性\n\
   \n坦白講並不難看\n\n但為何只給普雷?\n\n因為覺得法蘭克的結局收的很爛..\n\n明明有很多可以玩跟深入引導的點\n\n卻安排了一個既沒有讓人驚喜\n\n\
   也沒有讓人感動或振憾, 甚至於連個灑狗血的結局都比不上......\n\n真是白費了整部這麼特別的電影跟敍事....\n\n\n\n\n看完後心情就怪怪的, 也沒有被感動也沒有特別的悲也沒有強烈的反思...\n\
@@ -742,7 +741,7 @@ date: 2015-06-28
 reply_count: 7
 title: '[普雷] 法蘭克'
 url: https://www.ptt.cc/bbs/movie/M.1435428962.A.6AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "法蘭克    Frank\n出版：Element Pictures, Film4\n導演：Leonard Abrahamson      演員：Domhnall\
   \ Gleeson、Michael Fasserbender\n\n\n\n\n    在講這部電影的影評之前，我想先講一段《莊子˙應帝王》裡的故事。\n\n\
   \    南海之帝為倏，北海之帝為忽，中央之帝為混沌。倏與忽時相與遇於混沌之地，混沌\n待之甚善。倏與忽謀報混沌之德，曰：『人皆有七竅，以視聽食息，此獨無有，嘗試鑿之\n\
@@ -778,7 +777,7 @@ date: 2015-05-15
 reply_count: 7
 title: '[好雷]法蘭克：渾沌與倏忽 '
 url: https://www.ptt.cc/bbs/movie/M.1431697145.A.895.html
---- !!python/object:movie_data.PublicReview
+---
 content: '內文有雷，建議觀後再讀：）
 
 
@@ -877,7 +876,7 @@ date: 2015-05-07
 reply_count: 2
 title: '[微好雷] 怪咖、瘋子與真實的創作－法蘭克Frank'
 url: https://www.ptt.cc/bbs/movie/M.1430955159.A.4E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -924,7 +923,7 @@ date: 2021-03-10
 reply_count: 10
 title: '[新聞] 法蘭克葛里洛擺脫輪迴，新片活屍殺很大！'
 url: https://www.ptt.cc/bbs/movie/M.1615378745.A.E9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看著介紹本來以為這是一部喜劇片
 
 
@@ -984,7 +983,7 @@ date: 2015-05-01
 reply_count: 3
 title: '[心得]法蘭克   微雷'
 url: https://www.ptt.cc/bbs/movie/M.1430484808.A.70F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '來自《The Wrap》的獨家消息，
 
   法蘭克葛里洛（Frank Grillo）將在《生物突擊隊》（Creature Commandos）中飾演「老
@@ -1005,7 +1004,7 @@ date: 2023-04-13
 reply_count: 14
 title: '[討論] 法蘭克葛里洛的 DC 角色'
 url: https://www.ptt.cc/bbs/movie/M.1681315978.A.D66.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前分享過，但是我重新分享一次，內容有刪減一些，我會把之前分享的文章刪除，好
 
 
@@ -1442,7 +1441,7 @@ date: 2015-05-06
 reply_count: 8
 title: '[好雷]機器人與法蘭克 三年前左右的老片'
 url: https://www.ptt.cc/bbs/movie/M.1430909171.A.33C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然大家都說《法蘭克》很好看、很可愛、很好笑，但我真心覺得它跟《進擊的鼓手》一
 
   樣，都是部「追尋夢想恐怖片」。
@@ -1595,7 +1594,7 @@ date: 2015-05-01
 reply_count: 3
 title: '[好雷] 《法蘭克》：兩個世界 '
 url: https://www.ptt.cc/bbs/movie/M.1430493904.A.A92.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實...我覺得預告分析根本沒意義。
 
   別炮我
@@ -1617,7 +1616,7 @@ date: 2017-11-30
 reply_count: 30
 title: '[討論] 法蘭克 FB'
 url: https://www.ptt.cc/bbs/movie/M.1512032653.A.EBC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我會選美國隊長那邊，我覺得英雄的真實身分不應該被公布
 
 
@@ -1638,7 +1637,7 @@ date: 2016-03-13
 reply_count: 168
 title: '[討論] ★法蘭克★【美國隊長3:內戰】預告分析!'
 url: https://www.ptt.cc/bbs/movie/M.1457840809.A.94C.html
---- !!python/object:movie_data.PublicReview
+---
 content: ".\n[好雷]《法蘭克札帕:從前衛到當代》電影心得(ZAPPA)\n.\n.\n知道這個名字，是多年前在五四三音樂BBS站有他的專版，版名正是《不亂苦砸派》。\n\
   那時的自己對各種重金屬速彈吉他英雄比較有興趣，也沒興趣跟管道買Zappa的唱片\n（看完本紀錄片才知道他早已是吉他英雄了XD，而其所學所能，更在吉他功力之上）。\n\
   但在挖掘探究老搖滾藝人專輯時，不斷有機會從各種經典搖滾資訊討論文裡看到他的\n名字，那時只知道他是一個會推出很多奇怪唱片的怪咖。\n本來只是為了吉他之神Steve\
@@ -1661,7 +1660,7 @@ date: 2022-08-02
 reply_count: 3
 title: '[好雷]《ZAPPA/法蘭克札帕:從前衛到當代》小心得'
 url: https://www.ptt.cc/bbs/movie/M.1659452532.A.32E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1757,7 +1756,7 @@ date: 2021-05-24
 reply_count: 2
 title: '[心得雷] 《法蘭克》—迎眾的終點是自我崩毀'
 url: https://www.ptt.cc/bbs/movie/M.1621838376.A.416.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《法蘭克》這部電影藉由一個住在偏僻小鎮，懷有音樂夢的男孩Jon和既神秘且另類的樂
 
   團相遇的情節呈現人生常見的兩難選擇，是要默默無聞地孤芳自賞抑或失去原味地迎合他
@@ -1892,7 +1891,7 @@ date: 2015-05-16
 reply_count: 6
 title: '[好雷] 法蘭克-為了自己還是別人!?'
 url: https://www.ptt.cc/bbs/movie/M.1431785863.A.A6B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "近年來好萊塢原創故事式微，越來越多的經典被拿回來改編、重開機、拍續集…，迪士尼\n更是把過往許多手繪動畫作品搬出來拍成真人版本，此外「電影宇宙」隨著漫威影業打造\n\
   的影視帝國而成為主流，符合以上兩個重要條件的「回到未來系列」有沒有可能被片商鎖\n定？看來影迷們先不用太擔心了。\n去年我們曾經報導《回到未來》系列作的導演羅勃辛密克斯（Robert\
   \ Zemeckis）在他死\n之前都不會讓這個系列重啟，如今本片的製作人法蘭克馬修（Frank Marshell）在接受\n Yahoo Movie 訪問時也表達了一樣的看法：\n\
@@ -1905,7 +1904,7 @@ date: 2016-12-01
 reply_count: 22
 title: '[討論] 法蘭克馬修：我們永遠不會重拍「回到未來'
 url: https://www.ptt.cc/bbs/movie/M.1480577960.A.541.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無音樂網誌好讀版：
 
 
@@ -2182,7 +2181,7 @@ date: 2015-05-15
 reply_count: 8
 title: '[好雷] 法蘭克 - 凡人與怪咖的兩樣世界'
 url: https://www.ptt.cc/bbs/movie/M.1431691591.A.2A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這一片是由小說改編而成
 
 
@@ -2202,7 +2201,7 @@ date: 2016-11-06
 reply_count: 17
 title: '[問片] 法蘭克薛慶的 群 有拍出來嗎'
 url: https://www.ptt.cc/bbs/movie/M.1478370985.A.49C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《法蘭克》Frank
 
   ★★★★
@@ -2402,7 +2401,7 @@ date: 2015-10-15
 reply_count: 4
 title: '[好雷]《法蘭克》─ 脫下假面，擁抱自己！'
 url: https://www.ptt.cc/bbs/movie/M.1444923454.A.B04.html
---- !!python/object:movie_data.PublicReview
+---
 content: "Michael Fassbender參演的Frank預定在4/30上院線，\n    有影迷想發起包場活動（預定時間5/2或5/3下午在光點華山，票價原價270為原則）\n\
   \    有興趣的人請填下面的意願調查表單讓我們知道有多少人想參加，\n    如果辦得成會再通知大家報名，謝謝！\n\n    \n\n\n    電影預告\n\
   \n    \n    主...主題曲？\n\n    金馬奇幻影展電影介紹\n    \n\n    爛蕃茄綜評92\n\n--"
@@ -2410,7 +2409,7 @@ date: 2015-03-27
 reply_count: 7
 title: '[揪團]麥可法斯賓達電影<法蘭克>包場意願調查'
 url: https://www.ptt.cc/bbs/movie/M.1427459405.A.43E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文完整版： \n\n每過一陣子，總是會有部好看卻又稀奇古怪、不按牌理出牌的片，讓人感到\n驚喜，「法蘭克」就是這樣的怪片。因為它實在怪異，所以我的劇情介紹就\n\
   用最精簡的方式描述，因為實在是去看了才知道。另外，「法蘭克」的音樂\n頗為詭異，但又異常好聽，很難形容，又是個聽了才知道的驚喜，主角麥克\n法斯賓達挺能搖滾的，吼起來頗有一番味道。\n\
   \n劇情描述一位懷抱音樂理想的年輕人Jon﹝Domhnall Gleeson﹞，因緣際會\n加入某個頗為古怪的樂團Soronprfbs，主唱Frank﹝麥克法斯賓達﹞總是戴\n\
@@ -2439,7 +2438,7 @@ date: 2015-05-01
 reply_count: 12
 title: '[好雷] 法蘭克(Frank) - 一段奇異覺醒之旅'
 url: https://www.ptt.cc/bbs/movie/M.1430484697.A.AFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當《牠》的幼年貝芙莉遇上《復仇者聯盟》的幻視，會擦出什麼樣的火花？
 
 
@@ -2487,7 +2486,7 @@ date: 2020-11-29
 reply_count: 5
 title: '[好雷] 法蘭克舅舅 Uncle Frank'
 url: https://www.ptt.cc/bbs/movie/M.1606647370.A.26F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天上架 Netflix的荷蘭片《我的摯友安妮法蘭克》Mijn beste vriendin Anne Frank，看片名就知一場新的「安妮日記」熱潮已再次燃起！此片是去年九月在荷上映的新片、去年十二月法國也上映了以色列導演導的幻想動畫片
   Where is Anne Frank，甚至今年一月出版界也有聲稱找到害死她一家的抓耙仔的新書 "The Betrayal of Anne Frank" 出版、不過這幾天又被各界史家檢視批評後由出版商出來道歉...
   記得上一次「安妮日記」這麼火熱好像是在 2009 年？這次熱潮又從何而來我也不知道，總之這些新作品已不再堅守「安妮日記」的內容而已在各自尋找新觀點。
@@ -2584,7 +2583,7 @@ date: 2022-02-04
 reply_count: 4
 title: '[好雷] 我的摯友安妮法蘭克 (Netflix 荷蘭片)'
 url: https://www.ptt.cc/bbs/movie/M.1643930123.A.B26.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「十字骨」法蘭克葛里洛《和平使者》、新《超人》片場兩邊跑！與「神秘部隊」合力逮
 
   捕超人！
@@ -2689,7 +2688,7 @@ date: 2024-06-28
 reply_count: 68
 title: '[新聞] 「十字骨」法蘭克葛里洛《和平使者》'
 url: https://www.ptt.cc/bbs/movie/M.1719538109.A.775.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《Frank》是一部真正的天才之作。所有拍給音樂宅看的電影，
 
   都免不了在配樂的挑選大作文章，《Frank》打破了這樣的公式
@@ -2772,7 +2771,7 @@ date: 2015-05-13
 reply_count: 5
 title: '[有雷]《Frank 法蘭克》－－不是你，是法蘭克'
 url: https://www.ptt.cc/bbs/movie/M.1431531567.A.2E8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實就像很多版友說的，電影版沒有什麼註冊法案問題
 
 
@@ -2813,7 +2812,7 @@ date: 2016-03-13
 reply_count: 8
 title: 'Re: [討論] ★法蘭克★【美國隊長3:內戰】預告分析!'
 url: https://www.ptt.cc/bbs/movie/M.1457864435.A.BAE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "比較喜歡法蘭克的影評\n\n他的觀點和我比較像\n\n大家快來看看吧 !!\n\n\n--\n         ◢◣      \n   \n\
   \  \n \n ））   ））\n                     \n\n--"
 date: 2016-04-02

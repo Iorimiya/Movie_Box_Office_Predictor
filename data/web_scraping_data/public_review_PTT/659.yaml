@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '超級好看
 
   尤其是我完全不抱著任何期待的心情去看
@@ -40,7 +39,7 @@ date: 2024-09-14
 reply_count: 38
 title: '[超好雷] 變形金剛：源起（無雷）'
 url: https://www.ptt.cc/bbs/movie/M.1726302559.A.DC2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《變形金剛》前傳動畫電影《變形金剛：源起》多款角色個人海報出爐！
 
 
@@ -67,7 +66,7 @@ date: 2024-04-20
 reply_count: 34
 title: '[情報] 變形金剛前傳動畫電影《變形金剛：源起》'
 url: https://www.ptt.cc/bbs/movie/M.1713546421.A.AE6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: dukemon (dukemon) 看板: C_Chat
 
   標題: [閒聊] 變形金剛起源 好看
@@ -178,7 +177,7 @@ date: 2024-09-22
 reply_count: 8
 title: 'Fw: [閒聊] 變形金剛起源 好看(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1726986067.A.4A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '在預告 3之前，先放出啊堯導演跟四位男主角的訪談，
 
   新畫面不多，不過還是繼續等上片進場看爆啦！
@@ -190,7 +189,7 @@ date: 2020-10-09
 reply_count: 10
 title: '[討論] 【同學麥娜絲】幕後花絮：創作源起篇'
 url: https://www.ptt.cc/bbs/movie/M.1602174059.A.079.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -312,7 +311,7 @@ date: 2024-09-16
 reply_count: 59
 title: '[好雷] 變形金剛：源起'
 url: https://www.ptt.cc/bbs/movie/M.1726418857.A.DA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去看了，讚，沒有人類就沒有政治正確問題
 
 
@@ -363,7 +362,7 @@ date: 2024-09-17
 reply_count: 22
 title: '[討論] 變形金剛源起幾個問題？(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1726586893.A.B74.html
---- !!python/object:movie_data.PublicReview
+---
 content: '還有15分鐘預告即將發表，在外太空發表!!!
 
 
@@ -377,7 +376,7 @@ date: 2024-04-18
 reply_count: 55
 title: '[討論] 【變形金剛 : 源起】 上太空發布預告'
 url: https://www.ptt.cc/bbs/movie/M.1713447736.A.250.html
---- !!python/object:movie_data.PublicReview
+---
 content: "9/11 19:00欣欣秀泰《變形金剛: 源起》(Transformers One)中文版特映\n本作是前傳性質的動畫電影\n即使沒看過之前的系列電影也能夠直接看這部\n\
   有別於之前真人電影的背景都在地球\n這次設定在賽博坦星毀滅前\n雖然地表荒蕪，但位在地殼內的城市仍舊生意盎然、高樓林立\n\n主角是採礦好搭檔奧利安派克斯(Orion\
   \ Pax)及D-16\n兩人雖只是沒有變形齒輪的礦工機器人卻不畏艱難\n與同樣沒有變形齒輪的艾莉塔(Elita)跟阿B(B-127)踏上尋找領導母體的旅程\n\
@@ -388,7 +387,7 @@ date: 2024-09-12
 reply_count: 32
 title: '[好無雷] 變形金剛: 源起'
 url: https://www.ptt.cc/bbs/movie/M.1726147955.A.AC8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我比較仔細看過的「變形金剛」系列電影，
 
   回想起來，好像只有第一集，
@@ -475,7 +474,7 @@ date: 2024-09-15
 reply_count: 27
 title: '[請益] 《變形金剛：源起》'
 url: https://www.ptt.cc/bbs/movie/M.1726406942.A.74F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天去美麗華imax大黃蜂出來的時候
 
   一直有紅色閃光出現
@@ -494,7 +493,7 @@ date: 2024-09-15
 reply_count: 3
 title: '[請益] 《變形金剛：源起》大黃蜂會有閃光嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1726412341.A.B01.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
   \ BGM支援\n\n看了板上逐漸冒出好雷文 總不會有那麼多公關洗地吧!\n\n雖然最初看預告畫面時 那個恐怖谷機人臉孔對我實在有點勸退\n\n不過還是趁中秋放假跟風去看了\
@@ -561,7 +560,7 @@ date: 2024-09-18
 reply_count: 16
 title: '[好雷]變形金剛緣起 原汁原味'
 url: https://www.ptt.cc/bbs/movie/M.1726590115.A.88C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如題，本來只打算加班的星期六晚上挑部片慶祝加班結束，結果變形金剛太好看了\n直接買下一場IMAX版再刷一次，這邊要講就是IMAX基本上就是很多細節能看得更清楚\n\
   \n而且一部片一小時40分鐘真的如夢似幻，完全不虧，強推各位把握場次衝一波啊啊啊！\n\n\n\n\n先大喊\n\n本片沒有地球與人類！\n\n\n\n本片沒有地球與人類！萬歲！\n\
   \n\n本片沒有地球與人類！萬歲！這值得三刷！\n\n\n\n以下有雷\n\n\n以下有雷\n\n\n以下有雷\n\n\n\n\n以下是超級超級巨雷！！慎入！\n\
@@ -621,7 +620,7 @@ date: 2024-09-15
 reply_count: 37
 title: '[好雷]連刷兩次變形金剛：源起--白首相知猶按劍'
 url: https://www.ptt.cc/bbs/movie/M.1726399442.A.B1B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '曾經親如兄弟，而今反目成仇
 
 
@@ -664,7 +663,7 @@ date: 2024-07-26
 reply_count: 37
 title: '[情報] 《變形金剛 : 源起》最新精彩預告'
 url: https://www.ptt.cc/bbs/movie/M.1721956733.A.33B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -705,7 +704,7 @@ date: 2024-09-23
 reply_count: 91
 title: '[新聞]《變形金剛：源起》攻佔北美新片冠軍！觀'
 url: https://www.ptt.cc/bbs/movie/M.1727051594.A.876.html
---- !!python/object:movie_data.PublicReview
+---
 content: '影仔看電影 － 變形金剛：源起 / Transformers One　(2024)
 
 
@@ -773,7 +772,7 @@ date: 2024-09-22
 reply_count: 2
 title: '[好無雷]變形金剛：源起 / Transformers One '
 url: https://www.ptt.cc/bbs/movie/M.1727005315.A.A29.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
   禮拜二,帶2個兒子,去看了變形金剛,本來只是想殺時間(假日很多地方沒開...)
@@ -880,7 +879,7 @@ date: 2024-09-19
 reply_count: 42
 title: '[極好雷]變形金剛~源起 久違的,出乎意料的感受 '
 url: https://www.ptt.cc/bbs/movie/M.1726724580.A.C39.html
---- !!python/object:movie_data.PublicReview
+---
 content: '板上還蠻少變形金剛的心得
 
   剛看完，它沒有特別為了imax弄全畫幅 所以去看的話會上下有點黑邊，可是不影響，螢幕大
@@ -957,7 +956,7 @@ date: 2024-09-13
 reply_count: 52
 title: '[  雷] 變形金剛-源起imax 好雷'
 url: https://www.ptt.cc/bbs/movie/M.1726216887.A.907.html
---- !!python/object:movie_data.PublicReview
+---
 content: '得獎名單公布如下，請得獎者請於9月3日11:00前主動站內信回覆領票者資料
 
   恕不接受逾期回覆
@@ -1014,7 +1013,7 @@ date: 2024-09-01
 reply_count: 33
 title: 'Re: [贈票] 【變形金剛：源起】台北高雄特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1725173196.A.D92.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好看，值得進電影院觀賞！
 
 
@@ -1139,7 +1138,7 @@ date: 2024-09-23
 reply_count: 31
 title: '[好雷] 變形金剛：源起 Transformers One'
 url: https://www.ptt.cc/bbs/movie/M.1727059582.A.017.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我覺得這邊是電影沒有處理好的地方
 
 
@@ -1180,7 +1179,7 @@ date: 2024-09-17
 reply_count: 4
 title: 'Re: [請益] [雷]變形金剛源起 博派和狂派的主張？'
 url: https://www.ptt.cc/bbs/movie/M.1726568316.A.045.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -1373,7 +1372,7 @@ date: 2024-09-27
 reply_count: 29
 title: '[超級好雷]變形金剛 源起- 只需疲憊的一天'
 url: https://www.ptt.cc/bbs/movie/M.1727372892.A.BFC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '截至美國10/11的數據
 
 
@@ -1396,7 +1395,7 @@ date: 2024-10-13
 reply_count: 46
 title: '[情報] 變形金剛 : 源起  全球票房突破1億美金'
 url: https://www.ptt.cc/bbs/movie/M.1728793504.A.026.html
---- !!python/object:movie_data.PublicReview
+---
 content: '比想像中好看
 
   劇情流暢，笑點也不會很尷尬
@@ -1442,7 +1441,7 @@ date: 2024-09-17
 reply_count: 22
 title: '[請益] [雷]變形金剛源起 博派和狂派的主張？'
 url: https://www.ptt.cc/bbs/movie/M.1726563749.A.9F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '戲院人超少，很可惜啊！
 
 
@@ -1492,7 +1491,7 @@ date: 2024-09-15
 reply_count: 15
 title: '[好無雷] 變形金剛源起，值得進戲院看一次'
 url: https://www.ptt.cc/bbs/movie/M.1726381177.A.214.html
---- !!python/object:movie_data.PublicReview
+---
 content: '導演說 他們還是會考慮作三部曲
 
 
@@ -1513,7 +1512,7 @@ date: 2024-09-22
 reply_count: 15
 title: '[討論] 變形金剛：源起 可能是一個三部曲'
 url: https://www.ptt.cc/bbs/movie/M.1727011170.A.51C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '曾經親如兄弟 而今反目成仇
 
   見證精彩開端 如何改變世界
@@ -1556,7 +1555,7 @@ date: 2024-08-22
 reply_count: 609
 title: '[贈票] 【變形金剛：源起】特映搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1724312610.A.E49.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1732,7 +1731,7 @@ date: 2024-09-21
 reply_count: 15
 title: '[好雷] 變形金剛源起 執著的是信念也是愛'
 url: https://www.ptt.cc/bbs/movie/M.1726887390.A.7BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1844,7 +1843,7 @@ date: 2024-09-17
 reply_count: 12
 title: '[好雷] 變形金剛：源起。送給我那固執呵呵呵的老'
 url: https://www.ptt.cc/bbs/movie/M.1726564129.A.207.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
 
@@ -2306,7 +2305,7 @@ date: 2024-09-17
 reply_count: 48
 title: '[極好雷] 變形金剛 源起'
 url: https://www.ptt.cc/bbs/movie/M.1726582306.A.A0D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網頁版點這裡：
 
 
@@ -2408,7 +2407,7 @@ date: 2024-09-26
 reply_count: 3
 title: '[好雷] 五重點一窺《變形金剛：源起》的故事 '
 url: https://www.ptt.cc/bbs/movie/M.1727319801.A.A18.html
---- !!python/object:movie_data.PublicReview
+---
 content: "\"\"\n\n破百萬的瀏覽數字，永遠無法突破的鴻溝，燃燒殆盡的資金，認清事實的我們\n\n\"改劇本吧。我親自改。\"\n\n選擇再出發的我們捨棄掉之前所有的成就，\n\
   \n拿掉了\"木偶人動畫電影版\"這冗長的枷鎖\n\n回到這部電影的初衷：認同感。\n\n=========================Silent Code============================\n\
   \n曾幾何時，我不斷追求的東西剩下\"\"\n\n小時候希望得到同學的認同、朋友的認同、父母的認同\n\n長大後希望得到伴侶的認同、同事的認同、族群的認同\n\n\
@@ -2425,7 +2424,7 @@ date: 2012-08-20
 reply_count: 137
 title: '[討論] BBS鄉民的正義 創作源起 (下)'
 url: https://www.ptt.cc/bbs/movie/M.1345436114.A.337.html
---- !!python/object:movie_data.PublicReview
+---
 content: '該怎麼講這個故事?木偶人2單純是板主對付小白的故事
 
 
@@ -2542,7 +2541,7 @@ date: 2012-08-17
 reply_count: 114
 title: '[討論] BBS鄉民的正義 創作源起 (中)'
 url: https://www.ptt.cc/bbs/movie/M.1345177904.A.192.html
---- !!python/object:movie_data.PublicReview
+---
 content: '無劇情雷，只講推薦的點
 
   前提是大家都知道這是一部沒有人類劇情的變形金剛CGI電影

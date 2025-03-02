@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "新聞網址：\n\n\n勇奪印尼電影票房冠軍，引發觀眾集體尖叫的最新恐怖懼作《血繼》（Temurun），即將\n在7月19日於台灣駭人獻映。全片聚焦世代相傳的恐怖家庭傳承之謎，由年僅25歲的正妹\n\
   導演伊納拉莎拉菲娜（Inarah Syarafina）首執導筒。擁有高顏值的她，長期懷抱電影夢\n，對自己年紀輕輕就能當上導演，甚至還可以領導近一千名工作人員完成作品，讓她直呼\n\
   ：「不敢相信！」熱愛恐怖片成痴的她，為了親自了解創作者如何製造電影中的懸念，還\n選擇恐怖片作為她的導演處女作，更特別在製作期間重溫許多經典恐怖片，甚至自爆自己\n\
@@ -22,7 +21,7 @@ date: 2024-07-04
 reply_count: 9
 title: '[新聞] 25歲正妹導演執導【血繼】曝紓壓怪癖！'
 url: https://www.ptt.cc/bbs/movie/M.1720097678.A.DE2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -126,7 +125,7 @@ date: 2024-07-17
 reply_count: 20
 title: '[新聞] 【血繼】片場驚傳工作人員淒厲吼叫被附身'
 url: https://www.ptt.cc/bbs/movie/M.1721219961.A.7EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -240,7 +239,7 @@ date: 2024-06-24
 reply_count: 4
 title: '[新聞] 【血繼】打造恐怖繼承登印尼電影票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1719230476.A.183.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首先不得不説這部片的女主角，無論是顏值還是演技方面，吸睛指數真的算是滿點，時常
 
   在單調平淡的劇情裡被她的外貌和詮釋吸引得入木三分，完全不輸同期上映的《龍捲風暴

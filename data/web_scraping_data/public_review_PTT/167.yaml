@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: "精彩預告: \n\n\n\n特映會場次（一人得獎兩人同行）\n\n中午場：9月27日 12:30 欣欣秀泰影城 英文版\n台北場：9月26日 19:30\
   \ 國賓長春影城 中文版\n台中場：9月27日 19:00 文心秀泰影城 中文版\n高雄場：9月27日 19:00 夢時代秀泰影城 中文版\n\n\n參加抽獎方式：，\n\
   並註明場次就有機會中獎（如：）\n\n公布得獎日期：\n（將會公布於回文內，得獎者請主動站內信回覆領票者資料，恕不接受逾期回覆）\n9月15日公布得獎名單，請於9月18日10:00前回覆\n\
@@ -7,7 +6,7 @@ date: 2023-09-11
 reply_count: 774
 title: '[贈票] 【汪汪隊立大功: 超級大電影】搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1694426269.A.49F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下得獎者獲得搶先看
 
   得獎者請於9/18 10:00前主動站內信回覆領票者資料，恕不接受逾期回覆
@@ -84,7 +83,7 @@ date: 2023-09-15
 reply_count: 35
 title: 'Re: [贈票] 【汪汪隊立大功: 超級大電影】搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1694749607.A.380.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年9月，全新品種的英雄躍上大銀幕，
 
 
@@ -107,7 +106,7 @@ date: 2023-06-13
 reply_count: 20
 title: '[情報] 《汪汪隊立大功：超級大電影》預告'
 url: https://www.ptt.cc/bbs/movie/M.1686662852.A.CB8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論：
 
 
@@ -267,7 +266,7 @@ date: 2023-10-02
 reply_count: 28
 title: '[ 普雷] 汪汪隊立大功：超級大電影'
 url: https://www.ptt.cc/bbs/movie/M.1696214622.A.09A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -323,7 +322,7 @@ date: 2023-10-02
 reply_count: 10
 title: '[好雷] 汪汪隊立大功：超級大電影 '
 url: https://www.ptt.cc/bbs/movie/M.1696228041.A.DCA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '《Barbie芭比》打動人心引起共鳴，台灣首週票房破2,300萬台幣
 
 
@@ -54,7 +53,7 @@ date: 2023-07-30
 reply_count: 18
 title: '[新聞]Barbie芭比打動人心引起共鳴，台灣首週票房破2,300萬台幣'
 url: https://www.ptt.cc/bbs/movie/M.1690704679.A.194.html
---- !!python/object:movie_data.PublicReview
+---
 content: "Boxofficepro網站:\n\n\n\nBoxofficepro針對 Barbie芭比 的最新票房預估，再度大幅調升32%，\n\n4次預估的變化如下:\n\
   \n\n     北美首周末  調整幅度        北美總票房  調整幅度\n\n5500萬 ~ 8500萬  首次預估   1.20億 ~ 2.26億 \
   \ 首次預估\n6500萬 ~ 9000萬     +  6%   1.60億 ~ 2.40億     + 17%\n8500萬 ~ 1.15億     + 54%\
@@ -65,7 +64,7 @@ date: 2023-07-15
 reply_count: 77
 title: '[討論] Barbie芭比 北美票房預測持續大幅上修'
 url: https://www.ptt.cc/bbs/movie/M.1689368553.A.55C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "生活在芭比樂園，就是身處一個完美地方過著完美的人生，除非遇到全面性的存在危機，\n或者剛好是肯尼\n\n《抽獎方式》\n7月15日 (週六) 23:59\
   \ 前，推文留言你想要參加【Barbie芭比】派對的〈場次〉與〈原\n因〉，就有機會搶先看電影！\n（如：高雄場派對，想感受芭比的魅力，以及滿滿的肯尼肌）\n\n\
   《獎項內容》\n【Barbie芭比】電影試映券（一組2張）\n\n《特映會場次》\n台北場派對：7/19(三)19:00 台北欣欣秀泰影城 x5 (一組2張)\n\
@@ -78,7 +77,7 @@ date: 2023-07-13
 reply_count: 1364
 title: '[贈票]【Barbie芭比】今年夏天最粉紅的派對'
 url: https://www.ptt.cc/bbs/movie/M.1689225370.A.03D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -136,7 +135,7 @@ date: 2023-07-29
 reply_count: 59
 title: '[新聞]《Barbie芭比》女性主義惹怒酸民？電影在影評網「爛番茄」遭受到「負評'
 url: https://www.ptt.cc/bbs/movie/M.1690643769.A.1AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下幸運得獎人，可以搶先看【Barbie芭比】試映會
 
   將以站內信通知領獎事宜，請各位得獎者收到通知信後，
@@ -268,7 +267,7 @@ date: 2023-07-17
 reply_count: 91
 title: 'Re: [贈票]【Barbie芭比】今年夏天最粉紅的派對'
 url: https://www.ptt.cc/bbs/movie/M.1689569220.A.56D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '導演製作《Barbie芭比》聘用6千名臨演　為英國經濟帶來１億美元貢獻
 
 
@@ -312,7 +311,7 @@ date: 2023-11-15
 reply_count: 13
 title: '[新聞] 導演製作《Barbie芭比》聘用6千名臨演　'
 url: https://www.ptt.cc/bbs/movie/M.1700061327.A.70E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -451,7 +450,7 @@ date: 2023-07-31
 reply_count: 65
 title: '[新聞] 《Barbie芭比》全球近8億逼近「瑪利歐」、《奧本海默》破4億創R級'
 url: https://www.ptt.cc/bbs/movie/M.1690794738.A.425.html
---- !!python/object:movie_data.PublicReview
+---
 content: '資料來源：國家電影及視聽文化中心
 
 
@@ -484,7 +483,7 @@ date: 2023-08-04
 reply_count: 22
 title: '[討論] Barbie芭比票房 6890 萬'
 url: https://www.ptt.cc/bbs/movie/M.1691111719.A.716.html
---- !!python/object:movie_data.PublicReview
+---
 content: '瑪格羅比《Barbie芭比》電影宣傳開跑！
 
   最新華麗芭比造型曝光，從螢幕上美到現實世界
@@ -558,7 +557,7 @@ date: 2023-06-26
 reply_count: 67
 title: '[新聞] 瑪格羅比《Barbie芭比》電影宣傳開跑！'
 url: https://www.ptt.cc/bbs/movie/M.1687775615.A.A9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -611,7 +610,7 @@ date: 2023-08-01
 reply_count: 85
 title: '[新聞] 「Barbie芭比」全球票房將破10億 美泰兒'
 url: https://www.ptt.cc/bbs/movie/M.1690865143.A.DD3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天也看完芭比
 
 
@@ -713,7 +712,7 @@ date: 2023-07-30
 reply_count: 28
 title: 'Re: [新聞]《Barbie芭比》女性主義惹怒酸民？電影在'
 url: https://www.ptt.cc/bbs/movie/M.1690659480.A.AD6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\nBarbie芭比 (Barbie)\n電影-奇情幻想-英美\n04-05(五) 21:00~22:55\n04-06(六) 06:15~08:10\n\
   \n導演:\n葛麗塔吉薇格 (Greta Gerwig)\n演員:\n瑪格羅比 (Margot Robbie)\n雷恩葛斯林 (Ryan Gosling)\n\
   艾美莉佳法瑞拉 (America Ferrera)\n凱特麥金儂 (Kate McKinnon)\n伊莎芮 (Issa Rae)\n蕾培曼 (Rhea Perlman)\n\
@@ -724,7 +723,7 @@ date: 2024-04-05
 reply_count: 71
 title: '[LIVE] HBO 21:00 Barbie芭比 (Barbie)'
 url: https://www.ptt.cc/bbs/movie/M.1712308735.A.6C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看個電影也怕被貼標籤《Barbie芭比》在韓國意外不紅\n\n2023.08.11 10:30 臺北時間 文｜娛樂組\n\n\n儘管瑪格羅比曾親自到韓國宣傳，但《Barbie芭比》依然踩到當地敏感的女性主義禁忌，\n\
   無法吸引觀眾進戲院。（華納兄弟提供）\n\n儘管電影《Barbie芭比》在上映2週後，全球票房風光突破美金10億元，甚至在中國也掀\n起了相關的討論話題，但這部片卻在韓國意外不紅。畢竟女主角瑪格羅比（Margot\n\
   Robbie）當初亞洲宣傳還親自來韓打片。為什麼？\n\n《Barbie芭比》的內容意外在中國掀起了相關的女權討論話題，甚至連《紐約時報》（\nNew York\
@@ -740,7 +739,7 @@ date: 2023-08-11
 reply_count: 121
 title: '[新聞]看個電影也怕被貼標籤《Barbie芭比》在韓國'
 url: https://www.ptt.cc/bbs/movie/M.1691750703.A.404.html
---- !!python/object:movie_data.PublicReview
+---
 content: '芭比
 
 
@@ -808,7 +807,7 @@ date: 2023-08-12
 reply_count: 274
 title: '[無雷] Barbie芭比-真的好無聊好想睡'
 url: https://www.ptt.cc/bbs/movie/M.1691841001.A.AC8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "琥碧戈柏認為《Barbie芭比》葛莉塔潔薇及瑪格羅比並非遺珠，「這是主觀的，並不是人\n人都可以拿獎」\n\n2024-01-26電影神搜\n\n\
   \n\n奧斯卡金像獎入圍名單公開後，許多人都對《》導演以及\n沒有入圍最佳導演、最佳女主角感到驚訝。\n\n而近日以《第六感生死戀》榮獲奧斯卡最佳女配角的演員，被詢問到《\n\
   》成為遺珠的看法時，表示所謂的「」根本不存在。\n\n\n\n《》於今年奧斯卡共入圍最佳影片、最佳改編劇本、最佳男配角和原創歌曲等\n 8 項大獎，但許多人仍為和感到可惜。\n\
@@ -824,7 +823,7 @@ date: 2024-01-26
 reply_count: 40
 title: '[新聞] 琥碧戈柏認為《Barbie芭比》並非遺珠'
 url: https://www.ptt.cc/bbs/movie/M.1706254216.A.63F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（訪談內容算有雷，還沒看片的人請斟酌觀賞）
 
 
@@ -954,7 +953,7 @@ date: 2023-07-21
 reply_count: 9
 title: '[分享] 影響《Barbie芭比》創作的 33 部電影清單'
 url: https://www.ptt.cc/bbs/movie/M.1689871881.A.814.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《Barbie芭比》金句一次看！你要積極找尋自我，即便沒有我在身旁
 
 
@@ -1120,7 +1119,7 @@ date: 2023-08-03
 reply_count: 14
 title: '[新聞]《Barbie芭比》金句一次看！你要積極找尋自我'
 url: https://www.ptt.cc/bbs/movie/M.1691077729.A.D98.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【Barbie芭比】對決【奧本海默】！諾蘭真實反應曝光
 
 
@@ -1186,7 +1185,7 @@ date: 2023-07-13
 reply_count: 36
 title: '[新聞] 【Barbie芭比】對決【奧本海默】！諾蘭 '
 url: https://www.ptt.cc/bbs/movie/M.1689246394.A.A65.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1291,7 +1290,7 @@ date: 2023-10-19
 reply_count: 53
 title: '[新聞] 從《Barbie芭比》到泰勒絲，女性成為電影'
 url: https://www.ptt.cc/bbs/movie/M.1697705992.A.6B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '芭比就是芭比，粉紅色的性別諷刺喜劇
 
 
@@ -1535,7 +1534,7 @@ date: 2023-07-21
 reply_count: 1
 title: '[普雷]《Barbie芭比》典型非代表事事需完美'
 url: https://www.ptt.cc/bbs/movie/M.1689951943.A.BEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1584,7 +1583,7 @@ date: 2023-05-27
 reply_count: 29
 title: '[新聞] 真人版Barbie芭比開趴了！瑪格羅比「芭比'
 url: https://www.ptt.cc/bbs/movie/M.1685185320.A.217.html
---- !!python/object:movie_data.PublicReview
+---
 content: '琥碧大姊其實很有資格說這句話，
 
   當年她以"紫色姐妹花"(初版)入圍奧斯卡最佳女主角，全片提名十一項，

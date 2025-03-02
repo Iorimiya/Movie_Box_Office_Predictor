@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '我覺得就很簡單
 
 
@@ -76,14 +75,14 @@ date: 2024-08-25
 reply_count: 3
 title: 'Re: [討論] 關於《鬼才之道》本身的行銷與票房力'
 url: https://www.ptt.cc/bbs/movie/M.1724568308.A.CF6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《鬼才之道》前導片\n返校導演作品\n\n導演｜徐漢強\n編劇｜徐漢強 蔡坤霖\n主演｜陳柏霖 張榕容\n看前導還有羅芽里（眼球中央的眼肉芽）、曾威豪（瘦瘦）\n\
   \n劇情設定滿有趣的\n很期待～～～～～～\n\n粉絲團 \n粉絲團也滿有梗的\n去玩很多經典鬼片像是鬼影、靈異第六感、大法師、七夜怪談之類的\n\n--"
 date: 2021-02-17
 reply_count: 149
 title: '[討論] 《鬼才之道》前導 徐漢強.陳柏霖.張榕容'
 url: https://www.ptt.cc/bbs/movie/M.1613542974.A.C24.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位好，您熟悉的工讀生又來加班了。
 
 
@@ -331,7 +330,7 @@ date: 2024-08-13
 reply_count: 12
 title: '[好微雷] 《鬼才之道》、《驀然回首》一起推'
 url: https://www.ptt.cc/bbs/movie/M.1723486268.A.DBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '沒錯！我的眼睛就是要
 
   一・直・睜・那・麼・大！
@@ -364,7 +363,7 @@ date: 2024-03-29
 reply_count: 39
 title: '[情報] 【鬼才之道】8月7日 陽間大銀幕盛大上映'
 url: https://www.ptt.cc/bbs/movie/M.1711703275.A.CB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(Deadline原文新聞)
 
 
@@ -430,7 +429,7 @@ date: 2022-01-19
 reply_count: 11
 title: '[新聞] 索尼影業將投資徐漢強新作《鬼才之道》'
 url: https://www.ptt.cc/bbs/movie/M.1642575696.A.FF5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -782,7 +781,7 @@ date: 2024-08-09
 reply_count: 72
 title: '[好雷]鬼才之道：獻給被期待、與不被期待的人'
 url: https://www.ptt.cc/bbs/movie/M.1723209540.A.2A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩位的表現真的是非常的搶眼
 
   不過蠻有趣的是戲裡面張榕容演的是熟女大姐形象而姚以緹是後進年輕網紅造型
@@ -818,7 +817,7 @@ date: 2024-08-12
 reply_count: 7
 title: 'Re: [普雷] 鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723428346.A.C82.html
---- !!python/object:movie_data.PublicReview
+---
 content: "很高興看到台灣電影又有新的嘗試，我相信《鬼才之道》將會再度顛覆台灣觀眾對於鬼片\n的想像！\n\n我其實是一直很怕看鬼片的人，因為實在對 Jump\
   \ Scare 巨大的音效很難免疫，但是《鬼\n才之道》裡對於過往鬼片各種恐怖的戲謔，讓我之後或許能用另一種角度看鬼片，那些折\n腰扭頭的姿勢，都有新的惡趣味。\n\
   \n\n《鬼才之道》挪去宗教符號，講述沒有文化隔閡的情懷\n\n雖然是鬼片，但《鬼才之道》挪掉了大部分的宗教符號，你可以把他想像成鬼片版的《怪\n獸電力公司》，每個鬼都使勁想辦法嚇人得到業績，不然就會魂飛魄散。另一方面，《鬼\n\
@@ -839,7 +838,7 @@ date: 2024-07-30
 reply_count: 2
 title: '[好雷] 《鬼才之道》：鬼片版的《怪獸電力公司》'
 url: https://www.ptt.cc/bbs/movie/M.1722312200.A.499.html
---- !!python/object:movie_data.PublicReview
+---
 content: '又是王淨？《鬼才之道》導演徐漢強掛保證：她是首選
 
 
@@ -934,7 +933,7 @@ date: 2024-06-29
 reply_count: 47
 title: '[新聞] 又是王淨？鬼才之道導演徐漢強掛保證：'
 url: https://www.ptt.cc/bbs/movie/M.1719655016.A.5ED.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1004,7 +1003,7 @@ date: 2022-12-26
 reply_count: 39
 title: '[新聞] 《鬼才之道》開拍，陳柏霖 張榕容 王淨'
 url: https://www.ptt.cc/bbs/movie/M.1672028152.A.E90.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一般來說
 
   暑假是好萊塢強片如雲的檔期
@@ -1038,7 +1037,7 @@ date: 2024-08-03
 reply_count: 41
 title: '[討論] 鬼才之道排暑假檔是不是很猛呢?'
 url: https://www.ptt.cc/bbs/movie/M.1722652704.A.0E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是個不看恐怖片（俗稱鬼片）的人。身為九〇電視世代的資深兒童，在可以嘗試一點點
 
   靠近鬼又保持安全距離的範圍內，我能毫無畏懼觀看的就屬香港《開心鬼》、《暫時停止
@@ -1182,7 +1181,7 @@ date: 2024-08-07
 reply_count: 58
 title: '[好雷] 不看恐怖片的人 到此一遊《鬼才之道》 '
 url: https://www.ptt.cc/bbs/movie/M.1723023297.A.026.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完《鬼才之道》的試映，真是太激動了，
 
   想帶有事沒來的太太再看一次，回老家帶爸媽再看一次，
@@ -1365,7 +1364,7 @@ date: 2024-07-05
 reply_count: 92
 title: '[好無雷]《鬼才之道》好看到算爽片了吧！'
 url: https://www.ptt.cc/bbs/movie/M.1720115155.A.FF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '第一次來發文推薦電影
 
   看完的第二天來發文推薦這部電影
@@ -1476,7 +1475,7 @@ date: 2024-08-09
 reply_count: 53
 title: '[好無雷] 做人好累，做鬼好難！'
 url: https://www.ptt.cc/bbs/movie/M.1723180938.A.D4F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '臨時來A13
 
   猶豫要看哪部
@@ -1493,7 +1492,7 @@ date: 2024-08-26
 reply_count: 78
 title: '[選片] 角頭大橋頭 鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1724669291.A.CC1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "同學不用努力場    北中南搶先特映\n\n人生好難，努力也做不到怎麼辦？\n沒關係！先不用努力也！沒！關！係！遇到挫折先來看電影吧 (   \
   \          ♡)！\n\n如果你 30 歲（含）以下，又是以下兩類人\n      學生／就算延畢、被退學、考試不及格都沒問題\n      失業中的社會人士\n\
   \n都可以帶一位朋友，一起搶先看《鬼才之道》！\n\n   特映場次\n　—— 每場都有好幾百位以上，歡迎陽間人類塞爆戲院\n\n\n╔═════╗\n   \
@@ -1507,7 +1506,7 @@ date: 2024-07-01
 reply_count: 6
 title: '[討論] 鬼才之道30歲以下免費看'
 url: https://www.ptt.cc/bbs/movie/M.1719843847.A.26C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我認為各種類型的劇情片，在節奏和調性上最難掌握的是喜劇
 
 
@@ -1565,7 +1564,7 @@ date: 2024-09-05
 reply_count: 50
 title: '[好無雷] 鬼才之道是頂級的喜劇'
 url: https://www.ptt.cc/bbs/movie/M.1725547701.A.E84.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天跟朋友看了現正熱映中的《鬼才之道》（Dead Talents Society）
 
 
@@ -1641,7 +1640,7 @@ date: 2024-08-19
 reply_count: 33
 title: '[好雷] 大推徐漢強的鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1724054077.A.5CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
   國賓
@@ -1690,7 +1689,7 @@ date: 2024-08-14
 reply_count: 17
 title: '[好雷] 以商業片標準合格的鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723647479.A.4D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1860,7 +1859,7 @@ date: 2024-09-14
 reply_count: 29
 title: '[負雷] 拿掉玩哏就什麼也不剩的《鬼才之道》'
 url: https://www.ptt.cc/bbs/movie/M.1726299698.A.DA1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今天衝早場看完
 
   整體看完感覺是優缺參半
@@ -1948,7 +1947,7 @@ date: 2024-08-11
 reply_count: 65
 title: '[普雷] 鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723352873.A.ACF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n劇情歡樂，節奏明快，\n畫面好看，表演精湛。\n\n該溫馨時溫馨，該搞笑時搞笑\n不會有拖沓感\n音樂歌曲好好聽\n\n\n\
   \n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n這個世界觀的鬼 真的都超廢\n\n不會飛、不會穿牆、不會隔空取物，\n\
@@ -1962,7 +1961,7 @@ date: 2024-08-13
 reply_count: 19
 title: '[好雷] 鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723517384.A.4DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這20年國片少見的奇蹟
 
   記得應該只有海角七號是第一週平淡
@@ -2010,7 +2009,7 @@ date: 2024-08-20
 reply_count: 74
 title: 'Re: [討論] 鬼才之道票房慘輸角頭的原因探討'
 url: https://www.ptt.cc/bbs/movie/M.1724155520.A.062.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~ 文長 ~~~~~~~~~~
 
   ~~~~~~~~~~ 防雷 ~~~~~~~~~~
@@ -2249,7 +2248,7 @@ date: 2024-08-25
 reply_count: 19
 title: '[好雷] 鬼才之道，過早但真心的情懷'
 url: https://www.ptt.cc/bbs/movie/M.1724599871.A.013.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以搞笑片來看這部片真的蠻普的，讓我爆笑出來的笑點不多，大多是莞爾一笑。
 
 
@@ -2285,7 +2284,7 @@ date: 2024-08-11
 reply_count: 19
 title: '[普雷] 百合很香的鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723374731.A.9AB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《鬼才之道》包場燒電影票給好兄弟看！道長「進場維持秩序」曝廳內氣氛
 
 
@@ -2337,7 +2336,7 @@ date: 2024-08-05
 reply_count: 26
 title: '[新聞] 《鬼才之道》包場燒電影票給好兄弟看'
 url: https://www.ptt.cc/bbs/movie/M.1722826990.A.2C0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '恭喜以下幸運得獎人可以搶先看【鬼才之道】特映會
 
 
@@ -2455,7 +2454,7 @@ date: 2024-07-21
 reply_count: 36
 title: 'Re: [贈票] 【鬼才之道】北中南特映會搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1721548535.A.B67.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《鬼才之道》多倫多放映秒殺 王淨喊緊張\n\n04:10 2024/08/28 中國時報 李承陽\n\n\n導演徐漢強（右）將攜女主角王淨前往多倫多影展。（牽猴子提供）\n\
   \n喜劇電影《鬼才之道》入選今年多倫多國際影展午夜單元，影展方舉辦了3場放映，第1場\n選在皇家亞歷珊卓劇院，可容納上千人，26日一開賣，3場放映全數銷售一空，總計超過\n\
   1500個位子秒殺，對此導演徐漢強表示：「非常期待與國外觀眾一起觀賞，不論是喜劇脈\n絡或是角色設定，都想知道他們看完後的反應。」\n\n王淨過去也有作品登上國際影展，曾跟曾敬驊以《返校》參與釜山影展放映，《瀑布》也\n\
@@ -2468,7 +2467,7 @@ date: 2024-08-28
 reply_count: 10
 title: '[新聞] 《鬼才之道》多倫多放映秒殺 王淨喊緊張'
 url: https://www.ptt.cc/bbs/movie/M.1724857905.A.1A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "鬼才之道：\n1.將傳說鬼怪故事以邏輯的方式包裝。\n2.脈絡清晰、邏輯合理，形成一種另類的反差。\n3.非常輕鬆、有趣的娛樂大片，拍的在水準之上。\n\
   4.如果你單純想要有兩個小時的娛樂時光的話，鬼才之道是非常推薦的選擇！\n-----\nSent from JPTT on my iPhone\n\n--\n\n\
   \                             ╰○︿′\n          幫主，快躺下!!     ︿）\n                \
@@ -2477,7 +2476,7 @@ date: 2024-08-10
 reply_count: 46
 title: '[無雷]  鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723277756.A.981.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*\n\n\n\n\
   原作者很清晰的指出看完鬼才之道為什麼不爽的理由，覺得是很棒的觀察。轉貼來跟大家\n分享\n\n\n\n~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~\n\
   \n原作者：劉家維\n原出處：臉書公開文章 \n\n\n\n看完《鬼才之道》，朋友問起我的感想，我很想告訴他，不是看完蹲不出心得，只是五味\n雜陳，說不上來。\n\
@@ -2498,7 +2497,7 @@ date: 2024-08-30
 reply_count: 64
 title: '[好雷] 鬼才之道不是喜劇'
 url: https://www.ptt.cc/bbs/movie/M.1725017543.A.3C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2599,7 +2598,7 @@ date: 2024-08-13
 reply_count: 44
 title: '[ 好雷] 鬼才之道 我愛薩琳'
 url: https://www.ptt.cc/bbs/movie/M.1723486474.A.B54.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1. 輕鬆喜劇，有娛樂到我，不到爆笑，偶爾令人莞爾一笑\n\n   適合周末無腦放空\n\n2. 節奏前段輕快，當中幾段文戲只點到一些，很可惜\n\
   \n\n\n\n\n\n\n雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n3. 本來以為王淨飾演的同學是主角，看後覺的凱薩琳更有故事性\n\
@@ -2613,7 +2612,7 @@ date: 2024-08-11
 reply_count: 24
 title: '[普雷]鬼才之道-莞爾一笑的黑色幽默 '
 url: https://www.ptt.cc/bbs/movie/M.1723383513.A.705.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原po是AFKpl@yer的粉絲
 
   原po是AFKpl@yer的粉絲
@@ -3052,7 +3051,7 @@ date: 2024-09-08
 reply_count: 26
 title: '[好雷] 鬼才之道 '
 url: https://www.ptt.cc/bbs/movie/M.1725735953.A.D24.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這一點在看的時候就有一點同感\n  劇情有點想賣懷舊情感卻又不夠深\n  笑點想借鏡現在的笑點卻又太過淺\n\n  90年代的恐怖不是只有玫瑰之夜跟紅衣小女孩\n\
   \  幽靈船跟鏡子前削頻果之類的鄉野傳奇都是很好運用的素材\n\n  不少笑點的梗都有點借用網路梗或笑話有點過於淺碟\n  很少讓人印像深刻或笑的很大力的點\n\
   \  也或許這些演員們在演喜劇上的喜感不夠\n  （腦海裡第一個浮現的是林美秀）\n\n  賣舊情懷之餘還兼搞笑，這一點死侍與之金鋼狼就做的很到位\n\n\n\
@@ -3062,7 +3061,7 @@ date: 2024-08-25
 reply_count: 1
 title: 'Re: [討論] 關於《鬼才之道》本身的行銷與票房力'
 url: https://www.ptt.cc/bbs/movie/M.1724541153.A.2BF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《鬼才之道》摘5金 陳柏霖王淨互虧沒得獎\n\n04:10 2024/11/24 中國時報 謝采恩\n\n\n陳柏霖（左）、王淨23日一同擔任金馬獎頒獎人。（金馬執委會提供）\n\
   \n由徐漢強執導的恐怖喜劇片《鬼才之道》昨一連奪下「最佳造型設計」、「最佳美術設計\n獎」、「最佳動作設計獎」、「最佳視覺效果獎」，王若琳也以電影主題曲〈鬼才出道〉\n\
   獲「最佳原創電影歌曲獎」。\n\n特別的是，前兩個獎項由該片主演陳柏霖、王淨擔任頒獎人，2人默契穿著深色禮服登台\n，男帥女美合體畫面養眼，當他們連續把手上獎座都頒給同劇夥伴時，互相對看許久，興\n\
@@ -3074,7 +3073,7 @@ date: 2024-11-24
 reply_count: 9
 title: '[新聞] 《鬼才之道》摘5金 陳柏霖王淨互虧沒得獎'
 url: https://www.ptt.cc/bbs/movie/M.1732463695.A.FC3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*\n\n\n\n\n這篇是我認為目前看到寫得最直指核心的心得\n\
   經原作者同意\n由threads轉載\n\n文章題名是我擅自取的XD\n\n\n\n\n~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~\n\n\
   原作者 CY（threads帳號 cyo_cyao）\n原出處 \n\n\n最近跟朋友聊《鬼才之道》。\n\n這是一部完全屬於創作者心理的電影。我跟朋友說，為什麼它票房不容易賣？扣除奧運因\n\
@@ -3088,7 +3087,7 @@ date: 2024-08-19
 reply_count: 14
 title: '[好雷] 比鬼還不如的創作者處境—鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1724077616.A.189.html
---- !!python/object:movie_data.PublicReview
+---
 content: '文 編劇 / 蔡坤霖
 
 
@@ -3790,7 +3789,7 @@ date: 2024-08-09
 reply_count: 53
 title: 幹，到底什麼才是《鬼才之道》啦！
 url: https://www.ptt.cc/bbs/movie/M.1723176327.A.07E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我自己列幾個
 
   1.其實真的沒那麼好笑
@@ -4009,7 +4008,7 @@ date: 2024-08-19
 reply_count: 183
 title: '[討論] 鬼才之道票房慘輸角頭的原因探討'
 url: https://www.ptt.cc/bbs/movie/M.1724074990.A.90C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4207,7 +4206,7 @@ date: 2024-08-09
 reply_count: 36
 title: '[好雷] 鬼才之道 - 片尾有彩'
 url: https://www.ptt.cc/bbs/movie/M.1723193421.A.BAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這兩部在版上的評價好像都還行，想問在沒看過任何異形前作的前提下，會比較推薦去看
 
   哪一部呢？
@@ -4218,7 +4217,7 @@ date: 2024-08-16
 reply_count: 77
 title: '[選片] 鬼才之道vs異形：羅穆路斯'
 url: https://www.ptt.cc/bbs/movie/M.1723750367.A.548.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4386,7 +4385,7 @@ date: 2024-11-19
 reply_count: 7
 title: '[好雷] 鬼才之道—殺死同學的兇手'
 url: https://www.ptt.cc/bbs/movie/M.1731987195.A.422.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我是覺得你列出的三點只有第1點比較實在
 
 
@@ -4470,7 +4469,7 @@ date: 2024-08-19
 reply_count: 43
 title: 'Re: [討論] 鬼才之道票房慘輸角頭的原因探討'
 url: https://www.ptt.cc/bbs/movie/M.1724082411.A.1FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《鬼才之道》入選多倫多國際影展午夜瘋狂單元
 
 
@@ -4526,7 +4525,7 @@ date: 2024-07-27
 reply_count: 12
 title: '[新聞] 《鬼才之道》入選多倫多國際影展午夜瘋狂'
 url: https://www.ptt.cc/bbs/movie/M.1722013301.A.3C4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完特映會  覺得應該來推薦一下這部電影
 
 
@@ -4618,7 +4617,7 @@ date: 2024-07-11
 reply_count: 12
 title: '[好雷] 鬼才之道 — 特映心得儘量不雷'
 url: https://www.ptt.cc/bbs/movie/M.1720706355.A.457.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4733,7 +4732,7 @@ date: 2024-08-17
 reply_count: 19
 title: '[好雷] 一封來自陰間的情書—鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723902045.A.246.html
---- !!python/object:movie_data.PublicReview
+---
 content: '當初剛看到鬼才之道預告片時
 
   覺得整個劇本蠻有創意的
@@ -4801,7 +4800,7 @@ date: 2024-08-13
 reply_count: 14
 title: '[ 普雷]  鬼才之道 有點好笑不到癢處'
 url: https://www.ptt.cc/bbs/movie/M.1723557594.A.1E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "王淨《鬼才之道》把路人變影迷\n\n徐漢強喊累放棄《還願》導演筒\n\n04:10 2024/08/07 中國時報 李承陽\n\n\n陳柏霖6日出席電影首映，分享拍攝幕後心得。（牽猴子提供）\n\
   \n陰間題材喜劇電影《鬼才之道》6日舉辦首映會，導演徐漢強率領主演陳柏霖、張榕容、\n王淨、百白、瘦瘦、姚以緹、黃迪揚等人出席。電影近日舉辦多場特映，演員們收到不少\n\
   反饋，其中王淨分享，某場映後自己收到1張觀眾送的卡片，內文開頭竟是對方直說自己\n沒有特別喜歡她。\n\n王淨分享卡片內容：「那個影迷說他沒有很喜歡我，但他後來因緣際會看到《鬼才之道》\n\
@@ -4815,7 +4814,7 @@ date: 2024-08-07
 reply_count: 26
 title: '[新聞] 王淨《鬼才之道》把路人變影迷'
 url: https://www.ptt.cc/bbs/movie/M.1723045997.A.1E5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '上週四上映
 
   截止至周日的首周末票房為811725港幣
@@ -4852,7 +4851,7 @@ date: 2024-08-20
 reply_count: 148
 title: '[討論] 原來鬼才之道香港上映了 票房也不佳'
 url: https://www.ptt.cc/bbs/movie/M.1724140735.A.3A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我以為今天才上映
 
   沒想到週三就上映了
@@ -4895,7 +4894,7 @@ date: 2024-08-09
 reply_count: 200
 title: '[討論] 鬼才之道票房崩盤？'
 url: https://www.ptt.cc/bbs/movie/M.1723200295.A.2E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '提醒電影跑完字幕會有大量彩蛋，真的蠻大量的。電影從前幾年就受到關注前導影片開始
 
   延伸補充故事，從動作設計、美術、特效到攝影、演員、劇本都具有賣座商業片的潛力質
@@ -4998,7 +4997,7 @@ date: 2024-06-30
 reply_count: 19
 title: '[好雷] 《鬼才之道》下半年票房指標精彩台片'
 url: https://www.ptt.cc/bbs/movie/M.1719689098.A.E60.html
---- !!python/object:movie_data.PublicReview
+---
 content: "王淨拍《鬼才之道》開心收穫一群好夥伴\n\n04:10 2024/08/11 中國時報 孫伊萱\n\n\n王淨（前排左起）、百白、瘦瘦與陳柏霖（後排）10日出席映後講到眼淚潰堤。\n\
   （牽猴子提供）\n\n電影《鬼才之道》上映首周，陳柏霖率張榕榕、王淨、百白及瘦瘦組成的「旺來5人幫」\n勤跑戲院活動，甚至在北中南分別舉辦拍照會和簽名會，更有韓國粉絲搭機來台，陳柏霖\n\
   不忘大秀韓文問影迷：「電影好看嗎？」張榕榕立刻驚訝讚：「Makoto（陳柏霖角色名）\n不只會唱會跳還會講韓文，不愧是全能偶像。」\n\n電影笑淚交織，感動許多觀眾，5人幫也多次在映後講到眼淚潰堤，王淨很開心因《鬼才\n\
@@ -5011,7 +5010,7 @@ date: 2024-08-11
 reply_count: 7
 title: '[新聞] 王淨拍《鬼才之道》開心收穫一群好夥伴'
 url: https://www.ptt.cc/bbs/movie/M.1723391544.A.7C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -5074,7 +5073,7 @@ date: 2024-09-02
 reply_count: 5
 title: '[好雷] 鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1725277389.A.7EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就是愛在電影院──在中山堂
 
 
@@ -5129,7 +5128,7 @@ date: 2024-06-29
 reply_count: 11
 title: '[微微雷] 鬼才之道，鬼才知道'
 url: https://www.ptt.cc/bbs/movie/M.1719618567.A.987.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《》\n\n\n輔 12 級｜110 分鐘\n\n各地的朋友們，先看好附近的戲院\n\n暑假必看強檔電影，首週就要馬上進場\n\n各式影廳活動如火如荼準備中，\n\
   \n請大家密切關注粉專\n\n活動多到天天都在過節\n\n【】導演  全新陰間喜劇\n\n   主演\n\n【】8月7日（週三）\n\n  陽間大銀幕盛大上映\n\
   \n\n資料來源：\n\n--"
@@ -5137,7 +5136,7 @@ date: 2024-07-31
 reply_count: 6
 title: '[情報] 《鬼才之道》全台上映戲院 '
 url: https://www.ptt.cc/bbs/movie/M.1722356492.A.0B0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '目前發布的三張海報
 
 
@@ -5174,7 +5173,7 @@ date: 2024-04-01
 reply_count: 46
 title: '[討論] 《鬼才之道》女主是王淨不是張榕容？'
 url: https://www.ptt.cc/bbs/movie/M.1711946227.A.676.html
---- !!python/object:movie_data.PublicReview
+---
 content: '蠻喜歡這部電影
 
   很多諷刺點都很到位
@@ -5229,7 +5228,7 @@ date: 2024-08-28
 reply_count: 7
 title: '[好雷] 鬼才之道 劇場版全聯普渡系列'
 url: https://www.ptt.cc/bbs/movie/M.1724776234.A.7C5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【鬼才之道】由【返校】導演徐漢強執導，故事講述一隻厭世的孤魂野鬼為了免於消失的
 
   命運，決定成為嚇人的女鬼，也因此捲入靈界演藝圈的各種風波。
@@ -5283,7 +5282,7 @@ date: 2024-08-09
 reply_count: 17
 title: '[普好雷] 鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1723198352.A.3EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '會不會是台灣喜劇並沒有基本盤？但是八加九片有？
 
 
@@ -5325,7 +5324,7 @@ date: 2024-08-20
 reply_count: 72
 title: 'Re: [討論] 鬼才之道票房慘輸角頭的原因探討'
 url: https://www.ptt.cc/bbs/movie/M.1724088873.A.604.html
---- !!python/object:movie_data.PublicReview
+---
 content: '三年前看過此片的前導預告就非常喜歡
 
 
@@ -5376,7 +5375,7 @@ date: 2024-08-07
 reply_count: 95
 title: '[好無雷] 鬼才之道  '
 url: https://www.ptt.cc/bbs/movie/M.1722963238.A.CDB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '狂賀！ 中華隊勇奪世界冠軍
 
   再賀！鬼才之道金馬獎獲獎最多
@@ -5410,7 +5409,7 @@ date: 2024-11-25
 reply_count: 11
 title: '[討論] 西門國賓鬼才之道25號領票26號看'
 url: https://www.ptt.cc/bbs/movie/M.1732527491.A.0D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*\n\n\n\n\n\
   \n\n感謝瀟湘神好文分享\n\n我覺得本篇很好的說明了地獄的心情\n\n文章很長、有興趣再看就好\n\n\n\n\n\n\n~~~~~~~~~~~雷文 主文分隔線\
   \ ~~~~~~~~~~~\n\n原作：瀟湘神\n原出處：瀟湘神臉書 \n\n\n《鬼才之道》——在地獄中爆笑，怎麼笑完還在地獄？\n\n\n\n　　記得年輕時聽過一個笑話：日本的幽靈出現時，不是會說「うらめしや」（好恨啊）\n\
@@ -5453,7 +5452,7 @@ date: 2024-08-20
 reply_count: 19
 title: '[好雷] 鬼才之道—在地獄中爆笑完怎麼還在地獄'
 url: https://www.ptt.cc/bbs/movie/M.1724149944.A.53F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實本來對預告的剪輯法，就感覺不太對我的胃口，但友人很有興趣所以被拉了進去，確實
 
 
@@ -5518,7 +5517,7 @@ date: 2024-08-15
 reply_count: 12
 title: '[普微雷] 生硬的鬼才之道 '
 url: https://www.ptt.cc/bbs/movie/M.1723666460.A.B54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '說真的我是因為一堆人一堆影評一堆網紅說很好看我才去看的
 
   真的是一堆人
@@ -5602,7 +5601,7 @@ date: 2024-08-25
 reply_count: 15
 title: 'Re: [討論] 關於《鬼才之道》本身的行銷與票房力'
 url: https://www.ptt.cc/bbs/movie/M.1724525350.A.327.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n昨天才看鬼才之道\n雖然評價似乎滿兩極\
   \ 但個人覺得滿喜歡\n以鬼的世界來當主軸像可可夜總會\n結合很多台灣人才懂得鬼梗滿有趣\n燒冥紙 紅衣小女孩 爬玉山 雪山隧道 … 等等的很有感\n有一種台式黑色幽默大集合的感覺\n\
@@ -5613,7 +5612,7 @@ date: 2024-09-06
 reply_count: 37
 title: '[ 好雷] 鬼才之道觀後感 '
 url: https://www.ptt.cc/bbs/movie/M.1725597449.A.739.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家近期熱門討論>>
 
   為何《鬼才之道》票房慘輸角頭？
@@ -5753,7 +5752,7 @@ date: 2024-08-25
 reply_count: 76
 title: '[討論] 關於《鬼才之道》本身的行銷與票房力'
 url: https://www.ptt.cc/bbs/movie/M.1724518399.A.CB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我喜歡「鬼才之道」
 
 
@@ -5790,7 +5789,7 @@ date: 2024-08-20
 reply_count: 38
 title: 'Re: [討論] 鬼才之道票房慘輸角頭的原因探討'
 url: https://www.ptt.cc/bbs/movie/M.1724118815.A.21A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【鬼才之道】首支預告 - 8月7日（週三）陽間大銀幕盛大上映
 
 
@@ -5817,7 +5816,7 @@ date: 2024-04-01
 reply_count: 25
 title: '[情報] 【鬼才之道】首支預告 - 8月7日上映'
 url: https://www.ptt.cc/bbs/movie/M.1711960154.A.C89.html
---- !!python/object:movie_data.PublicReview
+---
 content: '張榕容被譽最美鬼后！《鬼才之道》「入選11國際影展」再傳好消息
 
 
@@ -5883,7 +5882,7 @@ date: 2024-08-18
 reply_count: 86
 title: '[新聞] 《鬼才之道》入選11國際影展  再傳好消息'
 url: https://www.ptt.cc/bbs/movie/M.1723994968.A.FA3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*\n\n\n\n感謝劉仲彬臨床心理師的好文分享\n\
   \n專家用心理學的專業，以簡單的專有名詞\n\n幾個字就點出了角色的核心\n\n非常撫慰、原來是這麼回事呀～～\n\n跟大家分享\n\n原來同樣被同學這個角色所治癒的你我、心理學是這樣說呀～～\n\
   \n\n\n~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~\n\n原作者：劉仲彬\n原出處：心理師的腦中小劇場 - 劉仲彬臨床心理師 \n\n\
@@ -5919,7 +5918,7 @@ date: 2024-08-22
 reply_count: 14
 title: '[好雷] 臨床心理師的觀點—鬼才之道'
 url: https://www.ptt.cc/bbs/movie/M.1724325931.A.099.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -5983,7 +5982,7 @@ date: 2024-10-03
 reply_count: 84
 title: '[新聞] 《鬼才之道》導演爆太累 請辭《還願》'
 url: https://www.ptt.cc/bbs/movie/M.1727902115.A.85D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "內文有雷且具個人觀點，推薦觀影後再讀。\n\n　　　　本片目前場次有限，有意還請把握。\n\n\n\n　　　　圖文網頁版：\n\n　　　　\n\n\
   \n　　　　預告片：\n\n　　　　\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\
   \n怎樣才算被看見：《鬼才之道》\n\n\n\n\n\n　　第一次看完《鬼才之道》之後，我腦中出現一個問題：\n\n\n\n　　誰是主角？\n\n\n\n　　電影一開始先讓我們看到靠著４１４號房傳說紅遍鬼界的凱薩琳（張榕\n\
@@ -6026,7 +6025,7 @@ date: 2024-09-11
 reply_count: 25
 title: '[好雷] 怎樣才算被看見：《鬼才之道》'
 url: https://www.ptt.cc/bbs/movie/M.1726068206.A.ED3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到鬼片都會想到一些事 跟片子內建不合
 
   所有片都一樣 即使拍最恐怖都會笑 世上沒有鬼
@@ -6055,7 +6054,7 @@ date: 2022-12-26
 reply_count: 8
 title: 'Re: [新聞] 《鬼才之道》開拍，陳柏霖 張榕容 王淨'
 url: https://www.ptt.cc/bbs/movie/M.1672065489.A.488.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道各位有沒有經過捷運站看到手扶梯旁的廣告
 
 
@@ -6097,7 +6096,7 @@ date: 2024-08-20
 reply_count: 57
 title: 'Re: [討論] 鬼才之道票房慘輸角頭的原因探討'
 url: https://www.ptt.cc/bbs/movie/M.1724120375.A.268.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -6195,7 +6194,7 @@ date: 2024-08-10
 reply_count: 22
 title: '[好雷] 鬼才之道 能理解的虎頭蛇尾 '
 url: https://www.ptt.cc/bbs/movie/M.1723292161.A.233.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我住台中，在親親戲院看過大橋頭
 
   有個朋友是鬼才粉，看了12次鬼才
@@ -6438,7 +6437,7 @@ date: 2024-09-04
 reply_count: 135
 title: 'Re: [討論] 鬼才之道票房慘輸角頭的原因探討'
 url: https://www.ptt.cc/bbs/movie/M.1725419992.A.34F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原本是因為朋友有參演《鬼才之道》，所以才來看這部片。
 
   看完後遠超過我的期待，真的是一部很有趣的片。
@@ -6520,7 +6519,7 @@ date: 2024-08-15
 reply_count: 13
 title: '[好雷] 《鬼才之道》——與過去的自己和解'
 url: https://www.ptt.cc/bbs/movie/M.1723681217.A.DAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '兩片宣傳力道差那麼多有什麼好比的
 
   還寫的洋洋灑灑大篇論文探討
@@ -6544,7 +6543,7 @@ date: 2024-09-04
 reply_count: 84
 title: 'Re: [討論] 鬼才之道票房慘輸角頭的原因探討'
 url: https://www.ptt.cc/bbs/movie/M.1725432088.A.5F1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "把聲音開到最大聲，跟預告一起尖叫\n\n人生很難，鬼生竟然也不容易\n不嚇出名堂成為當紅傳說，就有可能被消失！\n不只要挑戰極限運動、體操選手，還要天天想出嚇人新企劃讓自己「被看見」\n\
   \n在陰間也不得閒的鬼們，到底都在搞什麼鬼，鬼才知道！\n\n貼給所有你想對他尖叫的傢伙，鬼才嚇他\n\n\n 《返校》製作團隊全新陰間喜劇\n金獎億萬導演徐漢強最新作品\n\
   \n 《鬼才之道》    8 月 7 日    陽間大銀幕盛大上映\n\n\n預告剪輯｜林雍益\n\n-\n\n陳柏霖    張榕容    王淨 姚以緹   \
@@ -6554,7 +6553,7 @@ date: 2024-07-04
 reply_count: 21
 title: '[情報] 【鬼才之道】正式預告 8/7陽間大銀幕上映'
 url: https://www.ptt.cc/bbs/movie/M.1720079509.A.532.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本文網誌版：
 
 
@@ -6863,7 +6862,7 @@ date: 2024-08-13
 reply_count: 27
 title: '[好雷] 《鬼才之道》電影心得（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1723512330.A.495.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看了很多篇在疑問《鬼才之道》票房為什麼不好，還有為什麼輸角頭的文，都立論在這部片子那麼好，為什麼沒人看？
 
 
@@ -6896,7 +6895,7 @@ date: 2024-08-25
 reply_count: 81
 title: 'Re: [討論] 關於《鬼才之道》本身的行銷與票房力'
 url: https://www.ptt.cc/bbs/movie/M.1724545328.A.FA5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本周一刷完
 
 
@@ -6998,7 +6997,7 @@ date: 2024-08-25
 reply_count: 27
 title: 'Re: [討論] 關於《鬼才之道》本身的行銷與票房力'
 url: https://www.ptt.cc/bbs/movie/M.1724521789.A.C0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "★ 《返校》製作團隊全新陰間喜劇\n★ 金獎億萬導演徐漢強最新作品\n★ 8 月 7 日   陽間大銀幕盛大上映\n★ 最新預告：\n\n人生很難，鬼生竟然也不容易！\n\
   不嚇出名堂成為當紅傳說，就有可能被消失\n不只要挑戰極限，還要想出嚇人新企劃讓自己「被看見」\n在陰間也不得閒的鬼們，到底都在搞什麼鬼？\n鬼才知道！\n\n\n\
   推文留言你想要看【鬼才之道】的原因+想參加的場次，就有機會搶先看電影！\n\n\n【鬼才之道】電影特映票（一人中獎兩人同行）\n\n\n台中場：7/23（二）19:00\

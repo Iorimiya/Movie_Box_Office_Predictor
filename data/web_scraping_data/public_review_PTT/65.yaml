@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '有些作品我們在看完之後其實不知道是好還是不好。那跟以前的觀影識讀體驗實在是差距
 
 
@@ -479,7 +478,7 @@ date: 2016-12-19
 reply_count: 9
 title: '[好雷]《記憶乍響》琥珀色靈光的漂浮夢土 '
 url: https://www.ptt.cc/bbs/movie/M.1482149264.A.C08.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【殺人者的記憶法】（ (Memoir of a Murderer)│118分鐘│輔導級｜韓文發音
 
 
@@ -969,7 +968,7 @@ date: 2017-10-18
 reply_count: 9
 title: '[好雷]【殺人者的記憶法】回憶是我們之間僅存的 '
 url: https://www.ptt.cc/bbs/movie/M.1508327434.A.2CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文版請於連結：
 
 
@@ -1107,7 +1106,7 @@ date: 2019-06-26
 reply_count: 4
 title: '[微雷] 《記憶考驗》一分鐘內你能記多少東西？'
 url: https://www.ptt.cc/bbs/movie/M.1561542392.A.702.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.那些擺飾並不是他老婆的真正遺物。例如：他老婆曾經有過一把一樣的梳子，
 
   他只是去買了一把一樣的梳子，假裝是他老婆的遺物，然後擺設並燒掉。
@@ -1159,7 +1158,7 @@ date: 2021-12-27
 reply_count: 5
 title: 'Re: [問題] 記憶拼圖的問題'
 url: https://www.ptt.cc/bbs/movie/M.1640616867.A.375.html
---- !!python/object:movie_data.PublicReview
+---
 content: '--------
 
 
@@ -1245,7 +1244,7 @@ date: 2007-08-31
 reply_count: 4
 title: '[好雷] 明日的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1188571135.A.957.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(開場防雷頁就先來紓個感吧
 
 
@@ -1377,7 +1376,7 @@ date: 2016-07-30
 reply_count: 3
 title: '[好?負?雷] 與記憶中的六弄差很多的六弄'
 url: https://www.ptt.cc/bbs/movie/M.1469863524.A.6EF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本文同時發表於網誌：\n\n        多重觀點的悲痛呈現──《明日的記憶》小說與電影的比較\n\n        接觸這部作品的方式相當特殊，從一開始看預告片的潸然淚下，打算\n\
   \        在觀影之前閱畢小說卻不幸只讀完三分之一，到特映會後半的淚眼婆\n        娑，觀影後在家裡異常沉靜的閱讀過程，如此電影與小說交替消化的\n\
   \        我，深刻地體會到以不同角度接觸作品，所帶來的各種影響。\n\n        無庸置疑，這是一部能讓大部分讀者（或觀眾）感動、乃至流淚的作\n\
@@ -1424,7 +1423,7 @@ date: 2007-09-06
 reply_count: 13
 title: '[好雷] 《明日的記憶》小說與電影的比較'
 url: https://www.ptt.cc/bbs/movie/M.1189015484.A.54F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1620,7 +1619,7 @@ date: 2021-03-07
 reply_count: 3
 title: '[普雷] 消失的情人節：我還在妳記憶的邊沿地帶'
 url: https://www.ptt.cc/bbs/movie/M.1615051472.A.C75.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1829,7 +1828,7 @@ date: 2019-03-23
 reply_count: 2
 title: '[好雷]《老大人》鼻子存放著對於老婆的記憶 '
 url: https://www.ptt.cc/bbs/movie/M.1553309908.A.228.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的 LittleDiDi
@@ -2042,7 +2041,7 @@ date: 2018-01-28
 reply_count: 5
 title: '[負雷] 撕裂記憶體 - 作人別太得寸進尺啊'
 url: https://www.ptt.cc/bbs/movie/M.1517136676.A.3B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "在聊這部片之前，想先說一下自己看電影的情形...\n\n ( 想直接被雷的請 PgDn )\n\n 前年在澳洲一年的時間平均一周去電影院看一部電影，\n\
   \n 因為舒適的環境和一部不到台幣$200的票價我覺得看電影是種享受\n\n 回來後的前半年，大多是去看連續兩部的二輪片戲院，\n\n 可以吃自己想吃的東西和便宜的票價其實也可以接受，\n\
   \n 但因為二輪片的選擇幾乎要和已經發行藍光的時間點相同，\n\n 半年前採購了投影機和陸續購入的新舊3D藍光和DVD影碟\n\n 可坐可躺的在自己家裡看電影就成為了我現在的休閒模式。\n\
@@ -2072,7 +2071,7 @@ date: 2015-05-04
 reply_count: 3
 title: '[好雷] 五月一号 - 找回80年代的青春記憶 '
 url: https://www.ptt.cc/bbs/movie/M.1430683179.A.6B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '連恩尼遜顛覆銀幕形象　懸疑犯罪新作《記憶殺神》大開殺戒
 
 
@@ -2145,7 +2144,7 @@ date: 2022-04-10
 reply_count: 20
 title: '[新聞] 連恩尼遜顛覆形象 懸疑新作《記憶殺神》'
 url: https://www.ptt.cc/bbs/movie/M.1649525451.A.726.html
---- !!python/object:movie_data.PublicReview
+---
 content: '評分
 
 
@@ -2191,7 +2190,7 @@ date: 2018-05-21
 reply_count: 14
 title: '[負雷] 記憶傳承者 — 做爛了小說the giver'
 url: https://www.ptt.cc/bbs/movie/M.1526886005.A.705.html
---- !!python/object:movie_data.PublicReview
+---
 content: '哈囉米那桑
 
 
@@ -2231,7 +2230,7 @@ date: 2016-09-16
 reply_count: 6
 title: '[問片] 請大家幫忙尋找童年記憶'
 url: https://www.ptt.cc/bbs/movie/M.1474034464.A.398.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「夏日時光」叩問：藝術何價?記憶何價?親情又何價? By陳樂融
 
 
@@ -2364,7 +2363,7 @@ date: 2008-07-09
 reply_count: 4
 title: '[影評]「夏日時光」叩問：藝術何價?記憶何價?親情又何價? By陳樂融'
 url: https://www.ptt.cc/bbs/movie/M.1215617572.A.F7D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -2620,7 +2619,7 @@ date: 2018-08-05
 reply_count: 5
 title: '[普雷] 殺人者的記憶法 - 記憶碎片+全面啟動 ?'
 url: https://www.ptt.cc/bbs/movie/M.1533402446.A.F62.html
---- !!python/object:movie_data.PublicReview
+---
 content: '動畫很流行的題材，異世界轉生已經多到像衛生紙，但電影好像還找不到類似題材，可能
 
   是我找片能力太弱，或是我搜尋條件太嚴苛，那就放寬到轉生留有前世記憶，有這樣的電
@@ -2640,7 +2639,7 @@ date: 2023-08-09
 reply_count: 46
 title: '[片單] 轉生留有前世記憶的電影'
 url: https://www.ptt.cc/bbs/movie/M.1691591955.A.561.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【代po】
 
   以下有雷
@@ -2694,7 +2693,7 @@ date: 2018-03-20
 reply_count: 2
 title: '[好雷]記憶中的擁抱'
 url: https://www.ptt.cc/bbs/movie/M.1521515498.A.025.html
---- !!python/object:movie_data.PublicReview
+---
 content: '身為同志的我
 
   其實感覺演員有一些劇情捉不穩
@@ -2803,7 +2802,7 @@ date: 2023-02-11
 reply_count: 17
 title: 'Re: [普偏負雷] 關於我和鬼成為家人 沒太大記憶點的電影'
 url: https://www.ptt.cc/bbs/movie/M.1676057952.A.B5E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2007年12月26日，由西班牙工人社會黨主動提案，檢討佛朗哥將軍執政時期
 
   所作所為的《歷史記憶法》（Proyecto de Ley de la Memoria Históric）
@@ -2836,7 +2835,7 @@ date: 2022-03-07
 reply_count: 2
 title: '[微雷] 平行母親之西班牙歷史記憶法'
 url: https://www.ptt.cc/bbs/movie/M.1646610521.A.A58.html
---- !!python/object:movie_data.PublicReview
+---
 content: "感謝大家的推文參與，稍晚會再寄發站內信通知。\n\n伊莎貝雨蓓X傑西艾森伯格 首度合作\n《八月三十一日，我在奧斯陸》導演第三部作品即打入坎城影展正式競賽單元\n\
   \n中獎名單：\nrabbitwei369\njones921245\nawajireika\n\n*每位得獎者可攜帶一名同伴觀影，\n請於12月13日12:00前回覆資料，逾時將取消得獎資格。\n\
   \n\n \n\n\n首度同台演出 最揪心的家庭密語\n\n\n\n「比爆炸還響亮的，是過於喧囂的秘密。」\n\n\n\n台北｜國賓長春、誠品電影院、真善美劇院\n\
@@ -2852,7 +2851,7 @@ date: 2016-12-12
 reply_count: 280
 title: 'Re: [贈票] 傑西艾森柏格X伊莎貝雨蓓《記憶乍響》'
 url: https://www.ptt.cc/bbs/movie/M.1481520024.A.E74.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影的故事背景是在未來世界中
 
 
@@ -2984,7 +2983,7 @@ date: 2014-10-25
 reply_count: 7
 title: '[問片] 問一部可能超過20年有關記憶的科幻片'
 url: https://www.ptt.cc/bbs/movie/M.1414226663.A.3C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你誤會了
 
 
@@ -3022,7 +3021,7 @@ date: 2017-03-06
 reply_count: 9
 title: 'Re: [普雷] 記憶拼圖過譽了'
 url: https://www.ptt.cc/bbs/movie/M.1488812586.A.53B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n1.影片名稱\
   \ : 移動城市：致命引擎 Mortal Engines\n\n2.觀影時間 : 12/11\n\n3.觀影地點 : 美麗華大直 IMAX\n\n4.觀影方式\
   \ : 自行購票\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n~~~~~~~~~~~~~~~~~~~\
@@ -3096,7 +3095,7 @@ date: 2018-12-14
 reply_count: 39
 title: '[好雷] 移動城市：致命引擎。巨輪、歷史與記憶'
 url: https://www.ptt.cc/bbs/movie/M.1544738581.A.E52.html
---- !!python/object:movie_data.PublicReview
+---
 content: '初看預告，不免感嘆「啊，又是這種類型的電影」。不知為何，話題國片例如《我的少女時代》、《那些年》總繞著高中回憶打轉，興許是躁動的青春總是特別戲劇化吧，而這些可歌可泣最終化為記憶深處忘卻不了的美好，在無數個夜晚縈繞心頭。衝著金馬加持、衝著YouTube剛好推了盧廣仲，縱使期中考迫在眉睫我還是等不及的進電影院。
 
 
@@ -3132,7 +3131,7 @@ date: 2020-10-06
 reply_count: 7
 title: '[好雷] 記憶最深處的美好－《刻在你心底的名字》'
 url: https://www.ptt.cc/bbs/movie/M.1601927521.A.B7E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '跑去看完了科洛弗
 
 
@@ -3191,7 +3190,7 @@ date: 2016-04-07
 reply_count: 21
 title: '[問片] 兩部記憶十分模糊含有考驗人性的災難片?'
 url: https://www.ptt.cc/bbs/movie/M.1460044794.A.1B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以下為完整片單，有一系列都是伍迪艾倫的電影，黑寡婦演出的 愛情決勝點 / 遇上塔羅\n牌情人 都蠻推薦的，對前者的結局印象至今還是很震撼\n\n\
   -\n\n記憶拼圖(導演版) : \n\n-\n\n愛情決勝點 : \n\n-\n\n遇上塔羅牌情人 : \n\n-\n\n非強力春藥 : \n\n-\n\n\
   王爾德與他的情人 : \n\n-\n\n這部是艾瑪華森的片子，也蠻推薦\n星光大盜 : \n\n-\n\n今晚誰當家 : \n\n-\n\n黑心交易員的告白 :\
@@ -3201,7 +3200,7 @@ date: 2019-05-20
 reply_count: 3
 title: '[情報] iTunes多部$90 #愛情決勝點 #記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1558352938.A.F7C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是一部非常適合在大螢幕上觀看、
 
   讓人思考沉澱的細膩電影作品
@@ -3388,7 +3387,7 @@ date: 2018-04-01
 reply_count: 1
 title: '[好雷] 記憶中的擁抱 '
 url: https://www.ptt.cc/bbs/movie/M.1522585238.A.AF7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷雷雷!!!
 
 
@@ -3688,7 +3687,7 @@ date: 2015-04-08
 reply_count: 2
 title: 'Re: [請益] 記憶拼圖  好多疑問'
 url: https://www.ptt.cc/bbs/movie/M.1428424414.A.AAB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '改編自比利時電影，皇家夜總會導演馬丁坎貝爾執導，連恩尼遜，蓋皮爾斯，莫妮卡
 
   貝露琪主演，講述連恩尼遜飾演的殺手艾力克斯路易斯 (Alex Lewis)，拒絕為一個危險
@@ -3706,7 +3705,7 @@ date: 2022-03-16
 reply_count: 7
 title: '[討論] 最強老爸「記憶」預告'
 url: https://www.ptt.cc/bbs/movie/M.1647418375.A.B52.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該是烏托邦電影
 
   設定是未來世界
@@ -3749,7 +3748,7 @@ date: 2022-05-17
 reply_count: 9
 title: '[問片] 反烏托邦電影（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1652771969.A.8B8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實上禮拜原版就出來啦
 
 
@@ -3767,7 +3766,7 @@ date: 2017-07-26
 reply_count: 11
 title: '[討論] 誠實預告中文版-諾蘭神片「記憶拼圖」'
 url: https://www.ptt.cc/bbs/movie/M.1501081704.A.200.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前陣子看的預告
 
   是港片..的樣子吧
@@ -3801,7 +3800,7 @@ date: 2017-01-03
 reply_count: 6
 title: '[問片] 把不愉快記憶給忘掉結果被攻打？'
 url: https://www.ptt.cc/bbs/movie/M.1483442290.A.610.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想去看明日世界  但是評價好像不怎麼好
 
 
@@ -3831,7 +3830,7 @@ date: 2015-05-24
 reply_count: 18
 title: '[請益] 明日世界和記憶傳承人：極樂世界 比較？'
 url: https://www.ptt.cc/bbs/movie/M.1432445022.A.333.html
---- !!python/object:movie_data.PublicReview
+---
 content: "首度同台演出 最揪心的家庭密語\n\n\n\n「比爆炸還響亮的，是過於喧囂的秘密。」\n\n\n\n台北｜國賓長春、誠品電影院、真善美劇院\n\
   桃園｜星橋國際影城\n高雄｜MLD Cinema\n\n 看完預告請在此篇推文回覆想看的原因\n\n 12/13 （二）真善美劇院21:00 （片長109分）\n\
   電影特映券2張（共3名）\n\n 即刻至12/11（日）23:59\n\n 12/12（一）12:00於電影版公布得獎名單\n\n\n每個人的內心才是真正無可碰觸的陌生境地\n\
@@ -3845,7 +3844,7 @@ date: 2016-12-05
 reply_count: 288
 title: '[贈票] 傑西艾森柏格X伊莎貝雨蓓《記憶乍響》'
 url: https://www.ptt.cc/bbs/movie/M.1480917918.A.397.html
---- !!python/object:movie_data.PublicReview
+---
 content: '主角一行人醒來後發現可以打電話
 
 
@@ -3867,7 +3866,7 @@ date: 2015-04-01
 reply_count: 1
 title: '[請益] 玩命記憶(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1427890222.A.8F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大概是7─12年前的電影
 
 
@@ -3925,7 +3924,7 @@ date: 2018-11-29
 reply_count: 4
 title: '[問片] 一群人在工廠裡失去記憶（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1543489247.A.59C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問一部電影片名：
 
 
@@ -4021,7 +4020,7 @@ date: 2016-08-22
 reply_count: 7
 title: '[問片] (有雷)記憶被竄改的一部電影'
 url: https://www.ptt.cc/bbs/movie/M.1471836737.A.CE7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -4053,7 +4052,7 @@ date: 2022-06-17
 reply_count: 12
 title: '[ 普雷] 沒記憶點的巴斯光年'
 url: https://www.ptt.cc/bbs/movie/M.1655435421.A.F92.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -4098,7 +4097,7 @@ date: 2016-10-25
 reply_count: 3
 title: '[好雷] 你的名字，關於記憶的解釋'
 url: https://www.ptt.cc/bbs/movie/M.1477369565.A.9F8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '希臘也在先前公布了申請明年奧斯卡「最佳國際電影」的作品，這部也被目前正在舉辦的
 
   台北金馬影展中選映，也就是：《蘋果的記憶》（Apples）。
@@ -4170,7 +4169,7 @@ date: 2020-11-16
 reply_count: 3
 title: '[情報] 2021 希臘奧斯卡代表：《蘋果的記憶》'
 url: https://www.ptt.cc/bbs/movie/M.1605519068.A.5E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不好意思請問各位大神
 
 
@@ -4214,7 +4213,7 @@ date: 2015-04-07
 reply_count: 17
 title: '[問片] 一部電影關於催眠 用針插眼睛讀記憶'
 url: https://www.ptt.cc/bbs/movie/M.1428372375.A.531.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛作了個微惡夢，直接跳到結局就是某人即將成為輸家，系統下了個指令後這人的記憶就
 
   即將被刪除，然後要繼續待在那玩一個類似鬼抓人的遊戲。
@@ -4239,7 +4238,7 @@ date: 2017-02-26
 reply_count: 8
 title: '[問片] 一部贏家能離開遊戲，輸家被清記憶的電影'
 url: https://www.ptt.cc/bbs/movie/M.1488063385.A.CFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '泰國名導阿比查邦最新作品《記憶》 為其首部英語作品 由Tilda Swinton主演
 
   於2021年坎城影展獲得評審團獎 也代表哥倫比亞參加2022奧斯卡獎國際影片
@@ -4286,7 +4285,7 @@ date: 2022-01-26
 reply_count: 22
 title: '[情報] 阿比查邦《記憶》無院線計畫 僅限定場次'
 url: https://www.ptt.cc/bbs/movie/M.1643181355.A.117.html
---- !!python/object:movie_data.PublicReview
+---
 content: "記得大學時期上到\"記憶\"這個章節時\n老師曾播片段當章節引述,\n因此我猜這部電影大概/可能/也許是在講\"記憶\"相關的題材,\n\n\n\
   記得電影中的世界設定是:\n1.人類眼中會置入攝影機來記錄一生\n2.眼中所記錄的事情可提取出來\n  (死後可以取出做成追悼會的追思影片)\n\n\n印象中有一段劇情有演到:\n\
   畫面帶到一個喪禮上,\n喪禮中撥出的追思影片是逝者的眼睛在這一生所紀錄的畫面,\n逝者的其中一位朋友卻提到影片中的小船(或某樣物品?)的顏色跟他記憶中的不一樣!\n\
@@ -4295,7 +4294,7 @@ date: 2016-02-29
 reply_count: 9
 title: '[問片] 記憶可被扭曲,眼睛內有攝影機紀錄一生'
 url: https://www.ptt.cc/bbs/movie/M.1456729126.A.4D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -4351,7 +4350,7 @@ date: 2020-07-24
 reply_count: 3
 title: '[新聞] <記憶拼圖>倒敘重映，驚動影城主管祭好康'
 url: https://www.ptt.cc/bbs/movie/M.1595596192.A.A38.html
---- !!python/object:movie_data.PublicReview
+---
 content: "通常,\n\n媒體要宣傳一部需要持續動腦的影片時,\n\n會用\"燒腦\"的這個詞,\n\n而且\n\n要是這部片子在試映評價不錯,或是導演很大排的話,\n\
   \n大概又會加上\"神片\"兩個字.\n\n看多這種宣傳詞,就見怪不怪惹.\n\n(防雷)\n\n\n\n之前因為沒新片看,去戲院看了《記憶拼圖》,\n\n不過之前大概知道院線版是倒敘方式,\
   \ 而DVD版則是重剪成順序.\n\n但這不影響觀影樂趣,因為第二段就看出來了,\n\n這部應該是倒敘+插敘的劇本描寫.\n\n至於標題中說的,此片是否\"燒腦\"\
@@ -4362,7 +4361,7 @@ date: 2020-08-22
 reply_count: 27
 title: '[討論] 《記憶拼圖》真的很"燒腦"嗎?(微雷)'
 url: https://www.ptt.cc/bbs/movie/M.1598111323.A.68E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下文章與推文有雷，請注意
 
 
@@ -4450,7 +4449,7 @@ date: 2016-12-21
 reply_count: 1
 title: 'Re: [心得]《我記得》隱藏於記憶迷霧中的殘酷真相'
 url: https://www.ptt.cc/bbs/movie/M.1482325189.A.F33.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雖然本屆奧斯卡最佳男主角獎目前呼聲最高的\n     Chadwick Boseman演得實在也不錯，\n     但我真心希望Anthony\
   \ Hopkins可以靠【父親】再拿一座小金人！\n\n     這樣的題材跟【游牧人生】、【夢想之地】等片的主旨比起來，\n     確實比較聚焦，但情感卻很普世，\n\
   \     導演也很好地利用電影媒材設計了詭計，\n     創造出打亂時間空間的迷亂感，非常襯得起最佳影片的提名！\n     期待明天的好消息～\n\n\n\
@@ -4490,7 +4489,7 @@ date: 2021-04-25
 reply_count: 8
 title: '[好雷] 父親-親愛的小爸比，請讓我能永遠留在你'
 url: https://www.ptt.cc/bbs/movie/M.1619349996.A.1C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本文涉及劇情，且具個人觀點，推薦觀影後再讀。\n\n　　　　本片已上映一週，有意者請把握本週時間。\n\n\n\n　　　　圖文網頁版：\n\n\
   　　　　\n\n\n　　　　預告片：\n\n　　　　\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n\n\n\n\n\n\n　　《法貝爾曼》是年逾七旬的大導演史蒂芬．史匹柏回顧過去成長經歷所\n\n拍攝出來的家族故事，鋪衍他對電影的熱愛。此類作品須由內心的孔竅篩選\n\
@@ -4534,7 +4533,7 @@ date: 2023-03-02
 reply_count: 3
 title: '[好雷] 從內心的孔竅拍攝記憶：《法貝爾曼》'
 url: https://www.ptt.cc/bbs/movie/M.1677764582.A.75D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "HBO\n記憶殺神 (Memory)\n04-08(六) 21:00~22:55\n04-12(三) 21:00~22:50\n\n導演:\n\
   馬丁坎貝爾 (Martin Campbell)\n主演:\n連恩尼遜 (Liam Neeson)\n莫妮卡貝露琪 (Monica Bellucci)\n葛皮爾斯\
   \ (Guy Pearce)\n雷史蒂芬生 (Ray Stevenson)\n\n-----------------------------------------------------------------------------\n\
@@ -4543,7 +4542,7 @@ date: 2023-04-08
 reply_count: 1
 title: '[LIVE] HBO 21:00 記憶殺神 (Memory)'
 url: https://www.ptt.cc/bbs/movie/M.1680950233.A.4AC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -4627,7 +4626,7 @@ date: 2015-05-18
 reply_count: 5
 title: '[請益] 記憶傳承者The Giver的某個片段問題'
 url: https://www.ptt.cc/bbs/movie/M.1431920221.A.390.html
---- !!python/object:movie_data.PublicReview
+---
 content: '主角不知道什麼原因被關起來(沉睡狀態/囚禁）
 
   後來有一個男的來救他
@@ -4665,7 +4664,7 @@ date: 2014-10-20
 reply_count: 8
 title: '[問片] 逃脫失敗，但被植入逃脫成功的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1413818216.A.242.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這是一個有點老套、好簡單好平凡的故事，\n簡單到～當我看完時，有種『啊？就這樣喔？』的錯愕。\n當下覺得，這樣也是得到日本奧斯卡十二項大獎的電影喔？\n\
   說實話，在期待這麼久之後，看完當下我還真有點失望！\n可是啊～當我不以為意地繼續看下一部電影時，\n當我過了兩三天後，\n發現這部電影的細節竟然會不時回到我的腦海裡發酵，\n\
   這才開始感覺到了這部作品的”後勁”！\n就是因為單純，所以直指人心，\n不用說什麼大道理，也沒有什麼發人深省的論調，\n就是這麼單純的故事，好久沒看到了！\n\n\
@@ -4704,7 +4703,7 @@ date: 2006-10-26
 reply_count: 5
 title: '[心得]時代的記憶　夢想的開端～Always三丁目的夕日(雷)'
 url: https://www.ptt.cc/bbs/movie/M.1161835866.A.CBB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是前陣子的片
 
 
@@ -4725,7 +4724,7 @@ date: 2016-05-24
 reply_count: 7
 title: '[問片] 換了心 保留當事人的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1464073981.A.7B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就我個人理解，其實我不認為那條組紐，瀧跟三葉產生聯繫的原因..
 
   會有這個想法是因為，片中一葉提到過，他年輕的時候也有過靈魂交換的經驗，
@@ -4765,7 +4764,7 @@ date: 2016-10-25
 reply_count: 6
 title: 'Re: [好雷] 你的名字，關於記憶的解釋(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1477376055.A.55E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '被朋友拉去看,本身七年級中段.所以多數內容也都有共鳴
 
 
@@ -4813,7 +4812,7 @@ date: 2015-08-22
 reply_count: 16
 title: '[普雷] 屬於記憶裡-我的少女時代'
 url: https://www.ptt.cc/bbs/movie/M.1440252547.A.B45.html
---- !!python/object:movie_data.PublicReview
+---
 content: '真的是摸不著頭緒的電影
 
   我還算喜歡
@@ -4858,7 +4857,7 @@ date: 2014-11-16
 reply_count: 6
 title: '[負雷] 記憶傳承者  '
 url: https://www.ptt.cc/bbs/movie/M.1416124624.A.002.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這次奇異博士2的配樂，
 
 
@@ -4895,7 +4894,7 @@ date: 2022-05-10
 reply_count: 24
 title: '[討論] 奇異博士2的配樂 感覺沒什麼記憶點？'
 url: https://www.ptt.cc/bbs/movie/M.1652174532.A.5A1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "蜘蛛人電影堪稱是廿一世紀初十五年間，重開機兩次的熱門超級英雄系列。\n\n記得2002年第一代蜘蛛人陶比 麥奎爾的名言：「With  great\
   \ power , comes great res\nponsibility ! 能力越大，責任越大!」當時風靡各個年齡層的粉絲，這句話也成了美國\n總統公開演說時，很愛引用的愛國金句。我們看到蜘蛛人代表的是可愛鄰家男孩轉大人，\n\
   保護自己所愛的人(瑪麗 珍)。\n\n這一次重開機所展現出來的特色，是一個小屁孩自我成長通過考驗的故事，故事好看但非\n影史經典，筆者就剛看完的印象，以十個記憶點來與大家分享，下面有雷，請斟酌觀賞!\n\
@@ -4927,7 +4926,7 @@ date: 2017-07-06
 reply_count: 57
 title: '[好雷] 蜘蛛人返校日-10大記憶點分享'
 url: https://www.ptt.cc/bbs/movie/M.1499293656.A.0FE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '導演克里斯多福諾蘭以《全面啟動》、《黑暗騎士》三部曲等作品，早是導演界少有的票
 
   房保證，但也有被狠狠說「不」的青澀年代。他２日出席英國影藝學院舉辦的座談會，談
@@ -4963,7 +4962,7 @@ date: 2015-04-05
 reply_count: 6
 title: '[新聞] 諾蘭《記憶》遇挫 遭全美片商打槍'
 url: https://www.ptt.cc/bbs/movie/M.1428228225.A.44F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '殺人者的記憶法
 
 
@@ -5090,7 +5089,7 @@ date: 2018-01-13
 reply_count: 5
 title: 'Re: [好雷] 殺人者的記憶法'
 url: https://www.ptt.cc/bbs/movie/M.1515801667.A.BBF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '過去當下又未來，誰的眼睛誰的視野？
 
 
@@ -5317,7 +5316,7 @@ date: 2023-04-16
 reply_count: 2
 title: '[普雷] 《北將七》記憶詮釋住了誰'
 url: https://www.ptt.cc/bbs/movie/M.1681580385.A.64F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看來很多人都想到了楊德昌的《一一》：什麼都說了，什麼也都沒說。
 
   而《記憶乍響》的編導組合Joachim Trier／Eskil Vogt，
@@ -5441,7 +5440,7 @@ date: 2016-12-26
 reply_count: 2
 title: '[有雷]《記憶乍響》── 在，與不在'
 url: https://www.ptt.cc/bbs/movie/M.1482739571.A.885.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我記得片中的女主記憶只停在同一天，家人為了不讓她發現所以採取一些行動，像
 
   是囤了很多那一天的報紙每天拿出一份，還有買了很多鳳梨（因為記憶停留的那天好像他
@@ -5464,7 +5463,7 @@ date: 2017-04-16
 reply_count: 22
 title: '[問片] 一部女主記憶只停在同一天的故事'
 url: https://www.ptt.cc/bbs/movie/M.1492311461.A.3A6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看完ID4續集出來，實在沒有第1集的感覺，要絕望沒絕望，要感動沒感動，
 
 
@@ -5567,7 +5566,7 @@ date: 2016-06-26
 reply_count: 15
 title: '[負雷] ID4:有些回憶還是留在記憶裡就好...'
 url: https://www.ptt.cc/bbs/movie/M.1466872544.A.240.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題，他上面是寫導演版，但是我看了一下發現他也是黑白跟彩色交錯
 
   請問有人有看過嗎?
@@ -5578,7 +5577,7 @@ date: 2016-11-12
 reply_count: 7
 title: '[請益] FRIDAY上的記憶拼圖是原版的嗎'
 url: https://www.ptt.cc/bbs/movie/M.1478963268.A.0E6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -5702,7 +5701,7 @@ date: 2016-12-18
 reply_count: 1
 title: '[好雷]《記憶乍響》，如果還活著時，能好好對話就好了。'
 url: https://www.ptt.cc/bbs/movie/M.1482064364.A.DEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "★ 奧斯卡提名男星  繼《模仿遊戲》最真摯動人的演出\n★ 時間會治癒內心的傷口 釋懷不是遺忘 而是將回憶轉變成重生的力量\n★《贖罪》作者經典暢銷小說改編\
   \ 感人至深 直擊你的淚腺\n\n推文留言，就可以抽兩張！\n\n暖心預告：\n\n童書作家史蒂芬路易斯（班尼狄克康柏拜區　飾）擁有成功的事業及美滿的家庭，但家庭\n\
   遭逢意外變故後，他的生活與婚姻徹底崩解；妻子茱莉（凱莉麥當諾　飾）心碎離家，而\n他自己也遲遲無法自痛苦中復原。面對命運的打擊，他們該如何走出生命中的絕望幽谷並\n\
@@ -5714,7 +5713,7 @@ date: 2018-03-06
 reply_count: 915
 title: '[贈票] 《記憶中的擁抱》請你看男神BC 暖男演技大爆發！'
 url: https://www.ptt.cc/bbs/movie/M.1520331381.A.FF3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '---------------------防雷---------------------
 
 
@@ -5808,7 +5807,7 @@ date: 2017-03-17
 reply_count: 37
 title: '[微好雷] 美女與野獸- 忠於小時候的記憶 '
 url: https://www.ptt.cc/bbs/movie/M.1489682884.A.2FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不是業務競爭
 
 
@@ -5880,7 +5879,7 @@ date: 2017-07-06
 reply_count: 57
 title: 'Re: [好雷] 蜘蛛人返校日-10大記憶點分享'
 url: https://www.ptt.cc/bbs/movie/M.1499308344.A.D54.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我知道這部和前作都是極吃電波的作品。
 
 
@@ -5922,7 +5921,7 @@ date: 2024-11-05
 reply_count: 115
 title: '[請益] 銀翼殺手2049 票房失敗在於沒記憶點 ???'
 url: https://www.ptt.cc/bbs/movie/M.1730819974.A.C36.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我從來沒有在電影院哭這麼久過，久到其他人應該覺得我有病才會在電影院哭成這樣，也\n因為哭得嚴重和淒厲，所以本來打算明天再寫的文章，變成今天晚上很有感觸，一定要寫\n\
   完。\n\n                           -美麗島的記憶\n\n「三民主義，吾黨所宗…..。」我想了很久，還是決定跟那時此刻(楊力州作品)一樣，用\n\
   這首黨國時代的代表歌曲來開頭，請各位想像一下北韓的政令宣導歌曲影片，然後用這首\n國民黨黨歌來置入，是的，本部電影討論的主題是台灣的電影史，不過電影跟政治、經濟\n\
@@ -5946,7 +5945,7 @@ date: 2016-03-08
 reply_count: 10
 title: '[好雷] 那時此刻-屬於美麗島的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1457367766.A.337.html
---- !!python/object:movie_data.PublicReview
+---
 content: "6歲的Mason、7歲的Mason、8歲的Mason、9歲的Mason…\n一直到18歲成為大學新鮮人的Mason，看著他的模樣一點\n一點地改變，整整接近3小時的過程裡，我一再問自己：\n\
   「這是什麼？」因為這不像是我們所熟悉的電影所該有\n的型態，當然也完全沒有紀錄片的要素，我甚至懷疑這\n根本不能算是創作…\n\n就算沒有看簡介，只要看完這部片應該可以體會到，導\n\
   演Richard Linklater一定是邊拍邊寫劇本、邊拍邊為這\n部作品上色的。劇情橫跨12年，電影也拍了12年，這段\n時間裡，導演另外完成了他「Before三部曲」中的後兩\n\
@@ -5975,7 +5974,7 @@ date: 2014-11-24
 reply_count: 1
 title: '[好雷] 《年少時代》的成長記憶寫真書'
 url: https://www.ptt.cc/bbs/movie/M.1416779029.A.745.html
---- !!python/object:movie_data.PublicReview
+---
 content: "諾蘭解釋【記憶拼圖】如何啟發【TENET天能】\n\n世界娛樂中心/圖文轉載自網路\n\n\nWarner Bros.\n\n克里斯多夫諾蘭今年最新燒腦編導力作【TENET天能】，上星期終於在北美推出家庭影音\n\
   、數位版本以及線上數位版本，並且引發新一波討論熱潮。\n\n\nWarner Bros.\n\n近日在接受Complex訪問時，諾蘭再次解釋自己想透過這部新作達到什麼成就。當中，諾\n\
   蘭進一步透露其實正是自己編導的第二部作品【記憶拼圖】啟發他拍攝【TENET天能】這\n部片：\n\n\nWarner Bros.\n\n「在拍攝【記憶拼圖】時，我冒出了一個畫面，那就是一顆卡在牆壁上的子彈被吸出牆壁\n\
@@ -5989,7 +5988,7 @@ date: 2021-01-07
 reply_count: 4
 title: '[新聞] 諾蘭解釋【記憶拼圖】如何啟發【TENET天能】'
 url: https://www.ptt.cc/bbs/movie/M.1610030092.A.0D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '尤沃金·提爾2015年的英語電影。印象中，當年上映的時候，看到不少好評和討論，但總
 
   之我是沒有去看。後來在串流上看到，也一直沒有特別動力點開。這次因為《世界上最爛
@@ -6031,7 +6030,7 @@ date: 2022-03-11
 reply_count: 3
 title: '[偏好雷]記憶乍響Louder Than Bombs '
 url: https://www.ptt.cc/bbs/movie/M.1646963959.A.15B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟現在在DVD出租店
 
 
@@ -6081,7 +6080,7 @@ date: 2015-04-30
 reply_count: 16
 title: '[選片] 柏靈頓VS我想念  記憶傳承VS移動迷宮'
 url: https://www.ptt.cc/bbs/movie/M.1430383608.A.B7E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "●○●○●○●○●○●○●防雷點點點●○●○●○●○●○●○●\n\n\n\n\n\n\n\n\n\n\n\n本文開始\n\n\n首先我不得不說一開始電影居然是黑白的\n\
   \n我整個嚇到想說怎麼了是壞掉了嗎...\n\n然後看到快到中間才明白其中的涵義\n\n我覺得它劇情前面還算得宜 發人省思\n\n\n不光光只是失去了詞彙的了解\
   \    失去感情的那一針\n\n\n才是所有人無法真誠的原因我覺得\n\n\n萬一真的有那種針那種城鎮，裡面的人活的照劇本走\n\n像機器人像別人控制著你的人生\
@@ -6096,7 +6095,7 @@ date: 2015-02-02
 reply_count: 25
 title: '[普雷] 記憶傳承人：極樂謊言'
 url: https://www.ptt.cc/bbs/movie/M.1422806712.A.79E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "◎《記憶拼圖》(Memento) - 人生中的「另類事實」(alternative facts)\n\n圖文完整版： \n\n發生過但完全不記得的事，對你還有意義嗎？\n\
   \n如果有一個無法建立新記憶的人，他未來過的每一天都會被遺忘，這樣的人該\n如何度日？人生的意義在哪裡？\n\nLeonard（蓋皮爾斯）自從某次家中被人闖入、妻子被姦殺、他也被擊昏後，\n\
   就喪失短期記憶力，無法建立新的記憶，人生停滯在事發當晚。他只能記得那\n次暴力事件的片段點滴，以及在那之前的人生。於是Leonard決心化身為復仇\n使者，定要找到逃逸的殺手，為妻復仇。\n\
@@ -6127,7 +6126,7 @@ date: 2017-07-15
 reply_count: 10
 title: '[好雷] 《記憶拼圖》 - 人生中的「另類事實」'
 url: https://www.ptt.cc/bbs/movie/M.1500087018.A.3AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天有PO一篇文，
 
   問說他老婆為了測試他，結果死掉，
@@ -6168,7 +6167,7 @@ date: 2015-02-09
 reply_count: 4
 title: '[討論] 記憶拼圖（有大雷）'
 url: https://www.ptt.cc/bbs/movie/M.1423493681.A.63E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想找幾部電影
 
 
@@ -6195,7 +6194,7 @@ date: 2015-07-15
 reply_count: 54
 title: '[問片] 記憶退化的電影'
 url: https://www.ptt.cc/bbs/movie/M.1436941184.A.331.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者吳琬婷台北15日電）演員Angelababy在電影「封神傳奇」中，演出特別創造
 
   的全新角色，是由古天樂扮演的邪惡將軍申公豹創造出的人造美少女間諜，專門偷窺人心
@@ -6246,7 +6245,7 @@ date: 2016-08-15
 reply_count: 34
 title: '[新聞] Angelababy化身人造美少女 專偷記憶'
 url: https://www.ptt.cc/bbs/movie/M.1471264420.A.7DE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -6299,7 +6298,7 @@ date: 2018-05-12
 reply_count: 7
 title: '[新聞] 切小金家的旅館 喚醒中港台共同記憶'
 url: https://www.ptt.cc/bbs/movie/M.1526133970.A.734.html
---- !!python/object:movie_data.PublicReview
+---
 content: "采昌正式公告 因此我也重發一篇\n\n\n【天能】【黑暗騎士三部曲】【全面啟動】 #克里斯多福諾蘭 執導\n\n【#記憶拼圖：20週年數位修復】08/05（三）重返大銀幕\n\
   \n\n\n\n\n至於各位版友最在意的是上映什麼版本\n\n采昌也說明請各位放心會是\"原版倒敘版\"\n\n\n\n\n在《天能》遲遲未確定何時上映 《全面啟動》重映也尚未確定\n\
   \n至少還是有Nolan的電影能讓大家解解饞啦\n\n\n--\n                                      07/21 20:06"
@@ -6307,7 +6306,7 @@ date: 2020-07-21
 reply_count: 70
 title: '[情報] 《記憶拼圖》20周年數位修復 8/5排映'
 url: https://www.ptt.cc/bbs/movie/M.1595331440.A.2E7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "平常都有在關注奇摩電影所發布的電影預告，但通常我都會跳過國片預告，\n\n都要等到快上映前或是已經把奇摩電影預告都看爛了，才會點開來看看。\n\n\
   我的少女時代是直到看過一次主題曲「小幸運」MV後，才興起想要看的欲望。\n\n\n原文網址：\n\n\n\n   附上票根 \n\n\n我的少女時代背景設定在1994年，那年我也才小一，但是因為從小跟大我十歲的表哥表姊\n\
   \n玩在一起，從小就跟著表姊們看笑星撞地球、追四大天王還有草蜢、小虎隊。\n\n(四大天王裡我最喜歡的是黎明，有一次電視台忘了打光，把黎明臉上的痘痘拍得一覽無遺\n\
@@ -6354,7 +6353,7 @@ date: 2015-08-23
 reply_count: 16
 title: '[普偏好雷] 獨家的青春記憶-我的少女時代'
 url: https://www.ptt.cc/bbs/movie/M.1440260770.A.E1C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近去DVD電要租記憶拼圖的DVD來看
 
   可是看了一下好像全部都是劇情重組導演版的
@@ -6374,7 +6373,7 @@ date: 2014-11-11
 reply_count: 13
 title: '[請益] 記憶拼圖DVD'
 url: https://www.ptt.cc/bbs/movie/M.1415649193.A.A64.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好，第一次上本板問片
 
 
@@ -6460,7 +6459,7 @@ date: 2022-08-06
 reply_count: 6
 title: '[問片] [有雷] 想問一部預知未來有逃亡追逐電影'
 url: https://www.ptt.cc/bbs/movie/M.1659718938.A.F11.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -6635,7 +6634,7 @@ date: 2018-03-19
 reply_count: 4
 title: '[好雷]《記憶中的擁抱》，心裡的孩子。 '
 url: https://www.ptt.cc/bbs/movie/M.1521442659.A.3CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如標題
 
   看到一個問男主角失憶的文
@@ -6674,7 +6673,7 @@ date: 2015-05-18
 reply_count: 22
 title: '[問片] 男主角記憶被改造的電影'
 url: https://www.ptt.cc/bbs/movie/M.1431930033.A.53E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《記憶中的擁抱 The Child in Time》
 
 
@@ -6775,7 +6774,7 @@ date: 2018-03-21
 reply_count: 6
 title: '[好雷] 記憶中的擁抱-深度值得細細品嘗的好片'
 url: https://www.ptt.cc/bbs/movie/M.1521564457.A.BFE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本文有雷且具個人觀點，推薦觀影後再讀。\n\n　　　　本片上映已屆第三週，有意者請把握場次。\n\n\n　　　　圖文網頁版：\n\n　　　　\n\
   \n\n　　　　預告片：\n\n　　　　\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\
   \n\n\n\n記憶當下的美好：《邀阿公阿嬤拍B級殭屍片》\n\n\n\n　　失智症是會隨著時間退化的神經認知障礙，目前無法治癒，除了服藥之\n\n外，照護者的陪伴同樣不可或缺。現正上映的紀錄片《邀阿公阿嬤拍Ｂ級殭\n\
@@ -6804,7 +6803,7 @@ date: 2023-11-01
 reply_count: 5
 title: '[好雷] 記憶當下的美好：《邀阿公阿嬤拍B級殭屍'
 url: https://www.ptt.cc/bbs/movie/M.1698801332.A.2CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有關男主角失去記憶的電影
 
 
@@ -6862,7 +6861,7 @@ date: 2015-05-18
 reply_count: 16
 title: '[問片] 有關男主角失去記憶的電影'
 url: https://www.ptt.cc/bbs/movie/M.1431923257.A.6A7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據 Deadline 的獨家報導指出，《靜寂的鼓手》奧斯卡得主 Riz Ahmed 和《失去的女
 
   兒》奧斯卡提名愛爾蘭女演員 Jessie Buckley 將主演科幻新片《Fingernails》。
@@ -6919,7 +6918,7 @@ date: 2022-05-15
 reply_count: 5
 title: '[情報] 里茲阿邁德、潔西伯克利將主演《蘋果的記憶》導演新片'
 url: https://www.ptt.cc/bbs/movie/M.1652549530.A.C82.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -7109,7 +7108,7 @@ date: 2017-10-21
 reply_count: 32
 title: '[好雷]《殺人者的記憶法》破碎記憶能拼出真相嗎'
 url: https://www.ptt.cc/bbs/movie/M.1508588191.A.7BB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《漫長的藉口》和《記憶乍響》：喪妻之後
 
 
@@ -7187,7 +7186,7 @@ date: 2016-12-20
 reply_count: 1
 title: '[好/普雷]漫長的藉口》和《記憶乍響》 '
 url: https://www.ptt.cc/bbs/movie/M.1482237188.A.736.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由渡邊謙監導與主演的電影，一如預期的相當催淚，由於描寫與真實生活非常
 
   地貼近，觀看途中幾次都不禁痛哭失聲，那種無力，那種喪失，不僅僅是懼怕於
@@ -7417,7 +7416,7 @@ date: 2007-09-26
 reply_count: 6
 title: '[好雷] 明日的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1190736692.A.987.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這也是一個有獨特世界觀的故事
 
 
@@ -7588,7 +7587,7 @@ date: 2015-04-25
 reply_count: 9
 title: '[負雷] 記憶傳承人'
 url: https://www.ptt.cc/bbs/movie/M.1429970655.A.93C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影一開始是桌上擺著寫上枝實子名字的杯子，微笑望向遠方的枝實子，以及
 
   只剩下軀殼、眼神空洞的佐伯。
@@ -7770,7 +7769,7 @@ date: 2007-09-30
 reply_count: 6
 title: '[好雷] 明日的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1191117768.A.9A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文好讀版  \n\n\n- 以下有《》劇情雷 -\n\n\n\n\n\n喜愛燒腦電影的你，或許《記憶大師》也會是部值得一看的好戲。故事背景以人總有不願回想的過去開頭，透過未來科技的記憶截取技術幫助，雖非讓人真實的忘記，卻能將當事人的角度變成第三人，僅剩下旁觀者的無感，看著事不關己的回憶上演。\n\
   \n劇情則發生在主角黃渤離婚前，被妻子徐靜蕾要求取回兩人初識時的記憶才願簽下離婚同意書，反誤與殺人兇手意外交換了保存器，於是出現在腦中的殺人場景重現，從模糊看見、隱約記得到逐步想起、摸索夢境，而無論這段記憶的真實與否，讓協助辦案的證人，漸漸變成犯案的嫌疑人。\n\
   \n\n\n\n因擔心同樣誤植的兇手殺人滅口，心繫另一半性命的黃渤，在時間壓力下有了擦槍走火的性格轉變，不屬於自己的記憶開始影響本性，讓觀眾也信以為兇手原來一直都是自己，藉由開場耐人尋味的一段話，「誰知道你想忘記的，是不是殺人的記憶？」將真假難辯的發展陷入了疑點重重的高潮。\n\
@@ -7783,7 +7782,7 @@ date: 2018-08-15
 reply_count: 1
 title: '[普雷] 《記憶大師》憶忘意難忘'
 url: https://www.ptt.cc/bbs/movie/M.1534346637.A.399.html
---- !!python/object:movie_data.PublicReview
+---
 content: '人在中國順便看了很多這邊的電影，拆彈專家大
 
 
@@ -7813,7 +7812,7 @@ date: 2017-05-23
 reply_count: 3
 title: '[普雷] 記憶大師'
 url: https://www.ptt.cc/bbs/movie/M.1495532370.A.FB0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -8094,7 +8093,7 @@ date: 2020-12-27
 reply_count: 18
 title: '[好雷]《腿》用腿來找回對愛人的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1609058456.A.ADC.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文部落格版請入\n\n\n\n\n\n     先對各位攻殼粉說聲對不起，我給了電影版【攻殼機動隊】一個微好評，露出拇指\n的最上面那一截的一點點，看電影之前我沒有看過神作1995押井守導演的攻殼機動隊，但\n\
   是電影版確實是一部水準不錯的電影，但離極佳還有些距離，請屏除【1995攻殼機動隊】\n的印象，期待不要太高你就不太過失望\n\n     看完了電影版後我跟著網路攻殼粉們的回憶洪流收看了【1995攻殼機動隊】，發現1\n\
   995的攻殼極度深奧神作果然名不虛傳，30年前居然可以有這麼前衛的想法，30年前居然\n可以創造這麼龐大的世界觀，未來科技電子義體的應用，以及當電子義體科技廣泛運用之\n\
@@ -8115,7 +8114,7 @@ date: 2017-04-01
 reply_count: 5
 title: '[普雷] 攻殼機動隊，記憶會害人'
 url: https://www.ptt.cc/bbs/movie/M.1490989636.A.013.html
---- !!python/object:movie_data.PublicReview
+---
 content: '經由原作者 janus.lady 同意轉貼
 
 
@@ -8251,7 +8250,7 @@ date: 2016-04-19
 reply_count: 13
 title: '[好雷] 【換腦行動】Criminal 記憶移轉～'
 url: https://www.ptt.cc/bbs/movie/M.1461035873.A.B36.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看寧靜海看到樣本庫突然想到很久以前看過一部電影or動畫電影
 
   劇情主角有去到一個類似記憶庫還是基因庫的地方
@@ -8270,7 +8269,7 @@ date: 2021-12-29
 reply_count: 15
 title: '[問片] 大型記憶庫？'
 url: https://www.ptt.cc/bbs/movie/M.1640711569.A.3D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '豐富圖文版:
 
 
@@ -8373,7 +8372,7 @@ date: 2014-11-02
 reply_count: 7
 title: '[好雷] 歸來～有關記憶的愛與恨'
 url: https://www.ptt.cc/bbs/movie/M.1414857973.A.E31.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說這篇真的非常的長
 
   真的看的完, 謝謝你! 你太神奇了, 我自己都不一定看的完XD
@@ -8860,7 +8859,7 @@ date: 2008-09-02
 reply_count: 49
 title: '[討論] 《記憶拼圖 Memento》 完全解密XD 超大雷!!'
 url: https://www.ptt.cc/bbs/movie/M.1220370436.A.E0C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道年輕鄉民有沒有看過阿諾史瓦辛格眼的魔鬼總動員
 
 
@@ -8913,7 +8912,7 @@ date: 2016-09-22
 reply_count: 32
 title: '[討論] 魔鬼總動員和攔截記憶碼..=.='
 url: https://www.ptt.cc/bbs/movie/M.1474518249.A.CFB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟拋磚引玉一下
 
 
@@ -8933,7 +8932,7 @@ date: 2016-03-28
 reply_count: 16
 title: '[討論] 30歲的人記憶最深的港劇經典槍戰是那'
 url: https://www.ptt.cc/bbs/movie/M.1459145829.A.BA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '對不起我沒看過這部電影
 
   只是看到板友們提到有兩種版本
@@ -8980,7 +8979,7 @@ date: 2020-04-05
 reply_count: 75
 title: '[請益] 記憶拼圖的導演版哪裡找？'
 url: https://www.ptt.cc/bbs/movie/M.1586082101.A.7D0.html
---- !!python/object:movie_data.PublicReview
+---
 content: "三十歲上下，被稱為悶世代6~7年級的我們。\n\n   或許對這一群人來說\n   工作、感情、生活  現實的日子有點苦悶\n   然後從對舊事物的連結來回憶那個美好的年代。\n\
   \n     就像電影的開頭就是以工作這場域來做為進入回憶的開端\n   經由老歌的連結來回到當初的年代\n   (收音機這一幕的縮時好像在致敬 \"不能＿的＿＿\"\
   \ XD )\n\n     劇中的男一女一男二女二，就像偶像劇裡學生年代都會有的風雲人物\n   男的一定要會功課好然後會打籃球(日本的話應該會是設定為棒球社)\n\
@@ -8998,7 +8997,7 @@ date: 2015-08-21
 reply_count: 9
 title: '[微好雷] "我的少女時代" - 悶世代的美好記憶'
 url: https://www.ptt.cc/bbs/movie/M.1440158036.A.0DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完之後，想法很多，但我發現自己處在一種很難說明
 
   實際情況的神遊狀態，不太想為了整理太多複雜的文字
@@ -9089,7 +9088,7 @@ date: 2015-08-15
 reply_count: 29
 title: '[好雷] 《我的少女時代》裡的記憶凹槽'
 url: https://www.ptt.cc/bbs/movie/M.1439582492.A.53F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '應該是這五年的亞洲片
 
   不確定是電影還是影集
@@ -9130,7 +9129,7 @@ date: 2022-03-25
 reply_count: 4
 title: '[問片] 亞洲電影-被扭曲的兒時記憶'
 url: https://www.ptt.cc/bbs/movie/M.1648195075.A.1D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《腦筋急轉彎》對記憶跟情緒的描繪是錯誤的，但仍具參考價值\n\n2015/08/12\n\n五月的時候在美國心理學會的大會上，就看到這部電影的宣傳攤位，當時就很想看這部討\n\
   論心理學的電影，無奈等到近三個月後才如願。電影宣傳中看到以情緒角色來做宣傳，再\n加上我的前老闆 Lisa Feldman Barrett 也在媒體上發表文章評論這電影犯了一個重大的\n\
   錯誤，都讓我以為這部電影是要談論情緒是怎麼一回事，看了之後才恍然大悟，這根本是\n假情緒之名探討更深層的「人之所以為人」的道理啊！\n\n性格的形成\n\n從電影的角度出發，性格的形成，就是因為經驗，特別是一些「核心經驗」的累積，造就\n\
@@ -9157,7 +9156,7 @@ date: 2015-08-13
 reply_count: 134
 title: '[新聞] 《腦筋急轉彎》對記憶跟情緒的描繪是錯誤'
 url: https://www.ptt.cc/bbs/movie/M.1439398853.A.17D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《名畫的控訴（Woman in Gold）》改編自真實故事，講述二戰時期從維也納逃往美國的
 
   瑪麗亞與他年輕的律師希望從奧地利政府與美術館手中奪回金碧輝煌的克林姆名作「艾蒂
@@ -9232,7 +9231,7 @@ date: 2015-06-10
 reply_count: 12
 title: '[好雷] 為了留住記憶－名畫的控訴Woman in Gold'
 url: https://www.ptt.cc/bbs/movie/M.1433929000.A.082.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.影片名稱 :記憶之夜
 
 
@@ -9323,7 +9322,7 @@ date: 2019-04-05
 reply_count: 11
 title: '[ 好雷] 記憶之夜 韓國推理強片'
 url: https://www.ptt.cc/bbs/movie/M.1554476185.A.44E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '之前看過一部電影，可能有七八年了，想在重溫一下
 
 
@@ -9383,7 +9382,7 @@ date: 2018-03-10
 reply_count: 22
 title: '[問片] 重複7分鐘記憶的火車片'
 url: https://www.ptt.cc/bbs/movie/M.1520652504.A.C68.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -9395,7 +9394,7 @@ date: 2021-10-30
 reply_count: 32
 title: '[請益] Netflix上的記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1635573285.A.7DC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '電影的主旨是追查一名罪犯，
 
   在電影裡有發明出可以記憶大腦影像跟感受的機器，比較有印象的情節是那名罪犯在性侵
@@ -9410,7 +9409,7 @@ date: 2018-10-28
 reply_count: 4
 title: '[問片] 可以儲存大腦記憶機器的電影'
 url: https://www.ptt.cc/bbs/movie/M.1540736301.A.A9C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好，電影版新手請多多包涵。
 
 
@@ -9440,7 +9439,7 @@ date: 2017-07-09
 reply_count: 31
 title: '[請益] 記憶拼圖正確版?'
 url: https://www.ptt.cc/bbs/movie/M.1499588713.A.FBE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完這部片 蠻精彩的  但還是有一些疑問想釐清
 
 
@@ -9513,7 +9512,7 @@ date: 2015-04-06
 reply_count: 13
 title: '[請益] 記憶拼圖  好多疑問'
 url: https://www.ptt.cc/bbs/movie/M.1428256019.A.DEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '您好
 
   您母親想找的片應該是這部真人真事改編的韓國電影
@@ -9552,7 +9551,7 @@ date: 2016-11-07
 reply_count: 2
 title: 'Re: [問片] 媽媽記憶中2.30年前的日韓黑白老片'
 url: https://www.ptt.cc/bbs/movie/M.1478488630.A.836.html
---- !!python/object:movie_data.PublicReview
+---
 content: '男主角是被賦予任務的角色, 一直在工作,
 
 
@@ -9662,7 +9661,7 @@ date: 2014-11-03
 reply_count: 81
 title: '[問片] 有關記憶被竄改的影片.'
 url: https://www.ptt.cc/bbs/movie/M.1415022035.A.1EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -9814,7 +9813,7 @@ date: 2021-08-05
 reply_count: 19
 title: '[恐怖好雷] 記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1628104291.A.66E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（以下有雷）
 
 
@@ -10029,7 +10028,7 @@ date: 2018-03-19
 reply_count: 3
 title: '[好雷] 記憶中的擁抱 – 關於接納與重生（大雷）'
 url: https://www.ptt.cc/bbs/movie/M.1521428398.A.090.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖片版：
 
 
@@ -10153,7 +10152,7 @@ date: 2018-04-04
 reply_count: 13
 title: '[負雷] 記憶中的擁抱The Child in Time'
 url: https://www.ptt.cc/bbs/movie/M.1522776392.A.3BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '-------------------------------------------------------
 
 
@@ -10558,7 +10557,7 @@ date: 2016-05-18
 reply_count: 6
 title: '[普雷] 《崩壞人生》拆毀記憶成為回憶'
 url: https://www.ptt.cc/bbs/movie/M.1463510192.A.840.html
---- !!python/object:movie_data.PublicReview
+---
 content: '因緣際會下，看了這部片子
 
   其實是逛電影版看過推文說這片子很值得看
@@ -11127,7 +11126,7 @@ date: 2015-09-25
 reply_count: 16
 title: 'Re: [請益] 記憶拼圖  好多疑問'
 url: https://www.ptt.cc/bbs/movie/M.1443134303.A.542.html
---- !!python/object:movie_data.PublicReview
+---
 content: "與其說《記憶傳承人》是未來的科幻故事\n\n我倒覺得像是在說遙遠過去的聖經故事\n\n像是男主角藉以逃離天人思維的蘋果\n\n有如伊甸園般平靜美好的人類樂園\n\
   \n以及協助人類落入凡塵的大天使──傳承人\n\n\n我一向欣賞導演Phillip Noyce紮實穩重的風格\n\n一步一步帶領觀眾從黑白走進彩色\n\n領略男主角不得不反抗上主的那股衝動\n\
   \n就像撒旦誘惑亞當一般，人類天性就是嚮往喜樂美好\n\n即便人類也健忘，忘了光彩奪目背後如影隨形的陰暗淒冷\n\n\n本片較可惜的是科幻細節模糊不清\n\n\
@@ -11140,7 +11139,7 @@ date: 2014-10-31
 reply_count: 13
 title: '[好雷] 記憶傳承人'
 url: https://www.ptt.cc/bbs/movie/M.1414718150.A.516.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n因為聽說沒有院線放映的計畫\n就先分享出來了\n本片覺得跟 在車上 是不分軒輊 很不錯\n過年期間在華山光點與誠品戲院有上映幾天\n\
   大家可以去看看\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n (方格子圖文並茂版)\n\n\n以「記憶」之名，在坎城影展頒獎前就看了預告片，本來還以為會是導演阿比查邦（\n\
@@ -11170,7 +11169,7 @@ date: 2022-01-28
 reply_count: 4
 title: '[好雷] 《記憶》-電影作為共同經驗性的可能 '
 url: https://www.ptt.cc/bbs/movie/M.1643376286.A.1B1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這次誠實預告居然模仿諾蘭了XDD
 
   搞得我好亂啊
@@ -11183,7 +11182,7 @@ date: 2017-07-19
 reply_count: 6
 title: '[討論] 誠實預告 記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1500404803.A.72C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '公視粉絲團
 
 
@@ -11207,7 +11206,7 @@ date: 2016-03-20
 reply_count: 3
 title: '[情報] 《明日的記憶》公共電視 今天中午12：30 '
 url: https://www.ptt.cc/bbs/movie/M.1458411570.A.970.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以往是看到飄片/驚悚片一律直接略過\n\n或者說是不考慮進電影院看的\n\n上一次進電影院看這類影片大概是詭絲了吧\n\n原因很純粹的就是我膽小A_A\n\
   \n但這次抱著支持國片的心情（分明是女主角太吸引人）\n\n鼓起勇氣硬拉著也不敢看飄片的朋友一起去看\n\n還蠻巧的在電影上映前剛好也有婆婆走失幾天後回家的新聞....\n\
   \n（雖然有人說這部一點也不可怕,但從頭到尾跟朋友互相挽著手到結束）\n（（因為兩個都很膽小,過程中一直互拉手都麻了））\n\n---------我是防爆線--------------------------------------------\n\
@@ -11225,7 +11224,7 @@ date: 2015-11-29
 reply_count: 12
 title: '[好雷] 紅衣小女孩-大家記憶中的魔神仔'
 url: https://www.ptt.cc/bbs/movie/M.1448730399.A.15E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(不用防雷了吧，都20年前的片了)
 
 
@@ -11329,7 +11328,7 @@ date: 2022-07-25
 reply_count: 2
 title: '[普好雷] 記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1658743063.A.817.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有兩部印像蠻深刻的電影,幾年前看的，想再回味一下
 
 
@@ -11383,7 +11382,7 @@ date: 2017-08-21
 reply_count: 10
 title: '[問片] 兩部電影分別是回到過去以及死前記憶'
 url: https://www.ptt.cc/bbs/movie/M.1503298771.A.0C1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "圖文網誌版：\n\n--------------------------------------------------------------\n\
   \n　因為非常喜歡林書宇導演的【九降風】，所以當時進戲院看了好幾次\n；所以聽聞【星空】的消息時就非常期待，自己其實並沒有看過幾米的\n作品，加上前幾部改編其繪本的電影成果都未能獲得高評價，所以本來\n\
   對於這次的改編也有些不安，但實際進了戲院看後大為感動，片中有好\n多段落讓自己的眼淚也跟著主角一起打轉，無論是魔幻卻不誇張的視覺\n特效，或是徜徉於大自然中的場景，都把觀眾給吸進電影架構出的世界\n\
@@ -11409,7 +11408,7 @@ date: 2011-11-04
 reply_count: 11
 title: '[好雷] 《星空》尋找回不去的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1320367966.A.17E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '還原一下標題：被放在心裡的愛，就是永恆的存活。
 
 
@@ -11839,7 +11838,7 @@ date: 2018-03-26
 reply_count: 10
 title: '[好雷] 記憶中的擁抱-被放在心底的愛'
 url: https://www.ptt.cc/bbs/movie/M.1522067010.A.5D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '說真的，能夠記得的只有感覺
 
   只怪我小時候沒有認真看電影
@@ -11891,7 +11890,7 @@ date: 2015-08-26
 reply_count: 3
 title: '[問片] 有關男孩 跟記憶的電影'
 url: https://www.ptt.cc/bbs/movie/M.1440519482.A.9E4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小時候，家裡總有某一扇門，某一個角落，讓你總是畏懼。
 
   小時候，家附近或學校裡，總有一處髒亂又陰暗，更有駭人的謠言。
@@ -12058,7 +12057,7 @@ date: 2006-09-03
 reply_count: 15
 title: '[心得] 【怪怪屋。Monster House】---童年記憶裡的怪獸'
 url: https://www.ptt.cc/bbs/movie/M.1157217901.A.373.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《美國女孩》：這應該是台灣人都能有共鳴的一部心思細膩的電影，能夠激起台灣小孩成長過程中的各種記憶碎片，對於家人與環境的認知變化，透過歸國子女的不適應與歷史病疫的不安心，讓片中四個家庭角色互相擦出他們各自內心的「美國夢」所幻滅的火花，關於美國夢的失落情緒依稀記得在楊德昌電影《青梅竹馬》中顯得不切實際與遙不可及，《美國女孩》則隱約承接這樣的概念，道出逃避的現實。
 
 
@@ -12083,7 +12082,7 @@ date: 2021-11-14
 reply_count: 2
 title: '[好雷] 《美國女孩》：屬於台灣的共同記憶'
 url: https://www.ptt.cc/bbs/movie/M.1636899172.A.850.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想回味一下突然想不起片名...只好來版上請教...
 
 
@@ -12122,7 +12121,7 @@ date: 2017-03-11
 reply_count: 5
 title: '[問片] 吸血鬼老片　偷換記憶'
 url: https://www.ptt.cc/bbs/movie/M.1489202332.A.39A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛看完星際大戰七 特別背了一個尤達的包包進場看
 
   amazon有賣 十分可愛
@@ -12293,7 +12292,7 @@ date: 2015-12-18
 reply_count: 62
 title: '[普雷] 這不是我記憶中的星戰 '
 url: https://www.ptt.cc/bbs/movie/M.1450375671.A.B97.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本魯一直忙到現在才看完這片
 
 
@@ -12374,7 +12373,7 @@ date: 2016-11-26
 reply_count: 15
 title: '[討論] 妳的名字 周遭人們的記憶（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1480171589.A.921.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -12413,7 +12412,7 @@ date: 2020-08-07
 reply_count: 12
 title: '[討論雷] 記憶拼圖的小疑問'
 url: https://www.ptt.cc/bbs/movie/M.1596814057.A.1A4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本月份的iTunes 90元特價蠻多經典，[記憶拼圖] 跟 [愛情決勝點] 都大推，前者是諾蘭\n經典，超燒腦，後者把愛情中的運氣這件事情講到極致，兩部都收了~\n\
   \n\n另外 [吸血鬼家庭屍篇] 講現代吸血鬼同居故事，笑點高，很鬧但片尾頗感人，[寒戰2]\n真心覺得劇情比第一集還棒，隧道戰依然是心中很經典的一段。\n\n\
   \n[維多莉亞] 全片近兩個半小時一鏡到底，真的是前無古人後無來者，效果就是會真的對\n角色劇情很有投入感..很震撼的體驗，剩下還有不少片單也不錯~限時3天可以趕緊收一下\n\
@@ -12433,7 +12432,7 @@ date: 2018-10-26
 reply_count: 12
 title: '[情報] iTunes多部90元 #記憶拼圖 #愛情決勝點'
 url: https://www.ptt.cc/bbs/movie/M.1540527784.A.9D5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記憶只有一天，每天醒來需靠日記照片來提醒自己，但最後發現每天醒來看到的老公竟然
 
   是陌生人
@@ -12444,7 +12443,7 @@ date: 2018-06-09
 reply_count: 9
 title: '[問片] 有雷 記憶只有一日，枕邊人是別人'
 url: https://www.ptt.cc/bbs/movie/M.1528511064.A.DB5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這齣片是應女朋友要求陪他進去電影院裡面看的
 
 
@@ -12553,7 +12552,7 @@ date: 2018-03-19
 reply_count: 2
 title: '[好雷]記憶中的擁抱--死亡或重生 '
 url: https://www.ptt.cc/bbs/movie/M.1521392331.A.56D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -12620,7 +12619,7 @@ date: 2017-11-20
 reply_count: 54
 title: '[討論] 正義聯盟記憶最深刻的片段'
 url: https://www.ptt.cc/bbs/movie/M.1511154144.A.4A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影本身就是以哲學命題為核心
 
   因愛生惡  因愛生懼  因愛生妄想  愛就是 IT
@@ -12669,7 +12668,7 @@ date: 2014-10-27
 reply_count: 3
 title: 'Re: [好雷]記憶傳承人 '
 url: https://www.ptt.cc/bbs/movie/M.1414339908.A.19A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "老台北人的電影記憶 變成廢墟\n\n2018-11-19\n\n記者徐義平／專題報導\n\n1950年代開幕的「台北戲院」，是6、70歲老台北人看電影的首選地點。在當地擔任12屆\n\
   里長的吳益水說：「當時看電影的人好多啊！路上多的是賣黃牛票的人。」最初該戲院是\n播放日片為主，與當時的「第一劇場」齊名，之後才有「電影之父」周陳玉樹的三「聲」\n\
   系列電影院。\n\n 台北市西門町電影街，人聲鼎沸。但老台北人記憶中的「台北戲院」已 變成廢。（\n記者王藝菘攝）\n\n\n「台北戲院」最早是周順發、周志誠與周志輝等周氏家族自建並經營；據悉，周氏家族原\n\
@@ -12685,7 +12684,7 @@ date: 2018-11-19
 reply_count: 6
 title: '[新聞] 老台北人的電影記憶 變成廢墟'
 url: https://www.ptt.cc/bbs/movie/M.1542593120.A.F63.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看過的人都知道，支線查爾斯的部分可能是最令人匪夷所思的。BC是失去女兒，又何必插
 
   了一段瘋掉的老男人進來，這兩者之間的關係是什麼？
@@ -12812,7 +12811,7 @@ date: 2018-03-20
 reply_count: 3
 title: '[好雷] 記憶中的擁抱 觀後感（代友po）'
 url: https://www.ptt.cc/bbs/movie/M.1521538818.A.FF9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -12871,7 +12870,7 @@ date: 2021-12-27
 reply_count: 12
 title: '[問題] 記憶拼圖的問題'
 url: https://www.ptt.cc/bbs/movie/M.1640606365.A.E77.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部電影應該2-30年有了, 記得男主角是一個小男孩, 然後每次許一個願望
 
 
@@ -12892,7 +12891,7 @@ date: 2019-12-06
 reply_count: 10
 title: '[問片] 男主角每次許願會失去片段記憶的奇幻老片'
 url: https://www.ptt.cc/bbs/movie/M.1575583268.A.61D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實是今早才在FB看到這部電影的資訊，
 
   318十週年的今天，擇日不如撞日，
@@ -12983,7 +12982,7 @@ date: 2024-03-18
 reply_count: 26
 title: '[  好雷] 尋找湯德章，找回塵封的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1710777092.A.74C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '感謝大家踴躍推文，交換券得獎者已經抽出～
 
 
@@ -13013,7 +13012,7 @@ date: 2022-04-26
 reply_count: 10
 title: 'Re: [贈票] 請你看《記憶殺神》連恩尼遜化身藥命殺手'
 url: https://www.ptt.cc/bbs/movie/M.1650969242.A.538.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n為了支持國片 所以抱著不期不待的心情去看\n\
   \n沒想到看完真的所如預期令人不期不待\n\n\n先說優點：\n\n1．林柏宏演的不錯，很自然\n\n2．有一兩次被逗笑\n\n\n再來說缺點：\n\n1．劇情零碎太鬆散\n\
@@ -13026,7 +13025,7 @@ date: 2023-02-10
 reply_count: 66
 title: '[普偏負雷] 沒太大記憶點的電影'
 url: https://www.ptt.cc/bbs/movie/M.1676008517.A.92D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '作者: geniusleuth (Hope Brings Opportunity) 看板: Crime_Movie
 
   標題: [心得]《我記得》隱藏於記憶迷霧中的殘酷真相
@@ -13218,7 +13217,7 @@ date: 2016-12-04
 reply_count: 14
 title: 'Fw: [心得]《我記得》隱藏於記憶迷霧中的殘酷真相'
 url: https://www.ptt.cc/bbs/movie/M.1480825501.A.BE1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這是之前在飛機上看的
 
 
@@ -13248,7 +13247,7 @@ date: 2016-01-20
 reply_count: 2
 title: '[問片] 日本電影 男主角記憶混亂'
 url: https://www.ptt.cc/bbs/movie/M.1453295533.A.5DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '還記得是國小時
 
   應該是1998～2005
@@ -13283,7 +13282,7 @@ date: 2015-10-24
 reply_count: 7
 title: '[問片] 有關記憶中的一部片'
 url: https://www.ptt.cc/bbs/movie/M.1445659736.A.524.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -13409,7 +13408,7 @@ date: 2020-03-30
 reply_count: 69
 title: '[普雷] 記憶屋 每個人都有想遺忘的過去'
 url: https://www.ptt.cc/bbs/movie/M.1585573585.A.4F9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2000年的《記憶拼圖》提高了諾蘭的知名度，其中最為人津津樂道的就是非線性的剪輯方式，而為何諾蘭選擇要以這種方式來呈現，這種剪輯方式與主角和劇情又有何關聯？這部由Lessons
   from the Screenplay的Micheal所製作的影片一一分析
 
@@ -13426,7 +13425,7 @@ date: 2019-11-30
 reply_count: 6
 title: '[翻譯] 倒著說故事《記憶拼圖》'
 url: https://www.ptt.cc/bbs/movie/M.1575050243.A.0B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "看了NETFLIX的韓片 記憶之夜的幾個疑問\n\n1.假哥哥之所以要設定瘸腿的必要性？\n　因為好像跟劇情的關聯不大，反而還讓男主振碩發現假哥哥被綁回來後換腿瘸\n\
   \n2.片頭既然假哥哥後來自陳是被警察抓走打亂計畫，但竟然載走哥哥的不是警車而是一般\n  廂型車，不是有點奇怪嗎?\n\n3.男主振碩被設定是因為要讓他以為自己是活在1997年，設定為全職重考生所以只能在家\n\
   \ ，但是假哥哥白天出門，假爸媽似乎白天也不在家，難道他不會外出嗎?那這樣不就知\n  到他其實是活在2017年?\n\n4.片末男主在跟假哥哥謊稱說並不是受假哥哥的父親指使殺人，我可以理解是善意的謊言\n\
@@ -13435,7 +13434,7 @@ date: 2022-04-13
 reply_count: 8
 title: '[請益] 韓國電影 記憶之夜 劇情疑問'
 url: https://www.ptt.cc/bbs/movie/M.1649863100.A.7A3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《玩命記憶Unknown》
 
 
@@ -13506,7 +13505,7 @@ date: 2007-12-20
 reply_count: 1
 title: '[心得] 《玩命記憶 Unknown》 '
 url: https://www.ptt.cc/bbs/movie/M.1198132654.A.E5C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -13556,7 +13555,7 @@ date: 2015-02-08
 reply_count: 11
 title: '[請益] 記憶拼圖的問題'
 url: https://www.ptt.cc/bbs/movie/M.1423400532.A.724.html
---- !!python/object:movie_data.PublicReview
+---
 content: '台灣檔期定了
 
 
@@ -13571,7 +13570,7 @@ date: 2022-03-25
 reply_count: 5
 title: 'Re: [討論] 最強老爸「記憶」預告'
 url: https://www.ptt.cc/bbs/movie/M.1648177674.A.A42.html
---- !!python/object:movie_data.PublicReview
+---
 content: "有那些電影出多版本讓你懷疑記憶出錯的？\n\n不討論下片後才出的  導演版 加長版 加強版\n\n舉例各位就會懂了\n\n上海灘賭聖 我最早看的是方季維版\
   \ 後來全是鞏利版\n\n假設我“非常小的時候”只看過方季維版  長大後重看發現怎麼女主角變了\n在沒有google的情況下  一定會覺得我小時候是不是認錯人了\
   \ 還是看錯片了?\n大概就是這意思\n\n以下舉例\n\n魔鬼終結者一  女主角有跟男主角做愛的鏡頭 但後來看的版本就都沒有了 只剩一夜過後\n\n魔鬼終結者二\
@@ -13583,7 +13582,7 @@ date: 2023-05-16
 reply_count: 72
 title: '[討論] 有那些電影出多版本讓你懷疑記憶出錯的？'
 url: https://www.ptt.cc/bbs/movie/M.1684200830.A.0B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -13791,7 +13790,7 @@ date: 2022-05-12
 reply_count: 11
 title: '[好雷] 《記憶殺神》最強老爸變身反派，用私刑實現正義'
 url: https://www.ptt.cc/bbs/movie/M.1652366288.A.9FE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2021 坎城影展主競賽 榮獲評審團獎
 
   金棕櫚《波米叔叔的前世今生》名導 阿比查邦首部英語作品
@@ -13821,7 +13820,7 @@ date: 2021-07-31
 reply_count: 5
 title: '[情報] 2021坎城評審團獎《記憶》台灣版預告'
 url: https://www.ptt.cc/bbs/movie/M.1627743274.A.52A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本篇無雷，只提到了預告和宣傳就有揭露的資訊
 
 
@@ -13980,7 +13979,7 @@ date: 2017-12-15
 reply_count: 17
 title: '[好雷] 《幸福路上》-台灣記憶的溫暖與憂傷'
 url: https://www.ptt.cc/bbs/movie/M.1513313410.A.F66.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請描述欲尋找電影的類型或特徵（請盡量描述清楚）
 
 
@@ -14045,7 +14044,7 @@ date: 2015-06-03
 reply_count: 58
 title: '[片單] 跟記憶、預知有關，要動腦想的電影'
 url: https://www.ptt.cc/bbs/movie/M.1433265713.A.BC4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好像一個特務拿到一個記憶卡，
 
   發現有個政治人物殺人（好像在湖邊）。
@@ -14061,7 +14060,7 @@ date: 2022-08-17
 reply_count: 17
 title: '[問片] 記憶卡發現殺人'
 url: https://www.ptt.cc/bbs/movie/M.1660751754.A.7D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '冷知識：目前金氏世界紀錄記載最早的電影是《朗德海花園場景》，這部是法國導演在英
 
   國鄉下拍的短片，那時是1888年（清 年），也是開膛手傑克出現的那年，而電影
@@ -14134,7 +14133,7 @@ date: 2018-01-13
 reply_count: 314
 title: 有記憶以來看過的最古老電影？
 url: https://www.ptt.cc/bbs/movie/M.1515850391.A.D0B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一部頗舊的電影
 
 
@@ -14172,7 +14171,7 @@ date: 2015-03-20
 reply_count: 10
 title: '[問片] 一群人關在一起 都暫時失憶'
 url: https://www.ptt.cc/bbs/movie/M.1426822976.A.9D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '會搞出這種東西是當初中藝代理發行的版本
 
   不知道是哪根筋不對，大概是怕人看不懂？
@@ -14207,7 +14206,7 @@ date: 2020-04-05
 reply_count: 9
 title: 'Re: [請益] 記憶拼圖的導演版哪裡找？'
 url: https://www.ptt.cc/bbs/movie/M.1586099348.A.1FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n在台灣，只要前往花東地區，民眾能夠走的就是公路、客運、鐵道三種\n而中途就是經過中央山脈，怎樣子去建設路段讓兩邊可以流暢通行\n\
   在每個路段都有一個艱難的工程史\n\n片中除了記錄了鐵路南迴線的電氣化之外，也一同紀錄了整個南迴線的歷史\n確實也可以作為一部台灣的通勤史來觀賞\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n枋寮-台東，只要是雲嘉南高屏地區的人應該都有搭乘過相關車型的經驗\n\
@@ -14223,7 +14222,7 @@ date: 2023-06-20
 reply_count: 9
 title: '[好雷] 南方，寂寞鐵道 一段台灣人的生活記憶'
 url: https://www.ptt.cc/bbs/movie/M.1687243737.A.DC5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得有部電影裡面
 
 
@@ -14247,7 +14246,7 @@ date: 2019-03-31
 reply_count: 8
 title: '[問片] 一個人失去記憶 不算是完整的人'
 url: https://www.ptt.cc/bbs/movie/M.1553967605.A.158.html
---- !!python/object:movie_data.PublicReview
+---
 content: '聽媽媽所述
 
 
@@ -14289,7 +14288,7 @@ date: 2016-11-06
 reply_count: 1
 title: '[問片] 媽媽記憶中2.30年前的日韓黑白老片'
 url: https://www.ptt.cc/bbs/movie/M.1478435167.A.BAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '挖掘台灣人成長共同記憶歷時6年拍攝！追火車「時機」成關鍵
 
 
@@ -14366,7 +14365,7 @@ date: 2023-06-03
 reply_count: 3
 title: '[新聞] 挖掘台灣人成長共同記憶歷時6年拍攝！追'
 url: https://www.ptt.cc/bbs/movie/M.1685766426.A.E66.html
---- !!python/object:movie_data.PublicReview
+---
 content: "以前進電影院看過\n\n情節特點是: 主角一開始不知道 自己已經 被從未來回到過去的自己 設計好並予以幫助\n            後來才發現。\n\
   \n主角是個帥男(是阿湯哥嗎) 不知道怎樣入監牢\n\n脫衣服檢查時 給他個紙袋放他的隨身物品 他一掏口袋\n\n口袋正好有鑰匙 硬幣 眼鏡 等東西 後來起了一堆煙霧\
   \ 大家都看不到一陣混亂\n\n他戴上眼鏡(保護眼睛)就逃走  後來緊急時又用硬幣塞入機關中 門就正好打開\n\n他這才發現那些看起來正好在口袋的東西都變成逃出重要的關鍵\n\
@@ -14376,7 +14375,7 @@ date: 2018-02-21
 reply_count: 11
 title: '[問片] 跪求一部關於時空旅行的當代片(約15年前上映)'
 url: https://www.ptt.cc/bbs/movie/M.1519222340.A.081.html
---- !!python/object:movie_data.PublicReview
+---
 content: '很久以前看過  忘記片名  好萊屋片
 
   內容是男主角失去記憶  來到一座小鎮
@@ -14396,7 +14395,7 @@ date: 2016-02-18
 reply_count: 11
 title: '[問片] 主角失去記憶的片'
 url: https://www.ptt.cc/bbs/movie/M.1455725505.A.106.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌版：
 
 
@@ -14547,7 +14546,7 @@ date: 2007-10-06
 reply_count: 3
 title: '[好雷] 明日的記憶與阿茲罕默症'
 url: https://www.ptt.cc/bbs/movie/M.1191677402.A.6D7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想問一部以前看過的預告片
 
 
@@ -14582,7 +14581,7 @@ date: 2019-02-24
 reply_count: 15
 title: 問部一群人失去記憶的電影
 url: https://www.ptt.cc/bbs/movie/M.1550980151.A.14B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -14628,7 +14627,7 @@ date: 2021-07-17
 reply_count: 38
 title: '[新聞] 蒂妲絲雲頓新作《記憶》坎城獲14分鐘喝采'
 url: https://www.ptt.cc/bbs/movie/M.1626502671.A.D22.html
---- !!python/object:movie_data.PublicReview
+---
 content: '就一個本身是失智症患者的家屬
 
   同時也經常接觸這類患者的在下認為
@@ -14717,7 +14716,7 @@ date: 2007-10-04
 reply_count: 3
 title: 'Re: [好雷] 明日的記憶Memories of Tomorrow'
 url: https://www.ptt.cc/bbs/movie/M.1191477038.A.3E0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網誌圖文版：
 
 
@@ -14880,7 +14879,7 @@ date: 2009-02-15
 reply_count: 13
 title: '[好雷] 談《記憶拼圖》：歷史是騙人的東西'
 url: https://www.ptt.cc/bbs/movie/M.1234677067.A.A25.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由香港演員楊千嬅及余文樂主演的「嘴砲系」都會愛情喜劇繼2010年《志明與春嬌》、
 
   2012年《春嬌與志明》後，在2017年推出了第3部《春嬌救志明》。這系列起源於香港室
@@ -14956,7 +14955,7 @@ date: 2017-05-07
 reply_count: 5
 title: '[討論] 很會用歌曲喚起共同記憶的《春嬌救志明》'
 url: https://www.ptt.cc/bbs/movie/M.1494151966.A.F45.html
---- !!python/object:movie_data.PublicReview
+---
 content: '去年在愚人節寫下關於演員張國榮的記憶，許多電影修復重登銀幕之際也有了機會再次觀
 
   賞這位演員的作品，和各位分享一些心得與感受。
@@ -15221,7 +15220,7 @@ date: 2021-04-01
 reply_count: 31
 title: '[討論] 我記憶裡的愚人節與張國榮'
 url: https://www.ptt.cc/bbs/movie/M.1617235950.A.8BE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -15533,7 +15532,7 @@ date: 2018-11-14
 reply_count: 10
 title: '[夢雷]氫氣身體，石頭記憶《地球最後的夜晚》'
 url: https://www.ptt.cc/bbs/movie/M.1542174220.A.3A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: "三谷幸喜導演 預定在明年上映的新作\n\n（暫譯：我不記得了！）\n\n故事描述 史上支持率最低的總理大臣 黑田啓介\n\n某天被民眾丟石頭砸到頭，喪失記憶\n\
   \n從追求權力金錢的惡德政客，變成純樸善良的普通歐吉桑\n\n是一齣政治喜劇。\n\n卡司：中井貴一\n      ディーン・フジオカ\n      石田ゆり子\n\
   \      草刈正雄\n      佐藤浩市\n\n--"
@@ -15541,7 +15540,7 @@ date: 2018-08-08
 reply_count: 17
 title: '[情報] 三谷幸喜 新作『記憶にございません！』'
 url: https://www.ptt.cc/bbs/movie/M.1533702668.A.090.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文並"冒"網頁版：
 
 
@@ -15856,7 +15855,7 @@ date: 2015-09-10
 reply_count: 3
 title: '[普雷] 記憶偵探(Mindscape) 有點可惜的一部'
 url: https://www.ptt.cc/bbs/movie/M.1441880971.A.56E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "深夜看完這部電影，浪費了快要一整包衛生紙QQQQQ\n\n先奉上預告\n\n\n\n預覽簡介：\n   影片《思悼》講述了朝鮮歷史上，出身顯赫的世子思悼被父親關進米櫃活活餓死的故\n\
   事。\n宋康昊在《思悼》中將飾演李氏朝鮮第21代君主英祖李昑，這是一個充滿悲劇色彩的角色，\n\n原本他希望將自己唯一的兒子培養為一代明君，但兒子卻屢屢讓他失望最後竟將兒子貶為庶人，並關到米櫃裏活活餓死。\n\
   \n\n\n以下心得有點雷：\n\n\n\n有看過張玉貞的各位應該不陌生！\n亞仁先生在此演的腳色某方面來說算是自己的孫子XDDDD\n\n然後女主角文根英在此部戲的腳色並沒有很突出，所以有點微微的小失望(?\n\
@@ -15869,7 +15868,7 @@ date: 2015-11-14
 reply_count: 11
 title: '[好雷] 思悼：八日的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1447516704.A.953.html
---- !!python/object:movie_data.PublicReview
+---
 content: "路克伊凡斯改邪歸正 喚醒肌肉記憶\n\n2024/09/25 05:30\n\n\n路克伊凡斯在《台北追緝令》飾演來台追緝毒販的緝毒探員。（采昌提供）\n\
   \n〔記者鍾志均／台北報導〕好萊塢明星路克伊凡斯在電影《台北追緝令》上演精彩動作戲\n，導演黃嘉智大讚他專業，「就像一場餐廳廚房大亂鬥，只花4天就拍完，他的肌肉記憶\n\
   使他能直接上場。」樂稱和伊凡斯合作是每個導演的夢想。\n\n該片為路克伊凡斯與「韓哥」姜成鎬繼《玩命關頭6》後再度合作，這次兩人角色形象對\n調，路克伊凡斯從反派「歐文蕭」變身正義緝毒探員；韓哥則飾演販毒集團首腦，他開心\n\
@@ -15880,7 +15879,7 @@ date: 2024-09-25
 reply_count: 3
 title: '[新聞] 路克伊凡斯改邪歸正 喚醒肌肉記憶'
 url: https://www.ptt.cc/bbs/movie/M.1727273709.A.B73.html
---- !!python/object:movie_data.PublicReview
+---
 content: "1.影片名稱 : 記憶拼圖 Memento (2000)\n\n2.觀影時間 : 最近U\n\n3.觀影地點 : 網路 my video\n\n\
   4.觀影方式 : 網路 (豪華)月租\n\n§其他防雷說明(非必要) : ３刷以上\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   \n\n\n\n\n大家好 m(_ _)m　　\n\n因為和朋友看了，板上推文有人說到這部～因為也是\n 雖然標題寫，不過實際是\n\n而跑多間店怎樣都租不到\
@@ -15900,7 +15899,7 @@ date: 2018-10-14
 reply_count: 25
 title: '[  雷] 記憶拼圖 全劇情重新整理'
 url: https://www.ptt.cc/bbs/movie/M.1539487532.A.F93.html
---- !!python/object:movie_data.PublicReview
+---
 content: '我想找一部老片
 
   但記憶實在是太模糊
@@ -15973,7 +15972,7 @@ date: 2018-06-12
 reply_count: 9
 title: '[問片] 問一部記憶中的老片'
 url: https://www.ptt.cc/bbs/movie/M.1528811677.A.109.html
---- !!python/object:movie_data.PublicReview
+---
 content: '內容只記得美國總統被囚禁起來
 
 
@@ -15995,7 +15994,7 @@ date: 2016-03-05
 reply_count: 6
 title: '[問片] 只記得零碎記憶的片'
 url: https://www.ptt.cc/bbs/movie/M.1457192521.A.A50.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -16043,7 +16042,7 @@ date: 2022-05-04
 reply_count: 10
 title: '[有雷] 奇異博士的記憶...'
 url: https://www.ptt.cc/bbs/movie/M.1651662115.A.A5A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '2017年已經過了一半，不知道大家覺得這半年來去電影院看過的院線片哪一部記憶點最弱
 
   最無感？
@@ -16087,7 +16086,7 @@ date: 2017-07-15
 reply_count: 75
 title: '[討論] 2017上半年最沒記憶點的院線片'
 url: https://www.ptt.cc/bbs/movie/M.1500083712.A.0FF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今天跑去桃園新開的新光影城看了這部神片，該影城的硬體部分讓人十分滿意，\n\n即使是小廳也讓人感到享受。\n\n\n~~~~~~~~~~~~~~~~~~~\
   \ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n 故事的一開始就十分詭異，男主角Lenny用不自然的方式手揮動一張照片，在過了些許時\n\
   \n 間後才發現原來是到著播的方式，以Lenny殺死一個眼鏡仔為電影揭開序幕，從這開始\n\n 電影就以一種從沒看過的方式開始進行著，有些電影會少量的使用倒敘法，不過像記憶\n\
@@ -16100,7 +16099,7 @@ date: 2020-08-06
 reply_count: 37
 title: '[神雷]記憶拼圖 諾蘭大大的成名之作 '
 url: https://www.ptt.cc/bbs/movie/M.1596724044.A.DE3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完名不虛傳之後就衝著金南佶去看這部
 
 
@@ -16139,7 +16138,7 @@ date: 2017-10-26
 reply_count: 6
 title: '[好無雷] 殺人者的記憶法'
 url: https://www.ptt.cc/bbs/movie/M.1509001609.A.E50.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛看完板上大家推的記憶拼圖\n\n覺得記憶拼圖很普\n\n不算是諾蘭成熟的作品，頂尖對決跟TDK都高明很多\n\n充其量就是剪接很有創意，然後，其實一堆事情都沒講清楚讓觀眾自己腦補\n\
   \n吵來吵去最後就變神片了XD\n\n像最一開始男主角的刺青怎麼刺上去的 為什麼刺\n這些才是關鍵的東西都沒演 全靠給觀眾自己腦補就能當神片了\n這片應該是測試亂玩開放式手法來試水溫\
   \ 結果玩過頭\n\n但沒想到反而卻成功了的一部意外影片XD\n\n因為真的會很對某些常常說服只有自己看得懂電影的人的胃口XD\n\n--\n。  。  \n\n\
@@ -16148,7 +16147,7 @@ date: 2018-10-06
 reply_count: 55
 title: '[討論] 記憶拼圖覺得普'
 url: https://www.ptt.cc/bbs/movie/M.1538826700.A.C18.html
---- !!python/object:movie_data.PublicReview
+---
 content: "印象中女主角正處青少年時期\n\n讀書時，尋找在記憶中的男主角\n\n男主角出現時，都戴著面具\n\n但是男女主角要相認時，女主角的身份會被女二等人盜用\n\
   \n男主角的形象有點類似長腿叔叔\n\n\n約是十五年前在七十台左右，週末午後時段播放的\n\n再請各位幫忙\n\n\n◎ 這是給\"知道劇情不知道片名\"的文章使用！\n\
   \   有特定喜好或需求，想請朋友開片單   請選 3.[片單]\n   有兩三個備案，但不知選哪部電影     請選 4.[選片]\n\n\n   1. 問電視時刻表即可查詢的問片文，一律刪除。\n\
@@ -16164,7 +16163,7 @@ date: 2020-11-28
 reply_count: 3
 title: '[問片] 女主角尋找記憶中的男主的動畫片'
 url: https://www.ptt.cc/bbs/movie/M.1606495652.A.3DB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小小兵電影的符號記憶 Back To 60’S With Minions
 
 
@@ -16454,7 +16453,7 @@ date: 2015-08-01
 reply_count: 9
 title: '[好雷] 小小兵電影的符號記憶'
 url: https://www.ptt.cc/bbs/movie/M.1438365312.A.B2B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看到的預告，
 
 
@@ -16470,7 +16469,7 @@ date: 2018-03-16
 reply_count: 4
 title: '[情報] 金馬奇幻影展會上映《記憶拼圖》'
 url: https://www.ptt.cc/bbs/movie/M.1521213265.A.7C7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《明日的記憶》- 時光之硯部落格\n\n   （真情動人圖文版）\n\n=============================================\n\
   \n\n\n\n\n\n=============================================\n\n微涼的秋風吹送裡，又一部催淚的日本電影即將上映了。《明日的記憶（明日の記憶）》\n\
   選擇以倒敘法破題：男主角一動也不動的眼神，凝結在楓紅色的小木屋裡；一只茶杯立在\n桌上，與房間簡潔的擺飾形成對比。帶著微笑的女主人靜坐一旁，夕陽下所有的回憶已然\n\
@@ -16519,7 +16518,7 @@ date: 2007-09-13
 reply_count: 2
 title: '[好雷] 《明日的記憶》by（時光之硯）'
 url: https://www.ptt.cc/bbs/movie/M.1189683332.A.CF6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -16593,7 +16592,7 @@ date: 2017-10-17
 reply_count: 1
 title: '[新聞] 【釜山專訪】柯佳嬿32歲解放黑暗記憶　'
 url: https://www.ptt.cc/bbs/movie/M.1508197646.A.B4E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '時間：7~8年前，2011、2012年那時候(當時是看DVD)
 
 
@@ -16618,7 +16617,7 @@ date: 2018-11-28
 reply_count: 15
 title: '[問片]找一部記憶中的邪教血腥恐怖片'
 url: https://www.ptt.cc/bbs/movie/M.1543341177.A.125.html
---- !!python/object:movie_data.PublicReview
+---
 content: '首po請鞭小力一點
 
   剛剛在MOD上看完本部電影
@@ -16726,7 +16725,7 @@ date: 2018-02-01
 reply_count: 19
 title: '[ 好雷] 殺人犯的記憶 請益'
 url: https://www.ptt.cc/bbs/movie/M.1517415276.A.7D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -16777,7 +16776,7 @@ date: 2020-07-30
 reply_count: 2
 title: '[新聞] 【記憶拼圖】劇本像無字天書，男主角難辨'
 url: https://www.ptt.cc/bbs/movie/M.1596116456.A.0D9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '內有微雷
 
   防雷資訊頁
@@ -16854,7 +16853,7 @@ date: 2023-03-06
 reply_count: 12
 title: '[好雷] 鈴芽之旅-記憶並非在身後，而是在腳下'
 url: https://www.ptt.cc/bbs/movie/M.1678111787.A.FA6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '星戰系列其他部的劇情應該不需要特別提醒有雷
 
   不過本文略提另一部電影末日之戰劇情，特此提醒一下
@@ -17019,14 +17018,14 @@ date: 2020-01-05
 reply_count: 2
 title: '[微好雷]  星際大戰九 ~一段關於記憶的故事~'
 url: https://www.ptt.cc/bbs/movie/M.1578216297.A.4F7.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我隨便把你的幾句話貼到估神\n\n  就出來了\n\n  這種有需要找嗎？\n\n  板上都沒在管的話\n\n  那我吃飽沒事就來PO一篇神電影好了\n\
   \n\n--\n\n   ○  趴\n √\\\\\n\n\n--"
 date: 2018-03-10
 reply_count: 12
 title: 'Re: [問片] 重複7分鐘記憶的火車片'
 url: https://www.ptt.cc/bbs/movie/M.1520666852.A.610.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想瞭解一下
 
   Movie版
@@ -17049,7 +17048,7 @@ date: 2018-01-10
 reply_count: 3
 title: '[討論] 電影心得 記憶'
 url: https://www.ptt.cc/bbs/movie/M.1515577304.A.AF1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "有雷\n\n\n慎入\n\n\n有提到些劇情\n\n==========================================================\n\
   \n張亦絢／小記憶與大電影 － 《BPM》的愛滋書寫啟示\n from自由時報副刊\n2018-02-25\n\n◎張亦絢\n\n導演羅賓．康皮洛（Robin\
   \ Campillo，1962-）的電影《BPM》（Battements Par Minute\n╱每分鐘的心跳），是以法國著名同志組織抗爭歷史為起點的作品。片頭一開始，\n\
@@ -17076,7 +17075,7 @@ date: 2018-02-25
 reply_count: 1
 title: '[影評] 小記憶與大電影 - 《BPM》的愛滋書寫啟示'
 url: https://www.ptt.cc/bbs/movie/M.1519537877.A.3CB.html
---- !!python/object:movie_data.PublicReview
+---
 content: '難得本周有些在意的電影,來選個片~
 
 
@@ -17140,7 +17139,7 @@ date: 2022-04-27
 reply_count: 18
 title: '[選片] 燃燒的劍vs死間行動vs記憶殺神vs告白'
 url: https://www.ptt.cc/bbs/movie/M.1651050402.A.4AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '哥倫比亞在昨日公布了將推派為明年奧斯卡「最佳國際電影」的代表作品，這部電影為《
 
   記憶》（Memoria）。
@@ -17200,7 +17199,7 @@ date: 2021-09-29
 reply_count: 7
 title: '[情報] 2022 哥倫比亞奧斯卡代表：《記憶》'
 url: https://www.ptt.cc/bbs/movie/M.1632890591.A.80B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '連恩尼遜在這片武打超帥氣的啦~~~
 
 
@@ -17233,7 +17232,7 @@ date: 2022-05-01
 reply_count: 6
 title: '[好雷] 記憶殺神'
 url: https://www.ptt.cc/bbs/movie/M.1651418378.A.4F4.html
---- !!python/object:movie_data.PublicReview
+---
 content: "今天看完聖母峰,想起以前看過的一部類似的電影,內容一樣是勉強登山後,\n  發生山難,其中也是有位登山客,被冰了很久自己醒來回到營區,不知道有人\n\
   \  知道這部片子嗎? 自己也在想是不是同一件山難改編的電影?\n\n  另外想問一件事情,剛剛爬文有人說南峰的氧氣筒是有充氣的,是檢查的人有\n  高山症才產生的錯誤,這是小說才寫的吧?還是電影中有演到?\n\
   \n\n--"
@@ -17241,7 +17240,7 @@ date: 2015-09-19
 reply_count: 11
 title: '[請益] 記憶中與聖母峰相似劇情的電影'
 url: https://www.ptt.cc/bbs/movie/M.1442677119.A.313.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛才又看了一次港版本的「記憶拼圖」
 
 
@@ -17271,7 +17270,7 @@ date: 2015-02-15
 reply_count: 8
 title: '[請益] 記憶拼圖一問 (雷)'
 url: https://www.ptt.cc/bbs/movie/M.1423932209.A.15A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '既然女科學家說植入真實記憶是非法的
 
 
@@ -17283,7 +17282,7 @@ date: 2017-10-14
 reply_count: 11
 title: '[討論] 銀翼殺手 2049 有關記憶植入的問題'
 url: https://www.ptt.cc/bbs/movie/M.1507924142.A.35B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看介紹這部目前是Catchplay+獨家 別的地方應該沒有
 
   打開後發現是之前演即刻救援的Liam Neeson演的
@@ -17391,7 +17390,7 @@ date: 2022-07-18
 reply_count: 16
 title: '[普雷] 最強的阿茲海默患者-記憶殺神'
 url: https://www.ptt.cc/bbs/movie/M.1658142224.A.142.html
---- !!python/object:movie_data.PublicReview
+---
 content: '手機發文排版不佳請見諒
 
 
@@ -17554,7 +17553,7 @@ date: 2018-02-02
 reply_count: 3
 title: '[ 好雷] 最後的食譜 麒麟之舌的記憶'
 url: https://www.ptt.cc/bbs/movie/M.1517563675.A.E3A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一個小疑問
 
   記得嚐血偷記憶這概念
@@ -17572,7 +17571,7 @@ date: 2016-12-06
 reply_count: 8
 title: '[請益] 決戰異世界，血的記憶，無雷'
 url: https://www.ptt.cc/bbs/movie/M.1481014122.A.30C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '根據 Deadline 前日的報導，今年以《花漾女子》成為獎季影后領跑者之一的英國女演員
 
   Carey Mulligan 將主演《蘋果的記憶》希臘新銳導演 Christos Nikou 的新片《Fingerna
@@ -17642,7 +17641,7 @@ date: 2021-01-31
 reply_count: 1
 title: '[情報] 凱莉墨里根將主演《蘋果的記憶》導演首部英語電影《指甲》'
 url: https://www.ptt.cc/bbs/movie/M.1612071480.A.ED1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "還是丟個防雷頁好了\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
   \n\n\n這部負雷片有演到彌海砂因為摸到紫苑優輝寄出的筆記本，最後記憶恢復\n\n其實當下看到這段的時候就覺得怪怪的，我記得摸到筆記本記憶恢復好像有一定的規則\n\
   \n由於後續能吐槽的部分太多就把這邊給遺忘了\n（該吐的都已經吐不完了哪輪的到這邊 XD）\n\n\n\n\nPO這篇的目的，吐槽反而是其次\n\n主要還是想藉由吐槽來確認我記得的規則是否是正確的\n\
@@ -17654,7 +17653,7 @@ date: 2018-06-03
 reply_count: 8
 title: '[請益] 死亡筆記本決戰新世界 彌海砂記憶問題'
 url: https://www.ptt.cc/bbs/movie/M.1528023081.A.E91.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最後面男主角在車上醫療間看到假老婆手上沒有疤才知道眼前這位老婆是假老婆裝的
 
 
@@ -17678,7 +17677,7 @@ date: 2017-08-13
 reply_count: 8
 title: '[請益] 攔截記憶碼最後結局'
 url: https://www.ptt.cc/bbs/movie/M.1502599952.A.602.html
---- !!python/object:movie_data.PublicReview
+---
 content: '寂寞的夜晚，熬夜打點字，是自己存在的證明。
 
 
@@ -17740,7 +17739,7 @@ date: 2017-08-01
 reply_count: 15
 title: '[討論] 記憶裂痕'
 url: https://www.ptt.cc/bbs/movie/M.1501523935.A.5CC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（中央社記者韋樞台北12日電）記憶體模組廠金士頓今天發表非常感人的「記憶的紅汽球
 
   」微電影，觀眾可能以為是在美國拍攝，但漢翔航太透露，這部微電影絕大部份場景都是
@@ -17791,7 +17790,7 @@ date: 2015-12-12
 reply_count: 2
 title: '[新聞] 記憶的紅汽球微電影 在漢翔拍的'
 url: https://www.ptt.cc/bbs/movie/M.1449928253.A.E5D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -17882,7 +17881,7 @@ date: 2020-04-17
 reply_count: 9
 title: '[好雷] 失憶的總理大臣(記憶にございません) '
 url: https://www.ptt.cc/bbs/movie/M.1587102190.A.4AE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前天看完這部電影
 
 
@@ -18054,7 +18053,7 @@ date: 2006-09-19
 reply_count: 10
 title: 愛情與記憶--記得我愛你(雷)
 url: https://www.ptt.cc/bbs/movie/M.1158654185.A.63C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '布魯斯威利失語症
 
   凱吉哥最近重返榮耀
@@ -18073,7 +18072,7 @@ date: 2022-04-28
 reply_count: 15
 title: '[討論] 最強老爸"記憶殺神"爛蕃茄25'
 url: https://www.ptt.cc/bbs/movie/M.1651080855.A.E10.html
---- !!python/object:movie_data.PublicReview
+---
 content: '「野番茄」記錄高雄二二八 挖掘台灣本土記憶
 
 
@@ -18145,7 +18144,7 @@ date: 2021-10-13
 reply_count: 7
 title: '[新聞] 「野番茄」記錄高雄二二八 挖掘台灣本土記憶'
 url: https://www.ptt.cc/bbs/movie/M.1634055250.A.833.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -18235,7 +18234,7 @@ date: 2021-03-16
 reply_count: 4
 title: '[好雷] 淺田家！ 照片就是生活的記憶 '
 url: https://www.ptt.cc/bbs/movie/M.1615907777.A.36A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
   我是專看恐怖片的LittleDiDi
@@ -18536,7 +18535,7 @@ date: 2017-05-08
 reply_count: 21
 title: '[好雷]記憶拼圖 - 不要放任有病人是趴趴造'
 url: https://www.ptt.cc/bbs/movie/M.1494177608.A.00A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -18572,7 +18571,7 @@ date: 2017-04-11
 reply_count: 3
 title: '[新聞] 記憶乍響》導演尤沃金提爾執導新作《THEL'
 url: https://www.ptt.cc/bbs/movie/M.1491917885.A.FC9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好，小弟禮拜天想找部電影來看，礙於時間關係所以只能挑一部。
 
   看過評價這兩片都不錯，對《我是布萊克》的勞權題材蠻有興趣的；同時也還蠻愛《記憶
@@ -18604,7 +18603,7 @@ date: 2016-12-23
 reply_count: 18
 title: '[選片] 記憶乍響 v.s. 我是布萊克'
 url: https://www.ptt.cc/bbs/movie/M.1482494489.A.51F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷
 
 
@@ -18695,7 +18694,7 @@ date: 2017-02-06
 reply_count: 12
 title: '[ 好雷]  健忘村—記憶、控制、貪婪'
 url: https://www.ptt.cc/bbs/movie/M.1486324406.A.49A.html
---- !!python/object:movie_data.PublicReview
+---
 content: "無音樂詳盡圖文網頁版\n\n\n\n《別相信任何人》：（Before I Go Sleep）2014\n\n【劇情簡介】\n\n一名婦人每天起床都無法回想起昨天發生過的事情，\n\
   在一位聲稱丈夫的男子和一位心理醫師的幫助之下，\n她嘗試找出病因，卻也發現無法相信任何人。\n\n\n【想像力的迷走神經】\n\n這是一個懸疑的故事，由英國小說家華森（S.J.\
   \ Watson）同名小說改編上大銀幕。\n《別相信任何人》也是一個以女性角色作為軸心，\n描寫失憶的徬徨與恐懼，並且著重懸疑情節的鋪陳，\n我們可以大膽地說，這是一部過程重於始末的電影故事。\n\
@@ -18711,7 +18710,7 @@ date: 2015-01-15
 reply_count: 3
 title: '[普雷]《別相信任何人》：記憶是一種很玄的東西'
 url: https://www.ptt.cc/bbs/movie/M.1421327023.A.289.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷
 
 
@@ -18763,7 +18762,7 @@ date: 2023-10-09
 reply_count: 1
 title: '[討論] 記憶拼圖 關於Natalie的問題 (雷)'
 url: https://www.ptt.cc/bbs/movie/M.1696862270.A.B41.html
---- !!python/object:movie_data.PublicReview
+---
 content: '結果看完電影又過了快一個月才來發文
 
   年底真是有一堆事情要做的可怕日子
@@ -18933,7 +18932,7 @@ date: 2018-01-02
 reply_count: 9
 title: '[好雷]可可夜總會-不要失去那些記憶'
 url: https://www.ptt.cc/bbs/movie/M.1514835882.A.6F6.html
---- !!python/object:movie_data.PublicReview
+---
 content: "記憶拼圖其實是一部蠻燒腦的片，雖然故事簡單，但順序倒敘的方法夾雜，片\n\n段的剪輯手法，稍一不注意有些細節就會落掉。\n\n\n\n如果仔細推敲會發現，透過主角的表現，其實隱含了很多人生的探討議題，想\n\
   \n趁著二刷後簡單寫個分析文章，幫助自己釐清思路。(文長慎入。如果文章引用\n\n有錯誤或者理解有出入，請多多包涵並不吝賜教)\n\n\n\n【本片簡介】\n\n\
   主角是一名患有順型性失憶症的患者，在意外發生之後的事情全都不記得，只\n\n有十分鐘的記憶片段，因此他認為，記憶是不可靠，只有筆記才是可靠的，可\n\n以看到他在身上刺青紀錄筆記，也在每一次相遇的人事物以拍立得留下紀錄以\n\
@@ -19083,7 +19082,7 @@ date: 2018-04-25
 reply_count: 33
 title: '[好雷] 記憶拼圖:我必須相信我的行為是有意義的'
 url: https://www.ptt.cc/bbs/movie/M.1524616289.A.8EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小魯也覺得很難看，
 
 
@@ -19179,7 +19178,7 @@ date: 2015-02-18
 reply_count: 17
 title: 'Re: [負雷] 魔法黑森林 有記憶以來最爛片'
 url: https://www.ptt.cc/bbs/movie/M.1424274323.A.3E3.html
---- !!python/object:movie_data.PublicReview
+---
 content: '先說結論，其實並沒有那麼差
 
 
@@ -19301,7 +19300,7 @@ date: 2020-08-15
 reply_count: 8
 title: '[普雷] 天劫倒數，記憶點有點薄弱'
 url: https://www.ptt.cc/bbs/movie/M.1597438594.A.F48.html
---- !!python/object:movie_data.PublicReview
+---
 content: '把剩下的劇情都打完了, 最後附上重組好的劇情~
 
 
@@ -19827,7 +19826,7 @@ date: 2008-09-05
 reply_count: 1056
 title: 'Re: [討論] 《記憶拼圖 Memento》 完全解密 超大雷XD'
 url: https://www.ptt.cc/bbs/movie/M.1220545223.A.D90.html
---- !!python/object:movie_data.PublicReview
+---
 content: "撇開日本片經常出現的過度濫情問題不提，明日的記憶仍不失為一部好電影。自始至終，\n電影將重心自阿茲海默症生活的困難，轉移到夫妻間的互相扶持上。這樣雖然讓電影失去\n\
   了真正撼動人心的力量，卻也相對讓電影易親近且直接明確，搭配上導演堤幸彥刻意營造\n情緒的拍攝，便讓整部電影圓滿地達成了一開始所設立的目標：創造一部有煽動力的電影\n\
   。\n\n要說明日的記憶成功要素，在於整部電影一切從簡，既沒有多餘的支線情節，少數碰觸到\n的時候也只是粗筆帶過，而完全把故事放在演員表現跟情緒營造上。整部電影下來，雖然\n\
@@ -19848,7 +19847,7 @@ date: 2007-10-05
 reply_count: 10
 title: '[影評] 明日的記憶 Memories of Tomorrow'
 url: https://www.ptt.cc/bbs/movie/M.1191591717.A.15B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看完這部片不知道為什麼有種失望感
 
 
@@ -19900,7 +19899,7 @@ date: 2016-01-01
 reply_count: 15
 title: '[普雷] 記憶裂痕 Paycheck'
 url: https://www.ptt.cc/bbs/movie/M.1451660139.A.37B.html
---- !!python/object:movie_data.PublicReview
+---
 content: "如果照表皮看\n\n就是Elizabeth\n\n愛上Simon\n\n然後Simon變恐怖戀人\n\nElizabeth保護自己催眠Simon\n\
   \n甚至是報復他讓他沒辦法戒除賭博\n\n然後Simon缺錢找上Franck開始故事\n\n可是這樣就有問題Simon掛了怎麼都沒有人查到Franck\n\n\n\
   \n\n\n\n\n\n\n\n\n\n所以我是這樣認為事實上沒有Simon這個人\n\n從頭到尾都是Franck\n\nSimon是Elizabeth讓Franck投射出的另一個暴力膽小貪婪得自己\n\
@@ -19910,7 +19909,7 @@ date: 2015-02-08
 reply_count: 4
 title: '[討論] 好片索命記憶'
 url: https://www.ptt.cc/bbs/movie/M.1423387683.A.2A5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '注意，以下有雷喔～～
 
 
@@ -19938,7 +19937,7 @@ date: 2016-04-23
 reply_count: 1
 title: '[討論] 迴光報告中的主角記憶'
 url: https://www.ptt.cc/bbs/movie/M.1461419751.A.E1D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好，問一部數年前的外國片，
 
   只記得那時候自己很想看
@@ -19966,7 +19965,7 @@ date: 2017-06-14
 reply_count: 14
 title: '[問片] 外國片，只有零星記憶求神人QQ'
 url: https://www.ptt.cc/bbs/movie/M.1497449387.A.448.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不曉得這個觀點有沒有討論過？
 
 
@@ -20020,7 +20019,7 @@ date: 2017-03-04
 reply_count: 1
 title: '[討論]異星入境_記憶與未來的問題 '
 url: https://www.ptt.cc/bbs/movie/M.1488617944.A.2C8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知道像
 
   「記憶偵探」、「孤兒怨」、「這種人性恐怖的電影
@@ -20040,7 +20039,7 @@ date: 2017-01-29
 reply_count: 1
 title: '[討論] 像''''記憶偵探''''這種揭露人性險惡的劇情片'
 url: https://www.ptt.cc/bbs/movie/M.1485669178.A.755.html
---- !!python/object:movie_data.PublicReview
+---
 content: '每次看到這兩部我總是會忍不住吐槽，
 
 
@@ -20092,7 +20091,7 @@ date: 2019-06-22
 reply_count: 20
 title: '[討論] 極樂世界和攔截記憶碼'
 url: https://www.ptt.cc/bbs/movie/M.1561160448.A.234.html
---- !!python/object:movie_data.PublicReview
+---
 content: '預告片吸引到我
 
   雖然不是因為奇異博士而看的
@@ -20143,7 +20142,7 @@ date: 2018-03-17
 reply_count: 1
 title: '[討論] 記憶中的擁抱'
 url: https://www.ptt.cc/bbs/movie/M.1521300822.A.BD0.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -20189,7 +20188,7 @@ date: 2018-02-23
 reply_count: 1
 title: '[新聞]愛能療癒傷口！BC新電影《記憶中的擁抱》'
 url: https://www.ptt.cc/bbs/movie/M.1519379836.A.79D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雖然iTune上的記憶拼圖有註記是導演版
 
   但看底下評論有人說是原版...??
@@ -20211,7 +20210,7 @@ date: 2017-07-24
 reply_count: 3
 title: '[請益] iTune上的記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1500826358.A.385.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位大大好，
 
 
@@ -20237,7 +20236,7 @@ date: 2016-07-16
 reply_count: 31
 title: '[問片] 關於一個女主角記憶錯亂的片子'
 url: https://www.ptt.cc/bbs/movie/M.1468655179.A.FEC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前面先閒聊當防雷
 
 
@@ -20339,7 +20338,7 @@ date: 2022-05-02
 reply_count: 19
 title: '[請益] 記憶殺神一點小問題'
 url: https://www.ptt.cc/bbs/movie/M.1651457474.A.0AF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '小弟今天看了記憶乍響，
 
 
@@ -20375,7 +20374,7 @@ date: 2016-12-17
 reply_count: 7
 title: '[請益] 記憶乍響片尾的意涵'
 url: https://www.ptt.cc/bbs/movie/M.1481989784.A.8EA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '幾年前看過正確順序版《記憶拼圖》
 
   覺得真神片
@@ -20402,7 +20401,7 @@ date: 2017-04-13
 reply_count: 6
 title: '[討論] 為什麼第四台電影台幾乎沒播過記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1492014013.A.471.html
---- !!python/object:movie_data.PublicReview
+---
 content: "放映週報 \n\n《新子與千年魔法》：重拾美好記憶的魔法\n\n導演：片淵須直\n演員：福田麻由子、水澤奈子\n出品：日本/2009\n發行：曼迪傳播\n\
   \n\n文 / 張冠倫\n\n\n2004年，芥川賞（獎勵以純文學為主的作家）作家高樹信子（高樹のぶ子，1946-）以自\n己的少女時代為主角的雛形，出版了《旋毛新子》（マイマイ新子，2004）這部半自傳性\n\
   的小說。2009年，片渕須直導演將這部小說以動畫的形式改編成電影《新子與千年魔法》\n，卻因票房不佳草草下片，重新調整場次增加晚場時段再度上映後，竟然造成廣大的迴響\n\
@@ -20438,7 +20437,7 @@ date: 2010-04-16
 reply_count: 1
 title: '[影評] 《新子與千年魔法》：重拾美好記憶的魔法'
 url: https://www.ptt.cc/bbs/movie/M.1271382639.A.80F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '內容好像是主角打針(失憶藥水？）之後去解任務
 
 
@@ -20469,7 +20468,7 @@ date: 2014-12-29
 reply_count: 8
 title: '[問片] 一部有關失去記憶的片'
 url: https://www.ptt.cc/bbs/movie/M.1419787868.A.2EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: "【可可夜總會】最新長版預告\n\n\n嗚啊啊迪士尼．皮克斯拍的電影怎麼一部比一部好哭啊！！！Q___Q\n\n覺得他們真的很厲害！像上一部的《海洋奇緣》也是，\n\
   \n在發掘不同民族題材的敏銳度上是真的很優秀，\n\n處理的卻是很細膩的大人小孩或者說世界上的人都能有所共鳴的情感要素。\n\n下文開始將會有雷，尚未觀看的人還敬請左轉。\n\
   \n\n\n\n\n\n談劇情——\n\n\n故事背景設定在發生墨西哥舉辦亡靈節的時候。\n\n自己回到家有上網查一下：\n\n國家地理雜誌--墨西哥亡靈節不可不知的十件事\n\
@@ -20501,7 +20500,7 @@ date: 2017-11-25
 reply_count: 18
 title: '[好雷] 可可夜總會—音樂、親情與記憶'
 url: https://www.ptt.cc/bbs/movie/M.1511624254.A.9E8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -20537,7 +20536,7 @@ date: 2020-08-06
 reply_count: 22
 title: '[新聞] 諾蘭經典燒腦片 《記憶拼圖》20年重上映'
 url: https://www.ptt.cc/bbs/movie/M.1596676358.A.E33.html
---- !!python/object:movie_data.PublicReview
+---
 content: '網頁版文章：
 
 
@@ -20675,7 +20674,7 @@ date: 2018-02-06
 reply_count: 1
 title: '[普雷] 《記憶中的美好歌聲》 戰火下的純真 '
 url: https://www.ptt.cc/bbs/movie/M.1517857304.A.6EE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '對這類型的片很有興趣，
 
   一些人因為某些原因被丟進某一個空間玩遊戲，
@@ -20717,7 +20716,7 @@ date: 2014-12-13
 reply_count: 13
 title: '[問片] 失去記憶被丟進去玩遊戲的片'
 url: https://www.ptt.cc/bbs/movie/M.1418482557.A.A12.html
---- !!python/object:movie_data.PublicReview
+---
 content: '想分享無雷的心得推一下這部片
 
 
@@ -20792,7 +20791,7 @@ date: 2017-10-24
 reply_count: 20
 title: '[好雷] 殺人者的記憶法  '
 url: https://www.ptt.cc/bbs/movie/M.1508858514.A.BA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大概10年前的片子，應該是洋片
 
 
@@ -20847,7 +20846,7 @@ date: 2020-01-18
 reply_count: 19
 title: '[問片] 鐵皮倉庫 失憶'
 url: https://www.ptt.cc/bbs/movie/M.1579336155.A.14E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '>>網誌圖文好讀版：
 
 
@@ -20946,7 +20945,7 @@ date: 2015-05-09
 reply_count: 7
 title: '[好雷]王牌冤家與全面進化：記憶定義了我們？ '
 url: https://www.ptt.cc/bbs/movie/M.1431110950.A.7D1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好，小弟剛看完這部片也爬了一些影評
 
   有位日本人提出個有趣說法想跟各位分享：
@@ -21163,7 +21162,7 @@ date: 2022-04-13
 reply_count: 8
 title: '[討論] 在車上：家福的記憶與夢'
 url: https://www.ptt.cc/bbs/movie/M.1649785991.A.B09.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這個禮拜一去電影院看了這部片
 
 
@@ -21330,7 +21329,7 @@ date: 2015-02-18
 reply_count: 74
 title: '[負雷] 魔法黑森林 有記憶以來最爛片'
 url: https://www.ptt.cc/bbs/movie/M.1424255890.A.A13.html
---- !!python/object:movie_data.PublicReview
+---
 content: "對於歷史的理解，並非僅只是對實際證據的掌握，更多依賴於我們如何重組\n歷史素材，安排一套敘事進行詮釋，賦予意義與連結，也因此在這意義上歷史常\n\
   被認為是「建構的」(constructive)，但這並未表示為「虛構幻象」(illusion)\n，而僅僅只意味著理解在歷史的過程，永遠必須透過人為社會因素才得以可能，\n\
   隨著時代遞進，人們理解和記憶的歷史方式也不斷地重新被詮釋，促成新的理解\n與記憶，無論是新的因果關係、素材選擇或敘事安排皆然。也因此關注建構歷史\n過程的歷史，必然是要面對的課題，才有真的達成透過歷史進行反思並進一步貼\n\
@@ -21350,7 +21349,7 @@ date: 2010-08-07
 reply_count: 60
 title: '[負雷] 為何要記憶歷史事件？ 被出賣的台灣觀後評'
 url: https://www.ptt.cc/bbs/movie/M.1281170084.A.DFF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "原文 \n\n改編自川村元氣(同時也是導演)著作的同名小說《百花》，劇情描述任職於唱片公司的泉\n，在回家探望母親百合子時，發現百合子的舉止開始變得古怪，到醫院檢查後才發現是認\n\
   知障礙的症狀。百合子的記憶逐漸消逝，但泉卻忘不掉百合子在過去曾經對他做過的「那\n件事」，在相依為命的兩人心中，留下一直沒有解開的心結...\n\n------------------------------------------------------\n\
   \n看完《百花》的第一個想法是，記憶是人類自以為可以控制、但實際上是無法掌控它會如\n何發展的事情之一。\n\n伊莉莎白．羅芙托斯是研究錯誤記憶的權威，他的研究已經證實人們常常過度膨脹記憶的\n\
@@ -21373,7 +21372,7 @@ date: 2023-04-12
 reply_count: 7
 title: '[好雷] 《百花》忘不掉的記憶，留不下的美好'
 url: https://www.ptt.cc/bbs/movie/M.1681312453.A.0B7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '記得我曾經看過一部國外的電影
 
 
@@ -21400,7 +21399,7 @@ date: 2020-08-29
 reply_count: 5
 title: '[問片] 有關嬰兒擁有前世記憶的片'
 url: https://www.ptt.cc/bbs/movie/M.1598690944.A.82D.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Hi,
 
 
@@ -21439,7 +21438,7 @@ date: 2016-06-28
 reply_count: 8
 title: '[問片] 一部關於可以看到回來的機器？'
 url: https://www.ptt.cc/bbs/movie/M.1467114732.A.373.html
---- !!python/object:movie_data.PublicReview
+---
 content: '其實除了要看連恩尼遜之外
 
 
@@ -21500,7 +21499,7 @@ date: 2022-04-30
 reply_count: 12
 title: '[普雷] 不夠懸疑的記憶殺神'
 url: https://www.ptt.cc/bbs/movie/M.1651318681.A.F26.html
---- !!python/object:movie_data.PublicReview
+---
 content: "《記憶屋》當你不是當事人\n\n   CharMing的投幣式置物櫃\nWRITTEN BY  CharMing\n\n\n記憶其實是很可怕的東西，就像妖魔一樣會逐漸吞食人心、產生異變，比失憶與被忘記更\n\
   可怕的是，足以毀了人一生的痛苦回憶。\n\n改編自同名小說的《記憶屋》，標榜是一部能讓人熱淚盈匡的青春惆悵系恐怖小說，圍繞\n在能夠將人的記憶消除的「記憶使者」的都市傳說，大學生遼一為了奪回將自己忘記的女\n\
   友的記憶，在律師與青梅竹馬的幫助下，追查戀人失去記憶的真相。\n\n從預告、海報再到山田涼介與芳根京子主演，《記憶屋》無不彰顯溫馨、愛情之氣，但也\n因為原本系列小說被重新編寫為兩小時的電影，濃縮的支線與被拉大的格局，多少削弱一\n\
@@ -21519,7 +21518,7 @@ date: 2020-03-27
 reply_count: 1
 title: '[好雷] 《記憶屋》vs 《王牌冤家》 '
 url: https://www.ptt.cc/bbs/movie/M.1585278859.A.02E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一場葬禮與隔壁場人數懸殊，藉由回顧手法，觀者找到原因，只是在皆為幽暗不堪的回憶
 
   裡，仍有明亮陽光的愉悅，這矛盾情緒在後段找到出口。電影短短70分鐘，透過前後段截
@@ -21629,7 +21628,7 @@ date: 2018-04-08
 reply_count: 2
 title: '[好雷] 多桑不在家-記憶中的父親'
 url: https://www.ptt.cc/bbs/movie/M.1523190959.A.7C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'IMDB: 6.9 (連結)
 
 
@@ -21784,7 +21783,7 @@ date: 2018-02-11
 reply_count: 15
 title: '[普雷] <殺人者的記憶法> 女兒是最無辜的'
 url: https://www.ptt.cc/bbs/movie/M.1518362651.A.315.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷先防雷...
 
   ...
@@ -21995,7 +21994,7 @@ date: 2017-03-28
 reply_count: 6
 title: '[好雷] 記憶拼圖其實是部女性電影吧'
 url: https://www.ptt.cc/bbs/movie/M.1490637709.A.1B6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '近幾年好萊塢大鬧劇本荒，翻拍、重啟已經不是新鮮事，現在另一部經典作品也成了最新
 
   的翻拍目標，AMBI 影業宣布他們將翻拍《星際效應》導演 克里斯多福諾蘭（
@@ -22031,7 +22030,7 @@ date: 2015-11-17
 reply_count: 83
 title: '[新聞] AMBI 影業宣布 將翻拍克里斯多福諾蘭經典《記憶拼圖》'
 url: https://www.ptt.cc/bbs/movie/M.1447748139.A.B02.html
---- !!python/object:movie_data.PublicReview
+---
 content: '剛剛看完了記憶拼圖，太精采了
 
   在看的時候不斷動腦思考，偶爾還要按著暫停想一下。
@@ -22082,7 +22081,7 @@ date: 2015-06-07
 reply_count: 18
 title: '[討論] 記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1433622040.A.A01.html
---- !!python/object:movie_data.PublicReview
+---
 content: 'Blog:
 
 
@@ -22140,7 +22139,7 @@ date: 2015-01-24
 reply_count: 27
 title: '[好雷]《記憶偵探》Mindscape'
 url: https://www.ptt.cc/bbs/movie/M.1422043987.A.4C2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '幫女朋友問，敘述可能跟實際電影有出入。
 
   以下轉
@@ -22165,7 +22164,7 @@ date: 2017-11-05
 reply_count: 5
 title: '[問片] 男主角記憶力衰退的電影'
 url: https://www.ptt.cc/bbs/movie/M.1509876234.A.F1A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好
 
 
@@ -22194,7 +22193,7 @@ date: 2018-04-14
 reply_count: 10
 title: '[請益] Myvideo 記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1523710204.A.D37.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以前上課老師播放這部片的時候
 
   單調的劇情讓我猛打哈欠
@@ -22273,7 +22272,7 @@ date: 2018-11-07
 reply_count: 8
 title: '[好雷] 記憶拼圖  論剪輯的重要性'
 url: https://www.ptt.cc/bbs/movie/M.1541596228.A.0A9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '★【007首部曲：皇家夜總會】名導 馬丁坎貝爾 懸疑動作鉅獻
 
 
@@ -22322,7 +22321,7 @@ date: 2022-04-22
 reply_count: 251
 title: '[贈票] 請你看《記憶殺神》連恩尼遜化身藥命殺手'
 url: https://www.ptt.cc/bbs/movie/M.1650615413.A.39D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -22466,7 +22465,7 @@ date: 2020-08-04
 reply_count: 6
 title: '[好雷] 記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1596471804.A.3CA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '久聞記憶拼圖大名卻一直沒看
 
   晚上剛好亂翻199片單看到
@@ -22486,7 +22485,7 @@ date: 2017-02-05
 reply_count: 6
 title: '[情報]  MOD199有原版記憶拼圖'
 url: https://www.ptt.cc/bbs/movie/M.1486227601.A.341.html
---- !!python/object:movie_data.PublicReview
+---
 content: '你的名字一片在台灣與日本皆創下驚人票房紀錄
 
   劇情走的是日本高中生男女靈魂互換的梗
@@ -22543,7 +22542,7 @@ date: 2016-11-13
 reply_count: 26
 title: '[好雷] 再看見那不存在的記憶 - 你的名字'
 url: https://www.ptt.cc/bbs/movie/M.1479036920.A.379.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這幾天在寫作業所以多看了幾遍順便分析一下\n整理了幾點你可能沒有想過的\n\n主角Leonard的症狀叫做順行性遺忘症 Anterograde\
   \ amnesia 以下簡稱AA\nAA只是症狀  並不是病稱/ 就像咳嗽發燒只是症狀而已\n主角的人生目標 John G 以下簡稱JG\n\n*1:30:02\n\
   也就是版上其他記憶拼圖文章稱的  神之0.1秒\n在療養院的Sammy的一幕被剪成Leonard\n提醒觀眾Sammy的故事可能就是Leonard的\n\n可是並沒有明確指出兩人故事重疊的程度\n\
@@ -22572,7 +22571,7 @@ date: 2015-11-19
 reply_count: 6
 title: '[討論] 記憶拼圖  一些細節'
 url: https://www.ptt.cc/bbs/movie/M.1447898835.A.E76.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近看了一部記憶裂痕這部電影
 
   看完才發現這部是2004年的電影
@@ -22595,7 +22594,7 @@ date: 2015-07-18
 reply_count: 15
 title: '[請益] 跟記憶裂痕很像的一部電影'
 url: https://www.ptt.cc/bbs/movie/M.1437222705.A.770.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大部份的人應該都會說不是，畢竟兩部片的類型差別頗大。
 
 
@@ -22641,7 +22640,7 @@ date: 2015-06-23
 reply_count: 4
 title: '[討論] 明日的記憶算是日本版未知死亡嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1435069603.A.69F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷 如果還沒看過的朋友
 
 
@@ -22720,7 +22719,7 @@ date: 2017-05-30
 reply_count: 19
 title: '[ 神之好雷] 記憶拼圖 跪著重看'
 url: https://www.ptt.cc/bbs/movie/M.1496134279.A.515.html
---- !!python/object:movie_data.PublicReview
+---
 content: '以下有雷
 
 
@@ -23044,7 +23043,7 @@ date: 2019-09-21
 reply_count: 8
 title: '[好雷]《返校》難以面對的悲傷記憶 '
 url: https://www.ptt.cc/bbs/movie/M.1569078935.A.26B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '圖文版：
 
 
@@ -23291,7 +23290,7 @@ date: 2016-08-05
 reply_count: 5
 title: '[有雷] 傑森包恩與他失去記憶的那段時光'
 url: https://www.ptt.cc/bbs/movie/M.1470408743.A.56C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "問題有雷\n\n\n\n\n\n\n\n\n\n\n  想要問一下 劇情最後男主角針對隕石事事件的記憶作了合理了的解釋\n\n  但是女主角呢?\
   \ 她總不會跟男主角一樣變得模糊吧 重大災難 記憶應該很難忘吧\n  (我是921在台中 這輩子忘不了)\n  而且 她是讓鎮民躲過災難的關鍵人物 那什麼她讓預測到這場災難\n\
   \  不就是家族遺傳的\"連結\"?\n  我以為設定會變成 女主角還記得名字 男主角忘記了\n  設定成都忘記了 大概是要鋪那個我喜歡你的梗吧\n\n  但是如果那個是女主角寫在男主角手上的呢?\
@@ -23305,7 +23304,7 @@ date: 2016-10-17
 reply_count: 14
 title: '[請益] 君の名は 你的名字女主角記憶 有雷'
 url: https://www.ptt.cc/bbs/movie/M.1476716514.A.221.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不是因為真哥哥本來就有瘸腿嗎?或者是真哥哥車禍重傷不治的記憶太深刻
 
   才弄了一個瘸腿的標誌
@@ -23344,7 +23343,7 @@ date: 2022-04-14
 reply_count: 4
 title: 'Re: [請益] 韓國電影 記憶之夜 劇情疑問'
 url: https://www.ptt.cc/bbs/movie/M.1649873036.A.0CD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由於這部片是我小時侯轉台看到
 
 
@@ -23438,7 +23437,7 @@ date: 2019-07-22
 reply_count: 6
 title: '[問片] 一部片段記憶很深的片'
 url: https://www.ptt.cc/bbs/movie/M.1563789107.A.002.html
---- !!python/object:movie_data.PublicReview
+---
 content: "這部電影 直到畫面上主演名Benedict Cumberbatch 為止 我才知道他結束了\n在看電影之前 我純粹為了BC去看的\n以為這部是最經典的那種感動片\n\
   最後沒找到女兒但是領悟到家庭珍貴的那種模式\n\n看到一半的時候 我就覺得這部電影實在太可怕了\n藏很多隱喻在裡面\n包括我其實對查爾斯的支線有很深的感觸\n\n\
   故事從女兒已經不見的切點開始\n女兒的失蹤 導致主角史蒂夫和妻子感情失和\n（看到名字我笑了一下 因為跟奇異博士名字很像XD）\n\n妻子接受不了已經失去女兒的事實\
@@ -23460,7 +23459,7 @@ date: 2018-03-18
 reply_count: 4
 title: '[好雷] 記憶中的擁抱 心得'
 url: https://www.ptt.cc/bbs/movie/M.1521382333.A.69C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大約5-6年前租DVD看了這部電影
 
   覺得非常好看 獲得感動
@@ -23532,7 +23531,7 @@ date: 2020-08-16
 reply_count: 13
 title: '[請益] 曼哈頓戀習曲的記憶錯亂'
 url: https://www.ptt.cc/bbs/movie/M.1597589167.A.574.html
---- !!python/object:movie_data.PublicReview
+---
 content: '殺人魔自殺
 
   主角被博士植入他的記憶
@@ -23563,7 +23562,7 @@ date: 2015-08-24
 reply_count: 7
 title: '[請益] 有雷問片，活人植入死去殺人魔記憶'
 url: https://www.ptt.cc/bbs/movie/M.1440416983.A.8FC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '前幾天看完頂尖對決，佩服導演說故事結構的創意
 
   經網友推薦記憶拼圖，並且指名是港版的DVD(倒敘版本)，片名叫：兇心人
@@ -23792,7 +23791,7 @@ date: 2007-02-01
 reply_count: 118
 title: '[好雷] 記憶拼圖：Memento。創新，懸疑。'
 url: https://www.ptt.cc/bbs/movie/M.1170284014.A.B70.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -23830,7 +23829,7 @@ date: 2022-05-02
 reply_count: 6
 title: '[負雷] 把你記憶殺掉的記憶殺神'
 url: https://www.ptt.cc/bbs/movie/M.1651426253.A.F72.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -23875,7 +23874,7 @@ date: 2025-02-06
 reply_count: 55
 title: '[新聞] 蓋皮爾斯覺得自己在記憶拼圖演得很爛'
 url: https://www.ptt.cc/bbs/movie/M.1738837835.A.B1E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1.Lenny的老婆是被Lenny打太多胰島素致死的?
 
 
@@ -23908,7 +23907,7 @@ date: 2021-03-28
 reply_count: 14
 title: '[討論] 記憶拼圖疑問'
 url: https://www.ptt.cc/bbs/movie/M.1616918678.A.63D.html
---- !!python/object:movie_data.PublicReview
+---
 content: "作者: LineTV (LineTV) 看板: KoreaStar\n標題: [情報] 電影《殺人者的記憶法》蟬聯票房冠軍12天\n時間: Mon\
   \ Sep 18 17:10:12 2017\n\n\n9月6日在韓國上映的電影《殺人者的記憶法》，\n上週票房超越同日上映的美國恐怖片《牠》拿下票房冠軍，\n\
   本週面對14日新上映的《玩命再劫》以及《美國製造》等片，\n依然繼續守住票房榜首，累積觀影人次已突破2百萬。\n\n主演薛耿求與雪炫、吳達庶和導演元信延以及金南佶的人形立牌一起合拍紀念照，\n\
@@ -23927,7 +23926,7 @@ date: 2017-10-12
 reply_count: 28
 title: 'Fw: [情報] 電影《殺人者的記憶法》蟬聯票房冠軍12天'
 url: https://www.ptt.cc/bbs/movie/M.1507816450.A.EE7.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【獵魂者】 靈魂12小時替換 我不是我自己！
 
 
@@ -24038,7 +24037,7 @@ date: 2021-11-29
 reply_count: 57
 title: '[贈票] 【獵魂者】美麗華影城 拼湊靈魂記憶'
 url: https://www.ptt.cc/bbs/movie/M.1638178869.A.5FB.html
---- !!python/object:movie_data.PublicReview
+---
 content: "年份：2006\n    類型：懸疑、劇情\n    演員：\n    吉姆卡維佐James Caviezel [時空線索]\n    巴瑞派柏Barry\
   \ Pepper [馬奎斯的三場葬禮]\n    布麗姬摩納翰Bridget Moynahan [機械公敵]\n\n\n    劇情簡介：一棟廢棄倉庫中,五名男子從昏迷中醒來,發現被軟禁在一起,但他們竟\n\
   \              全都喪失了記憶!能喚醒記憶的線索只有一份過期報紙,及一具警察屍體\n              ,種種跡象顯示他們跟一樁綁票案有關,但究竟是誰綁架了誰?彼此是敵\n\

@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '這部雖然片長達三小時
 
   但對於習慣邊看邊解析的人來說一點都不無趣
@@ -57,7 +56,7 @@ date: 2024-10-27
 reply_count: 9
 title: '[好雷] 在車上 劇情平靜但衝擊力好強'
 url: https://www.ptt.cc/bbs/movie/M.1730039710.A.4DD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題三選二
 
 
@@ -85,7 +84,7 @@ date: 2022-03-12
 reply_count: 41
 title: '[選片] 在車上/平行母親/該死的阿修羅'
 url: https://www.ptt.cc/bbs/movie/M.1647093751.A.496.html
---- !!python/object:movie_data.PublicReview
+---
 content: '昨天下午在華山看在車上,非常棒的電影
 
 
@@ -112,7 +111,7 @@ date: 2022-03-04
 reply_count: 6
 title: '[請益] 在車上 酒吧場景與飛盤場景 有雜音嗎?'
 url: https://www.ptt.cc/bbs/movie/M.1646387151.A.E0D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '釜山影展日前公布了今年「新浪潮競賽」的片單，由橋本愛、仲野太賀主演的新片《熱の
 
   あとに》入選其中！
@@ -172,7 +171,7 @@ date: 2023-09-02
 reply_count: 8
 title: '[情報] 橋本愛、仲野太賀主演《在車上》製片新作《熱のあとに》'
 url: https://www.ptt.cc/bbs/movie/M.1693667070.A.01B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
   大略看了大家的心得都說改編得很好
@@ -211,7 +210,7 @@ date: 2022-02-13
 reply_count: 52
 title: '[請益] 在車上。是否要先看過原著？'
 url: https://www.ptt.cc/bbs/movie/M.1644688045.A.8D4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '長達3小時的長片，劇情平淡卻極為細膩
 
   ，雖然不否認稍微要吃點濱口跟村上的電
@@ -377,7 +376,7 @@ date: 2022-01-24
 reply_count: 8
 title: '[好雷] 在 車 上'
 url: https://www.ptt.cc/bbs/movie/M.1642958350.A.88D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '展期：2021.12.25~2022.01.04
 
 
@@ -410,7 +409,7 @@ date: 2021-12-08
 reply_count: 32
 title: '[討論] 《在車上》坎城競賽展搶先上映'
 url: https://www.ptt.cc/bbs/movie/M.1638939441.A.C12.html
---- !!python/object:movie_data.PublicReview
+---
 content: '戲似人生，車會繼續開下去……
 
   跨領域改編往往不易，尤其當媒介轉換之後不同的敘事方式可能會改變觀眾整體的觀感，
@@ -552,7 +551,7 @@ date: 2022-02-14
 reply_count: 37
 title: '[好雷] 《在車上》唯一的真相是看不透'
 url: https://www.ptt.cc/bbs/movie/M.1644832745.A.ADF.html
---- !!python/object:movie_data.PublicReview
+---
 content: '今年奧斯卡大熱之一 日本奧斯卡代表 濱口竜介執導《在車上》
 
   台灣由東昊發行 正式上映日期為2/11
@@ -602,7 +601,7 @@ date: 2022-01-13
 reply_count: 16
 title: '[情報] 《在車上》台中/台南/高雄 搶先場'
 url: https://www.ptt.cc/bbs/movie/M.1642003429.A.A52.html
---- !!python/object:movie_data.PublicReview
+---
 content: '1. 請簡述自身需求片單理由 或 欲尋找電影的類型或特徵（請盡量描述清楚）
 
 
@@ -654,7 +653,7 @@ date: 2020-07-10
 reply_count: 101
 title: '[片單] 在車上聊天或在車上很有氣氛的片'
 url: https://www.ptt.cc/bbs/movie/M.1594396597.A.860.html
---- !!python/object:movie_data.PublicReview
+---
 content: '日本在昨日公布了申報明年奧斯卡「最佳國際電影」的電影，將以《在車上》作為代表作
 
   品。
@@ -698,7 +697,7 @@ date: 2021-10-12
 reply_count: 29
 title: '[情報] 2022 日本奧斯卡代表：《在車上》'
 url: https://www.ptt.cc/bbs/movie/M.1634022577.A.37F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '請問在車上 Drive My Car 台灣上映時間?
 
 
@@ -715,7 +714,7 @@ date: 2021-12-17
 reply_count: 8
 title: '[請益] 在車上 Drive My Car 台灣上映時間?'
 url: https://www.ptt.cc/bbs/movie/M.1639671824.A.CEE.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有《在車上》雷
 
   有《偶然與想像》雷
@@ -909,7 +908,7 @@ date: 2022-02-12
 reply_count: 75
 title: '[好雷]在車上'
 url: https://www.ptt.cc/bbs/movie/M.1644668243.A.753.html
---- !!python/object:movie_data.PublicReview
+---
 content: "新聞網址：\n\n\n\n奧斯卡／「在車上」奪最佳國際電影獎 驚見台灣女演員\n\n聯合新聞網\n\n\n 西島秀俊（左）、三浦透子主演「在車上」獲得「最佳國際電影獎」。圖／東昊提供\n\
   西島秀俊（左）、三浦透子主演「在車上」獲得「最佳國際電影獎」。圖／東昊提供\n\n2022-03-28 09:36聯合報 記者黃保慧／即時報導\n\n第94屆奧斯卡「最佳國際電影獎」由日本導演濱口竜介執導的電影「在車上」拿下。「在\n\
   車上」這次一共角逐4項大獎，包括最佳國際電影、導演、改編劇本、影片，是日本首度\n入圍改編劇本與最佳影片兩大獎項的電影，也更新日本電影入圍奧斯卡獎項的紀錄。\n\
@@ -920,7 +919,7 @@ date: 2022-03-28
 reply_count: 42
 title: '[新聞] 「在車上」奪最佳國際電影獎 驚見台灣女'
 url: https://www.ptt.cc/bbs/movie/M.1648431838.A.80E.html
---- !!python/object:movie_data.PublicReview
+---
 content: '相信這兩部應該都是好片，但只能擇一進影院看的話要看哪部？
 
   或是哪部上串流的機率比較高？（欸
@@ -936,7 +935,7 @@ date: 2022-03-28
 reply_count: 26
 title: '[選片] 貝爾法斯特/在車上'
 url: https://www.ptt.cc/bbs/movie/M.1648478827.A.48C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大家好，小弟剛看完這部片也爬了一些影評
 
   有位日本人提出個有趣說法想跟各位分享：
@@ -1153,7 +1152,7 @@ date: 2022-04-13
 reply_count: 8
 title: '[討論] 在車上：家福的記憶與夢'
 url: https://www.ptt.cc/bbs/movie/M.1649785991.A.B09.html
---- !!python/object:movie_data.PublicReview
+---
 content: '部落格版：
 
 
@@ -1253,7 +1252,7 @@ date: 2023-04-27
 reply_count: 10
 title: '[好雷]《卡在車上》，人生卡住，那就在車頂開一 '
 url: https://www.ptt.cc/bbs/movie/M.1682605656.A.20E.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\n\n\n\
   ~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n         筆者曾經寫過一個長篇電影劇本，改編自村上春樹的《神的孩子都在跳舞》中\n\
   其中一篇〈生火〉。這個短篇是村上春樹改編傑克倫敦的同名短篇小說《生火》。\n\n         〈在車上〉收錄在《沒有女人的男人們》裡，而這個書名，實則是改編自海明\n\
@@ -1281,7 +1280,7 @@ date: 2022-03-25
 reply_count: 3
 title: '[好雷] 在車上 影評by一個村上春樹的粉絲'
 url: https://www.ptt.cc/bbs/movie/M.1648177920.A.F36.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1374,7 +1373,7 @@ date: 2022-02-19
 reply_count: 32
 title: '[好雷] 在車上'
 url: https://www.ptt.cc/bbs/movie/M.1645273067.A.95B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不輸韓流 日片發威！「在車上」獲金球獎最佳非英語片
 
 
@@ -1407,7 +1406,7 @@ date: 2022-01-10
 reply_count: 4
 title: '[新聞] 不輸韓流 日片發威！「在車上」獲金球獎'
 url: https://www.ptt.cc/bbs/movie/M.1641817673.A.9D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1503,7 +1502,7 @@ date: 2023-06-11
 reply_count: 10
 title: '[好雷] 在車上：一邊愛著你，一邊背叛你'
 url: https://www.ptt.cc/bbs/movie/M.1686464875.A.355.html
---- !!python/object:movie_data.PublicReview
+---
 content: "非常棒的電影\n電影很少拍的比原著好，這部是我心目中少數的例外\n它將村上春樹的短篇，開枝散葉變成一棵大樹\n\n對我來說，這是一部尋找勇氣的故事\n\
   \n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\
   \n八目鰻，以及暗戀山賀的女高中生，都是音的化身\n就像女高中生一再的偷偷進入山賀的房間，\n音也一再以「述說女高中生的故事」這方法，企圖進入家福的心\n藉著女高中生，音跟家福說\n\
@@ -1574,7 +1573,7 @@ date: 2023-09-23
 reply_count: 18
 title: '[好雷] 在車上'
 url: https://www.ptt.cc/bbs/movie/M.1695400234.A.C60.html
---- !!python/object:movie_data.PublicReview
+---
 content: '看到昨天奧斯卡重播，雖然大家焦點都放在賞巴掌事件
 
 
@@ -1593,7 +1592,7 @@ date: 2022-03-29
 reply_count: 23
 title: '[討論] 為什麼《在車上》獲獎時一直被趕？'
 url: https://www.ptt.cc/bbs/movie/M.1648509679.A.AF4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '有雷
 
 
@@ -1702,7 +1701,7 @@ date: 2022-02-16
 reply_count: 74
 title: '[請益] 在車上 （有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1645019803.A.E8F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '新聞網址：
 
 
@@ -1779,7 +1778,7 @@ date: 2022-02-09
 reply_count: 7
 title: '[新聞] 「在車上」入奧斯卡4獎  台演員袁子芸成'
 url: https://www.ptt.cc/bbs/movie/M.1644410071.A.CAA.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
   \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
   \ \n \n \n \n \n \n我之前就覺得濱口龍介是很不錯的導演\n現在更覺得他是個極為優秀的導演！\n這部電影真的是強勢制霸我的心\n又是村上春樹小說改編,有概念就知道他的都不好改編\n\
@@ -1799,7 +1798,7 @@ date: 2024-03-18
 reply_count: 11
 title: '[  雷] 在車上'
 url: https://www.ptt.cc/bbs/movie/M.1710763481.A.6F5.html
---- !!python/object:movie_data.PublicReview
+---
 content: '~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -1898,7 +1897,7 @@ date: 2022-07-07
 reply_count: 34
 title: '[好雷] 後座力極強的電影《在車上》'
 url: https://www.ptt.cc/bbs/movie/M.1657186059.A.D32.html
---- !!python/object:movie_data.PublicReview
+---
 content: '最近才看了在車上這部電影
 
   突然覺得主角的紅色轎車駕駛座是在左邊？
@@ -1924,7 +1923,7 @@ date: 2023-09-07
 reply_count: 6
 title: '[請益] 在車上-駕駛座問題'
 url: https://www.ptt.cc/bbs/movie/M.1694049508.A.090.html
---- !!python/object:movie_data.PublicReview
+---
 content: "防雷頁\n.\n.\n.\n.\n.\n.\n.\n.\n\n.\n.\n.\n.\n.\n.\n.\n\n.\n.\n\n.\n1.請問劇中手語演員為何可以聽卻無法講話?\n\
   \  她會聽是指她可以看懂唇語嗎?\n  因為劇情沒交代。\n\n2.如果她可以看懂唇語,但她應該只看懂韓文唇語吧?\n  因為她在家裡請客時,講日文的時候她還要老公翻譯\n\
   \  可是為何她在有一幕,好天氣大家到戶外排練時,\n  可以和演伊蓮娜的演員好似邊走邊聊?\n\n3.這樣如何能和其它演員練習對白?\n  大家講完一句就敲一下桌面是為了讓她明白斷點嗎?\n\
@@ -1936,7 +1935,7 @@ date: 2022-05-02
 reply_count: 38
 title: '[請益] 在車上的幾個問題'
 url: https://www.ptt.cc/bbs/movie/M.1651501918.A.8D8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2028,7 +2027,7 @@ date: 2022-02-21
 reply_count: 86
 title: '[偏好雷]在車上Drive My Car '
 url: https://www.ptt.cc/bbs/movie/M.1645435086.A.973.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2202,7 +2201,7 @@ date: 2022-02-23
 reply_count: 7
 title: '[好雷] 在車上Drive My Car,2021日本'
 url: https://www.ptt.cc/bbs/movie/M.1645628751.A.10C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '防雷頁
 
 
@@ -2312,7 +2311,7 @@ date: 2022-02-19
 reply_count: 21
 title: '[好雷] 在車上&昨日的美食'
 url: https://www.ptt.cc/bbs/movie/M.1645205029.A.087.html
---- !!python/object:movie_data.PublicReview
+---
 content: '各位G奶及30公分大大
 
   明天假期猶豫該看哪部片？
@@ -2330,7 +2329,7 @@ date: 2022-02-27
 reply_count: 15
 title: '[選片] 在車上與秘境探險'
 url: https://www.ptt.cc/bbs/movie/M.1645973157.A.8B4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這樣的提問好像有點詭異，
 
 
@@ -2348,7 +2347,7 @@ date: 2015-10-27
 reply_count: 23
 title: '[問片] 女主角在車上換裝的電影'
 url: https://www.ptt.cc/bbs/movie/M.1445941455.A.0B9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '原文＞＞＞
 
 
@@ -2453,7 +2452,7 @@ date: 2022-02-19
 reply_count: 5
 title: '[好雷]《在車上》陰鬱但非身痛欲絕 '
 url: https://www.ptt.cc/bbs/movie/M.1645258392.A.427.html
---- !!python/object:movie_data.PublicReview
+---
 content: '大約20年前的片子
 
   女主角個性很瘋
@@ -2501,7 +2500,7 @@ date: 2024-04-26
 reply_count: 86
 title: '[問片] 結局為女主角在車上被人排隊強暴的歐美'
 url: https://www.ptt.cc/bbs/movie/M.1714111540.A.4E9.html
---- !!python/object:movie_data.PublicReview
+---
 content: '(僅對結局部分做回覆，其餘部分恕刪)
 
   導演沒有透露標準答案的話，就算開放式結局了，每個人心中應該都有不同的答案，而我
@@ -2604,7 +2603,7 @@ date: 2022-05-03
 reply_count: 9
 title: 'Re: [請益] 在車上的幾個問題'
 url: https://www.ptt.cc/bbs/movie/M.1651513537.A.726.html
---- !!python/object:movie_data.PublicReview
+---
 content: '由於本人是西島秀俊粉絲
 
 
@@ -2636,7 +2635,7 @@ date: 2022-02-14
 reply_count: 91
 title: '[請益] 看燃燒烈愛快睡著還推薦去看在車上嗎'
 url: https://www.ptt.cc/bbs/movie/M.1644817955.A.111.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不敢相信我看完了 三個小時的在車上
 
   我平常看爽片居多
@@ -2745,7 +2744,7 @@ date: 2022-07-18
 reply_count: 49
 title: '[有雷] 沒內涵的人看 在車上 心得'
 url: https://www.ptt.cc/bbs/movie/M.1658146893.A.AB4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '劇場家的妻子死了。兩年後，另一個劇組為男主安排的司機，竟是一個年輕妹妹。
 
 
@@ -2808,7 +2807,7 @@ date: 2022-02-12
 reply_count: 32
 title: '[好雷] 在車上'
 url: https://www.ptt.cc/bbs/movie/M.1644654818.A.276.html
---- !!python/object:movie_data.PublicReview
+---
 content: '也是在看了濱口龍介的電影之後，我才終於明白「show, don''t tell」到底是什麼意思：
 
   不是「演」與「說」的區別，也不是展示與講述的區別：這些區分根本毫無意義。畢竟，
@@ -2853,7 +2852,7 @@ date: 2022-02-11
 reply_count: 11
 title: '[好雷] 在車上：有趣的藝術實驗'
 url: https://www.ptt.cc/bbs/movie/M.1644573112.A.2BD.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -2974,7 +2973,7 @@ date: 2022-02-28
 reply_count: 4
 title: '[好雷] 在車上——無聲勝有聲'
 url: https://www.ptt.cc/bbs/movie/M.1646038773.A.4DF.html
---- !!python/object:movie_data.PublicReview
+---
 content: "之前在寫偶然與想像，備註中已有有附部落格的連結\n最近上院線，重新編輯一下，分享\n\n\n雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\
   \n (圖文並茂版本)\n\n\n\n沒有《歡樂時光》（happy hour）過度的自由跟即興，《在車上》Drive My Car相對嚴謹\n又不失創新的敘事方式。主要還是延續著導演濱口龍介擅長在日常話語／演戲台詞之間展\n\
@@ -2999,7 +2998,7 @@ date: 2022-02-11
 reply_count: 15
 title: '[好雷] 《在車上》- 他者那部份的自己'
 url: https://www.ptt.cc/bbs/movie/M.1644582423.A.E78.html
---- !!python/object:movie_data.PublicReview
+---
 content: '【2023/12/05 iTunes特價報】
 
   在車上／決戰賽末點／平行母親／仇念／愛的萬物論／謀殺綠腳趾／傲慢與偏見
@@ -3137,7 +3136,7 @@ date: 2023-12-05
 reply_count: 3
 title: '[討論] iTunes特價 在車上/平行母親/愛的萬物論'
 url: https://www.ptt.cc/bbs/movie/M.1701760820.A.757.html
---- !!python/object:movie_data.PublicReview
+---
 content: '一直以來都是村上的書迷，隨著年紀漸長邊看書邊吐嘈村上的文青style 是我近年來為數不
 
   多的樂趣了，

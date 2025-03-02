@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '身為甄子丹的粉絲，抱著武打片的心情去看
 
 
@@ -31,7 +30,7 @@ date: 2025-01-08
 reply_count: 16
 title: '[微好雷]'
 url: https://www.ptt.cc/bbs/movie/M.1736295523.A.B83.html
---- !!python/object:movie_data.PublicReview
+---
 content: '整部戲為了凸顯葉問還很能打
 
 
@@ -73,7 +72,7 @@ date: 2025-02-10
 reply_count: 11
 title: '[雷] 誤判，完全不合理的劇情'
 url: https://www.ptt.cc/bbs/movie/M.1739195960.A.E9A.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -256,7 +255,7 @@ date: 2024-12-30
 reply_count: 21
 title: '[好雷] 再難也要堅持本心的《誤判》'
 url: https://www.ptt.cc/bbs/movie/M.1735554004.A.121.html
---- !!python/object:movie_data.PublicReview
+---
 content: '香港介於法律跟武打動作之間電影，
 
 
@@ -303,7 +302,7 @@ date: 2025-01-01
 reply_count: 23
 title: '[好雷] 誤判 甄子丹'
 url: https://www.ptt.cc/bbs/movie/M.1735745904.A.D66.html
---- !!python/object:movie_data.PublicReview
+---
 content: '好久沒看港片，最近一連看了兩部港片，分別是票房破表的《破地獄》
 
   以及昨天一上映就去看的《誤判》，先說結論…
@@ -382,7 +381,7 @@ date: 2024-12-28
 reply_count: 37
 title: '[好雷]《誤判》劇情發人深省、打鬥場面爆爽！'
 url: https://www.ptt.cc/bbs/movie/M.1735388648.A.B2C.html
---- !!python/object:movie_data.PublicReview
+---
 content: "甄子丹找老友拍《誤判》高要求不留情\n\n04:10 2025/01/08 中國時報 李承陽\n\n\n甄子丹執導並領銜主演電影《誤判》，全片文戲武戲均有看頭。（華映提供）\n\
   \n甄子丹執導並領銜主演電影《誤判》，聯手金獎卡司許冠文、吳鎮宇、張智霖、鄭則仕，\n與香港新生代朱栢康、張天賦共同演出，片中許多資深港星的演出都帶給觀眾無限驚喜，\n\
   像是呂良偉、鄭浩南及劉江等老戲骨，但導演甄子丹對他們的演出要求極高，現場不給老\n友面子，直接要求他們演出要更精采。\n\n甄子丹當導演力邀好友一起來為電影增色，像是他多年好友呂良偉，二話不說沒有劇本也\n\
@@ -395,7 +394,7 @@ date: 2025-01-08
 reply_count: 8
 title: '[新聞] 甄子丹找老友拍《誤判》高要求不留情'
 url: https://www.ptt.cc/bbs/movie/M.1736351402.A.9F3.html
---- !!python/object:movie_data.PublicReview
+---
 content: "很久沒有去電影院看電影了，一是老了，二是今年都沒什麼厲害的電影引起我的興趣，上一\n次進電影院好像是沙丘2，認真算一下，沙丘2都是年初的事情了。這次會踏進電影院，是被\n\
   之前學編劇的老師臉書動態燒到。\n以下防雷頁\n \n \n \n \n \n \n先快速講總結重點，本片適合\n愛看打片+愛看不是為打而打=要看有劇情內容又要愛打片的觀眾\
   \ 再進場\n \n分享一下兩個我有印象的打戲場面，一個是片中一開場沒多久的槍戰畫面。\n電影剛開始的時候甄子丹就滿身是傷的站在法院外面，望向天空。後來馬上給了一個超刺激\n\
@@ -413,7 +412,7 @@ date: 2024-12-27
 reply_count: 46
 title: '[好雷] 誤判-年底最棒的動作劇情片'
 url: https://www.ptt.cc/bbs/movie/M.1735314020.A.925.html
---- !!python/object:movie_data.PublicReview
+---
 content: '‧
 
 
@@ -499,7 +498,7 @@ date: 2024-12-24
 reply_count: 17
 title: '[好無雷] 【誤判】這次我要打100個'
 url: https://www.ptt.cc/bbs/movie/M.1734969983.A.29D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -672,7 +671,7 @@ date: 2024-12-23
 reply_count: 15
 title: '[好雷] 誤判'
 url: https://www.ptt.cc/bbs/movie/M.1734944852.A.986.html
---- !!python/object:movie_data.PublicReview
+---
 content: "本來是跨年夜要帶【小喵寶寶】一起看得電影\n\n　進廳嚇一跳！竟然【滿】廳 【】\n\n　貓圖\n\n　後續被告知『不能帶寵物』入廳內\n\n\
   　所以隔天『1月1日』挑了最晚的場子『再一次買票』入場\n\n【】\n\n\n\n\n　以一部【武打動作片】來說\n\n　節奏可能不如【】\n\n　（這真的是很奇怪ｄeｒ事）\n\
   \n　】類別電影、我給【９0】分。\n\n　如此高分原因在於、\n\n________________________________________________________\n\
@@ -708,7 +707,7 @@ date: 2025-01-03
 reply_count: 7
 title: '[討論]【The Prosecutor】甄子丹【誤判】'
 url: https://www.ptt.cc/bbs/movie/M.1735890595.A.5D2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '（前文恕刪）
 
 
@@ -802,7 +801,7 @@ date: 2025-01-07
 reply_count: 5
 title: 'Re: [好雷] 《誤判》拳拳到肉但劇情也扎實'
 url: https://www.ptt.cc/bbs/movie/M.1736244899.A.7B2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -904,7 +903,7 @@ date: 2024-12-26
 reply_count: 12
 title: '[好雷]《誤判》: 雖名不符實，誠不虛此行'
 url: https://www.ptt.cc/bbs/movie/M.1735217132.A.91B.html
---- !!python/object:movie_data.PublicReview
+---
 content: '誤判
 
   The Prosecutor
@@ -982,7 +981,7 @@ date: 2025-01-22
 reply_count: 6
 title: '[好雷] 誤判 The Prosecutor'
 url: https://www.ptt.cc/bbs/movie/M.1737537916.A.313.html
---- !!python/object:movie_data.PublicReview
+---
 content: '明天要跟女友挑一片看
 
 
@@ -1007,7 +1006,7 @@ date: 2025-01-03
 reply_count: 15
 title: '[選片] 誤判 真的好想贏1場 鬼妹'
 url: https://www.ptt.cc/bbs/movie/M.1735900708.A.1C6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如題
 
 
@@ -1071,7 +1070,7 @@ date: 2024-12-29
 reply_count: 19
 title: '[好雷] 誤判 但是有一點想不太明白'
 url: https://www.ptt.cc/bbs/movie/M.1735483720.A.0F2.html
---- !!python/object:movie_data.PublicReview
+---
 content: '跟男友去看了誤判之後我又重新愛上甄子丹
 
   不管是穿著警服還是西裝，甄子丹真的超有成熟男人的魅力，
@@ -1149,7 +1148,7 @@ date: 2025-01-07
 reply_count: 33
 title: '[好雷] 《誤判》拳拳到肉但劇情也扎實'
 url: https://www.ptt.cc/bbs/movie/M.1736237098.A.DE1.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1261,7 +1260,7 @@ date: 2025-01-03
 reply_count: 21
 title: '[好雷]  抱歉 誤判甄子丹了！'
 url: https://www.ptt.cc/bbs/movie/M.1735885590.A.414.html
---- !!python/object:movie_data.PublicReview
+---
 content: '身為甄子丹忠實影迷
 
   看完這部跟看完成龍12生肖的感覺有點像
@@ -1347,7 +1346,7 @@ date: 2024-12-31
 reply_count: 11
 title: 'Re: [微雷] 誤判-甄子丹給香港動作片的幾句話'
 url: https://www.ptt.cc/bbs/movie/M.1735631607.A.4A2.html
---- !!python/object:movie_data.PublicReview
+---
 content: "雷文防雷資訊頁\n\n\n\n\n\n\n\n\n\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~\n\
   \n\n\n~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n文有點長，沒耐心可跳最後結論。\n\
   \n今年四月被老爸叫來中國協助他工作，\n待著待著半年都過去了，2024也要過去了。\n想起老爸總說自己不會用手機買票，\n中國要挑到順眼的大片又有點難，\n\
@@ -1384,7 +1383,7 @@ date: 2024-12-30
 reply_count: 24
 title: '[微雷] 誤判-甄子丹給香港動作片的幾句話'
 url: https://www.ptt.cc/bbs/movie/M.1735550007.A.97C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '衝著tommy大一篇撥亂反正的文
 
   我進場看了《誤判》
@@ -1468,7 +1467,7 @@ date: 2025-01-04
 reply_count: 12
 title: '[好雷] 誤判，維持熱忱的重要'
 url: https://www.ptt.cc/bbs/movie/M.1735973049.A.565.html
---- !!python/object:movie_data.PublicReview
+---
 content: '本來以為只是武打爽片，
 
   但看完後覺得出乎意料好看，
@@ -1564,7 +1563,7 @@ date: 2025-01-01
 reply_count: 9
 title: '[好雷] 誤判 '
 url: https://www.ptt.cc/bbs/movie/M.1735732992.A.54D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1624,7 +1623,7 @@ date: 2024-12-25
 reply_count: 67
 title: '[ 負雷] 誤判，爛片讓我誤判進場'
 url: https://www.ptt.cc/bbs/movie/M.1735141988.A.05D.html
---- !!python/object:movie_data.PublicReview
+---
 content: '雷文防雷資訊頁
 
 
@@ -1707,7 +1706,7 @@ date: 2024-12-31
 reply_count: 12
 title: '[神好雷] 誤判（2024）'
 url: https://www.ptt.cc/bbs/movie/M.1735636453.A.DEA.html
---- !!python/object:movie_data.PublicReview
+---
 content: '假日朋友一時興起問要不要看這部
 
   才發現是聖誕節檔期的港片
@@ -1773,7 +1772,7 @@ date: 2025-01-19
 reply_count: 2
 title: '[ 好雷] 誤判'
 url: https://www.ptt.cc/bbs/movie/M.1737250325.A.286.html
---- !!python/object:movie_data.PublicReview
+---
 content: "我上週六剛好看完這部電影，人權圖如下\n\n\n\n回家一查剛好看到您這篇\"爛文章\"，突然覺得該出來講些什麼了\n\n\n\n這麼久的影齡，觀賞前觀賞後已經養成習慣先上電影版看評價\n\
   \n看ptt了20年，以前是懷疑工讀生po文，現在反倒是一堆亂版譁眾取寵文\n\n\n\n說穿了就是想玩\"誤判這部電影讓我誤判要不要進場\"的梗\n\n很好笑嗎?\
   \ 很幽默嗎? 用這種聳動的標題很屌嗎?\n\n\n\n如果真的身為一個香港警匪片愛好者，我看您是還沒看過更爛的，建議再多看\n\n\n\n\n\n\n\n1.\
@@ -1801,7 +1800,7 @@ date: 2024-12-30
 reply_count: 50
 title: 'Re: [ 負雷] 誤判，爛片讓我誤判進場'
 url: https://www.ptt.cc/bbs/movie/M.1735527689.A.38C.html
---- !!python/object:movie_data.PublicReview
+---
 content: '如果想要看爽快的動作片的話
 
   這兩部哪部比較推?
@@ -1822,7 +1821,7 @@ date: 2025-01-01
 reply_count: 52
 title: '[選片] 誤判or獵人克萊文 選一'
 url: https://www.ptt.cc/bbs/movie/M.1735724556.A.3F1.html
---- !!python/object:movie_data.PublicReview
+---
 content: "甄子丹《誤判》舌戰許冠文 把張天賦變打仔\n\n2024/12/06 05:30\n\n\n甄子丹再度自導自演新片《誤判》，希望帶給觀眾新鮮感。（記者許世穎攝）\n\
   \n記者許世穎／香港現場報導\n\n國際巨星甄子丹再度自導自演動作新片《誤判》，除了首度挑戰律政題材詮釋檢察官，更\n找來剛以《破‧地獄》問鼎香港影史最賣座港片的香港影帝許冠文飾演大法官，甄子丹自\n\
   爆是他的影迷，盛讚他非常適合演出他心目中的法官形象，「他為角色帶來幽默感。」\n\n\n許冠文在《誤判》飾演大法官不改幽默風格，和甄子丹（圖）唇槍舌戰。（華映提供）\n\
@@ -1839,7 +1838,7 @@ date: 2024-12-06
 reply_count: 3
 title: '[新聞] 甄子丹《誤判》舌戰許冠文 把張天賦變打仔'
 url: https://www.ptt.cc/bbs/movie/M.1733493643.A.285.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不好意思，我在處理時把「串流」自動引申為「盜版」
 
   已經解除水桶，在此致歉
@@ -1853,7 +1852,7 @@ date: 2019-12-30
 reply_count: 37
 title: 'Re: [公告] CMC677 水桶'
 url: https://www.ptt.cc/bbs/movie/M.1577701109.A.BF4.html
---- !!python/object:movie_data.PublicReview
+---
 content: '中國時報【許世穎╱綜合報導】
 
 
@@ -1886,7 +1885,7 @@ date: 2015-06-30
 reply_count: 55
 title: '[新聞] 《斷背山》10周年 李安難忘票房誤判'
 url: https://www.ptt.cc/bbs/movie/M.1435662813.A.584.html
---- !!python/object:movie_data.PublicReview
+---
 content: '《》上映戲院
 
 
@@ -1908,7 +1907,7 @@ date: 2024-12-23
 reply_count: 30
 title: '[情報] 甄子丹《誤判》上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1734934400.A.CA8.html
---- !!python/object:movie_data.PublicReview
+---
 content: '誤判裡面，主角霍子華是一個戰功彪炳但不得不服老的警察。因為擔任過警察，所以對於
 
   犯罪第一線的情形，比起律政司內象牙塔的檢察官們更懂的現實世界的善惡情形，並不是
@@ -1983,7 +1982,7 @@ date: 2025-01-03
 reply_count: 35
 title: '[好雷] 誤判-甄子丹在武打巨星上又增加了層次'
 url: https://www.ptt.cc/bbs/movie/M.1735900875.A.CD8.html
---- !!python/object:movie_data.PublicReview
+---
 content: "剛看完真的是一部很爽的打片，但還是要說一下兩個個人覺得讓人很出戲的點\n\n  1.楊官心態上的轉變太硬了，明明就接獲女上司(律政司司長?)的指令，這案件\n\
   \n    不要再上訴，會弄到律政司的聲譽!\n\n    結果假日跑去找甄子丹家裡，且知道對方的背景是前警隊隊長還單挑?\n\n    唉，不是吧，你一個中高階主管，又接到上級明確指令的人，\n\
   \n    跑去找下屬打架?  不怕被講職場霸凌嗎?\n\n    然後打輸(有人意外嗎?)後心態立場馬上轉換? 這種人怎麼爬到這位置的?\n\n  2.劉少強被滅口的部分，黑道要栽培一個可以管好幾個場子又忠心的經營\n\
@@ -1994,7 +1993,7 @@ date: 2024-12-30
 reply_count: 24
 title: 'Re: [ 負雷] 誤判，爛片讓我誤判進場'
 url: https://www.ptt.cc/bbs/movie/M.1735573482.A.074.html
---- !!python/object:movie_data.PublicReview
+---
 content: '安排爸爸出場的梗就是為了塑造Mr.霍的人物立體感
 
   從片中一共出現兩次霍爸以前當警察時的英勇事蹟剪報就知道
@@ -2045,7 +2044,7 @@ date: 2024-12-30
 reply_count: 1
 title: 'Re: [ 負雷] 誤判，爛片讓我誤判進場'
 url: https://www.ptt.cc/bbs/movie/M.1735570168.A.4D6.html
---- !!python/object:movie_data.PublicReview
+---
 content: '不知標題要用什麼
 
 

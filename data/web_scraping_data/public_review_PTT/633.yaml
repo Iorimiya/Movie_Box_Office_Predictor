@@ -1,4 +1,3 @@
-!!python/object:movie_data.PublicReview
 content: '防雷線
 
 
@@ -48,7 +47,7 @@ date: 2024-09-02
 reply_count: 4
 title: '[請益] 關於《詭異之家》的問題（雷）'
 url: https://www.ptt.cc/bbs/movie/M.1725284417.A.72F.html
---- !!python/object:movie_data.PublicReview
+---
 content: '這部片氣氛營造的很好，恐怖中帶著幽默，全片幾乎都在亮的地方下拍攝，但是恐怖氣氛還
 
   是有，不過後面變成獻祭殺人還變成大逃殺實在有點無語
@@ -94,7 +93,7 @@ date: 2024-09-01
 reply_count: 53
 title: '[雷] 詭異之家心得有雷及一些問題'
 url: https://www.ptt.cc/bbs/movie/M.1725176564.A.4EC.html
---- !!python/object:movie_data.PublicReview
+---
 content: '該怎麼說呢，本來以為是懸疑犯罪片，沒想到是恐怖片啊，身為比較膽小的人，沒想到在這部瞇眼的時間比異形還多XD。
 
 
