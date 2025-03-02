@@ -122,11 +122,13 @@ class MovieData:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.__save(file_path=save_folder_path.joinpath(f"{self.movie_id}.{file_extension}"), data=self.box_office,
                     encoding=encoding)
+        return
 
     def load_box_office(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.box_office = self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                       encoding=encoding)
+        return
 
     def save_public_review(self, save_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
@@ -139,3 +141,4 @@ class MovieData:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
         self.public_reviews = self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                           encoding=encoding)
+        return
