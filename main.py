@@ -6,6 +6,7 @@ from datetime import datetime
 from web_scraper.box_office_collector import BoxOfficeCollector
 from web_scraper.review_collector import ReviewCollector
 from machine_learning_model.emotion_analyser import EmotionAnalyser
+from movie_data import load_index_file
 from tools.util import *
 
 
@@ -16,7 +17,7 @@ def set_argument_parser() -> Namespace:
     group.add_argument("-d", "--developer", action="store_true", help="execute program as a developer.")
     group.add_argument("-t", "--test", type=str,
                        choices=["collect_box_office", "collect_ptt_review", "collect_dcard_review",
-                                "train_emotion_analysis", "test_emotion_analysis"],
+                                "train_emotion_analysis", "test_emotion_analysis", "load_data"],
                        help="unit test with procedure for testing")
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result.")
@@ -61,13 +62,13 @@ if __name__ == "__main__":
             case "collect_ptt_review":
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PTT
                 if args.input:
-                    print(ReviewCollector(target_website=target_website).search_review(args.input))
+                    print(ReviewCollector(target_website=target_website).search_review_by_single_movie(args.input))
                 else:
                     ReviewCollector(target_website=target_website).scrap_train_review_data()
             case "collect_dcard_review":
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
                 if args.input:
-                    print(ReviewCollector(target_website=target_website).search_review(args.input))
+                    print(ReviewCollector(target_website=target_website).search_review_by_single_movie(args.input))
                 else:
                     ReviewCollector(target_website=target_website).scrap_train_review_data()
             case "train_emotion_analysis":
@@ -91,9 +92,19 @@ if __name__ == "__main__":
                     print(EmotionAnalyser(model_path=default_model_path, tokenizer_path=defaults_tokenizer_path).test(
                         input_review))
                 else:
-                    for i in range(len(read_index_file())):
-                        analyse_review(i)
+                    pass
+                    # for i in range(len(read_index_file())):
+                    #     analyse_review(i)
 
+            case "load_data":
+                movie_list = load_index_file()
+                for movie in movie_list:
+                    movie.load_box_office()
+                    movie.load_public_review(Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_PTT"))
+                    movie.save_box_office(
+                        Constants.BOX_OFFICE_FOLDER.with_name(f"{Constants.BOX_OFFICE_FOLDER.name}_2"))
+                    movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_PTT2"))
+                    a=1
             case _:
                 raise ValueError
     else:

@@ -13,7 +13,7 @@ from tqdm import tqdm
 from urllib3.exceptions import ReadTimeoutError
 
 from web_scraper.browser import Browser
-from movie_data import BoxOffice
+from movie_data import BoxOffice, MovieData, load_index_file
 from tools.util import *
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
@@ -255,7 +255,7 @@ class BoxOfficeCollector:
                 logging.error("no previous index file, please enter input file path.")
                 exit(1)
 
-        movie_data: list[MovieData] = read_index_file(file_path=self.__index_file_path,
+        movie_data: list[MovieData] = load_index_file(file_path=self.__index_file_path,
                                                       index_header=self.__index_file_header)
 
         # read_download progress

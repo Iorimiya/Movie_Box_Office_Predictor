@@ -1,10 +1,11 @@
 from typing import Optional
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 import yaml
 
 from tools.constant import Constants
+from tools.util import read_data_from_csv, delete_duplicate
 
 
 @dataclass(kw_only=True)
@@ -12,6 +13,13 @@ class BoxOffice:
     start_date: date
     end_date: date
     box_office: int
+
+    @classmethod
+    def from_dict(cls, dictionary):
+        date_format: str = '%Y-%m-%d'
+        return cls(start_date=datetime.strptime(dictionary['start_date'], date_format).date(),
+                   end_date=datetime.strptime(dictionary['end_date'], date_format).date(),
+                   box_office=int(dictionary['box_office']))
 
 
 @dataclass(kw_only=True)
@@ -46,6 +54,12 @@ class ExpertReview(Review):
     def __eq__(self, other):
         return super().__eq__(other=other)
 
+    @classmethod
+    def from_dict(cls, dictionary):
+        date_format: str = '%Y-%m-%d'
+        return cls(url=dictionary["url"], title=dictionary["title"], content=dictionary["content"],
+                   date=datetime.strptime(dictionary['date'], date_format).date(), score=float(dictionary["score"]))
+
 
 @dataclass(kw_only=True)
 class PublicReview(Review):
@@ -56,6 +70,13 @@ class PublicReview(Review):
 
     def __eq__(self, other):
         return super().__eq__(other=other)
+
+    @classmethod
+    def from_dict(cls, dictionary):
+        date_format: str = '%Y-%m-%d'
+        return cls(url=dictionary["url"], title=dictionary["title"], content=dictionary["content"],
+                   date=datetime.strptime(dictionary['date'], date_format).date(),
+                   reply_count=int(dictionary["reply_count"]))
 
 
 class MovieData:
@@ -94,17 +115,27 @@ class MovieData:
         if release_date:
             self.release_date = release_date
         if box_offices:
-            self.box_office = box_offices
+            if self.box_office:
+                self.box_office = delete_duplicate(self.box_office + box_offices)
+            else:
+                self.box_office = box_offices
         if expert_reviews:
-            self.expert_reviews = expert_reviews
+            if self.expert_reviews:
+                self.expert_reviews = delete_duplicate(self.expert_reviews + expert_reviews)
+            else:
+                self.expert_reviews = expert_reviews
         if public_reviews:
-            self.public_reviews = public_reviews
+            if self.public_reviews:
+                self.public_reviews = delete_duplicate(self.public_reviews + public_reviews)
+            else:
+                self.public_reviews = public_reviews
         return
 
     @staticmethod
     def __save(file_path: Path, data: list[any], encoding: str = Constants.DEFAULT_ENCODING) -> None:
         if not file_path.parent.exists():
             file_path.parent.mkdir(parents=True)
+        data = [asdict(x) for x in data]
         yaml.Dumper.ignore_aliases = lambda self, _: True
         with open(file_path, mode='w', encoding=encoding) as file:
             yaml.dump_all(data, file, allow_unicode=True)
@@ -114,7 +145,8 @@ class MovieData:
         if not file_path.exists():
             raise FileNotFoundError(f"File {file_path} does not exist")
         with open(file_path, mode='r', encoding=encoding) as file:
-            data = [data for data in yaml.safe_load_all(file)]
+            load_data = yaml.load_all(file, yaml.loader.BaseLoader)
+            data = [data for data in load_data]
         return data
 
     def save_box_office(self, save_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
@@ -122,10 +154,12 @@ class MovieData:
         self.__save(file_path=save_folder_path.joinpath(f"{self.movie_id}.{file_extension}"), data=self.box_office,
                     encoding=encoding)
 
-    def load_box_office(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
+    def load_box_office(self, load_folder_path: Path = Constants.BOX_OFFICE_FOLDER,
+                        encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
-        self.box_office = self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
-                                      encoding=encoding)
+        self.box_office = [BoxOffice.from_dict(data) for data in
+                           self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
+                                       encoding=encoding)]
 
     def save_public_review(self, save_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
@@ -134,7 +168,16 @@ class MovieData:
                     encoding=encoding) if self.public_review_count else save_path.touch(exist_ok=True)
         return
 
-    def load_public_review(self, load_folder_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
+    def load_public_review(self, load_folder_path: Path = Constants.PUBLIC_REVIEW_FOLDER,
+                           encoding: str = Constants.DEFAULT_ENCODING) -> None:
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
-        self.public_reviews = self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
-                                          encoding=encoding)
+        self.public_reviews = [PublicReview.from_dict(data) for data in
+                               self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
+                                           encoding=encoding)]
+
+
+def load_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None) -> list[MovieData]:
+    if index_header is None:
+        index_header = Constants.INDEX_HEADER
+    return [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]]) for movie in
+            read_data_from_csv(path=file_path)]
