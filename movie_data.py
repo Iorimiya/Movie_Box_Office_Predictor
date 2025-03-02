@@ -5,6 +5,7 @@ from dataclasses import dataclass, asdict
 import yaml
 
 from tools.constant import Constants
+from tools.util import delete_duplicate
 
 
 @dataclass(kw_only=True)
@@ -114,11 +115,20 @@ class MovieData:
         if release_date:
             self.release_date = release_date
         if box_offices:
-            self.box_office = box_offices
+            if self.box_office:
+                self.box_office = delete_duplicate(self.box_office + box_offices)
+            else:
+                self.box_office = box_offices
         if expert_reviews:
-            self.expert_reviews = expert_reviews
+            if self.expert_reviews:
+                self.expert_reviews = delete_duplicate(self.expert_reviews + expert_reviews)
+            else:
+                self.expert_reviews = expert_reviews
         if public_reviews:
-            self.public_reviews = public_reviews
+            if self.public_reviews:
+                self.public_reviews = delete_duplicate(self.public_reviews + public_reviews)
+            else:
+                self.public_reviews = public_reviews
         return
 
     @staticmethod

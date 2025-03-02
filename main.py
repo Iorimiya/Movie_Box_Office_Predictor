@@ -61,13 +61,13 @@ if __name__ == "__main__":
             case "collect_ptt_review":
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PTT
                 if args.input:
-                    print(ReviewCollector(target_website=target_website).search_review(args.input))
+                    print(ReviewCollector(target_website=target_website).search_review_by_single_movie(args.input))
                 else:
                     ReviewCollector(target_website=target_website).scrap_train_review_data()
             case "collect_dcard_review":
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
                 if args.input:
-                    print(ReviewCollector(target_website=target_website).search_review(args.input))
+                    print(ReviewCollector(target_website=target_website).search_review_by_single_movie(args.input))
                 else:
                     ReviewCollector(target_website=target_website).scrap_train_review_data()
             case "train_emotion_analysis":
