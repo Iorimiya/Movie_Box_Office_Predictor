@@ -1,8 +1,8 @@
-# thesis for zt
-# box office predictions
+# movie box office predictions and analysis system
+# for thesis of zc
 # conda environment
 
-name: thesis_for_zt
+name: movie_pred-GPU
 channels:
   - defaults
   - conda-forge
