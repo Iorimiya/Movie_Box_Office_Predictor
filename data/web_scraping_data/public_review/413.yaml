@@ -50,6 +50,7 @@ content: '一部看似紀實的劇情片，卻存在著幽靈，此幽靈的出�
 
   --'
 date: 2016-08-11
+emotion_analyse: false
 reply_count: 1
 title: '[有雷]短論《東京公園》：試探不可忽略的幽靈 '
 url: https://www.ptt.cc/bbs/movie/M.1470857299.A.583.html
@@ -76,6 +77,7 @@ content: '經由版大介紹
 
   --'
 date: 2015-07-10
+emotion_analyse: true
 reply_count: 5
 title: '[問片] 有沒有類似“東京公園“的片'
 url: https://www.ptt.cc/bbs/movie/M.1436464366.A.3A6.html

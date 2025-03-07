@@ -108,6 +108,7 @@ content: '新聞網址：
 
   --'
 date: 2024-05-16
+emotion_analyse: false
 reply_count: 8
 title: '[新聞] 麥可基頓睽違16年自導自演【失憶殺神】'
 url: https://www.ptt.cc/bbs/movie/M.1715861157.A.F67.html
@@ -123,6 +124,7 @@ content: '如題
 
   --'
 date: 2024-06-01
+emotion_analyse: true
 reply_count: 22
 title: '[選片] 怒火狂猴 or 失憶殺神'
 url: https://www.ptt.cc/bbs/movie/M.1717230861.A.159.html
@@ -144,6 +146,7 @@ content: "《失憶殺神》 (Knox Goes Away)\n\n\n（以下有提及些許劇�
   想它在台灣也撐不了太久。但如果你是喜\n歡那種老派硬漢調調的人，有空時不妨進\n戲院欣賞本片，應該能感受到那股老電影\n帶來的放鬆感吧。\n\n--\n\n\n\
   \      『為什麼女人的平均壽命比較長？因為上帝要補償那些等廁所的時間。』\n\n--"
 date: 2024-05-29
+emotion_analyse: false
 reply_count: 7
 title: '[雷] 失憶殺神 Knox Goes Away'
 url: https://www.ptt.cc/bbs/movie/M.1716958853.A.477.html
@@ -258,6 +261,7 @@ content: '新聞網址：
 
   --'
 date: 2024-05-29
+emotion_analyse: false
 reply_count: 9
 title: '[新聞] 麥可基頓【失憶殺神】片場忙到出現失憶症'
 url: https://www.ptt.cc/bbs/movie/M.1716983456.A.6F1.html

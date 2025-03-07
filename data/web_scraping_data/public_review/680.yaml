@@ -128,6 +128,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-09-27
+emotion_analyse: false
 reply_count: 4
 title: '[好雷] 薩滿男孩'
 url: https://www.ptt.cc/bbs/movie/M.1727442065.A.7F9.html
@@ -175,6 +176,7 @@ content: '《薩滿男孩》揭蒙古Z世代對未來迷惘
 
   --'
 date: 2024-09-02
+emotion_analyse: false
 reply_count: 23
 title: '[新聞] 《薩滿男孩》揭蒙古Z世代對未來迷惘'
 url: https://www.ptt.cc/bbs/movie/M.1725240124.A.766.html

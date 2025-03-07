@@ -28,6 +28,7 @@ content: '動畫電影《楊戩》發布全新海報及場景圖 2021年內上�
 
   --'
 date: 2021-02-09
+emotion_analyse: false
 reply_count: 22
 title: '[情報] 動畫電影《楊戩》發布全新海報及場景圖'
 url: https://www.ptt.cc/bbs/movie/M.1612873124.A.F9C.html
@@ -69,6 +70,7 @@ content: '動畫電影《楊戩》立項 《大聖歸來》制作人加盟
 
   --'
 date: 2020-06-10
+emotion_analyse: false
 reply_count: 7
 title: '[新聞] 動畫電影《楊戩》立項《大聖歸來》制作人'
 url: https://www.ptt.cc/bbs/movie/M.1591775734.A.76A.html
@@ -116,6 +118,7 @@ content: '這部是對岸追光動畫的作品，Netflix 上面有前一部「�
 
   --'
 date: 2022-11-06
+emotion_analyse: false
 reply_count: 38
 title: '[雷] 新神榜：楊戩'
 url: https://www.ptt.cc/bbs/movie/M.1667748663.A.CA8.html

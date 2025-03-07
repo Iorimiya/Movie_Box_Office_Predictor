@@ -98,18 +98,8 @@ if __name__ == "__main__":
                     for movie in load_index_file():
                         movie.load_public_review()
                         for review in movie.public_reviews:
-                            review.emotion_analyse = analyzer.test(review)
-                        print(movie.public_reviews)
-
-            case "load_data":
-                movie_list = load_index_file()
-                for movie in movie_list:
-                    movie.load_box_office()
-                    movie.load_public_review(Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_PTT"))
-                    movie.save_box_office(
-                        Constants.BOX_OFFICE_FOLDER.with_name(f"{Constants.BOX_OFFICE_FOLDER.name}_2"))
-                    movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER.with_name(f"{Constants.PUBLIC_REVIEW_FOLDER.name}_PTT2"))
-                    a=1
+                            review.emotion_analyse = analyzer.test(review.content)
+                        movie.save_public_review()
             case _:
                 raise ValueError
     else:

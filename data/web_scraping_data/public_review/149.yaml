@@ -73,6 +73,7 @@ content: '新聞網址：
 
   可能對他們來說整部戲從頭打到尾、打好打滿的片才叫真正的好片吧'
 date: 2023-09-02
+emotion_analyse: false
 reply_count: 39
 title: '[新聞]《私刑教育3》大殺四方榮登全台票房冠軍'
 url: https://www.ptt.cc/bbs/movie/M.1693596804.A.44E.html
@@ -96,6 +97,7 @@ content: '這集看完心得
 
   --'
 date: 2023-08-31
+emotion_analyse: false
 reply_count: 4
 title: '[  好無雷]  私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1693490547.A.1CE.html
@@ -122,6 +124,7 @@ content: '《私刑教育3》首次亮相，在爛番茄上獲得15 條評論，
 
   --'
 date: 2023-08-30
+emotion_analyse: true
 reply_count: 65
 title: '[情報] 《私刑教育3》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1693326541.A.77B.html
@@ -146,6 +149,7 @@ content: '【】本週四即將上映！
 
   --'
 date: 2023-08-29
+emotion_analyse: true
 reply_count: 26
 title: '[情報] 丹佐華盛頓《私刑教育3》全台上映戲院'
 url: https://www.ptt.cc/bbs/movie/M.1693265195.A.A17.html
@@ -259,6 +263,7 @@ content: '新聞網址：
 
   --'
 date: 2023-08-03
+emotion_analyse: false
 reply_count: 60
 title: '[新聞] 超市戰神要退休了《私刑教育3》確認是結局'
 url: https://www.ptt.cc/bbs/movie/M.1691061290.A.869.html
@@ -315,6 +320,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-09-03
+emotion_analyse: false
 reply_count: 30
 title: '[  負雷] 私刑教育3 不太行'
 url: https://www.ptt.cc/bbs/movie/M.1693756235.A.359.html
@@ -367,6 +373,7 @@ content: '新聞網址：
 
   捍衛第1集打鬥其實超卡很不流暢，比較有印象的就是開槍爆頭畫面很多'
 date: 2023-09-04
+emotion_analyse: false
 reply_count: 28
 title: '[新聞]《私刑教育3》猛奪台美全球三冠王！海外創'
 url: https://www.ptt.cc/bbs/movie/M.1693795734.A.33A.html
@@ -386,6 +393,7 @@ content: '剛看完，好看。雖然劇情很老套，文戲也有點多，但�
 
   --'
 date: 2023-08-31
+emotion_analyse: false
 reply_count: 93
 title: '[ 好無雷] 私刑教育3，不完美，但仍精彩。'
 url: https://www.ptt.cc/bbs/movie/M.1693462090.A.945.html
@@ -397,6 +405,7 @@ content: "雷文防雷資訊頁\n\n\n\n~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~*-*~
   \ forgets its defenders will be itself forgotten.\n\n                        ～John\
   \ Calvin Coolidge, Jr.\n\n--"
 date: 2023-09-05
+emotion_analyse: false
 reply_count: 18
 title: '[普雷]  私刑教育3 雷聲大雨點小'
 url: https://www.ptt.cc/bbs/movie/M.1693860422.A.1C1.html
@@ -657,6 +666,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-09-02
+emotion_analyse: false
 reply_count: 49
 title: '[微好雷]【私刑教育3】別讓丹佐華盛頓不開心！'
 url: https://www.ptt.cc/bbs/movie/M.1693643344.A.7A5.html
@@ -675,6 +685,7 @@ content: '如題，三部等一下九點都有場次，不知道該選哪一個
 
   --'
 date: 2023-09-04
+emotion_analyse: false
 reply_count: 66
 title: '[選片] 芭比、私刑教育3、跨界玩家'
 url: https://www.ptt.cc/bbs/movie/M.1693829001.A.EB9.html
@@ -697,6 +708,7 @@ content: '現在竟然升到75% 而且觀眾部分有87%
 
   3跟前2 劇情是沒關聯的，不會看不懂，就當丹佐的新電影看也可以'
 date: 2023-09-01
+emotion_analyse: true
 reply_count: 38
 title: 'Re: [情報] 《私刑教育3》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1693527643.A.042.html
@@ -716,6 +728,7 @@ content: '首支預告發布 達柯塔芬妮臉變超圓
 
   --'
 date: 2023-04-25
+emotion_analyse: true
 reply_count: 174
 title: '[情報]私刑教育3首支預告'
 url: https://www.ptt.cc/bbs/movie/M.1682429480.A.299.html
@@ -805,6 +818,7 @@ content: 'BY VINNIE MANCUSO
 
   --'
 date: 2022-01-13
+emotion_analyse: true
 reply_count: 149
 title: '[情報] 丹佐華盛頓證實已排定演出《私刑教育3》'
 url: https://www.ptt.cc/bbs/movie/M.1642067066.A.1B6.html
@@ -837,6 +851,7 @@ content: '剛在中秋佳節中看了這部
 
   --'
 date: 2023-09-29
+emotion_analyse: true
 reply_count: 17
 title: '[討論] 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1695992362.A.665.html
@@ -964,6 +979,7 @@ content: '有人說第二集很差
 
   但這圓不回 第一集那種運匠暗中出手的原汁原味'
 date: 2023-08-31
+emotion_analyse: false
 reply_count: 41
 title: '[負雷] 私刑教育3  連癢處都沒有找到..'
 url: https://www.ptt.cc/bbs/movie/M.1693481907.A.847.html
@@ -1048,6 +1064,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-08-31
+emotion_analyse: true
 reply_count: 37
 title: '[好雷] 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1693491321.A.2EA.html
@@ -1172,6 +1189,7 @@ content: '新聞網址：
 
   --'
 date: 2023-08-24
+emotion_analyse: false
 reply_count: 142
 title: '[新聞] 相隔20年聚首《私刑教育3》！達科塔芬妮一直跟丹佐華盛頓保持聯繫'
 url: https://www.ptt.cc/bbs/movie/M.1692838593.A.C4D.html
@@ -1207,6 +1225,7 @@ content: '剛好想到
 
   --'
 date: 2023-09-11
+emotion_analyse: true
 reply_count: 14
 title: '[討論]看私刑教育3要補前面嗎？'
 url: https://www.ptt.cc/bbs/movie/M.1694389391.A.119.html
@@ -1264,6 +1283,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-09-03
+emotion_analyse: false
 reply_count: 1
 title: '[好雷] 《私刑教育3》低調的正義使者最終章'
 url: https://www.ptt.cc/bbs/movie/M.1693744354.A.7B8.html
@@ -1316,6 +1336,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-01-19
+emotion_analyse: false
 reply_count: 50
 title: '[好雷] 私刑教育3 The Equalizer 3'
 url: https://www.ptt.cc/bbs/movie/M.1705633013.A.1E7.html
@@ -1327,6 +1348,7 @@ content: "雷文防雷資訊頁\n\n\n\n~*\n-*\n~*\n-*\n~*\n-*\n~*\n-*\n~*\n-*\n~
   \n\n\n-----\nSent from JPTT on my iPhone\n\n--\n\n--\n預告前兩段打鬥幾乎都有告訴你了什麼時候會開始\n第一集真的經典\
   \ 這集算了吧...\n氣氛鋪成固然重要 但鋪成了將近70%真的太多\n預告也只剩最後打鬥沒告訴你 其他都演了 哈\n謝謝 已改正"
 date: 2023-08-31
+emotion_analyse: true
 reply_count: 46
 title: '[普負雷]  私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1693457107.A.0EA.html
@@ -1374,6 +1396,7 @@ content: '整部片的賣點就是風景很漂亮
 
   --'
 date: 2023-09-01
+emotion_analyse: false
 reply_count: 50
 title: '[普無雷] 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1693549125.A.461.html
@@ -1462,6 +1485,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-09-10
+emotion_analyse: false
 reply_count: 10
 title: '[好雷] 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1694360517.A.227.html
@@ -1594,6 +1618,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-09-19
+emotion_analyse: false
 reply_count: 8
 title: '[好雷] 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1695061484.A.49C.html
@@ -1762,6 +1787,7 @@ content: '防雷
 
   --'
 date: 2024-03-13
+emotion_analyse: false
 reply_count: 5
 title: '[  雷] 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1710303380.A.993.html
@@ -1973,6 +1999,7 @@ content: '【2024/10/16 Apple TV 特價報】
 
   --'
 date: 2024-10-16
+emotion_analyse: false
 reply_count: 5
 title: '[討論] APPLE TV 特價 私刑教育3/之前的我們/靈'
 url: https://www.ptt.cc/bbs/movie/M.1729090188.A.04D.html
@@ -1981,6 +2008,7 @@ content: "東森洋片\n私刑教育3 (The Equalizer 3)\n電影-動作冒險-英
   \ 21:00~23:20\n\n導演:\n安東尼法奎 (Antoine Fuqua)\n演員:\n丹佐華盛頓 (Denzel Washington)\n達科塔芬妮\
   \ (Dakota Fanning)\n雷莫吉隆 (Remo Girone)\n\n\n--\n   \n\n--"
 date: 2024-05-03
+emotion_analyse: true
 reply_count: 31
 title: '[LIVE] 東森洋片 21:00 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1714729405.A.FAC.html
@@ -1988,6 +2016,7 @@ url: https://www.ptt.cc/bbs/movie/M.1714729405.A.FAC.html
 content: "安安 打給後 \n如題\n雖然我看得挺開心的\n但是客觀來說情節編排很差\n高潮之後突然草草結束\n\n用第一集來比喻\n就像是跳過特力屋大戰\n\
   直接到敵人老巢把人宰光一樣\n\n--\n\n\n--"
 date: 2023-09-09
+emotion_analyse: true
 reply_count: 17
 title: '[負雷] 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1694233637.A.B4C.html
@@ -2145,6 +2174,7 @@ content: '防雷
 
   --'
 date: 2023-12-15
+emotion_analyse: false
 reply_count: 63
 title: '[好雷] 私刑教育3'
 url: https://www.ptt.cc/bbs/movie/M.1702572682.A.629.html

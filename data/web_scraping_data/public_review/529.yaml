@@ -112,6 +112,7 @@ content: '新聞網址：
 
   --'
 date: 2024-05-30
+emotion_analyse: false
 reply_count: 4
 title: '[新聞] 【分期付款愛上你】觀眾盛讚「超出預期」'
 url: https://www.ptt.cc/bbs/movie/M.1717071847.A.810.html
@@ -216,6 +217,7 @@ content: '情報出處：
 
   --'
 date: 2024-06-12
+emotion_analyse: false
 reply_count: 1
 title: '[情報]【分期付款愛上你】學生搶先看浪漫登場 '
 url: https://www.ptt.cc/bbs/movie/M.1718206811.A.109.html
@@ -330,6 +332,7 @@ content: '新聞網址：
 
   --'
 date: 2024-06-06
+emotion_analyse: false
 reply_count: 1
 title: '[新聞] 【分期付款愛上你】展現泰國觀光軟實力！'
 url: https://www.ptt.cc/bbs/movie/M.1717673604.A.F5E.html

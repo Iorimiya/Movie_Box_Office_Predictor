@@ -39,6 +39,7 @@ content: '如題
 
   中文預告好像也沒強調Die hard2'
 date: 2024-01-01
+emotion_analyse: false
 reply_count: 14
 title: '[請益] 叛諜檔案的場次什麼時候會出來？'
 url: https://www.ptt.cc/bbs/movie/M.1704120385.A.037.html
@@ -64,6 +65,7 @@ content: '我自己是滿喜歡看動作片的
 
   --'
 date: 2024-01-06
+emotion_analyse: true
 reply_count: 33
 title: '[選片] 叛諜檔案或人犬？'
 url: https://www.ptt.cc/bbs/movie/M.1704550088.A.717.html
@@ -116,6 +118,7 @@ content: '前幾天去電影院看旺卡的時候看到叛諜檔案的海報，�
 
   --'
 date: 2024-01-06
+emotion_analyse: false
 reply_count: 9
 title: '[普好雷] 中規中矩卻不失娛樂性的叛諜檔案'
 url: https://www.ptt.cc/bbs/movie/M.1704538537.A.5A4.html
@@ -179,6 +182,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-01-04
+emotion_analyse: false
 reply_count: 9
 title: '[好雷] 叛諜檔案：史上最強砌磚工 '
 url: https://www.ptt.cc/bbs/movie/M.1704367761.A.9A5.html
@@ -265,6 +269,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-01-08
+emotion_analyse: false
 reply_count: 30
 title: '[普負雷] 叛諜檔案'
 url: https://www.ptt.cc/bbs/movie/M.1704667841.A.498.html
@@ -276,6 +281,7 @@ content: "HBO\n叛諜檔案(The Bricklayer)\n2024-11-24(日) 21:00\n\n導演  �
   查同事好友之死，並阻止一場犯罪組織策畫的陰謀。\n\n電影2024年1月5日在美國及台灣上映，並且於2024年8月3日於串流平台HBO GO上架。。\n\n--\n\
   \   \n\n--"
 date: 2024-11-24
+emotion_analyse: false
 reply_count: 1
 title: '[LIVE] HBO 21:00 叛諜檔案(The Bricklayer)'
 url: https://www.ptt.cc/bbs/movie/M.1732443812.A.6CC.html
@@ -397,6 +403,7 @@ content: '前幾天去看了試映，放個劇照防雷，
 
   --'
 date: 2024-01-02
+emotion_analyse: false
 reply_count: 34
 title: '[好雷] 叛諜檔案'
 url: https://www.ptt.cc/bbs/movie/M.1704197489.A.A6F.html
@@ -463,6 +470,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-01-05
+emotion_analyse: false
 reply_count: 18
 title: '[好雷] 《叛諜檔案》看最強特務如何開掛'
 url: https://www.ptt.cc/bbs/movie/M.1704458728.A.369.html

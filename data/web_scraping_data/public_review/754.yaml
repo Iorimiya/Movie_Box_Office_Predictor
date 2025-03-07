@@ -89,6 +89,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2025-01-12
+emotion_analyse: false
 reply_count: 16
 title: '[好雷] 在熙的男，朋友'
 url: https://www.ptt.cc/bbs/movie/M.1736697146.A.F10.html
@@ -142,6 +143,7 @@ content: '大推這部 可惜討論度好低！
 
   --'
 date: 2025-02-07
+emotion_analyse: false
 reply_count: 14
 title: '[好雷] 在熙的男，朋友'
 url: https://www.ptt.cc/bbs/movie/M.1738914843.A.8A4.html

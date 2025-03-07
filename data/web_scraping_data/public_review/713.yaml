@@ -64,6 +64,7 @@ content: '微笑是個人挺喜歡的恐怖片
 
   --'
 date: 2024-10-18
+emotion_analyse: false
 reply_count: 2
 title: '[ 普雷] 微笑2 略缺新意的恐怖'
 url: https://www.ptt.cc/bbs/movie/M.1729243019.A.1A0.html
@@ -153,6 +154,7 @@ content: '----防雷---
 
   --'
 date: 2024-10-19
+emotion_analyse: true
 reply_count: 16
 title: '[討論] 微笑2的結局(有雷)'
 url: https://www.ptt.cc/bbs/movie/M.1729315477.A.E8D.html
@@ -214,6 +216,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-10-19
+emotion_analyse: false
 reply_count: 34
 title: '[好雷] 微笑2  壓迫感更重'
 url: https://www.ptt.cc/bbs/movie/M.1729335954.A.102.html
@@ -262,6 +265,7 @@ content: '微笑2有不少JS鏡頭，故事結構也是延續第一集，原本�
 
   --'
 date: 2024-11-02
+emotion_analyse: false
 reply_count: 2
 title: '[  好雷] 微笑2 令人驚艷的部分'
 url: https://www.ptt.cc/bbs/movie/M.1730507528.A.896.html
@@ -456,6 +460,7 @@ content: '我真的
 
   --'
 date: 2024-10-22
+emotion_analyse: false
 reply_count: 64
 title: '[負雷] 微笑2 一齣鏡花水月的大爛戲！'
 url: https://www.ptt.cc/bbs/movie/M.1729576446.A.594.html
@@ -473,6 +478,7 @@ content: 'Naomi好正 短髮好適合她
 
   Naomi真是很漂亮'
 date: 2024-09-03
+emotion_analyse: true
 reply_count: 46
 title: '[情報] 微笑2正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1725374405.A.A05.html
@@ -508,6 +514,7 @@ content: '中文預告：
 
   --'
 date: 2024-06-19
+emotion_analyse: true
 reply_count: 42
 title: '[情報] 娜歐蜜史考特《微笑2》驚悚預告曝光'
 url: https://www.ptt.cc/bbs/movie/M.1718727030.A.91E.html
@@ -623,6 +630,7 @@ content: '部落格版：
 
   --'
 date: 2024-10-19
+emotion_analyse: false
 reply_count: 9
 title: '[普好雷]《微笑2》，眼前所見的是...？'
 url: https://www.ptt.cc/bbs/movie/M.1729311603.A.AEE.html
@@ -659,6 +667,7 @@ content: '昨天看特映場的，來回饋一下，以下有微雷：
 
   --'
 date: 2024-10-18
+emotion_analyse: false
 reply_count: 8
 title: 'Re: [好雷] 微笑2 笑是打開收割靈魂的通道'
 url: https://www.ptt.cc/bbs/movie/M.1729248006.A.8E3.html
@@ -681,6 +690,7 @@ content: '「微笑2」爛蕃茄開盤，目前得到 82% 的高分！
 
   --'
 date: 2024-10-17
+emotion_analyse: false
 reply_count: 52
 title: '[討論]  “微笑2”  爛蕃茄開盤 82%！'
 url: https://www.ptt.cc/bbs/movie/M.1729130000.A.73C.html
@@ -769,6 +779,7 @@ content: '得獎名單公布
 
   --'
 date: 2024-10-09
+emotion_analyse: false
 reply_count: 31
 title: 'Re: [贈票] 【微笑2】驚悚特映北中南搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1728441230.A.7F4.html
@@ -794,6 +805,7 @@ content: '片頭一開始應該是第一集的那個警察
 
   --'
 date: 2024-10-19
+emotion_analyse: true
 reply_count: 29
 title: '[討論] 微笑2 劇情疑問 暴雷注意!!'
 url: https://www.ptt.cc/bbs/movie/M.1729345373.A.7E6.html
@@ -851,6 +863,7 @@ content: '以下有雷
 
   --'
 date: 2024-10-29
+emotion_analyse: false
 reply_count: 27
 title: '[討論] Naomi Scott 在微笑2的演出（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1730133024.A.53A.html
@@ -904,6 +917,7 @@ content: '茉莉公主降肉。
 
   而且10月最後一週 會在戲院重新上映慶祝萬聖節'
 date: 2024-10-21
+emotion_analyse: true
 reply_count: 47
 title: '[情報] 微笑2北美首週票房2300w'
 url: https://www.ptt.cc/bbs/movie/M.1729485883.A.3E3.html
@@ -935,6 +949,7 @@ content: '明天要去看恐怖片
 
   --'
 date: 2024-10-19
+emotion_analyse: false
 reply_count: 69
 title: '[選片] 懼裂／微笑2'
 url: https://www.ptt.cc/bbs/movie/M.1729352489.A.B09.html
@@ -946,6 +961,7 @@ content: "1. 茉莉公主真的正 演起偶像巨星來整個說服力極強\n 
   5. 結尾真的有被鄉民推文猜中\n   我是到揭曉前兩分鐘才看出來\n\n6. 整體我比1喜歡 因為女主正多了 不過劇情上沒啥突破之處\n   倒是運鏡有點意思\n\
   \n--\n多打了一個1 Hehe"
 date: 2024-10-20
+emotion_analyse: true
 reply_count: 16
 title: '[好雷] 微笑2 好看好看'
 url: https://www.ptt.cc/bbs/movie/M.1729354852.A.759.html
@@ -1002,6 +1018,7 @@ content: '我看完的感想是....
 
   --'
 date: 2024-11-05
+emotion_analyse: true
 reply_count: 14
 title: '[  雷] 微笑2   吸毒仔的幻想'
 url: https://www.ptt.cc/bbs/movie/M.1730821252.A.02F.html
@@ -1038,6 +1055,7 @@ content: '這集還不錯前面 節奏稍微有點慢
 
   --'
 date: 2024-11-02
+emotion_analyse: true
 reply_count: 28
 title: '[好雷] 微笑2 期待第三集'
 url: https://www.ptt.cc/bbs/movie/M.1730519112.A.B58.html
@@ -1100,6 +1118,7 @@ content: '劇情設定同第一部，沒有添加的設定或解釋，但相較�
 
   --'
 date: 2024-10-18
+emotion_analyse: false
 reply_count: 42
 title: '[好雷] 微笑2 笑是打開收割靈魂的通道'
 url: https://www.ptt.cc/bbs/movie/M.1729227433.A.E3C.html
@@ -1129,6 +1148,7 @@ content: '娜歐蜜史考特已加盟 《微笑》續集。
 
   應該是第一集開頭的opening'
 date: 2023-12-15
+emotion_analyse: true
 reply_count: 22
 title: '[情報] 「茉莉公主」娜歐蜜史考特主演微笑2'
 url: https://www.ptt.cc/bbs/movie/M.1702573782.A.AFD.html
@@ -1180,6 +1200,7 @@ content: '可和上一篇搭配討論 今天看完也有同感
 
   --'
 date: 2024-10-29
+emotion_analyse: false
 reply_count: 27
 title: '[好雷]微笑2女主角演到我真的擔心她現實精神狀況'
 url: https://www.ptt.cc/bbs/movie/M.1730136285.A.A08.html
@@ -1189,6 +1210,7 @@ content: "回來了！賣座恐怖片續集重返大銀幕\n【阿拉丁】挑�
   \ 19:30 台南國賓影城\n高雄場：10月17日 19:00 夢時代秀泰影城\n\n參加抽獎方式：留言回答你想要搶先看【微笑2】的原因\n並註明場次就有機會中獎（如：）\n\
   \n公布得獎日期： 10月9日公布得獎名單於回文內\n得獎者請於10月11日10:00前主動站內信回覆領票者資料 恕不接受逾期回覆\n  \n\n--"
 date: 2024-10-01
+emotion_analyse: true
 reply_count: 694
 title: '[贈票] 【微笑2】驚悚特映北中南搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1727777633.A.9C0.html

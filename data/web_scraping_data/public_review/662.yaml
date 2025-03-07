@@ -66,6 +66,7 @@ content: '作者: roktzzt (阿銀) 看板: C_Chat
 
   新海誠都不新海誠了'
 date: 2016-10-24
+emotion_analyse: false
 reply_count: 10
 title: 'Fw: [閒聊] 終於去看你的名字。'
 url: https://www.ptt.cc/bbs/movie/M.1477324632.A.FDD.html
@@ -80,6 +81,7 @@ content: "新聞網址：\n\n英國電影雜誌為「你的名字。」打出滿
   \n-----\n面對zootopia的大海嘯，希望你的名字能在奧斯卡佔有一席之地就好了\n\n--\n個人Youtube頻道 \n音樂創作 \n樂團表演 \n\
   棒球相關 \n小綠繡眼 \n\n--"
 date: 2016-11-08
+emotion_analyse: true
 reply_count: 15
 title: '[新聞] 英國電影雜誌為「你的名字。」打出滿分評價'
 url: https://www.ptt.cc/bbs/movie/M.1478597454.A.EF2.html
@@ -156,6 +158,7 @@ content: '霍爾：「蘇菲的頭髮染上了星光的顏色，其他人是…�
 
   對了樓上跟日本有仇嗎？'
 date: 2016-11-18
+emotion_analyse: false
 reply_count: 11
 title: '[討論] 你的名字。出現過的動漫公式/老梗'
 url: https://www.ptt.cc/bbs/movie/M.1479484799.A.421.html
@@ -202,6 +205,7 @@ content: "部落格版：\n\n內含個人觀感的心得，僅供參考\n電影�
   の力や。ワシらの作る組紐も、神様の技、時間の流れそのものを顕しとる」\n結繩、人與人之間的聯繫、時間的流動都稱為結び，也是神明的力量。透過同樣都稱為結\nび的字彙來闡述道理。\n\
   我想和這些神道相關的深奧道理，雖然難以完全體會明白，但是能深刻的感受到，人與人\n之間的情感以及時間的流逝，都是值得我們去把握與珍惜的。\n\n--"
 date: 2016-11-03
+emotion_analyse: false
 reply_count: 18
 title: '[好雷] 你的名字。精美畫作值得在大螢幕欣賞'
 url: https://www.ptt.cc/bbs/movie/M.1478181876.A.77A.html
@@ -253,6 +257,7 @@ content: '這部片的畫風從靜態看是2D畫風
 
   --'
 date: 2016-10-16
+emotion_analyse: false
 reply_count: 9
 title: '[ 好無雷] 你的名字。畫面太好，音樂太美'
 url: https://www.ptt.cc/bbs/movie/M.1476633581.A.1C5.html
@@ -303,6 +308,7 @@ content: '這個內容不是大紀元記者自己寫的，是引用日本電影�
 
   我覺得討論落選的原因本身沒什麼意思，但是看到日本人這麼說反而很有趣啊XD'
 date: 2017-02-01
+emotion_analyse: false
 reply_count: 25
 title: 'Re: [新聞] 影射核爆？《你的名字。》落選奧斯卡'
 url: https://www.ptt.cc/bbs/movie/M.1485952319.A.88F.html
@@ -384,6 +390,7 @@ content: '新聞網址：
 
   --'
 date: 2016-11-07
+emotion_analyse: false
 reply_count: 139
 title: '[新聞] 帝國電影雜誌給予「你的名字。」滿分評價'
 url: https://www.ptt.cc/bbs/movie/M.1478495613.A.D4F.html
@@ -522,6 +529,7 @@ content: '作者: segunta (\Mitsuha/) 看板: C_Chat
 
   --'
 date: 2017-05-10
+emotion_analyse: true
 reply_count: 21
 title: 'Fw: [情報] 你的名字。 BD&DVD Amazon資訊+開放訂購'
 url: https://www.ptt.cc/bbs/movie/M.1494363288.A.D9F.html
@@ -557,6 +565,7 @@ content: "先說我下面比較的是。\n別的戲院我沒去看所以也無�
   \n螢幕比例的話，兩邊都是1.85：1的銀幕，所以「你的名字。」這部都有打滿。(別家如果\n是 2.35：1的銀幕，就沒辦法打滿，變較小)\n\n\n我看的這四刷都蠻OK的，燈都最後才亮，至於觀眾走人我是還好，想走趕快走不要喧鬧就\n\
   好 XD\n\n感謝分享，如果我去美麗華的話，基本上都是為了看 IMAX，一般廳看過2、3次而已，印象中就是銀幕挺大的"
 date: 2016-11-11
+emotion_analyse: false
 reply_count: 62
 title: '[討論] 你的名字。林口與板橋威秀之比較心得'
 url: https://www.ptt.cc/bbs/movie/M.1478866501.A.421.html
@@ -609,6 +618,7 @@ content: '新海誠《你的名字。》這部作品令本人帶來了商業上�
 
   --'
 date: 2016-12-20
+emotion_analyse: false
 reply_count: 51
 title: '[討論] 新海誠向批評「你的名字。」劇情的影評家'
 url: https://www.ptt.cc/bbs/movie/M.1482212566.A.4D8.html
@@ -648,6 +658,7 @@ content: "先說聲擾板抱歉(?\n雖然這篇回文的原文一直有在更新
   但那段的背景音樂是述說三葉的心情\n她雖然忘記了某個重要的人，但是她確信那個人喜歡她且告白了\n不管未來會怎樣，她要一輩子抱著這個心情走下去\n所以才給她活下去的希望，不放棄的希望\n\
   這個時候突然插入說服爸爸的片段\n我覺得觀眾的情緒會受到更大的影響\n\n\n是 AS:E 那本外傳小說沒錯"
 date: 2016-10-22
+emotion_analyse: false
 reply_count: 46
 title: 'Re: [討論] 《你的名字。》的一些捏他（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1477121863.A.840.html
@@ -742,6 +753,7 @@ content: "我過去沒看過新海誠的其他作品，雖然喜歡這部動畫�
   \n[2] \n　　解析《你的名字》：在另一個世界，你會和誰遇見？\n\n[3] \n　　關於世界線（C_Chat  ）\n\n[4] \n　　寫了名字會比告白更慘？因為會被世界修正。（Movie\
   \ ）\n\n[5] \n　　《你的名字》新海誠的商業奇蹟與追尋\n\n--\n\n附上出處的話 可以喔"
 date: 2016-10-30
+emotion_analyse: false
 reply_count: 113
 title: '[討論] 《你的名字。》的隱喻與象徵（文長雷多)'
 url: https://www.ptt.cc/bbs/movie/M.1477799461.A.FB3.html
@@ -786,6 +798,7 @@ content: '有雷
 
   --'
 date: 2017-03-11
+emotion_analyse: false
 reply_count: 27
 title: '[好雷]你的名字 詩文影評'
 url: https://www.ptt.cc/bbs/movie/M.1489225542.A.1EB.html
@@ -793,6 +806,7 @@ url: https://www.ptt.cc/bbs/movie/M.1489225542.A.1EB.html
 content: "ifil*傳影互X好棒棒，能負責超優質動畫電影！\n君の名は。你的名字。\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n---------以下為各大砲火觀賞後的感想--------\n\
   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n--"
 date: 2016-10-11
+emotion_analyse: true
 reply_count: 99
 title: '[討論] 你的名字。中文宣傳主題曲 台灣片商.....'
 url: https://www.ptt.cc/bbs/movie/M.1476200719.A.AA4.html
@@ -827,6 +841,7 @@ content: "防雷 慎入\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.
   \n想到這我哭得更慘了QQ\n\n\n--\n\n那場景真的太美，雖然自己以前是在台北市生活，但覺得跟電影裡的東京都根本不能比\n\n看過s大的解釋了，的確是蠻合理的，畢竟有時自己作夢也會分不清現實與夢，醒來很快就\n\
   忘\n\n\nSOR QQ\n\n\n過譽過譽"
 date: 2016-10-26
+emotion_analyse: false
 reply_count: 39
 title: '[極好雷]一個由"結"串起的故事--你的名字。'
 url: https://www.ptt.cc/bbs/movie/M.1477419384.A.1B3.html
@@ -882,6 +897,7 @@ content: "此處的「捏他」不是後面那個雷的意思\n而比較像冷�
   她才不被稱為雪野，而是小雪\n但新海都說老師是言葉之庭的女主角了，那就這樣吧XD\n\n\n改了，多謝！\n只看兩次果然還是看不完各種細節XD\n\n    \
   \                                 11/11 18:19"
 date: 2016-10-20
+emotion_analyse: false
 reply_count: 190
 title: '[討論] 《你的名字。》的一些捏他（有雷）'
 url: https://www.ptt.cc/bbs/movie/M.1476965126.A.FB5.html
@@ -1058,6 +1074,7 @@ content: '手機回文。 小弟一丁點淺見
 
   --'
 date: 2016-10-14
+emotion_analyse: false
 reply_count: 84
 title: 'Re: [普雷] 你的名字。是不是過譽了？'
 url: https://www.ptt.cc/bbs/movie/M.1476414580.A.D6D.html
@@ -1117,6 +1134,7 @@ content: "板上「你的名字。」心得量已相當豐富，但抱著被噓�
   誠想說的故事可能也不是什麼超遠距離的戀愛，而是一個人想在廣大的世界中，找尋\n未知的目標，或者找尋自己的定位。\n\n--\n                \
   \                      10/31 06:35"
 date: 2016-10-31
+emotion_analyse: false
 reply_count: 20
 title: '[好雷] 你的名字。 -見山又是山'
 url: https://www.ptt.cc/bbs/movie/M.1477866881.A.6E1.html
@@ -1297,6 +1315,7 @@ content: '前天看了《你的名字》。有很喜歡的地方，但也有稍�
 
   --'
 date: 2016-10-26
+emotion_analyse: false
 reply_count: 36
 title: '[好雷] 你的名字。'
 url: https://www.ptt.cc/bbs/movie/M.1477484716.A.D5B.html
@@ -1350,6 +1369,7 @@ content: '影射核爆？《你的名字。》落選奧斯卡
 
   --'
 date: 2017-02-01
+emotion_analyse: false
 reply_count: 37
 title: '[新聞] 影射核爆？《你的名字。》落選奧斯卡'
 url: https://www.ptt.cc/bbs/movie/M.1485945950.A.2CB.html
@@ -1408,6 +1428,7 @@ content: '雖說我昨晚就已經訂了Amazon限定的4K UHD五碟珍藏版就�
 
   --'
 date: 2017-05-10
+emotion_analyse: false
 reply_count: 13
 title: 'Re: [情報] 你的名字。 BD&DVD Amazon資訊+開放訂購'
 url: https://www.ptt.cc/bbs/movie/M.1494396759.A.B03.html
@@ -1437,6 +1458,7 @@ content: "網大導讀：到今天，《你的名字。》已經斬下3.6億票�
   \n\n但是在這一過程中要非常警惕兩者一方大大蓋過另一方的做法，比如票房高口碑爛（比如《左耳》《富春山居圖》）的一些片子，明顯是商業運營成功但是缺乏藝術內涵的失敗例子，而票房低迷口碑卻不錯的片子（比如青青樹的《魁拔》）就要注意自己作品和商業化的結合之間出現的問題，儘早找到解決方法，創造更多的藝術作品。\n\
   \n--\n\n越來越多中肯影評文出爐囉~\n\n--"
 date: 2016-12-11
+emotion_analyse: false
 reply_count: 64
 title: '[影評] 你的名字。形式大於內容口碑被高估 雷'
 url: https://www.ptt.cc/bbs/movie/M.1481426835.A.285.html
@@ -1468,6 +1490,7 @@ content: "不是開玩笑的過譽文，我是真的覺得它有點過譽。\n\n
   我覺得，你應該多讀點書，才不會看不懂中文。\n我就是在說我自己覺得「這部電影被別人過分稱讚」啊！\n回你文好難過喔。\n從頭倒尾都是你在跳針，跳都我都不想理你了......\n\
   所以少數人就該死沒權利闡述相反意見就是了。\n我從頭到尾都是主觀的見解，\n所以，為什麼不行？？？\n有可能喔。0.<"
 date: 2016-10-13
+emotion_analyse: false
 reply_count: 633
 title: '[普雷] 你的名字。是不是過譽了？'
 url: https://www.ptt.cc/bbs/movie/M.1476359591.A.E90.html
@@ -1479,6 +1502,7 @@ content: "大家好。\n\n剛剛看的是大直美麗華13:10場。\n\n1. 雖然
   \n   「我喜歡妳」以及重逢，真的很感動。\n\n對了，我坐在G22，還有誰去看同一場呢？\n\n\n\n--\n                     \
   \                 01/13 17:13\n\n印象中，跟之前看的iMAX電影都差不多，應該不存在你說的那些問題喔！"
 date: 2017-01-13
+emotion_analyse: false
 reply_count: 39
 title: '[微雷] 三刷《你的名字。》（iMAX）'
 url: https://www.ptt.cc/bbs/movie/M.1484298683.A.A37.html
@@ -1496,6 +1520,7 @@ content: "根據 Deadline 的最新獨家報導指出，原要指導好萊塢真
   \ Marc Webb 執導，之後才換為 Lee Isaac Chung。\n\n\n\n--\n                              \
   \          07/21 13:03"
 date: 2021-07-21
+emotion_analyse: false
 reply_count: 33
 title: '[情報] 美國真人版《你的名字。》再換導演！《夢想之地》導演退出'
 url: https://www.ptt.cc/bbs/movie/M.1626843265.A.B5B.html
@@ -1762,6 +1787,7 @@ content: '防雷頁！
 
   俗話說得好：「莫以小人之心，度君子之腹。」'
 date: 2016-10-14
+emotion_analyse: false
 reply_count: 275
 title: '[好雷] 你的名字。'
 url: https://www.ptt.cc/bbs/movie/M.1476437933.A.495.html
@@ -1931,6 +1957,7 @@ content: '昨天和男友去看了「你的名字。」，
 
   也因此我們才有這麼多元的好作品可以欣賞呀～'
 date: 2016-10-23
+emotion_analyse: false
 reply_count: 36
 title: '[好雷] 你的名字。（君の名は。）'
 url: https://www.ptt.cc/bbs/movie/M.1477217052.A.1E6.html

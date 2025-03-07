@@ -30,6 +30,7 @@ content: '前文刪除部分雷
 
   --'
 date: 2023-11-26
+emotion_analyse: false
 reply_count: 8
 title: ［閒聊］車頂上的玄天上帝
 url: https://www.ptt.cc/bbs/movie/M.1700997233.A.532.html
@@ -92,6 +93,7 @@ content: '新聞網址：
 
   --'
 date: 2023-11-11
+emotion_analyse: false
 reply_count: 2
 title: '[新聞] 「車頂上的玄天上帝」嘉義首映，9 神尊進'
 url: https://www.ptt.cc/bbs/movie/M.1699698962.A.A96.html
@@ -107,6 +109,7 @@ content: '請教各位，
 
   --'
 date: 2024-07-16
+emotion_analyse: true
 reply_count: 16
 title: '[請益] 《車頂上的玄天上帝》的觀賞平台？'
 url: https://www.ptt.cc/bbs/movie/M.1721108192.A.EAD.html
@@ -192,6 +195,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-12-21
+emotion_analyse: false
 reply_count: 9
 title: '[負雷]車頂上的玄天上帝'
 url: https://www.ptt.cc/bbs/movie/M.1703170785.A.B3B.html
@@ -282,6 +286,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-11-29
+emotion_analyse: false
 reply_count: 16
 title: '[負雷] 車頂上的玄天上帝 '
 url: https://www.ptt.cc/bbs/movie/M.1701264576.A.339.html
@@ -357,6 +362,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-11-23
+emotion_analyse: false
 reply_count: 99
 title: '[雷] 車頂上的玄天上帝'
 url: https://www.ptt.cc/bbs/movie/M.1700668978.A.380.html
@@ -375,6 +381,7 @@ content: "金馬60／《車頂上的玄天上帝》首映 阮經天周渝民林�
   為了父親演這個角色。唐美雲拍片過程中，適逢母親過世，自己又要演媽媽角色，心情萬\n分複雜，但她希望透過《車頂上的玄天上帝》這部片電影，讓大家重新理解家庭的重要性\n\
   。\n\n《車頂上的玄天上帝》在金馬首映後，預計11月17日全台盛大上映。\n\n\n\n\n\n--"
 date: 2023-11-10
+emotion_analyse: false
 reply_count: 24
 title: '[新聞] 金馬60／《車頂上的玄天上帝》首映周渝民'
 url: https://www.ptt.cc/bbs/movie/M.1699581981.A.B3B.html
@@ -440,6 +447,7 @@ content: '新聞網址：
 
   --'
 date: 2022-08-18
+emotion_analyse: false
 reply_count: 47
 title: '[新聞] 林依晨《車頂上的玄天上帝》爆欠薪　監製'
 url: https://www.ptt.cc/bbs/movie/M.1660807730.A.BE0.html
@@ -541,6 +549,7 @@ content: '身為一個家裡有供奉帝爺公的嘉義人，當初看到這個�
 
   --'
 date: 2023-12-25
+emotion_analyse: false
 reply_count: 45
 title: '[ 雷] 車頂上的玄天上帝'
 url: https://www.ptt.cc/bbs/movie/M.1703476831.A.23E.html
@@ -644,6 +653,7 @@ content: '我本來很不想看這片的
 
   對，我太太娘家全都正港的是嘉義人，多少有點阿公的情感'
 date: 2024-08-26
+emotion_analyse: false
 reply_count: 28
 title: '[好雷] 車頂上的玄天上帝'
 url: https://www.ptt.cc/bbs/movie/M.1724673568.A.F1B.html
