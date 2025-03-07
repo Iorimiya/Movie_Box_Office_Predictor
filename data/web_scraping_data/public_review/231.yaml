@@ -32,6 +32,7 @@ content: '【】
 
   --'
 date: 2023-11-14
+emotion_analyse: false
 reply_count: 285
 title: '[贈票] 【魔髮精靈:樂團在一起】北中南搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1699953503.A.411.html
@@ -114,6 +115,7 @@ content: '夢工廠動畫《魔髮精靈：樂團在一起》今年 12 月上映
 
   --'
 date: 2023-03-29
+emotion_analyse: false
 reply_count: 3
 title: '[情報] 夢工廠動畫《魔髮精靈：樂團在一起》'
 url: https://www.ptt.cc/bbs/movie/M.1680069645.A.BC6.html
@@ -169,6 +171,7 @@ content: '恭喜以下得獎者獲得搶先看
 
   --'
 date: 2023-11-22
+emotion_analyse: true
 reply_count: 10
 title: 'Re: [贈票] 【魔髮精靈:樂團在一起】北中南搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1700617814.A.11C.html

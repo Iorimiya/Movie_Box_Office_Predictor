@@ -113,6 +113,7 @@ content: '新聞網址：
 
   --'
 date: 2024-08-15
+emotion_analyse: false
 reply_count: 1
 title: '[新聞] 【跳越時空的愛戀】女星玩命下海淚灑現場'
 url: https://www.ptt.cc/bbs/movie/M.1723725995.A.F26.html
@@ -225,6 +226,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-09-20
+emotion_analyse: false
 reply_count: 2
 title: '[好雷] 跳越時空的愛戀'
 url: https://www.ptt.cc/bbs/movie/M.1726821901.A.D36.html

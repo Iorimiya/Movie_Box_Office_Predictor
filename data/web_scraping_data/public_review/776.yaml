@@ -177,6 +177,7 @@ content: '若你是一張白紙或僅僅看了預告片就前往觀賞《魔法�
 
   純依內容復仇者可以算 但跟我初衷不同'
 date: 2024-11-28
+emotion_analyse: false
 reply_count: 95
 title: '[討論] 刻意隱藏上下集電影名稱的《魔法壞女巫》'
 url: https://www.ptt.cc/bbs/movie/M.1732808479.A.DE4.html
@@ -192,6 +193,7 @@ content: '魔法壞女巫的演員再接手訪問動不動就哭
 
   --'
 date: 2024-11-28
+emotion_analyse: true
 reply_count: 11
 title: '[討論] 魔法壞女巫的演員受訪哭個不停'
 url: https://www.ptt.cc/bbs/movie/M.1732807042.A.D46.html
@@ -251,6 +253,7 @@ content: '亞當麥凱認為《魔法壞女巫》可能成為美國禁片
 
   --'
 date: 2024-12-25
+emotion_analyse: false
 reply_count: 40
 title: '[新聞] 亞當麥凱認為《魔法壞女巫》可能成為美'
 url: https://www.ptt.cc/bbs/movie/M.1735141575.A.43B.html
@@ -282,6 +285,7 @@ content: '新聞網址：
 
   --'
 date: 2025-02-19
+emotion_analyse: true
 reply_count: 43
 title: '[新聞] 魔法壞女巫女主將飾演耶穌'
 url: https://www.ptt.cc/bbs/movie/M.1739973003.A.3F2.html
@@ -408,6 +412,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-11-27
+emotion_analyse: false
 reply_count: 249
 title: '[負雷] 魔法壞女巫- 看完氣到發抖= ='
 url: https://www.ptt.cc/bbs/movie/M.1732645153.A.7B4.html
@@ -522,6 +527,7 @@ content: '1. 為什麼奧茲巫師自己承認迫害動物
 
   嗯啊'
 date: 2024-12-16
+emotion_analyse: false
 reply_count: 30
 title: 'Re: [請益] 魔法壞女巫為什麼要出國？'
 url: https://www.ptt.cc/bbs/movie/M.1734359100.A.751.html
@@ -582,6 +588,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2025-01-01
+emotion_analyse: false
 reply_count: 20
 title: '[好雷] 魔法壞女巫 '
 url: https://www.ptt.cc/bbs/movie/M.1735664187.A.FD5.html
@@ -664,6 +671,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-12-09
+emotion_analyse: false
 reply_count: 93
 title: '[好雷] +疑問 魔法壞女巫'
 url: https://www.ptt.cc/bbs/movie/M.1733732635.A.7D5.html
@@ -685,6 +693,7 @@ content: '我想Glinda應該是沒那麼腹黑的。
 
   --'
 date: 2024-12-09
+emotion_analyse: false
 reply_count: 46
 title: 'Re: [好雷] +疑問 魔法壞女巫'
 url: https://www.ptt.cc/bbs/movie/M.1733746081.A.6F3.html
@@ -713,6 +722,7 @@ content: '魔法壞女巫美國開得不錯，海外卻開得不好，只有5000
 
   --'
 date: 2024-11-25
+emotion_analyse: false
 reply_count: 154
 title: '[討論] 魔法壞女巫票房海外表現不佳'
 url: https://www.ptt.cc/bbs/movie/M.1732531324.A.8E2.html
@@ -763,6 +773,7 @@ content: '不喜歡DEI選角
 
   --'
 date: 2024-11-27
+emotion_analyse: false
 reply_count: 2
 title: '[好雷] 魔法壞女巫比神鬼2好看沒問題'
 url: https://www.ptt.cc/bbs/movie/M.1732717851.A.43B.html
@@ -771,6 +782,7 @@ content: "歌舞劇的歌曲通常很洗腦，但有時會讓人覺得劇情太�
   準確地表達角色當下的心境。劇情發展絲毫不拖泥帶水，每個轉折都讓人感到自然合理。尤\n其是結尾的歌曲，真的太燃了！強烈建議大家一定要去電影院感受一下，保證讓你心潮澎湃\n\
   ！繼大娛樂家後最好看的歌舞片。必選大銀幕跟好音響效果會更好\n----\nSent from on my iPad Pro (12.9〃) 2\n \n--"
 date: 2024-11-28
+emotion_analyse: false
 reply_count: 39
 title: '[  雷] 無雷 喜歡大娛樂家一定要看魔法壞女巫'
 url: https://www.ptt.cc/bbs/movie/M.1732807449.A.03A.html
@@ -826,6 +838,7 @@ content: '《魔法壞女巫》亞莉安娜、辛西婭艾利沃成閨密 為對
 
   --'
 date: 2024-11-25
+emotion_analyse: false
 reply_count: 11
 title: '[新聞] 《魔法壞女巫》亞莉安娜、辛西婭艾利沃成閨密 為對方刺青'
 url: https://www.ptt.cc/bbs/movie/M.1732548571.A.2DD.html
@@ -862,6 +875,7 @@ content: '台灣時間3/3登場的2025奧斯卡頒獎典禮
 
   --'
 date: 2025-02-25
+emotion_analyse: true
 reply_count: 36
 title: '[情報] 2025奧斯卡表演嘉賓-魔法壞女巫、LISA等 '
 url: https://www.ptt.cc/bbs/movie/M.1740448589.A.0BF.html
@@ -901,6 +915,7 @@ content: '以下有雷：
 
   --'
 date: 2024-12-16
+emotion_analyse: false
 reply_count: 62
 title: '[請益] 魔法壞女巫為什麼要出國？'
 url: https://www.ptt.cc/bbs/movie/M.1734338150.A.DD2.html
@@ -978,6 +993,7 @@ content: '《魔法壞女巫2》公布英文片名 明年上映
 
   --'
 date: 2024-12-18
+emotion_analyse: false
 reply_count: 35
 title: '[新聞] 《魔法壞女巫2》公布英文片名 明年上映'
 url: https://www.ptt.cc/bbs/movie/M.1734479947.A.A7F.html
@@ -995,6 +1011,7 @@ content: '如題，這個週末想選一部去看
 
   --'
 date: 2024-12-05
+emotion_analyse: true
 reply_count: 106
 title: '[選片] 魔法壞女巫&星際效應'
 url: https://www.ptt.cc/bbs/movie/M.1733360859.A.C52.html
@@ -1179,6 +1196,7 @@ content: '全球 6 億美金票房、金球 4 項大獎提名 – 雖然如此�
 
   --'
 date: 2025-01-01
+emotion_analyse: false
 reply_count: 5
 title: '[好雷] 魔法壞女巫：專屬大銀幕的奇幻派對'
 url: https://www.ptt.cc/bbs/movie/M.1735725134.A.429.html
@@ -1239,6 +1257,7 @@ content: '雷文防雷資訊頁
 
   立馬去分清楚！'
 date: 2024-12-19
+emotion_analyse: false
 reply_count: 11
 title: '[好雷] 魔法壞女巫 歌好聽'
 url: https://www.ptt.cc/bbs/movie/M.1734589495.A.0D7.html
@@ -1455,6 +1474,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2025-01-19
+emotion_analyse: false
 reply_count: 22
 title: '[負雷]魔法壞女巫'
 url: https://www.ptt.cc/bbs/movie/M.1737272066.A.8ED.html

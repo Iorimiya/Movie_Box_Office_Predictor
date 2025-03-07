@@ -215,6 +215,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-09-30
+emotion_analyse: false
 reply_count: 14
 title: '[雷] 千萬別放手 觀後感（有雷 不喜勿入'
 url: https://www.ptt.cc/bbs/movie/M.1727685046.A.96E.html
@@ -243,6 +244,7 @@ content: '標題是回應有人說這不是恐怖片的
 
   --'
 date: 2024-09-29
+emotion_analyse: false
 reply_count: 11
 title: '[好雷] 千萬別放手 是恐怖片而且蠻黑暗'
 url: https://www.ptt.cc/bbs/movie/M.1727616633.A.C00.html
@@ -281,6 +283,7 @@ content: '預告看完其實就有一種《敲敲門》預告的感覺
 
   --'
 date: 2024-09-27
+emotion_analyse: false
 reply_count: 20
 title: '[普無雷] 《千萬別放手》這不是恐怖片'
 url: https://www.ptt.cc/bbs/movie/M.1727421649.A.B33.html

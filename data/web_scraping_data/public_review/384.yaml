@@ -10,6 +10,7 @@ content: '【GHOSTBUSTERS：冰天凍地】首支預告 - 2024年春假連假 �
 
   --'
 date: 2023-11-09
+emotion_analyse: true
 reply_count: 57
 title: '[情報] 魔鬼剋星：冰天凍地首支預告'
 url: https://www.ptt.cc/bbs/movie/M.1699460610.A.0D7.html
@@ -247,6 +248,7 @@ content: '抓鬼雖必須，但少女纖細情感才是重點
 
   --'
 date: 2024-03-25
+emotion_analyse: false
 reply_count: 14
 title: '[普雷]《魔鬼剋星：冰天凍地》抓鬼少女的牢騷'
 url: https://www.ptt.cc/bbs/movie/M.1711355206.A.DE5.html
@@ -314,6 +316,7 @@ content: '《魔鬼剋星：冰天凍地》遭負評轟炸！女主角回應：�
 
   --'
 date: 2024-03-25
+emotion_analyse: false
 reply_count: 102
 title: '[新聞] 魔鬼剋星：冰天凍地 遭負評轟炸！女主角'
 url: https://www.ptt.cc/bbs/movie/M.1711297463.A.79C.html
@@ -342,6 +345,7 @@ content: '整部片劇情延續上一集，不知道這次的錢是不是都花�
 
   --'
 date: 2024-03-22
+emotion_analyse: false
 reply_count: 11
 title: '[普雷] 魔鬼剋星：冰天凍地'
 url: https://www.ptt.cc/bbs/movie/M.1711085405.A.430.html
@@ -367,6 +371,7 @@ content: '《魔鬼剋星：冰天凍地》爛番茄開盤
 
   --'
 date: 2024-03-21
+emotion_analyse: true
 reply_count: 72
 title: '[情報] 《魔鬼剋星：冰天凍地》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1710952983.A.C08.html
@@ -384,6 +389,7 @@ content: '火力強大的幽靈軍團使紐約陷入冰河時期危機
 
   --'
 date: 2024-01-29
+emotion_analyse: true
 reply_count: 37
 title: '[討論] 【魔鬼剋星：冰天凍地】正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1706537963.A.587.html

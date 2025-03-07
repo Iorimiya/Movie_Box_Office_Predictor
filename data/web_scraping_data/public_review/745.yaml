@@ -33,6 +33,7 @@ content: '11月1日（週五）台灣上映的
 
   --'
 date: 2024-10-18
+emotion_analyse: true
 reply_count: 57
 title: '[情報] 超/人 克里斯多夫李維傳奇故事 爛番茄98'
 url: https://www.ptt.cc/bbs/movie/M.1729241498.A.0DB.html
@@ -86,6 +87,7 @@ content: '身為90年代後的影迷，其實我對超人演員的印象是從�
 
   --'
 date: 2024-11-12
+emotion_analyse: false
 reply_count: 5
 title: '[好雷] 超/人: 克里斯多夫李維傳奇故事'
 url: https://www.ptt.cc/bbs/movie/M.1731382423.A.DF4.html
@@ -135,6 +137,7 @@ content: '作者: dragon803 (AZKiちゃん大好き) 看板: C_Chat
 
   --'
 date: 2024-09-25
+emotion_analyse: false
 reply_count: 11
 title: 'Fw: [情報] 超/人:克里斯多夫李維傳奇故事 台灣上映'
 url: https://www.ptt.cc/bbs/movie/M.1727235415.A.15A.html

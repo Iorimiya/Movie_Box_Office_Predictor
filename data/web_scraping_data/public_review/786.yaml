@@ -164,6 +164,7 @@ content: '部落格版：
 
   --'
 date: 2024-11-22
+emotion_analyse: false
 reply_count: 2
 title: '[好雷] 《女兒的女兒》，身份束縛之外，她們都是'
 url: https://www.ptt.cc/bbs/movie/M.1732249483.A.FBA.html
@@ -217,6 +218,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-11-29
+emotion_analyse: false
 reply_count: 8
 title: '[好雷] 女兒的女兒Daughter''s Daughter'
 url: https://www.ptt.cc/bbs/movie/M.1732846364.A.EB6.html
@@ -243,6 +245,7 @@ content: '這兩部都是最近感到有興趣的國片，而且都上映一段�
 
   --'
 date: 2024-12-25
+emotion_analyse: false
 reply_count: 34
 title: '[選片] 小雁與吳愛麗or女兒的女兒'
 url: https://www.ptt.cc/bbs/movie/M.1735091341.A.306.html
@@ -264,6 +267,7 @@ content: '如題，就在今晚。
 
   --'
 date: 2024-11-24
+emotion_analyse: true
 reply_count: 28
 title: '[選片] 春行 / 女兒的女兒'
 url: https://www.ptt.cc/bbs/movie/M.1732426887.A.BEC.html
@@ -296,6 +300,7 @@ content: '評審團盛讚表示：「張艾嘉在黃熙的電影《女兒的女�
 
   --'
 date: 2024-09-16
+emotion_analyse: true
 reply_count: 7
 title: '[情報] 張艾嘉以《女兒的女兒》獲多倫多影展站台單元 特別提及獎'
 url: https://www.ptt.cc/bbs/movie/M.1726416049.A.FEE.html

@@ -155,6 +155,7 @@ content: '前段無雷
 
   --'
 date: 2023-06-22
+emotion_analyse: false
 reply_count: 14
 title: '[普好雷] 稍微玩過頭的小行星城'
 url: https://www.ptt.cc/bbs/movie/M.1687449069.A.336.html
@@ -179,6 +180,7 @@ content: '整部電影沒有主軸
 
   --'
 date: 2023-09-09
+emotion_analyse: true
 reply_count: 65
 title: '[超級難看負無雷]'
 url: https://www.ptt.cc/bbs/movie/M.1694247957.A.70D.html
@@ -218,6 +220,7 @@ content: '恭喜以下得獎者
 
   --'
 date: 2023-06-10
+emotion_analyse: true
 reply_count: 26
 title: 'Re: [贈票] 魏斯安德森【小行星城】台北搶先看'
 url: https://www.ptt.cc/bbs/movie/M.1686362966.A.BE3.html
@@ -247,6 +250,7 @@ content: '下周應有2部電影被選名單,想選1部看 其中《小行星城
 
   --'
 date: 2023-06-17
+emotion_analyse: true
 reply_count: 22
 title: '[選片] 蜘蛛人:穿越新宇宙 vs. 小行星城'
 url: https://www.ptt.cc/bbs/movie/M.1687012001.A.DB1.html
@@ -313,6 +317,7 @@ content: '—以下有雷—
 
   --'
 date: 2024-09-16
+emotion_analyse: false
 reply_count: 8
 title: '[好雷] 小行星城 心得'
 url: https://www.ptt.cc/bbs/movie/M.1726476227.A.121.html
@@ -382,6 +387,7 @@ content: '最近大片環伺，這部我原本以為至少有上威秀，結果�
 
   --'
 date: 2023-06-25
+emotion_analyse: false
 reply_count: 43
 title: '[  雷] 小行星城-推薦'
 url: https://www.ptt.cc/bbs/movie/M.1687691957.A.728.html
@@ -398,6 +404,7 @@ content: "魏斯安德森新作《小行星城》曝上映檔期\n\n影迷期盼
   魯柏佛蘭德（Rupert Friend）\n湯姆漢克斯（Tom Hanks）\n莉塔威爾森（Rita Wilson）等人均名列其中。\n\n\n\n\n\n—\n\
   \n\n\n--"
 date: 2022-12-07
+emotion_analyse: false
 reply_count: 46
 title: '[新聞] 魏斯安德森《小行星城》曝上映檔期&卡司'
 url: https://www.ptt.cc/bbs/movie/M.1670420393.A.3CA.html
@@ -499,6 +506,7 @@ content: '雷文防雷資訊頁
 
   就是拍編劇、導演與演員在完成一個舞台劇'
 date: 2023-06-25
+emotion_analyse: false
 reply_count: 22
 title: '[好雷] 小行星城'
 url: https://www.ptt.cc/bbs/movie/M.1687679186.A.205.html
@@ -604,6 +612,7 @@ content: '《小行星城》演員有《黑寡婦》史嘉蕾喬韓森、《芭�
 
   --'
 date: 2023-06-19
+emotion_analyse: false
 reply_count: 8
 title: '[新聞]《小行星城》演員有《黑寡婦》史嘉蕾喬韓森'
 url: https://www.ptt.cc/bbs/movie/M.1687184701.A.311.html
@@ -775,6 +784,7 @@ content: 'FASHION NEWS
 
   --'
 date: 2023-06-07
+emotion_analyse: false
 reply_count: 3
 title: '[新聞]魏斯安德森《小行星城》沈浸式展覽將於倫敦'
 url: https://www.ptt.cc/bbs/movie/M.1686150655.A.39F.html
@@ -910,6 +920,7 @@ content: '雖然好像沒什麼宣傳就默默在台灣上映了，但在世界�
 
   --'
 date: 2023-07-03
+emotion_analyse: false
 reply_count: 5
 title: '[普雷] 小行星城'
 url: https://www.ptt.cc/bbs/movie/M.1688395328.A.333.html
@@ -1000,6 +1011,7 @@ content: '一直很喜歡魏斯安德森獨樹一格的拍攝風格
 
   有囉，我是用訂閱CP+滿一個月送的單租券去換的，不然要單租費'
 date: 2023-09-25
+emotion_analyse: false
 reply_count: 9
 title: '[普雷] 全片於西班牙馬德里拍攝的小行星城'
 url: https://www.ptt.cc/bbs/movie/M.1695624694.A.1DE.html
@@ -1022,6 +1034,7 @@ content: '《小行星城》的故事發生在1955年一座虛構的美國沙漠
 
   --'
 date: 2023-04-07
+emotion_analyse: true
 reply_count: 47
 title: '[討論] 《小行星城》官方中文預告'
 url: https://www.ptt.cc/bbs/movie/M.1680856245.A.4B8.html

@@ -34,6 +34,7 @@ content: '朗報！由劉燁和胡軍主演、關錦鵬執導的知名中國／�
 
   --'
 date: 2021-10-05
+emotion_analyse: false
 reply_count: 40
 title: '[情報] 關錦鵬《藍宇》台灣 12/10 重映決定！'
 url: https://www.ptt.cc/bbs/movie/M.1633417467.A.681.html
@@ -127,6 +128,7 @@ content: '新聞網址：
 
   --'
 date: 2021-06-12
+emotion_analyse: false
 reply_count: 8
 title: '[新聞] 《藍宇》後二十年 劉燁胡軍合作《望道》'
 url: https://www.ptt.cc/bbs/movie/M.1623477091.A.FD8.html
@@ -146,6 +148,7 @@ content: '剛剛去看了藍宇修復版，2001的片
 
   --'
 date: 2021-12-12
+emotion_analyse: false
 reply_count: 19
 title: '[  雷] 藍宇觀後感'
 url: https://www.ptt.cc/bbs/movie/M.1639239000.A.AE3.html
@@ -180,6 +183,7 @@ content: '20年前，這個名字早就刻在你心裡...
 
   --'
 date: 2021-11-13
+emotion_analyse: true
 reply_count: 18
 title: '[情報] 《藍宇》4K修復20周年紀念版'
 url: https://www.ptt.cc/bbs/movie/M.1636757735.A.425.html

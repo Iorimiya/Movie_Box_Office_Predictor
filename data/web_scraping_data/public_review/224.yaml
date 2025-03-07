@@ -5,6 +5,7 @@ content: '贈《屍禁》電影票一張
 
   --'
 date: 2023-11-30
+emotion_analyse: true
 reply_count: 2
 title: '[] ［贈票］今晚《屍禁》電影票一張'
 url: https://www.ptt.cc/bbs/movie/M.1701331829.A.BB1.html
@@ -71,6 +72,7 @@ content: '小心唸咒慘遭下降頭！
 
   --'
 date: 2023-11-07
+emotion_analyse: false
 reply_count: 4
 title: '[情報]半夜不要看！【屍禁】最陰降頭預告'
 url: https://www.ptt.cc/bbs/movie/M.1699344300.A.EEF.html
@@ -117,6 +119,7 @@ content: '太多bug，嚴重懷疑印尼票房灌水
 
   -----'
 date: 2023-12-03
+emotion_analyse: false
 reply_count: 29
 title: '[負雷] 屍禁看到脾氣都失禁'
 url: https://www.ptt.cc/bbs/movie/M.1701600695.A.A74.html
@@ -193,6 +196,7 @@ content: '防雷資訊頁
 
   --'
 date: 2023-10-31
+emotion_analyse: false
 reply_count: 26
 title: '[新聞] 《屍禁》女子為高薪被騙去「鬼洗屍」，邪'
 url: https://www.ptt.cc/bbs/movie/M.1698733646.A.807.html
@@ -254,6 +258,7 @@ content: '奪魂鋸X
 
   --'
 date: 2023-12-25
+emotion_analyse: false
 reply_count: 28
 title: '[負雷] 恐怖片負雷三連發 奪魂鋸X 詭屋 屍禁'
 url: https://www.ptt.cc/bbs/movie/M.1703519747.A.713.html
@@ -285,6 +290,7 @@ content: "一般來說，我對殭尸片的興致不高、也不認識喬治羅�
   \    。這才是殭尸電影的真正神髓嘛！\n\n--\n\n            文字是迷途者在黑森林中唯一的慰藉。\n\n            我的網誌：\n\
   \n--\n◆ From: 163.29.153.141"
 date: 2005-09-23
+emotion_analyse: false
 reply_count: 11
 title: 活屍禁區：殭尸的美麗新世界
 url: https://www.ptt.cc/bbs/movie/M.1127450768.A.820.html
@@ -333,6 +339,7 @@ content: '如題
 
   --'
 date: 2021-02-13
+emotion_analyse: true
 reply_count: 4
 title: '[請益] 活屍禁區(2005) 沒有台詞很眼熟的演員'
 url: https://www.ptt.cc/bbs/movie/M.1613147111.A.14C.html
@@ -414,6 +421,7 @@ content: '一口氣看完喬治．羅密歐（ George A. Romero）的《活屍�
 
   --'
 date: 2017-06-05
+emotion_analyse: false
 reply_count: 5
 title: '[心得] 《活屍禁區》與《活屍日記》'
 url: https://www.ptt.cc/bbs/movie/M.1496672887.A.DC9.html
@@ -602,6 +610,7 @@ content: '雷文防雷資訊頁
 
   *[1;37m推  12/18 15:21'
 date: 2023-12-18
+emotion_analyse: false
 reply_count: 8
 title: '[負雷] 屍禁，沒甚麼恐怖感的恐怖片'
 url: https://www.ptt.cc/bbs/movie/M.1702880398.A.F9D.html

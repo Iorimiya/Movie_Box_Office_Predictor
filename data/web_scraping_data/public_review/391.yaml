@@ -43,6 +43,7 @@ content: '在去年金馬60及今年香港金像獎分別都有獲得提名成�
 
   --'
 date: 2024-03-07
+emotion_analyse: true
 reply_count: 21
 title: '[情報] 《填詞L》322上映 《但願人長久》412上映'
 url: https://www.ptt.cc/bbs/movie/M.1709804204.A.D66.html
@@ -103,6 +104,7 @@ content: '因為是問劇情
 
   --'
 date: 2024-09-16
+emotion_analyse: false
 reply_count: 11
 title: '[請益] 但願人長久劇情問題'
 url: https://www.ptt.cc/bbs/movie/M.1726450381.A.F57.html
@@ -141,6 +143,7 @@ content: '跟去年另一部金馬得獎港片「年少日記」相比，在情�
 
   --'
 date: 2024-04-12
+emotion_analyse: false
 reply_count: 28
 title: '[普雷] 但願人長久'
 url: https://www.ptt.cc/bbs/movie/M.1712916885.A.C4C.html
@@ -198,6 +201,7 @@ content: '原標：雙港片率先拿獎！《年少日記》《但願人長久�
 
   --'
 date: 2023-11-24
+emotion_analyse: false
 reply_count: 11
 title: '[新聞] 雙港片先拿獎 年少日記、但願人長久'
 url: https://www.ptt.cc/bbs/movie/M.1700804950.A.9DB.html
@@ -256,6 +260,7 @@ content: '嗯
 
   --'
 date: 2024-04-12
+emotion_analyse: false
 reply_count: 9
 title: '[雷] 但願人長久'
 url: https://www.ptt.cc/bbs/movie/M.1712928643.A.1D8.html
@@ -350,6 +355,7 @@ content: '新聞網址：
 
   --'
 date: 2024-01-15
+emotion_analyse: true
 reply_count: 118
 title: '[新聞] 吳慷仁擊敗梁朝偉！ 《但願人長久》奪'
 url: https://www.ptt.cc/bbs/movie/M.1705329468.A.617.html

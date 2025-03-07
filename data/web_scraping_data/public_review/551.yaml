@@ -45,6 +45,7 @@ content: '地表最狂鬼滅大媽，單挑猛鬼救村莊
 
   --'
 date: 2024-06-16
+emotion_analyse: true
 reply_count: 3
 title: '[情報] 泰國破億喜劇【猛鬼聲泣泣】7/5台灣上映 '
 url: https://www.ptt.cc/bbs/movie/M.1718542323.A.5F7.html
@@ -163,6 +164,7 @@ content: '新聞網址：
 
   --'
 date: 2024-05-31
+emotion_analyse: false
 reply_count: 15
 title: '[新聞] 泰國破億現象級電影<猛鬼聲泣泣>笑爆台灣'
 url: https://www.ptt.cc/bbs/movie/M.1717157818.A.64E.html
@@ -188,6 +190,7 @@ content: '如題，今天突然想去看電影，友人挑了這部，只有看�
 
   --'
 date: 2024-07-07
+emotion_analyse: false
 reply_count: 10
 title: '[超級銀河系大爛雷] 猛鬼聲泣泣'
 url: https://www.ptt.cc/bbs/movie/M.1720359382.A.57E.html
@@ -273,6 +276,7 @@ content: '新聞網址：
 
   --'
 date: 2024-06-13
+emotion_analyse: false
 reply_count: 9
 title: '[新聞] 【猛鬼聲泣泣】推出爆笑"創譯"中文字幕版'
 url: https://www.ptt.cc/bbs/movie/M.1718280302.A.1B0.html
@@ -375,6 +379,7 @@ content: '新聞網址：
 
   --'
 date: 2024-07-01
+emotion_analyse: false
 reply_count: 4
 title: '[新聞] 看一部【猛鬼聲泣泣】抵看三部破億泰片！'
 url: https://www.ptt.cc/bbs/movie/M.1719834644.A.766.html

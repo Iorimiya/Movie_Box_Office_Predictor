@@ -106,6 +106,7 @@ content: '新聞網址：
 
   --'
 date: 2023-08-01
+emotion_analyse: false
 reply_count: 2
 title: '[新聞] <長路將盡>老牌演員<一個人的朝聖>再合體'
 url: https://www.ptt.cc/bbs/movie/M.1690896895.A.816.html
@@ -122,6 +123,7 @@ content: "劇情：★★★★\n\n節奏：★★★★☆\n(片長只有108分
   \n                    \"高山!  銀河!  都聽我的歌聲吧!\"\n\n                               \
   \                                         ~Basara\n\n--"
 date: 2023-08-04
+emotion_analyse: false
 reply_count: 1
 title: '[好雷]《一個人的朝聖》啟程出發為了什麼？ '
 url: https://www.ptt.cc/bbs/movie/M.1691163093.A.D93.html
@@ -312,6 +314,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-08-08
+emotion_analyse: false
 reply_count: 19
 title: '[好雷] 一個人的朝聖'
 url: https://www.ptt.cc/bbs/movie/M.1691487032.A.190.html
@@ -540,6 +543,7 @@ content: '雖然我覺得這部就算雷到也沒差，
 
   --'
 date: 2023-08-27
+emotion_analyse: false
 reply_count: 2
 title: '[好雷] 一個人的朝聖 雞湯片'
 url: https://www.ptt.cc/bbs/movie/M.1693135327.A.034.html
@@ -668,6 +672,7 @@ content: '新聞網址：
 
   --'
 date: 2023-07-19
+emotion_analyse: false
 reply_count: 3
 title: '[新聞] 【一個人的朝聖】英國票房感動熱賣1.3億'
 url: https://www.ptt.cc/bbs/movie/M.1689770076.A.688.html

@@ -22,6 +22,7 @@ content: '剛剛被砍文
 
   --'
 date: 2019-03-31
+emotion_analyse: true
 reply_count: 4
 title: '[請益] 風兒踢踏踩'
 url: https://www.ptt.cc/bbs/movie/M.1553998203.A.8FB.html
@@ -127,6 +128,7 @@ content: '防雷
 
   --'
 date: 2023-09-01
+emotion_analyse: true
 reply_count: 13
 title: '[  雷] 風兒踢踏踩'
 url: https://www.ptt.cc/bbs/movie/M.1693530321.A.99A.html

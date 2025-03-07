@@ -21,6 +21,7 @@ content: '爬文跟google一開始說8號
 
   Sophie Thatcher臉跟以前比已經完全魔改了'
 date: 2024-11-13
+emotion_analyse: true
 reply_count: 8
 title: '[請益] 異教詭屋到底哪時上映啊?'
 url: https://www.ptt.cc/bbs/movie/M.1731501327.A.07E.html
@@ -156,6 +157,7 @@ content: '雷
 
   但這部片我覺得還是有很多思考的空間，今年的韓劇地獄公使也是類似題材，還出第二季了'
 date: 2024-12-01
+emotion_analyse: false
 reply_count: 19
 title: '[好雷] 異教詭屋 Heretic'
 url: https://www.ptt.cc/bbs/movie/M.1733044485.A.82B.html
@@ -235,6 +237,7 @@ content: '先說結論
 
   --'
 date: 2024-11-29
+emotion_analyse: false
 reply_count: 62
 title: '[雷] 異教鬼屋'
 url: https://www.ptt.cc/bbs/movie/M.1732869510.A.B86.html
@@ -285,6 +288,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-12-17
+emotion_analyse: false
 reply_count: 36
 title: '[好雷] 異教詭屋:結合信仰和驚悚的好片'
 url: https://www.ptt.cc/bbs/movie/M.1734370267.A.677.html
@@ -341,6 +345,7 @@ content: '這部片預告就誤導觀眾了
 
   --'
 date: 2024-11-30
+emotion_analyse: false
 reply_count: 24
 title: '[討論]《異教詭屋》結局的疑問'
 url: https://www.ptt.cc/bbs/movie/M.1732963653.A.477.html
@@ -353,6 +358,7 @@ content: '我也蠻期待這部的
 
   --'
 date: 2024-11-14
+emotion_analyse: true
 reply_count: 10
 title: 'Re: [請益] 異教詭屋到底哪時上映啊?'
 url: https://www.ptt.cc/bbs/movie/M.1731579131.A.D58.html

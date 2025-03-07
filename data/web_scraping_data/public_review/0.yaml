@@ -36,6 +36,7 @@ content: '之前在YOUTUBE上意外聽到千禧曼波的原聲帶
 
   --'
 date: 2018-04-27
+emotion_analyse: false
 reply_count: 12
 title: '[請益] 請問如何看到千禧曼波'
 url: https://www.ptt.cc/bbs/movie/M.1524803987.A.FD8.html
@@ -91,6 +92,7 @@ content: '看完侯孝賢《千禧曼波》，不只沒有看到好電影之後�
 
   --'
 date: 2016-10-15
+emotion_analyse: false
 reply_count: 14
 title: '[負雷] 千禧曼波 有什麼意義 '
 url: https://www.ptt.cc/bbs/movie/M.1476512720.A.4F8.html
@@ -111,6 +113,7 @@ content: '林強2001年幫侯孝賢導演《千禧曼波》製作的開場配樂
 
   --'
 date: 2017-09-30
+emotion_analyse: true
 reply_count: 29
 title: '[討論] 林強《千禧曼波》台語配樂登上巴黎時尚秀'
 url: https://www.ptt.cc/bbs/movie/M.1506754070.A.818.html
@@ -215,6 +218,7 @@ content: '心得
 
   --'
 date: 2017-07-08
+emotion_analyse: false
 reply_count: 8
 title: '[台北電影節] 千禧曼波、徐自強的練習題'
 url: https://www.ptt.cc/bbs/movie/M.1499520882.A.1C4.html
@@ -251,6 +255,7 @@ content: '前幾天公視播紀錄片
 
   哈哈哈 果然是我聽錯'
 date: 2017-11-29
+emotion_analyse: true
 reply_count: 7
 title: '[請益] 《千禧曼波》裡的東京旅館'
 url: https://www.ptt.cc/bbs/movie/M.1511951339.A.82C.html

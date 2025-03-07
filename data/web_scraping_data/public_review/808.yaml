@@ -3,6 +3,7 @@ content: '鳳姐有人去看過嗎，國片但好像沒什麼人在討論～
 
   --'
 date: 2024-12-24
+emotion_analyse: true
 reply_count: 15
 title: '[問片] 鳳姐'
 url: https://www.ptt.cc/bbs/movie/M.1735023176.A.10D.html
@@ -67,6 +68,7 @@ content: '新聞網址：
 
   --'
 date: 2024-11-26
+emotion_analyse: false
 reply_count: 2
 title: '[新聞] 高宇蓁跨界拍電影《鳳姐》 求好心切狠砸8'
 url: https://www.ptt.cc/bbs/movie/M.1732632817.A.1D1.html
@@ -79,6 +81,7 @@ content: "高宇蓁化身百變鳳姐 打戲不靠替身\n\n2024/10/12 05:30\n\n
   食管理上相當嚴格，幾乎每天只能吃一餐，並盡量避免油膩的食物，對自己要求甚高。\n\n--\n\n 是菩薩成佛之道\n        是 佛經\n  是 佛  \
   \      是 菩薩\n\n\n\n--"
 date: 2024-10-12
+emotion_analyse: false
 reply_count: 2
 title: '[新聞] 高宇蓁化身百變鳳姐 打戲不靠替身'
 url: https://www.ptt.cc/bbs/movie/M.1728743142.A.F1D.html
@@ -140,6 +143,7 @@ content: '新聞網址：
 
   --'
 date: 2023-09-26
+emotion_analyse: false
 reply_count: 10
 title: '[新聞] 高宇蓁背部全裸「打入國際」《鳳姐》入圍'
 url: https://www.ptt.cc/bbs/movie/M.1695728709.A.0C8.html

@@ -112,6 +112,7 @@ content: '作者: a1487546 (烏龜不會飛) 看板: C_Chat
 
   --'
 date: 2023-07-22
+emotion_analyse: false
 reply_count: 2
 title: 'Fw: [閒聊] BLUE GIANT 藍色巨星 台中杜比版包場調查'
 url: https://www.ptt.cc/bbs/movie/M.1689955557.A.AE5.html
@@ -322,6 +323,7 @@ content: '防雷
 
   但沒看漫畫根本不會知道背後的故事'
 date: 2023-06-13
+emotion_analyse: false
 reply_count: 120
 title: '[普雷] 老實說沒拍好的BLUE GIANT 藍色巨星'
 url: https://www.ptt.cc/bbs/movie/M.1686624320.A.38B.html
@@ -379,6 +381,7 @@ content: '作者: a1487546 (烏龜不會飛) 看板: C_Chat
 
   --'
 date: 2023-07-13
+emotion_analyse: true
 reply_count: 1
 title: 'Fw: [閒聊] BLUE GIANT 藍色巨星 台中包場 行前通知'
 url: https://www.ptt.cc/bbs/movie/M.1689179214.A.8EE.html
@@ -426,6 +429,7 @@ content: "本文涉及劇情，推薦看過Dolby Atmos版再讀。\n\n\n\n　　
   我懷疑，但，就是這樣了。\n有時候，眼睛只肯告訴我這麼多。\n\n                                  陳斐雯  貓蚤札（其三）\n\
   \n--"
 date: 2023-08-03
+emotion_analyse: false
 reply_count: 10
 title: '[好雷] 能擁有的當下：《Blue Giant 藍色巨星》'
 url: https://www.ptt.cc/bbs/movie/M.1691031024.A.639.html
@@ -519,6 +523,7 @@ content: '昨天出門前突然下起陣雨，本來想摸摸鼻子回房間睡�
 
   謝謝幫推'
 date: 2023-06-12
+emotion_analyse: false
 reply_count: 18
 title: '[好雷] Blue Giant 藍色巨星'
 url: https://www.ptt.cc/bbs/movie/M.1686546496.A.E28.html
@@ -590,6 +595,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2024-08-27
+emotion_analyse: false
 reply_count: 19
 title: '[好雷] BLUE GIANT 藍色巨星'
 url: https://www.ptt.cc/bbs/movie/M.1724726242.A.338.html
@@ -605,6 +611,7 @@ content: "作者: gary8442 (起秋風) 看板: C_Chat\n標題: [情報] BLUE GIA
   \n\n\n\n新光影城粉絲團:\n\n鄉民阿編滑批踢踢 看到好多網友在敲碗\n為什麼新光沒有DolbyAtmos版本的場次\n所以我要說....\n\n9/1(五)~9/3(日)\n\
   桃園青埔新光影城 限時上映~\n在 「LUXE」 看過才過癮\n給你最好的視覺、音效享受"
 date: 2023-08-25
+emotion_analyse: false
 reply_count: 2
 title: 'Fw: [情報] BLUE GIANT 藍色巨星 ATMOS LUXE廳'
 url: https://www.ptt.cc/bbs/movie/M.1692951609.A.B58.html
@@ -617,6 +624,7 @@ content: "作者: take86157 () 看板: C_Chat\n標題: [閒聊] Blue Giant 藍�
   就已經迅速得到15位同好報名了（感激！）\n無論是非常想要再觀看一次JASS的熱血激昂淚水\n又或是想要當作聽演奏會一樣享受\n都非常歡迎><\n\n讓我們坐在宛如身歷其境享受現場表演般的影廳\n\
   為JASS獻上掌聲、熱情地應援吧！！\n\n--"
 date: 2023-07-26
+emotion_analyse: true
 reply_count: 6
 title: 'Fw: [閒聊] Blue Giant 藍色巨星北部杜比包場正式報'
 url: https://www.ptt.cc/bbs/movie/M.1690337409.A.4D3.html
@@ -716,6 +724,7 @@ content: '作者: a1487546 (烏龜不會飛) 看板: C_Chat
 
   --'
 date: 2023-07-07
+emotion_analyse: false
 reply_count: 2
 title: 'Fw: [閒聊] BLUE GIANT 藍色巨星 台中包場 候補通知'
 url: https://www.ptt.cc/bbs/movie/M.1688742926.A.AFF.html
@@ -728,6 +737,7 @@ content: "作者: gary8442 (起秋風) 看板: C_Chat\n標題: Re: [情報] 藍�
   4. 特典領取以現場兌換順序為主，數量有限，送完為止。網路及APP購票之觀眾，請盡早至\n觀影影城取票。\n5. 如有退/換票，需連同將特典一併辦理退/換票手續，如票券/特典損毀恕無法辦理退票。\n\
   \n \n\n--\n\n\n                                     07/21 12:51"
 date: 2023-07-21
+emotion_analyse: false
 reply_count: 13
 title: 'Fw: [情報] 藍色巨星 Dolby Atmos版7/28在台上映'
 url: https://www.ptt.cc/bbs/movie/M.1689915654.A.DE5.html
@@ -746,6 +756,7 @@ content: "作者: gary8442 (起秋風) 看板: C_Chat\n標題: Re: [情報] 《B
   \ 版本..\n我想去青埔新光LUXE廳看這部~\n\n\n--\n\n\n\n松仁威秀小廳音效表現我覺得很不錯\n\n比較可惜的是沒有DOLBY ATMOS\n\
   \n我是看6/2（五）松仁8廳\n\n希望 6/9正式上映會有ATMOS...\n\n打算去LUXE廳刷這部"
 date: 2023-06-05
+emotion_analyse: false
 reply_count: 47
 title: 'Fw: [情報] BLUE GIANT 藍色巨星 影城購票特典公開'
 url: https://www.ptt.cc/bbs/movie/M.1685962441.A.055.html
@@ -776,6 +787,7 @@ content: "不久前，偶然翻閱的漫畫，其中幾幕至今仍無法忘懷�
   然後，理解薩克斯風所吹奏出的，那就是比紅色恆星更加熾熱的\n\n——\n\n\n\n\n--\n\n隨手寫觀影心得\n\n\n\n--\n          \
   \                          06/10 19:52\n原著推薦去看，對宮本大的投入著墨更詳細。\n這次動畫改編真的很有誠意，觀影時後半段真的啜泣聲不斷。"
 date: 2023-06-10
+emotion_analyse: false
 reply_count: 6
 title: '[好雷] BLUE GIANT 藍色巨星--此刻，傾注所有'
 url: https://www.ptt.cc/bbs/movie/M.1686396078.A.049.html
@@ -1260,6 +1272,7 @@ content: '被主管唸特休太多要記得放，就請了半天假跑出來看�
 
   --'
 date: 2023-06-10
+emotion_analyse: false
 reply_count: 93
 title: '[極好雷] BLUE GIANT 藍色巨星-非常好哭的作品'
 url: https://www.ptt.cc/bbs/movie/M.1686391497.A.999.html
@@ -1372,6 +1385,7 @@ content: '作者: a1487546 (烏龜不會飛) 看板: C_Chat
 
   我遇過踢椅子就很煩人了，居然還有人可以吃重口味的東西也太奇葩(X)'
 date: 2023-06-28
+emotion_analyse: false
 reply_count: 16
 title: 'Fw: [閒聊] BLUE GIANT 藍色巨星 台中包場 意願調查'
 url: https://www.ptt.cc/bbs/movie/M.1687966169.A.463.html
@@ -1390,6 +1404,7 @@ content: "作者: gary8442 (起秋風) 看板: C_Chat\n標題: [情報] 《BLUE 
   \ #藍色巨星\n #車庫娛樂\n\n---\n\nDolby Atmos版本應該會引進吧？不然只能去日本看了~\n\n車庫好好弄別再搞特典轉蛋了\n\n--\n\
   \n\n我剛剛看沒人發就Po了，發完發現居然有人跟我幾乎同時發XD"
 date: 2023-05-03
+emotion_analyse: false
 reply_count: 28
 title: 'Fw: [情報] 《BLUE GIANT 藍色巨星》6/9 在台上映'
 url: https://www.ptt.cc/bbs/movie/M.1683117769.A.F7B.html
@@ -1446,6 +1461,7 @@ content: '來源:
 
   --'
 date: 2023-07-20
+emotion_analyse: false
 reply_count: 30
 title: '[情報] 《BLUE GIANT 藍色巨星》Dolby Atmos版  '
 url: https://www.ptt.cc/bbs/movie/M.1689852815.A.60A.html
@@ -1607,6 +1623,7 @@ content: '雷文防雷資訊頁
 
   --'
 date: 2023-06-10
+emotion_analyse: false
 reply_count: 50
 title: '[好雷] BLUE GIANT 藍色巨星'
 url: https://www.ptt.cc/bbs/movie/M.1686397808.A.B66.html
@@ -1656,6 +1673,7 @@ content: '放映這部片 Atmos音效版本 的戲院多了 “高雄台鋁秀�
 
   --'
 date: 2023-07-28
+emotion_analyse: false
 reply_count: 4
 title: 'Re: [情報] 《BLUE GIANT 藍色巨星》Dolby Atmos版'
 url: https://www.ptt.cc/bbs/movie/M.1690509485.A.7DC.html
@@ -1749,6 +1767,7 @@ content: '作者: a1487546 (烏龜不會飛) 看板: C_Chat
 
   謝謝兩位的推，好期待跟大家一起拍手的感覺XD'
 date: 2023-07-03
+emotion_analyse: false
 reply_count: 2
 title: 'Fw: [閒聊] BLUE GIANT 藍色巨星 台中包場 報名通知'
 url: https://www.ptt.cc/bbs/movie/M.1688395594.A.589.html
@@ -1838,6 +1857,7 @@ content: '作者: a1487546 (烏龜不會飛) 看板: C_Chat
 
   想先確定參加人數有沒有達標，如果人數差一點點'
 date: 2023-06-30
+emotion_analyse: false
 reply_count: 10
 title: 'Fw: [閒聊] BLUE GIANT 藍色巨星 台中包場 正式報名'
 url: https://www.ptt.cc/bbs/movie/M.1688123845.A.E73.html
