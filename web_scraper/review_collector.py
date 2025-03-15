@@ -32,7 +32,7 @@ class ReviewCollector:
         self.__search_target: TargetWebsite = target_website
         self.__base_url: tuple[str, str, str, str] = ('https://www.ptt.cc/bbs/movie/', 'https://www.dcard.tw/',
                                                       'https://www.imdb.com/', 'https://www.rottentomatoes.com/')
-        self.__search_url_part: tuple[str, str, str, str] = ('search?q=', 'search?query=', 'find/?q=', 'search?search=')
+        self.__search_url_part: tuple[str, str, str, str] = ('search?q=', 'search?forum=movie&query=', 'find/?q=', 'search?search=')
         self.__browser: Optional[CaptchaBrowser] = None
         logging.info(f"download {self.__search_target.name} data.")
 
