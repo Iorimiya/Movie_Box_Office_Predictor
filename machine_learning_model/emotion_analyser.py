@@ -12,11 +12,8 @@ from keras.src.models import Sequential
 from keras.src.layers import Embedding, LSTM, Dense, Dropout
 from keras.api.models import load_model
 
-
-
-
 class EmotionAnalyser:
-    def __init__(self, model_path: Path | None = None, tokenizer_path: Path | None = None, num_words: int = 5000,
+    def __init__(self, model_path: Optional[Path] = None, tokenizer_path: Optional[Path] = None, num_words: int = 5000,
                  review_max_length: int = 100):
         self.__model: Optional[Sequential] = \
             load_model(model_path) if isinstance(model_path, Path) and model_path.exists() else None
