@@ -8,6 +8,7 @@ from web_scraper.review_collector import ReviewCollector
 from machine_learning_model.emotion_analyser import EmotionAnalyser
 from movie_data import load_index_file, PublicReview
 from tools.util import *
+from machine_learning_model.box_office_prediction import MoviePredictionSystem
 
 
 def set_argument_parser() -> Namespace:
@@ -17,7 +18,7 @@ def set_argument_parser() -> Namespace:
     group.add_argument("-d", "--developer", action="store_true", help="execute program as a developer.")
     group.add_argument("-t", "--test", type=str,
                        choices=["collect_box_office", "collect_ptt_review", "collect_dcard_review",
-                                "train_emotion_analysis", "test_emotion_analysis", "load_data"],
+                                "train_emotion_analysis", "test_emotion_analysis", "load_data", "movie_prediction_train","movie_prediction_test"],
                        help="unit test with procedure for testing")
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result.")
@@ -99,7 +100,11 @@ if __name__ == "__main__":
                         movie.load_public_review()
                         for review in movie.public_reviews:
                             review.emotion_analyse = analyzer.test(review.content)
-                        movie.save_public_review()
+                        movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
+            case "movie_prediction_train":
+                MoviePredictionSystem().train_with_auto_generated_data()
+            case "movie_prediction_test":
+                MoviePredictionSystem(model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH, training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH, transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH).test_with_auto_generated_data()
             case _:
                 raise ValueError
     else:

@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Final
 
+
 @dataclass(frozen=True)
 class Constants:
     # Folder Path
@@ -13,9 +14,15 @@ class Constants:
     EMOTION_ANALYSER_MODEL_FOLDER: Final[Path] = DATA_FOLDER.joinpath('emotion_analysis', 'model')
     EMOTION_ANALYSER_TOKENIZER_FOLDER: Final[Path] = DATA_FOLDER.joinpath('emotion_analysis', 'dataset')
 
+    BOX_OFFICE_PREDICTION_MODEL_PATH: Final[Path] = DATA_FOLDER.joinpath('box_office_prediction', 'model',
+                                                                         'prediction_model_1000.keras')
+    BOX_OFFICE_PREDICTION_SETTING_PATH: Final[Path] = DATA_FOLDER.joinpath('box_office_prediction', 'setting.yaml')
+    BOX_OFFICE_PREDICTION_SCALER_PATH: Final[Path] = DATA_FOLDER.joinpath('box_office_prediction', 'scaler.gz')
+
     # File Path
     INDEX_PATH: Final[Path] = DATA_FOLDER.joinpath('index.csv')
-    EMOTION_ANALYSER_MODEL_PATH:  Final[Path] = EMOTION_ANALYSER_MODEL_FOLDER.joinpath('emotion_analysis_model_1000.keras')
+    EMOTION_ANALYSER_MODEL_PATH: Final[Path] = EMOTION_ANALYSER_MODEL_FOLDER.joinpath(
+        'emotion_analysis_model_1000.keras')
     EMOTION_ANALYSER_TOKENIZER_PATH: Final[Path] = EMOTION_ANALYSER_TOKENIZER_FOLDER.joinpath('tokenizer.pickle')
 
     # Header

@@ -2,6 +2,7 @@ from typing import Optional
 from datetime import date, datetime
 from pathlib import Path
 from dataclasses import dataclass, asdict
+from enum import Enum
 import yaml
 
 from tools.constant import Constants
@@ -181,8 +182,24 @@ class MovieData:
         return
 
 
-def load_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None) -> list[MovieData]:
+class IndexLoadMode(Enum):
+    ID_NAME = 0
+    FULL = 1
+
+
+def load_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None,
+                    mode: IndexLoadMode = IndexLoadMode.ID_NAME) -> list[MovieData]:
     if index_header is None:
         index_header = Constants.INDEX_HEADER
-    return [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]]) for movie in
+    movie_list:list[MovieData] = [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]]) for movie in
             read_data_from_csv(path=file_path)]
+    match mode:
+        case IndexLoadMode.ID_NAME:
+            return movie_list
+        case IndexLoadMode.FULL:
+            for movie in movie_list:
+                movie.load_box_office()
+                movie.load_public_review()
+            return movie_list
+        case _:
+            raise ValueError(f"Unknown index load mode {mode}")
