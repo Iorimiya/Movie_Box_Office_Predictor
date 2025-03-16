@@ -88,7 +88,7 @@ class MoviePredictionSystem:
                     filter(lambda review: week.start_date <= review.date <= week.end_date, movie.public_reviews))
                 for review in week_reviews:
                     replies_count += review.reply_count
-                    review_sentiment_score.append(review.emotion_analyse)
+                    review_sentiment_score.append(review.sentiment_score)
                     review_contents.append(review.content)
                 new_movie_data.append(MoviePredictionInputData(box_office=box_office, review_contents=review_contents,
                                                                review_sentiment_score=review_sentiment_score,

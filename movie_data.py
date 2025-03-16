@@ -29,7 +29,7 @@ class Review:
     title: Optional[str]
     content: str
     date: date
-    emotion_analyse: Optional[bool]
+    sentiment_score: Optional[bool]
 
     def __key(self):
         if self.url:
@@ -61,7 +61,7 @@ class ExpertReview(Review):
         date_format: str = '%Y-%m-%d'
         return cls(url=dictionary["url"], title=dictionary["title"], content=dictionary["content"],
                    date=datetime.strptime(dictionary['date'], date_format).date(), score=float(dictionary["score"]),
-                   emotion_analyse=bool(dictionary["emotion_analyse"]))
+                   sentiment_score=bool(dictionary["emotion_analyse"]))
 
 
 @dataclass(kw_only=True)
@@ -79,7 +79,7 @@ class PublicReview(Review):
         date_format: str = '%Y-%m-%d'
         return cls(url=dictionary["url"], title=dictionary["title"], content=dictionary["content"],
                    date=datetime.strptime(dictionary['date'], date_format).date(),
-                   reply_count=int(dictionary["reply_count"]), emotion_analyse=bool(dictionary["emotion_analyse"]))
+                   reply_count=int(dictionary["reply_count"]), sentiment_score=bool(dictionary["emotion_analyse"]))
 
 
 class MovieData:
