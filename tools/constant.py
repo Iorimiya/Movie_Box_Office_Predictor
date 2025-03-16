@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Final
 
+
 @dataclass(frozen=True)
 class Constants:
     # Folder Path
@@ -10,13 +11,26 @@ class Constants:
     BOX_OFFICE_FOLDER: Final[Path] = DATA_FOLDER.joinpath('web_scraping_data', 'box_office')
     PUBLIC_REVIEW_FOLDER: Final[Path] = DATA_FOLDER.joinpath('web_scraping_data', 'public_review')
     EXPERT_REVIEW_FOLDER: Final[Path] = DATA_FOLDER.joinpath('web_scraping_data', 'expert_review')
-    EMOTION_ANALYSER_MODEL_FOLDER: Final[Path] = DATA_FOLDER.joinpath('emotion_analysis', 'model')
-    EMOTION_ANALYSER_TOKENIZER_FOLDER: Final[Path] = DATA_FOLDER.joinpath('emotion_analysis', 'dataset')
+    REVIEW_SENTIMENT_ANALYSIS_MODEL_FOLDER: Final[Path] = DATA_FOLDER.joinpath('review_sentiment_analysis', 'model')
+    REVIEW_SENTIMENT_ANALYSIS_DATASET_FOLDER: Final[Path] = DATA_FOLDER.joinpath('review_sentiment_analysis', 'dataset')
+    BOX_OFFICE_PREDICTION_FOLDER: Final[Path] = DATA_FOLDER.joinpath('box_office_prediction')
+    BOX_OFFICE_PREDICTION_MODEL_FOLDER: Final[Path] = BOX_OFFICE_PREDICTION_FOLDER.joinpath('model')
+
+
+    # Defaults Model Name
+    REVIEW_SENTIMENT_ANALYSIS_MODEL_NAME:Final[str] = 'review_sentiment_analysis_model'
+    BOX_OFFICE_PREDICTION_MODEL_NAME:Final[str] = 'box_office_prediction_model'
 
     # File Path
     INDEX_PATH: Final[Path] = DATA_FOLDER.joinpath('index.csv')
-    EMOTION_ANALYSER_MODEL_PATH:  Final[Path] = EMOTION_ANALYSER_MODEL_FOLDER.joinpath('emotion_analysis_model_1000.keras')
-    EMOTION_ANALYSER_TOKENIZER_PATH: Final[Path] = EMOTION_ANALYSER_TOKENIZER_FOLDER.joinpath('tokenizer.pickle')
+    REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH: Final[Path] = REVIEW_SENTIMENT_ANALYSIS_MODEL_FOLDER.joinpath(
+        f'{REVIEW_SENTIMENT_ANALYSIS_MODEL_NAME}_1000.keras')
+    REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH: Final[Path] = REVIEW_SENTIMENT_ANALYSIS_DATASET_FOLDER.joinpath(
+        'tokenizer.pickle')
+    BOX_OFFICE_PREDICTION_MODEL_PATH: Final[Path] = BOX_OFFICE_PREDICTION_MODEL_FOLDER.joinpath(
+        f'{BOX_OFFICE_PREDICTION_MODEL_NAME}_1000.keras')
+    BOX_OFFICE_PREDICTION_SETTING_PATH: Final[Path] = BOX_OFFICE_PREDICTION_FOLDER.joinpath('setting.yaml')
+    BOX_OFFICE_PREDICTION_SCALER_PATH: Final[Path] = BOX_OFFICE_PREDICTION_FOLDER.joinpath('scaler.gz')
 
     # Header
     INPUT_MOVIE_LIST_HEADER: Final[str] = 'movie_name'
