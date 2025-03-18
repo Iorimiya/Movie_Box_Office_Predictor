@@ -157,18 +157,17 @@ class MoviePredictionModel(MachineLearningModel):
               scaler_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SCALER_PATH,
               training_week_limit: int = 4,
               split_rate: float = 0.8) -> None:
-        split_index: int = int(len(data) * split_rate)
-        train_data: list[list[MoviePredictionInputData]] = data[:split_index]
-        test_data: list[list[MoviePredictionInputData]] = data[split_index:]
-
-        processed_train_data: list[list[list[int | float]]] = self.__preprocess_data(train_data)
-        processed_test_data: list[list[list[int | float]]] = self.__preprocess_data(test_data)
 
         self.__training_week_limit = training_week_limit
-        self.__training_data_len = max(len(movie) for movie in processed_train_data + processed_test_data)
-        x_train, y_train = self.__prepare_sequences(processed_train_data)
-        x_test, y_test = self.__prepare_sequences(processed_test_data)
 
+        processed_data: list[list[list[int | float]]] = self.__preprocess_data(data)
+        self.__training_data_len = max(len(movie) for movie in processed_data)
+        x, y = self.__prepare_sequences(processed_data)
+
+        split_index: int = int(len(x) * split_rate)
+        x_train, y_train, x_test, y_test = x[:split_index], y[:split_index], x[split_index:], y[split_index:]
+
+        # Standardization
         self.__transform_scaler: MinMaxScaler = MinMaxScaler()
         y_train_scaled: np.ndarray = self.__transform_scaler.fit_transform(y_train.reshape(-1, 1)).flatten()
         x_train_scaled: np.ndarray = x_train.copy()
@@ -197,10 +196,10 @@ class MoviePredictionModel(MachineLearningModel):
         train_data: list[list[MoviePredictionInputData]] = self.__load_data()
         self.train(train_data, epoch=epoch)
 
-    def train_with_auto_generated_data(self, epoch: int = 1000):
+    def train_with_auto_generated_data(self, epoch: int = 1000, model_save_name: str = "test"):
         train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(50, (4, 10), (
             0, 5))
-        self.train(train_data, epoch=epoch)
+        self.train(train_data, epoch=epoch, model_save_name=model_save_name)
 
     def test_with_auto_generated_data(self):
         test_data: list[MoviePredictionInputData] = self.__generate_random_data(1, (1, 20), (1, 100))[0]
