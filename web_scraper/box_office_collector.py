@@ -270,7 +270,7 @@ class BoxOfficeCollector:
         current_progress: list = read_data_from_csv(self.__progress_file_path)
 
         with tqdm(total=len(current_progress), bar_format=Constants.STATUS_BAR_FORMAT) as pbar:
-            for movie,progress in zip(movie_data, current_progress):
+            for movie, progress in zip(movie_data, current_progress):
                 try:
                     self.__search_box_office_data(movie_data=movie, progress=progress)
                 except AssertionError:

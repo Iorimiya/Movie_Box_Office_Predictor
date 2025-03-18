@@ -40,5 +40,6 @@ def initialize_index_file(input_file: CSVFileData, index_file: CSVFileData | Non
                       header=index_file.header)
     return
 
+
 delete_duplicate = lambda item: list(set(item))
 check_path = lambda path: isinstance(path, Path) and path.exists()
