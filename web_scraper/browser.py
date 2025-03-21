@@ -172,7 +172,7 @@ class CaptchaBrowser:
     def wait(sec: float = 5) -> None:
         time.sleep(sec)
 
-    def get(self, url: str, captcha:bool) -> None:
+    def get(self, url: str, captcha: bool) -> None:
         if captcha:
             self.__driver.uc_activate_cdp_mode(url)
             self.wait(5)
@@ -195,5 +195,5 @@ class CaptchaBrowser:
         self.__driver.execute_script(script=script)
 
     def home(self) -> None:
-        self.get(self.__home_url,captcha=False)
+        self.get(self.__home_url, captcha=False)
         return

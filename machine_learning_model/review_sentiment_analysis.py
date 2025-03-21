@@ -37,7 +37,8 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
             pickle.dump(self.__tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
         return
 
-    def __load_tokenizer(self, file_path: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH) -> Tokenizer:
+    @staticmethod
+    def __load_tokenizer(file_path: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH) -> Tokenizer:
         if not file_path.exists():
             raise FileNotFoundError(f"File {file_path} does not exist")
         with open(file_path, 'rb') as handle:

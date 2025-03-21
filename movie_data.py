@@ -191,8 +191,8 @@ def load_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None,
                     mode: IndexLoadMode = IndexLoadMode.ID_NAME) -> list[MovieData]:
     if index_header is None:
         index_header = Constants.INDEX_HEADER
-    movie_list:list[MovieData] = [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]]) for movie in
-            read_data_from_csv(path=file_path)]
+    movie_list: list[MovieData] = [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]])
+                                   for movie in read_data_from_csv(path=file_path)]
     match mode:
         case IndexLoadMode.ID_NAME:
             return movie_list
