@@ -241,6 +241,26 @@ class BoxOfficeCollector:
                 return
         raise AssertionError
 
+    def download_single_movie_box_office_data(self, movie_data: MovieData) -> None:
+        # delete previous searching results
+        self.__temporary_file_downloaded_path.unlink(missing_ok=True)
+
+        if not self.__progress_file_path.exists():
+            self.__progress_file_path.touch()
+            write_data_to_csv(path=self.__progress_file_path,
+                              data=[{self.__progress_file_header[0]: movie_data.movie_id,
+                                     self.__progress_file_header[1]: '',
+                                     self.__progress_file_header[2]: ''}],
+                              header=self.__progress_file_header)
+        self.__search_box_office_data(movie_data=movie_data,
+                                      progress={self.__progress_file_header[0]: '', self.__progress_file_header[1]: '',
+                                                self.__progress_file_header[2]: ''},
+                                      trying_times=10)
+        movie_data.load_box_office(self.__box_office_data_folder)
+        self.__box_office_data_folder.joinpath(f"{movie_data.movie_id}.{self.__store_file_extension}").unlink()
+        self.__progress_file_path.unlink()
+        return
+
     def get_box_office_data(self, input_file_path: Optional[Path] = None,
                             input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
         # delete previous searching results
