@@ -15,6 +15,7 @@ class Constants:
     REVIEW_SENTIMENT_ANALYSIS_DATASET_FOLDER: Final[Path] = DATA_FOLDER.joinpath('review_sentiment_analysis', 'dataset')
     BOX_OFFICE_PREDICTION_FOLDER: Final[Path] = DATA_FOLDER.joinpath('box_office_prediction')
     BOX_OFFICE_PREDICTION_MODEL_FOLDER: Final[Path] = BOX_OFFICE_PREDICTION_FOLDER.joinpath('model')
+    BOX_OFFICE_PREDICTION_DATASET_FOLDER: Final[Path] = BOX_OFFICE_PREDICTION_FOLDER.joinpath('dataset')
 
 
     # Defaults Model Name

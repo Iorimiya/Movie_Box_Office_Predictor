@@ -78,28 +78,30 @@ class MoviePredictionModel(MachineLearningModel):
             data.append(movie_data)
         return data
 
-    @staticmethod
-    def __load_data(index_path: Optional[Path] = Constants.INDEX_PATH) -> list[list[MoviePredictionInputData]]:
+    @classmethod
+    def __load_data(cls, index_path: Optional[Path] = Constants.INDEX_PATH) -> list[list[MoviePredictionInputData]]:
         movie_data: list[MovieData] = load_index_file(file_path=index_path, mode=IndexLoadMode.FULL)
-        training_data: list = []
-        for movie in movie_data:
-            new_movie_data: list[MoviePredictionInputData] = []
-            for week in movie.box_office:
-                box_office: int = week.box_office
-                review_contents: list[str] = []
-                review_sentiment_score: list[bool] = []
-                replies_count: int = 0
-                week_reviews: list[PublicReview] = list(
-                    filter(lambda review_: week.start_date <= review_.date <= week.end_date, movie.public_reviews))
-                for review in week_reviews:
-                    replies_count += review.reply_count
-                    review_sentiment_score.append(review.sentiment_score)
-                    review_contents.append(review.content)
-                new_movie_data.append(MoviePredictionInputData(box_office=box_office, review_contents=review_contents,
-                                                               review_sentiment_score=review_sentiment_score,
-                                                               replies_count=replies_count))
-            training_data.append(new_movie_data)
+        training_data: list = [cls.__transform_single_movie_data(movie=movie) for movie in movie_data]
         return training_data
+
+    @staticmethod
+    def __transform_single_movie_data(movie: MovieData) -> list[MoviePredictionInputData]:
+        output: list[MoviePredictionInputData] = []
+        for week in movie.box_office:
+            box_office: int = week.box_office
+            review_contents: list[str] = []
+            review_sentiment_score: list[bool] = []
+            replies_count: int = 0
+            week_reviews: list[PublicReview] = list(
+                filter(lambda review_: week.start_date <= review_.date <= week.end_date, movie.public_reviews))
+            for review in week_reviews:
+                replies_count += review.reply_count
+                review_sentiment_score.append(review.sentiment_score)
+                review_contents.append(review.content)
+            output.append(MoviePredictionInputData(box_office=box_office, review_contents=review_contents,
+                                                   review_sentiment_score=review_sentiment_score,
+                                                   replies_count=replies_count))
+        return output
 
     @staticmethod
     def __preprocess_data(data: list[list[MoviePredictionInputData]]) -> list[list[list[int | float]]]:
@@ -195,6 +197,9 @@ class MoviePredictionModel(MachineLearningModel):
     def movie_train(self, epoch: int = 1000):
         train_data: list[list[MoviePredictionInputData]] = self.__load_data()
         self.train(train_data, epoch=epoch)
+
+    def movie_test(self, movie_data: MovieData) -> None:
+        self.test(user_movie_data=MoviePredictionModel.__transform_single_movie_data(movie_data))
 
     def train_with_auto_generated_data(self, epoch: int = 1000, model_save_name: str = "test"):
         train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(50, (4, 10), (

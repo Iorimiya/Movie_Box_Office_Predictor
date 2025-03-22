@@ -215,7 +215,8 @@ class ReviewCollector:
                     logging.error(f"Error message: {e}")
                     return None
 
-        return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies))
+        return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies),
+                            sentiment_score=False)
 
     def __get_reviews_by_keyword(self, search_key: str) -> list[PublicReview]:
         match self.__search_target:
@@ -236,6 +237,11 @@ class ReviewCollector:
         reviews = delete_duplicate(reviews)
         logging.info("deletion of duplicate reviews finished.")
         return reviews
+
+    def search_review_single_movie(self, movie_data: MovieData) -> None:
+        reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_data.movie_name)
+        movie_data.update_data(public_reviews=reviews)
+        return
 
     def __search_review_and_store_into_file(self, movie_list: list[MovieData], save_folder_path: Path) -> None:
         for movie in tqdm(movie_list, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
