@@ -238,12 +238,7 @@ class ReviewCollector:
         logging.info("deletion of duplicate reviews finished.")
         return reviews
 
-    def search_review_single_movie(self, movie_data: MovieData) -> None:
-        reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_data.movie_name)
-        movie_data.update_data(public_reviews=reviews)
-        return
-
-    def __search_review_and_store_into_file(self, movie_list: list[MovieData], save_folder_path: Path) -> None:
+    def __search_review_and_save(self, movie_list: list[MovieData], save_folder_path: Path) -> None:
         for movie in tqdm(movie_list, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
             reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie.movie_name)
             if save_folder_path.joinpath(f"{movie.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists():
@@ -251,18 +246,32 @@ class ReviewCollector:
             movie.update_data(public_reviews=reviews)
             movie.save_public_review(save_folder_path=save_folder_path)
 
-    def search_review_by_single_movie(self, movie_name: str) -> list[PublicReview] | None:
+
+    def search_review_with_single_movie(self, movie_data: str | MovieData) -> list[PublicReview] | None:
+        if isinstance(movie_data, MovieData):
+            movie_name = movie_data.movie_name
+        elif isinstance(movie_data, str):
+            movie_name = movie_data
+        else:
+            raise ValueError
         match self.__search_target:
             case TargetWebsite.PTT:
-                return self.__get_reviews_by_name(movie_name=movie_name)
+                reviews:list[PublicReview] =  self.__get_reviews_by_name(movie_name=movie_name)
             case TargetWebsite.DCARD:
                 with CaptchaBrowser() as self.__browser:
-                    return self.__get_reviews_by_name(movie_name=movie_name)
+                    reviews:list[PublicReview] =  self.__get_reviews_by_name(movie_name=movie_name)
             case _:
                 raise ValueError
+        if isinstance(movie_data, MovieData):
+            movie_data.update_data(public_reviews=reviews)
+            return None
+        elif isinstance(movie_data, str):
+            return reviews
+        else:
+            raise ValueError
 
-    def scrap_train_review_data(self, index_path: Path = Constants.INDEX_PATH,
-                                save_folder_path: Path = None):
+    def search_review_with_multiple_movie(self, index_path: Path = Constants.INDEX_PATH,
+                                          save_folder_path: Path = None):
         # with CaptchaBrowser() as self.__browser:
         if save_folder_path is None:
             save_folder_path = Constants.PUBLIC_REVIEW_FOLDER
@@ -271,10 +280,10 @@ class ReviewCollector:
         movie_data: list[MovieData] = load_index_file(file_path=index_path)
         match self.__search_target:
             case TargetWebsite.PTT:
-                self.__search_review_and_store_into_file(movie_list=movie_data, save_folder_path=save_folder_path)
+                self.__search_review_and_save(movie_list=movie_data, save_folder_path=save_folder_path)
             case TargetWebsite.DCARD:
                 with CaptchaBrowser() as self.__browser:
-                    self.__search_review_and_store_into_file(movie_list=movie_data, save_folder_path=save_folder_path)
+                    self.__search_review_and_save(movie_list=movie_data, save_folder_path=save_folder_path)
 
 
 TargetWebsite: TypeAlias = ReviewCollector.TargetWebsite
