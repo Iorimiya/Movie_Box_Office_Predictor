@@ -3,7 +3,7 @@ import logging
 import re
 from datetime import datetime
 from enum import Enum
-from typing import TypeAlias, Final
+from typing import TypeAlias, Final, TypedDict
 
 from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
@@ -29,6 +29,11 @@ class BoxOfficeCollector:
     class UpdateType(Enum):
         URL = 1
         FILE_PATH = 2
+
+    class ProgressData(TypedDict):
+        Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[0]: int | str
+        Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[1]: str
+        Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[2]: str
 
     def __init__(self, index_file_path: Path = Constants.INDEX_PATH,
                  box_office_data_folder: Path = Constants.BOX_OFFICE_FOLDER,
@@ -115,9 +120,10 @@ class BoxOfficeCollector:
         except NoSuchElementException:
             raise InvalidSwitchToTargetException
         logging.debug(f"goto url: {self.__browser.current_url}")
-        self.__update_progress_information(index=movie_data.movie_id,
-                                           update_type=self.UpdateType.URL,
-                                           new_data_value=self.__browser.current_url)
+        if self.__progress_file_path.exists():
+            self.__update_progress_information(index=movie_data.movie_id,
+                                               update_type=self.UpdateType.URL,
+                                               new_data_value=self.__browser.current_url)
         return
 
     def __click_download_button(self, trying_times: int) -> None:
@@ -175,7 +181,8 @@ class BoxOfficeCollector:
         movie_data.update_data(box_offices=weekly_box_office_data)
         return movie_data
 
-    def __search_box_office_data(self, movie_data: MovieData, progress: dict, trying_times: int = 10) -> None:
+    def __search_and_download_data(self, movie_data: MovieData, progress: Optional[ProgressData],
+                                   trying_times: int = 10) -> None:
         movie_name = movie_data.movie_name
         movie_id = movie_data.movie_id
         logging.info(f"Searching box office of {movie_name}.")
@@ -185,7 +192,7 @@ class BoxOfficeCollector:
         for trying_time in range(trying_times):
             current_trying_times = trying_time + 1
             # check progress
-            if progress[self.__progress_file_header[2]] and download_target_file_path.exists():
+            if progress and progress[self.__progress_file_header[2]] and download_target_file_path.exists():
                 if progress[self.__progress_file_header[1]]:
                     logging.info(f"movie url, data file and record in progress correct, skip to next movie,")
                     return
@@ -204,7 +211,7 @@ class BoxOfficeCollector:
                 except (ReadTimeoutError, UnexpectedAlertPresentException):
                     continue
                 # if progress shows the url has been recorded, skip navigating and get it from file.
-                if progress[self.__progress_file_header[1]]:
+                if progress and progress[self.__progress_file_header[1]]:
                     logging.info(f"only movie url found, download again,")
                     self.__browser.get(progress[self.__progress_file_header[1]])
                 else:
@@ -234,35 +241,28 @@ class BoxOfficeCollector:
                     logging.debug("cannot save box office data", exc_info=True)
                     continue
                 self.__temporary_file_downloaded_path.unlink()
-                self.__update_progress_information(index=movie_data.movie_id,
-                                                   update_type=self.UpdateType.FILE_PATH,
-                                                   new_data_value=self.__box_office_data_folder.joinpath(
-                                                       f"{movie_data.movie_id}.yaml"))
+                if self.__progress_file_path.exists():
+                    self.__update_progress_information(index=movie_data.movie_id,
+                                                       update_type=self.UpdateType.FILE_PATH,
+                                                       new_data_value=self.__box_office_data_folder.joinpath(
+                                                           f"{movie_data.movie_id}.yaml"))
                 return
         raise AssertionError
 
-    def download_single_movie_box_office_data(self, movie_data: MovieData) -> None:
+    def download_single_box_office_data(self, movie_data: MovieData) -> None:
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
-
-        if not self.__progress_file_path.exists():
-            self.__progress_file_path.touch()
-            write_data_to_csv(path=self.__progress_file_path,
-                              data=[{self.__progress_file_header[0]: movie_data.movie_id,
-                                     self.__progress_file_header[1]: '',
-                                     self.__progress_file_header[2]: ''}],
-                              header=self.__progress_file_header)
-        self.__search_box_office_data(movie_data=movie_data,
-                                      progress={self.__progress_file_header[0]: '', self.__progress_file_header[1]: '',
-                                                self.__progress_file_header[2]: ''},
-                                      trying_times=10)
+        self.__search_and_download_data(movie_data=movie_data,
+                                        progress=None,
+                                        trying_times=10)
         movie_data.load_box_office(self.__box_office_data_folder)
-        self.__box_office_data_folder.joinpath(f"{movie_data.movie_id}.{self.__store_file_extension}").unlink()
-        self.__progress_file_path.unlink()
+        delete_file_path = self.__box_office_data_folder.joinpath(
+            f"{movie_data.movie_id}.{self.__store_file_extension}")
+        delete_file_path.unlink()
         return
 
-    def get_box_office_data(self, input_file_path: Optional[Path] = None,
-                            input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
+    def download_multiple_box_office_data(self, input_file_path: Optional[Path] = None,
+                                          input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
         # read index data
@@ -292,7 +292,7 @@ class BoxOfficeCollector:
         with tqdm(total=len(current_progress), bar_format=Constants.STATUS_BAR_FORMAT) as pbar:
             for movie, progress in zip(movie_data, current_progress):
                 try:
-                    self.__search_box_office_data(movie_data=movie, progress=progress)
+                    self.__search_and_download_data(movie_data=movie, progress=progress)
                 except AssertionError:
                     pbar.update(1)
                     continue

@@ -54,7 +54,7 @@ if __name__ == "__main__":
         if args.name:
             movie_data: MovieData = MovieData(movie_name=args.name, movie_id=0)
             BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK,
-                               box_office_data_folder=Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER).download_single_movie_box_office_data(
+                               box_office_data_folder=Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER).download_single_box_office_data(
                 movie_data=movie_data)
             ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_single_movie(
                 movie_data=movie_data)
@@ -72,7 +72,7 @@ if __name__ == "__main__":
             raise AttributeError("You must specify a movie name.")
     elif args.developer:
         input_epoch: int = 1000
-        BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK).get_box_office_data()
+        BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK).download_multiple_box_office_data()
         ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).scrap_train_review_data()
         analyzer: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel(
             model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
@@ -87,7 +87,7 @@ if __name__ == "__main__":
         match args.function:
             case "collect_box_office":
                 with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
-                    collector.get_box_office_data(input_file_path=Path(args.input) if args.input else None)
+                    collector.download_multiple_box_office_data(input_file_path=Path(args.input) if args.input else None)
             case "collect_ptt_review":
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PTT
                 if args.input:
