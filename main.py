@@ -56,62 +56,59 @@ if __name__ == "__main__":
             BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK,
                                box_office_data_folder=Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER).download_single_box_office_data(
                 movie_data=movie_data)
-            ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_single_movie(
+            ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_with_single_movie(
                 movie_data=movie_data)
             analyzer: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel(
                 model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
                 tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH)
             for review in movie_data.public_reviews:
-                review.sentiment_score = analyzer.test(review.content)
+                review.sentiment_score = analyzer.predict(review.content)
             movie_data.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
             MoviePredictionModel(model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH,
                                  training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
-                                 transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH).movie_test(
-                movie_data=movie_data)
+                                 transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH).simple_predict(
+                input_data=movie_data)
         else:
             raise AttributeError("You must specify a movie name.")
     elif args.developer:
         input_epoch: int = 1000
         BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK).download_multiple_box_office_data()
-        ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).scrap_train_review_data()
-        analyzer: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel(
+        ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_with_multiple_movie()
+        ReviewSentimentAnalyseModel(
             model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
-            tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH)
-        for movie in load_index_file():
-            movie.load_public_review()
-            for review in movie.public_reviews:
-                review.sentiment_score = analyzer.test(review.content)
-            movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
-            MoviePredictionModel().movie_train(epoch=input_epoch)
+            tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH).simple_predict(input_data=None)
+        MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch)
     elif args.function:
         match args.function:
             case "collect_box_office":
                 with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
-                    collector.download_multiple_box_office_data(input_file_path=Path(args.input) if args.input else None)
+                    collector.download_multiple_box_office_data(
+                        input_file_path=Path(args.input) if args.input else None)
             case "collect_ptt_review":
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PTT
                 if args.input:
-                    print(ReviewCollector(target_website=target_website).search_review_by_single_movie(args.input))
+                    print(ReviewCollector(target_website=target_website).search_review_with_single_movie(args.input))
                 else:
-                    ReviewCollector(target_website=target_website).scrap_train_review_data()
+                    ReviewCollector(target_website=target_website).search_review_with_multiple_movie()
             case "collect_dcard_review":
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
                 if args.input:
-                    print(ReviewCollector(target_website=target_website).search_review_by_single_movie(args.input))
+                    print(ReviewCollector(target_website=target_website).search_review_with_single_movie(args.input))
                 else:
-                    ReviewCollector(target_website=target_website).scrap_train_review_data()
+                    ReviewCollector(target_website=target_website).search_review_with_multiple_movie()
             case "review_sentiment_model_train":
-                input_epoch: int = int(args.input) if args.input else 1000
-                ReviewSentimentAnalyseModel().train(
-                    data_path=Path("data/review_sentiment_analysis/dataset/review_sentiment_analysis_dataset.csv"),
-                    epoch=input_epoch)
+                input_epoch: int = int(args.input) if args.input else 10
+                model: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel()
+                ReviewSentimentAnalyseModel().simple_train(
+                    input_data=Path("data/review_sentiment_analysis/dataset/review_sentiment_analysis_dataset.csv"),
+                    epoch=input_epoch, model_save_name='test')
             case "review_sentiment_model_test":
                 if args.input:
                     input_review = args.input
-                    default_model_path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH
+                    default_model_path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH.with_stem('test_10')
                     defaults_tokenizer_path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH
                     print(ReviewSentimentAnalyseModel(model_path=default_model_path,
-                                                      tokenizer_path=defaults_tokenizer_path).test(
+                                                      tokenizer_path=defaults_tokenizer_path).predict(
                         input_review))
                 else:
                     analyzer: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel(
@@ -120,18 +117,23 @@ if __name__ == "__main__":
                     for movie in load_index_file():
                         movie.load_public_review()
                         for review in movie.public_reviews:
-                            review.sentiment_score = analyzer.test(review.content)
+                            review.sentiment_score = analyzer.predict(review.content)
                         movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
             case "movie_prediction_train":
-                input_epoch: int = int(args.input) if args.input else 1000
-                MoviePredictionModel().movie_train(epoch=input_epoch)
+                input_epoch: int = int(args.input) if args.input else 10
+                MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch)
             case "movie_prediction_train_gen_data":
-                input_epoch: int = int(args.input) if args.input else 1000
-                MoviePredictionModel().train_with_auto_generated_data(epoch=input_epoch)
+                input_epoch: int = int(args.input) if args.input else 10
+                MoviePredictionModel().simple_train(
+                    input_data=None, epoch=input_epoch, model_save_name='test',
+                    scaler_save_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test'),
+                    setting_save_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'))
             case "movie_prediction_test_gen_data":
-                MoviePredictionModel(model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH,
-                                     training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
-                                     transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH).test_with_auto_generated_data()
+                MoviePredictionModel(
+                    model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
+                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
+                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
+                    simple_predict(input_data=None)
             case _:
                 raise ValueError
     else:
