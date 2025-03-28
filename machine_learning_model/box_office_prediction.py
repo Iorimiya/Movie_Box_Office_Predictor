@@ -1,19 +1,18 @@
-import numpy as np
-from pathlib import Path
-from typing import Optional
-from keras.src.models import Sequential
-from keras.src.layers import LSTM, Dense, Masking, Input, Dropout
-from keras.api.models import load_model
-from keras_preprocessing.sequence import pad_sequences
-from sklearn.preprocessing import MinMaxScaler
-from typing import TypedDict
-from joblib import dump as scaler_dump, load as scaler_load
 import yaml
 import random
+import logging
+import numpy as np
+from pathlib import Path
+from typing import Optional, TypedDict
+from sklearn.preprocessing import MinMaxScaler
+from joblib import dump as scaler_dump, load as scaler_load
+from keras.src.models import Sequential
+from keras.src.layers import LSTM, Dense, Masking, Input, Dropout
+from keras_preprocessing.sequence import pad_sequences
 
-from machine_learning_model.machine_learning_model import MachineLearningModel
-from tools.constant import Constants
 from tools.util import check_path
+from tools.constant import Constants
+from machine_learning_model.machine_learning_model import MachineLearningModel
 from movie_data import MovieData, load_index_file, PublicReview, IndexLoadMode
 
 
@@ -32,8 +31,9 @@ class MoviePredictionModel(MachineLearningModel):
             transform_scaler_path) else None
         self.__training_week_limit: Optional[int] = None
         self.__training_data_len: Optional[int] = None
+        self.__split_rate: Optional[float] = None
         if check_path(training_setting_path):
-            self.__load_setting(training_setting_path)
+            self.__load_training_setting(training_setting_path)
         return
 
     def __save_training_setting(self, file_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
@@ -45,7 +45,7 @@ class MoviePredictionModel(MachineLearningModel):
                 file,
                 allow_unicode=True)
 
-    def __load_setting(self, file_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
+    def __load_training_setting(self, file_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         if not file_path.exists():
             raise FileNotFoundError(f"File {file_path} does not exist")
         with open(file_path, mode='r', encoding=encoding) as file:
@@ -78,12 +78,6 @@ class MoviePredictionModel(MachineLearningModel):
             data.append(movie_data)
         return data
 
-    @classmethod
-    def __load_data(cls, index_path: Optional[Path] = Constants.INDEX_PATH) -> list[list[MoviePredictionInputData]]:
-        movie_data: list[MovieData] = load_index_file(file_path=index_path, mode=IndexLoadMode.FULL)
-        training_data: list = [cls.__transform_single_movie_data(movie=movie) for movie in movie_data]
-        return training_data
-
     @staticmethod
     def __transform_single_movie_data(movie: MovieData) -> list[MoviePredictionInputData]:
         output: list[MoviePredictionInputData] = []
@@ -108,9 +102,21 @@ class MoviePredictionModel(MachineLearningModel):
         return [[[week["box_office"], sum(week["review_sentiment_score"]) / len(week["review_sentiment_score"]) if week[
             "review_sentiment_score"] else 0, week["replies_count"]] for week in movie] for movie in data]
 
-    def __prepare_sequences(self, data: list[list[list[int | float]]]) -> tuple[np.array, np.array]:
+    @classmethod
+    def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
+        logging.info("loading training data.")
+        movie_data: list[MovieData] = load_index_file(file_path=data_path, mode=IndexLoadMode.FULL)
+        training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie
+                                                               in movie_data]
+        return training_data
+
+    def _prepare_data(self, data: any) -> tuple[np.array, np.array, np.array, np.array]:
+        processed_data: list[list[list[int | float]]] = self.__preprocess_data(data)
+        self.__training_data_len = max(len(movie) for movie in processed_data)
+
+        # prepare_sequences
         x, y = [], []
-        for movie in data:
+        for movie in processed_data:
             for i in range(len(movie) - self.__training_week_limit):
                 seq_x: list[list[int | float]] = movie[i:i + self.__training_week_limit]
                 seq_y: int = movie[i + self.__training_week_limit][0]
@@ -118,55 +124,10 @@ class MoviePredictionModel(MachineLearningModel):
                 y.append(seq_y)
         if self.__training_data_len:
             x = pad_sequences(x, maxlen=self.__training_data_len, dtype='float32', padding='post')
-        return np.array(x), np.array(y)
 
-    def __train_and_evaluate_model(self, x_train: np.array, y_train: np.array, x_test: np.array, y_test: np.array,
-                                   epoch: int = 200, old_model_path: Optional[Path] = None) -> tuple[Sequential, float]:
-        if check_path(old_model_path):
-            model = load_model(old_model_path)
-        else:
-            model: Sequential = Sequential()
-            model.add(Input(shape=(self.__training_data_len, x_train.shape[2])))
-            model.add(Masking(mask_value=0.0))
-            model.add(LSTM(128, activation='relu'))
-            model.add(Dropout(0.5))
-            model.add(Dense(1))
-            model.compile(optimizer='adam', loss='mse')
-        model.fit(x_train, y_train, epochs=epoch, verbose=1)
-        loss: float = model.evaluate(x_test, y_test, verbose=0)
-        return model, loss
+        x, y = np.array(x), np.array(y)
 
-    def __predict_next_week_box_office(self, user_input: list[MoviePredictionInputData]) -> float:
-        processed_input: list[list[int | float]] = self.__preprocess_data([user_input])[0]
-        scaled_input: np.ndarray = self.__transform_scaler.transform(np.array(processed_input)[:, 0].reshape(-1, 1))
-        processed_input_scaled: np.ndarray = np.array(processed_input)
-        processed_input_scaled[:, 0] = scaled_input.flatten()
-        input_sequence: list[np.ndarray] = [processed_input_scaled[-self.__training_week_limit:]]
-        input_sequence_padded: np.ndarray = pad_sequences(input_sequence, maxlen=self.__training_data_len,
-                                                          dtype='float32',
-                                                          padding='post')
-
-        prediction_scaled: float = self._model.predict(input_sequence_padded)[0, 0]
-        prediction: float = self.__transform_scaler.inverse_transform([[prediction_scaled]])[0, 0]
-        return prediction
-
-    def train(self, data: list[list[MoviePredictionInputData]],
-              old_model_path: Optional[Path] = None,
-              epoch: int = 1000,
-              model_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER,
-              model_save_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
-              setting_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
-              scaler_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SCALER_PATH,
-              training_week_limit: int = 4,
-              split_rate: float = 0.8) -> None:
-
-        self.__training_week_limit = training_week_limit
-
-        processed_data: list[list[list[int | float]]] = self.__preprocess_data(data)
-        self.__training_data_len = max(len(movie) for movie in processed_data)
-        x, y = self.__prepare_sequences(processed_data)
-
-        split_index: int = int(len(x) * split_rate)
+        split_index: int = int(len(x) * self.__split_rate)
         x_train, y_train, x_test, y_test = x[:split_index], y[:split_index], x[split_index:], y[split_index:]
 
         # Standardization
@@ -180,32 +141,140 @@ class MoviePredictionModel(MachineLearningModel):
         x_test_scaled: np.ndarray = x_test.copy()
         for i in range(x_test.shape[0]):
             x_test_scaled[i, :, 0] = self.__transform_scaler.transform(x_test[i, :, 0].reshape(-1, 1)).flatten()
+        return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled
 
-        self._model, loss = self.__train_and_evaluate_model(x_train_scaled, y_train_scaled, x_test_scaled,
-                                                            y_test_scaled,
-                                                            epoch, old_model_path)
-        print(f"模型測試損失：{loss}")
+    def _build_model(self, model: Sequential, layers: list[any]) -> None:
+        super()._build_model(model=model, layers=layers)
+        model.compile(optimizer='adam', loss='mse')
+
+    def train(self, data: list[list[MoviePredictionInputData]],
+              old_model_path: Optional[Path] = None,
+              epoch: int = 1000,
+              model_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER,
+              model_save_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
+              setting_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
+              scaler_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SCALER_PATH,
+              training_week_limit: int = 4,
+              split_rate: float = 0.8) -> None:
+
+        logging.info("training procedure start.")
+        self.__training_week_limit = training_week_limit
+        self.__split_rate = split_rate
+        x_train, y_train, x_test, y_test = self._prepare_data(data)
+
+        self._model: Sequential = self._create_model(layers=[
+            Input(shape=(self.__training_data_len, x_train.shape[2])),
+            Masking(mask_value=0.0),
+            LSTM(128, activation='relu'),
+            Dropout(0.5),
+            Dense(1)
+        ],
+            old_model_path=old_model_path)
+        self.train_model(x_train, y_train, epoch)
+        loss: float = self.evaluate_model(x_test, y_test)
+        logging.info(f"model test loss: {loss}.")
         self._save_model(file_path=model_save_folder.joinpath(f"{model_save_name}_{epoch}.keras"))
+        np.save(setting_save_path.with_name('x_test.npy'), x_test)
+        np.save(setting_save_path.with_name('y_test.npy'), y_test)
         self.__save_training_setting(setting_save_path)
         self.__save_scaler(scaler_save_path)
 
-    def test(self, user_movie_data: list[MoviePredictionInputData]):
-        prediction: Optional[float] = self.__predict_next_week_box_office(user_movie_data)
-        if prediction is not None:
-            print(f"預測下週票房：{prediction}")
+    def predict(self, data_input: list[MoviePredictionInputData]) -> float:
+        if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
+            raise AssertionError('model, settings, and scaler must be loaded.')
+        processed_input: list[list[int | float]] = self.__preprocess_data([data_input])[0]
+        scaled_input: np.ndarray = self.__transform_scaler.transform(np.array(processed_input)[:, 0].reshape(-1, 1))
+        processed_input_scaled: np.ndarray = np.array(processed_input)
+        processed_input_scaled[:, 0] = scaled_input.flatten()
+        input_sequence: list[np.ndarray] = [processed_input_scaled[-self.__training_week_limit:]]
+        input_sequence_padded: np.ndarray = pad_sequences(input_sequence, maxlen=self.__training_data_len,
+                                                          dtype='float32',
+                                                          padding='post')
 
-    def movie_train(self, epoch: int = 1000):
-        train_data: list[list[MoviePredictionInputData]] = self.__load_data()
-        self.train(train_data, epoch=epoch)
+        prediction_scaled: float = self._model.predict(input_sequence_padded)[0, 0]
+        prediction: float = self.__transform_scaler.inverse_transform([[prediction_scaled]])[0, 0]
+        return prediction
 
-    def movie_test(self, movie_data: MovieData) -> None:
-        self.test(user_movie_data=MoviePredictionModel.__transform_single_movie_data(movie_data))
+    def evaluate_trend(self, test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.parent) -> None:
+        if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
+            raise AssertionError('model, settings, and scaler must be loaded.')
+        try:
+            x_test_loaded = np.load(test_data_folder_path.joinpath("x_test.npy"))
+            y_test_loaded = np.load(test_data_folder_path.joinpath("y_test.npy"))
+        except FileNotFoundError:
+            print(f"錯誤：在 '{test_data_folder_path}' 目錄中找不到 X_test.npy 或 y_test.npy。")
+            return None
 
-    def train_with_auto_generated_data(self, epoch: int = 1000, model_save_name: str = "test"):
-        train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(50, (4, 10), (
-            0, 5))
-        self.train(train_data, epoch=epoch, model_save_name=model_save_name)
+        correct_predictions = 0
+        total_predictions = 0
 
-    def test_with_auto_generated_data(self):
-        test_data: list[MoviePredictionInputData] = self.__generate_random_data(1, (1, 20), (1, 100))[0]
-        self.test(test_data)
+        for i in range(len(x_test_loaded)):
+            if len(x_test_loaded[i]) >= self.__training_week_limit:
+                input_sequence = x_test_loaded[i][-self.__training_week_limit:].reshape(
+                    (1, self.__training_week_limit, x_test_loaded.shape[-1]))
+
+                # 標準化輸入序列的票房特徵
+                input_sequence_scaled = input_sequence.copy()
+                for j in range(input_sequence_scaled.shape[1]):
+                    input_sequence_scaled[0, j, 0] = self.__transform_scaler.transform(
+                        input_sequence[0, j, 0].reshape(-1, 1)).flatten()
+
+                predicted_box_office_scaled = self._model.predict(input_sequence_scaled)[0, 0]
+                predicted_box_office = \
+                    self.__transform_scaler.inverse_transform(np.array([[predicted_box_office_scaled]]))[
+                        0, 0]
+
+                # 判斷預測趨勢
+                current_week_actual_box_office = \
+                    self.__transform_scaler.inverse_transform(np.array([[x_test_loaded[i][-1, 0]]]))[0, 0]
+                predicted_trend = 1 if predicted_box_office > current_week_actual_box_office else 0
+
+                # 判斷實際趨勢
+                if i < len(y_test_loaded):
+                    actual_next_week_box_office = \
+                        self.__transform_scaler.inverse_transform(np.array([[y_test_loaded[i]]]))[
+                            0, 0]
+                    actual_trend = 1 if actual_next_week_box_office > current_week_actual_box_office else 0
+
+                    if predicted_trend == actual_trend:
+                        correct_predictions += 1
+                    total_predictions += 1
+                else:
+                    print(f"警告：X_test 的長度超過 y_test，無法判斷實際趨勢。")
+
+        accuracy = correct_predictions / total_predictions if total_predictions > 0 else 0
+        print(f"趨勢預測準確率：{accuracy:.2%}")
+        return
+
+    def simple_train(self, input_data: Path | list[MovieData] | None,
+                     old_model_path: Optional[Path] = None,
+                     epoch: int = 1000,
+                     model_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER,
+                     model_save_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
+                     setting_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
+                     scaler_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SCALER_PATH,
+                     training_week_limit: int = 4,
+                     split_rate: float = 0.8) -> None:
+        if input_data is None:
+            train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(50, (4, 10), (0, 5))
+            model_save_name = "gen_data"
+        elif isinstance(input_data, list):
+            train_data: list[list[MoviePredictionInputData]] = [self.__transform_single_movie_data(movie=movie) for
+                                                                movie in input_data]
+        elif isinstance(input_data, Path):
+            train_data: list[list[MoviePredictionInputData]] = self._load_training_data(data_path=input_data)
+        else:
+            raise ValueError
+        self.train(data=train_data, old_model_path=old_model_path, epoch=epoch, model_save_folder=model_save_folder,
+                   model_save_name=model_save_name, setting_save_path=setting_save_path,
+                   scaler_save_path=scaler_save_path, training_week_limit=training_week_limit, split_rate=split_rate)
+
+    def simple_predict(self, input_data: MovieData | None) -> None:
+        if input_data is None:
+            test_data: list[MoviePredictionInputData] = self.__generate_random_data(1, (1, 20), (1, 100))[0]
+        elif isinstance(input_data, MovieData):
+            test_data = MoviePredictionModel.__transform_single_movie_data(input_data)
+        else:
+            raise ValueError
+        print(self.predict(test_data))
+        return
