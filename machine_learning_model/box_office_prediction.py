@@ -106,7 +106,8 @@ class MoviePredictionModel(MachineLearningModel):
     def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
         logging.info("loading training data.")
         movie_data: list[MovieData] = load_index_file(file_path=data_path, mode=IndexLoadMode.FULL)
-        training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie in movie_data]
+        training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie
+                                                               in movie_data]
         return training_data
 
     def _prepare_data(self, data: any) -> tuple[np.array, np.array, np.array, np.array]:
@@ -142,7 +143,7 @@ class MoviePredictionModel(MachineLearningModel):
             x_test_scaled[i, :, 0] = self.__transform_scaler.transform(x_test[i, :, 0].reshape(-1, 1)).flatten()
         return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled
 
-    def _build_model(self,model: Sequential, layers: list[any]) -> None:
+    def _build_model(self, model: Sequential, layers: list[any]) -> None:
         super()._build_model(model=model, layers=layers)
         model.compile(optimizer='adam', loss='mse')
 
@@ -173,6 +174,8 @@ class MoviePredictionModel(MachineLearningModel):
         loss: float = self.evaluate_model(x_test, y_test)
         logging.info(f"model test loss: {loss}.")
         self._save_model(file_path=model_save_folder.joinpath(f"{model_save_name}_{epoch}.keras"))
+        np.save(setting_save_path.with_name('x_test.npy'), x_test)
+        np.save(setting_save_path.with_name('y_test.npy'), y_test)
         self.__save_training_setting(setting_save_path)
         self.__save_scaler(scaler_save_path)
 
@@ -192,6 +195,57 @@ class MoviePredictionModel(MachineLearningModel):
         prediction: float = self.__transform_scaler.inverse_transform([[prediction_scaled]])[0, 0]
         return prediction
 
+    def evaluate_trend(self, test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.parent) -> None:
+        if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
+            raise AssertionError('model, settings, and scaler must be loaded.')
+        try:
+            x_test_loaded = np.load(test_data_folder_path.joinpath("x_test.npy"))
+            y_test_loaded = np.load(test_data_folder_path.joinpath("y_test.npy"))
+        except FileNotFoundError:
+            print(f"錯誤：在 '{test_data_folder_path}' 目錄中找不到 X_test.npy 或 y_test.npy。")
+            return None
+
+        correct_predictions = 0
+        total_predictions = 0
+
+        for i in range(len(x_test_loaded)):
+            if len(x_test_loaded[i]) >= self.__training_week_limit:
+                input_sequence = x_test_loaded[i][-self.__training_week_limit:].reshape(
+                    (1, self.__training_week_limit, x_test_loaded.shape[-1]))
+
+                # 標準化輸入序列的票房特徵
+                input_sequence_scaled = input_sequence.copy()
+                for j in range(input_sequence_scaled.shape[1]):
+                    input_sequence_scaled[0, j, 0] = self.__transform_scaler.transform(
+                        input_sequence[0, j, 0].reshape(-1, 1)).flatten()
+
+                predicted_box_office_scaled = self._model.predict(input_sequence_scaled)[0, 0]
+                predicted_box_office = \
+                    self.__transform_scaler.inverse_transform(np.array([[predicted_box_office_scaled]]))[
+                        0, 0]
+
+                # 判斷預測趨勢
+                current_week_actual_box_office = \
+                    self.__transform_scaler.inverse_transform(np.array([[x_test_loaded[i][-1, 0]]]))[0, 0]
+                predicted_trend = 1 if predicted_box_office > current_week_actual_box_office else 0
+
+                # 判斷實際趨勢
+                if i < len(y_test_loaded):
+                    actual_next_week_box_office = \
+                        self.__transform_scaler.inverse_transform(np.array([[y_test_loaded[i]]]))[
+                            0, 0]
+                    actual_trend = 1 if actual_next_week_box_office > current_week_actual_box_office else 0
+
+                    if predicted_trend == actual_trend:
+                        correct_predictions += 1
+                    total_predictions += 1
+                else:
+                    print(f"警告：X_test 的長度超過 y_test，無法判斷實際趨勢。")
+
+        accuracy = correct_predictions / total_predictions if total_predictions > 0 else 0
+        print(f"趨勢預測準確率：{accuracy:.2%}")
+        return
+
     def simple_train(self, input_data: Path | list[MovieData] | None,
                      old_model_path: Optional[Path] = None,
                      epoch: int = 1000,
@@ -205,7 +259,8 @@ class MoviePredictionModel(MachineLearningModel):
             train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(50, (4, 10), (0, 5))
             model_save_name = "gen_data"
         elif isinstance(input_data, list):
-            train_data:list[list[MoviePredictionInputData]] = [self.__transform_single_movie_data(movie=movie) for movie in input_data]
+            train_data: list[list[MoviePredictionInputData]] = [self.__transform_single_movie_data(movie=movie) for
+                                                                movie in input_data]
         elif isinstance(input_data, Path):
             train_data: list[list[MoviePredictionInputData]] = self._load_training_data(data_path=input_data)
         else:

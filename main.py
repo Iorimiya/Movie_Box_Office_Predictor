@@ -20,7 +20,7 @@ def set_argument_parser() -> Namespace:
                        choices=["collect_box_office", "collect_ptt_review", "collect_dcard_review",
                                 "review_sentiment_model_train", "review_sentiment_model_test", "movie_prediction_train",
                                 "movie_prediction_test", "movie_prediction_train_gen_data",
-                                "movie_prediction_test_gen_data"],
+                                "movie_prediction_test_gen_data","movie_prediction_evaluation"],
                        help="unit test")
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result.")
@@ -134,6 +134,12 @@ if __name__ == "__main__":
                     training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
                     transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
                     simple_predict(input_data=None)
+            case "movie_prediction_evaluation":
+                MoviePredictionModel(
+                    model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
+                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
+                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
+                    evaluate_trend()
             case _:
                 raise ValueError
     else:
