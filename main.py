@@ -19,11 +19,14 @@ def set_argument_parser() -> Namespace:
     group.add_argument("-f", "--function", type=str,
                        choices=["collect_box_office", "collect_ptt_review", "collect_dcard_review",
                                 "review_sentiment_model_train", "review_sentiment_model_test", "movie_prediction_train",
-                                "movie_prediction_test", "movie_prediction_train_gen_data",
-                                "movie_prediction_test_gen_data","movie_prediction_evaluation"],
+                                "movie_prediction_test", "add_sentiment_score_to_saved_data",
+                                "movie_prediction_train_gen_data",
+                                "movie_prediction_test_gen_data", "movie_prediction_evaluation"],
                        help="unit test")
     parser.add_argument("-n", "--name", type=str, required=False,
-                        help="the movie name that user want to get rating result.")
+                        help="the movie name that user want to get rating result, or the target movie name that search in unit test.")
+    parser.add_argument("-e", "--epoch", type=int, required=False, help="training epoch of model.")
+    parser.add_argument("-p", "--path", type=int, required=False, help="file path for unit test.")
     parser.add_argument("-i", "--input", type=str, required=False, help="the input of unit test.")
 
     return parser.parse_args()
@@ -52,6 +55,8 @@ if __name__ == "__main__":
 
     if args.user:
         if args.name:
+            logging.info("collecting box office, reviews and predicting box office next week.")
+            logging.info(f"name inputted: {args.name}")
             movie_data: MovieData = MovieData(movie_name=args.name, movie_id=0)
             BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK,
                                box_office_data_folder=Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER).download_single_box_office_data(
@@ -71,70 +76,103 @@ if __name__ == "__main__":
         else:
             raise AttributeError("You must specify a movie name.")
     elif args.developer:
-        input_epoch: int = 1000
-        BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK).download_multiple_box_office_data()
-        ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_with_multiple_movie()
-        ReviewSentimentAnalyseModel(
-            model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
-            tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH).simple_predict(input_data=None)
-        MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch)
+        if args.epoch:
+            logging.info("collecting box office, reviews and training model for prediction.")
+            logging.info(f"epoch inputted: {args.epoch}")
+            input_epoch: int = int(args.epoch)
+            BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK).download_multiple_box_office_data()
+            ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_with_multiple_movie()
+            ReviewSentimentAnalyseModel(
+                model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
+                tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH).simple_predict(input_data=None)
+            MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch)
+        else:
+            raise AttributeError("You must specify value of epoch.")
     elif args.function:
         match args.function:
             case "collect_box_office":
+                logging.info("Collecting box office.")
+                logging.info(f"path inputted: {args.path}.")
                 with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
                     collector.download_multiple_box_office_data(
-                        input_file_path=Path(args.input) if args.input else None)
+                        input_file_path=Path(args.path) if args.path else None)
             case "collect_ptt_review":
+                logging.info("Collecting ptt review.")
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PTT
-                if args.input:
-                    print(ReviewCollector(target_website=target_website).search_review_with_single_movie(args.input))
+                if args.name:
+                    logging.info(f"name inputted: {args.name}.")
+                    print(ReviewCollector(target_website=target_website).search_review_with_single_movie(args.name))
                 else:
                     ReviewCollector(target_website=target_website).search_review_with_multiple_movie()
             case "collect_dcard_review":
+                logging.info("Collecting dcard review.")
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
-                if args.input:
-                    print(ReviewCollector(target_website=target_website).search_review_with_single_movie(args.input))
+                if args.name:
+                    logging.info(f"name inputted: {args.name}.")
+                    print(ReviewCollector(target_website=target_website).search_review_with_single_movie(args.name))
                 else:
                     ReviewCollector(target_website=target_website).search_review_with_multiple_movie()
             case "review_sentiment_model_train":
-                input_epoch: int = int(args.input) if args.input else 10
-                model: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel()
-                ReviewSentimentAnalyseModel().simple_train(
-                    input_data=Path("data/review_sentiment_analysis/dataset/review_sentiment_analysis_dataset.csv"),
-                    epoch=input_epoch, model_save_name='test')
+                if args.epoch:
+                    logging.info('training sentiment model.')
+                    logging.info(f"epoch inputted: {args.epoch}")
+                    input_epoch: int = int(args.epoch)
+                    ReviewSentimentAnalyseModel().simple_train(
+                        input_data=Path("data/review_sentiment_analysis/dataset/review_sentiment_analysis_dataset.csv"),
+                        epoch=input_epoch, model_save_name='test')
+                else:
+                    raise AttributeError("You must specify value of epoch.")
             case "review_sentiment_model_test":
                 if args.input:
+                    logging.info('testing sentiment model.')
+                    logging.info(f"review content inputted: {args.input}")
                     input_review = args.input
                     default_model_path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH.with_stem('test_10')
                     defaults_tokenizer_path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH
                     print(ReviewSentimentAnalyseModel(model_path=default_model_path,
                                                       tokenizer_path=defaults_tokenizer_path).predict(
                         input_review))
+
                 else:
-                    analyzer: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel(
-                        model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
-                        tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH)
-                    for movie in load_index_file():
-                        movie.load_public_review()
-                        for review in movie.public_reviews:
-                            review.sentiment_score = analyzer.predict(review.content)
-                        movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
+                    raise AttributeError("You must enter review content.")
+            case "add_sentiment_score_to_saved_data":
+                logging.info("adding sentiment score to saved data.")
+                analyzer: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel(
+                    model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
+                    tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH)
+                for movie in load_index_file():
+                    movie.load_public_review()
+                    for review in movie.public_reviews:
+                        review.sentiment_score = analyzer.predict(review.content)
+                    movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
             case "movie_prediction_train":
-                input_epoch: int = int(args.input) if args.input else 10
-                MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch)
+                if args.epoch:
+                    logging.info('training prediction model.')
+                    logging.info(f"epoch inputted: {args.epoch}")
+                    input_epoch: int = int(args.epoch)
+                    MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch)
+                else:
+                    raise AttributeError("You must specify value of epoch.")
             case "movie_prediction_train_gen_data":
-                input_epoch: int = int(args.input) if args.input else 10
-                MoviePredictionModel().simple_train(
-                    input_data=None, epoch=input_epoch, model_save_name='test',
-                    scaler_save_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test'),
-                    setting_save_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'))
+                if args.epoch:
+                    logging.info('training prediction model with generated data.')
+                    logging.info(f"epoch inputted: {args.epoch}")
+                    input_epoch: int = int(args.epoch)
+                    MoviePredictionModel().simple_train(
+                        input_data=None, epoch=input_epoch, model_save_name='test',
+                        scaler_save_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test'),
+                        setting_save_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'))
+                else:
+                    raise AttributeError("You must specify value of epoch.")
             case "movie_prediction_test_gen_data":
+                logging.info('testing prediction model with generated data.')
                 MoviePredictionModel(
                     model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
                     training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
                     transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
                     simple_predict(input_data=None)
             case "movie_prediction_evaluation":
+                logging.info('evaluating prediction model with generated data.')
                 MoviePredictionModel(
                     model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
                     training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
