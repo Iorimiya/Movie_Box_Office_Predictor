@@ -1,14 +1,14 @@
 import logging
-from argparse import ArgumentParser, Namespace
 from pathlib import Path
 from datetime import datetime
+from argparse import ArgumentParser, Namespace
 
-from web_scraper.box_office_collector import BoxOfficeCollector
+from tools.constant import Constants
+from movie_data import load_index_file, MovieData
 from web_scraper.review_collector import ReviewCollector
-from machine_learning_model.review_sentiment_analysis import ReviewSentimentAnalyseModel
-from movie_data import load_index_file, PublicReview, MovieData
-from tools.util import *
+from web_scraper.box_office_collector import BoxOfficeCollector
 from machine_learning_model.box_office_prediction import MoviePredictionModel
+from machine_learning_model.review_sentiment_analysis import ReviewSentimentAnalyseModel
 
 
 def set_argument_parser() -> Namespace:

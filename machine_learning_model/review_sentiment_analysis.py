@@ -13,7 +13,7 @@ from keras.src.models import Sequential
 from keras.src.layers import Embedding, LSTM, Dense, Dropout, Input
 
 from machine_learning_model.machine_learning_model import MachineLearningModel
-from movie_data import MovieData, load_index_file
+from movie_data import load_index_file
 from tools.util import check_path
 from tools.constant import Constants
 
