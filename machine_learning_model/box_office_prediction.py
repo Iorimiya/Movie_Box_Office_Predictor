@@ -100,7 +100,7 @@ class MoviePredictionModel(MachineLearningModel):
     @staticmethod
     def __preprocess_data(data: list[list[MoviePredictionInputData]]) -> list[list[list[int | float]]]:
         return [[[week["box_office"], sum(week["review_sentiment_score"]) / len(week["review_sentiment_score"]) if week[
-            "review_sentiment_score"] else 0, week["replies_count"]] for week in movie] for movie in data]
+            "review_sentiment_score"] else 0, week["replies_count"]] for week in movie if week["box_office"]>0] for movie in data]
 
     @classmethod
     def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
