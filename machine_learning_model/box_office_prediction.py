@@ -155,7 +155,7 @@ class MoviePredictionModel(MachineLearningModel):
         for i in range(x_test.shape[0]):
             # 提取每個序列的所有時間步的票房特徵 (二維)
             x_test_scaled[i, :, 0] = self.__scale_box_office_feature(x_test[i, :, 0].reshape(-1, 1)).flatten()
-        
+
         return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled
 
     def _build_model(self, model: Sequential, layers: list[any]) -> None:
@@ -189,8 +189,8 @@ class MoviePredictionModel(MachineLearningModel):
         loss: float = self.evaluate_model(x_test, y_test)
         logging.info(f"model test loss: {loss}.")
         self._save_model(file_path=model_save_folder.joinpath(f"{model_save_name}_{epoch}.keras"))
-        np.save(setting_save_path.with_name('x_test.npy'), x_test)
-        np.save(setting_save_path.with_name('y_test.npy'), y_test)
+        np.save(Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER.joinpath('x_test.npy'), x_test)
+        np.save(Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER.joinpath('y_test.npy'), y_test)
         self.__save_training_setting(setting_save_path)
         self.__save_scaler(scaler_save_path)
 
@@ -211,59 +211,105 @@ class MoviePredictionModel(MachineLearningModel):
         prediction: float = self.__transform_scaler.inverse_transform([[prediction_scaled]])[0, 0]
         return prediction
 
-    def evaluate_trend(self, test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.parent) -> None:
-        if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
-            raise ValueError('model, settings, and scaler must be loaded.')
-        try:
-            x_test_loaded:NDArray[float32] = np.load(test_data_folder_path.joinpath("x_test.npy"))
-            y_test_loaded:NDArray[float64] = np.load(test_data_folder_path.joinpath("y_test.npy"))
-        except FileNotFoundError:
-            print(f"錯誤：在 '{test_data_folder_path}' 目錄中找不到 X_test.npy 或 y_test.npy。")
-            return None
+    def _evaluate_predictions(self, x_test_loaded: NDArray[float32], y_test_loaded: NDArray[float64],
+                              prediction_logic: callable) -> tuple[int, int]:
+        """
+        Evaluates predictions based on a given prediction logic.
 
-        correct_predictions:int = 0
-        total_predictions:int = 0
+        Args:
+            x_test_loaded: Loaded test input data.
+            y_test_loaded: Loaded test target data.
+            prediction_logic: A callable that takes predicted and actual box office values and returns True if the prediction is considered correct, False otherwise.
+
+        Returns:
+            A tuple containing the number of correct predictions and the total number of predictions.
+        """
+        correct_predictions: int = 0
+        total_predictions: int = 0
 
         for i in range(len(x_test_loaded)):
             if len(x_test_loaded[i]) >= self.__training_week_limit:
-                input_sequence: NDArray[float32] = x_test_loaded[i][-self.__training_week_limit:]
+                input_sequence: NDArray[float32] = x_test_loaded[i][-self.__training_week_limit:].reshape(
+                    (1, self.__training_week_limit, x_test_loaded.shape[-1]))
 
-                # 提取最後 training_week_limit 周的票房特徵 (二維)
-                box_office_sequence = input_sequence[:, 0].reshape(-1, 1)
-                input_sequence_scaled_box_office: NDArray[float32] = self.__scale_box_office_feature(
-                    box_office_sequence)
-
-                # 創建一個新的標準化後的輸入序列
+                # Standardize the box office feature of the input sequence
                 input_sequence_scaled: NDArray[float32] = input_sequence.copy()
-                input_sequence_scaled[:, 0] = input_sequence_scaled_box_office.flatten()
-                input_sequence_scaled = input_sequence_scaled.reshape(1, self.__training_week_limit,
-                                                                      x_test_loaded.shape[-1])
+                for j in range(input_sequence_scaled.shape[1]):
+                    input_sequence_scaled[0, j, 0] = self.__transform_scaler.transform(
+                        input_sequence[0, j, 0].reshape(-1, 1)).flatten()
 
                 predicted_box_office_scaled: NDArray[float32] = self._model.predict(input_sequence_scaled)[0, 0]
-                predicted_box_office: NDArray[float32] = \
-                    self.__transform_scaler.inverse_transform(np.array([[predicted_box_office_scaled]]))[
-                        0, 0]
+                predicted_box_office: float = self.__transform_scaler.inverse_transform(
+                    np.array([[predicted_box_office_scaled]]))[0, 0]
 
-                # 判斷預測趨勢
-                current_week_actual_box_office: float32 = \
-                    self.__transform_scaler.inverse_transform(np.array([[x_test_loaded[i][-1, 0]]]))[0, 0]
-                predicted_trend: int = 1 if predicted_box_office > current_week_actual_box_office else 0
-
-                # 判斷實際趨勢
                 if i < len(y_test_loaded):
-                    actual_next_week_box_office: float64 = \
-                        self.__transform_scaler.inverse_transform(np.array([[y_test_loaded[i]]]))[
-                            0, 0]
-                    actual_trend: int = 1 if actual_next_week_box_office > current_week_actual_box_office else 0
-
-                    if predicted_trend == actual_trend:
+                    actual_next_week_box_office: float = self.__transform_scaler.inverse_transform(
+                        np.array([[y_test_loaded[i]]]))[0, 0]
+                    if prediction_logic(predicted_box_office, actual_next_week_box_office, x_test_loaded[i][-1, 0]):
                         correct_predictions += 1
                     total_predictions += 1
                 else:
-                    print(f"警告：x_test 的長度超過 y_test，無法判斷實際趨勢。")
+                    logging.warning("Length of x_test exceeds y_test, cannot determine actual value.")
 
-        accuracy:float = correct_predictions / total_predictions if total_predictions > 0 else 0
-        print(f"趨勢預測準確率：{accuracy:.2%}")
+        return correct_predictions, total_predictions
+
+    def evaluate_trend(self, test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER) -> None:
+        """
+        Evaluates the model's accuracy in predicting the trend of box office revenue.
+
+        Args:
+            test_data_folder_path: The directory path containing x_test.npy and y_test.npy.
+        """
+        if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
+            raise AssertionError('model, settings, and scaler must be loaded.')
+        x_test_loaded, y_test_loaded = self._load_test_data(test_data_folder_path)
+
+        def trend_prediction_logic(predicted: float, actual: float, current: float) -> bool:
+            predicted_trend = 1 if predicted > current else 0
+            actual_trend = 1 if actual > current else 0
+            return predicted_trend == actual_trend
+
+        correct_predictions, total_predictions = self._evaluate_predictions(x_test_loaded, y_test_loaded,
+                                                                            trend_prediction_logic)
+        accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
+        print(f"Trend prediction accuracy: {accuracy:.2%}")
+        logging.info(f"Trend prediction accuracy: {accuracy:.2%}")
+        return
+
+    def evaluate_range(self, box_office_ranges: tuple[int,],
+                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER) -> None:
+        """
+        Evaluates the model's prediction accuracy based on box office ranges.
+
+        Args:
+            box_office_ranges: A tuple of box office range boundaries, e.g., (100, 200, 400).
+            test_data_folder_path: The directory path containing x_test.npy and y_test.npy.
+        """
+        if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
+            raise AssertionError('model, settings, and scaler must be loaded.')
+        x_test_loaded, y_test_loaded = self._load_test_data(test_data_folder_path)
+
+        # Create box office ranges
+        ranges = sorted(list(box_office_ranges))
+        thresholds = [-float('inf')] + ranges + [float('inf')]
+        logging.info(f"Box office ranges: {thresholds}")
+
+        def get_box_office_range_index(box_office: float) -> int:
+            for i in range(len(thresholds) - 1):
+                if thresholds[i] <= box_office < thresholds[i + 1]:
+                    return i
+            raise ValueError(f"Invalid value {box_office} of box office.")
+
+        def range_prediction_logic(predicted: float, actual: float) -> bool:
+            predicted_range_index = get_box_office_range_index(predicted)
+            actual_range_index = get_box_office_range_index(actual)
+            return predicted_range_index == actual_range_index
+
+        correct_predictions, total_predictions = self._evaluate_predictions(x_test_loaded, y_test_loaded,
+                                                                            range_prediction_logic)
+        accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
+        print(f"Range prediction accuracy: {accuracy:.2%}")
+        logging.info(f"Range prediction accuracy: {accuracy:.2%}")
         return
 
     def simple_train(self, input_data: Path | list[MovieData] | None,
