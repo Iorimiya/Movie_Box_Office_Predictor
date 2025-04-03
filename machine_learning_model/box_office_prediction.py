@@ -2,6 +2,8 @@ import yaml
 import random
 import logging
 import numpy as np
+from numpy import float32, float64
+from numpy.typing import NDArray
 from pathlib import Path
 from typing import Optional, TypedDict
 from sklearn.preprocessing import MinMaxScaler
@@ -102,6 +104,15 @@ class MoviePredictionModel(MachineLearningModel):
         return [[[week["box_office"], sum(week["review_sentiment_score"]) / len(week["review_sentiment_score"]) if week[
             "review_sentiment_score"] else 0, week["replies_count"]] for week in movie if week["box_office"]>0] for movie in data]
 
+    def __scale_box_office_feature(self, data: NDArray) -> NDArray:
+        if not self.__transform_scaler:
+            raise ValueError("scaler must exist.")
+        if data.ndim != 2:
+            raise ValueError("Data inputted must have 2 dimensions.")
+        scaled_data: NDArray = data.copy()
+        scaled_data[:, 0] = self.__transform_scaler.transform(scaled_data[:, 0].reshape(-1, 1)).flatten()
+        return scaled_data
+
     @classmethod
     def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
         logging.info("loading training data.")
@@ -110,7 +121,7 @@ class MoviePredictionModel(MachineLearningModel):
                                                                in movie_data]
         return training_data
 
-    def _prepare_data(self, data: any) -> tuple[np.array, np.array, np.array, np.array]:
+    def _prepare_data(self, data: any) -> tuple[NDArray[float32], NDArray[float64], NDArray[float32], NDArray[float64]]:
         processed_data: list[list[list[int | float]]] = self.__preprocess_data(data)
         self.__training_data_len = max(len(movie) for movie in processed_data)
 
@@ -132,15 +143,19 @@ class MoviePredictionModel(MachineLearningModel):
 
         # Standardization
         self.__transform_scaler: MinMaxScaler = MinMaxScaler()
-        y_train_scaled: np.ndarray = self.__transform_scaler.fit_transform(y_train.reshape(-1, 1)).flatten()
-        x_train_scaled: np.ndarray = x_train.copy()
-        for i in range(x_train.shape[0]):
-            x_train_scaled[i, :, 0] = self.__transform_scaler.transform(x_train[i, :, 0].reshape(-1, 1)).flatten()
+        y_train_scaled: NDArray[float64] = self.__transform_scaler.fit_transform(y_train.reshape(-1, 1)).flatten()
+        y_test_scaled: NDArray[float64] = self.__transform_scaler.transform(y_test.reshape(-1, 1)).flatten()
 
-        y_test_scaled: np.ndarray = self.__transform_scaler.transform(y_test.reshape(-1, 1)).flatten()
-        x_test_scaled: np.ndarray = x_test.copy()
+        x_train_scaled: NDArray[float32] = x_train.copy()
+        for i in range(x_train.shape[0]):
+            # 提取每個序列的所有時間步的票房特徵 (二維)
+            x_train_scaled[i, :, 0] = self.__scale_box_office_feature(x_train[i, :, 0].reshape(-1, 1)).flatten()
+
+        x_test_scaled: NDArray[float32] = x_test.copy()
         for i in range(x_test.shape[0]):
-            x_test_scaled[i, :, 0] = self.__transform_scaler.transform(x_test[i, :, 0].reshape(-1, 1)).flatten()
+            # 提取每個序列的所有時間步的票房特徵 (二維)
+            x_test_scaled[i, :, 0] = self.__scale_box_office_feature(x_test[i, :, 0].reshape(-1, 1)).flatten()
+        
         return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled
 
     def _build_model(self, model: Sequential, layers: list[any]) -> None:
@@ -181,15 +196,16 @@ class MoviePredictionModel(MachineLearningModel):
 
     def predict(self, data_input: list[MoviePredictionInputData]) -> float:
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
-            raise AssertionError('model, settings, and scaler must be loaded.')
+            raise ValueError('model, settings, and scaler must be loaded.')
         processed_input: list[list[int | float]] = self.__preprocess_data([data_input])[0]
-        scaled_input: np.ndarray = self.__transform_scaler.transform(np.array(processed_input)[:, 0].reshape(-1, 1))
-        processed_input_scaled: np.ndarray = np.array(processed_input)
+        processed_input_array: NDArray[any] = np.array(processed_input)
+        scaled_input: NDArray[any] = self.__scale_box_office_feature(processed_input_array[:, :1])  # 只標準化票房
+        processed_input_scaled: NDArray[any] = processed_input_array.copy()
         processed_input_scaled[:, 0] = scaled_input.flatten()
-        input_sequence: list[np.ndarray] = [processed_input_scaled[-self.__training_week_limit:]]
-        input_sequence_padded: np.ndarray = pad_sequences(input_sequence, maxlen=self.__training_data_len,
-                                                          dtype='float32',
-                                                          padding='post')
+        input_sequence: list[NDArray[any]] = [processed_input_scaled[-self.__training_week_limit:]]
+        input_sequence_padded: NDArray[any] = pad_sequences(input_sequence, maxlen=self.__training_data_len,
+                                                            dtype='float32',
+                                                            padding='post')
 
         prediction_scaled: float = self._model.predict(input_sequence_padded)[0, 0]
         prediction: float = self.__transform_scaler.inverse_transform([[prediction_scaled]])[0, 0]
@@ -197,52 +213,56 @@ class MoviePredictionModel(MachineLearningModel):
 
     def evaluate_trend(self, test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.parent) -> None:
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
-            raise AssertionError('model, settings, and scaler must be loaded.')
+            raise ValueError('model, settings, and scaler must be loaded.')
         try:
-            x_test_loaded = np.load(test_data_folder_path.joinpath("x_test.npy"))
-            y_test_loaded = np.load(test_data_folder_path.joinpath("y_test.npy"))
+            x_test_loaded:NDArray[float32] = np.load(test_data_folder_path.joinpath("x_test.npy"))
+            y_test_loaded:NDArray[float64] = np.load(test_data_folder_path.joinpath("y_test.npy"))
         except FileNotFoundError:
             print(f"錯誤：在 '{test_data_folder_path}' 目錄中找不到 X_test.npy 或 y_test.npy。")
             return None
 
-        correct_predictions = 0
-        total_predictions = 0
+        correct_predictions:int = 0
+        total_predictions:int = 0
 
         for i in range(len(x_test_loaded)):
             if len(x_test_loaded[i]) >= self.__training_week_limit:
-                input_sequence = x_test_loaded[i][-self.__training_week_limit:].reshape(
-                    (1, self.__training_week_limit, x_test_loaded.shape[-1]))
+                input_sequence: NDArray[float32] = x_test_loaded[i][-self.__training_week_limit:]
 
-                # 標準化輸入序列的票房特徵
-                input_sequence_scaled = input_sequence.copy()
-                for j in range(input_sequence_scaled.shape[1]):
-                    input_sequence_scaled[0, j, 0] = self.__transform_scaler.transform(
-                        input_sequence[0, j, 0].reshape(-1, 1)).flatten()
+                # 提取最後 training_week_limit 周的票房特徵 (二維)
+                box_office_sequence = input_sequence[:, 0].reshape(-1, 1)
+                input_sequence_scaled_box_office: NDArray[float32] = self.__scale_box_office_feature(
+                    box_office_sequence)
 
-                predicted_box_office_scaled = self._model.predict(input_sequence_scaled)[0, 0]
-                predicted_box_office = \
+                # 創建一個新的標準化後的輸入序列
+                input_sequence_scaled: NDArray[float32] = input_sequence.copy()
+                input_sequence_scaled[:, 0] = input_sequence_scaled_box_office.flatten()
+                input_sequence_scaled = input_sequence_scaled.reshape(1, self.__training_week_limit,
+                                                                      x_test_loaded.shape[-1])
+
+                predicted_box_office_scaled: NDArray[float32] = self._model.predict(input_sequence_scaled)[0, 0]
+                predicted_box_office: NDArray[float32] = \
                     self.__transform_scaler.inverse_transform(np.array([[predicted_box_office_scaled]]))[
                         0, 0]
 
                 # 判斷預測趨勢
-                current_week_actual_box_office = \
+                current_week_actual_box_office: float32 = \
                     self.__transform_scaler.inverse_transform(np.array([[x_test_loaded[i][-1, 0]]]))[0, 0]
-                predicted_trend = 1 if predicted_box_office > current_week_actual_box_office else 0
+                predicted_trend: int = 1 if predicted_box_office > current_week_actual_box_office else 0
 
                 # 判斷實際趨勢
                 if i < len(y_test_loaded):
-                    actual_next_week_box_office = \
+                    actual_next_week_box_office: float64 = \
                         self.__transform_scaler.inverse_transform(np.array([[y_test_loaded[i]]]))[
                             0, 0]
-                    actual_trend = 1 if actual_next_week_box_office > current_week_actual_box_office else 0
+                    actual_trend: int = 1 if actual_next_week_box_office > current_week_actual_box_office else 0
 
                     if predicted_trend == actual_trend:
                         correct_predictions += 1
                     total_predictions += 1
                 else:
-                    print(f"警告：X_test 的長度超過 y_test，無法判斷實際趨勢。")
+                    print(f"警告：x_test 的長度超過 y_test，無法判斷實際趨勢。")
 
-        accuracy = correct_predictions / total_predictions if total_predictions > 0 else 0
+        accuracy:float = correct_predictions / total_predictions if total_predictions > 0 else 0
         print(f"趨勢預測準確率：{accuracy:.2%}")
         return
 
