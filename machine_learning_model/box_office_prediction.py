@@ -26,8 +26,30 @@ class MoviePredictionInputData(TypedDict):
 
 
 class MoviePredictionModel(MachineLearningModel):
+    """
+    A machine learning model for predicting movie box office revenue.
+
+    This class utilizes an LSTM network to predict future box office revenue based on historical data,
+    including box office performance, review sentiment, and engagement metrics.
+    It handles data loading, preprocessing, model training, prediction, and evaluation.
+
+    Attributes:
+        __transform_scaler (Optional[MinMaxScaler]): Scaler for transforming the box office feature. Loaded from `transform_scaler_path`.
+        __training_week_limit (Optional[int]): The number of past weeks used as input for prediction. Loaded from `training_setting_path`.
+        __training_data_len (Optional[int]): The maximum sequence length of training data after padding. Loaded from `training_setting_path`.
+        __split_rate (Optional[float]): The ratio for splitting training data into training and testing sets. Loaded during training.
+    """
+
     def __init__(self, model_path: Optional[Path] = None, transform_scaler_path: Optional[Path] = None,
                  training_setting_path: Optional[Path] = None) -> None:
+        """
+        Initializes the MoviePredictionModel.
+
+        Args:
+            model_path (Optional[Path]): Path to a pre-trained model file. If provided, the model will be loaded.
+            transform_scaler_path (Optional[Path]): Path to a saved MinMaxScaler file. If provided, the scaler will be loaded.
+            training_setting_path (Optional[Path]): Path to a YAML file containing training settings (training_data_len, training_week_limit).
+        """
         super().__init__(model_path=model_path)
         self.__transform_scaler: Optional[MinMaxScaler] = scaler_load(transform_scaler_path) if check_path(
             transform_scaler_path) else None
@@ -39,6 +61,13 @@ class MoviePredictionModel(MachineLearningModel):
         return
 
     def __save_training_setting(self, file_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
+        """
+        Saves the training settings (training_data_len, training_week_limit) to a YAML file.
+
+        Args:
+           file_path (Path): The path to save the training settings file.
+           encoding (str): The encoding to use when writing the file (default: Constants.DEFAULT_ENCODING).
+        """
         self._check_save_folder(file_path.parent)
         yaml.Dumper.ignore_aliases = lambda self_, _: True
         with open(file_path, mode='w', encoding=encoding) as file:
@@ -48,6 +77,16 @@ class MoviePredictionModel(MachineLearningModel):
                 allow_unicode=True)
 
     def __load_training_setting(self, file_path: Path, encoding: str = Constants.DEFAULT_ENCODING) -> None:
+        """
+        Loads the training settings (training_data_len, training_week_limit) from a YAML file.
+
+        Args:
+            file_path (Path): The path to the training settings file.
+            encoding (str): The encoding to use when reading the file (default: Constants.DEFAULT_ENCODING).
+
+        Raises:
+            FileNotFoundError: If the specified file does not exist.
+        """
         if not file_path.exists():
             raise FileNotFoundError(f"File {file_path} does not exist")
         with open(file_path, mode='r', encoding=encoding) as file:
@@ -57,6 +96,12 @@ class MoviePredictionModel(MachineLearningModel):
         return
 
     def __save_scaler(self, file_path: Path) -> None:
+        """
+        Saves the MinMaxScaler used for scaling the box office feature.
+
+        Args:
+            file_path (Path): The path to save the scaler file.
+        """
         self._check_save_folder(file_path.parent)
         scaler_dump(self.__transform_scaler, file_path)
         return
@@ -64,6 +109,18 @@ class MoviePredictionModel(MachineLearningModel):
     @staticmethod
     def __generate_random_data(num_movies: int, weeks_range: tuple[int, int], reviews_range: tuple[int, int]) \
             -> list[list[MoviePredictionInputData]]:
+        """
+        Generates random movie prediction input data for testing purposes.
+
+        Args:
+            num_movies (int): The number of movies to generate data for.
+            weeks_range (tuple[int, int]): The range (min, max) for the number of weeks of data per movie.
+            reviews_range (tuple[int, int]): The range (min, max) for the number of reviews per week.
+
+        Returns:
+            list[list[MoviePredictionInputData]]: A list where each inner list represents a movie,
+                                                 and contains a list of MoviePredictionInputData for each week.
+        """
         data = []
         for _ in range(num_movies):
             num_weeks = random.randint(weeks_range[0], weeks_range[1])
@@ -82,6 +139,16 @@ class MoviePredictionModel(MachineLearningModel):
 
     @staticmethod
     def __transform_single_movie_data(movie: MovieData) -> list[MoviePredictionInputData]:
+        """
+        Transforms a single MovieData object into a list of MoviePredictionInputData.
+
+        Args:
+            movie (MovieData): The MovieData object to transform.
+
+        Returns:
+            list[MoviePredictionInputData]: A list of MoviePredictionInputData, where each element
+                                            represents the data for a single week of the movie's performance.
+        """
         output: list[MoviePredictionInputData] = []
         for week in movie.box_office:
             box_office: int = week.box_office
@@ -101,10 +168,37 @@ class MoviePredictionModel(MachineLearningModel):
 
     @staticmethod
     def __preprocess_data(data: list[list[MoviePredictionInputData]]) -> list[list[list[int | float]]]:
+        """
+        Preprocesses the raw input data into a numerical format suitable for the model.
+
+        This function extracts 'box_office', the average of 'review_sentiment_score', and 'replies_count'
+        for each week of each movie. Weeks with zero or negative box office are filtered out.
+
+        Args:
+            data (list[list[MoviePredictionInputData]]): The raw input data, a list of movies, where each movie
+                                                        is a list of weekly MoviePredictionInputData.
+
+        Returns:
+            list[list[list[int | float]]]: A list of movies, where each movie is a list of weekly features
+                                            (box_office, average_sentiment, replies_count).
+        """
         return [[[week["box_office"], sum(week["review_sentiment_score"]) / len(week["review_sentiment_score"]) if week[
-            "review_sentiment_score"] else 0, week["replies_count"]] for week in movie if week["box_office"]>0] for movie in data]
+            "review_sentiment_score"] else 0, week["replies_count"]] for week in movie if week["box_office"] > 0] for
+                movie in data]
 
     def __scale_box_office_feature(self, data: NDArray) -> NDArray:
+        """
+        Scales the box office feature using the loaded MinMaxScaler.
+
+        Args:
+            data (NDArray): A 2-dimensional NumPy array where the first column is the box office data.
+
+        Returns:
+            NDArray: A NumPy array with the box office feature scaled.
+
+        Raises:
+            ValueError: If the scaler has not been loaded or if the input data is not 2-dimensional.
+        """
         if not self.__transform_scaler:
             raise ValueError("scaler must exist.")
         if data.ndim != 2:
@@ -115,13 +209,58 @@ class MoviePredictionModel(MachineLearningModel):
 
     @classmethod
     def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
+        """
+        Loads movie data from an index file and transforms it into the model's input format.
+
+        Args:
+            data_path (Path): The path to the index file containing movie data.
+
+        Returns:
+            list[list[MoviePredictionInputData]]: A list of movies, where each movie is a list of
+                                                 MoviePredictionInputData for each week.
+        """
         logging.info("loading training data.")
         movie_data: list[MovieData] = load_index_file(file_path=data_path, mode=IndexLoadMode.FULL)
         training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie
                                                                in movie_data]
         return training_data
 
+    @staticmethod
+    def _load_test_data(test_data_folder_path: Path) -> Optional[tuple[NDArray[float32], NDArray[float64]]]:
+        """
+        Loads test data from the specified folder.
+
+        Args:
+            test_data_folder_path: The directory path containing x_test.npy and y_test.npy.
+
+        Returns:
+            A tuple containing loaded x_test and y_test data, or None if loading fails.
+        """
+        try:
+            x_test_loaded: NDArray[float32] = np.load(test_data_folder_path.joinpath("x_test.npy"))
+            y_test_loaded: NDArray[float64] = np.load(test_data_folder_path.joinpath("y_test.npy"))
+            return x_test_loaded, y_test_loaded
+        except FileNotFoundError:
+            logging.error(f"Could not find X_test.npy or y_test.npy in '{test_data_folder_path}'.")
+            return None
+
     def _prepare_data(self, data: any) -> tuple[NDArray[float32], NDArray[float64], NDArray[float32], NDArray[float64]]:
+        """
+        Prepares the input data for training and testing.
+
+        This function preprocesses the data, creates sequences for the LSTM model, pads the sequences to a uniform length,
+        splits the data into training and testing sets, and scales the box office target variable.
+
+        Args:
+            data (any): The raw input data, typically a list of lists of MoviePredictionInputData.
+
+        Returns:
+            tuple[NDArray[float32], NDArray[float64], NDArray[float32], NDArray[float64]]: A tuple containing
+                - x_train_scaled (NDArray[float32]): Scaled training input sequences.
+                - y_train_scaled (NDArray[float64]): Scaled training target box office values.
+                - x_test_scaled (NDArray[float32]): Scaled testing input sequences.
+                - y_test_scaled (NDArray[float64]): Scaled testing target box office values.
+        """
         processed_data: list[list[list[int | float]]] = self.__preprocess_data(data)
         self.__training_data_len = max(len(movie) for movie in processed_data)
 
@@ -148,17 +287,22 @@ class MoviePredictionModel(MachineLearningModel):
 
         x_train_scaled: NDArray[float32] = x_train.copy()
         for i in range(x_train.shape[0]):
-            # 提取每個序列的所有時間步的票房特徵 (二維)
             x_train_scaled[i, :, 0] = self.__scale_box_office_feature(x_train[i, :, 0].reshape(-1, 1)).flatten()
 
         x_test_scaled: NDArray[float32] = x_test.copy()
         for i in range(x_test.shape[0]):
-            # 提取每個序列的所有時間步的票房特徵 (二維)
             x_test_scaled[i, :, 0] = self.__scale_box_office_feature(x_test[i, :, 0].reshape(-1, 1)).flatten()
 
         return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled
 
     def _build_model(self, model: Sequential, layers: list[any]) -> None:
+        """
+        Builds and compiles the Keras Sequential model.
+
+        Args:
+            model (Sequential): The Keras Sequential model instance.
+            layers (list[any]): A list of Keras layers to add to the model.
+        """
         super()._build_model(model=model, layers=layers)
         model.compile(optimizer='adam', loss='mse')
 
@@ -171,6 +315,21 @@ class MoviePredictionModel(MachineLearningModel):
               scaler_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SCALER_PATH,
               training_week_limit: int = 4,
               split_rate: float = 0.8) -> None:
+        """
+        Trains the movie box office prediction model.
+
+        Args:
+           data (list[list[MoviePredictionInputData]]): The training data, a list of movies, where each movie
+                                                       is a list of weekly MoviePredictionInputData.
+           old_model_path (Optional[Path]): Path to a pre-trained model to continue training from. Defaults to None.
+           epoch (int): The number of training epochs. Defaults to 1000.
+           model_save_folder (Path): The folder to save the trained model. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER.
+           model_save_name (str): The base name for the saved model file. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_NAME.
+           setting_save_path (Path): The path to save the training settings. Defaults to Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.
+           scaler_save_path (Path): The path to save the MinMaxScaler. Defaults to Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.
+           training_week_limit (int): The number of past weeks to use as input for prediction. Defaults to 4.
+           split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
+        """
 
         logging.info("training procedure start.")
         self.__training_week_limit = training_week_limit
@@ -195,11 +354,24 @@ class MoviePredictionModel(MachineLearningModel):
         self.__save_scaler(scaler_save_path)
 
     def predict(self, data_input: list[MoviePredictionInputData]) -> float:
+        """
+        Predicts the box office revenue for the next week based on the input data.
+
+        Args:
+            data_input (list[MoviePredictionInputData]): The input data for the movie, a list of
+                                                       MoviePredictionInputData for the past weeks.
+
+        Returns:
+            float: The predicted box office revenue for the next week.
+
+        Raises:
+            ValueError: If the model, settings, or scaler have not been loaded.
+        """
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise ValueError('model, settings, and scaler must be loaded.')
         processed_input: list[list[int | float]] = self.__preprocess_data([data_input])[0]
         processed_input_array: NDArray[any] = np.array(processed_input)
-        scaled_input: NDArray[any] = self.__scale_box_office_feature(processed_input_array[:, :1])  # 只標準化票房
+        scaled_input: NDArray[any] = self.__scale_box_office_feature(processed_input_array[:, :1])
         processed_input_scaled: NDArray[any] = processed_input_array.copy()
         processed_input_scaled[:, 0] = scaled_input.flatten()
         input_sequence: list[NDArray[any]] = [processed_input_scaled[-self.__training_week_limit:]]
@@ -321,6 +493,23 @@ class MoviePredictionModel(MachineLearningModel):
                      scaler_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SCALER_PATH,
                      training_week_limit: int = 4,
                      split_rate: float = 0.8) -> None:
+        """
+        A simplified training function that can accept different types of input data.
+
+        Args:
+            input_data (Path | list[MovieData] | None): The input training data.
+                - If Path: Path to an index file containing movie data.
+                - If list[MovieData]: A list of MovieData objects.
+                - If None: Generates random training data for testing.
+            old_model_path (Optional[Path]): Path to a pre-trained model to continue training from. Defaults to None.
+            epoch (int): The number of training epochs. Defaults to 1000.
+            model_save_folder (Path): The folder to save the trained model. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER.
+            model_save_name (str): The base name for the saved model file. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_NAME.
+            setting_save_path (Path): The path to save the training settings. Defaults to Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.
+            scaler_save_path (Path): The path to save the MinMaxScaler. Defaults to Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.
+            training_week_limit (int): The number of past weeks to use as input for prediction. Defaults to 4.
+            split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
+        """
         if input_data is None:
             train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(50, (4, 10), (0, 5))
             model_save_name = "gen_data"
@@ -336,6 +525,14 @@ class MoviePredictionModel(MachineLearningModel):
                    scaler_save_path=scaler_save_path, training_week_limit=training_week_limit, split_rate=split_rate)
 
     def simple_predict(self, input_data: MovieData | None) -> None:
+        """
+        A simplified prediction function that can accept different types of input data.
+
+        Args:
+            input_data (MovieData | None): The input data for prediction.
+                - If MovieData: A MovieData object.
+                - If None: Generates random test data for prediction.
+        """
         if input_data is None:
             test_data: list[MoviePredictionInputData] = self.__generate_random_data(1, (1, 20), (1, 100))[0]
         elif isinstance(input_data, MovieData):
