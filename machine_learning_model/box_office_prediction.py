@@ -370,12 +370,12 @@ class MoviePredictionModel(MachineLearningModel):
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise ValueError('model, settings, and scaler must be loaded.')
         processed_input: list[list[int | float]] = self.__preprocess_data([data_input])[0]
-        processed_input_array: NDArray[any] = np.array(processed_input)
-        scaled_input: NDArray[any] = self.__scale_box_office_feature(processed_input_array[:, :1])
-        processed_input_scaled: NDArray[any] = processed_input_array.copy()
+        processed_input_array: NDArray[float64] = np.array(processed_input)
+        scaled_input: NDArray[float64] = self.__scale_box_office_feature(processed_input_array[:, :1])
+        processed_input_scaled: NDArray[float64] = processed_input_array.copy()
         processed_input_scaled[:, 0] = scaled_input.flatten()
-        input_sequence: list[NDArray[any]] = [processed_input_scaled[-self.__training_week_limit:]]
-        input_sequence_padded: NDArray[any] = pad_sequences(input_sequence, maxlen=self.__training_data_len,
+        input_sequence: list[NDArray[float64]] = [processed_input_scaled[-self.__training_week_limit:]]
+        input_sequence_padded: NDArray[float32] = pad_sequences(input_sequence, maxlen=self.__training_data_len,
                                                             dtype='float32',
                                                             padding='post')
 

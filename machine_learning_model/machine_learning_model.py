@@ -3,7 +3,7 @@ from typing import Optional
 from abc import ABC, abstractmethod
 from keras.src.models import Sequential
 from keras.api.models import load_model
-import numpy as np
+from numpy.typing import NDArray
 
 from tools.util import check_path
 
@@ -128,7 +128,7 @@ class MachineLearningModel(ABC):
             self._build_model(model=model, layers=layers)
         return model
 
-    def train_model(self, x_train: np.array, y_train: np.array, epoch: int = 200, batch_size: any = None) -> None:
+    def train_model(self, x_train: NDArray, y_train: NDArray, epoch: int = 200, batch_size: any = None) -> None:
         """
         Trains the model with the given training data.
 
