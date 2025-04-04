@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime
 from argparse import ArgumentParser, Namespace
 
+from tools.util import recreate_folder
 from tools.constant import Constants
 from movie_data import load_index_file, MovieData
 from web_scraper.review_collector import ReviewCollector
@@ -71,9 +72,11 @@ if __name__ == "__main__":
         if args.name:
             logging.info("collecting box office, reviews and predicting box office next week.")
             logging.info(f"name inputted: {args.name}")
+            download_temp_folder = Constants.SCRAPING_DATA_FOLDER.joinpath("temp")
+            recreate_folder(path=download_temp_folder)
             movie_data: MovieData = MovieData(movie_name=args.name, movie_id=0)
             BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK,
-                               box_office_data_folder=Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER).download_single_box_office_data(
+                               box_office_data_folder=download_temp_folder).download_single_box_office_data(
                 movie_data=movie_data)
             ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_with_single_movie(
                 movie_data=movie_data)
@@ -173,31 +176,29 @@ if __name__ == "__main__":
                     logging.info(f"epoch inputted: {args.epoch}")
                     input_epoch: int = int(args.epoch)
                     MoviePredictionModel().simple_train(
-                        input_data=None, epoch=input_epoch, model_save_name='test',
-                        scaler_save_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test'),
-                        setting_save_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'))
+                        input_data=None, epoch=input_epoch, model_name='gen_data')
                 else:
                     raise AttributeError("You must specify value of epoch.")
             case "movie_prediction_test_gen_data":
                 logging.info('testing prediction model with generated data.')
                 MoviePredictionModel(
-                    model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
-                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
-                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
+                    model_path=Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath('gen_data_10', 'gen_data_10.keras'),
+                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath('gen_data_10','setting.yaml'),
+                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath('gen_data_10','scaler.gz')). \
                     simple_predict(input_data=None)
             case "movie_prediction_trend_evaluation":
                 logging.info('evaluating prediction model with generated data.')
                 MoviePredictionModel(
-                    model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
-                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
-                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
+                    model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH,
+                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
+                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH). \
                     evaluate_trend()
             case "movie_prediction_range_evaluation":
                 logging.info('evaluating prediction model with generated data.')
                 MoviePredictionModel(
-                    model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
-                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
-                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
+                    model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH,
+                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
+                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH). \
                     evaluate_range()
             case _:
                 raise ValueError

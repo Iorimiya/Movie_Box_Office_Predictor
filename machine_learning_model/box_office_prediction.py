@@ -14,7 +14,7 @@ from keras.src.optimizers import Adam
 from keras.src.optimizers.schedules import ExponentialDecay
 from keras_preprocessing.sequence import pad_sequences
 
-from tools.util import check_path
+from tools.util import check_path, recreate_folder
 from tools.constant import Constants
 from machine_learning_model.machine_learning_model import MachineLearningModel
 from movie_data import MovieData, load_index_file, PublicReview, IndexLoadMode
@@ -308,9 +308,9 @@ class MoviePredictionModel(MachineLearningModel):
         super()._build_model(model=model, layers=layers)
         # TODO
         clip_norm_value: float = 1.0
-        initial_learning_rate:float = 0.001
-        decay_steps:int = 1000
-        decay_rate:float = 0.96
+        initial_learning_rate: float = 0.001
+        decay_steps: int = 1000
+        decay_rate: float = 0.96
         optimizer = Adam(
             learning_rate=ExponentialDecay(initial_learning_rate=initial_learning_rate, decay_steps=decay_steps,
                                            decay_rate=decay_rate), clipnorm=clip_norm_value)
@@ -319,10 +319,7 @@ class MoviePredictionModel(MachineLearningModel):
     def train(self, data: list[list[MoviePredictionInputData]],
               old_model_path: Optional[Path] = None,
               epoch: int = 1000,
-              model_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER,
-              model_save_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
-              setting_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
-              scaler_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SCALER_PATH,
+              model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
               training_week_limit: int = 4,
               split_rate: float = 0.8) -> None:
         """
@@ -333,10 +330,7 @@ class MoviePredictionModel(MachineLearningModel):
                                                        is a list of weekly MoviePredictionInputData.
            old_model_path (Optional[Path]): Path to a pre-trained model to continue training from. Defaults to None.
            epoch (int): The number of training epochs. Defaults to 1000.
-           model_save_folder (Path): The folder to save the trained model. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER.
-           model_save_name (str): The base name for the saved model file. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_NAME.
-           setting_save_path (Path): The path to save the training settings. Defaults to Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.
-           scaler_save_path (Path): The path to save the MinMaxScaler. Defaults to Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.
+           model_name (str): The base name for the saved model file. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_NAME.
            training_week_limit (int): The number of past weeks to use as input for prediction. Defaults to 4.
            split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
         """
@@ -357,11 +351,14 @@ class MoviePredictionModel(MachineLearningModel):
         self.train_model(x_train, y_train, epoch)
         loss: float = self.evaluate_model(x_test, y_test)
         logging.info(f"model test loss: {loss}.")
-        self._save_model(file_path=model_save_folder.joinpath(f"{model_save_name}_{epoch}.keras"))
-        np.save(Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER.joinpath('x_test.npy'), x_test)
-        np.save(Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER.joinpath('y_test.npy'), y_test)
-        self.__save_training_setting(setting_save_path)
-        self.__save_scaler(scaler_save_path)
+
+        base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{model_name}_{epoch}')
+        recreate_folder(path=base_save_folder)
+        self._save_model(file_path=base_save_folder.joinpath(f"{model_name}_{epoch}.keras"))
+        np.save(base_save_folder.joinpath('x_test.npy'), x_test)
+        np.save(base_save_folder.joinpath('y_test.npy'), y_test)
+        self.__save_training_setting(base_save_folder.joinpath('setting.yaml'))
+        self.__save_scaler(base_save_folder.joinpath('scaler.gz'))
 
     def predict(self, data_input: list[MoviePredictionInputData]) -> float:
         """
@@ -388,7 +385,6 @@ class MoviePredictionModel(MachineLearningModel):
         input_sequence_padded: NDArray[float32] = pad_sequences(input_sequence, maxlen=self.__training_data_len,
                                                                 dtype='float32',
                                                                 padding='post')
-
         prediction_scaled: float = self._model.predict(input_sequence_padded)[0, 0]
         prediction: float = self.__transform_scaler.inverse_transform([[prediction_scaled]])[0, 0]
         return prediction
@@ -420,7 +416,7 @@ class MoviePredictionModel(MachineLearningModel):
                     input_sequence_scaled[0, j, 0] = self.__transform_scaler.transform(
                         input_sequence[0, j, 0].reshape(-1, 1)).flatten()
 
-                predicted_box_office_scaled: NDArray[float32] = self._model.predict(input_sequence_scaled)[0, 0]
+                predicted_box_office_scaled: NDArray[float32] = self._model.predict(input_sequence_scaled,verbose=0)[0, 0]
                 predicted_box_office: float = self.__transform_scaler.inverse_transform(
                     np.array([[predicted_box_office_scaled]]))[0, 0]
 
@@ -435,7 +431,7 @@ class MoviePredictionModel(MachineLearningModel):
 
         return correct_predictions, total_predictions
 
-    def evaluate_trend(self, test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER) -> None:
+    def evaluate_trend(self, test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> None:
         """
         Evaluates the model's accuracy in predicting the trend of box office revenue.
 
@@ -459,7 +455,7 @@ class MoviePredictionModel(MachineLearningModel):
         return
 
     def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 1000000, 9000000),
-                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER) -> None:
+                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> None:
         """
         Evaluates the model's prediction accuracy based on box office ranges.
 
@@ -497,10 +493,7 @@ class MoviePredictionModel(MachineLearningModel):
     def simple_train(self, input_data: Path | list[MovieData] | None,
                      old_model_path: Optional[Path] = None,
                      epoch: int = 1000,
-                     model_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER,
-                     model_save_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
-                     setting_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SETTING_PATH,
-                     scaler_save_path: Path = Constants.BOX_OFFICE_PREDICTION_SCALER_PATH,
+                     model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
                      training_week_limit: int = 4,
                      split_rate: float = 0.8) -> None:
         """
@@ -513,16 +506,13 @@ class MoviePredictionModel(MachineLearningModel):
                 - If None: Generates random training data for testing.
             old_model_path (Optional[Path]): Path to a pre-trained model to continue training from. Defaults to None.
             epoch (int): The number of training epochs. Defaults to 1000.
-            model_save_folder (Path): The folder to save the trained model. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_FOLDER.
-            model_save_name (str): The base name for the saved model file. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_NAME.
-            setting_save_path (Path): The path to save the training settings. Defaults to Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.
-            scaler_save_path (Path): The path to save the MinMaxScaler. Defaults to Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.
+            model_name (str): The base name for the saved model file. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_NAME.
             training_week_limit (int): The number of past weeks to use as input for prediction. Defaults to 4.
             split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
         """
         if input_data is None:
             train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(50, (4, 10), (0, 5))
-            model_save_name = "gen_data"
+            model_name = "gen_data"
         elif isinstance(input_data, list):
             train_data: list[list[MoviePredictionInputData]] = [self.__transform_single_movie_data(movie=movie) for
                                                                 movie in input_data]
@@ -530,9 +520,8 @@ class MoviePredictionModel(MachineLearningModel):
             train_data: list[list[MoviePredictionInputData]] = self._load_training_data(data_path=input_data)
         else:
             raise ValueError
-        self.train(data=train_data, old_model_path=old_model_path, epoch=epoch, model_save_folder=model_save_folder,
-                   model_save_name=model_save_name, setting_save_path=setting_save_path,
-                   scaler_save_path=scaler_save_path, training_week_limit=training_week_limit, split_rate=split_rate)
+        self.train(data=train_data, old_model_path=old_model_path, epoch=epoch, model_name=model_name,
+                   training_week_limit=training_week_limit, split_rate=split_rate)
 
     def simple_predict(self, input_data: MovieData | None) -> None:
         """
