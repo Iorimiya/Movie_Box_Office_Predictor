@@ -11,6 +11,7 @@ from joblib import dump as scaler_dump, load as scaler_load
 from keras.src.models import Sequential
 from keras.src.layers import LSTM, Dense, Masking, Input, Dropout
 from keras.src.optimizers import Adam
+from keras.src.optimizers.schedules import ExponentialDecay
 from keras_preprocessing.sequence import pad_sequences
 
 from tools.util import check_path
@@ -305,8 +306,14 @@ class MoviePredictionModel(MachineLearningModel):
             layers (list[any]): A list of Keras layers to add to the model.
         """
         super()._build_model(model=model, layers=layers)
-        clip_norm_value:float = 1.0  # TODO
-        optimizer = Adam(clipnorm=clip_norm_value)
+        # TODO
+        clip_norm_value: float = 1.0
+        initial_learning_rate:float = 0.001
+        decay_steps:int = 1000
+        decay_rate:float = 0.96
+        optimizer = Adam(
+            learning_rate=ExponentialDecay(initial_learning_rate=initial_learning_rate, decay_steps=decay_steps,
+                                           decay_rate=decay_rate), clipnorm=clip_norm_value)
         model.compile(optimizer=optimizer, loss='mse')
 
     def train(self, data: list[list[MoviePredictionInputData]],
@@ -379,8 +386,8 @@ class MoviePredictionModel(MachineLearningModel):
         processed_input_scaled[:, 0] = scaled_input.flatten()
         input_sequence: list[NDArray[float64]] = [processed_input_scaled[-self.__training_week_limit:]]
         input_sequence_padded: NDArray[float32] = pad_sequences(input_sequence, maxlen=self.__training_data_len,
-                                                            dtype='float32',
-                                                            padding='post')
+                                                                dtype='float32',
+                                                                padding='post')
 
         prediction_scaled: float = self._model.predict(input_sequence_padded)[0, 0]
         prediction: float = self.__transform_scaler.inverse_transform([[prediction_scaled]])[0, 0]
@@ -451,7 +458,7 @@ class MoviePredictionModel(MachineLearningModel):
         logging.info(f"Trend prediction accuracy: {accuracy:.2%}")
         return
 
-    def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 1000000 , 9000000),
+    def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 1000000, 9000000),
                        test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER) -> None:
         """
         Evaluates the model's prediction accuracy based on box office ranges.
