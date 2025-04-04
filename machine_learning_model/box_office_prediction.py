@@ -10,6 +10,7 @@ from sklearn.preprocessing import MinMaxScaler
 from joblib import dump as scaler_dump, load as scaler_load
 from keras.src.models import Sequential
 from keras.src.layers import LSTM, Dense, Masking, Input, Dropout
+from keras.src.optimizers import Adam
 from keras_preprocessing.sequence import pad_sequences
 
 from tools.util import check_path
@@ -304,7 +305,9 @@ class MoviePredictionModel(MachineLearningModel):
             layers (list[any]): A list of Keras layers to add to the model.
         """
         super()._build_model(model=model, layers=layers)
-        model.compile(optimizer='adam', loss='mse')
+        clip_norm_value:float = 1.0  # TODO
+        optimizer = Adam(clipnorm=clip_norm_value)
+        model.compile(optimizer=optimizer, loss='mse')
 
     def train(self, data: list[list[MoviePredictionInputData]],
               old_model_path: Optional[Path] = None,
