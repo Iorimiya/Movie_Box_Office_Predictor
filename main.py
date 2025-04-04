@@ -12,6 +12,12 @@ from machine_learning_model.review_sentiment_analysis import ReviewSentimentAnal
 
 
 def set_argument_parser() -> Namespace:
+    """
+    Sets up the argument parser for the program.
+
+    Returns:
+        Namespace: Parsed command-line arguments.
+    """
     parser: ArgumentParser = ArgumentParser(prog=None, usage=None, description=None, epilog=None)
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("-u", "--user", action="store_true", help="execute program as a user.")
@@ -33,6 +39,13 @@ def set_argument_parser() -> Namespace:
 
 
 def set_logging_setting(display_level: int, file_path: Path) -> None:
+    """
+    Sets up the logging configuration for the program.
+
+    Args:
+        display_level (int): The logging level to display.
+        file_path (Path): The path to the log file.
+    """
     if not file_path.parent.exists():
         file_path.parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
