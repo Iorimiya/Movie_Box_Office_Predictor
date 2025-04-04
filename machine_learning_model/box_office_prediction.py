@@ -448,7 +448,7 @@ class MoviePredictionModel(MachineLearningModel):
         logging.info(f"Trend prediction accuracy: {accuracy:.2%}")
         return
 
-    def evaluate_range(self, box_office_ranges: tuple[int,],
+    def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 1000000 , 9000000),
                        test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DATASET_FOLDER) -> None:
         """
         Evaluates the model's prediction accuracy based on box office ranges.
@@ -472,7 +472,7 @@ class MoviePredictionModel(MachineLearningModel):
                     return i
             raise ValueError(f"Invalid value {box_office} of box office.")
 
-        def range_prediction_logic(predicted: float, actual: float) -> bool:
+        def range_prediction_logic(predicted: float, actual: float, _: any = None) -> bool:
             predicted_range_index = get_box_office_range_index(predicted)
             actual_range_index = get_box_office_range_index(actual)
             return predicted_range_index == actual_range_index

@@ -24,10 +24,11 @@ def set_argument_parser() -> Namespace:
     group.add_argument("-d", "--developer", action="store_true", help="execute program as a developer.")
     group.add_argument("-f", "--function", type=str,
                        choices=["collect_box_office", "collect_ptt_review", "collect_dcard_review",
-                                "review_sentiment_model_train", "review_sentiment_model_test", "movie_prediction_train",
-                                "movie_prediction_test", "add_sentiment_score_to_saved_data",
-                                "movie_prediction_train_gen_data",
-                                "movie_prediction_test_gen_data", "movie_prediction_evaluation"],
+                                "review_sentiment_model_train", "review_sentiment_model_test",
+                                "movie_prediction_train", "movie_prediction_test",
+                                "add_sentiment_score_to_saved_data",
+                                "movie_prediction_train_gen_data", "movie_prediction_test_gen_data",
+                                "movie_prediction_trend_evaluation", "movie_prediction_range_evaluation"],
                        help="unit test")
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result, or the target movie name that search in unit test.")
@@ -184,13 +185,20 @@ if __name__ == "__main__":
                     training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
                     transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
                     simple_predict(input_data=None)
-            case "movie_prediction_evaluation":
+            case "movie_prediction_trend_evaluation":
                 logging.info('evaluating prediction model with generated data.')
                 MoviePredictionModel(
                     model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
                     training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
                     transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
                     evaluate_trend()
+            case "movie_prediction_range_evaluation":
+                logging.info('evaluating prediction model with generated data.')
+                MoviePredictionModel(
+                    model_path=Constants.BOX_OFFICE_PREDICTION_MODEL_PATH.with_stem('gen_data_10'),
+                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_SETTING_PATH.with_stem('test'),
+                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_SCALER_PATH.with_stem('test')). \
+                    evaluate_range()
             case _:
                 raise ValueError
     else:
