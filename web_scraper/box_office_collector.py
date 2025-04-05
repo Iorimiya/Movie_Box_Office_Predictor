@@ -22,15 +22,27 @@ WaitingCondition: TypeAlias = Browser.WaitingCondition
 
 
 class BoxOfficeCollector:
+    """
+    A class to collect box office data from a website.
+    """
     class Mode(Enum):
+        """
+        Enum representing the download mode.
+        """
         WEEK = 1
         WEEKEND = 2
 
     class UpdateType(Enum):
+        """
+        Enum representing the update type for progress information.
+        """
         URL = 1
         FILE_PATH = 2
 
     class ProgressData(TypedDict):
+        """
+        TypedDict representing the progress data.
+        """
         Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[0]: int | str
         Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[1]: str
         Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[2]: str
@@ -38,7 +50,15 @@ class BoxOfficeCollector:
     def __init__(self, index_file_path: Path = Constants.INDEX_PATH,
                  box_office_data_folder: Path = Constants.BOX_OFFICE_FOLDER,
                  download_mode: Mode = Mode.WEEK, page_loading_timeout: float = 30) -> None:
+        """
+        Initializes the BoxOfficeCollector.
 
+        Args:
+            index_file_path (Path): Path to the index file. Defaults to Constants.INDEX_PATH.
+            box_office_data_folder (Path): Path to the box office data folder. Defaults to Constants.BOX_OFFICE_FOLDER.
+            download_mode (Mode): Download mode (WEEK or WEEKEND). Defaults to Mode.WEEK.
+            page_loading_timeout (float): Page loading timeout in seconds. Defaults to 30.
+        """
         # download mode amd type settings
         self.__download_mode: Final[BoxOfficeCollector.Mode] = download_mode
         logging.info(f"use {self.__download_mode.name} mode to download data.")
@@ -75,6 +95,14 @@ class BoxOfficeCollector:
         return self.__browser.__exit__(exc_type=exc_type, exc_val=exc_val, exc_tb=exc_tb)
 
     def __update_progress_information(self, index: int, update_type: UpdateType, new_data_value: Path | str) -> None:
+        """
+        Updates the progress information in the progress file.
+
+        Args:
+            index (int): Index of the movie.
+            update_type (UpdateType): Type of update (URL or FILE_PATH).
+            new_data_value (Path | str): New data value.
+        """
         # read progress data from csv file
         progress_data = read_data_from_csv(self.__progress_file_path)
         # overwrite new data
@@ -88,6 +116,15 @@ class BoxOfficeCollector:
         return
 
     def __navigate_to_movie_page(self, movie_data: MovieData) -> None:
+        """
+        Navigates to the movie page on the website.
+
+        Args:
+            movie_data (MovieData): Movie data.
+
+        Raises:
+            InvalidSwitchToTargetException: If navigation fails.
+        """
         movie_name = movie_data.movie_name
         searching_url: str = f"{self.__searching_url}/{movie_name}"
         try:
@@ -127,6 +164,15 @@ class BoxOfficeCollector:
         return
 
     def __click_download_button(self, trying_times: int) -> None:
+        """
+        Clicks the download button on the page.
+
+        Args:
+            trying_times (int): Number of trying times.
+
+        Raises:
+            NoSuchElementException: If the download button is not found.
+        """
         # by defaults, the page is show the weekend data
         if self.__download_mode == self.Mode.WEEK:
             # to use week mode, the additional step is click the "本週" button
@@ -161,6 +207,19 @@ class BoxOfficeCollector:
             return
 
     def __load_box_office_data_from_json_file(self, movie_data: MovieData) -> MovieData:
+        """
+        Loads box office data from a JSON file.
+
+        Args:
+            movie_data (MovieData): Movie data.
+
+        Returns:
+            MovieData: Updated movie data.
+
+        Raises:
+            TypeError: If an error occurs during data loading.
+            ValueError: If box office data is None.
+        """
         date_format: Final[str] = '%Y-%m-%d'
         date_split_pattern: Final[str] = '~'
         input_encoding: Final[str] = 'utf-8-sig'
@@ -183,6 +242,17 @@ class BoxOfficeCollector:
 
     def __search_and_download_data(self, movie_data: MovieData, progress: Optional[ProgressData],
                                    trying_times: int = 10) -> None:
+        """
+        Searches and downloads box office data for a movie.
+
+        Args:
+            movie_data (MovieData): Movie data.
+            progress (Optional[ProgressData]): Progress data.
+            trying_times (int): Number of trying times. Defaults to 10.
+
+        Raises:
+            AssertionError: If download fails after multiple tries.
+        """
         movie_name = movie_data.movie_name
         movie_id = movie_data.movie_id
         logging.info(f"Searching box office of {movie_name}.")
@@ -250,6 +320,12 @@ class BoxOfficeCollector:
         raise AssertionError
 
     def download_single_box_office_data(self, movie_data: MovieData) -> None:
+        """
+        Downloads box office data for a single movie.
+
+        Args:
+            movie_data (MovieData): Movie data.
+        """
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
         self.__search_and_download_data(movie_data=movie_data,
@@ -263,6 +339,13 @@ class BoxOfficeCollector:
 
     def download_multiple_box_office_data(self, input_file_path: Optional[Path] = None,
                                           input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
+        """
+        Downloads box office data for multiple movies.
+
+        Args:
+            input_file_path (Optional[Path]): Path to the input file. Defaults to None.
+            input_csv_file_header (str): Header of the input CSV file. Defaults to Constants.INPUT_MOVIE_LIST_HEADER.
+        """
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
         # read index data

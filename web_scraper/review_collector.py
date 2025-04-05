@@ -22,13 +22,25 @@ Selector: TypeAlias = str
 
 
 class ReviewCollector:
+    """
+    A class to collect reviews from various websites.
+    """
     class TargetWebsite(Enum):
+        """
+        Enum representing the target website for review collection.
+        """
         PTT = 0
         DCARD = 1
         IMDB = 2
         ROTTEN_TOMATO = 3
 
     def __init__(self, target_website: TargetWebsite):
+        """
+        Initializes the ReviewCollector.
+
+        Args:
+            target_website (TargetWebsite): The target website for review collection.
+        """
         self.__search_target: TargetWebsite = target_website
         self.__base_url: tuple[str, str, str, str] = ('https://www.ptt.cc/bbs/movie/', 'https://www.dcard.tw/',
                                                       'https://www.imdb.com/', 'https://www.rottentomatoes.com/')
@@ -39,6 +51,15 @@ class ReviewCollector:
 
     @staticmethod
     def get_movie_search_keys(movie_name: str) -> list[str]:
+        """
+        Generates search keys for a movie.
+
+        Args:
+            movie_name (str): The name of the movie.
+
+        Returns:
+            list[str]: A list of search keys.
+        """
         logging.info("creating search keys.")
         output = list()
 
@@ -81,10 +102,30 @@ class ReviewCollector:
         logging.info("creation of search keys finish.")
         return output
 
+
     __get_search_page_url = lambda self, search_key: \
         f"{self.__base_url[self.__search_target.value]}{self.__search_url_part[self.__search_target.value]}{search_key}"
+    """
+    Constructs the search page URL.
+    
+    Args:
+        self: The ReviewCollector instance.
+        search_key: The search key.
+    
+    Returns:
+        The search page URL.
+    """
 
     def __get_bs_element(self, url: str) -> BeautifulSoup:
+        """
+        Gets a BeautifulSoup element from a URL.
+
+        Args:
+            url (str): The URL.
+
+        Returns:
+            BeautifulSoup: The BeautifulSoup element.
+        """
         # PTT在特定的板中需要over18=1這個cookies
         match self.__search_target:
             case TargetWebsite.PTT:
@@ -95,6 +136,18 @@ class ReviewCollector:
         return BeautifulSoup(response.text, features='html.parser')
 
     def __get_largest_result_page_number(self, bs_root_element: BeautifulSoup) -> int:
+        """
+        Gets the largest result page number from a BeautifulSoup element.
+
+        Args:
+            bs_root_element (BeautifulSoup): The BeautifulSoup element.
+
+        Returns:
+            int: The largest result page number.
+
+        Raises:
+            ValueError: If the target website is not PTT.
+        """
         match self.__search_target:
             case TargetWebsite.PTT:
                 re_pattern: Final[RegularExpressionPattern] = "page=(\d+)"
@@ -107,6 +160,18 @@ class ReviewCollector:
                 raise ValueError
 
     def __get_review_urls(self, search_key: str) -> list[str]:
+        """
+        Gets review URLs for a search key.
+
+        Args:
+            search_key (str): The search key.
+
+        Returns:
+            list[str]: A list of review URLs.
+
+        Raises:
+            ValueError: If the target website is not PTT or DCARD.
+        """
         search_url: Url = self.__get_search_page_url(search_key)
         match self.__search_target:
             case TargetWebsite.PTT:
@@ -150,6 +215,15 @@ class ReviewCollector:
         return urls
 
     def __get_review_information(self, url: str) -> PublicReview | None:
+        """
+        Gets review information from a URL.
+
+        Args:
+            url (str): The review URL.
+
+        Returns:
+            PublicReview | None: The review information or None if an error occurs.
+        """
         logging.info(f"search review information for \"{url}\".")
         title: str | None = None
         content: str | None = None
@@ -219,6 +293,18 @@ class ReviewCollector:
                             sentiment_score=False)
 
     def __get_reviews_by_keyword(self, search_key: str) -> list[PublicReview]:
+        """
+        Gets reviews by keyword.
+
+        Args:
+            search_key (str): The search key.
+
+        Returns:
+            list[PublicReview]: A list of reviews.
+
+        Raises:
+            ValueError: If the target website is not PTT or DCARD.
+        """
         match self.__search_target:
             case TargetWebsite.PTT | TargetWebsite.DCARD:
                 logging.info(f"start search reviews with search key \"{search_key}.")
@@ -230,6 +316,15 @@ class ReviewCollector:
                 raise ValueError
 
     def __get_reviews_by_name(self, movie_name: str) -> list[PublicReview] | None:
+        """
+        Gets reviews by movie name.
+
+        Args:
+            movie_name (str): The movie name.
+
+        Returns:
+            list[PublicReview] | None: A list of reviews or None if an error occurs.
+        """
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
         reviews: list[PublicReview] = [review for search_key in search_keys for review in
                                        self.__get_reviews_by_keyword(search_key=search_key)]
@@ -239,6 +334,13 @@ class ReviewCollector:
         return reviews
 
     def __search_review_and_save(self, movie_list: list[MovieData], save_folder_path: Path) -> None:
+        """
+        Searches reviews for a list of movies and saves them.
+
+        Args:
+            movie_list (list[MovieData]): The list of movies.
+            save_folder_path (Path): The path to save the reviews.
+        """
         for movie in tqdm(movie_list, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
             reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie.movie_name)
             if save_folder_path.joinpath(f"{movie.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists():
@@ -248,6 +350,18 @@ class ReviewCollector:
 
 
     def search_review_with_single_movie(self, movie_data: str | MovieData) -> list[PublicReview] | None:
+        """
+        Searches reviews for a single movie.
+
+        Args:
+            movie_data (str | MovieData): The movie data.
+
+        Returns:
+            list[PublicReview] | None: A list of reviews or None if an error occurs.
+
+        Raises:
+            ValueError: If movie_data is not a string or MovieData.
+        """
         if isinstance(movie_data, MovieData):
             movie_name = movie_data.movie_name
         elif isinstance(movie_data, str):
@@ -272,6 +386,13 @@ class ReviewCollector:
 
     def search_review_with_multiple_movie(self, index_path: Path = Constants.INDEX_PATH,
                                           save_folder_path: Path = None):
+        """
+        Searches reviews for multiple movies.
+
+        Args:
+            index_path (Path): The path to the index file. Defaults to Constants.INDEX_PATH.
+            save_folder_path (Path): The path to save the reviews. Defaults to None.
+        """
         # with CaptchaBrowser() as self.__browser:
         if save_folder_path is None:
             save_folder_path = Constants.PUBLIC_REVIEW_FOLDER
