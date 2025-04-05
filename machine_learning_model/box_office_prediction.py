@@ -389,8 +389,8 @@ class MoviePredictionModel(MachineLearningModel):
         prediction: float = self.__transform_scaler.inverse_transform([[prediction_scaled]])[0, 0]
         return prediction
 
-    def _evaluate_predictions(self, x_test_loaded: NDArray[float32], y_test_loaded: NDArray[float64],
-                              prediction_logic: callable) -> tuple[int, int]:
+    def __evaluate_predictions(self, x_test_loaded: NDArray[float32], y_test_loaded: NDArray[float64],
+                               prediction_logic: callable) -> tuple[int, int]:
         """
         Evaluates predictions based on a given prediction logic.
 
@@ -434,6 +434,26 @@ class MoviePredictionModel(MachineLearningModel):
 
         return correct_predictions, total_predictions
 
+    @staticmethod
+    def __log_and_print_evaluation_results(correct_predictions: int, total_predictions: int, evaluation_type: str):
+        """
+        Logs and prints the evaluation results.
+
+        Args:
+            correct_predictions (int): The number of correct predictions made by the model.
+            total_predictions (int): The total number of predictions evaluated.
+            evaluation_type (str): A string describing the type of evaluation being performed
+                (e.g., "Trend", "Range"). This string will be included in the output messages.
+
+        Returns:
+            None.
+        """
+        accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
+        print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
+        logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
+        print(f"{evaluation_type} prediction accuracy: {accuracy:.2%}")
+        logging.info(f"{evaluation_type} prediction accuracy: {accuracy:.2%}")
+
     def evaluate_trend(self,
                        test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> None:
         """
@@ -451,13 +471,9 @@ class MoviePredictionModel(MachineLearningModel):
             actual_trend = 1 if actual > current else 0
             return predicted_trend == actual_trend
 
-        correct_predictions, total_predictions = self._evaluate_predictions(x_test_loaded, y_test_loaded,
-                                                                            trend_prediction_logic)
-        accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
-        print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
-        logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
-        print(f"Trend prediction accuracy: {accuracy:.2%}")
-        logging.info(f"Trend prediction accuracy: {accuracy:.2%}")
+        correct_predictions, total_predictions = self.__evaluate_predictions(x_test_loaded, y_test_loaded,
+                                                                             trend_prediction_logic)
+        self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Trend")
         return
 
     def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 10000000, 90000000),
@@ -489,13 +505,9 @@ class MoviePredictionModel(MachineLearningModel):
             actual_range_index = get_box_office_range_index(actual)
             return predicted_range_index == actual_range_index
 
-        correct_predictions, total_predictions = self._evaluate_predictions(x_test_loaded, y_test_loaded,
-                                                                            range_prediction_logic)
-        accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
-        print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
-        logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
-        print(f"Range prediction accuracy: {accuracy:.2%}")
-        logging.info(f"Range prediction accuracy: {accuracy:.2%}")
+        correct_predictions, total_predictions = self.__evaluate_predictions(x_test_loaded, y_test_loaded,
+                                                                             range_prediction_logic)
+        self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Range")
         return
 
     def simple_train(self, input_data: Path | list[MovieData] | None,
