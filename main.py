@@ -179,15 +179,8 @@ if __name__ == "__main__":
                         input_data=None, epoch=input_epoch, model_name='gen_data')
                 else:
                     raise AttributeError("You must specify value of epoch.")
-            case "movie_prediction_test_gen_data":
-                logging.info('testing prediction model with generated data.')
-                MoviePredictionModel(
-                    model_path=Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath('gen_data_10', 'gen_data_10.keras'),
-                    training_setting_path=Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath('gen_data_10',
-                                                                                          'setting.yaml'),
-                    transform_scaler_path=Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath('gen_data_10', 'scaler.gz')). \
-                    simple_predict(input_data=None)
-            case "movie_prediction_trend_evaluation" | "movie_prediction_range_evaluation":
+
+            case "movie_prediction_trend_evaluation" | "movie_prediction_range_evaluation" | "movie_prediction_test_gen_data":
                 model_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name,f"{args.name}.keras") \
                     if args.name else Constants.BOX_OFFICE_PREDICTION_MODEL_PATH
                 setting_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name,'setting.yaml') \
@@ -196,16 +189,22 @@ if __name__ == "__main__":
                     if args.name else Constants.BOX_OFFICE_PREDICTION_SCALER_PATH
                 test_data_folder_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name)  \
                     if args.name else Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER
-                if args.function == "movie_prediction_trend_evaluation":
-                    logging.info('evaluating prediction model using trend method.')
-                    MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
-                                         transform_scaler_path=scaler_path) \
-                        .evaluate_trend(test_data_folder_path=test_data_folder_path)
-                elif args.function == "movie_prediction_range_evaluation":
-                    logging.info('evaluating prediction model using range method.')
-                    MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
-                                         transform_scaler_path=scaler_path) \
-                        .evaluate_range(test_data_folder_path=test_data_folder_path)
+                match args.function:
+                    case "movie_prediction_trend_evaluation":
+                        logging.info('evaluating prediction model using trend method.')
+                        MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
+                                             transform_scaler_path=scaler_path) \
+                            .evaluate_trend(test_data_folder_path=test_data_folder_path)
+                    case "movie_prediction_range_evaluation":
+                        logging.info('evaluating prediction model using range method.')
+                        MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
+                                             transform_scaler_path=scaler_path) \
+                            .evaluate_range(test_data_folder_path=test_data_folder_path)
+                    case "movie_prediction_test_gen_data":
+                        logging.info('testing prediction model with generated data.')
+                        MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
+                                             transform_scaler_path=scaler_path) \
+                            .simple_predict(input_data=None)
             case _:
                 raise ValueError
     else:

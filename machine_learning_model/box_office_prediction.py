@@ -519,7 +519,7 @@ class MoviePredictionModel(MachineLearningModel):
             split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
         """
         if input_data is None:
-            train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(50, (4, 10), (0, 5))
+            train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(100, (4, 30), (0, 200))
             model_name = "gen_data"
         elif isinstance(input_data, list):
             train_data: list[list[MoviePredictionInputData]] = [self.__transform_single_movie_data(movie=movie) for
