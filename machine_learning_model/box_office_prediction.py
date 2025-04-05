@@ -416,13 +416,16 @@ class MoviePredictionModel(MachineLearningModel):
                     input_sequence_scaled[0, j, 0] = self.__transform_scaler.transform(
                         input_sequence[0, j, 0].reshape(-1, 1)).flatten()
 
-                predicted_box_office_scaled: NDArray[float32] = self._model.predict(input_sequence_scaled,verbose=0)[0, 0]
+                predicted_box_office_scaled: NDArray[float32] = self._model.predict(input_sequence_scaled, verbose=0)[
+                    0, 0]
                 predicted_box_office: float = self.__transform_scaler.inverse_transform(
                     np.array([[predicted_box_office_scaled]]))[0, 0]
 
                 if i < len(y_test_loaded):
                     actual_next_week_box_office: float = self.__transform_scaler.inverse_transform(
                         np.array([[y_test_loaded[i]]]))[0, 0]
+                    logging.info(
+                        f"predicted box office / actual box office: {predicted_box_office} / {actual_next_week_box_office}.")
                     if prediction_logic(predicted_box_office, actual_next_week_box_office, x_test_loaded[i][-1, 0]):
                         correct_predictions += 1
                     total_predictions += 1
@@ -431,7 +434,8 @@ class MoviePredictionModel(MachineLearningModel):
 
         return correct_predictions, total_predictions
 
-    def evaluate_trend(self, test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> None:
+    def evaluate_trend(self,
+                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> None:
         """
         Evaluates the model's accuracy in predicting the trend of box office revenue.
 
@@ -450,11 +454,13 @@ class MoviePredictionModel(MachineLearningModel):
         correct_predictions, total_predictions = self._evaluate_predictions(x_test_loaded, y_test_loaded,
                                                                             trend_prediction_logic)
         accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
+        print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
+        logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
         print(f"Trend prediction accuracy: {accuracy:.2%}")
         logging.info(f"Trend prediction accuracy: {accuracy:.2%}")
         return
 
-    def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 1000000, 9000000),
+    def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 10000000, 90000000),
                        test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> None:
         """
         Evaluates the model's prediction accuracy based on box office ranges.
@@ -486,6 +492,8 @@ class MoviePredictionModel(MachineLearningModel):
         correct_predictions, total_predictions = self._evaluate_predictions(x_test_loaded, y_test_loaded,
                                                                             range_prediction_logic)
         accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
+        print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
+        logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
         print(f"Range prediction accuracy: {accuracy:.2%}")
         logging.info(f"Range prediction accuracy: {accuracy:.2%}")
         return
