@@ -33,10 +33,10 @@ class LossLoggingCallback(Callback):
         logs = logs or {}
         loss = logs.get('loss')
         if loss is not None:
-            logging.info(f"Epoch {epoch + 1}: Training Loss = {loss:.4f}")
+            logging.info(f"Epoch {epoch + 1}: Training Loss = {loss:.4e}")
         val_loss = logs.get('val_loss')
         if val_loss is not None:
-            logging.info(f"Epoch {epoch + 1}: Validation Loss = {val_loss:.4f}")
+            logging.info(f"Epoch {epoch + 1}: Validation Loss = {val_loss:.4e}")
 
 
 class MachineLearningModel(ABC):
