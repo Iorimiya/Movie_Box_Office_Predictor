@@ -1,17 +1,49 @@
+import logging
 from pathlib import Path
 from typing import Optional
 from abc import ABC, abstractmethod
 from keras.src.models import Sequential
 from keras.api.models import load_model
+from keras.src.callbacks import Callback
 from numpy.typing import NDArray
 
 from tools.util import check_path
+
+
+class LossLoggingCallback(Callback):
+    """A Keras Callback that logs training and validation loss at the end of each epoch.
+
+    The loss values are logged using the standard Python logging module at the INFO level.
+    If training loss ('loss') is available in the logs, it will be logged.
+    If validation loss ('val_loss') is available in the logs, it will also be logged.
+    """
+
+    def on_epoch_end(self, epoch: int, logs: Optional[dict[str, any]] = None):
+        """Called at the end of an epoch.
+
+        Logs the training and validation loss if they are present in the logs.
+
+        Args:
+            epoch: Integer, index of epoch.
+            logs: Dictionary of logs. Contains the loss values, and optionally
+                metrics values, and validation results (if one does).
+                The `logs` argument may contain `loss` for the training loss,
+                and `val_loss` for the validation loss.
+        """
+        logs = logs or {}
+        loss = logs.get('loss')
+        if loss is not None:
+            logging.info(f"Epoch {epoch + 1}: Training Loss = {loss:.4f}")
+        val_loss = logs.get('val_loss')
+        if val_loss is not None:
+            logging.info(f"Epoch {epoch + 1}: Validation Loss = {val_loss:.4f}")
 
 
 class MachineLearningModel(ABC):
     """
     Abstract base class for machine learning models.
     """
+
     def __init__(self, model_path: Optional[Path] = None):
         """
         Initializes the MachineLearningModel.
@@ -138,7 +170,7 @@ class MachineLearningModel(ABC):
             epoch (int): The number of training epochs. Defaults to 200.
             batch_size (any): The batch size for training. Defaults to None.
         """
-        self._model.fit(x_train, y_train, epochs=epoch, batch_size=batch_size, verbose=1)
+        self._model.fit(x_train, y_train, epochs=epoch, batch_size=batch_size, verbose=1, callbacks=LossLoggingCallback())
         return
 
     def evaluate_model(self, x_test: NDArray, y_test: NDArray) -> float:
