@@ -2,7 +2,7 @@ import yaml
 import random
 import logging
 import numpy as np
-from numpy import float32, float64
+from numpy import float32, float64, int64
 from numpy.typing import NDArray
 from pathlib import Path
 from typing import Optional, TypedDict
@@ -108,6 +108,50 @@ class MoviePredictionModel(MachineLearningModel):
         scaler_dump(self.__transform_scaler, file_path)
         return
 
+    @classmethod
+    def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
+        """
+        Loads movie data from an index file and transforms it into the model's input format.
+
+        Args:
+            data_path (Path): The path to the index file containing movie data.
+
+        Returns:
+            list[list[MoviePredictionInputData]]: A list of movies, where each movie is a list of
+                                                 MoviePredictionInputData for each week.
+        """
+        logging.info("loading training data.")
+        movie_data: list[MovieData] = load_index_file(file_path=data_path, mode=IndexLoadMode.FULL)
+        training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie
+                                                               in movie_data]
+        return training_data
+
+    @staticmethod
+    def _load_test_data(test_data_folder_path: Path) -> Optional[
+        tuple[NDArray[float32], NDArray[float64], NDArray[int64]]]:
+        """
+        Loads test data from the specified folder.
+
+        Args:
+            test_data_folder_path (Path): The directory path containing x_test.npy, y_test.npy and sequence_lengths.npy.
+
+        Returns:
+            Optional[tuple[NDArray[float32], NDArray[float64], NDArray[int64]]]:
+                - x_test_loaded (NDArray[float32]): Loaded test input data.
+                - y_test_loaded (NDArray[float64]): Loaded test target data.
+                - lengths_test (NDArray[int64]): Loaded sequence lengths for test data.
+                Returns None if loading fails.
+        """
+        try:
+            x_test_loaded: NDArray[float32] = np.load(test_data_folder_path.joinpath("x_test.npy"))
+            y_test_loaded: NDArray[float64] = np.load(test_data_folder_path.joinpath("y_test.npy"))
+            lengths_test: NDArray[int64] = np.load(test_data_folder_path.joinpath("sequence_lengths.npy"))
+            return x_test_loaded, y_test_loaded, lengths_test
+        except FileNotFoundError:
+            logging.error(
+                f"Could not find x_test.npy, y_test.npy or sequence_lengths.npy in '{test_data_folder_path}'.")
+            return None
+
     @staticmethod
     def __generate_random_data(num_movies: int, weeks_range: tuple[int, int], reviews_range: tuple[int, int]) \
             -> list[list[MoviePredictionInputData]]:
@@ -209,44 +253,8 @@ class MoviePredictionModel(MachineLearningModel):
         scaled_data[:, 0] = self.__transform_scaler.transform(scaled_data[:, 0].reshape(-1, 1)).flatten()
         return scaled_data
 
-    @classmethod
-    def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
-        """
-        Loads movie data from an index file and transforms it into the model's input format.
-
-        Args:
-            data_path (Path): The path to the index file containing movie data.
-
-        Returns:
-            list[list[MoviePredictionInputData]]: A list of movies, where each movie is a list of
-                                                 MoviePredictionInputData for each week.
-        """
-        logging.info("loading training data.")
-        movie_data: list[MovieData] = load_index_file(file_path=data_path, mode=IndexLoadMode.FULL)
-        training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie
-                                                               in movie_data]
-        return training_data
-
-    @staticmethod
-    def _load_test_data(test_data_folder_path: Path) -> Optional[tuple[NDArray[float32], NDArray[float64]]]:
-        """
-        Loads test data from the specified folder.
-
-        Args:
-            test_data_folder_path: The directory path containing x_test.npy and y_test.npy.
-
-        Returns:
-            A tuple containing loaded x_test and y_test data, or None if loading fails.
-        """
-        try:
-            x_test_loaded: NDArray[float32] = np.load(test_data_folder_path.joinpath("x_test.npy"))
-            y_test_loaded: NDArray[float64] = np.load(test_data_folder_path.joinpath("y_test.npy"))
-            return x_test_loaded, y_test_loaded
-        except FileNotFoundError:
-            logging.error(f"Could not find X_test.npy or y_test.npy in '{test_data_folder_path}'.")
-            return None
-
-    def _prepare_data(self, data: any) -> tuple[NDArray[float32], NDArray[float64], NDArray[float32], NDArray[float64]]:
+    def _prepare_data(self, data: any) -> tuple[
+        NDArray[float32], NDArray[float64], NDArray[float32], NDArray[float64], list[int], list[int]]:
         """
         Prepares the input data for training and testing.
 
@@ -262,18 +270,23 @@ class MoviePredictionModel(MachineLearningModel):
                 - y_train_scaled (NDArray[float64]): Scaled training target box office values.
                 - x_test_scaled (NDArray[float32]): Scaled testing input sequences.
                 - y_test_scaled (NDArray[float64]): Scaled testing target box office values.
+                - lengths_train (List[int]): The original lengths of the training input sequences before padding.
+                - lengths_test (List[int]): The original lengths of the testing input sequences before padding.
         """
         processed_data: list[list[list[int | float]]] = self.__preprocess_data(data)
         self.__training_data_len = max(len(movie) for movie in processed_data)
 
         # prepare_sequences
         x, y = [], []
+        lengths: list[int] = []
         for movie in processed_data:
             for i in range(len(movie) - self.__training_week_limit):
                 seq_x: list[list[int | float]] = movie[i:i + self.__training_week_limit]
                 seq_y: int = movie[i + self.__training_week_limit][0]
                 x.append(seq_x)
                 y.append(seq_y)
+                lengths.append(len(seq_x))
+
         if self.__training_data_len:
             x = pad_sequences(x, maxlen=self.__training_data_len, dtype='float32', padding='post')
 
@@ -281,6 +294,7 @@ class MoviePredictionModel(MachineLearningModel):
 
         split_index: int = int(len(x) * self.__split_rate)
         x_train, y_train, x_test, y_test = x[:split_index], y[:split_index], x[split_index:], y[split_index:]
+        lengths_train, lengths_test = lengths[:split_index], lengths[split_index:]
 
         # Standardization
         self.__transform_scaler: MinMaxScaler = MinMaxScaler()
@@ -295,7 +309,7 @@ class MoviePredictionModel(MachineLearningModel):
         for i in range(x_test.shape[0]):
             x_test_scaled[i, :, 0] = self.__scale_box_office_feature(x_test[i, :, 0].reshape(-1, 1)).flatten()
 
-        return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled
+        return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled, lengths_train, lengths_test
 
     def _build_model(self, model: Sequential, layers: list[any]) -> None:
         """
@@ -306,7 +320,6 @@ class MoviePredictionModel(MachineLearningModel):
             layers (list[any]): A list of Keras layers to add to the model.
         """
         super()._build_model(model=model, layers=layers)
-        # TODO
         clip_norm_value: float = 1.0
         initial_learning_rate: float = 0.001
         decay_steps: int = 1000
@@ -338,7 +351,7 @@ class MoviePredictionModel(MachineLearningModel):
         logging.info("training procedure start.")
         self.__training_week_limit = training_week_limit
         self.__split_rate = split_rate
-        x_train, y_train, x_test, y_test = self._prepare_data(data)
+        x_train, y_train, x_test, y_test, _, lengths_test = self._prepare_data(data)
 
         self._model: Sequential = self._create_model(layers=[
             Input(shape=(self.__training_data_len, x_train.shape[2])),
@@ -346,17 +359,18 @@ class MoviePredictionModel(MachineLearningModel):
             LSTM(128, activation='relu'),
             Dropout(0.5),
             Dense(1)
-        ],
-            old_model_path=old_model_path)
+        ], old_model_path=old_model_path)
         self.train_model(x_train, y_train, epoch)
         loss: float = self.evaluate_model(x_test, y_test)
         logging.info(f"model test loss: {loss}.")
 
         base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{model_name}_{epoch}')
         recreate_folder(path=base_save_folder)
+        # save training results
         self._save_model(file_path=base_save_folder.joinpath(f"{model_name}_{epoch}.keras"))
         np.save(base_save_folder.joinpath('x_test.npy'), x_test)
         np.save(base_save_folder.joinpath('y_test.npy'), y_test)
+        np.save(base_save_folder.joinpath('sequence_lengths.npy'), lengths_test)
         self.__save_training_setting(base_save_folder.joinpath('setting.yaml'))
         self.__save_scaler(base_save_folder.joinpath('scaler.gz'))
 
@@ -390,13 +404,14 @@ class MoviePredictionModel(MachineLearningModel):
         return prediction
 
     def __evaluate_predictions(self, x_test_loaded: NDArray[float32], y_test_loaded: NDArray[float64],
-                               prediction_logic: callable) -> tuple[int, int]:
+                               lengths_test: list[int] | NDArray[int64], prediction_logic: callable) -> tuple[int, int]:
         """
         Evaluates predictions based on a given prediction logic.
 
         Args:
             x_test_loaded: Loaded test input data.
             y_test_loaded: Loaded test target data.
+            lengths_test (list[int] | NDArray[int64]): A list containing the original lengths of each input sequence in `x_test_loaded` before padding.
             prediction_logic: A callable that takes predicted and actual box office values and returns True if the prediction is considered correct, False otherwise.
 
         Returns:
@@ -406,8 +421,9 @@ class MoviePredictionModel(MachineLearningModel):
         total_predictions: int = 0
 
         for i in range(len(x_test_loaded)):
-            if len(x_test_loaded[i]) >= self.__training_week_limit:
-                input_sequence: NDArray[float32] = x_test_loaded[i][-self.__training_week_limit:].reshape(
+            valid_len:int | int64 = lengths_test[i]
+            if valid_len >= self.__training_week_limit:
+                input_sequence: NDArray[float32] = x_test_loaded[i][:valid_len][-self.__training_week_limit:].reshape(
                     (1, self.__training_week_limit, x_test_loaded.shape[-1]))
 
                 # Standardize the box office feature of the input sequence
@@ -418,15 +434,17 @@ class MoviePredictionModel(MachineLearningModel):
 
                 predicted_box_office_scaled: NDArray[float32] = self._model.predict(input_sequence_scaled, verbose=0)[
                     0, 0]
-                predicted_box_office: float = self.__transform_scaler.inverse_transform(
-                    np.array([[predicted_box_office_scaled]]))[0, 0]
+                predicted_box_office: float = \
+                    self.__transform_scaler.inverse_transform([[predicted_box_office_scaled]])[0, 0]
 
                 if i < len(y_test_loaded):
-                    actual_next_week_box_office: float = self.__transform_scaler.inverse_transform(
-                        np.array([[y_test_loaded[i]]]))[0, 0]
+                    actual_next_week_box_office: float = \
+                        self.__transform_scaler.inverse_transform([[y_test_loaded[i]]])[0, 0]
                     logging.info(
                         f"predicted box office / actual box office: {predicted_box_office} / {actual_next_week_box_office}.")
-                    if prediction_logic(predicted_box_office, actual_next_week_box_office, x_test_loaded[i][-1, 0]):
+
+                    if prediction_logic(predicted_box_office, actual_next_week_box_office,
+                                        x_test_loaded[i][valid_len - 1, 0]):
                         correct_predictions += 1
                     total_predictions += 1
                 else:
@@ -464,7 +482,7 @@ class MoviePredictionModel(MachineLearningModel):
         """
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise AssertionError('model, settings, and scaler must be loaded.')
-        x_test_loaded, y_test_loaded = self._load_test_data(test_data_folder_path)
+        x_test_loaded, y_test_loaded, lengths_test = self._load_test_data(test_data_folder_path)
 
         def trend_prediction_logic(predicted: float, actual: float, current: float) -> bool:
             predicted_trend = 1 if predicted > current else 0
@@ -472,7 +490,7 @@ class MoviePredictionModel(MachineLearningModel):
             return predicted_trend == actual_trend
 
         correct_predictions, total_predictions = self.__evaluate_predictions(x_test_loaded, y_test_loaded,
-                                                                             trend_prediction_logic)
+                                                                             lengths_test, trend_prediction_logic)
         self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Trend")
         return
 
@@ -487,7 +505,7 @@ class MoviePredictionModel(MachineLearningModel):
         """
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise AssertionError('model, settings, and scaler must be loaded.')
-        x_test_loaded, y_test_loaded = self._load_test_data(test_data_folder_path)
+        x_test_loaded, y_test_loaded, lengths_test = self._load_test_data(test_data_folder_path)
 
         # Create box office ranges
         ranges = sorted(list(box_office_ranges))
@@ -506,7 +524,7 @@ class MoviePredictionModel(MachineLearningModel):
             return predicted_range_index == actual_range_index
 
         correct_predictions, total_predictions = self.__evaluate_predictions(x_test_loaded, y_test_loaded,
-                                                                             range_prediction_logic)
+                                                                             lengths_test, range_prediction_logic)
         self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Range")
         return
 

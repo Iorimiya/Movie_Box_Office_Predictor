@@ -29,7 +29,8 @@ def set_argument_parser() -> Namespace:
                                 "movie_prediction_train", "movie_prediction_test",
                                 "add_sentiment_score_to_saved_data",
                                 "movie_prediction_train_gen_data", "movie_prediction_test_gen_data",
-                                "movie_prediction_trend_evaluation", "movie_prediction_range_evaluation"],
+                                "movie_prediction_trend_evaluation", "movie_prediction_range_evaluation",
+                                "movie_prediction_evaluation"],
                        help="unit test")
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result, or the target movie name that search in unit test.")
