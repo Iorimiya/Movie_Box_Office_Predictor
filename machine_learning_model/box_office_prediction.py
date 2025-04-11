@@ -353,21 +353,29 @@ class MoviePredictionModel(MachineLearningModel):
         self.__split_rate = split_rate
         x_train, y_train, x_test, y_test, _, lengths_test = self._prepare_data(data)
 
-        self._model: Sequential = self._create_model(layers=[
-            Input(shape=(self.__training_data_len, x_train.shape[2])),
-            Masking(mask_value=0.0),
-            LSTM(128, activation='relu'),
-            Dropout(0.5),
-            Dense(1)
-        ], old_model_path=old_model_path)
+
+        if old_model_path:
+            self._model: Sequential = self._create_model(old_model_path=old_model_path)
+            new_epoch: int = int(old_model_path.stem.split('_')[-1]) + epoch
+            save_name:str = f"{model_name}_{new_epoch}"
+        else:
+            self._model: Sequential = self._create_model(layers=[
+                Input(shape=(self.__training_data_len, x_train.shape[2])),
+                Masking(mask_value=0.0),
+                LSTM(128, activation='relu'),
+                Dropout(0.5),
+                Dense(1)
+            ])
+            save_name: str = f"{model_name}_{epoch}"
+
         self.train_model(x_train, y_train, epoch)
         loss: float = self.evaluate_model(x_test, y_test)
         logging.info(f"model test loss: {loss}.")
 
-        base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{model_name}_{epoch}')
+        base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{save_name}')
         recreate_folder(path=base_save_folder)
         # save training results
-        self._save_model(file_path=base_save_folder.joinpath(f"{model_name}_{epoch}.keras"))
+        self._save_model(file_path=base_save_folder.joinpath(f"{save_name}.keras"))
         np.save(base_save_folder.joinpath('x_test.npy'), x_test)
         np.save(base_save_folder.joinpath('y_test.npy'), y_test)
         np.save(base_save_folder.joinpath('sequence_lengths.npy'), lengths_test)

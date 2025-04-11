@@ -142,18 +142,20 @@ class MachineLearningModel(ABC):
             folder_path.mkdir(parents=True)
         return
 
-    def _create_model(self, layers: list[any], old_model_path: Optional[Path] = None) -> Sequential:
+    def _create_model(self, layers: Optional[list[any]] = None, old_model_path: Optional[Path] = None) -> Sequential:
         """
         Creates or loads a model.
 
         Args:
-            layers (list[any]): A list of Keras layers to build a new model, if needed.
+            layers (Optional[list[any]]): A list of Keras layers to build a new model, if needed.
             old_model_path (Optional[Path]): Path to an existing model to load. Defaults to None.
 
         Returns:
             Sequential: The created or loaded Sequential model.
         """
-        if check_path(old_model_path):
+        if not old_model_path and not layers:
+            raise ValueError('Either layers or old_model_path must be provided.')
+        elif check_path(old_model_path):
             model: Sequential = load_model(old_model_path)
         else:
             model: Sequential = Sequential()
@@ -170,7 +172,8 @@ class MachineLearningModel(ABC):
             epoch (int): The number of training epochs. Defaults to 200.
             batch_size (any): The batch size for training. Defaults to None.
         """
-        self._model.fit(x_train, y_train, epochs=epoch, batch_size=batch_size, verbose=1, callbacks=LossLoggingCallback())
+        self._model.fit(x_train, y_train, epochs=epoch, batch_size=batch_size, verbose=1,
+                        callbacks=LossLoggingCallback())
         return
 
     def evaluate_model(self, x_test: NDArray, y_test: NDArray) -> float:

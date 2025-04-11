@@ -168,7 +168,10 @@ if __name__ == "__main__":
                     logging.info('training prediction model.')
                     logging.info(f"epoch inputted: {args.epoch}")
                     input_epoch: int = int(args.epoch)
-                    MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch)
+                    MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch,
+                                                        old_model_path=Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(
+                                                            args.name, f"{args.name}.keras") \
+                                                            if args.name else None)
                 else:
                     raise AttributeError("You must specify value of epoch.")
             case "movie_prediction_train_gen_data":
@@ -177,18 +180,20 @@ if __name__ == "__main__":
                     logging.info(f"epoch inputted: {args.epoch}")
                     input_epoch: int = int(args.epoch)
                     MoviePredictionModel().simple_train(
-                        input_data=None, epoch=input_epoch, model_name='gen_data')
+                        input_data=None, epoch=input_epoch, model_name='gen_data',
+                        old_model_path=Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name, f"{args.name}.keras") \
+                            if args.name else None)
                 else:
                     raise AttributeError("You must specify value of epoch.")
 
             case "movie_prediction_trend_evaluation" | "movie_prediction_range_evaluation" | "movie_prediction_test_gen_data":
-                model_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name,f"{args.name}.keras") \
+                model_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name, f"{args.name}.keras") \
                     if args.name else Constants.BOX_OFFICE_PREDICTION_MODEL_PATH
-                setting_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name,'setting.yaml') \
+                setting_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name, 'setting.yaml') \
                     if args.name else Constants.BOX_OFFICE_PREDICTION_SETTING_PATH
-                scaler_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name,f'scaler.gz') \
+                scaler_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name, f'scaler.gz') \
                     if args.name else Constants.BOX_OFFICE_PREDICTION_SCALER_PATH
-                test_data_folder_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name)  \
+                test_data_folder_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name) \
                     if args.name else Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER
                 match args.function:
                     case "movie_prediction_trend_evaluation":
