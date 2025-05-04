@@ -30,13 +30,15 @@ def set_argument_parser() -> Namespace:
                                 "add_sentiment_score_to_saved_data",
                                 "movie_prediction_train_gen_data", "movie_prediction_test_gen_data",
                                 "movie_prediction_trend_evaluation", "movie_prediction_range_evaluation",
-                                "movie_prediction_evaluation"],
+                                "movie_prediction_evaluation",
+                                "movie_prediction_loop_train"],
                        help="unit test")
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result, or the target movie name that search in unit test.")
     parser.add_argument("-e", "--epoch", type=int, required=False, help="training epoch of model.")
     parser.add_argument("-p", "--path", type=int, required=False, help="file path for unit test.")
     parser.add_argument("-i", "--input", type=str, required=False, help="the input of unit test.")
+    parser.add_argument("-le", "--loop_epoch", type=int, required=False, help="loop epoch of model.")
 
     return parser.parse_args()
 
@@ -211,6 +213,26 @@ if __name__ == "__main__":
                         MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
                                              transform_scaler_path=scaler_path) \
                             .simple_predict(input_data=None)
+            case "movie_prediction_loop_train":
+                if args.epoch and args.loop_epoch:
+                    logging.info('training prediction model.')
+                    logging.info(f"epoch inputted: {args.epoch}")
+                    logging.info(f"loop epoch inputted: {args.loop_epoch}")
+                    input_epoch: int = int(args.epoch)
+                    loop_epoch: int = int(args.loop_epoch)
+                    model_name: str = args.name.rsplit('_', 1)[0] if args.name else "box_office_prediction_model"
+                    old_epoch: int = int(args.name.rsplit('_', 1)[1]) if args.name else 0
+                    old_exists_model_path: Path = \
+                        Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.name, f"{args.name}.keras") \
+                            if args.name else None
+                    for loop_index in range(old_epoch, input_epoch, loop_epoch):
+                        if loop_index != old_epoch:
+                            old_exists_model_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(
+                                f"{model_name}_{loop_index}", f"{model_name}_{loop_index}.keras")
+                        MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=loop_epoch,
+                                                            old_model_path=old_exists_model_path)
+                else:
+                    raise AttributeError("You must specify value of epoch.")
             case _:
                 raise ValueError
     else:
