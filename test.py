@@ -22,7 +22,14 @@ def plot_loss(log_path: Path) -> None:
 
         model_epochs: list[int] = [epoch + step_epoch for single_record, epoch in zip(found_informations, range(init_epoch, final_epoch, step_epoch))]
         model_losses:list[float] = [float(re.search('loss: .+\.', single_record).group(0).rsplit(' ')[-1].rsplit('.', 1)[0]) for single_record, epoch in zip(found_informations, range(init_epoch, final_epoch, step_epoch))]
-        print(model_epochs, model_losses)
+
+        plt.title('training_validation_loss')
+        plt.xlabel('epoch')
+        plt.ylabel('loss')
+        plt.gca().ticklabel_format(style='sci', scilimits=(-2,1), axis='y')
+        plt.plot(model_epochs, model_losses)
+        plt.savefig('training_validation_loss.png')
+        plt.show()
 
 
 if __name__ == '__main__':
