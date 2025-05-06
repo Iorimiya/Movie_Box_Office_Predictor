@@ -100,7 +100,7 @@ def plot_trend(model_name: str):
     model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
 
     # pyplot drawing
-    plot_line_graph(title='trend_accuracy', save_file_path=Path('../graph/trend_accuracy.png'),
+    plot_line_graph(title='trend_accuracy', save_file_path=Path('graph/trend_accuracy.png'),
                     x_data=model_epochs, y_data=accuracies,
                     format_type='percent', y_label='accuracy')
 
@@ -124,6 +124,6 @@ def plot_range(model_name: str):
                                    .evaluate_range(test_data_folder_path=folder) for folder in folder_list]
     model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
 
-    plot_line_graph(title='range_accuracy', save_file_path=Path('../graph/range_accuracy.png'),
+    plot_line_graph(title='range_accuracy', save_file_path=Path('graph/range_accuracy.png'),
                     x_data=model_epochs, y_data=accuracies,
                     format_type='percent', y_label='accuracy')
