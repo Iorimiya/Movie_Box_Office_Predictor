@@ -3,8 +3,9 @@ from pathlib import Path
 from datetime import datetime
 from argparse import ArgumentParser, Namespace
 
-from tools.util import recreate_folder, plot_loss
+from tools.util import recreate_folder
 from tools.constant import Constants
+from tools.plot import plot_trend, plot_loss, plot_range
 from movie_data import load_index_file, MovieData
 from web_scraper.review_collector import ReviewCollector
 from web_scraper.box_office_collector import BoxOfficeCollector
@@ -32,7 +33,7 @@ def set_argument_parser() -> Namespace:
                                 "movie_prediction_trend_evaluation", "movie_prediction_range_evaluation",
                                 "movie_prediction_evaluation",
                                 "movie_prediction_loop_train",
-                                "draw_line_graph_vaildation_loss", "draw_line_graph_trend_rate",
+                                "draw_line_graph_validation_loss", "draw_line_graph_trend_rate",
                                 "draw_line_graph_range_rate"],
                        help="unit test")
     parser.add_argument("-n", "--name", type=str, required=False,
@@ -235,15 +236,21 @@ if __name__ == "__main__":
                                                             old_model_path=old_exists_model_path)
                 else:
                     raise AttributeError("You must specify value of epoch.")
-            case "draw_line_graph_vaildation_loss":
+            case "draw_line_graph_validation_loss":
                 if args.path:
                     plot_loss(Path(args.path))
                 else:
                     raise AttributeError("You must specify path for log.")
             case "draw_line_graph_trend_rate":
-                pass
+                if args.name:
+                    plot_trend(args.name)
+                else:
+                    raise AttributeError("You must specify model name.")
             case "draw_line_graph_range_rate":
-                pass
+                if args.name:
+                    plot_range(args.name)
+                else:
+                    raise AttributeError("You must specify model name.")
             case _:
                 raise ValueError
     else:

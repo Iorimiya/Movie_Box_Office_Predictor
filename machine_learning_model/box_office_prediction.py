@@ -6,6 +6,7 @@ from numpy import float32, float64, int64
 from numpy.typing import NDArray
 from pathlib import Path
 from typing import Optional, TypedDict
+
 from sklearn.preprocessing import MinMaxScaler
 from joblib import dump as scaler_dump, load as scaler_load
 from keras.src.models import Sequential
@@ -353,11 +354,10 @@ class MoviePredictionModel(MachineLearningModel):
         self.__split_rate = split_rate
         x_train, y_train, x_test, y_test, _, lengths_test = self._prepare_data(data)
 
-
         if old_model_path:
             self._model: Sequential = self._create_model(old_model_path=old_model_path)
             new_epoch: int = int(old_model_path.stem.split('_')[-1]) + epoch
-            save_name:str = f"{model_name}_{new_epoch}"
+            save_name: str = f"{model_name}_{new_epoch}"
         else:
             self._model: Sequential = self._create_model(layers=[
                 Input(shape=(self.__training_data_len, x_train.shape[2])),
@@ -429,7 +429,7 @@ class MoviePredictionModel(MachineLearningModel):
         total_predictions: int = 0
 
         for i in range(len(x_test_loaded)):
-            valid_len:int | int64 = lengths_test[i]
+            valid_len: int | int64 = lengths_test[i]
             if valid_len >= self.__training_week_limit:
                 input_sequence: NDArray[float32] = x_test_loaded[i][:valid_len][-self.__training_week_limit:].reshape(
                     (1, self.__training_week_limit, x_test_loaded.shape[-1]))
@@ -461,7 +461,8 @@ class MoviePredictionModel(MachineLearningModel):
         return correct_predictions, total_predictions
 
     @staticmethod
-    def __log_and_print_evaluation_results(correct_predictions: int, total_predictions: int, evaluation_type: str):
+    def __log_and_print_evaluation_results(correct_predictions: int, total_predictions: int,
+                                           evaluation_type: str) -> float:
         """
         Logs and prints the evaluation results.
 
@@ -472,21 +473,25 @@ class MoviePredictionModel(MachineLearningModel):
                 (e.g., "Trend", "Range"). This string will be included in the output messages.
 
         Returns:
-            None.
+            The accuracy of the model evaluation.
         """
         accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
         print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
         logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
         print(f"{evaluation_type} prediction accuracy: {accuracy:.2%}")
         logging.info(f"{evaluation_type} prediction accuracy: {accuracy:.2%}")
+        return accuracy
 
     def evaluate_trend(self,
-                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> None:
+                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> float:
         """
         Evaluates the model's accuracy in predicting the trend of box office revenue.
 
         Args:
             test_data_folder_path: The directory path containing x_test.npy and y_test.npy.
+
+        Returns:
+            The accuracy of the model evaluation.
         """
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise AssertionError('model, settings, and scaler must be loaded.')
@@ -499,17 +504,20 @@ class MoviePredictionModel(MachineLearningModel):
 
         correct_predictions, total_predictions = self.__evaluate_predictions(x_test_loaded, y_test_loaded,
                                                                              lengths_test, trend_prediction_logic)
-        self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Trend")
-        return
+        accuracy: float = self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Trend")
+        return accuracy
 
     def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 10000000, 90000000),
-                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> None:
+                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> float:
         """
         Evaluates the model's prediction accuracy based on box office ranges.
 
         Args:
             box_office_ranges: A tuple of box office range boundaries, e.g., (100, 200, 400).
             test_data_folder_path: The directory path containing x_test.npy and y_test.npy.
+
+        Returns:
+            The accuracy of the model evaluation.
         """
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise AssertionError('model, settings, and scaler must be loaded.')
@@ -533,8 +541,8 @@ class MoviePredictionModel(MachineLearningModel):
 
         correct_predictions, total_predictions = self.__evaluate_predictions(x_test_loaded, y_test_loaded,
                                                                              lengths_test, range_prediction_logic)
-        self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Range")
-        return
+        accuracy: float = self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Range")
+        return accuracy
 
     def simple_train(self, input_data: Path | list[MovieData] | None,
                      old_model_path: Optional[Path] = None,
