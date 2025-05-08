@@ -91,7 +91,7 @@ def plot_validation_loss(model_name: str) -> None:
     Returns:
         None.
     """
-    folder_list: list[Path] = list(Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*"))
+    folder_list: list[Path] = list(filter(lambda file:file.is_dir(),Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*")))
     model_epochs: list[int] = [int(folder.name.split("_")[-1]) for folder in folder_list]
 
     loss: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
@@ -116,7 +116,7 @@ def plot_trend_accuracy(model_name: str):
     Returns:
         None.
     """
-    folder_list: list[Path] = list(Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*"))
+    folder_list: list[Path] = list(filter(lambda file:file.is_dir(),Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*")))
 
     model_epochs: list[int] = [int(folder.name.split("_")[-1]) for folder in folder_list]
     accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
@@ -141,7 +141,7 @@ def plot_range_accuracy(model_name: str):
     Returns:
         None.
     """
-    folder_list: list[Path] = list(Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*"))
+    folder_list: list[Path] = list(filter(lambda file:file.is_dir(),Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*")))
 
     model_epochs: list[int] = [int(folder.name.split("_")[-1]) for folder in folder_list]
     accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
