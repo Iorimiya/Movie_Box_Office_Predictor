@@ -230,7 +230,7 @@ if __name__ == "__main__":
             case "train_movie_prediction_model_with_checkpointing":
                 if args.target_epoch and args.saving_epoch:
                     input_epoch: int = int(args.target_epoch)
-                    loop_epoch: int = int(args.saving_epoch)
+                    saving_interval: int = int(args.saving_epoch)
                     if args.old_model_name:
                         logging.info(f"continue training with model {args.old_model_name}.")
                         logging.info(f"epoch inputted: {args.target_epoch}")
@@ -247,13 +247,16 @@ if __name__ == "__main__":
                         model_name: str = args.model_name if args.model_name else Constants.BOX_OFFICE_PREDICTION_MODEL_NAME
                         init_epoch: int = 0
                         old_model_path: Optional[Path] = None
-                    for loop_index in range(init_epoch, input_epoch, loop_epoch):
-                        if loop_index != init_epoch:
-                            old_model_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(
-                                f"{model_name}_{loop_index}", f"{model_name}_{loop_index}.keras")
-                        MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, model_name=model_name,
-                                                            epoch=loop_epoch,
-                                                            old_model_path=old_model_path)
+                    # for loop_index in range(init_epoch, input_epoch, loop_epoch):
+                    #     if loop_index != init_epoch:
+                    #         old_model_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(
+                    #             f"{model_name}_{loop_index}", f"{model_name}_{loop_index}.keras")
+                    #     MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, model_name=model_name,
+                    #                                         epoch=loop_epoch,
+                    #                                         old_model_path=old_model_path)
+                    MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, model_name=model_name,
+                                                        epoch=(input_epoch, saving_interval),
+                                                        old_model_path=old_model_path)
 
                 else:
                     raise AttributeError("You must specify value of epoch.")

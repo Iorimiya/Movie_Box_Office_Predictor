@@ -109,6 +109,28 @@ class MoviePredictionModel(MachineLearningModel):
         scaler_dump(self.__transform_scaler, file_path)
         return
 
+    def __save_all(self, base_folder: Path, model_name: str,
+                   test_data: tuple[NDArray[float32], NDArray[float64], list[int]]) -> None:
+        """
+        Saves the trained model, test data, training settings, and scaler to the specified folder.
+
+        Args:
+            base_folder (Path): The base directory to save the files in.
+            model_name (str): The name of the model to use in the saved filename.
+            test_data (tuple[NDArray[float32], NDArray[float64], list[int]]): A tuple containing the test data:
+                - x_test (NDArray[float32]): The input test data.
+                - y_test (NDArray[float64]): The target test data.
+                - lengths_test (list[int]): The original sequence lengths of the test data before padding.
+        """
+        recreate_folder(path=base_folder)
+        x_test, y_test, lengths_test = test_data
+        self._save_model(file_path=base_folder.joinpath(f"{model_name}.keras"))
+        np.save(base_folder.joinpath('x_test.npy'), x_test)
+        np.save(base_folder.joinpath('y_test.npy'), y_test)
+        np.save(base_folder.joinpath('sequence_lengths.npy'), lengths_test)
+        self.__save_training_setting(base_folder.joinpath('setting.yaml'))
+        self.__save_scaler(base_folder.joinpath('scaler.gz'))
+
     @classmethod
     def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
         """
@@ -332,7 +354,7 @@ class MoviePredictionModel(MachineLearningModel):
 
     def train(self, data: list[list[MoviePredictionInputData]],
               old_model_path: Optional[Path] = None,
-              epoch: int = 1000,
+              epoch: int | tuple[int, int] = 1000,
               model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
               training_week_limit: int = 4,
               split_rate: float = 0.8) -> None:
@@ -356,8 +378,7 @@ class MoviePredictionModel(MachineLearningModel):
 
         if old_model_path:
             self._model: Sequential = self._create_model(old_model_path=old_model_path)
-            new_epoch: int = int(old_model_path.stem.split('_')[-1]) + epoch
-            save_name: str = f"{model_name}_{new_epoch}"
+            base_epoch: int = int(old_model_path.stem.split('_')[-1])
         else:
             self._model: Sequential = self._create_model(layers=[
                 Input(shape=(self.__training_data_len, x_train.shape[2])),
@@ -366,21 +387,26 @@ class MoviePredictionModel(MachineLearningModel):
                 Dropout(0.5),
                 Dense(1)
             ])
-            save_name: str = f"{model_name}_{epoch}"
+            base_epoch: int = 0
 
-        self.train_model(x_train, y_train, epoch)
-        loss: float = self.evaluate_model(x_test, y_test)
-        logging.info(f"model test loss: {loss}.")
+        if isinstance(epoch, int):
+            max_epoch, save_interval = epoch, epoch
+        elif isinstance(epoch, tuple) and len(epoch) == 2 and all(isinstance(e, int) for e in epoch):
+            max_epoch, save_interval = epoch
+        else:
+            raise ValueError("epoch must be int or tuple[int,int]")
 
-        base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{save_name}')
-        recreate_folder(path=base_save_folder)
-        # save training results
-        self._save_model(file_path=base_save_folder.joinpath(f"{save_name}.keras"))
-        np.save(base_save_folder.joinpath('x_test.npy'), x_test)
-        np.save(base_save_folder.joinpath('y_test.npy'), y_test)
-        np.save(base_save_folder.joinpath('sequence_lengths.npy'), lengths_test)
-        self.__save_training_setting(base_save_folder.joinpath('setting.yaml'))
-        self.__save_scaler(base_save_folder.joinpath('scaler.gz'))
+        for current_save_epoch in range(base_epoch + save_interval, max_epoch + save_interval, save_interval):
+            save_name: str = f"{model_name}_{current_save_epoch}"
+            self.train_model(x_train, y_train, save_interval)
+            loss: float = self.evaluate_model(x_test, y_test)
+            logging.info(f"model test loss: {loss}.")
+
+            base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{save_name}')
+
+            # save training results
+            self.__save_all(base_folder=base_save_folder, model_name=save_name,
+                            test_data=(x_test, y_test, lengths_test))
 
     def predict(self, data_input: list[MoviePredictionInputData]) -> float:
         """
@@ -498,7 +524,6 @@ class MoviePredictionModel(MachineLearningModel):
         x_test_loaded, y_test_loaded, lengths_test = self._load_test_data(test_data_folder_path)
         return self.evaluate_model(x_test=x_test_loaded, y_test=y_test_loaded)
 
-
     def evaluate_trend(self,
                        test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> float:
         """
@@ -563,7 +588,7 @@ class MoviePredictionModel(MachineLearningModel):
 
     def simple_train(self, input_data: Path | list[MovieData] | None,
                      old_model_path: Optional[Path] = None,
-                     epoch: int = 1000,
+                     epoch: int | tuple[int, int] = 1000,
                      model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
                      training_week_limit: int = 4,
                      split_rate: float = 0.8) -> None:
