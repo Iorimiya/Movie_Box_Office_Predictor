@@ -5,7 +5,8 @@ from argparse import ArgumentParser, Namespace
 
 from tools.util import recreate_folder
 from tools.constant import Constants
-from tools.plot import plot_trend, plot_loss, plot_range
+from tools.plot import plot_training_validation_loss, plot_test_validation_loss, \
+    plot_trend_accuracy, plot_range_accuracy
 from movie_data import load_index_file, MovieData
 from web_scraper.review_collector import ReviewCollector
 from web_scraper.box_office_collector import BoxOfficeCollector
@@ -33,8 +34,8 @@ def set_argument_parser() -> Namespace:
                                 "movie_prediction_trend_evaluation", "movie_prediction_range_evaluation",
                                 "movie_prediction_evaluation",
                                 "movie_prediction_loop_train",
-                                "draw_line_graph_validation_loss", "draw_line_graph_trend_rate",
-                                "draw_line_graph_range_rate"],
+                                "draw_line_graph_training_validation_loss", "draw_line_graph_test_validation_loss",
+                                "draw_line_graph_trend_rate", "draw_line_graph_range_rate"],
                        help="unit test")
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result, or the target movie name that search in unit test.")
@@ -236,19 +237,24 @@ if __name__ == "__main__":
                                                             old_model_path=old_exists_model_path)
                 else:
                     raise AttributeError("You must specify value of epoch.")
-            case "draw_line_graph_validation_loss":
+            case "draw_line_graph_training_validation_loss":
                 if args.path:
-                    plot_loss(Path(args.path))
+                    plot_training_validation_loss(Path(args.path))
                 else:
                     raise AttributeError("You must specify path for log.")
+            case "draw_line_graph_test_validation_loss":
+                if args.name:
+                    plot_test_validation_loss(args.name)
+                else:
+                    raise AttributeError("You must specify model name.")
             case "draw_line_graph_trend_rate":
                 if args.name:
-                    plot_trend(args.name)
+                    plot_trend_accuracy(args.name)
                 else:
                     raise AttributeError("You must specify model name.")
             case "draw_line_graph_range_rate":
                 if args.name:
-                    plot_range(args.name)
+                    plot_range_accuracy(args.name)
                 else:
                     raise AttributeError("You must specify model name.")
             case _:
