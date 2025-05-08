@@ -69,13 +69,13 @@ def plot_loss(log_path: Path) -> None:
     model_epochs: list[int] = [epoch + step_epoch for single_record, epoch in
                                zip(found_information, range(init_epoch, final_epoch, step_epoch))]
     model_losses: list[float] = [
-        float(re.search('loss: .+\.', single_record).group(0).rsplit(' ')[-1].rsplit('.', 1)[0]) for
+        float(re.search('Loss = .+', single_record).group(0).rsplit(' ')[-1]) for
         single_record, epoch in zip(found_information, range(init_epoch, final_epoch, step_epoch))]
 
     # pyplot drawing
     plot_line_graph(title='training_validation_loss', save_file_path=Path('graph/training_validation_loss.png'),
                     x_data=model_epochs, y_data=model_losses,
-                    format_type='percent', y_label='loss')
+                    format_type='sci-notation', y_label='loss')
 
     return
 

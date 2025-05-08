@@ -39,7 +39,7 @@ def set_argument_parser() -> Namespace:
     parser.add_argument("-n", "--name", type=str, required=False,
                         help="the movie name that user want to get rating result, or the target movie name that search in unit test.")
     parser.add_argument("-e", "--epoch", type=int, required=False, help="training epoch of model.")
-    parser.add_argument("-p", "--path", type=int, required=False, help="file path for unit test.")
+    parser.add_argument("-p", "--path", type=str, required=False, help="file path for unit test.")
     parser.add_argument("-i", "--input", type=str, required=False, help="the input of unit test.")
     parser.add_argument("-le", "--loop_epoch", type=int, required=False, help="loop epoch of model.")
 
