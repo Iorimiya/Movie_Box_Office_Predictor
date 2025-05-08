@@ -482,6 +482,23 @@ class MoviePredictionModel(MachineLearningModel):
         logging.info(f"{evaluation_type} prediction accuracy: {accuracy:.2%}")
         return accuracy
 
+    def evaluate_loss(self,
+                      test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> float:
+        """
+        Evaluates the model's test validation loss.
+
+        Args:
+            test_data_folder_path: The directory path containing x_test.npy and y_test.npy.
+
+        Returns:
+            the model's test validation loss.
+        """
+        if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
+            raise AssertionError('model, settings, and scaler must be loaded.')
+        x_test_loaded, y_test_loaded, lengths_test = self._load_test_data(test_data_folder_path)
+        return self.evaluate_model(x_test=x_test_loaded, y_test=y_test_loaded)
+
+
     def evaluate_trend(self,
                        test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> float:
         """

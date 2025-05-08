@@ -43,7 +43,7 @@ def plot_line_graph(title: str, save_file_path: Path,
     return
 
 
-def plot_loss(log_path: Path) -> None:
+def plot_training_validation_loss(log_path: Path) -> None:
     """
     Loading logs and draw line graph of training validation loss value.
 
@@ -79,8 +79,33 @@ def plot_loss(log_path: Path) -> None:
 
     return
 
+def plot_test_validation_loss(model_name:str) -> None:
+    """
+    Plots the test validation loss of a specified model across different training epochs.
 
-def plot_trend(model_name: str):
+    Args:
+        model_name (str): The name of the model to evaluate.
+
+    Returns:
+        None.
+    """
+    folder_list: list[Path] = list(Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*"))
+    model_epochs: list[int] = [int(folder.name.split("_")[-1]) for folder in folder_list]
+
+    loss: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
+                                                    training_setting_path=folder.joinpath(f'setting.yaml'),
+                                                    transform_scaler_path=folder.joinpath(f'scaler.gz')) \
+                                   .evaluate_loss(test_data_folder_path=folder) for folder in folder_list]
+    model_epochs, loss = (zip(*sorted(zip(model_epochs, loss), key=lambda x: x[0])))
+
+    # pyplot drawing
+    plot_line_graph(title='test_validation_loss', save_file_path=Path('graph/test_validation_loss.png'),
+                    x_data=model_epochs, y_data=loss,
+                    format_type='sci-notation', y_label='loss')
+
+
+
+def plot_trend_accuracy(model_name: str):
     """
     Plots the trend accuracy of a specified model across different training epochs.
 
@@ -105,7 +130,7 @@ def plot_trend(model_name: str):
                     format_type='percent', y_label='accuracy')
 
 
-def plot_range(model_name: str):
+def plot_range_accuracy(model_name: str):
     """
     Plots the range accuracy of a specified model across different training epochs.
 
