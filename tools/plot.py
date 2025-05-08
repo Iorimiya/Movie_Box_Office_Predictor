@@ -74,7 +74,7 @@ def plot_training_loss(log_path: Path) -> None:
         single_record, epoch in zip(found_information, range(init_epoch, final_epoch, step_epoch))]
 
     # pyplot drawing
-    plot_line_graph(title='training_validation_loss', save_file_path=Path('graph/training_validation_loss.png'),
+    plot_line_graph(title='training_loss', save_file_path=Path('graph/training_loss.png'),
                     x_data=model_epochs, y_data=model_losses,
                     format_type='sci-notation', y_label='loss')
 
@@ -101,7 +101,7 @@ def plot_validation_loss(model_name: str) -> None:
     model_epochs, loss = (zip(*sorted(zip(model_epochs, loss), key=lambda x: x[0])))
 
     # pyplot drawing
-    plot_line_graph(title='test_validation_loss', save_file_path=Path('graph/test_validation_loss.png'),
+    plot_line_graph(title='validation_loss', save_file_path=Path('graph/validation_loss.png'),
                     x_data=model_epochs, y_data=loss,
                     format_type='sci-notation', y_label='loss')
 
