@@ -98,7 +98,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         Returns:
             any: Loaded training data as a pandas DataFrame.
         """
-        logging.info("loading training data.")
+        logging.info("Loading training data.")
         return pd.read_csv(data_path)
 
     def _prepare_data(self, data: any) -> tuple[NDArray[int32], NDArray[int64], NDArray[int32], NDArray[int64]]:
@@ -111,7 +111,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         Returns:
             tuple[NDArray, NDArray, NDArray, NDArray]: Tuple containing x_train, y_train, x_test, y_test.
         """
-        logging.info("change data to dataset start.")
+        logging.info("Change data format start.")
         positive_words:Series = data[data['is_positive']].dropna().loc[:, 'word']
         negative_words:Series = data[~data['is_positive']].dropna().loc[:, 'word']
 
@@ -140,13 +140,13 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.2, random_state=42)
         return x_train, y_train, x_test, y_test
 
-    def _build_model(self,model: Sequential, layers: list[any]) -> None:
+    def _build_model(self,model: Sequential, layers: list) -> None:
         """
         Builds and compiles the model.
 
         Args:
             model (Sequential): The Sequential model.
-            layers (list[any]): List of layers to add to the model.
+            layers (list): List of layers to add to the model.
         """
         super()._build_model(model=model, layers=layers)
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
@@ -168,7 +168,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
             model_save_name (str): Name to save the trained model. Defaults to REVIEW_SENTIMENT_ANALYSIS_MODEL_NAME.
             tokenizer_save_path (Path): Path to save the tokenizer. Defaults to REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH.
         """
-        logging.info("training procedure start.")
+        logging.info("Training procedure start.")
 
         x_train, y_train, x_test, y_test = self._prepare_data(data)
 
@@ -187,7 +187,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
             save_name:str = f"{model_save_name}_{epoch}"
         self.train_model(x_train, y_train, epoch, batch_size=32)
         loss: float = self.evaluate_model(x_test, y_test)
-        logging.info(f"model test loss: {loss}.")
+        logging.info(f"Model validation loss: {loss}.")
         self.__save_tokenizer(file_path=tokenizer_save_path)
         self._save_model(model_save_folder.joinpath(f"{save_name}.keras"))
         return None

@@ -18,7 +18,7 @@ class LossLoggingCallback(Callback):
     If validation loss ('val_loss') is available in the logs, it will also be logged.
     """
 
-    def on_epoch_end(self, epoch: int, logs: Optional[dict[str, any]] = None):
+    def on_epoch_end(self, epoch: int, logs: Optional[dict[str: any]] = None):
         """Called at the end of an epoch.
 
         Logs the training and validation loss if they are present in the logs.
@@ -33,10 +33,10 @@ class LossLoggingCallback(Callback):
         logs = logs or {}
         loss = logs.get('loss')
         if loss is not None:
-            logging.info(f"Epoch {epoch + 1}: Training Loss = {loss:.4e}")
+            logging.info(f"Epoch {epoch + 1}: Training loss = {loss:.4e}.")
         val_loss = logs.get('val_loss')
         if val_loss is not None:
-            logging.info(f"Epoch {epoch + 1}: Validation Loss = {val_loss:.4e}")
+            logging.info(f"Epoch {epoch + 1}: Validation loss = {val_loss:.4e}.")
 
 
 class MachineLearningModel(ABC):
@@ -93,13 +93,13 @@ class MachineLearningModel(ABC):
         pass
 
     @abstractmethod
-    def _build_model(self, model: Sequential, layers: list[any]) -> None:
+    def _build_model(self, model: Sequential, layers: list) -> None:
         """
         Abstract method to build the model architecture.
 
         Args:
             model (Sequential): The Sequential model to build upon.
-            layers (list[any]): A list of Keras layers to add to the model.
+            layers (list): A list of Keras layers to add to the model.
         """
         for layer in layers:
             model.add(layer)
@@ -142,12 +142,12 @@ class MachineLearningModel(ABC):
             folder_path.mkdir(parents=True)
         return
 
-    def _create_model(self, layers: Optional[list[any]] = None, old_model_path: Optional[Path] = None) -> Sequential:
+    def _create_model(self, layers: Optional[list] = None, old_model_path: Optional[Path] = None) -> Sequential:
         """
         Creates or loads a model.
 
         Args:
-            layers (Optional[list[any]]): A list of Keras layers to build a new model, if needed.
+            layers (Optional[list]): A list of Keras layers to build a new model, if needed.
             old_model_path (Optional[Path]): Path to an existing model to load. Defaults to None.
 
         Returns:

@@ -227,13 +227,13 @@ class MovieData:
         return
 
     @staticmethod
-    def __save(file_path: Path, data: list[any], encoding: str = Constants.DEFAULT_ENCODING) -> None:
+    def __save(file_path: Path, data: list, encoding: str = Constants.DEFAULT_ENCODING) -> None:
         """
         Saves data to a YAML file.
 
         Args:
             file_path (Path): The path to the file.
-            data (list[any]): The data to save.
+            data (list): The data to save.
             encoding (str): The encoding to use. Defaults to Constants.DEFAULT_ENCODING.
         """
         if not file_path.parent.exists():
