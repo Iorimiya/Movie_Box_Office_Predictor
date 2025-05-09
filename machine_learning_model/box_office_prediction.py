@@ -143,7 +143,7 @@ class MoviePredictionModel(MachineLearningModel):
             list[list[MoviePredictionInputData]]: A list of movies, where each movie is a list of
                                                  MoviePredictionInputData for each week.
         """
-        logging.info("loading training data.")
+        logging.info("Loading training data.")
         movie_data: list[MovieData] = load_index_file(file_path=data_path, mode=IndexLoadMode.FULL)
         training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie
                                                                in movie_data]
@@ -334,7 +334,7 @@ class MoviePredictionModel(MachineLearningModel):
 
         return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled, lengths_train, lengths_test
 
-    def _build_model(self, model: Sequential, layers: list[any]) -> None:
+    def _build_model(self, model: Sequential, layers: list) -> None:
         """
         Builds and compiles the Keras Sequential model.
 
@@ -371,7 +371,7 @@ class MoviePredictionModel(MachineLearningModel):
            split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
         """
 
-        logging.info("training procedure start.")
+        logging.info("Training procedure start.")
         self.__training_week_limit = training_week_limit
         self.__split_rate = split_rate
         x_train, y_train, x_test, y_test, _, lengths_test = self._prepare_data(data)
@@ -394,13 +394,13 @@ class MoviePredictionModel(MachineLearningModel):
         elif isinstance(epoch, tuple) and len(epoch) == 2 and all(isinstance(e, int) for e in epoch):
             max_epoch, save_interval = epoch
         else:
-            raise ValueError("epoch must be int or tuple[int,int]")
+            raise ValueError("Epoch must be int or tuple[int,int]")
 
         for current_save_epoch in range(base_epoch + save_interval, max_epoch + save_interval, save_interval):
             save_name: str = f"{model_name}_{current_save_epoch}"
             self.train_model(x_train, y_train, save_interval)
             loss: float = self.evaluate_model(x_test, y_test)
-            logging.info(f"model test loss: {loss}.")
+            logging.info(f"Model validation loss: {loss}.")
 
             base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{save_name}')
 
@@ -475,7 +475,7 @@ class MoviePredictionModel(MachineLearningModel):
                     actual_next_week_box_office: float = \
                         self.__transform_scaler.inverse_transform([[y_test_loaded[i]]])[0, 0]
                     logging.info(
-                        f"predicted box office / actual box office: {predicted_box_office} / {actual_next_week_box_office}.")
+                        f"Predicted box office / actual box office: {predicted_box_office} / {actual_next_week_box_office}.")
 
                     if prediction_logic(predicted_box_office, actual_next_week_box_office,
                                         x_test_loaded[i][valid_len - 1, 0]):
@@ -502,10 +502,10 @@ class MoviePredictionModel(MachineLearningModel):
             The accuracy of the model evaluation.
         """
         accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
-        print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
-        logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}")
-        print(f"{evaluation_type} prediction accuracy: {accuracy:.2%}")
-        logging.info(f"{evaluation_type} prediction accuracy: {accuracy:.2%}")
+        print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}.")
+        logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}.")
+        print(f"{evaluation_type} prediction accuracy: {accuracy:.2%}.")
+        logging.info(f"{evaluation_type} prediction accuracy: {accuracy:.2%}.")
         return accuracy
 
     def evaluate_loss(self,
@@ -568,7 +568,7 @@ class MoviePredictionModel(MachineLearningModel):
         # Create box office ranges
         ranges = sorted(list(box_office_ranges))
         thresholds = [-float('inf')] + ranges + [float('inf')]
-        logging.info(f"Box office ranges: {thresholds}")
+        logging.info(f"Box office ranges: {thresholds}.")
 
         def get_box_office_range_index(box_office: float) -> int:
             for i in range(len(thresholds) - 1):

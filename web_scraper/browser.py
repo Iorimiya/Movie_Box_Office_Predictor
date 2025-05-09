@@ -111,7 +111,7 @@ class Browser(webdriver.Chrome):
             # options to change defaults download dir
             experimental_option: ChromeExperimentalOptions = {"download.default_directory": str(self.__download_path)}
             self.__options.add_experimental_option(name="prefs", value=experimental_option)
-            logging.info(f"download path switch to \"{download_path}\".")
+            logging.info(f"Download path switch to \"{download_path}\".")
 
         # create web driver
         super().__init__(options=self.__options)
@@ -153,12 +153,12 @@ class Browser(webdriver.Chrome):
             url (str): The URL to navigate to.
         """
         old_url = self.current_url
-        logging.debug(f"trying to navigate to \"{url}\".")
+        logging.debug(f"Trying to navigate to \"{url}\".")
         super().get(url)
         if self.wait(self.WaitingCondition(condition=self.PageChangeCondition(searching_url=old_url),
                                            timeout=self.__page_loading_timeout,
                                            error_message=f"Read Timeout Error on {url} caught.")):
-            logging.debug(f"navigate to url \"{self.current_url}\" success..")
+            logging.debug(f"Navigate to url \"{self.current_url}\" success.")
         return
 
     def home(self) -> None:
@@ -182,13 +182,13 @@ class Browser(webdriver.Chrome):
             NoSuchElementException: If the button is not found.
         """
         try:
-            logging.info(f"trying to find button located on \"{button_selector_path}\".")
+            logging.info(f"Trying to find button located on \"{button_selector_path}\".")
             button_element: WebElement = self.find_element(by=By.CSS_SELECTOR, value=button_selector_path)
         except NoSuchElementException:
-            logging.warning(f"cannot find button located on \"{button_selector_path}\".", exc_info=True)
+            logging.warning(f"Cannot find button located on \"{button_selector_path}\".", exc_info=True)
             raise
         else:
-            logging.info(f"found button located on \"{button_selector_path}\".")
+            logging.info(f"Found button located on \"{button_selector_path}\".")
             return button_element
 
     def click(self, button_locator: WebElement | str,
@@ -208,17 +208,17 @@ class Browser(webdriver.Chrome):
         """
 
         if isinstance(button_locator, str):
-            logging.debug("found string parameter, use CSS selector to find button.")
+            logging.debug("Found string parameter, use CSS selector to find button.")
             try:
                 button = self.find_button(button_locator)
             except NoSuchElementException:
-                logging.debug(f"cannot find button located on \"{button_locator}\".", exc_info=True)
+                logging.debug(f"Cannot find button located on \"{button_locator}\".", exc_info=True)
                 raise
         elif isinstance(button_locator, WebElement):
-            logging.debug("found Element parameter, set button variable to it.")
+            logging.debug("Found Element parameter, set button variable to it.")
             button = button_locator
         else:
-            logging.error("unknown parameter type.")
+            logging.error("Unknown parameter type.")
             raise ValueError
 
         if button:
@@ -226,9 +226,9 @@ class Browser(webdriver.Chrome):
                 self.wait(pre_method)
             try:
                 button.click()
-                logging.info(f"button is clicked.")
+                logging.info(f"Button is clicked.")
             except (ElementClickInterceptedException, AttributeError):
-                logging.warning(f"the button cannot be clicked.", exc_info=True)
+                logging.warning(f"The button cannot be clicked.", exc_info=True)
                 raise NoSuchElementException
             if post_method:
                 self.wait(post_method)

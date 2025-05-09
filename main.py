@@ -81,8 +81,8 @@ if __name__ == "__main__":
 
     if args.user:
         if args.movie_name:
-            logging.info("collecting box office, reviews and predicting box office next week.")
-            logging.info(f"name inputted: {args.movie_name}")
+            logging.info("Collecting box office, reviews and predicting box office next week.")
+            logging.info(f"Movie name inputted: {args.movie_name}.")
             download_temp_folder = Constants.SCRAPING_DATA_FOLDER.joinpath("temp")
             recreate_folder(path=download_temp_folder)
             movie_data: MovieData = MovieData(movie_name=args.movie_name, movie_id=0)
@@ -105,8 +105,8 @@ if __name__ == "__main__":
             raise AttributeError("You must specify a movie name.")
     elif args.developer:
         if args.target_epoch:
-            logging.info("collecting box office, reviews and training model for prediction.")
-            logging.info(f"epoch inputted: {args.target_epoch}")
+            logging.info("Collecting box office, reviews and training model for prediction.")
+            logging.info(f"Epoch inputted: {args.target_epoch}.")
             input_epoch: int = int(args.target_epoch)
             BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK).download_multiple_box_office_data()
             ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_with_multiple_movie()
@@ -120,7 +120,7 @@ if __name__ == "__main__":
         match args.function:
             case "collect_box_office":
                 logging.info("Collecting box office.")
-                logging.info(f"path inputted: {args.path}.")
+                logging.info(f"Path inputted: {args.path}.")
                 with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
                     collector.download_multiple_box_office_data(
                         input_file_path=Path(args.path) if args.path else None)
@@ -128,7 +128,7 @@ if __name__ == "__main__":
                 logging.info("Collecting ptt review.")
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PTT
                 if args.movie_name:
-                    logging.info(f"name inputted: {args.movie_name}.")
+                    logging.info(f"Movie name inputted: {args.movie_name}.")
                     print(
                         ReviewCollector(target_website=target_website).search_review_with_single_movie(args.movie_name))
                 else:
@@ -137,15 +137,15 @@ if __name__ == "__main__":
                 logging.info("Collecting dcard review.")
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.DCARD
                 if args.movie_name:
-                    logging.info(f"name inputted: {args.movie_name}.")
+                    logging.info(f"Movie name inputted: {args.movie_name}.")
                     print(
                         ReviewCollector(target_website=target_website).search_review_with_single_movie(args.movie_name))
                 else:
                     ReviewCollector(target_website=target_website).search_review_with_multiple_movie()
             case "train_review_sentiment_model":
                 if args.target_epoch:
-                    logging.info('training sentiment model.')
-                    logging.info(f"epoch inputted: {args.target_epoch}")
+                    logging.info('Training review sentiment model.')
+                    logging.info(f"Epoch inputted: {args.target_epoch}.")
                     input_epoch: int = int(args.target_epoch)
                     ReviewSentimentAnalyseModel().simple_train(
                         input_data=Path("data/review_sentiment_analysis/dataset/review_sentiment_analysis_dataset.csv"),
@@ -154,8 +154,8 @@ if __name__ == "__main__":
                     raise AttributeError("You must specify value of epoch.")
             case "test_review_sentiment_model":
                 if args.input:
-                    logging.info('testing sentiment model.')
-                    logging.info(f"review content inputted: {args.input}")
+                    logging.info('Testing review sentiment model.')
+                    logging.info(f"Review content inputted: {args.input}.")
                     input_review = args.input
                     default_model_path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH.with_stem('test_10')
                     defaults_tokenizer_path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH
@@ -166,7 +166,7 @@ if __name__ == "__main__":
                 else:
                     raise AttributeError("You must enter review content.")
             case "add_sentiment_score_to_saved_data":
-                logging.info("adding sentiment score to saved data.")
+                logging.info("Adding sentiment score to saved data.")
                 analyzer: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel(
                     model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
                     tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH)
@@ -177,8 +177,8 @@ if __name__ == "__main__":
                     movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
             case "train_movie_prediction_model":
                 if args.target_epoch:
-                    logging.info('training prediction model.')
-                    logging.info(f"epoch inputted: {args.target_epoch}")
+                    logging.info('Training prediction model.')
+                    logging.info(f"Target epoch inputted: {args.target_epoch}.")
                     input_epoch: int = int(args.target_epoch)
                     MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, epoch=input_epoch,
                                                         model_name=args.model_name if args.model_name else Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
@@ -189,8 +189,8 @@ if __name__ == "__main__":
                     raise AttributeError("You must specify value of epoch.")
             case "train_movie_prediction_model_with_randomly_generated_data":
                 if args.target_epoch:
-                    logging.info('training prediction model with generated data.')
-                    logging.info(f"epoch inputted: {args.target_epoch}")
+                    logging.info('Training prediction model with generated data.')
+                    logging.info(f"Target epoch inputted: {args.target_epoch}.")
                     input_epoch: int = int(args.target_epoch)
                     MoviePredictionModel().simple_train(
                         input_data=None, epoch=input_epoch,
@@ -213,17 +213,17 @@ if __name__ == "__main__":
                     if args.model_name else Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER
                 match args.function:
                     case "movie_prediction_model_trend_evaluation":
-                        logging.info('evaluating prediction model using trend method.')
+                        logging.info('Evaluating prediction model using trend method.')
                         MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
                                              transform_scaler_path=scaler_path) \
                             .evaluate_trend(test_data_folder_path=test_data_folder_path)
                     case "movie_prediction_model_range_evaluation":
-                        logging.info('evaluating prediction model using range method.')
+                        logging.info('Evaluating prediction model using range method.')
                         MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
                                              transform_scaler_path=scaler_path) \
                             .evaluate_range(test_data_folder_path=test_data_folder_path)
                     case "test_movie_prediction_model_with_randomly_generated_data":
-                        logging.info('testing prediction model with generated data.')
+                        logging.info('Testing prediction model with generated data.')
                         MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
                                              transform_scaler_path=scaler_path) \
                             .simple_predict(input_data=None)
@@ -232,28 +232,23 @@ if __name__ == "__main__":
                     input_epoch: int = int(args.target_epoch)
                     saving_interval: int = int(args.saving_epoch)
                     if args.old_model_name:
-                        logging.info(f"continue training with model {args.old_model_name}.")
-                        logging.info(f"epoch inputted: {args.target_epoch}")
-                        logging.info(f"loop epoch inputted: {args.saving_epoch}")
+                        logging.info(f"Continue training from model {args.old_model_name}.")
+                        if args.model_name:
+                            logging.info(f"New model name: {args.model_name}.")
+                        logging.info(f"Target epoch inputted: {args.target_epoch}.")
+                        logging.info(f"Saving model every {args.saving_epoch} epoch.")
                         model_name: str = args.model_name if args.model_name else args.old_model_name.rsplit('_', 1)[0]
                         init_epoch: int = int(args.old_model_name.rsplit('_', 1)[1])
                         old_model_path: Optional[Path] = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(
                             args.old_model_name,
                             f"{args.old_model_name}.keras")
                     else:
-                        logging.info(f"training new model.")
-                        logging.info(f"epoch inputted: {args.target_epoch}")
-                        logging.info(f"loop epoch inputted: {args.saving_epoch}")
+                        logging.info(f"Training new model.")
+                        logging.info(f"Target epoch inputted: {args.target_epoch}.")
+                        logging.info(f"Saving model every {args.saving_epoch} epoch.")
                         model_name: str = args.model_name if args.model_name else Constants.BOX_OFFICE_PREDICTION_MODEL_NAME
                         init_epoch: int = 0
                         old_model_path: Optional[Path] = None
-                    # for loop_index in range(init_epoch, input_epoch, loop_epoch):
-                    #     if loop_index != init_epoch:
-                    #         old_model_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(
-                    #             f"{model_name}_{loop_index}", f"{model_name}_{loop_index}.keras")
-                    #     MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, model_name=model_name,
-                    #                                         epoch=loop_epoch,
-                    #                                         old_model_path=old_model_path)
                     MoviePredictionModel().simple_train(input_data=Constants.INDEX_PATH, model_name=model_name,
                                                         epoch=(input_epoch, saving_interval),
                                                         old_model_path=old_model_path)
