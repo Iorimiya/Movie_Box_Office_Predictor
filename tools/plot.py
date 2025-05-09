@@ -101,7 +101,7 @@ def plot_training_loss(log_path: Path) -> None:
         single_record, epoch in zip(found_information, range(init_epoch, target_epoch, saving_interval))]
 
     # pyplot drawing
-    plot_line_graph(title='training_loss', save_file_path=Path('graph/training_loss.png'),
+    plot_line_graph(title='training_loss', save_file_path=Path('data/graph/training_loss.png'),
                     x_data=model_epochs, y_data=model_losses,
                     format_type='sci-notation', y_label='loss')
 
@@ -128,7 +128,7 @@ def plot_validation_loss(model_name: str) -> None:
     model_epochs, loss = (zip(*sorted(zip(model_epochs, loss), key=lambda x: x[0])))
 
     # pyplot drawing
-    plot_line_graph(title='validation_loss', save_file_path=Path('graph/validation_loss.png'),
+    plot_line_graph(title='validation_loss', save_file_path=Path('data/graph/validation_loss.png'),
                     x_data=model_epochs, y_data=loss,
                     format_type='sci-notation', y_label='loss')
 
@@ -153,7 +153,7 @@ def plot_trend_accuracy(model_name: str):
     model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
 
     # pyplot drawing
-    plot_line_graph(title='trend_accuracy', save_file_path=Path('graph/trend_accuracy.png'),
+    plot_line_graph(title='trend_accuracy', save_file_path=Path('data/graph/trend_accuracy.png'),
                     x_data=model_epochs, y_data=accuracies,
                     format_type='percent', y_label='accuracy')
 
@@ -177,6 +177,6 @@ def plot_range_accuracy(model_name: str):
                                    .evaluate_range(test_data_folder_path=folder) for folder in folder_list]
     model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
 
-    plot_line_graph(title='range_accuracy', save_file_path=Path('graph/range_accuracy.png'),
+    plot_line_graph(title='range_accuracy', save_file_path=Path('data/graph/range_accuracy.png'),
                     x_data=model_epochs, y_data=accuracies,
                     format_type='percent', y_label='accuracy')
