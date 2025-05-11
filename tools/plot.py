@@ -9,7 +9,8 @@ from matplotlib.ticker import PercentFormatter
 from tools.constant import Constants
 from machine_learning_model.box_office_prediction import MoviePredictionModel
 
-def search_model(model_name: str) -> tuple[list[Path],list[int]]:
+
+def search_model(model_name: str) -> tuple[list[Path], list[int]]:
     logging.info(f"Search models in \"{Constants.BOX_OFFICE_PREDICTION_FOLDER}\" folder")
     folder_list: list[Path] = list(
         filter(lambda file: file.is_dir(), Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*")))
@@ -75,19 +76,24 @@ def plot_training_loss(log_path: Path) -> None:
     logging.info("Collect loss value form log content.")
     # find loss value in every saving epoch and calculate epoch.
     target_epoch_search_pattern: Final[str] = 'INFO - (Target )?epoch inputted: \d+\.?$'
-    target_epoch: int = int(list(filter(lambda x: x, re.split(": |\.?$", re.search(target_epoch_search_pattern, text, re.MULTILINE).group(0))))[-1])
+    target_epoch: int = int(list(
+        filter(lambda x: x, re.split(": |\.?$", re.search(target_epoch_search_pattern, text, re.MULTILINE).group(0))))[
+                                -1])
     logging.info(f"Found target epoch: {target_epoch}.")
-    saving_interval_search_pattern: Final[list[str]] = ['INFO - Saving model every \d+ epoch.$','INFO - loop epoch inputted: \d+\.?$']
+    saving_interval_search_pattern: Final[list[str]] = ['INFO - Saving model every \d+ epoch.$',
+                                                        'INFO - loop epoch inputted: \d+\.?$']
     try:
-        saving_interval: int = int(re.split(' ',re.search(saving_interval_search_pattern[0], text, re.MULTILINE).group(0))[-2])
+        saving_interval: int = int(
+            re.split(' ', re.search(saving_interval_search_pattern[0], text, re.MULTILINE).group(0))[-2])
     except AttributeError:
-        saving_interval: int = int(re.split(' ',re.search(saving_interval_search_pattern[1], text, re.MULTILINE).group(0))[-1])
+        saving_interval: int = int(
+            re.split(' ', re.search(saving_interval_search_pattern[1], text, re.MULTILINE).group(0))[-1])
 
     logging.info(f"Found saving interval of epoch: {saving_interval}.")
     model_information_search_pattern: Final[str] = \
         "^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}\] \{[^:]+:\d+} INFO - Epoch \d+: Training (?:L|l)oss = [\de\+\-\.]+\.?\n" \
         "\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}\] \{[^:]+:\d+} INFO - (?:Model validation|model test) loss: [\de\+\-\.]+\.?$"
-    found_information: list = re.findall(model_information_search_pattern, text,re.MULTILINE)
+    found_information: list = re.findall(model_information_search_pattern, text, re.MULTILINE)
     init_epoch = target_epoch - len(found_information) * saving_interval
     logging.info(f"Epoch when start training: {init_epoch}.")
 
@@ -95,9 +101,9 @@ def plot_training_loss(log_path: Path) -> None:
                                zip(found_information, range(init_epoch, target_epoch, saving_interval))]
     loss_search_pattern: Final[str] = '(L|l)oss = .+'
 
-
     model_losses: list[float] = [
-        float(list(filter(lambda x: x, re.split(" |\.?$",re.search(loss_search_pattern, single_record).group(0))))[-1]) for
+        float(list(filter(lambda x: x, re.split(" |\.?$", re.search(loss_search_pattern, single_record).group(0))))[-1])
+        for
         single_record, epoch in zip(found_information, range(init_epoch, target_epoch, saving_interval))]
 
     # pyplot drawing
@@ -154,7 +160,7 @@ def plot_trend_accuracy(model_name: str):
 
     # pyplot drawing
     plot_line_graph(title='trend_accuracy', save_file_path=Path('data/graph/trend_accuracy.png'),
-                    x_data=model_epochs, y_data=accuracies,
+                    x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
                     format_type='percent', y_label='accuracy')
 
 
@@ -178,5 +184,5 @@ def plot_range_accuracy(model_name: str):
     model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
 
     plot_line_graph(title='range_accuracy', save_file_path=Path('data/graph/range_accuracy.png'),
-                    x_data=model_epochs, y_data=accuracies,
+                    x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
                     format_type='percent', y_label='accuracy')
