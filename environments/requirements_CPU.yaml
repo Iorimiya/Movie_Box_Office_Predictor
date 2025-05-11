@@ -25,7 +25,7 @@ dependencies:
   - defaults::scikit-learn>=1.6
   - conda-forge::keras-preprocessing>=1.1
 # others
-  - defaults::matplotlib
+  - defaults::matplotlib>=3.10.0
   - defaults::tqdm>=4.66
   - defaults::openpyxl>=3.1
   - defaults::pyyaml>=0.2
