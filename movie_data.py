@@ -1,9 +1,9 @@
+import yaml
+from enum import Enum
+from pathlib import Path
 from typing import Optional
 from datetime import date, datetime
-from pathlib import Path
 from dataclasses import dataclass, asdict
-from enum import Enum
-import yaml
 
 from tools.constant import Constants
 from tools.util import read_data_from_csv, delete_duplicate
@@ -19,7 +19,7 @@ class BoxOffice:
     box_office: int
 
     @classmethod
-    def from_dict(cls, dictionary):
+    def from_dict(cls, dictionary) -> 'BoxOffice':
         """
         Creates a BoxOffice object from a dictionary.
 
@@ -46,7 +46,7 @@ class Review:
     date: date
     sentiment_score: Optional[bool]
 
-    def __key(self):
+    def __key(self) -> str:
         """
         Returns a unique key for the review.
         """
@@ -55,13 +55,13 @@ class Review:
         else:
             return self.content
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         """
         Returns the hash of the review.
         """
         return hash(self.__key())
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         """
         Checks if two reviews are equal.
         """
@@ -77,20 +77,20 @@ class ExpertReview(Review):
     """
     score: float
 
-    def __hash__(self):
+    def __hash__(self)->int:
         """
         Returns the hash of the expert review.
         """
         return super().__hash__()
 
-    def __eq__(self, other):
+    def __eq__(self, other)->bool:
         """
         Checks if two expert reviews are equal.
         """
         return super().__eq__(other=other)
 
     @classmethod
-    def from_dict(cls, dictionary):
+    def from_dict(cls, dictionary) -> "ExpertReview":
         """
         Creates an ExpertReview object from a dictionary.
 
@@ -113,20 +113,20 @@ class PublicReview(Review):
     """
     reply_count: int
 
-    def __hash__(self):
+    def __hash__(self)->int:
         """
         Returns the hash of the public review.
         """
         return super().__hash__()
 
-    def __eq__(self, other):
+    def __eq__(self, other)->bool:
         """
         Checks if two public reviews are equal.
         """
         return super().__eq__(other=other)
 
     @classmethod
-    def from_dict(cls, dictionary):
+    def from_dict(cls, dictionary)->'PublicReview':
         """
         Creates a PublicReview object from a dictionary.
 
@@ -146,6 +146,7 @@ class MovieData:
     """
     Represents data for a movie, including box office and reviews.
     """
+
     def __init__(self, movie_id: int, movie_name: str, release_date: Optional[date] = None,
                  box_office: Optional[list[BoxOffice]] = None,
                  expert_review: Optional[list[ExpertReview]] = None,
