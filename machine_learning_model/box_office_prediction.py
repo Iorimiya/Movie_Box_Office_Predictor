@@ -1,10 +1,10 @@
 import yaml
 import random
-import logging
 import numpy as np
-from numpy import float32, float64, int64
-from numpy.typing import NDArray
 from pathlib import Path
+from logging import Logger
+from numpy.typing import NDArray
+from numpy import float32, float64, int64
 from typing import Optional, TypedDict
 
 from sklearn.preprocessing import MinMaxScaler
@@ -17,6 +17,7 @@ from keras_preprocessing.sequence import pad_sequences
 
 from tools.util import check_path, recreate_folder
 from tools.constant import Constants
+from tools.logging_manager import LoggingManager
 from machine_learning_model.machine_learning_model import MachineLearningModel
 from movie_data import MovieData, load_index_file, PublicReview, IndexLoadMode
 
@@ -59,6 +60,7 @@ class MoviePredictionModel(MachineLearningModel):
         self.__training_week_limit: Optional[int] = None
         self.__training_data_len: Optional[int] = None
         self.__split_rate: Optional[float] = None
+        self.__logger: Logger = LoggingManager().get_logger('machine_learning')
         if check_path(training_setting_path):
             self.__load_training_setting(training_setting_path)
         return
@@ -143,7 +145,7 @@ class MoviePredictionModel(MachineLearningModel):
             list[list[MoviePredictionInputData]]: A list of movies, where each movie is a list of
                                                  MoviePredictionInputData for each week.
         """
-        logging.info("Loading training data.")
+        LoggingManager().get_logger('root').info("Loading training data.")
         movie_data: list[MovieData] = load_index_file(file_path=data_path, mode=IndexLoadMode.FULL)
         training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie
                                                                in movie_data]
@@ -171,7 +173,7 @@ class MoviePredictionModel(MachineLearningModel):
             lengths_test: NDArray[int64] = np.load(test_data_folder_path.joinpath("sequence_lengths.npy"))
             return x_test_loaded, y_test_loaded, lengths_test
         except FileNotFoundError:
-            logging.error(
+            LoggingManager().get_logger('root').error(
                 f"Could not find x_test.npy, y_test.npy or sequence_lengths.npy in '{test_data_folder_path}'.")
             return None
 
@@ -370,8 +372,7 @@ class MoviePredictionModel(MachineLearningModel):
            training_week_limit (int): The number of past weeks to use as input for prediction. Defaults to 4.
            split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
         """
-
-        logging.info("Training procedure start.")
+        self.__logger.info("Training procedure start.")
         self.__training_week_limit = training_week_limit
         self.__split_rate = split_rate
         x_train, y_train, x_test, y_test, _, lengths_test = self._prepare_data(data)
@@ -400,7 +401,7 @@ class MoviePredictionModel(MachineLearningModel):
             save_name: str = f"{model_name}_{current_save_epoch}"
             self.train_model(x_train, y_train, save_interval)
             loss: float = self.evaluate_model(x_test, y_test)
-            logging.info(f"Model validation loss: {loss}.")
+            self.__logger.info(f"Model validation loss: {loss}.")
 
             base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{save_name}')
 
@@ -474,7 +475,7 @@ class MoviePredictionModel(MachineLearningModel):
                 if i < len(y_test_loaded):
                     actual_next_week_box_office: float = \
                         self.__transform_scaler.inverse_transform([[y_test_loaded[i]]])[0, 0]
-                    logging.info(
+                    LoggingManager().get_logger('root').info(
                         f"Predicted box office / actual box office: {predicted_box_office} / {actual_next_week_box_office}.")
 
                     if prediction_logic(predicted_box_office, actual_next_week_box_office,
@@ -482,7 +483,8 @@ class MoviePredictionModel(MachineLearningModel):
                         correct_predictions += 1
                     total_predictions += 1
                 else:
-                    logging.warning("Length of x_test exceeds y_test, cannot determine actual value.")
+                    LoggingManager().get_logger('root').warning(
+                        "Length of x_test exceeds y_test, cannot determine actual value.")
 
         return correct_predictions, total_predictions
 
@@ -501,11 +503,12 @@ class MoviePredictionModel(MachineLearningModel):
         Returns:
             The accuracy of the model evaluation.
         """
+        logger: Logger = LoggingManager().get_logger('root')
         accuracy: float = correct_predictions / total_predictions if total_predictions > 0 else 0
         print(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}.")
-        logging.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}.")
+        logger.info(f"Correct prediction / Total prediction: {correct_predictions} / {total_predictions}.")
         print(f"{evaluation_type} prediction accuracy: {accuracy:.2%}.")
-        logging.info(f"{evaluation_type} prediction accuracy: {accuracy:.2%}.")
+        logger.info(f"{evaluation_type} prediction accuracy: {accuracy:.2%}.")
         return accuracy
 
     def evaluate_loss(self,
@@ -568,7 +571,7 @@ class MoviePredictionModel(MachineLearningModel):
         # Create box office ranges
         ranges = sorted(list(box_office_ranges))
         thresholds = [-float('inf')] + ranges + [float('inf')]
-        logging.info(f"Box office ranges: {thresholds}.")
+        LoggingManager().get_logger('root').info(f"Box office ranges: {thresholds}.")
 
         def get_box_office_range_index(box_office: float) -> int:
             for i in range(len(thresholds) - 1):

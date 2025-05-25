@@ -5,8 +5,9 @@ from enum import Enum
 from pathlib import Path
 from io import TextIOBase
 from dataclasses import dataclass, field
+from colorama.ansitowin32 import StreamWrapper
 from typing import Optional, Literal, TypeAlias, overload
-from logging import Logger, Handler,Formatter, FileHandler, StreamHandler
+from logging import Logger, Handler, Formatter, FileHandler, StreamHandler
 
 
 class LogLevel(Enum):
@@ -57,7 +58,7 @@ class HandlerSettings:
     """
     name: str
     level: LogLevel
-    output: Path | TextIOBase
+    output: Path | TextIOBase | StreamWrapper
 
 
 LogComponentSettings: TypeAlias = LoggerSettings | HandlerSettings
@@ -115,7 +116,8 @@ class LoggingManager:
             self._loggers: list[logging.Logger] = []
             self._handlers: dict[str, logging.Handler] = {}
             self._logger_handler_connections: dict[str, list[str]] = {}
-            self._default_formatter:Formatter=Formatter(fmt="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s")
+            self._default_formatter: Formatter = Formatter(
+                fmt="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s")
 
             print("Starting initial configuration...")
             if initial_configs is None:
@@ -206,7 +208,7 @@ class LoggingManager:
             raise ValueError(f"Handler with name '{handler_settings.name}' already exists in the manager.")
 
         target_type: type[Handler]
-        target_value: str | TextIOBase
+        target_value: str | TextIOBase | StreamWrapper
         new_handler: Handler
         if isinstance(handler_settings.output, Path):
             target_value = str(handler_settings.output.resolve())
@@ -224,9 +226,9 @@ class LoggingManager:
             new_handler = FileHandler(filename=handler_settings.output, delay=True)
             print(f"Constructing FileHandler with delay=True.")
 
-        elif isinstance(handler_settings.output, TextIOBase):
+        elif isinstance(handler_settings.output, (TextIOBase, StreamWrapper)):
             target_value = handler_settings.output
-            existing_stream_handler: dict[str:StreamHandler] = \
+            existing_stream_handler: dict[str:StreamHandler|StreamWrapper] = \
                 {name: handler for name, handler in self._handlers.items() if isinstance(handler, StreamHandler)}
             existing_handler_name: Optional[str] = next(
                 (name for name, handler in existing_stream_handler.items() if handler.stream == target_value), None)
@@ -786,11 +788,13 @@ class LoggingManager:
         print("Creating LoggingManager with predefined components...")
         return cls(initial_configs=initial_components_list)
 
+
 if __name__ == '__main__':
     manager: LoggingManager = LoggingManager.create_predefined_manager()
     main_logger = manager.get_logger('root')
     ml_logger = manager.get_logger('machine_learning')
-    manager.add_handler(handler_settings=HandlerSettings(name='machine_learning', level=LogLevel.INFO, output=Path('ml.log')))
+    manager.add_handler(
+        handler_settings=HandlerSettings(name='machine_learning', level=LogLevel.INFO, output=Path('ml.log')))
     manager.link_handler_to_logger(logger_name='machine_learning', handler_name='machine_learning')
     ml_logger.info("aaaa")
     main_logger.info("bbbb")

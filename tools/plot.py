@@ -1,5 +1,5 @@
 import re
-import logging
+from logging import Logger
 from pathlib import Path
 from typing import Final
 
@@ -7,11 +7,13 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
 from tools.constant import Constants
+from tools.logging_manager import LoggingManager
 from machine_learning_model.box_office_prediction import MoviePredictionModel
 
 
 def search_model(model_name: str) -> tuple[list[Path], list[int]]:
-    logging.info(f"Search models in \"{Constants.BOX_OFFICE_PREDICTION_FOLDER}\" folder")
+    logger:Logger=LoggingManager().get_logger('root')
+    logger.info(f"Search models in \"{Constants.BOX_OFFICE_PREDICTION_FOLDER}\" folder")
     folder_list: list[Path] = list(
         filter(lambda file: file.is_dir(), Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*")))
     model_epochs: list[int] = [int(folder.name.split("_")[-1]) for folder in folder_list]
@@ -37,21 +39,22 @@ def plot_line_graph(title: str, save_file_path: Path,
     Raises:
         ValueError: If `format_type` is not 'percent' or 'sci-notation'.
     """
-    logging.info("Plot line graph.")
+    logger: Logger = LoggingManager().get_logger('root')
+    logger.info("Plot line graph.")
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     match format_type:
         case 'percent':
-            logging.info("Plot line graph with percent formatting.")
+            logger.info("Plot line graph with percent formatting.")
             plt.gca().yaxis.set_major_formatter(PercentFormatter())
         case 'sci-notation':
-            logging.info("Plot line graph with sci-notation formatting.")
+            logger.info("Plot line graph with sci-notation formatting.")
             plt.gca().ticklabel_format(style='sci', scilimits=(-2, 1), axis='y')
         case _:
             raise ValueError(f"Format need to be either \'percent\' or \'sci-notation\'.")
     plt.plot(x_data, y_data)
-    logging.info(f"Saving image to \"{save_file_path}\".")
+    logger.info(f"Saving image to \"{save_file_path}\".")
     plt.savefig(save_file_path)
     plt.show()
     return
@@ -67,19 +70,20 @@ def plot_training_loss(log_path: Path) -> None:
     Returns:
         None.
     """
-    logging.info("Plot line graph of training loss.")
+    logger: Logger = LoggingManager().get_logger('root')
+    logger.info("Plot line graph of training loss.")
     # read log content
-    logging.info(f"Read log file from \"{log_path}\".")
+    logger.info(f"Read log file from \"{log_path}\".")
     with open(log_path, 'r') as file:
         text: str = file.read()
 
-    logging.info("Collect loss value form log content.")
+    logger.info("Collect loss value form log content.")
     # find loss value in every saving epoch and calculate epoch.
     target_epoch_search_pattern: Final[str] = 'INFO - (Target )?epoch inputted: \d+\.?$'
     target_epoch: int = int(list(
         filter(lambda x: x, re.split(": |\.?$", re.search(target_epoch_search_pattern, text, re.MULTILINE).group(0))))[
                                 -1])
-    logging.info(f"Found target epoch: {target_epoch}.")
+    logger.info(f"Found target epoch: {target_epoch}.")
     saving_interval_search_pattern: Final[list[str]] = ['INFO - Saving model every \d+ epoch.$',
                                                         'INFO - loop epoch inputted: \d+\.?$']
     try:
@@ -89,13 +93,13 @@ def plot_training_loss(log_path: Path) -> None:
         saving_interval: int = int(
             re.split(' ', re.search(saving_interval_search_pattern[1], text, re.MULTILINE).group(0))[-1])
 
-    logging.info(f"Found saving interval of epoch: {saving_interval}.")
+    logger.info(f"Found saving interval of epoch: {saving_interval}.")
     model_information_search_pattern: Final[str] = \
         "^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}\] \{[^:]+:\d+} INFO - Epoch \d+: Training (?:L|l)oss = [\de\+\-\.]+\.?\n" \
         "\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}\] \{[^:]+:\d+} INFO - (?:Model validation|model test) loss: [\de\+\-\.]+\.?$"
     found_information: list = re.findall(model_information_search_pattern, text, re.MULTILINE)
     init_epoch = target_epoch - len(found_information) * saving_interval
-    logging.info(f"Epoch when start training: {init_epoch}.")
+    logger.info(f"Epoch when start training: {init_epoch}.")
 
     model_epochs: list[int] = [epoch + saving_interval for single_record, epoch in
                                zip(found_information, range(init_epoch, target_epoch, saving_interval))]
@@ -124,9 +128,10 @@ def plot_validation_loss(model_name: str) -> None:
     Returns:
         None.
     """
-    logging.info("Plot line graph of validation loss.")
+    logger: Logger = LoggingManager().get_logger('root')
+    logger.info("Plot line graph of validation loss.")
     folder_list, model_epochs = search_model(model_name=model_name)
-    logging.info("calculating validation loss.")
+    logger.info("calculating validation loss.")
     loss: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
                                               training_setting_path=folder.joinpath(f'setting.yaml'),
                                               transform_scaler_path=folder.joinpath(f'scaler.gz')) \
@@ -149,9 +154,10 @@ def plot_trend_accuracy(model_name: str):
     Returns:
         None.
     """
-    logging.info("Plot line graph of trend accuracy.")
+    logger: Logger = LoggingManager().get_logger('root')
+    logger.info("Plot line graph of trend accuracy.")
     folder_list, model_epochs = search_model(model_name=model_name)
-    logging.info("calculating trend accuracy.")
+    logger.info("calculating trend accuracy.")
     accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
                                                     training_setting_path=folder.joinpath(f'setting.yaml'),
                                                     transform_scaler_path=folder.joinpath(f'scaler.gz')) \
@@ -174,9 +180,10 @@ def plot_range_accuracy(model_name: str):
     Returns:
         None.
     """
-    logging.info("Plot line graph of range accuracy.")
+    logger: Logger = LoggingManager().get_logger('root')
+    logger.info("Plot line graph of range accuracy.")
     folder_list, model_epochs = search_model(model_name=model_name)
-    logging.info("calculating range accuracy.")
+    logger.info("calculating range accuracy.")
     accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
                                                     training_setting_path=folder.joinpath(f'setting.yaml'),
                                                     transform_scaler_path=folder.joinpath(f'scaler.gz')) \

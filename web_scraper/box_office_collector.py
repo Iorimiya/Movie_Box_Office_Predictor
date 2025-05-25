@@ -1,6 +1,7 @@
 import json
-import logging
+
 import re
+from logging import Logger
 from datetime import datetime
 from enum import Enum
 from typing import TypeAlias, Final, TypedDict
@@ -14,6 +15,7 @@ from urllib3.exceptions import ReadTimeoutError
 
 from web_scraper.browser import Browser
 from movie_data import BoxOffice, MovieData, load_index_file
+from tools.logging_manager import LoggingManager
 from tools.util import *
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
@@ -61,7 +63,8 @@ class BoxOfficeCollector:
         """
         # download mode amd type settings
         self.__download_mode: Final[BoxOfficeCollector.Mode] = download_mode
-        logging.info(f"Using {self.__download_mode.name} mode to download data.")
+        self.__logger:Logger = LoggingManager().get_logger('root')
+        self.__logger.info(f"Using {self.__download_mode.name} mode to download data.")
 
         # constants
         self.__scrap_file_extension: Final[str] = 'json'
@@ -131,13 +134,13 @@ class BoxOfficeCollector:
             # go to search page
             self.__browser.get(url=searching_url)
         except TimeoutException:
-            logging.warning("Navigate to search url failed.", exc_info=True)
+            self.__logger.warning("Navigate to search url failed.", exc_info=True)
             raise InvalidSwitchToTargetException
         self.__browser.wait(WaitingCondition(condition=visibility_of_element_located(
             locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')), timeout=5,
             error_message="Searching {movie_name} failed, none movie title drop-down list found."))
         # find the drop-down list element from page and compare the text of each element and pick the first one matched the movie name
-        logging.info(
+        self.__logger.info(
             f"Trying to find the button element which displayed the movie name {movie_name} in drop-down list.")
         target_element = next((button for button in
                                self.__browser.find_elements(by=By.CSS_SELECTOR,
@@ -145,9 +148,9 @@ class BoxOfficeCollector:
                                button.find_element(by=By.CSS_SELECTOR, value="span.name").text == movie_name), None)
 
         if target_element is None:
-            logging.warning(f"Searching {movie_name} failed, none movie title drop-down list found.")
+            self.__logger.warning(f"Searching {movie_name} failed, none movie title drop-down list found.")
             raise InvalidSwitchToTargetException
-        logging.info(f"Button element of movie {movie_name} found.")
+        self.__logger.info(f"Button element of movie {movie_name} found.")
         try:
             self.__browser.click(button_locator=target_element,
                                  post_method=WaitingCondition(
@@ -156,7 +159,7 @@ class BoxOfficeCollector:
                                      timeout=self.__page_loading_timeout))
         except NoSuchElementException:
             raise InvalidSwitchToTargetException
-        logging.debug(f"Goto url: \"{self.__browser.current_url}\".")
+        self.__logger.debug(f"Goto url: \"{self.__browser.current_url}\".")
         if self.__progress_file_path.exists():
             self.__update_progress_information(index=movie_data.movie_id,
                                                update_type=self.UpdateType.URL,
@@ -176,7 +179,7 @@ class BoxOfficeCollector:
         # by defaults, the page is show the weekend data
         if self.__download_mode == self.Mode.WEEK:
             # to use week mode, the additional step is click the "本週" button
-            logging.info(f"With download mode is \"WEEK\" mode, trying to click \"本週\" button.")
+            self.__logger.info(f"With download mode is \"WEEK\" mode, trying to click \"本週\" button.")
             week_button_selector = "button#weeks-tab"
 
             try:
@@ -186,14 +189,14 @@ class BoxOfficeCollector:
                                              (By.CSS_SELECTOR, week_button_selector)),
                                          error_message="", timeout=self.__page_loading_timeout))
             except NoSuchElementException:
-                logging.warning("Click \"本週\" button failed.")
+                self.__logger.warning("Click \"本週\" button failed.")
                 raise
-        logging.info(f"Trying to search download button with {self.__scrap_file_extension} format.")
+        self.__logger.info(f"Trying to search download button with {self.__scrap_file_extension} format.")
         try:
             button: WebElement = self.__browser.find_button(
                 button_selector_path=f"div#export-button-container button[data-ext='{self.__scrap_file_extension}']")
         except NoSuchElementException:
-            logging.warning("Search download button failed.")
+            self.__logger.warning("Search download button failed.")
             raise
         try:
             self.__browser.click(
@@ -232,10 +235,10 @@ class BoxOfficeCollector:
                 box_office=int(week_data["Amount"]) if week_data["Amount"] is not None else 0)
                 for week_data in json_data['Rows']]
         except TypeError:
-            logging.debug("An error occurred. See below.", exc_info=True)
+            self.__logger.debug("An error occurred. See below.", exc_info=True)
             raise
         if not weekly_box_office_data:
-            logging.debug("Variable \"box_office_data\" is None.")
+            self.__logger.debug("Variable \"box_office_data\" is None.")
             raise ValueError
         movie_data.update_data(box_offices=weekly_box_office_data)
         return movie_data
@@ -255,7 +258,7 @@ class BoxOfficeCollector:
         """
         movie_name = movie_data.movie_name
         movie_id = movie_data.movie_id
-        logging.info(f"Searching box office of {movie_name}.")
+        self.__logger.info(f"Searching box office of {movie_name}.")
         download_target_file_path = self.__box_office_data_folder.joinpath(
             f"{movie_id}.{self.__store_file_extension}")
 
@@ -264,10 +267,10 @@ class BoxOfficeCollector:
             # check progress
             if progress and progress[self.__progress_file_header[2]] and download_target_file_path.exists():
                 if progress[self.__progress_file_header[1]]:
-                    logging.info(f"Movie url, data file and record in progress correct, skip to next movie.")
+                    self.__logger.info(f"Movie url, data file and record in progress correct, skip to next movie.")
                     return
                 else:
-                    logging.info(f"Movie url not found, search it.")
+                    self.__logger.info(f"Movie url not found, search it.")
                     try:
                         self.__navigate_to_movie_page(movie_data)
                     except InvalidSwitchToTargetException:
@@ -282,10 +285,10 @@ class BoxOfficeCollector:
                     continue
                 # if progress shows the url has been recorded, skip navigating and get it from file.
                 if progress and progress[self.__progress_file_header[1]]:
-                    logging.info(f"Only movie url found, download again.")
+                    self.__logger.info(f"Only movie url found, download again.")
                     self.__browser.get(progress[self.__progress_file_header[1]])
                 else:
-                    logging.info(f"None data found, search and download.")
+                    self.__logger.info(f"None data found, search and download.")
                     try:
                         self.__navigate_to_movie_page(movie_data)
                     except InvalidSwitchToTargetException:
@@ -293,22 +296,22 @@ class BoxOfficeCollector:
                 try:
                     self.__click_download_button(trying_times=trying_time)
                 except NoSuchElementException:
-                    logging.warning(f"The {current_trying_times} times of searching box office data failed.")
+                    self.__logger.warning(f"The {current_trying_times} times of searching box office data failed.")
                     continue
                 try:
                     movie_data = self.__load_box_office_data_from_json_file(movie_data)
                 except FileNotFoundError:
-                    logging.debug("File not found, is it still in downloading?")
-                    logging.warning(f"The {current_trying_times} times of searching box office data failed.")
+                    self.__logger.debug("File not found, is it still in downloading?")
+                    self.__logger.warning(f"The {current_trying_times} times of searching box office data failed.")
                 except (ValueError, TypeError):
-                    logging.debug("Load downloaded file failed.")
-                    logging.warning(f"The {current_trying_times} times of searching box office data failed.")
+                    self.__logger.debug("Load downloaded file failed.")
+                    self.__logger.warning(f"The {current_trying_times} times of searching box office data failed.")
                     self.__temporary_file_downloaded_path.unlink()
                     continue
                 try:
                     movie_data.save_box_office(self.__box_office_data_folder)
                 except TypeError:
-                    logging.debug("Cannot save box office data.", exc_info=True)
+                    self.__logger.debug("Cannot save box office data.", exc_info=True)
                     continue
                 self.__temporary_file_downloaded_path.unlink()
                 if self.__progress_file_path.exists():
@@ -355,7 +358,7 @@ class BoxOfficeCollector:
                 initialize_index_file(CSVFileData(path=input_file_path, header=input_csv_file_header),
                                       CSVFileData(path=self.__index_file_path, header=self.__index_file_header))
             else:
-                logging.error("No previous index file, please enter input file path.")
+                self.__logger.error("No previous index file, please enter input file path.")
                 exit(1)
 
         movie_data: list[MovieData] = load_index_file(file_path=self.__index_file_path,

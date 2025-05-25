@@ -1,6 +1,6 @@
 import jieba
 import pickle
-import logging
+from logging import Logger
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -18,12 +18,14 @@ from machine_learning_model.machine_learning_model import MachineLearningModel
 from movie_data import load_index_file
 from tools.util import check_path
 from tools.constant import Constants
+from tools.logging_manager import LoggingManager
 
 
 class ReviewSentimentAnalyseModel(MachineLearningModel):
     """
     A machine learning model for analyzing review sentiment.
     """
+
     def __init__(self, model_path: Optional[Path] = None, tokenizer_path: Optional[Path] = None, num_words: int = 5000,
                  review_max_length: int = 100):
         """
@@ -38,8 +40,9 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         super().__init__(model_path=model_path)
         self.__tokenizer: Optional[Tokenizer] = self.__load_tokenizer(tokenizer_path) if check_path(
             tokenizer_path) else None
-        self.__num_words:int = num_words  # 詞彙表大小
-        self.__review_max_len:int = review_max_length  # 每條影評的最大長度
+        self.__num_words: int = num_words  # 詞彙表大小
+        self.__review_max_len: int = review_max_length  # 每條影評的最大長度
+        self.__logger: Logger = LoggingManager().get_logger('root')
         return
 
     def __text_to_sequences(self, texts: list[str] | str) -> NDArray:
@@ -98,7 +101,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         Returns:
             any: Loaded training data as a pandas DataFrame.
         """
-        logging.info("Loading training data.")
+        LoggingManager().get_logger('root').info("Loading training data.")
         return pd.read_csv(data_path)
 
     def _prepare_data(self, data: any) -> tuple[NDArray[int32], NDArray[int64], NDArray[int32], NDArray[int64]]:
@@ -111,36 +114,36 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         Returns:
             tuple[NDArray, NDArray, NDArray, NDArray]: Tuple containing x_train, y_train, x_test, y_test.
         """
-        logging.info("Change data format start.")
-        positive_words:Series = data[data['is_positive']].dropna().loc[:, 'word']
-        negative_words:Series = data[~data['is_positive']].dropna().loc[:, 'word']
+        self.__logger.info("Change data format start.")
+        positive_words: Series = data[data['is_positive']].dropna().loc[:, 'word']
+        negative_words: Series = data[~data['is_positive']].dropna().loc[:, 'word']
 
         # 構造影評資料集
-        positive_samples:list[str] = ["這是一個非常" + word + "的電影，值得推薦！" for word in positive_words]
-        negative_samples:list[str] = ["這是一個非常" + word + "的電影，完全不推薦！" for word in negative_words]
+        positive_samples: list[str] = ["這是一個非常" + word + "的電影，值得推薦！" for word in positive_words]
+        negative_samples: list[str] = ["這是一個非常" + word + "的電影，完全不推薦！" for word in negative_words]
 
         # 創建標籤
-        positive_labels:list[int] = [1] * len(positive_samples)  # 正面為1
-        negative_labels:list[int] = [0] * len(negative_samples)  # 負面為0
+        positive_labels: list[int] = [1] * len(positive_samples)  # 正面為1
+        negative_labels: list[int] = [0] * len(negative_samples)  # 負面為0
 
         # 合併影評與標籤
-        texts:list[str] = positive_samples + negative_samples
-        labels:list[int] = positive_labels + negative_labels
+        texts: list[str] = positive_samples + negative_samples
+        labels: list[int] = positive_labels + negative_labels
 
-        texts:list[str] = [" ".join(jieba.lcut(text)) for text in texts]  # 分詞函數
+        texts: list[str] = [" ".join(jieba.lcut(text)) for text in texts]  # 分詞函數
 
         # 使用 Tokenizer 將影評轉為數字序列
-        self.__tokenizer:Tokenizer = Tokenizer(num_words=self.__num_words)
+        self.__tokenizer: Tokenizer = Tokenizer(num_words=self.__num_words)
         self.__tokenizer.fit_on_texts(texts)  # 建立詞彙表
 
-        x_data:NDArray[int32] = self.__text_to_sequences(texts)
-        y_data:NDArray[int64] = np.array(labels)  # 標籤
+        x_data: NDArray[int32] = self.__text_to_sequences(texts)
+        y_data: NDArray[int64] = np.array(labels)  # 標籤
 
         # 拆分訓練集和測試集
         x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.2, random_state=42)
         return x_train, y_train, x_test, y_test
 
-    def _build_model(self,model: Sequential, layers: list) -> None:
+    def _build_model(self, model: Sequential, layers: list) -> None:
         """
         Builds and compiles the model.
 
@@ -168,14 +171,14 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
             model_save_name (str): Name to save the trained model. Defaults to REVIEW_SENTIMENT_ANALYSIS_MODEL_NAME.
             tokenizer_save_path (Path): Path to save the tokenizer. Defaults to REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH.
         """
-        logging.info("Training procedure start.")
+        self.__logger.info("Training procedure start.")
 
         x_train, y_train, x_test, y_test = self._prepare_data(data)
 
         if old_model_path:
             self._model: Sequential = self._create_model(old_model_path=old_model_path)
             new_epoch: int = int(old_model_path.stem.split('_')[-1]) + epoch
-            save_name:str = f"{model_save_name}_{new_epoch}"
+            save_name: str = f"{model_save_name}_{new_epoch}"
         else:
             self._model: Sequential = self._create_model(layers=[
                 Input(shape=(self.__review_max_len,)),
@@ -184,10 +187,10 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
                 Dropout(0.5),  # Dropout 防止過擬合
                 Dense(units=1, activation='sigmoid')  # 輸出層
             ])
-            save_name:str = f"{model_save_name}_{epoch}"
+            save_name: str = f"{model_save_name}_{epoch}"
         self.train_model(x_train, y_train, epoch, batch_size=32)
         loss: float = self.evaluate_model(x_test, y_test)
-        logging.info(f"Model validation loss: {loss}.")
+        self.__logger.info(f"Model validation loss: {loss}.")
         self.__save_tokenizer(file_path=tokenizer_save_path)
         self._save_model(model_save_folder.joinpath(f"{save_name}.keras"))
         return None
@@ -208,9 +211,9 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         if not self._model or not self.__tokenizer:
             raise ValueError("model and tokenizer must be loaded.")
         data_input: str = " ".join(jieba.lcut(data_input))  # 分詞
-        input_text:NDArray[int32] = self.__text_to_sequences(data_input)
+        input_text: NDArray[int32] = self.__text_to_sequences(data_input)
         # 預測結果
-        prediction:NDArray[float32] = self._model.predict(input_text)
+        prediction: NDArray[float32] = self._model.predict(input_text)
 
         # 結果解釋
         return True if prediction[0][0] > 0.5 else False

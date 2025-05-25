@@ -1,5 +1,5 @@
-import logging
 import re
+from logging import Logger
 from tqdm import tqdm
 from datetime import datetime
 from enum import Enum
@@ -14,6 +14,7 @@ from selenium.common.exceptions import *
 
 from movie_data import MovieData, PublicReview, load_index_file
 from tools.util import *
+from tools.logging_manager import LoggingManager
 from web_scraper.browser import CaptchaBrowser
 
 Url: TypeAlias = str
@@ -25,6 +26,7 @@ class ReviewCollector:
     """
     A class to collect reviews from various websites.
     """
+
     class TargetWebsite(Enum):
         """
         Enum representing the target website for review collection.
@@ -47,7 +49,8 @@ class ReviewCollector:
         self.__search_url_part: tuple[str, str, str, str] = \
             ('search?q=', 'search?forum=movie&query=', 'find/?q=', 'search?search=')
         self.__browser: Optional[CaptchaBrowser] = None
-        logging.info(f"Download {self.__search_target.name} data.")
+        self.__logger: Logger = LoggingManager().get_logger('root')
+        self.__logger.info(f"Download {self.__search_target.name} data.")
 
     @staticmethod
     def get_movie_search_keys(movie_name: str) -> list[str]:
@@ -60,7 +63,7 @@ class ReviewCollector:
         Returns:
             list[str]: A list of search keys.
         """
-        logging.info("Creating search keys.")
+        LoggingManager().get_logger('root').info("Creating search keys.")
         output = list()
 
         space: Final[RegularExpressionPattern] = " "
@@ -99,9 +102,8 @@ class ReviewCollector:
             output.append(re.sub(pattern=double_quotation, repl=empty, string=movie_name))
         if re.search(pattern=space_with_number_pattern, string=movie_name) is not None:
             output.append(re.sub(pattern=space, repl=empty, string=movie_name))
-        logging.info("Creation of search keys finish.")
+        LoggingManager().get_logger('root').info("Creation of search keys finish.")
         return output
-
 
     __get_search_page_url = lambda self, search_key: \
         f"{self.__base_url[self.__search_target.value]}{self.__search_url_part[self.__search_target.value]}{search_key}"
@@ -179,7 +181,7 @@ class ReviewCollector:
                     max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(search_url))
                 except IndexError:
                     return list()
-                logging.info(f"Find {max_page_number} pages of result.")
+                self.__logger.info(f"Find {max_page_number} pages of result.")
                 domain_pattern: Final[RegularExpressionPattern] = '^[^:\/]+:\/\/[^\/]+'
                 base_url = re.search(pattern=domain_pattern, string=self.__base_url[self.__search_target.value]).group(
                     0)
@@ -202,8 +204,8 @@ class ReviewCollector:
                             # selenium.common.exceptions.StaleElementReferenceException
                             href = element.get_attribute("href")
                         except StaleElementReferenceException:
-                            logging.error(f"Cannot locale element on {search_key}, height {current_height}.",
-                                          exc_info=True)
+                            self.__logger.error(f"Cannot locale element on {search_key}, height {current_height}.",
+                                                exc_info=True)
                         else:
                             new_urls.append(href)
                     urls.extend(url for url in new_urls)
@@ -211,7 +213,7 @@ class ReviewCollector:
 
             case _:
                 raise ValueError
-        logging.info(f"{len(urls)} urls found.")
+        self.__logger.info(f"{len(urls)} urls found.")
         return urls
 
     def __get_review_information(self, url: str) -> PublicReview | None:
@@ -224,7 +226,7 @@ class ReviewCollector:
         Returns:
             PublicReview | None: The review information or None if an error occurs.
         """
-        logging.info(f"Search review information for \"{url}\".")
+        self.__logger.info(f"Search review information for \"{url}\".")
         title: str | None = None
         content: str | None = None
         replies: list[str] | None = None
@@ -254,8 +256,8 @@ class ReviewCollector:
                     if not (title and posted_time and content and replies):
                         return None
                 except Exception as e:
-                    logging.warning(f"Cannot search element in url:\"{url}\".")
-                    logging.error(f"Error message: {e}")
+                    self.__logger.warning(f"Cannot search element in url:\"{url}\".")
+                    self.__logger.error(f"Error message: {e}")
                     return None
             case TargetWebsite.DCARD:
                 selector_base: Final[Selector] = "div#__next div[role='main']"
@@ -285,8 +287,8 @@ class ReviewCollector:
                                    self.__browser.find_elements(selector=selector_reply)]
                         replies_list.extend(replies)
                 except Exception as e:
-                    logging.warning(f"Cannot search element in url:\"{url}\".")
-                    logging.error(f"Error message: {e}")
+                    self.__logger.warning(f"Cannot search element in url:\"{url}\".")
+                    self.__logger.error(f"Error message: {e}")
                     return None
 
         return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies),
@@ -307,7 +309,7 @@ class ReviewCollector:
         """
         match self.__search_target:
             case TargetWebsite.PTT | TargetWebsite.DCARD:
-                logging.info(f"Start search reviews with search key \"{search_key}.")
+                self.__logger.info(f"Start search reviews with search key \"{search_key}.")
                 urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
                 return list(filter(lambda x: x, [self.__get_review_information(url=url) for url in
                                                  tqdm(urls, desc='review urls',
@@ -328,9 +330,9 @@ class ReviewCollector:
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
         reviews: list[PublicReview] = [review for search_key in search_keys for review in
                                        self.__get_reviews_by_keyword(search_key=search_key)]
-        logging.info("Trying to delete duplicate reviews.")
+        self.__logger.info("Trying to delete duplicate reviews.")
         reviews = delete_duplicate(reviews)
-        logging.info("Deletion of duplicate reviews finished.")
+        self.__logger.info("Deletion of duplicate reviews finished.")
         return reviews
 
     def __search_review_and_save(self, movie_list: list[MovieData], save_folder_path: Path) -> None:
@@ -347,7 +349,6 @@ class ReviewCollector:
                 movie.load_public_review()
             movie.update_data(public_reviews=reviews)
             movie.save_public_review(save_folder_path=save_folder_path)
-
 
     def search_review_with_single_movie(self, movie_data: str | MovieData) -> list[PublicReview] | None:
         """
@@ -370,10 +371,10 @@ class ReviewCollector:
             raise ValueError
         match self.__search_target:
             case TargetWebsite.PTT:
-                reviews:list[PublicReview] =  self.__get_reviews_by_name(movie_name=movie_name)
+                reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_name)
             case TargetWebsite.DCARD:
                 with CaptchaBrowser() as self.__browser:
-                    reviews:list[PublicReview] =  self.__get_reviews_by_name(movie_name=movie_name)
+                    reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_name)
             case _:
                 raise ValueError
         if isinstance(movie_data, MovieData):
