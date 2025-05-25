@@ -1,4 +1,4 @@
-import logging
+from logging import Logger
 from pathlib import Path
 from typing import Optional
 from abc import ABC, abstractmethod
@@ -8,6 +8,7 @@ from keras.src.callbacks import Callback
 from numpy.typing import NDArray
 
 from tools.util import check_path
+from tools.logging_manager import LoggingManager
 
 
 class LossLoggingCallback(Callback):
@@ -30,13 +31,14 @@ class LossLoggingCallback(Callback):
                 The `logs` argument may contain `loss` for the training loss,
                 and `val_loss` for the validation loss.
         """
+        logger:Logger = LoggingManager().get_logger('machine_learning')
         logs = logs or {}
         loss = logs.get('loss')
         if loss is not None:
-            logging.info(f"Epoch {epoch + 1}: Training loss = {loss:.4e}.")
+            logger.info(f"Epoch {epoch + 1}: Training loss = {loss:.4e}.")
         val_loss = logs.get('val_loss')
         if val_loss is not None:
-            logging.info(f"Epoch {epoch + 1}: Validation loss = {val_loss:.4e}.")
+            logger.info(f"Epoch {epoch + 1}: Validation loss = {val_loss:.4e}.")
 
 
 class MachineLearningModel(ABC):

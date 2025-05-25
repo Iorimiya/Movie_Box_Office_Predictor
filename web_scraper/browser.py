@@ -1,5 +1,5 @@
 import time
-import logging
+from logging import Logger
 from pathlib import Path
 from typing import TypeAlias, Callable, Final
 
@@ -16,6 +16,8 @@ from selenium.webdriver.remote.webelement import WebElement
 from seleniumbase import Driver
 from seleniumbase import undetected as sel_undef
 from urllib3.exceptions import MaxRetryError
+
+from tools.logging_manager import LoggingManager
 
 ChromeExperimentalOptions: TypeAlias = dict[str:str]
 
@@ -106,12 +108,13 @@ class Browser(webdriver.Chrome):
         self.__options.add_argument(argument="--disable-dev-shm-usage")
         self.__options.add_argument(argument="--disable-gpu")
         self.__options.add_argument(argument="--window-size=1600,900")
+        self.__logger:Logger = LoggingManager().get_logger('root')
 
         if self.__download_path:
             # options to change defaults download dir
             experimental_option: ChromeExperimentalOptions = {"download.default_directory": str(self.__download_path)}
             self.__options.add_experimental_option(name="prefs", value=experimental_option)
-            logging.info(f"Download path switch to \"{download_path}\".")
+            self.__logger.info(f"Download path switch to \"{download_path}\".")
 
         # create web driver
         super().__init__(options=self.__options)
@@ -141,7 +144,7 @@ class Browser(webdriver.Chrome):
                 method_setting.condition, message='')
         except TimeoutException:
             if method_setting.error_message:
-                logging.warning(method_setting.error_message)
+                self.__logger.warning(method_setting.error_message)
         return
 
     @override
@@ -153,12 +156,12 @@ class Browser(webdriver.Chrome):
             url (str): The URL to navigate to.
         """
         old_url = self.current_url
-        logging.debug(f"Trying to navigate to \"{url}\".")
+        self.__logger.debug(f"Trying to navigate to \"{url}\".")
         super().get(url)
         if self.wait(self.WaitingCondition(condition=self.PageChangeCondition(searching_url=old_url),
                                            timeout=self.__page_loading_timeout,
                                            error_message=f"Read Timeout Error on {url} caught.")):
-            logging.debug(f"Navigate to url \"{self.current_url}\" success.")
+            self.__logger.debug(f"Navigate to url \"{self.current_url}\" success.")
         return
 
     def home(self) -> None:
@@ -182,13 +185,13 @@ class Browser(webdriver.Chrome):
             NoSuchElementException: If the button is not found.
         """
         try:
-            logging.info(f"Trying to find button located on \"{button_selector_path}\".")
+            self.__logger.info(f"Trying to find button located on \"{button_selector_path}\".")
             button_element: WebElement = self.find_element(by=By.CSS_SELECTOR, value=button_selector_path)
         except NoSuchElementException:
-            logging.warning(f"Cannot find button located on \"{button_selector_path}\".", exc_info=True)
+            self.__logger.warning(f"Cannot find button located on \"{button_selector_path}\".", exc_info=True)
             raise
         else:
-            logging.info(f"Found button located on \"{button_selector_path}\".")
+            self.__logger.info(f"Found button located on \"{button_selector_path}\".")
             return button_element
 
     def click(self, button_locator: WebElement | str,
@@ -208,17 +211,17 @@ class Browser(webdriver.Chrome):
         """
 
         if isinstance(button_locator, str):
-            logging.debug("Found string parameter, use CSS selector to find button.")
+            self.__logger.debug("Found string parameter, use CSS selector to find button.")
             try:
                 button = self.find_button(button_locator)
             except NoSuchElementException:
-                logging.debug(f"Cannot find button located on \"{button_locator}\".", exc_info=True)
+                self.__logger.debug(f"Cannot find button located on \"{button_locator}\".", exc_info=True)
                 raise
         elif isinstance(button_locator, WebElement):
-            logging.debug("Found Element parameter, set button variable to it.")
+            self.__logger.debug("Found Element parameter, set button variable to it.")
             button = button_locator
         else:
-            logging.error("Unknown parameter type.")
+            self.__logger.error("Unknown parameter type.")
             raise ValueError
 
         if button:
@@ -226,9 +229,9 @@ class Browser(webdriver.Chrome):
                 self.wait(pre_method)
             try:
                 button.click()
-                logging.info(f"Button is clicked.")
+                self.__logger.info(f"Button is clicked.")
             except (ElementClickInterceptedException, AttributeError):
-                logging.warning(f"The button cannot be clicked.", exc_info=True)
+                self.__logger.warning(f"The button cannot be clicked.", exc_info=True)
                 raise NoSuchElementException
             if post_method:
                 self.wait(post_method)
