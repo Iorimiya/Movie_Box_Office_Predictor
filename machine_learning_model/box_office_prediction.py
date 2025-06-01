@@ -3,9 +3,10 @@ import random
 import numpy as np
 from pathlib import Path
 from logging import Logger
+
 from numpy.typing import NDArray
 from numpy import float32, float64, int64
-from typing import Optional, TypedDict
+from typing import Optional, TypedDict, Literal
 
 from sklearn.preprocessing import MinMaxScaler
 from joblib import dump as scaler_dump, load as scaler_load
@@ -42,7 +43,7 @@ class MoviePredictionModel(MachineLearningModel):
         __transform_scaler (Optional[MinMaxScaler]): Scaler for transforming the box office feature. Loaded from `transform_scaler_path`.
         __training_week_limit (Optional[int]): The number of past weeks used as input for prediction. Loaded from `training_setting_path`.
         __training_data_len (Optional[int]): The maximum sequence length of training data after padding. Loaded from `training_setting_path`.
-        __split_rate (Optional[float]): The ratio for splitting training data into training and testing sets. Loaded during training.
+        __split_ratios (Optional[float]): The ratio for splitting training data into training and testing sets. Loaded during training.
     """
 
     def __init__(self, model_path: Optional[Path] = None, transform_scaler_path: Optional[Path] = None,
@@ -129,11 +130,8 @@ class MoviePredictionModel(MachineLearningModel):
         # x_test, y_test, lengths_test = dataset
         self._save_model(file_path=base_folder.joinpath(f"{model_name}.keras"))
 
-        for key,value in dataset.items():
+        for key, value in dataset.items():
             np.save(base_folder.joinpath(f"{key}.npy"), value)
-        # np.save(base_folder.joinpath('x_test.npy'), x_test)
-        # np.save(base_folder.joinpath('y_test.npy'), y_test)
-        # np.save(base_folder.joinpath('sequence_lengths.npy'), lengths_test)
         self.__save_training_setting(base_folder.joinpath('setting.yaml'))
         self.__save_scaler(base_folder.joinpath('scaler.gz'))
 
@@ -156,13 +154,13 @@ class MoviePredictionModel(MachineLearningModel):
         return training_data
 
     @staticmethod
-    def _load_test_data(test_data_folder_path: Path) -> Optional[
+    def _load_set_data(set_data_folder_path: Path, set_type: Literal['validation', 'test']) -> Optional[
         tuple[NDArray[float32], NDArray[float64], NDArray[int64]]]:
         """
         Loads test data from the specified folder.
 
         Args:
-            test_data_folder_path (Path): The directory path containing x_test.npy, y_test.npy and sequence_lengths.npy.
+            set_data_folder_path (Path): The directory path containing x_test.npy, y_test.npy and sequence_lengths.npy.
 
         Returns:
             Optional[tuple[NDArray[float32], NDArray[float64], NDArray[int64]]]:
@@ -171,19 +169,27 @@ class MoviePredictionModel(MachineLearningModel):
                 - lengths_test (NDArray[int64]): Loaded sequence lengths for test data.
                 Returns None if loading fails.
         """
+        dataset_name: str
+        match set_type:
+            case 'validation':
+                dataset_name = "val"
+            case 'test':
+                dataset_name = "test"
+            case _:
+                raise ValueError(f"Invalid set type: {set_type}")
         try:
-            x_test_loaded: NDArray[float32] = np.load(test_data_folder_path.joinpath("x_val.npy"))
-            y_test_loaded: NDArray[float64] = np.load(test_data_folder_path.joinpath("y_val.npy"))
-            lengths_test: NDArray[int64] = np.load(test_data_folder_path.joinpath("lengths_val.npy"))
-            return x_test_loaded, y_test_loaded, lengths_test
+            x_loaded: NDArray[float32] = np.load(set_data_folder_path.joinpath(f"x_{dataset_name}.npy"))
+            y_loaded: NDArray[float64] = np.load(set_data_folder_path.joinpath(f"y_{dataset_name}.npy"))
+            lengths: NDArray[int64] = np.load(set_data_folder_path.joinpath(f"lengths_{dataset_name}.npy"))
+            return x_loaded, y_loaded, lengths
         except FileNotFoundError:
             LoggingManager().get_logger('root').error(
-                f"Could not find x_val.npy, y_val.npy or lengths_val.npy in '{test_data_folder_path}'.")
+                f"Could not find x_val.npy, y_val.npy or lengths_val.npy in '{set_data_folder_path}'.")
             return None
 
     @staticmethod
     def __generate_random_data(num_movies: int, weeks_range: tuple[int, int], reviews_range: tuple[int, int]) \
-        -> list[list[MoviePredictionInputData]]:
+            -> list[list[MoviePredictionInputData]]:
         """
         Generates random movie prediction input data for testing purposes.
 
@@ -454,12 +460,12 @@ class MoviePredictionModel(MachineLearningModel):
             # save training results
             self.__save_all(base_folder=base_save_folder, model_name=save_name,
                             dataset={
-                                'x_train':x_train,'y_train':y_train,
-                                'x_val':x_val,'y_val':y_val,
-                                'x_test':x_test,'y_test':y_test,
-                                'lengths_train':lengths_train,
-                                'lengths_val':lengths_val,
-                                'lengths_test':lengths_test
+                                'x_train': x_train, 'y_train': y_train,
+                                'x_val': x_val, 'y_val': y_val,
+                                'x_test': x_test, 'y_test': y_test,
+                                'lengths_train': lengths_train,
+                                'lengths_val': lengths_val,
+                                'lengths_test': lengths_test
                             })
 
     def predict(self, data_input: list[MoviePredictionInputData]) -> float:
@@ -577,7 +583,7 @@ class MoviePredictionModel(MachineLearningModel):
         """
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise AssertionError('model, settings, and scaler must be loaded.')
-        x_test_loaded, y_test_loaded, lengths_test = self._load_test_data(test_data_folder_path)
+        x_test_loaded, y_test_loaded, lengths_test = self._load_set_data(test_data_folder_path, set_type='validation')
         return self.evaluate_model(x_test=x_test_loaded, y_test=y_test_loaded)
 
     def evaluate_trend(self,
@@ -593,7 +599,7 @@ class MoviePredictionModel(MachineLearningModel):
         """
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise AssertionError('model, settings, and scaler must be loaded.')
-        x_test_loaded, y_test_loaded, lengths_test = self._load_test_data(test_data_folder_path)
+        x_test_loaded, y_test_loaded, lengths_test = self._load_set_data(test_data_folder_path, set_type='test')
 
         def trend_prediction_logic(predicted: float, actual: float, current: float) -> bool:
             predicted_trend = 1 if predicted > current else 0
@@ -619,7 +625,7 @@ class MoviePredictionModel(MachineLearningModel):
         """
         if not self._model or not self.__transform_scaler or not self.__training_data_len or not self.__training_week_limit:
             raise AssertionError('model, settings, and scaler must be loaded.')
-        x_test_loaded, y_test_loaded, lengths_test = self._load_test_data(test_data_folder_path)
+        x_test_loaded, y_test_loaded, lengths_test = self._load_set_data(test_data_folder_path, set_type="test")
 
         # Create box office ranges
         ranges = sorted(list(box_office_ranges))
@@ -659,12 +665,12 @@ class MoviePredictionModel(MachineLearningModel):
             The calculated F1 score, or 0.0 if evaluation cannot be performed.
         """
         if not self._model or not self.__transform_scaler or \
-            not self.__training_data_len or not self.__training_week_limit:
+                not self.__training_data_len or not self.__training_week_limit:
             self.__logger.error("Model, settings, and scaler must be loaded for F1 score calculation.")
             # 或者 raise ValueError(...)
             return 0.0
 
-        loaded_data = self._load_test_data(test_data_folder_path)
+        loaded_data = self._load_set_data(test_data_folder_path, set_type='test')
         if loaded_data is None:
             self.__logger.error(f"Could not load test data from {test_data_folder_path} for F1 score calculation.")
             return 0.0
@@ -711,7 +717,7 @@ class MoviePredictionModel(MachineLearningModel):
                 self.__transform_scaler.inverse_transform([[predicted_box_office_scaled]])[0, 0]
 
             if i < len(y_test_loaded):  # y_test_loaded 包含縮放後的目標值
-                actual_next_week_box_office_scaled: float = y_test_loaded[i]
+                actual_next_week_box_office_scaled: float = float(y_test_loaded[i])
                 actual_next_week_box_office_unscaled: float = \
                     self.__transform_scaler.inverse_transform([[actual_next_week_box_office_scaled]])[0, 0]
 
