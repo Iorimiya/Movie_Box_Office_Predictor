@@ -5,8 +5,8 @@ from typing import Optional
 
 from tools.util import recreate_folder
 from tools.constant import Constants
-from tools.plot import plot_training_loss, plot_validation_loss, \
-    plot_trend_accuracy, plot_range_accuracy
+from tools.plot import (plot_training_loss, plot_validation_loss, plot_trend_accuracy, plot_range_accuracy,
+                        plot_f1_score)
 from tools.logging_manager import LoggingManager, LogLevel, HandlerSettings
 from movie_data import load_index_file, MovieData
 from web_scraper.review_collector import ReviewCollector
@@ -34,8 +34,9 @@ def set_argument_parser() -> Namespace:
                                 "train_movie_prediction_model_with_randomly_generated_data",
                                 "test_movie_prediction_model_with_randomly_generated_data",
                                 "movie_prediction_model_trend_evaluation", "movie_prediction_model_range_evaluation",
+                                "movie_prediction_model_range_evaluation_with_f1_score",
                                 "plot_training_loss_curve", "plot_validation_loss_curve",
-                                "plot_trend_accuracy_curve", "plot_range_accuracy_curve"],
+                                "plot_trend_accuracy_curve", "plot_range_accuracy_curve", "plot_f1_score"],
                        help="unit test")
 
     parser.add_argument("--movie_name", type=str, required=False,
@@ -238,7 +239,8 @@ if __name__ == "__main__":
                         else:
                             raise AttributeError("You must specify value of epoch.")
 
-            case "movie_prediction_model_trend_evaluation" | "movie_prediction_model_range_evaluation" | "test_movie_prediction_model_with_randomly_generated_data":
+            case "movie_prediction_model_trend_evaluation" | "movie_prediction_model_range_evaluation" | \
+                 "movie_prediction_model_range_evaluation_with_f1_score" | "test_movie_prediction_model_with_randomly_generated_data":
                 model_path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(args.model_name,
                                                                              f"{args.model_name}.keras") \
                     if args.model_name else Constants.BOX_OFFICE_PREDICTION_MODEL_PATH
@@ -264,6 +266,11 @@ if __name__ == "__main__":
                         MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
                                              transform_scaler_path=scaler_path) \
                             .simple_predict(input_data=None)
+                    case "movie_prediction_model_range_evaluation_with_f1_score":
+                        main_logger.info('Print f1 score with prediction model using range method.')
+                        print(MoviePredictionModel(model_path=model_path, training_setting_path=setting_path,
+                                                   transform_scaler_path=scaler_path) \
+                              .calculate_f1_score_for_ranges(test_data_folder_path=test_data_folder_path))
 
             case "plot_training_loss_curve":
                 if args.path:
@@ -283,6 +290,11 @@ if __name__ == "__main__":
             case "plot_range_accuracy_curve":
                 if args.model_name:
                     plot_range_accuracy(args.model_name)
+                else:
+                    raise AttributeError("You must specify model name.")
+            case "plot_f1_score":
+                if args.model_name:
+                    plot_f1_score(args.model_name)
                 else:
                     raise AttributeError("You must specify model name.")
             case _:

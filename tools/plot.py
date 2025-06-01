@@ -193,3 +193,27 @@ def plot_range_accuracy(model_name: str):
     plot_line_graph(title='range_accuracy', save_file_path=Path('data/graph/range_accuracy.png'),
                     x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
                     format_type='percent', y_label='accuracy')
+
+def plot_f1_score(model_name: str):
+    """
+    Plots the range accuracy of a specified model across different training epochs.
+
+    Args:
+        model_name (str): The name of the model to evaluate.
+
+    Returns:
+        None.
+    """
+    logger: Logger = LoggingManager().get_logger('root')
+    logger.info("Plot f1 score of range accuracy.")
+    folder_list, model_epochs = search_model(model_name=model_name)
+    logger.info("calculating range accuracy.")
+    accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
+                                                    training_setting_path=folder.joinpath(f'setting.yaml'),
+                                                    transform_scaler_path=folder.joinpath(f'scaler.gz')) \
+                                   .calculate_f1_score_for_ranges(test_data_folder_path=folder) for folder in folder_list]
+    model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
+
+    plot_line_graph(title='f1 score', save_file_path=Path('data/graph/f1_score.png'),
+                    x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
+                    format_type='percent', y_label='accuracy')
