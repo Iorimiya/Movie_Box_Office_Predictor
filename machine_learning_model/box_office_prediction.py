@@ -14,6 +14,7 @@ from keras.src.layers import LSTM, Dense, Masking, Input, Dropout
 from keras.src.optimizers import Adam
 from keras.src.optimizers.schedules import ExponentialDecay
 from keras_preprocessing.sequence import pad_sequences
+from sklearn.metrics import f1_score
 
 from tools.util import check_path, recreate_folder
 from tools.constant import Constants
@@ -640,6 +641,119 @@ class MoviePredictionModel(MachineLearningModel):
                                                                              lengths_test, range_prediction_logic)
         accuracy: float = self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Range")
         return accuracy
+
+    def calculate_f1_score_for_ranges(self,
+                                      box_office_ranges: tuple[int, ...] = (1000000, 10000000, 90000000),
+                                      test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER,
+                                      average_method: str = 'macro') -> float:
+        """
+        Calculates the F1 score for box office range predictions.
+
+        Args:
+            box_office_ranges: A tuple of box office range boundaries.
+            test_data_folder_path: The directory path containing test data.
+            average_method: The averaging method for F1 score calculation in a multi-class setting.
+                            Common values: 'micro', 'macro', 'weighted', 'samples'.
+
+        Returns:
+            The calculated F1 score, or 0.0 if evaluation cannot be performed.
+        """
+        if not self._model or not self.__transform_scaler or \
+            not self.__training_data_len or not self.__training_week_limit:
+            self.__logger.error("Model, settings, and scaler must be loaded for F1 score calculation.")
+            # 或者 raise ValueError(...)
+            return 0.0
+
+        loaded_data = self._load_test_data(test_data_folder_path)
+        if loaded_data is None:
+            self.__logger.error(f"Could not load test data from {test_data_folder_path} for F1 score calculation.")
+            return 0.0
+        x_test_loaded, y_test_loaded, lengths_test = loaded_data
+
+        if x_test_loaded.size == 0 or y_test_loaded.size == 0:
+            self.__logger.warning("Loaded test data (x_test or y_test) is empty. Cannot calculate F1 score.")
+            return 0.0
+
+        # --- 複用 evaluate_range 中的範圍定義邏輯 ---
+        ranges = sorted(list(box_office_ranges))
+        thresholds = [-float('inf')] + ranges + [float('inf')]
+        self.__logger.info(f"Box office ranges for F1 score: {thresholds}.")
+
+        def get_box_office_range_index(box_office: float) -> int:
+            for i in range(len(thresholds) - 1):
+                if thresholds[i] <= box_office < thresholds[i + 1]:
+                    return i
+            # 處理 box_office 可能等於 thresholds[-1] (inf) 的邊界情況
+            if box_office == thresholds[-1] and thresholds[-1] == float('inf'):
+                return len(thresholds) - 2  # 最後一個有效的範圍索引
+            self.__logger.warning(
+                f"Box office value {box_office} did not fall into defined ranges. Assigning to last valid range index.")
+            return len(thresholds) - 2  # 如果值超出定義範圍，則分配給最後一個有效範圍
+
+        y_true_labels = []
+        y_pred_labels = []
+
+        num_features = x_test_loaded.shape[-1] if x_test_loaded.ndim == 3 and x_test_loaded.shape[0] > 0 else 0
+        if num_features == 0 and x_test_loaded.shape[0] > 0:
+            self.__logger.warning("x_test_loaded has 0 features, cannot proceed with F1 calculation.")
+            return 0.0
+
+        for i in range(len(x_test_loaded)):
+            # --- 與 __evaluate_predictions 中類似的預測邏輯 ---
+            # x_test_loaded[i] 是一個已填充的序列
+            # 其票房特徵 (索引 0) 已經被縮放
+            # lengths_test[i] 是填充前的序列長度 (對於有效序列，通常是 self.__training_week_limit)
+
+            input_for_prediction: NDArray[float32] = x_test_loaded[i].reshape(1, self.__training_data_len, num_features)
+
+            predicted_box_office_scaled: float = self._model.predict(input_for_prediction, verbose=0)[0, 0]
+            predicted_box_office_unscaled: float = \
+                self.__transform_scaler.inverse_transform([[predicted_box_office_scaled]])[0, 0]
+
+            if i < len(y_test_loaded):  # y_test_loaded 包含縮放後的目標值
+                actual_next_week_box_office_scaled: float = y_test_loaded[i]
+                actual_next_week_box_office_unscaled: float = \
+                    self.__transform_scaler.inverse_transform([[actual_next_week_box_office_scaled]])[0, 0]
+
+                try:
+                    true_label = get_box_office_range_index(actual_next_week_box_office_unscaled)
+                    pred_label = get_box_office_range_index(predicted_box_office_unscaled)
+                    y_true_labels.append(true_label)
+                    y_pred_labels.append(pred_label)
+                except ValueError as e:
+                    self.__logger.warning(f"Skipping sample {i} due to error in getting range index: {e}")
+                    continue
+            else:
+                self.__logger.warning(f"Index {i} out of bounds for y_test_loaded (len: {len(y_test_loaded)}).")
+
+        if not y_true_labels or not y_pred_labels:
+            self.__logger.warning("No labels collected for F1 score calculation.")
+            return 0.0
+
+        # 計算 F1 分數
+        # 注意：如果所有預測都屬於一個類別，而真實標籤中沒有該類別，或者反之，
+        # sklearn 會拋出警告並將該類別的 F1 設為 0。
+        # zero_division=0 參數可以在 precision, recall 或 F-score 為 0 時避免警告，並返回 0。
+        f1 = f1_score(y_true_labels, y_pred_labels, average=average_method, zero_division=0)
+        self.__logger.info(f"F1 Score (average='{average_method}') for ranges: {f1:.4f}")
+        self.__logger.info(f"Range labels true: {y_true_labels[:20]}...")  # Log a sample
+        self.__logger.info(f"Range labels pred: {y_pred_labels[:20]}...")  # Log a sample
+
+        # 您也可以計算並記錄每個類別的 F1 分數 (如果 average='macro' 或 'weighted')
+        if average_method in ['macro', 'weighted', None]:  # 'None' returns per-class scores
+            per_class_f1 = f1_score(y_true_labels, y_pred_labels, average=None, zero_division=0)
+            unique_labels = sorted(list(set(y_true_labels) | set(y_pred_labels)))  # 所有出現過的標籤
+            for label_idx, class_f1 in enumerate(per_class_f1):
+                # 嘗試將標籤索引映射回更有意義的範圍描述 (如果需要)
+                # 這裡的 label_idx 可能不直接對應 thresholds 的索引，取決於 unique_labels 的內容
+                # 為了簡單起見，我們先用 unique_labels 中的標籤
+                if label_idx < len(unique_labels):
+                    class_label_for_log = unique_labels[label_idx]
+                    self.__logger.info(f"  F1 Score for range class '{class_label_for_log}': {class_f1:.4f}")
+                else:  # 理論上不應該發生
+                    self.__logger.info(f"  F1 Score for class index {label_idx}: {class_f1:.4f}")
+
+        return f1
 
     def simple_train(self, input_data: Path | list[MovieData] | None,
                      old_model_path: Optional[Path] = None,
