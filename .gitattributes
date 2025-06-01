@@ -1,0 +1,78 @@
+# --- General Text File Handling ---
+# Treat all files as text by default, enabling line ending normalization.
+# Git will automatically handle line endings based on core.autocrlf settings
+# and apply LF in the repository.
+* text=auto
+
+# --- Specific Line Ending Enforcement ---
+# For shell scripts, always ensure LF line endings in the repository and working tree.
+# This is crucial for execution on Unix-like systems (WSL/Linux).
+*.sh text eol=lf
+
+# --- Binary Files ---
+# Explicitly mark common binary file types to prevent Git from attempting
+# line ending conversions or text diffs, which can cause corruption or
+# noisy diffs.
+*.bin binary
+*.dll binary
+*.exe binary
+*.class binary
+*.jar binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.tgz binary
+*.rar binary
+*.7z binary
+*.obj binary
+*.pdb binary
+*.mp3 binary
+*.mp4 binary
+*.avi binary
+*.mov binary
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+*.sqlite binary
+*.db binary
+*.sqlite3 binary
+
+# Image files
+*.bmp binary
+*.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.webp binary
+*.svg binary # SVG can be text, but often treated as binary for simpler diffing
+
+# Font files
+*.eot binary
+*.otf binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+
+# --- Large File Storage (Git LFS) ---
+# Uncomment and configure these lines if you plan to use Git LFS for large files.
+# Make sure Git LFS is installed and initialized (`git lfs install`).
+# *.psd filter=lfs diff=lfs merge=lfs -text # Photoshop files
+# *.zip filter=lfs diff=lfs merge=lfs -text # Large archives
+# *.onnx filter=lfs diff=lfs merge=lfs -text # ML model files
+# *.h5 filter=lfs diff=lfs merge=lfs -text   # Keras model files
+
+# --- Special Diffs ---
+# For Jupyter Notebooks, use the ipynb diff driver to show meaningful changes.
+# You might need to set up the diff driver in your global Git config.
+# git config --global diff.ipynb.textconv 'jupyter nbstripout'
+# git config --global diff.ipynb.binary true
+# *.ipynb diff=ipynb
+
+# For CSV files, use a specific diff driver to improve readability of changes.
+# You might need to configure a custom textconv filter in your global Git config.
+# *.csv diff=csv

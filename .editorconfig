@@ -1,0 +1,72 @@
+# top-most EditorConfig file
+# -------------------------
+# This setting makes EditorConfig stop searching for .editorconfig files
+# in parent directories once it finds this file.
+root = true
+
+# Global settings for all files (*)
+# ---------------------------------
+[*]
+# Use UTF-8 for all file encodings.
+charset = utf-8
+
+# Standardize line endings to LF (Unix-style) for all files.
+# This aligns with Git's internal storage and Linux environments.
+end_of_line = lf
+
+# Ensure files end with a single newline character.
+# This prevents warnings from linters and diff tools.
+insert_final_newline = true
+
+# Trim trailing whitespace from the end of lines when saving.
+# This keeps code clean and avoids unnecessary Git diffs.
+trim_trailing_whitespace = true
+
+# Use spaces for indentation (default for most modern languages).
+indent_style = space
+
+# Default indentation size for most files.
+indent_size = 4
+
+# Python-specific settings
+# -----------------------
+[*.py]
+# Explicitly set indent size for Python files to 4 spaces,
+# as per PEP 8.
+indent_size = 4
+
+# Markdown files settings
+# -----------------------
+[*.md]
+# Allow trailing whitespace in Markdown for readability (e.g., two spaces for a line break).
+trim_trailing_whitespace = false
+
+# JSON files settings
+# -------------------
+[*.json]
+# JSON files commonly use 2-space indentation.
+indent_size = 2
+
+# YAML files settings
+# -------------------
+[*.yaml]
+# YAML files commonly use 2-space indentation.
+indent_size = 2
+
+[*.yml]
+# YAML files commonly use 2-space indentation.
+indent_size = 2
+
+# Shell scripts settings
+# ---------------------
+[*.sh]
+# Ensure shell scripts always use LF line endings, crucial for execution on Linux.
+end_of_line = lf
+# Make sure shell scripts are executable after checkout (often handled by Git, but good to be explicit).
+# executable = true # This is not a standard EditorConfig property but some plugins might support it.
+
+# Makefile specific settings
+# --------------------------
+# Makefiles require TAB characters for indentation.
+[Makefile]
+indent_style = tab
