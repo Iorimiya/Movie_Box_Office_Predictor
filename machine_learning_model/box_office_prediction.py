@@ -59,7 +59,7 @@ class MoviePredictionModel(MachineLearningModel):
             transform_scaler_path) else None
         self.__training_week_limit: Optional[int] = None
         self.__training_data_len: Optional[int] = None
-        self.__split_rate: Optional[float] = None
+        self.__split_ratios: Optional[tuple[int, int, int]] = None
         self.__logger: Logger = LoggingManager().get_logger('machine_learning')
         if check_path(training_setting_path):
             self.__load_training_setting(training_setting_path)
@@ -112,24 +112,27 @@ class MoviePredictionModel(MachineLearningModel):
         return
 
     def __save_all(self, base_folder: Path, model_name: str,
-                   test_data: tuple[NDArray[float32], NDArray[float64], list[int]]) -> None:
+                   dataset: dict[str, NDArray[float32 | float64] | list[int]]) -> None:
         """
         Saves the trained model, test data, training settings, and scaler to the specified folder.
 
         Args:
             base_folder (Path): The base directory to save the files in.
             model_name (str): The name of the model to use in the saved filename.
-            test_data (tuple[NDArray[float32], NDArray[float64], list[int]]): A tuple containing the test data:
+            dataset (tuple[NDArray[float32], NDArray[float64], list[int]]): A tuple containing the test data:
                 - x_test (NDArray[float32]): The input test data.
                 - y_test (NDArray[float64]): The target test data.
                 - lengths_test (list[int]): The original sequence lengths of the test data before padding.
         """
         recreate_folder(path=base_folder)
-        x_test, y_test, lengths_test = test_data
+        # x_test, y_test, lengths_test = dataset
         self._save_model(file_path=base_folder.joinpath(f"{model_name}.keras"))
-        np.save(base_folder.joinpath('x_test.npy'), x_test)
-        np.save(base_folder.joinpath('y_test.npy'), y_test)
-        np.save(base_folder.joinpath('sequence_lengths.npy'), lengths_test)
+
+        for key,value in dataset.items():
+            np.save(base_folder.joinpath(f"{key}.npy"), value)
+        # np.save(base_folder.joinpath('x_test.npy'), x_test)
+        # np.save(base_folder.joinpath('y_test.npy'), y_test)
+        # np.save(base_folder.joinpath('sequence_lengths.npy'), lengths_test)
         self.__save_training_setting(base_folder.joinpath('setting.yaml'))
         self.__save_scaler(base_folder.joinpath('scaler.gz'))
 
@@ -168,18 +171,18 @@ class MoviePredictionModel(MachineLearningModel):
                 Returns None if loading fails.
         """
         try:
-            x_test_loaded: NDArray[float32] = np.load(test_data_folder_path.joinpath("x_test.npy"))
-            y_test_loaded: NDArray[float64] = np.load(test_data_folder_path.joinpath("y_test.npy"))
-            lengths_test: NDArray[int64] = np.load(test_data_folder_path.joinpath("sequence_lengths.npy"))
+            x_test_loaded: NDArray[float32] = np.load(test_data_folder_path.joinpath("x_val.npy"))
+            y_test_loaded: NDArray[float64] = np.load(test_data_folder_path.joinpath("y_val.npy"))
+            lengths_test: NDArray[int64] = np.load(test_data_folder_path.joinpath("lengths_val.npy"))
             return x_test_loaded, y_test_loaded, lengths_test
         except FileNotFoundError:
             LoggingManager().get_logger('root').error(
-                f"Could not find x_test.npy, y_test.npy or sequence_lengths.npy in '{test_data_folder_path}'.")
+                f"Could not find x_val.npy, y_val.npy or lengths_val.npy in '{test_data_folder_path}'.")
             return None
 
     @staticmethod
     def __generate_random_data(num_movies: int, weeks_range: tuple[int, int], reviews_range: tuple[int, int]) \
-            -> list[list[MoviePredictionInputData]]:
+        -> list[list[MoviePredictionInputData]]:
         """
         Generates random movie prediction input data for testing purposes.
 
@@ -279,7 +282,8 @@ class MoviePredictionModel(MachineLearningModel):
         return scaled_data
 
     def _prepare_data(self, data: any) -> tuple[
-        NDArray[float32], NDArray[float64], NDArray[float32], NDArray[float64], list[int], list[int]]:
+        NDArray[float32], NDArray[float64], NDArray[float32], NDArray[float64], NDArray[float32], NDArray[float64],
+        list[int], list[int], list[int]]:
         """
         Prepares the input data for training and testing.
 
@@ -317,24 +321,64 @@ class MoviePredictionModel(MachineLearningModel):
 
         x, y = np.array(x), np.array(y)
 
-        split_index: int = int(len(x) * self.__split_rate)
-        x_train, y_train, x_test, y_test = x[:split_index], y[:split_index], x[split_index:], y[split_index:]
-        lengths_train, lengths_test = lengths[:split_index], lengths[split_index:]
+        total_ratio_parts: int = sum(self.__split_ratios)
+        if total_ratio_parts == 0:
+            # This case implies all ratios are 0, which is problematic.
+            # For safety, assign all to train, though this should ideally be caught by a check on split_ratios values.
+            # print("Warning: Sum of split_ratios is zero. Assigning all data to training set.")
+            train_end_idx = len(x)
+            val_end_idx = len(x)
+        else:
+            train_ratio_part: int = self.__split_ratios[0]
+            val_ratio_part: int = self.__split_ratios[1]
+            num_samples: int = len(x)
+            train_end_idx = int(np.floor(num_samples * train_ratio_part / total_ratio_parts))
+            val_end_idx = int(np.floor(num_samples * (train_ratio_part + val_ratio_part) / total_ratio_parts))
+
+            # Adjust to prevent empty validation set if val_ratio_part > 0 and rounding caused issues
+            if val_ratio_part > 0 and train_end_idx == val_end_idx and num_samples > train_end_idx:
+                if val_end_idx < num_samples:
+                    val_end_idx += 1
+                elif train_end_idx > 0:  # Can we decrement train_end_idx?
+                    train_end_idx -= 1
+
+            # Ensure train_end_idx is not after val_end_idx due to adjustments
+            if train_end_idx > val_end_idx:
+                train_end_idx = val_end_idx
+        x_train: NDArray[float32] = x[:train_end_idx]
+        y_train: NDArray[float64] = y[:train_end_idx]
+        lengths_train: list[int] = lengths[:train_end_idx]
+
+        x_val: NDArray[float32] = x[train_end_idx:val_end_idx]
+        y_val: NDArray[float64] = y[train_end_idx:val_end_idx]
+        lengths_val: list[int] = lengths[train_end_idx:val_end_idx]
+
+        x_test: NDArray[float32] = x[val_end_idx:]
+        y_test: NDArray[float64] = y[val_end_idx:]
+        lengths_test: list[int] = lengths[val_end_idx:]
+
+        # x_train, y_train, x_test, y_test = x[:split_index], y[:split_index], x[split_index:], y[split_index:]
+        # lengths_train, lengths_test = lengths[:split_index], lengths[split_index:]
 
         # Standardization
         self.__transform_scaler: MinMaxScaler = MinMaxScaler()
         y_train_scaled: NDArray[float64] = self.__transform_scaler.fit_transform(y_train.reshape(-1, 1)).flatten()
+        y_val_scaled: NDArray[float64] = self.__transform_scaler.transform(y_val.reshape(-1, 1)).flatten()
         y_test_scaled: NDArray[float64] = self.__transform_scaler.transform(y_test.reshape(-1, 1)).flatten()
 
         x_train_scaled: NDArray[float32] = x_train.copy()
         for i in range(x_train.shape[0]):
             x_train_scaled[i, :, 0] = self.__scale_box_office_feature(x_train[i, :, 0].reshape(-1, 1)).flatten()
 
+        x_val_scaled: NDArray[float32] = x_val.copy()
+        for i in range(x_val.shape[0]):
+            x_val_scaled[i, :, 0] = self.__scale_box_office_feature(x_val[i, :, 0].reshape(-1, 1)).flatten()
+
         x_test_scaled: NDArray[float32] = x_test.copy()
         for i in range(x_test.shape[0]):
             x_test_scaled[i, :, 0] = self.__scale_box_office_feature(x_test[i, :, 0].reshape(-1, 1)).flatten()
 
-        return x_train_scaled, y_train_scaled, x_test_scaled, y_test_scaled, lengths_train, lengths_test
+        return x_train_scaled, y_train_scaled, x_val_scaled, y_val_scaled, x_test_scaled, y_test_scaled, lengths_train, lengths_val, lengths_test
 
     def _build_model(self, model: Sequential, layers: list) -> None:
         """
@@ -359,7 +403,7 @@ class MoviePredictionModel(MachineLearningModel):
               epoch: int | tuple[int, int] = 1000,
               model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
               training_week_limit: int = 4,
-              split_rate: float = 0.8) -> None:
+              split_ratios: tuple[int, int, int] = (8, 2, 2)) -> None:
         """
         Trains the movie box office prediction model.
 
@@ -370,12 +414,13 @@ class MoviePredictionModel(MachineLearningModel):
            epoch (int): The number of training epochs. Defaults to 1000.
            model_name (str): The base name for the saved model file. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_NAME.
            training_week_limit (int): The number of past weeks to use as input for prediction. Defaults to 4.
-           split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
+           split_ratios (tuple[int,int,int]): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
         """
         self.__logger.info("Training procedure start.")
         self.__training_week_limit = training_week_limit
-        self.__split_rate = split_rate
-        x_train, y_train, x_test, y_test, _, lengths_test = self._prepare_data(data)
+        self.__split_ratios = split_ratios
+        x_train, y_train, x_val, y_val, x_test, y_test, lengths_train, lengths_val, lengths_test = \
+            self._prepare_data(data)
 
         if old_model_path:
             self._model: Sequential = self._create_model(old_model_path=old_model_path)
@@ -400,14 +445,21 @@ class MoviePredictionModel(MachineLearningModel):
         for current_save_epoch in range(base_epoch + save_interval, max_epoch + save_interval, save_interval):
             save_name: str = f"{model_name}_{current_save_epoch}"
             self.train_model(x_train, y_train, save_interval)
-            loss: float = self.evaluate_model(x_test, y_test)
+            loss: float = self.evaluate_model(x_val, y_val)
             self.__logger.info(f"Model validation loss: {loss}.")
 
             base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{save_name}')
 
             # save training results
             self.__save_all(base_folder=base_save_folder, model_name=save_name,
-                            test_data=(x_test, y_test, lengths_test))
+                            dataset={
+                                'x_train':x_train,'y_train':y_train,
+                                'x_val':x_val,'y_val':y_val,
+                                'x_test':x_test,'y_test':y_test,
+                                'lengths_train':lengths_train,
+                                'lengths_val':lengths_val,
+                                'lengths_test':lengths_test
+                            })
 
     def predict(self, data_input: list[MoviePredictionInputData]) -> float:
         """
@@ -594,7 +646,7 @@ class MoviePredictionModel(MachineLearningModel):
                      epoch: int | tuple[int, int] = 1000,
                      model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
                      training_week_limit: int = 4,
-                     split_rate: float = 0.8) -> None:
+                     split_ratios: tuple[int, int, int] = (8, 2, 2)) -> None:
         """
         A simplified training function that can accept different types of input data.
 
@@ -607,7 +659,7 @@ class MoviePredictionModel(MachineLearningModel):
             epoch (int): The number of training epochs. Defaults to 1000.
             model_name (str): The base name for the saved model file. Defaults to Constants.BOX_OFFICE_PREDICTION_MODEL_NAME.
             training_week_limit (int): The number of past weeks to use as input for prediction. Defaults to 4.
-            split_rate (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
+            split_ratios (float): The ratio for splitting the data into training and testing sets. Defaults to 0.8.
         """
         if input_data is None:
             train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(100, (4, 30), (0, 200))
@@ -620,7 +672,7 @@ class MoviePredictionModel(MachineLearningModel):
         else:
             raise ValueError
         self.train(data=train_data, old_model_path=old_model_path, epoch=epoch, model_name=model_name,
-                   training_week_limit=training_week_limit, split_rate=split_rate)
+                   training_week_limit=training_week_limit, split_ratios=split_ratios)
 
     def simple_predict(self, input_data: MovieData | None) -> None:
         """
