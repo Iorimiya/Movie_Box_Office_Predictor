@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Final, Literal,Optional
+from typing import Final, Literal, Optional
 
 
 class ProjectConfig:

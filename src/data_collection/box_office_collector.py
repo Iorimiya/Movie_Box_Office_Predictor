@@ -100,7 +100,7 @@ class BoxOfficeCollector:
         """
         # download mode amd type settings
         self.__download_mode: Final[BoxOfficeCollector.Mode] = download_mode
-        self.__logger:Logger = LoggingManager().get_logger('root')
+        self.__logger: Logger = LoggingManager().get_logger('root')
         self.__logger.info(f"Using {self.__download_mode.name} mode to download data.")
 
         # constants

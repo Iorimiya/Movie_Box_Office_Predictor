@@ -24,7 +24,7 @@ class File(ABC):
         self.encoding: Final[str] = encoding
 
     @abstractmethod
-    def save(self, data: list[dict] | dict) -> None:
+    def save(self, data: list[dict[any, any]] | dict[any, any]) -> None:
         """
         Saves data to the file.
         This method must be implemented by subclasses.
@@ -34,7 +34,7 @@ class File(ABC):
         pass
 
     @abstractmethod
-    def load(self) -> list[dict] | dict:
+    def load(self) -> list[dict[any, any]] | dict[any, any]:
         """
         Loads data from the file.
         This method must be implemented by subclasses.
@@ -52,7 +52,7 @@ class CsvFile(File):
     and load data from a CSV file into a list of dictionaries.
     """
 
-    def save(self, data: list[dict]) -> None:
+    def save(self, data: list[dict[any, any]]) -> None:
         """
         Saves a list of dictionaries to the CSV file.
 
@@ -65,19 +65,17 @@ class CsvFile(File):
         """
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
-        if not data:  # Handle empty data list
-            # Create an empty file with no header or write a specific message
+        if not data:
             self.path.touch()
             return
-        # Ensure all dictionaries for header generation
-        field_names: list[str] = list(dict.fromkeys(key for dictionary in data for key in dictionary.keys()))
+        field_names: list[str] = list(dict.fromkeys(str(key) for dictionary in data for key in dictionary.keys()))
         with open(file=self.path, mode='w', encoding=self.encoding, newline='') as file:
             writer: csv.DictWriter = csv.DictWriter(file, fieldnames=field_names)
             writer.writeheader()
             writer.writerows(data)
         return
 
-    def load(self) -> list[dict]:
+    def load(self) -> list[dict[str, str]]:
         """
         Loads data from the CSV file into a list of dictionaries.
 
@@ -101,7 +99,7 @@ class YamlFile(File):
     YAML formats.
     """
 
-    def save_multi_document(self, data: list[dict]) -> None:
+    def save_multi_document(self, data: list[dict[any, any]]) -> None:
         """
         Saves a list of dictionaries as multiple YAML documents in a single file.
 
@@ -118,7 +116,7 @@ class YamlFile(File):
             yaml.dump_all(documents=data, stream=file, allow_unicode=True, sort_keys=False)
         return
 
-    def load_multi_document(self) -> list[dict]:
+    def load_multi_document(self) -> list[dict[any, any]]:
         """
         Loads data from a YAML file that may contain multiple documents
         separated by '---'.
@@ -135,12 +133,12 @@ class YamlFile(File):
             raise FileNotFoundError(f"File {self.path} does not exist")
         loaded_data: list[dict] = []
         with open(file=self.path, mode='r', encoding=self.encoding) as file:
-            for doc in yaml.load_all(stream=file, Loader=yaml.SafeLoader):  # Changed to SafeLoader
+            for doc in yaml.load_all(stream=file, Loader=yaml.SafeLoader):
                 if isinstance(doc, dict) and doc is not None:
                     loaded_data.append(doc)
         return loaded_data
 
-    def save_single_document(self, data: list[dict] | dict) -> None:
+    def save_single_document(self, data: list[dict[any, any]] | dict[any, any]) -> None:
         """
         Saves data (a list of dictionaries or a single dictionary) as a single YAML document.
 
@@ -156,7 +154,7 @@ class YamlFile(File):
             yaml.dump(data=data, stream=file, allow_unicode=True, sort_keys=False)
         return
 
-    def load_single_document(self) -> Optional[list[dict] | dict]:
+    def load_single_document(self) -> Optional[list[dict[any, any]] | dict[any, any]]:
         """
         Loads data from a YAML file expected to contain a single document.
 
@@ -171,20 +169,15 @@ class YamlFile(File):
             raise FileNotFoundError(f"File {self.path} does not exist")
         with open(file=self.path, mode='r', encoding=self.encoding) as file:
             try:
-                # Read the whole file content to ensure it's treated as a single document context
                 content: str = file.read()
-                if not content.strip():  # Handle empty file
+                if not content.strip():
                     return None
                 loaded_data: Any = yaml.safe_load(stream=content)
                 return loaded_data
             except yaml.YAMLError as e:
-                # Log or handle specific YAML parsing errors if needed
-                # For now, re-raise to indicate a problem with the file format
                 raise yaml.YAMLError(f"Error parsing YAML file {self.path}: {e}")
 
-    # Implementing the abstract methods by choosing a default behavior
-    # You might want to change these defaults based on your primary use case.
-    def save(self, data: list[dict] | dict) -> None:
+    def save(self, data: list[dict[any, any]] | dict[any, any]) -> None:
         """
         Default save method for ``YamlFile``. Saves data as a single YAML document.
 
@@ -195,7 +188,7 @@ class YamlFile(File):
         self.save_single_document(data=data)
         return
 
-    def load(self) -> Optional[list[dict] | dict]:
+    def load(self) -> Optional[list[dict[any, any]] | dict[any, any]]:
         """
         Default load method for ``YamlFile``. Loads data as a single YAML document.
 

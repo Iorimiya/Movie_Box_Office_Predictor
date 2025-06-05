@@ -19,7 +19,7 @@ class LossLoggingCallback(Callback):
     If validation loss ('val_loss') is available in the logs, it will also be logged.
     """
 
-    def on_epoch_end(self, epoch: int, logs: Optional[dict[str: any]] = None):
+    def on_epoch_end(self, epoch: int, logs: Optional[dict[str, any]] = None):
         """Called at the end of an epoch.
 
         Logs the training and validation loss if they are present in the logs dictionary.
@@ -29,7 +29,7 @@ class LossLoggingCallback(Callback):
                      metric values. May contain 'loss' for training loss
                      and 'val_loss' for validation loss.
         """
-        logger:Logger = LoggingManager().get_logger('machine_learning')
+        logger: Logger = LoggingManager().get_logger('machine_learning')
         logs = logs or {}
         loss = logs.get('loss')
         if loss is not None:

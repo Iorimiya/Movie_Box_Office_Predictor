@@ -21,7 +21,7 @@ from urllib3.exceptions import MaxRetryError
 
 from src.core.logging_manager import LoggingManager
 
-ChromeExperimentalOptions: TypeAlias = dict[str:str]
+ChromeExperimentalOptions: TypeAlias = dict[str, str]
 
 
 class Browser(webdriver.Chrome):
@@ -125,7 +125,7 @@ class Browser(webdriver.Chrome):
         self.__options.add_argument(argument="--disable-dev-shm-usage")
         self.__options.add_argument(argument="--disable-gpu")
         self.__options.add_argument(argument="--window-size=1600,900")
-        self.__logger:Logger = LoggingManager().get_logger('root')
+        self.__logger: Logger = LoggingManager().get_logger('root')
 
         if self.__download_path:
             # options to change defaults download dir
@@ -320,7 +320,6 @@ class CaptchaBrowser:
         self.__driver = Driver(uc=self.__uc, headless=self.__headless, no_sandbox=self.__no_sandbox,
                                incognito=self.__incognito)
         self.__driver.set_window_size(self.__size[0], self.__size[1])
-        # self.__driver.minimize_window()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> any:

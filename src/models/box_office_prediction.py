@@ -104,7 +104,7 @@ class MoviePredictionModel(MachineLearningModel):
         if not file_path.exists():
             raise FileNotFoundError(f"File {file_path} does not exist")
         with open(file_path, mode='r', encoding=encoding) as file:
-            load_data: dict[str:int] = yaml.load(file, yaml.loader.BaseLoader)
+            load_data: dict[str, int] = yaml.load(file, yaml.loader.BaseLoader)
         self.__training_data_len = int(load_data['training_data_len'])
         self.__training_week_limit = int(load_data['training_week_limit'])
         return
@@ -185,7 +185,7 @@ class MoviePredictionModel(MachineLearningModel):
 
     @staticmethod
     def __generate_random_data(num_movies: int, weeks_range: tuple[int, int], reviews_range: tuple[int, int]) \
-            -> list[list[MoviePredictionInputData]]:
+        -> list[list[MoviePredictionInputData]]:
         """
         Generates random movie prediction input data for testing or demonstration purposes.
 

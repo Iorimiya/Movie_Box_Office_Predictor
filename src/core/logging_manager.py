@@ -195,7 +195,7 @@ class LoggingManager:
         if isinstance(handler_settings.output, Path):
             target_value = str(handler_settings.output.resolve())
             handler_settings.output.parent.mkdir(parents=True, exist_ok=True)
-            existing_file_handler: dict[str:FileHandler] = \
+            existing_file_handler: dict[str, FileHandler] = \
                 {name: handler for name, handler in self._handlers.items() if isinstance(handler, FileHandler)}
             existing_handler_name: Optional[str] = next(
                 (name for name, handler in existing_file_handler.items() if handler.baseFilename == target_value), None)
@@ -210,7 +210,7 @@ class LoggingManager:
 
         elif isinstance(handler_settings.output, (TextIOBase, StreamWrapper)):
             target_value = handler_settings.output
-            existing_stream_handler: dict[str:StreamHandler|StreamWrapper] = \
+            existing_stream_handler: dict[str, StreamHandler | StreamWrapper] = \
                 {name: handler for name, handler in self._handlers.items() if isinstance(handler, StreamHandler)}
             existing_handler_name: Optional[str] = next(
                 (name for name, handler in existing_stream_handler.items() if handler.stream == target_value), None)
@@ -572,8 +572,8 @@ class LoggingManager:
         print("Initial components configured.")
 
     @staticmethod
-    def _classify_log_components(settings_list: list[LogComponentSettings]) -> tuple[
-        list[HandlerSettings], list[LoggerSettings]]:
+    def _classify_log_components(settings_list: list[LogComponentSettings]) \
+        -> tuple[list[HandlerSettings], list[LoggerSettings]]:
         """
         Internal helper to classify LogComponentSettings into handlers and loggers,
         and warn about unknown types.
@@ -730,14 +730,3 @@ class LoggingManager:
 
         print("Creating LoggingManager with predefined components...")
         return cls(initial_configs=initial_components_list)
-
-
-if __name__ == '__main__':
-    manager: LoggingManager = LoggingManager.create_predefined_manager()
-    main_logger = manager.get_logger('root')
-    ml_logger = manager.get_logger('machine_learning')
-    manager.add_handler(
-        handler_settings=HandlerSettings(name='machine_learning', level=LogLevel.INFO, output=Path('ml.log')))
-    manager.link_handler_to_logger(logger_name='machine_learning', handler_name='machine_learning')
-    ml_logger.info("aaaa")
-    main_logger.info("bbbb")
