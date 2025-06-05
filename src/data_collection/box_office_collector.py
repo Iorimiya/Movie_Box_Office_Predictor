@@ -1,23 +1,29 @@
-import json
-
-import re
-from logging import Logger
 from datetime import datetime
 from enum import Enum
-from typing import TypeAlias, Final, TypedDict
+import json
+from logging import Logger
+from pathlib import Path
+import re
+from typing import Final, Optional, TypeAlias, TypedDict
 
-from selenium.common.exceptions import *
+from selenium.common.exceptions import (
+    InvalidSwitchToTargetException,
+    NoSuchElementException,
+    TimeoutException,
+    UnexpectedAlertPresentException
+)
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support.expected_conditions import visibility_of_element_located, element_to_be_clickable
+from selenium.webdriver.support.expected_conditions import element_to_be_clickable, visibility_of_element_located
 from tqdm import tqdm
 from urllib3.exceptions import ReadTimeoutError
 
-from src.data_collection.browser import Browser
-from src.data_handling.movie_data import BoxOffice, MovieData, load_index_file
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
-from src.utilities.util import *
+from src.data_collection.browser import Browser
+from src.data_handling.file_io import CsvFile
+from src.data_handling.movie_data import BoxOffice, load_index_file, MovieData
+from src.utilities.util import CSVFileData, initialize_index_file
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
 PageChangeCondition: TypeAlias = Browser.PageChangeCondition

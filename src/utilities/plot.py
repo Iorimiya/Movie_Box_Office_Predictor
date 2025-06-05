@@ -1,18 +1,18 @@
-import re
 from logging import Logger
 from pathlib import Path
+import re
 from typing import Final
 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-from tools.constant import Constants
-from tools.logging_manager import LoggingManager
-from machine_learning_model.box_office_prediction import MoviePredictionModel
+from src.core.constants import Constants
+from src.core.logging_manager import LoggingManager
+from src.models.box_office_prediction import MoviePredictionModel
 
 
 def search_model(model_name: str) -> tuple[list[Path], list[int]]:
-    logger:Logger=LoggingManager().get_logger('root')
+    logger: Logger = LoggingManager().get_logger('root')
     logger.info(f"Search models in \"{Constants.BOX_OFFICE_PREDICTION_FOLDER}\" folder")
     folder_list: list[Path] = list(
         filter(lambda file: file.is_dir(), Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*")))

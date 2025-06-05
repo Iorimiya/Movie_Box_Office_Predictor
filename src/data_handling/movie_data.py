@@ -1,11 +1,13 @@
-import yaml
+from dataclasses import asdict, dataclass
+from datetime import date, datetime
 from enum import Enum
 from pathlib import Path
 from typing import Optional
-from datetime import date, datetime
-from dataclasses import dataclass, asdict
+
+import yaml
+
 from src.core.constants import Constants
-from src.utilities.util import read_data_from_csv, delete_duplicate
+from src.utilities.util import delete_duplicate, read_data_from_csv
 
 
 @dataclass(kw_only=True)

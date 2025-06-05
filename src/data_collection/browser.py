@@ -1,20 +1,22 @@
-import time
+from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
-from typing import TypeAlias, Callable, Final
-
-from typing_extensions import override
-from dataclasses import dataclass
+import time
+from typing import Callable, Final, Optional, TypeAlias
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import *
+from selenium.common.exceptions import (
+    ElementClickInterceptedException,
+    NoSuchElementException,
+    TimeoutException
+)
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webelement import WebElement
-
 from seleniumbase import Driver
 from seleniumbase import undetected as sel_undef
+from typing_extensions import override
 from urllib3.exceptions import MaxRetryError
 
 from src.core.logging_manager import LoggingManager

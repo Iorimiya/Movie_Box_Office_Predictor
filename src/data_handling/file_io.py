@@ -1,8 +1,9 @@
-from pathlib import Path
-from typing import Final, Any, Optional
-import yaml
-import csv
 from abc import ABC, abstractmethod
+import csv
+from pathlib import Path
+from typing import Any, Final, Optional
+
+import yaml
 
 
 class File(ABC):
