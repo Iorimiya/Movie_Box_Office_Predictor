@@ -12,6 +12,16 @@ from src.models.box_office_prediction import MoviePredictionModel
 
 
 def search_model(model_name: str) -> tuple[list[Path], list[int]]:
+    """Searches for model folders matching a given model name pattern and extracts their epochs.
+
+    This function scans the ``Constants.BOX_OFFICE_PREDICTION_FOLDER`` for directories
+    that start with ``model_name_`` and end with an epoch number.
+
+    :param model_name: The base name of the model to search for.
+    :returns: A tuple containing:
+              - A list of ``pathlib.Path`` objects pointing to the found model folders.
+              - A list of integers representing the epochs extracted from the folder names.
+    """
     logger: Logger = LoggingManager().get_logger('root')
     logger.info(f"Search models in \"{Constants.BOX_OFFICE_PREDICTION_FOLDER}\" folder")
     folder_list: list[Path] = list(
@@ -24,20 +34,17 @@ def plot_line_graph(title: str, save_file_path: Path,
                     x_data: list[int], y_data: list[float],
                     format_type: str, y_label: str,
                     x_label: str = 'epoch') -> None:
-    """
-    Plots a line graph with specified title, data, and formatting.
+    """Plots a line graph with specified title, data, and formatting, then saves and shows it.
 
-    Args:
-        title (str): The title of the graph.
-        save_file_path (Path): The path to save the graph image.
-        x_data (list[int]): The data for the x-axis.
-        y_data (list[float]): The data for the y-axis.
-        format_type (str): The formatting type for the y-axis ('percent' or 'sci-notation').
-        y_label (str): The label for the y-axis.
-        x_label (str): The label for the x-axis (default: 'epoch').
-
-    Raises:
-        ValueError: If `format_type` is not 'percent' or 'sci-notation'.
+    :param title: The title of the graph.
+    :param save_file_path: The path to save the graph image.
+    :param x_data: The data for the x-axis.
+    :param y_data: The data for the y-axis.
+    :param format_type: The formatting type for the y-axis. Accepts 'percent' or 'sci-notation'.
+    :param y_label: The label for the y-axis.
+    :param x_label: The label for the x-axis, defaults to 'epoch'.
+    :raises ValueError: If ``format_type`` is not 'percent' or 'sci-notation'.
+    :returns: None
     """
     logger: Logger = LoggingManager().get_logger('root')
     logger.info("Plot line graph.")
@@ -61,14 +68,17 @@ def plot_line_graph(title: str, save_file_path: Path,
 
 
 def plot_training_loss(log_path: Path) -> None:
-    """
-    Loading logs and draw line graph of training validation loss value.
+    """Loads training log data, extracts training loss values and corresponding epochs,
+    and plots them as a line graph.
 
-    Args:
-        log_path: The log containing the training validation loss value.
+    The function parses a log file to find the target epoch, saving interval,
+    and recorded training loss values at each saved epoch.
 
-    Returns:
-        None.
+    :param log_path: The path to the log file containing training loss information.
+    :raises FileNotFoundError: If the ``log_path`` does not exist.
+    :raises AttributeError: If expected patterns (e.g., for target epoch, saving interval, or loss) are not found in the log file.
+    :raises ValueError: If numerical conversion of parsed log data (e.g., epoch, interval, loss) fails.
+    :returns: None
     """
     logger: Logger = LoggingManager().get_logger('root')
     logger.info("Plot line graph of training loss.")
@@ -119,14 +129,15 @@ def plot_training_loss(log_path: Path) -> None:
 
 
 def plot_validation_loss(model_name: str) -> None:
-    """
-    Plots the test validation loss of a specified model across different training epochs.
+    """Plots the test loss of a specified model across different training epochs.
 
-    Args:
-        model_name (str): The name of the model to evaluate.
+    It searches for model folders, evaluates the test loss for each epoch's model
+    (using its associated test data), and then plots these losses against their epochs.
+    The graph title is 'validation_loss' for consistency with potential naming conventions,
+    though it reflects performance on a test set.
 
-    Returns:
-        None.
+    :param model_name: The base name of the model to evaluate.
+    :returns: None
     """
     logger: Logger = LoggingManager().get_logger('root')
     logger.info("Plot line graph of validation loss.")
@@ -145,14 +156,14 @@ def plot_validation_loss(model_name: str) -> None:
 
 
 def plot_trend_accuracy(model_name: str):
-    """
-    Plots the trend accuracy of a specified model across different training epochs.
+    """Plots the trend prediction accuracy of a specified model across different training epochs.
 
-    Args:
-        model_name (str): The name of the model to evaluate.
+    It searches for model folders, evaluates the trend accuracy for each epoch's model
+    (using its associated test data), and then plots these accuracies (as percentages)
+    against their epochs.
 
-    Returns:
-        None.
+    :param model_name: The base name of the model to evaluate.
+    :returns: None
     """
     logger: Logger = LoggingManager().get_logger('root')
     logger.info("Plot line graph of trend accuracy.")
@@ -171,14 +182,14 @@ def plot_trend_accuracy(model_name: str):
 
 
 def plot_range_accuracy(model_name: str):
-    """
-    Plots the range accuracy of a specified model across different training epochs.
+    """Plots the box office range prediction accuracy of a specified model across different training epochs.
 
-    Args:
-        model_name (str): The name of the model to evaluate.
+    It searches for model folders, evaluates the range accuracy for each epoch's model
+    (using its associated test data), and then plots these accuracies (as percentages)
+    against their epochs.
 
-    Returns:
-        None.
+    :param model_name: The base name of the model to evaluate.
+    :returns: None
     """
     logger: Logger = LoggingManager().get_logger('root')
     logger.info("Plot line graph of range accuracy.")

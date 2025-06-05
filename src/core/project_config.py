@@ -7,9 +7,9 @@ class ProjectConfig:
     Centralized configuration class for managing all project paths.
 
     This class provides structured access to all essential directories and files
-    within the project, including inputs, datasets, models, logs, source code,
-    and temporary files. All path attributes are marked as Final, indicating
-    they should not be reassigned after initialization.
+    within the project, including inputs, datasets, models, logs, and
+    temporary files. All path attributes are initialized as `pathlib.Path`
+    objects and are intended to be read-only after instantiation.
 
     :ivar project_root: The root directory of the project.
     :ivar input_dir: Base directory for all raw input data.
@@ -17,26 +17,22 @@ class ProjectConfig:
     :ivar logs_dir: Base directory for general application logs.
     :ivar models_dir: Base directory for all trained machine learning models.
     :ivar temp_dir: Base directory for temporary files.
-
-    # Specific input subdirectories
-    :ivar raw_index_sources_dir: Directory for raw data used to create the index.
-    :ivar sentiment_analysis_resources_dir: Directory for raw sentiment analysis training data.
-
-    # Specific processed datasets subdirectories
-    :ivar box_office_prediction_datasets_root: Root for processed box office prediction datasets.
-    :ivar review_sentiment_analysis_datasets_root: Root for processed review sentiment analysis datasets.
-
-    # Specific models subdirectories
-    :ivar box_office_prediction_models_root: Root for box office prediction models.
-    :ivar review_sentiment_analysis_models_root: Root for review sentiment analysis models.
+    :ivar raw_index_sources_dir: Directory for raw data used to create the index, located within `input_dir`.
+    :ivar sentiment_analysis_resources_dir: Directory for raw sentiment analysis training data, located within `input_dir`.
+    :ivar box_office_prediction_datasets_root: Root directory for processed box office prediction datasets,
+                                               located within `datasets_dir`.
+    :ivar review_sentiment_analysis_datasets_root: Root directory for processed review sentiment analysis datasets,
+                                                   located within `datasets_dir`.
+    :ivar box_office_prediction_models_root: Root directory for box office prediction models, located within `models_dir`.
+    :ivar review_sentiment_analysis_models_root: Root directory for review sentiment analysis models,
+                                                 located within `models_dir`.
     """
-
 
     def __init__(self, project_root: Optional[Path] = None):
         """
         Initializes the ProjectConfig with the project's root directory.
 
-        If project_root is not provided, it will automatically attempt to find
+        If `project_root` is not provided, it will automatically attempt to find
         the project root by searching upwards from the current file's location.
 
         :param project_root: The root directory of the project. If None, it will be automatically detected.

@@ -26,11 +26,19 @@ Selector: TypeAlias = str
 class ReviewCollector:
     """
     A class to collect reviews from various websites.
+
+    It supports fetching reviews from PTT and Dcard, handling search key generation,
+    URL retrieval, and parsing review content.
     """
 
     class TargetWebsite(Enum):
         """
         Enum representing the target website for review collection.
+
+        :cvar PTT: Represents the PTT website.
+        :cvar DCARD: Represents the Dcard website.
+        :cvar IMDB: Represents the IMDb website (currently not fully implemented for collection).
+        :cvar ROTTEN_TOMATO: Represents the Rotten Tomatoes website (currently not fully implemented for collection).
         """
         PTT = 0
         DCARD = 1
@@ -41,8 +49,7 @@ class ReviewCollector:
         """
         Initializes the ReviewCollector.
 
-        Args:
-            target_website (TargetWebsite): The target website for review collection.
+        :param target_website: The target website for review collection.
         """
         self.__search_target: TargetWebsite = target_website
         self.__base_url: tuple[str, str, str, str] = ('https://www.ptt.cc/bbs/movie/', 'https://www.dcard.tw/',
@@ -56,13 +63,15 @@ class ReviewCollector:
     @staticmethod
     def get_movie_search_keys(movie_name: str) -> list[str]:
         """
-        Generates search keys for a movie.
+        Generates a list of potential search keys for a movie name.
 
-        Args:
-            movie_name (str): The name of the movie.
+        This method applies various transformations to the input movie name,
+        such as removing specific patterns (e.g., "數位修復版"),
+        handling separators (e.g., ':', '-'), and dealing with quotation marks
+        and spaces around numbers, to create a comprehensive list of search terms.
 
-        Returns:
-            list[str]: A list of search keys.
+        :param movie_name: The original name of the movie.
+        :returns: A list of generated search key strings.
         """
         LoggingManager().get_logger('root').info("Creating search keys.")
         output = list()
@@ -109,25 +118,23 @@ class ReviewCollector:
     __get_search_page_url = lambda self, search_key: \
         f"{self.__base_url[self.__search_target.value]}{self.__search_url_part[self.__search_target.value]}{search_key}"
     """
-    Constructs the search page URL.
-    
-    Args:
-        self: The ReviewCollector instance.
-        search_key: The search key.
-    
-    Returns:
-        The search page URL.
+    Constructs the search page URL for the configured target website and a given search key.
+
+    :param self: The ``ReviewCollector`` instance.
+    :param search_key: The search key (e.g., movie name) to be used in the URL.
+    :returns: The fully constructed search page URL.
     """
 
     def __get_bs_element(self, url: str) -> BeautifulSoup:
         """
-        Gets a BeautifulSoup element from a URL.
+        Fetches the content from a given URL and parses it into a ``BeautifulSoup`` object.
 
-        Args:
-            url (str): The URL.
+        Handles specific cookie requirements for certain sites (e.g., 'over18' for PTT).
+        The response encoding is set based on ``response.apparent_encoding``.
 
-        Returns:
-            BeautifulSoup: The BeautifulSoup element.
+        :param url: The URL from which to fetch the content.
+        :returns: A ``BeautifulSoup`` object representing the parsed HTML content.
+        :raises requests.exceptions.RequestException: For issues during the HTTP request (e.g., network problems, invalid URL).
         """
         # PTT在特定的板中需要over18=1這個cookies
         match self.__search_target:
@@ -140,16 +147,18 @@ class ReviewCollector:
 
     def __get_largest_result_page_number(self, bs_root_element: BeautifulSoup) -> int:
         """
-        Gets the largest result page number from a BeautifulSoup element.
+        Extracts the largest result page number from a PTT search results page.
 
-        Args:
-            bs_root_element (BeautifulSoup): The BeautifulSoup element.
+        This method is specific to PTT's HTML structure for search pagination.
+        It looks for a link with the text '最舊' to find the URL of the last page
+        and then extracts the page number from that URL.
 
-        Returns:
-            int: The largest result page number.
-
-        Raises:
-            ValueError: If the target website is not PTT.
+        :param bs_root_element: The ``BeautifulSoup`` object of a PTT search results page.
+        :returns: The largest page number found in the pagination.
+        :raises ValueError: If the ``self.__search_target`` is not ``TargetWebsite.PTT``.
+        :raises IndexError: If the '最舊' link or the page number pattern is not found,
+                            indicating an unexpected page structure or no pagination.
+        :raises AttributeError: If the page number pattern is found but cannot be correctly parsed.
         """
         match self.__search_target:
             case TargetWebsite.PTT:
@@ -164,16 +173,15 @@ class ReviewCollector:
 
     def __get_review_urls(self, search_key: str) -> list[str]:
         """
-        Gets review URLs for a search key.
+        Gets a list of review URLs for a given search key from the target website.
 
-        Args:
-            search_key (str): The search key.
+        For PTT, it fetches URLs from all pages of search results.
+        For Dcard, it uses a Selenium browser to scroll through search results and extract URLs.
 
-        Returns:
-            list[str]: A list of review URLs.
-
-        Raises:
-            ValueError: If the target website is not PTT or DCARD.
+        :param search_key: The search key (e.g., movie name) to find reviews for.
+        :returns: A list of unique review URLs. Returns an empty list if no URLs are found
+                  or if an error occurs during PTT page number retrieval.
+        :raises ValueError: If the ``self.__search_target`` is not ``TargetWebsite.PTT`` or ``TargetWebsite.DCARD``.
         """
         search_url: Url = self.__get_search_page_url(search_key)
         match self.__search_target:
@@ -219,13 +227,14 @@ class ReviewCollector:
 
     def __get_review_information(self, url: str) -> PublicReview | None:
         """
-        Gets review information from a URL.
+        Extracts review information (title, content, post time, replies) from a given review URL.
 
-        Args:
-            url (str): The review URL.
+        Supports PTT and Dcard. For Dcard, it uses a Selenium browser.
+        The extracted information is used to create a ``PublicReview`` object.
 
-        Returns:
-            PublicReview | None: The review information or None if an error occurs.
+        :param url: The URL of the review page.
+        :returns: A ``PublicReview`` object containing the extracted information,
+                  or ``None`` if essential information cannot be found or an error occurs during parsing.
         """
         self.__logger.info(f"Search review information for \"{url}\".")
         title: str | None = None
@@ -297,16 +306,16 @@ class ReviewCollector:
 
     def __get_reviews_by_keyword(self, search_key: str) -> list[PublicReview]:
         """
-        Gets reviews by keyword.
+        Retrieves and processes all public reviews found using a specific search keyword.
 
-        Args:
-            search_key (str): The search key.
+        This method first gets all review URLs for the given ``search_key`` using ``__get_review_urls``,
+        then iterates through these URLs to fetch detailed review information using ``__get_review_information``.
+        Only successfully parsed reviews are returned.
 
-        Returns:
-            list[PublicReview]: A list of reviews.
-
-        Raises:
-            ValueError: If the target website is not PTT or DCARD.
+        :param search_key: The keyword to search for reviews.
+        :returns: A list of ``PublicReview`` objects.
+        :raises ValueError: If the ``self.__search_target`` is not ``TargetWebsite.PTT`` or ``TargetWebsite.DCARD``
+                            (propagated from ``__get_review_urls``).
         """
         match self.__search_target:
             case TargetWebsite.PTT | TargetWebsite.DCARD:
@@ -320,13 +329,15 @@ class ReviewCollector:
 
     def __get_reviews_by_name(self, movie_name: str) -> list[PublicReview] | None:
         """
-        Gets reviews by movie name.
+        Gets all unique public reviews for a given movie name.
 
-        Args:
-            movie_name (str): The movie name.
+        It first generates multiple search keys from the ``movie_name`` using ``get_movie_search_keys``.
+        Then, for each search key, it fetches reviews using ``__get_reviews_by_keyword``.
+        Finally, it consolidates and de-duplicates all found reviews.
 
-        Returns:
-            list[PublicReview] | None: A list of reviews or None if an error occurs.
+        :param movie_name: The name of the movie.
+        :returns: A list of unique ``PublicReview`` objects, or ``None`` if an error occurs
+                  (though current implementation always returns a list, potentially empty).
         """
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
         reviews: list[PublicReview] = [review for search_key in search_keys for review in
@@ -338,11 +349,15 @@ class ReviewCollector:
 
     def __search_review_and_save(self, movie_list: list[MovieData], save_folder_path: Path) -> None:
         """
-        Searches reviews for a list of movies and saves them.
+        Searches for public reviews for each movie in a list and saves them.
 
-        Args:
-            movie_list (list[MovieData]): The list of movies.
-            save_folder_path (Path): The path to save the reviews.
+        For each movie, it retrieves reviews using ``__get_reviews_by_name``.
+        If a review file already exists for the movie, existing reviews are loaded first.
+        The newly found reviews are then added (duplicates are handled), and the updated
+        set of reviews is saved back to the movie's review file.
+
+        :param movie_list: A list of ``MovieData`` objects for which to search and save reviews.
+        :param save_folder_path: The directory where the review files (named by movie ID) will be saved.
         """
         for movie in tqdm(movie_list, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
             reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie.movie_name)
@@ -353,16 +368,19 @@ class ReviewCollector:
 
     def search_review_with_single_movie(self, movie_data: str | MovieData) -> list[PublicReview] | None:
         """
-        Searches reviews for a single movie.
+        Searches for public reviews for a single movie, specified either by name or a ``MovieData`` object.
 
-        Args:
-            movie_data (str | MovieData): The movie data.
+        If ``movie_data`` is a ``MovieData`` object, the found reviews are updated directly into it,
+        and the method returns ``None``.
+        If ``movie_data`` is a string (movie name), the method returns the list of found ``PublicReview`` objects.
+        Requires ``CaptchaBrowser`` for Dcard.
 
-        Returns:
-            list[PublicReview] | None: A list of reviews or None if an error occurs.
-
-        Raises:
-            ValueError: If movie_data is not a string or MovieData.
+        :param movie_data: The movie name (string) or a ``MovieData`` object.
+        :returns: A list of ``PublicReview`` objects if ``movie_data`` is a string and reviews are found,
+                  otherwise ``None`` (specifically when ``movie_data`` is a ``MovieData`` object).
+                  Returns an empty list if no reviews are found for a string input.
+        :raises ValueError: If ``movie_data`` is not a string or ``MovieData`` instance,
+                            or if the ``self.__search_target`` is not PTT or Dcard.
         """
         if isinstance(movie_data, MovieData):
             movie_name = movie_data.movie_name
@@ -389,11 +407,15 @@ class ReviewCollector:
     def search_review_with_multiple_movie(self, index_path: Path = Constants.INDEX_PATH,
                                           save_folder_path: Path = None):
         """
-        Searches reviews for multiple movies.
+        Searches for public reviews for multiple movies listed in an index file and saves them.
 
-        Args:
-            index_path (Path): The path to the index file. Defaults to Constants.INDEX_PATH.
-            save_folder_path (Path): The path to save the reviews. Defaults to None.
+        It loads movie data from the ``index_path``. For each movie, it fetches reviews
+        and saves them to ``save_folder_path`` (defaults to ``Constants.PUBLIC_REVIEW_FOLDER``).
+        Requires ``CaptchaBrowser`` for Dcard.
+
+        :param index_path: The path to the movie index file.
+        :param save_folder_path: The directory where review files will be saved.
+                                  If ``None``, defaults to ``Constants.PUBLIC_REVIEW_FOLDER``.
         """
         # with CaptchaBrowser() as self.__browser:
         if save_folder_path is None:

@@ -27,17 +27,22 @@ ChromeExperimentalOptions: TypeAlias = dict[str:str]
 class Browser(webdriver.Chrome):
     """
     A wrapper class for Selenium Chrome WebDriver with enhanced functionalities.
+
+    This class extends the standard Selenium Chrome WebDriver to include
+    custom waiting conditions, simplified navigation, and element interaction methods.
+    It also configures common Chrome options for headless browsing and custom download paths.
     """
+
     class DownloadFinishCondition(object):
         """
-        A condition class to check if a download is finished.
+        A condition class to check if a download is finished by verifying the existence of the target file.
         """
+
         def __init__(self, download_file_path: Path) -> None:
             """
             Initializes the DownloadFinishCondition.
 
-            Args:
-                download_file_path (Path): The path to the downloaded file.
+            :param download_file_path: The path to the downloaded file that will be checked for existence.
             """
             self.__download_path: Path = download_file_path
 
@@ -45,24 +50,23 @@ class Browser(webdriver.Chrome):
             """
             Checks if the download file exists.
 
-            Args:
-                driver (webdriver.Chrome): The Chrome WebDriver instance.
+            This method is called by WebDriverWait to determine if the condition is met.
 
-            Returns:
-                bool: True if the file exists, False otherwise.
+            :param driver: The Chrome WebDriver instance (unused in this specific condition, but required by the WebDriverWait protocol).
+            :returns: ``True`` if the file at ``self.__download_path`` exists, ``False`` otherwise.
             """
             return self.__download_path.exists()
 
     class PageChangeCondition(object):
         """
-        A condition class to check if the page has changed.
+        A condition class to check if the browser's current URL has changed from an initial URL.
         """
+
         def __init__(self, searching_url: str) -> None:
             """
             Initializes the PageChangeCondition.
 
-            Args:
-                searching_url (str): The initial URL.
+            :param searching_url: The initial URL to compare against the current URL.
             """
             self.__old_url: str = searching_url
 
@@ -70,18 +74,23 @@ class Browser(webdriver.Chrome):
             """
             Checks if the current URL is different from the initial URL.
 
-            Args:
-                driver (webdriver.Chrome): The Chrome WebDriver instance.
+            This method is called by WebDriverWait to determine if the condition is met.
 
-            Returns:
-                bool: True if the URL has changed, False otherwise.
+            :param driver: The Chrome WebDriver instance from which to get the current URL.
+            :returns: ``True`` if the current URL of the ``driver`` is different from ``self.__old_url``, ``False`` otherwise.
             """
             return driver.current_url != self.__old_url
 
     @dataclass(kw_only=True)
     class WaitingCondition:
         """
-        A dataclass representing waiting conditions.
+        A dataclass representing parameters for a waiting condition used with WebDriverWait.
+
+        :ivar condition: A callable (e.g., an expected_condition from Selenium or a custom callable)
+                         that WebDriverWait will poll until it returns ``True`` or a non-``None`` WebElement.
+        :ivar timeout: The maximum time in seconds to wait for the condition to be met.
+                       If ``None``, a default timeout will be used by the ``wait`` method.
+        :ivar error_message: A message to log if the waiting condition times out.
         """
         condition: Callable[[any], bool | WebElement]
         timeout: Optional[float]
@@ -93,10 +102,16 @@ class Browser(webdriver.Chrome):
         """
         Initializes the Browser.
 
-        Args:
-            download_path (Optional[Path]): The download path. Defaults to None.
-            page_loading_timeout (float): The page loading timeout in seconds. Defaults to 120.
-            target_url (Optional[str]): The target URL to navigate to. Defaults to None.
+        Sets up Chrome options for headless browsing, no-sandbox, disabled GPU,
+        and a default window size. If a ``download_path`` is provided,
+        it configures Chrome to use this path for downloads.
+        Optionally navigates to a ``target_url`` upon initialization.
+
+        :param download_path: The directory path where downloaded files should be saved.
+                              If ``None``, the default Chrome download path is used.
+        :param page_loading_timeout: The maximum time in seconds to wait for a page to load
+                                     during navigation.
+        :param target_url: An optional URL to navigate to immediately after the browser is initialized.
         """
         # driver options
         self.__download_path: Final[Path] = download_path
@@ -127,19 +142,41 @@ class Browser(webdriver.Chrome):
 
     @override
     def __enter__(self) -> any:
+        """
+        Enters the runtime context related to this object.
+
+        Calls the ``__enter__`` method of the parent ``webdriver.Chrome`` class.
+
+        :returns: The browser instance itself.
+        """
         return super().__enter__()
 
     @override
     def __exit__(self, exc_type, exc_val, exc_tb) -> any:
+        """
+        Exits the runtime context related to this object, ensuring the browser is properly closed.
+
+        Calls the ``__exit__`` method of the parent ``webdriver.Chrome`` class.
+
+        :param exc_type: The type of the exception that caused the context to be exited, if any.
+        :param exc_val: The exception instance that caused the context to be exited, if any.
+        :param exc_tb: A traceback object encapsulating the call stack at the point
+                       where the exception was raised, if any.
+        """
         super().__exit__(exc_type, exc_val, exc_tb)
 
     def wait(self, method_setting: WaitingCondition, defaults_timeout: float = 120) -> None:
         """
-        Waits for a condition to be met.
+        Waits for a specific condition to be met using WebDriverWait.
 
-        Args:
-            method_setting (WaitingCondition): The waiting condition.
-            defaults_timeout (float): The default timeout in seconds. Defaults to 120.
+        If the condition is not met within the specified timeout (or ``defaults_timeout``
+        if ``method_setting.timeout`` is ``None``), a ``TimeoutException`` is caught,
+        and the ``error_message`` from ``method_setting`` is logged.
+
+        :param method_setting: An instance of ``WaitingCondition`` defining the condition,
+                               timeout, and error message.
+        :param defaults_timeout: The default timeout in seconds to use if ``method_setting.timeout``
+                                 is not specified.
         """
         try:
             WebDriverWait(self, timeout=method_setting.timeout if method_setting.timeout else defaults_timeout).until(
@@ -152,10 +189,12 @@ class Browser(webdriver.Chrome):
     @override
     def get(self, url: str) -> None:
         """
-        Navigates to a URL.
+        Navigates to a given URL and waits for the page to change.
 
-        Args:
-            url (str): The URL to navigate to.
+        It logs the navigation attempt and success. If the page does not change
+        within the ``self.__page_loading_timeout``, an error message is logged.
+
+        :param url: The URL to navigate to.
         """
         old_url = self.current_url
         self.__logger.debug(f"Trying to navigate to \"{url}\".")
@@ -168,23 +207,20 @@ class Browser(webdriver.Chrome):
 
     def home(self) -> None:
         """
-        Navigates to the home URL.
+        Navigates to the browser's configured home URL (``chrome://newtab``).
         """
         self.get(self.__home_url)
         return
 
     def find_button(self, button_selector_path: str) -> WebElement:
         """
-        Finds a button element.
+        Finds a button element on the page using a CSS selector.
 
-        Args:
-            button_selector_path (str): The CSS selector path of the button.
+        Logs the attempt and result of finding the button.
 
-        Returns:
-            WebElement: The button element.
-
-        Raises:
-            NoSuchElementException: If the button is not found.
+        :param button_selector_path: The CSS selector path of the button element.
+        :returns: The found ``WebElement`` representing the button.
+        :raises NoSuchElementException: If no element is found matching the ``button_selector_path``.
         """
         try:
             self.__logger.info(f"Trying to find button located on \"{button_selector_path}\".")
@@ -200,16 +236,17 @@ class Browser(webdriver.Chrome):
               pre_method: WaitingCondition | None = None,
               post_method: WaitingCondition | None = None) -> None:
         """
-        Clicks a button element.
+        Clicks a button element, with optional waiting conditions before and after the click.
 
-        Args:
-            button_locator (WebElement | str): The button element or its CSS selector path.
-            pre_method (WaitingCondition | None): Waiting condition before clicking. Defaults to None.
-            post_method (WaitingCondition | None): Waiting condition after clicking. Defaults to None.
+        The button can be specified either as a ``WebElement`` object or by its CSS selector string.
 
-        Raises:
-            NoSuchElementException: If the button is not found.
-            ValueError: If the parameter type is unknown.
+        :param button_locator: The ``WebElement`` to click, or a string representing the CSS selector
+                               for the button.
+        :param pre_method: An optional ``WaitingCondition`` to satisfy before attempting the click.
+        :param post_method: An optional ``WaitingCondition`` to satisfy after the click is performed.
+        :raises NoSuchElementException: If ``button_locator`` is a string and the button cannot be found,
+                                        or if the located button cannot be clicked (e.g., it's intercepted or gone).
+        :raises ValueError: If ``button_locator`` is not a ``WebElement`` or a string.
         """
 
         if isinstance(button_locator, str):
@@ -244,16 +281,24 @@ class Browser(webdriver.Chrome):
 
 class CaptchaBrowser:
     """
-    A browser class that handles captcha.
+    A browser class designed to interact with web pages that may present captchas,
+    using SeleniumBase's undetected ChromeDriver.
+
+    This class provides a context manager for browser session management and methods
+    for navigation, element finding, and script execution, with specific handling
+    for captchas using SeleniumBase's UC mode features.
     """
+
     def __init__(self, no_sandbox: bool = True, incognito: bool = True, size: tuple[int, int] = (1600, 900)) -> None:
         """
-        Initializes the CaptchaBrowser.
+        Initializes the CaptchaBrowser configuration.
 
-        Args:
-            no_sandbox (bool): Whether to run in no-sandbox mode. Defaults to True.
-            incognito (bool): Whether to run in incognito mode. Defaults to True.
-            size (tuple[int, int]): The window size. Defaults to (1600, 900).
+        Note: The actual SeleniumBase Driver is instantiated in the ``__enter__`` method.
+
+        :param no_sandbox: If ``True``, runs Chrome with the '--no-sandbox' argument.
+                           Useful for running in Docker or CI environments.
+        :param incognito: If ``True``, runs Chrome in incognito mode.
+        :param size: A tuple ``(width, height)`` specifying the desired window size.
         """
         self.__driver: Optional[sel_undef.Chrome] = None
         self.__uc: Final[bool] = True
@@ -264,6 +309,14 @@ class CaptchaBrowser:
         self.__home_url: Final[str] = "chrome://newtab"
 
     def __enter__(self) -> any:
+        """
+        Initializes and returns the SeleniumBase undetected ChromeDriver instance.
+
+        Configures the driver with the options specified during ``__init__``.
+        The window size is set after the driver is created.
+
+        :returns: The ``CaptchaBrowser`` instance itself.
+        """
         self.__driver = Driver(uc=self.__uc, headless=self.__headless, no_sandbox=self.__no_sandbox,
                                incognito=self.__incognito)
         self.__driver.set_window_size(self.__size[0], self.__size[1])
@@ -271,26 +324,39 @@ class CaptchaBrowser:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> any:
+        """
+        Quits the SeleniumBase driver, closing all browser windows and ending the session.
+
+        :param exc_type: The type of the exception that caused the context to be exited, if any.
+        :param exc_val: The exception instance that caused the context to be exited, if any.
+        :param exc_tb: A traceback object encapsulating the call stack at the point
+                       where the exception was raised, if any.
+        """
         self.__driver.quit()
         return
 
     @staticmethod
     def wait(sec: float = 5) -> None:
         """
-        Waits for a specified time.
+        Pauses execution for a specified number of seconds.
 
-        Args:
-            sec (float): The waiting time in seconds. Defaults to 5.
+        A simple wrapper around ``time.sleep()``.
+
+        :param sec: The duration to wait, in seconds.
         """
         time.sleep(sec)
 
     def get(self, url: str, captcha: bool) -> None:
         """
-        Navigates to a URL, handling captcha if necessary.
+        Navigates to a URL, with an option to handle potential captchas using SeleniumBase's UC mode.
 
-        Args:
-            url (str): The URL to navigate to.
-            captcha (bool): Whether to handle captcha.
+        If ``captcha`` is ``True``, it activates CDP mode, waits, attempts to click the captcha GUI element,
+        and then connects.
+        If ``captcha`` is ``False``, it performs a standard ``get`` operation, with a retry mechanism
+        in case of ``MaxRetryError``.
+
+        :param url: The URL to navigate to.
+        :param captcha: If ``True``, attempts to handle captcha interaction.
         """
         if captcha:
             self.__driver.uc_activate_cdp_mode(url)
@@ -306,40 +372,42 @@ class CaptchaBrowser:
 
     def find_element(self, selector: str) -> WebElement:
         """
-        Finds an element.
+        Finds a single web element using a CSS selector.
 
-        Args:
-            selector (str): The CSS selector.
+        This is a direct pass-through to the underlying SeleniumBase driver's ``find_element`` method.
 
-        Returns:
-            WebElement: The found element.
+        :param selector: The CSS selector string to locate the element.
+        :returns: The first ``WebElement`` found matching the selector.
+        :raises NoSuchElementException: If no element is found.
         """
         return self.__driver.find_element(selector)
 
     def find_elements(self, selector: str) -> list[WebElement]:
         """
-        Finds multiple elements.
+        Finds all web elements matching a CSS selector.
 
-        Args:
-            selector (str): The CSS selector.
+        This is a direct pass-through to the underlying SeleniumBase driver's ``find_elements`` method.
 
-        Returns:
-            list[WebElement]: The found elements.
+        :param selector: The CSS selector string to locate elements.
+        :returns: A list of ``WebElement`` objects found. Returns an empty list if no elements are found.
         """
         return self.__driver.find_elements(selector)
 
     def execute_script(self, script: str) -> None:
         """
-        Executes a JavaScript script.
+        Executes JavaScript in the context of the currently selected frame or window.
 
-        Args:
-            script (str): The JavaScript script.
+        This is a direct pass-through to the underlying SeleniumBase driver's ``execute_script`` method.
+
+        :param script: The JavaScript code to execute.
         """
         self.__driver.execute_script(script=script)
 
     def home(self) -> None:
         """
-        Navigates to the home URL.
+        Navigates to the browser's configured home URL (``chrome://newtab``).
+
+        Captcha handling is set to ``False`` for this internal navigation.
         """
         self.get(self.__home_url, captcha=False)
         return

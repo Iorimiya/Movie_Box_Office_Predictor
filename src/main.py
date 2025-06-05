@@ -18,8 +18,7 @@ def set_argument_parser() -> Namespace:
     """
     Sets up the argument parser for the program.
 
-    Returns:
-        Namespace: Parsed command-line arguments.
+    :returns: Parsed command-line arguments.
     """
     parser: ArgumentParser = ArgumentParser(prog=None, usage=None, description=None, epilog=None)
     group = parser.add_mutually_exclusive_group(required=True)

@@ -10,12 +10,16 @@ class File(ABC):
     """
     Abstract base class for file operations.
 
-    Attributes:
-        path (Path): The path to the file.
-        encoding (str): The encoding of the file.
+    :ivar path: The path to the file.
+    :ivar encoding: The encoding of the file.
     """
 
     def __init__(self, path: Path, encoding: str = 'utf-8'):
+        """Initializes the File object.
+
+        :param path: The path to the file.
+        :param encoding: The encoding of the file, defaults to 'utf-8'.
+        """
         self.path: Final[Path] = path
         self.encoding: Final[str] = encoding
 
@@ -25,8 +29,7 @@ class File(ABC):
         Saves data to the file.
         This method must be implemented by subclasses.
 
-        Args:
-            data: The data to be saved.
+        :param data: The data to be saved, which can be a list of dictionaries or a single dictionary.
         """
         pass
 
@@ -36,8 +39,7 @@ class File(ABC):
         Loads data from the file.
         This method must be implemented by subclasses.
 
-        Returns:
-            The loaded data.
+        :returns: The loaded data, which can be a list of dictionaries or a single dictionary.
         """
         pass
 
@@ -54,11 +56,12 @@ class CsvFile(File):
         """
         Saves a list of dictionaries to the CSV file.
 
-        The header is dynamically generated from the keys of the dictionaries.
+        The header is dynamically generated from the keys of the first dictionary in the list,
+        or all dictionaries if their keys vary, to ensure all data is captured.
         If the parent directory of the file does not exist, it will be created.
+        If the data list is empty, an empty file is created.
 
-        Args:
-            data: A list of dictionaries to write to the CSV file.
+        :param data: A list of dictionaries to write to the CSV file.
         """
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -76,13 +79,12 @@ class CsvFile(File):
 
     def load(self) -> list[dict]:
         """
-        Loads data from the CSV file.
+        Loads data from the CSV file into a list of dictionaries.
 
-        Returns:
-            A list of dictionaries, where each dictionary represents a row.
+        Each row in the CSV is converted into a dictionary where keys are column headers.
 
-        Raises:
-            FileNotFoundError: If the CSV file does not exist.
+        :returns: A list of dictionaries, where each dictionary represents a row.
+        :raises FileNotFoundError: If the CSV file does not exist at the specified path.
         """
         if not self.path.exists():
             raise FileNotFoundError(f"File {self.path} does not exist")
@@ -101,14 +103,13 @@ class YamlFile(File):
 
     def save_multi_document(self, data: list[dict]) -> None:
         """
-        Saves a list of dictionaries as multiple YAML documents in a single file,
-        separated by '---'.
+        Saves a list of dictionaries as multiple YAML documents in a single file.
 
+        Each dictionary in the list becomes a separate document, separated by '---'.
         If the parent directory of the file does not exist, it will be created.
         YAML aliases are ignored to ensure each document is self-contained.
 
-        Args:
-            data: A list of dictionaries, where each dictionary will be a separate YAML document.
+        :param data: A list of dictionaries, where each dictionary will be a separate YAML document.
         """
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -122,13 +123,13 @@ class YamlFile(File):
         Loads data from a YAML file that may contain multiple documents
         separated by '---'.
 
-        Only dictionary type documents are returned.
+        Uses ``yaml.SafeLoader`` for security. Only documents that are dictionaries
+        and not None are returned.
 
-        Returns:
-            A list of dictionaries, each representing a YAML document.
-
-        Raises:
-            FileNotFoundError: If the YAML file does not exist.
+        :returns: A list of dictionaries, each representing a YAML document.
+                  Returns an empty list if the file is empty or contains no valid dictionary documents.
+        :raises FileNotFoundError: If the YAML file does not exist at the specified path.
+        :raises yaml.YAMLError: If there is an error parsing the YAML content.
         """
         if not self.path.exists():
             raise FileNotFoundError(f"File {self.path} does not exist")
@@ -146,9 +147,7 @@ class YamlFile(File):
         If the parent directory of the file does not exist, it will be created.
         YAML aliases are ignored.
 
-        Args:
-            data: The data to be saved as a single YAML document.
-                  Can be a list of dictionaries or a single dictionary.
+        :param data: The data to be saved as a single YAML document.
         """
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -161,15 +160,12 @@ class YamlFile(File):
         """
         Loads data from a YAML file expected to contain a single document.
 
-        Uses SafeLoader for security.
+        Uses ``yaml.SafeLoader`` for security.
 
-        Returns:
-            The loaded data, which can be a list of dictionaries or a single dictionary,
-            or None if the file is empty or contains no valid YAML.
-
-        Raises:
-            FileNotFoundError: If the YAML file does not exist.
-            yaml.YAMLError: If there is an error parsing the YAML content.
+        :returns: The loaded data, which can be a list of dictionaries, a single dictionary,
+                  or ``None`` if the file is empty.
+        :raises FileNotFoundError: If the YAML file does not exist at the specified path.
+        :raises yaml.YAMLError: If there is an error parsing the YAML content.
         """
         if not self.path.exists():
             raise FileNotFoundError(f"File {self.path} does not exist")
@@ -190,20 +186,23 @@ class YamlFile(File):
     # You might want to change these defaults based on your primary use case.
     def save(self, data: list[dict] | dict) -> None:
         """
-        Default save method. Saves data as a single YAML document.
+        Default save method for ``YamlFile``. Saves data as a single YAML document.
 
-        Args:
-            data: The data to be saved.
+        This method calls ``save_single_document``.
+
+        :param data: The data to be saved, which can be a list of dictionaries or a single dictionary.
         """
         self.save_single_document(data=data)
         return
 
     def load(self) -> Optional[list[dict] | dict]:
         """
-        Default load method. Loads data as a single YAML document.
+        Default load method for ``YamlFile``. Loads data as a single YAML document.
 
-        Returns:
-            The loaded data.
+        This method calls ``load_single_document``.
+
+        :returns: The loaded data, which can be a list of dictionaries, a single dictionary,
+                  or ``None`` if the file is empty or loading fails.
         """
         return self.load_single_document()
 
