@@ -1,47 +1,47 @@
-box_office: 180992
-end_date: 2024-09-01
 start_date: 2024-08-26
+end_date: 2024-09-01
+box_office: 180992
 ---
-box_office: 173444
-end_date: 2024-09-08
 start_date: 2024-09-02
+end_date: 2024-09-08
+box_office: 173444
 ---
-box_office: 78680
-end_date: 2024-09-15
 start_date: 2024-09-09
+end_date: 2024-09-15
+box_office: 78680
 ---
-box_office: 33871
-end_date: 2024-09-22
 start_date: 2024-09-16
+end_date: 2024-09-22
+box_office: 33871
 ---
-box_office: 2455
-end_date: 2024-09-29
 start_date: 2024-09-23
+end_date: 2024-09-29
+box_office: 2455
 ---
-box_office: 540
-end_date: 2024-10-06
 start_date: 2024-09-30
+end_date: 2024-10-06
+box_office: 540
 ---
-box_office: 0
-end_date: 2024-10-13
 start_date: 2024-10-07
----
+end_date: 2024-10-13
 box_office: 0
-end_date: 2024-10-20
+---
 start_date: 2024-10-14
----
+end_date: 2024-10-20
 box_office: 0
-end_date: 2024-10-27
+---
 start_date: 2024-10-21
----
+end_date: 2024-10-27
 box_office: 0
-end_date: 2024-11-03
+---
 start_date: 2024-10-28
+end_date: 2024-11-03
+box_office: 0
 ---
-box_office: 855
-end_date: 2024-11-10
 start_date: 2024-11-04
+end_date: 2024-11-10
+box_office: 855
 ---
-box_office: 1470
-end_date: 2024-11-17
 start_date: 2024-11-11
+end_date: 2024-11-17
+box_office: 1470

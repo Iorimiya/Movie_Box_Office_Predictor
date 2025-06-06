@@ -1,99 +1,99 @@
-box_office: 38000
-end_date: 2024-05-12
 start_date: 2024-05-06
----
-box_office: 74000
-end_date: 2024-05-19
-start_date: 2024-05-13
----
-box_office: 74000
-end_date: 2024-05-26
-start_date: 2024-05-20
----
+end_date: 2024-05-12
 box_office: 38000
-end_date: 2024-06-02
-start_date: 2024-05-27
 ---
+start_date: 2024-05-13
+end_date: 2024-05-19
 box_office: 74000
-end_date: 2024-06-09
+---
+start_date: 2024-05-20
+end_date: 2024-05-26
+box_office: 74000
+---
+start_date: 2024-05-27
+end_date: 2024-06-02
+box_office: 38000
+---
 start_date: 2024-06-03
+end_date: 2024-06-09
+box_office: 74000
 ---
-box_office: 44560
-end_date: 2024-06-16
 start_date: 2024-06-10
+end_date: 2024-06-16
+box_office: 44560
 ---
-box_office: 76000
-end_date: 2024-06-23
 start_date: 2024-06-17
+end_date: 2024-06-23
+box_office: 76000
 ---
-box_office: 114000
-end_date: 2024-06-30
 start_date: 2024-06-24
+end_date: 2024-06-30
+box_office: 114000
 ---
-box_office: 292580
-end_date: 2024-07-07
 start_date: 2024-07-01
+end_date: 2024-07-07
+box_office: 292580
 ---
-box_office: 162170
-end_date: 2024-07-14
 start_date: 2024-07-08
+end_date: 2024-07-14
+box_office: 162170
 ---
-box_office: 105000
-end_date: 2024-07-21
 start_date: 2024-07-15
+end_date: 2024-07-21
+box_office: 105000
 ---
-box_office: 112610
-end_date: 2024-07-28
 start_date: 2024-07-22
+end_date: 2024-07-28
+box_office: 112610
 ---
-box_office: 225466
-end_date: 2024-08-04
 start_date: 2024-07-29
+end_date: 2024-08-04
+box_office: 225466
 ---
-box_office: 175736
-end_date: 2024-08-11
 start_date: 2024-08-05
+end_date: 2024-08-11
+box_office: 175736
 ---
-box_office: 103055
-end_date: 2024-08-18
 start_date: 2024-08-12
+end_date: 2024-08-18
+box_office: 103055
 ---
-box_office: 42351
-end_date: 2024-08-25
 start_date: 2024-08-19
+end_date: 2024-08-25
+box_office: 42351
 ---
-box_office: 44325
-end_date: 2024-09-01
 start_date: 2024-08-26
+end_date: 2024-09-01
+box_office: 44325
 ---
-box_office: 0
-end_date: 2024-09-08
 start_date: 2024-09-02
+end_date: 2024-09-08
+box_office: 0
 ---
-box_office: 84610
-end_date: 2024-09-15
 start_date: 2024-09-09
+end_date: 2024-09-15
+box_office: 84610
 ---
-box_office: 0
-end_date: 2024-09-22
 start_date: 2024-09-16
----
+end_date: 2024-09-22
 box_office: 0
-end_date: 2024-09-29
+---
 start_date: 2024-09-23
----
+end_date: 2024-09-29
 box_office: 0
-end_date: 2024-10-06
+---
 start_date: 2024-09-30
----
+end_date: 2024-10-06
 box_office: 0
-end_date: 2024-10-13
+---
 start_date: 2024-10-07
----
+end_date: 2024-10-13
 box_office: 0
-end_date: 2024-10-20
-start_date: 2024-10-14
 ---
-box_office: 25760
-end_date: 2024-10-27
+start_date: 2024-10-14
+end_date: 2024-10-20
+box_office: 0
+---
 start_date: 2024-10-21
+end_date: 2024-10-27
+box_office: 25760

@@ -1,27 +1,27 @@
-box_office: 148334
-end_date: 2024-03-31
 start_date: 2024-03-25
+end_date: 2024-03-31
+box_office: 148334
 ---
-box_office: 49150
-end_date: 2024-04-07
 start_date: 2024-04-01
+end_date: 2024-04-07
+box_office: 49150
 ---
-box_office: 30985
-end_date: 2024-04-14
 start_date: 2024-04-08
+end_date: 2024-04-14
+box_office: 30985
 ---
-box_office: 0
-end_date: 2024-04-21
 start_date: 2024-04-15
----
-box_office: 10000
-end_date: 2024-04-28
-start_date: 2024-04-22
----
+end_date: 2024-04-21
 box_office: 0
-end_date: 2024-05-05
-start_date: 2024-04-29
 ---
+start_date: 2024-04-22
+end_date: 2024-04-28
 box_office: 10000
-end_date: 2024-05-12
+---
+start_date: 2024-04-29
+end_date: 2024-05-05
+box_office: 0
+---
 start_date: 2024-05-06
+end_date: 2024-05-12
+box_office: 10000

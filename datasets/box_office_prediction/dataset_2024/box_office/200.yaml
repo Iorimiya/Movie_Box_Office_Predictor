@@ -1,75 +1,75 @@
-box_office: 23555667
-end_date: 2023-11-19
 start_date: 2023-11-13
+end_date: 2023-11-19
+box_office: 23555667
 ---
-box_office: 10522614
-end_date: 2023-11-26
 start_date: 2023-11-20
+end_date: 2023-11-26
+box_office: 10522614
 ---
-box_office: 4932096
-end_date: 2023-12-03
 start_date: 2023-11-27
+end_date: 2023-12-03
+box_office: 4932096
 ---
-box_office: 1741406
-end_date: 2023-12-10
 start_date: 2023-12-04
+end_date: 2023-12-10
+box_office: 1741406
 ---
-box_office: 739510
-end_date: 2023-12-17
 start_date: 2023-12-11
+end_date: 2023-12-17
+box_office: 739510
 ---
-box_office: 156916
-end_date: 2023-12-24
 start_date: 2023-12-18
+end_date: 2023-12-24
+box_office: 156916
 ---
-box_office: 43520
-end_date: 2023-12-31
 start_date: 2023-12-25
+end_date: 2023-12-31
+box_office: 43520
 ---
-box_office: 3990
-end_date: 2024-01-07
 start_date: 2024-01-01
+end_date: 2024-01-07
+box_office: 3990
 ---
-box_office: 825
-end_date: 2024-01-14
 start_date: 2024-01-08
+end_date: 2024-01-14
+box_office: 825
 ---
-box_office: 0
-end_date: 2024-01-21
 start_date: 2024-01-15
----
+end_date: 2024-01-21
 box_office: 0
-end_date: 2024-01-28
+---
 start_date: 2024-01-22
+end_date: 2024-01-28
+box_office: 0
 ---
-box_office: 42325
-end_date: 2024-02-04
 start_date: 2024-01-29
+end_date: 2024-02-04
+box_office: 42325
 ---
-box_office: 88214
-end_date: 2024-02-11
 start_date: 2024-02-05
+end_date: 2024-02-11
+box_office: 88214
 ---
-box_office: 100420
-end_date: 2024-02-18
 start_date: 2024-02-12
+end_date: 2024-02-18
+box_office: 100420
 ---
-box_office: 37770
-end_date: 2024-02-25
 start_date: 2024-02-19
+end_date: 2024-02-25
+box_office: 37770
 ---
-box_office: 16040
-end_date: 2024-03-03
 start_date: 2024-02-26
+end_date: 2024-03-03
+box_office: 16040
 ---
-box_office: 4895
-end_date: 2024-03-10
 start_date: 2024-03-04
+end_date: 2024-03-10
+box_office: 4895
 ---
-box_office: 4620
-end_date: 2024-03-17
 start_date: 2024-03-11
+end_date: 2024-03-17
+box_office: 4620
 ---
-box_office: 1430
-end_date: 2024-03-24
 start_date: 2024-03-18
+end_date: 2024-03-24
+box_office: 1430
