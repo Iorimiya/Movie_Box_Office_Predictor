@@ -689,13 +689,12 @@ class LoggingManager:
 
         common_log_level: LogLevel = LogLevel.INFO
 
-        log_directory: Path = Path(__file__).resolve(strict=True).parent.parent / "log"
-        log_directory.mkdir(parents=True, exist_ok=True)
+        log_directory: Path = ProjectConfig().logs_dir
 
         level_name_for_filename: str = logging.getLevelName(max(common_log_level.value, common_log_level.value))
 
         current_time_str: str = datetime.now().strftime('%Y-%m-%dT%H：%M：%S%Z')
-        main_log_file_name: str = f"{current_time_str}_MAIN_{level_name_for_filename}.log"
+        main_log_file_name: str = f"{current_time_str}_{level_name_for_filename}.log"
 
         main_log_handler_settings: HandlerSettings = HandlerSettings(
             name='main_log',

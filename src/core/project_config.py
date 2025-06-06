@@ -38,25 +38,23 @@ class ProjectConfig:
         :param project_root: The root directory of the project. If None, it will be automatically detected.
         """
 
+        self.project_root: Final[Path] = project_root if project_root else self._find_project_root()
 
-        self.project_root: Final[Path] = project_root if project_root is None else self._find_project_root()
-        self.input_dir = self.project_root / "inputs"
-        self.datasets_dir = self.project_root / "datasets"
-        self.logs_dir = self.project_root / "logs"
-        self.models_dir = self.project_root / "models"
-        self.temp_dir = self.project_root / "temp"
+        self.input_dir: Final[Path] = self.project_root / "inputs"
+        self.datasets_dir: Final[Path] = self.project_root / "datasets"
+        self.logs_dir: Final[Path] = self.project_root / "logs"
+        self.models_dir: Final[Path] = self.project_root / "models"
+        self.temp_dir: Final[Path] = self.project_root / "temp"
 
-        # Initialize specific input/dataset/model directories
-        self.raw_index_sources_dir = self.input_dir / "raw_index_sources"
-        self.sentiment_analysis_resources_dir = self.input_dir / "sentiment_analysis_resources"
+        self.raw_index_sources_dir: Final[Path] = self.input_dir / "raw_index_sources"
+        self.sentiment_analysis_resources_dir: Final[Path] = self.input_dir / "sentiment_analysis_resources"
 
-        self.box_office_prediction_datasets_root = self.datasets_dir / "box_office_prediction"
-        self.review_sentiment_analysis_datasets_root = self.datasets_dir / "review_sentiment_analysis"
+        self.box_office_prediction_datasets_root: Final[Path] = self.datasets_dir / "box_office_prediction"
+        self.review_sentiment_analysis_datasets_root: Final[Path] = self.datasets_dir / "review_sentiment_analysis"
 
-        self.box_office_prediction_models_root = self.models_dir / "box_office_prediction"
-        self.review_sentiment_analysis_models_root = self.models_dir / "review_sentiment_analysis"
+        self.box_office_prediction_models_root: Final[Path] = self.models_dir / "box_office_prediction"
+        self.review_sentiment_analysis_models_root: Final[Path] = self.models_dir / "review_sentiment_analysis"
 
-        # Ensure all necessary directories exist
         self._ensure_directories_exist()
 
     @staticmethod
@@ -64,24 +62,19 @@ class ProjectConfig:
         """
         Attempts to find the project root directory by searching upwards from the
         current file's location. It looks for a directory containing key project
-        markers like '.git', 'src', 'models', 'datasets'.
+        markers such as '.git' or 'src'.
 
-        :raises FileNotFoundError: If the project root cannot be found within a reasonable depth.
+        :raises FileNotFoundError: If the project root cannot be found within a reasonable search depth.
         :returns: The Path object representing the project's root directory.
         """
-        # Start from the directory where this project_config.py file is located (src/config/)
-        current_dir: Path = Path(__file__).resolve().parent
 
-        # Define common project root markers
-        # Using '.git' is generally the most reliable for Git-managed projects
-        # You can add 'src', 'models', 'datasets' if '.git' isn't always present or reliable
+        current_dir: Path = Path(__file__).resolve().parent
         project_markers: list[str] = [".git", "src"]
 
-        # Search upwards for the project root, limiting the search depth to prevent infinite loops
-        for _ in range(5):  # Search up to 5 levels (e.g., src/config -> src -> project_root)
+        for _ in range(5):
             if any((current_dir / marker).exists() for marker in project_markers):
                 return current_dir
-            if current_dir.parent == current_dir:  # Reached filesystem root
+            if current_dir.parent == current_dir:
                 break
             current_dir = current_dir.parent
 
@@ -93,7 +86,7 @@ class ProjectConfig:
 
     def _ensure_directories_exist(self) -> None:
         """
-        Ensures that all essential directories for the project exist.
+        Ensures that all essential project directories exist, creating them if necessary.
         """
 
         self.input_dir.mkdir(parents=True, exist_ok=True)
@@ -101,6 +94,7 @@ class ProjectConfig:
         self.logs_dir.mkdir(parents=True, exist_ok=True)
         self.models_dir.mkdir(parents=True, exist_ok=True)
         self.temp_dir.mkdir(parents=True, exist_ok=True)
+
         self.raw_index_sources_dir.mkdir(parents=False, exist_ok=True)
         self.sentiment_analysis_resources_dir.mkdir(parents=False, exist_ok=True)
         self.box_office_prediction_datasets_root.mkdir(parents=False, exist_ok=True)
@@ -108,28 +102,30 @@ class ProjectConfig:
         self.box_office_prediction_models_root.mkdir(parents=False, exist_ok=True)
         self.review_sentiment_analysis_models_root.mkdir(parents=False, exist_ok=True)
 
-    # --- Dataset Specific Methods ---
     def get_processed_box_office_dataset_path(self, dataset_name: str) -> Path:
         """
-        Returns the root path for a specific processed box office prediction dataset.
+        Constructs and returns the path for a specific processed box office prediction dataset.
 
-        :param dataset_name: The name of the processed dataset (e.g., 'dataset_2024').
+        :param dataset_name: The name of the processed dataset (e.g., 'cleaned_data_2024').
         :returns: The Path object for the specified processed box office dataset.
         """
         return self.box_office_prediction_datasets_root / dataset_name
 
-
-    def get_model_root_path(self, model_type: Literal["box_office_prediction", "review_sentiment_analysis"], model_instance_name: str) -> Path:
+    def get_model_root_path(self, model_type: Literal["box_office_prediction", "review_sentiment_analysis"],
+                            model_instance_name: str) -> Path:
         """
-        Returns the root path for a specific model instance (e.g., 'model1', 'model2').
+        Constructs and returns the root path for a specific model instance.
 
         :param model_type: The type of the machine learning model.
-        :param model_instance_name: The specific instance or version name of the model (e.g., 'model1', 'model2').
+        :param model_instance_name: The specific instance or version name of the model (e.g., 'bert_v1', 'lstm_final').
         :returns: The Path object for the model instance's root directory.
+        :raises ValueError: If the provided `model_type` is not recognized.
         """
         if model_type == "box_office_prediction":
             return self.box_office_prediction_models_root / model_instance_name
         elif model_type == "review_sentiment_analysis":
             return self.review_sentiment_analysis_models_root / model_instance_name
         else:
-            raise ValueError(f"Unknown model_type: {model_type}")
+
+            valid_types = ["box_office_prediction", "review_sentiment_analysis"]
+            raise ValueError(f"Unknown model_type: '{model_type}'. Must be one of {valid_types}.")
