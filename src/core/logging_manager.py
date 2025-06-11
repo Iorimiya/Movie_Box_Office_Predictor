@@ -3,7 +3,7 @@ from datetime import datetime
 from enum import Enum
 from io import TextIOBase
 import logging
-from logging import FileHandler, Formatter, Handler, Logger, StreamHandler
+from logging import FileHandler, Formatter, getLevelName, Handler, Logger, StreamHandler
 from pathlib import Path
 import sys
 from typing import Literal, Optional, overload, TypeAlias
@@ -93,7 +93,7 @@ class LoggingManager:
         """
         Ensures that only one instance of LoggingManager is created (Singleton pattern).
 
-        :returns: The singleton instance of the LoggingManager.
+        :return: The singleton instance of the LoggingManager.
         """
         if cls._instance is None:
             cls._instance = super().__new__(cls)
@@ -132,7 +132,7 @@ class LoggingManager:
         """
         Provides a read-only copy of the managed loggers list.
 
-        :returns: A shallow copy of the internal list of Logger objects.
+        :return: A shallow copy of the internal list of Logger objects.
         """
         return list(self._loggers)
 
@@ -141,7 +141,7 @@ class LoggingManager:
         """
         Provides a read-only copy of the managed handlers dictionary.
 
-        :returns: A shallow copy of the internal dictionary of Handler objects.
+        :return: A shallow copy of the internal dictionary of Handler objects.
         """
         return self._handlers.copy()
 
@@ -150,7 +150,7 @@ class LoggingManager:
         """
         Provides a read-only copy of the logger-handler connections mapping.
 
-        :returns: A shallow copy of the internal dictionary mapping logger names to lists of connected handler names.
+        :return: A shallow copy of the internal dictionary mapping logger names to lists of connected handler names.
                   The lists within the dictionary are also shallow copies.
         """
         connections_copy: dict[str, list[str]] = {
@@ -163,7 +163,7 @@ class LoggingManager:
         """
         Retrieves the default Formatter used by the LoggingManager.
 
-        :returns: The default Formatter instance.
+        :return: The default Formatter instance.
         """
         return self._default_formatter
 
@@ -172,7 +172,7 @@ class LoggingManager:
         Retrieves a handler by its name.
 
         :param name: The name of the handler to retrieve.
-        :returns: The Handler object if found, otherwise None.
+        :return: The Handler object if found, otherwise None.
         """
         return self._handlers.get(name)
 
@@ -181,7 +181,7 @@ class LoggingManager:
         Adds a new handler to the manager based on provided settings.
 
         :param handler_settings: Settings for the handler to be added.
-        :returns: The newly created and managed Handler instance.
+        :return: The newly created and managed Handler instance.
         :raises ValueError: If a handler with the same name already exists in the manager,
                            or if a handler with the same output target already exists.
         :raises TypeError: If an unsupported handler output type is specified in settings.
@@ -268,25 +268,41 @@ class LoggingManager:
     def get_logger(self, settings: LoggerSettings) -> Logger:
         ...
 
-    def get_logger(self, arg: str | LoggerSettings) -> Optional[Logger]:
+    @overload
+    def get_logger(self) -> Logger:
+        ...
+
+    def get_logger(self, arg: Optional[str | LoggerSettings] = None) -> Optional[Logger]:
         """
         Retrieves or creates a logger based on its name or settings.
 
-        If a string name is provided:
-        Retrieves an existing logger from the logging module's registry or the manager's internal list.
+        If no argument is provided (i.e., `arg` is None), it defaults to retrieving
+        the root logger (equivalent to providing an empty string or 'root' as the name).
 
-        If LoggerSettings are provided:
-        Retrieves a logger by its name. If a logger with the same name already exists,
-        it will be returned, and a warning will be issued via the root logger.
-        Otherwise, a new logger will be created and configured based on the provided settings.
+        If a string `name` is provided:
+        Retrieves an existing logger. An empty string or 'root' will retrieve the root logger.
+        For other names, it returns a logger managed by this LoggingManager if found,
+        otherwise None.
 
-        :param arg: The name of the logger (str) or a LoggerSettings object.
-        :returns: The Logger object if found or created.
-                  Returns None only if `arg` is a string and the logger is not found.
+        If `LoggerSettings` are provided:
+        Retrieves a logger by its name. If a logger with the same name already exists
+        and is managed by this LoggingManager (and is not the root logger),
+        it will be returned, and a warning will be issued.
+        Otherwise, a new logger will be created (or an existing unmanaged one configured)
+        based on the provided settings. The root logger, if specified in settings,
+        will be configured but not added to the internal list of managed loggers.
+
+        :param arg: The name of the logger (str), a LoggerSettings object,
+                    or None to get the root logger. Defaults to None.
+        :return: The Logger object if found or created.
+                  Returns None only if `arg` is a string (not 'root' or an empty string)
+                  and the logger is not found among managed loggers.
         :raises ValueError: If a Handler specified in LoggerSettings.linked_handlers is not found.
-        :raises TypeError: If the provided argument type is neither str nor LoggerSettings.
+        :raises TypeError: If the provided argument type is not str, LoggerSettings, or None.
         """
-        if isinstance(arg, str):
+        if arg is None:
+            return logging.getLogger('')
+        elif isinstance(arg, str):
             name: str = arg
             if name == 'root' or name == '':
                 return logging.getLogger('')
@@ -561,11 +577,8 @@ class LoggingManager:
         else:
             final_root_logger_setting = root_default_setting
 
-        final_ordered_components: list[LogComponentSettings] = []
-        final_ordered_components.append(final_stdout_handler_setting)
-        final_ordered_components.extend(user_handlers)
-        final_ordered_components.append(final_root_logger_setting)
-        final_ordered_components.extend(user_loggers)
+        final_ordered_components: list[LogComponentSettings] = \
+            [final_stdout_handler_setting] + user_handlers + [final_root_logger_setting] + user_loggers
 
         print("Configuring initial components via internal processing...")
         self.add_components(final_ordered_components)
@@ -579,7 +592,7 @@ class LoggingManager:
         and warn about unknown types.
 
         :param settings_list: A list of settings to classify.
-        :returns: A tuple containing two lists: the first for HandlerSettings and the second for LoggerSettings.
+        :return: A tuple containing two lists: the first for HandlerSettings and the second for LoggerSettings.
         """
         handlers: list[HandlerSettings] = [
             setting for setting in settings_list if isinstance(setting, HandlerSettings)
@@ -594,8 +607,8 @@ class LoggingManager:
 
         return handlers, loggers
 
-    def _update_logger_connection_mapping(self, logger_name: str, handler_name: str,
-                                          action: Literal['add', 'remove']) -> None:
+    def _update_logger_connection_mapping(self, logger_name: str, handler_name: str, action: Literal['add', 'remove']) \
+        -> None:
         """
         Internal helper to manage the logger-handler connection mapping.
 
@@ -638,8 +651,6 @@ class LoggingManager:
         """
         if handler_instance in logger_instance.handlers:
             logger_instance.removeHandler(handler_instance)
-
-
         else:
             print(
                 f"Warning: Handler '{handler_instance.name if hasattr(handler_instance, 'name') else handler_instance.__class__.__name__}' was not attached to logger '{logger_instance.name}'.")
@@ -651,7 +662,7 @@ class LoggingManager:
 
         :param handler_name: The name of the handler.
         :param handler_instance: The handler object to check.
-        :returns: True if the handler is in use, False otherwise.
+        :return: True if the handler is in use, False otherwise.
         """
 
         is_linked_by_manager: bool = any(
@@ -684,48 +695,61 @@ class LoggingManager:
         - main_log_handler: name='main_log', level=LogLevel.INFO, output based on current time and root/main_log levels
         - machine_learning_logger: name='machine_learning', level=LogLevel.INFO, linked_handlers=[]
 
-        :returns: An initialized LoggingManager instance with the predefined components.
+        :return: An initialized LoggingManager instance with the predefined components.
         """
-
         common_log_level: LogLevel = LogLevel.INFO
+        common_log_directory: Path = ProjectConfig().logs_dir
+        current_time: str = datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')
+        # Main settings
+        main_name: str = 'main'
+        main_logger_level: LogLevel = common_log_level
+        main_handler_level: LogLevel = common_log_level
+        main_level_string: str = getLevelName(max(main_logger_level.value, main_handler_level.value))
+        main_file_name: str = f"{main_name.upper()}_{current_time}_{main_level_string}.log"
 
-        log_directory: Path = ProjectConfig().logs_dir
+        ml_name: str = 'machine_learning'
+        ml_logger_level: LogLevel = common_log_level
 
-        level_name_for_filename: str = logging.getLevelName(max(common_log_level.value, common_log_level.value))
-
-        current_time_str: str = datetime.now().strftime('%Y-%m-%dT%H：%M：%S%Z')
-        main_log_file_name: str = f"{current_time_str}_{level_name_for_filename}.log"
+        root_logger_settings: LoggerSettings = LoggerSettings(
+            name='root', level=main_logger_level, linked_handlers=['stdout', main_name]
+        )
 
         main_log_handler_settings: HandlerSettings = HandlerSettings(
-            name='main_log',
-            level=common_log_level,
-            output=log_directory / main_log_file_name
+            name=main_name, level=main_handler_level, output=common_log_directory / main_file_name
         )
 
         stdout_handler_settings: HandlerSettings = HandlerSettings(
-            name='stdout',
-            level=common_log_level,
-            output=sys.stdout
-        )
-
-        root_logger_settings: LoggerSettings = LoggerSettings(
-            name='root',
-            level=common_log_level,
-            linked_handlers=['stdout', 'main_log']
+            name='stdout', level=main_handler_level, output=sys.stdout
         )
 
         machine_learning_logger_settings: LoggerSettings = LoggerSettings(
-            name='machine_learning',
-            level=LogLevel.INFO,
-            linked_handlers=[]
+            name=ml_name, level=ml_logger_level
         )
 
-        initial_components_list: list[LogComponentSettings] = [
-            stdout_handler_settings,
-            main_log_handler_settings,
-            root_logger_settings,
-            machine_learning_logger_settings
-        ]
+        initial_components_list: list[LogComponentSettings] = [stdout_handler_settings, main_log_handler_settings,
+                                                               root_logger_settings, machine_learning_logger_settings]
 
         print("Creating LoggingManager with predefined components...")
         return cls(initial_configs=initial_components_list)
+
+    @staticmethod
+    def create_logger_and_handler_by_name(name: str, log_level: LogLevel = LogLevel.INFO) -> \
+        tuple[LoggerSettings, HandlerSettings]:
+        """
+        Creates settings for a logger and a corresponding file handler.
+
+        The logger and handler will share the provided name. The handler's output
+        file will be located in the project's configured logs directory, and its
+        filename will include the name, current timestamp, and log level.
+        The logger will be configured to use this handler.
+
+        :param name: The base name for the logger and handler.
+        :param log_level: The logging level for both the logger and the handler.
+        :return: A tuple containing the LoggerSettings and HandlerSettings.
+        """
+        return LoggerSettings(name=name, level=log_level, linked_handlers=[name]), \
+            HandlerSettings(
+                name=name,
+                level=log_level,
+                output=ProjectConfig().logs_dir / f"{name}_{datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')}_{getLevelName(log_level.value)}.log"
+            )
