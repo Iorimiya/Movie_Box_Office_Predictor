@@ -22,7 +22,7 @@ from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import Browser
 from src.data_handling.file_io import CsvFile
-from src.data_handling.movie_data import BoxOffice, load_index_file, MovieData
+from src.data_handling.movie_data_old import BoxOffice, load_index_file, MovieData
 from src.utilities.util import CSVFileData, initialize_index_file
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
