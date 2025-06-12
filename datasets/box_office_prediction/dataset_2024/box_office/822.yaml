@@ -1,15 +1,15 @@
-box_office: 234653
-end_date: 2024-12-22
 start_date: 2024-12-16
+end_date: 2024-12-22
+box_office: 234653
 ---
-box_office: 44885
-end_date: 2024-12-29
 start_date: 2024-12-23
+end_date: 2024-12-29
+box_office: 44885
 ---
-box_office: 3150
-end_date: 2025-01-05
 start_date: 2024-12-30
+end_date: 2025-01-05
+box_office: 3150
 ---
-box_office: 620
-end_date: 2025-01-12
 start_date: 2025-01-06
+end_date: 2025-01-12
+box_office: 620

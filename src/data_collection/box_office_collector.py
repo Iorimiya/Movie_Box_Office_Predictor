@@ -22,7 +22,7 @@ from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import Browser
 from src.data_handling.file_io import CsvFile
-from src.data_handling.movie_data import BoxOffice, load_index_file, MovieData
+from src.data_handling.movie_data_old import BoxOffice, load_index_file, MovieData
 from src.utilities.util import CSVFileData, initialize_index_file
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
@@ -164,15 +164,15 @@ class BoxOfficeCollector:
         :param new_data_value: The new value (URL string or file Path) to write.
         """
         # read progress data from csv file
-        progress_data = read_data_from_csv(self.__progress_file_path)
+        progress_file: CsvFile = CsvFile(path=self.__progress_file_path)
+        progress_data = progress_file.load()
         # overwrite new data
         if update_type == self.UpdateType.URL:
             progress_data[index][self.__progress_file_header[1]] = new_data_value
         elif update_type == self.UpdateType.FILE_PATH:
             progress_data[index][self.__progress_file_header[2]] = new_data_value
         # save new data to the same csv file
-        write_data_to_csv(path=self.__progress_file_path, header=self.__progress_file_header,
-                          data=progress_data)
+        progress_file.save(data=progress_data)
         return
 
     def __navigate_to_movie_page(self, movie_data: MovieData) -> None:
@@ -437,17 +437,15 @@ class BoxOfficeCollector:
 
         movie_data: list[MovieData] = load_index_file(file_path=self.__index_file_path,
                                                       index_header=self.__index_file_header)
-
+        progress_file: CsvFile = CsvFile(self.__progress_file_path)
         # read_download progress
         # if not exist, create it.
         if not self.__progress_file_path.exists():
             self.__progress_file_path.touch()
-            write_data_to_csv(path=self.__progress_file_path,
-                              data=[{self.__progress_file_header[0]: single_movie_data.movie_id,
-                                     self.__progress_file_header[1]: '',
-                                     self.__progress_file_header[2]: ''} for single_movie_data in movie_data],
-                              header=self.__progress_file_header)
-        current_progress: list = read_data_from_csv(self.__progress_file_path)
+            progress_file.save(data=[{self.__progress_file_header[0]: single_movie_data.movie_id,
+                                      self.__progress_file_header[1]: '',
+                                      self.__progress_file_header[2]: ''} for single_movie_data in movie_data])
+        current_progress: list = progress_file.load()
 
         with tqdm(total=len(current_progress), bar_format=Constants.STATUS_BAR_FORMAT) as pbar:
             for movie, progress in zip(movie_data, current_progress):

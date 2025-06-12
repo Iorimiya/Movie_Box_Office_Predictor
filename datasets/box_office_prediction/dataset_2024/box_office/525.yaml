@@ -1,15 +1,15 @@
-box_office: 22000
-end_date: 2024-06-30
 start_date: 2024-06-24
+end_date: 2024-06-30
+box_office: 22000
 ---
-box_office: 142860
-end_date: 2024-07-07
 start_date: 2024-07-01
+end_date: 2024-07-07
+box_office: 142860
 ---
-box_office: 15330
-end_date: 2024-07-14
 start_date: 2024-07-08
+end_date: 2024-07-14
+box_office: 15330
 ---
-box_office: 47490
-end_date: 2024-07-21
 start_date: 2024-07-15
+end_date: 2024-07-21
+box_office: 47490

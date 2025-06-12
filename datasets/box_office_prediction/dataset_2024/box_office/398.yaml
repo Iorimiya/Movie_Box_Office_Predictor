@@ -1,15 +1,15 @@
-box_office: 147965
-end_date: 2024-04-07
 start_date: 2024-04-01
+end_date: 2024-04-07
+box_office: 147965
 ---
-box_office: 42190
-end_date: 2024-04-14
 start_date: 2024-04-08
+end_date: 2024-04-14
+box_office: 42190
 ---
-box_office: 17905
-end_date: 2024-04-21
 start_date: 2024-04-15
+end_date: 2024-04-21
+box_office: 17905
 ---
-box_office: 5340
-end_date: 2024-04-28
 start_date: 2024-04-22
+end_date: 2024-04-28
+box_office: 5340

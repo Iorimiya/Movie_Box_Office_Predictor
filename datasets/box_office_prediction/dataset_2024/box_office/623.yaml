@@ -1,11 +1,11 @@
-box_office: 90789
-end_date: 2024-09-01
 start_date: 2024-08-26
+end_date: 2024-09-01
+box_office: 90789
 ---
-box_office: 22335
-end_date: 2024-09-08
 start_date: 2024-09-02
+end_date: 2024-09-08
+box_office: 22335
 ---
-box_office: 3150
-end_date: 2024-09-15
 start_date: 2024-09-09
+end_date: 2024-09-15
+box_office: 3150

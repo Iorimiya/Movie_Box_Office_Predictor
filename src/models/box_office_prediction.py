@@ -19,7 +19,7 @@ from src.utilities.util import check_path, recreate_folder
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.models.machine_learning_model import MachineLearningModel
-from src.data_handling.movie_data import MovieData, load_index_file, PublicReview, IndexLoadMode
+from src.data_handling.movie_data_old import MovieData, load_index_file, PublicReview, IndexLoadMode
 
 
 class MoviePredictionInputData(TypedDict):

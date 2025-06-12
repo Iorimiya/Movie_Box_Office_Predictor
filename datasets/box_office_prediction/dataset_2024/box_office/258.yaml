@@ -1,239 +1,239 @@
-box_office: 39095
-end_date: 2023-12-31
 start_date: 2023-12-25
+end_date: 2023-12-31
+box_office: 39095
 ---
-box_office: 0
-end_date: 2024-01-07
 start_date: 2024-01-01
----
+end_date: 2024-01-07
 box_office: 0
-end_date: 2024-01-14
+---
 start_date: 2024-01-08
----
+end_date: 2024-01-14
 box_office: 0
-end_date: 2024-01-21
+---
 start_date: 2024-01-15
----
+end_date: 2024-01-21
 box_office: 0
-end_date: 2024-01-28
+---
 start_date: 2024-01-22
----
+end_date: 2024-01-28
 box_office: 0
-end_date: 2024-02-04
+---
 start_date: 2024-01-29
----
+end_date: 2024-02-04
 box_office: 0
-end_date: 2024-02-11
+---
 start_date: 2024-02-05
----
+end_date: 2024-02-11
 box_office: 0
-end_date: 2024-02-18
+---
 start_date: 2024-02-12
----
+end_date: 2024-02-18
 box_office: 0
-end_date: 2024-02-25
+---
 start_date: 2024-02-19
----
+end_date: 2024-02-25
 box_office: 0
-end_date: 2024-03-03
+---
 start_date: 2024-02-26
+end_date: 2024-03-03
+box_office: 0
 ---
-box_office: 1833070
-end_date: 2024-03-10
 start_date: 2024-03-04
+end_date: 2024-03-10
+box_office: 1833070
 ---
-box_office: 2477170
-end_date: 2024-03-17
 start_date: 2024-03-11
+end_date: 2024-03-17
+box_office: 2477170
 ---
-box_office: 1718251
-end_date: 2024-03-24
 start_date: 2024-03-18
+end_date: 2024-03-24
+box_office: 1718251
 ---
-box_office: 1087306
-end_date: 2024-03-31
 start_date: 2024-03-25
+end_date: 2024-03-31
+box_office: 1087306
 ---
-box_office: 831364
-end_date: 2024-04-07
 start_date: 2024-04-01
+end_date: 2024-04-07
+box_office: 831364
 ---
-box_office: 501150
-end_date: 2024-04-14
 start_date: 2024-04-08
+end_date: 2024-04-14
+box_office: 501150
 ---
-box_office: 336482
-end_date: 2024-04-21
 start_date: 2024-04-15
+end_date: 2024-04-21
+box_office: 336482
 ---
-box_office: 257910
-end_date: 2024-04-28
 start_date: 2024-04-22
+end_date: 2024-04-28
+box_office: 257910
 ---
-box_office: 212705
-end_date: 2024-05-05
 start_date: 2024-04-29
+end_date: 2024-05-05
+box_office: 212705
 ---
-box_office: 137890
-end_date: 2024-05-12
 start_date: 2024-05-06
+end_date: 2024-05-12
+box_office: 137890
 ---
-box_office: 91845
-end_date: 2024-05-19
 start_date: 2024-05-13
+end_date: 2024-05-19
+box_office: 91845
 ---
-box_office: 73990
-end_date: 2024-05-26
 start_date: 2024-05-20
+end_date: 2024-05-26
+box_office: 73990
 ---
-box_office: 94125
-end_date: 2024-06-02
 start_date: 2024-05-27
+end_date: 2024-06-02
+box_office: 94125
 ---
-box_office: 61225
-end_date: 2024-06-09
 start_date: 2024-06-03
+end_date: 2024-06-09
+box_office: 61225
 ---
-box_office: 60070
-end_date: 2024-06-16
 start_date: 2024-06-10
+end_date: 2024-06-16
+box_office: 60070
 ---
-box_office: 18665
-end_date: 2024-06-23
 start_date: 2024-06-17
+end_date: 2024-06-23
+box_office: 18665
 ---
-box_office: 0
-end_date: 2024-06-30
 start_date: 2024-06-24
----
+end_date: 2024-06-30
 box_office: 0
-end_date: 2024-07-07
+---
 start_date: 2024-07-01
+end_date: 2024-07-07
+box_office: 0
 ---
-box_office: 91145
-end_date: 2024-07-14
 start_date: 2024-07-08
+end_date: 2024-07-14
+box_office: 91145
 ---
-box_office: 860
-end_date: 2024-07-21
 start_date: 2024-07-15
+end_date: 2024-07-21
+box_office: 860
 ---
-box_office: 16635
-end_date: 2024-07-28
 start_date: 2024-07-22
+end_date: 2024-07-28
+box_office: 16635
 ---
-box_office: 58175
-end_date: 2024-08-04
 start_date: 2024-07-29
+end_date: 2024-08-04
+box_office: 58175
 ---
-box_office: 26985
-end_date: 2024-08-11
 start_date: 2024-08-05
+end_date: 2024-08-11
+box_office: 26985
 ---
-box_office: 33760
-end_date: 2024-08-18
 start_date: 2024-08-12
+end_date: 2024-08-18
+box_office: 33760
 ---
-box_office: 27520
-end_date: 2024-08-25
 start_date: 2024-08-19
+end_date: 2024-08-25
+box_office: 27520
 ---
-box_office: 22685
-end_date: 2024-09-01
 start_date: 2024-08-26
+end_date: 2024-09-01
+box_office: 22685
 ---
-box_office: 14025
-end_date: 2024-09-08
 start_date: 2024-09-02
+end_date: 2024-09-08
+box_office: 14025
 ---
-box_office: 20000
-end_date: 2024-09-15
 start_date: 2024-09-09
+end_date: 2024-09-15
+box_office: 20000
 ---
-box_office: 20335
-end_date: 2024-09-22
 start_date: 2024-09-16
+end_date: 2024-09-22
+box_office: 20335
 ---
-box_office: 6790
-end_date: 2024-09-29
 start_date: 2024-09-23
+end_date: 2024-09-29
+box_office: 6790
 ---
-box_office: 7330
-end_date: 2024-10-06
 start_date: 2024-09-30
+end_date: 2024-10-06
+box_office: 7330
 ---
-box_office: 4720
-end_date: 2024-10-13
 start_date: 2024-10-07
+end_date: 2024-10-13
+box_office: 4720
 ---
-box_office: 0
-end_date: 2024-10-20
 start_date: 2024-10-14
----
+end_date: 2024-10-20
 box_office: 0
-end_date: 2024-10-27
+---
 start_date: 2024-10-21
----
+end_date: 2024-10-27
 box_office: 0
-end_date: 2024-11-03
+---
 start_date: 2024-10-28
----
+end_date: 2024-11-03
 box_office: 0
-end_date: 2024-11-10
+---
 start_date: 2024-11-04
----
+end_date: 2024-11-10
 box_office: 0
-end_date: 2024-11-17
+---
 start_date: 2024-11-11
----
+end_date: 2024-11-17
 box_office: 0
-end_date: 2024-11-24
+---
 start_date: 2024-11-18
----
+end_date: 2024-11-24
 box_office: 0
-end_date: 2024-12-01
+---
 start_date: 2024-11-25
----
+end_date: 2024-12-01
 box_office: 0
-end_date: 2024-12-08
+---
 start_date: 2024-12-02
----
+end_date: 2024-12-08
 box_office: 0
-end_date: 2024-12-15
+---
 start_date: 2024-12-09
----
+end_date: 2024-12-15
 box_office: 0
-end_date: 2024-12-22
+---
 start_date: 2024-12-16
----
+end_date: 2024-12-22
 box_office: 0
-end_date: 2024-12-29
+---
 start_date: 2024-12-23
----
+end_date: 2024-12-29
 box_office: 0
-end_date: 2025-01-05
+---
 start_date: 2024-12-30
----
+end_date: 2025-01-05
 box_office: 0
-end_date: 2025-01-12
+---
 start_date: 2025-01-06
----
+end_date: 2025-01-12
 box_office: 0
-end_date: 2025-01-19
+---
 start_date: 2025-01-13
----
+end_date: 2025-01-19
 box_office: 0
-end_date: 2025-01-26
+---
 start_date: 2025-01-20
----
+end_date: 2025-01-26
 box_office: 0
-end_date: 2025-02-02
+---
 start_date: 2025-01-27
+end_date: 2025-02-02
+box_office: 0
 ---
-box_office: 29110
-end_date: 2025-02-09
 start_date: 2025-02-03
+end_date: 2025-02-09
+box_office: 29110
 ---
-box_office: 13690
-end_date: 2025-02-16
 start_date: 2025-02-10
+end_date: 2025-02-16
+box_office: 13690

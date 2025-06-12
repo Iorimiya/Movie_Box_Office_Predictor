@@ -1,3 +1,5 @@
+# DEPRECATED: This module is deprecated
+# TODO: Deprecate this file
 from dataclasses import asdict, dataclass
 from datetime import date, datetime
 from enum import Enum
@@ -7,7 +9,8 @@ from typing import Optional
 import yaml
 
 from src.core.constants import Constants
-from src.utilities.util import delete_duplicate, read_data_from_csv
+from src.data_handling.file_io import CsvFile
+from src.utilities.util import delete_duplicate
 
 
 @dataclass(kw_only=True)
@@ -420,7 +423,7 @@ def load_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None,
     if index_header is None:
         index_header = Constants.INDEX_HEADER
     movie_list: list[MovieData] = [MovieData(movie_id=int(movie[index_header[0]]), movie_name=movie[index_header[1]])
-                                   for movie in read_data_from_csv(path=file_path)]
+                                   for movie in CsvFile(path=file_path).load()]
     match mode:
         case IndexLoadMode.ID_NAME:
             return movie_list

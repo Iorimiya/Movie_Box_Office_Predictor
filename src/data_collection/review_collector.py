@@ -15,7 +15,7 @@ from tqdm import tqdm
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import CaptchaBrowser
-from src.data_handling.movie_data import load_index_file, MovieData, PublicReview
+from src.data_handling.movie_data_old import load_index_file, MovieData, PublicReview
 from src.utilities.util import delete_duplicate
 
 Url: TypeAlias = str

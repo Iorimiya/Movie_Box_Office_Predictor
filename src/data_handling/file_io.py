@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-import csv
+from csv import DictReader, DictWriter
 from pathlib import Path
-from typing import Any, Final, Optional
+from typing import Final, Optional
 
 import yaml
 
@@ -39,7 +39,7 @@ class File(ABC):
         Loads data from the file.
         This method must be implemented by subclasses.
 
-        :returns: The loaded data, which can be a list of dictionaries or a single dictionary.
+        :return: The loaded data, which can be a list of dictionaries or a single dictionary.
         """
         pass
 
@@ -70,7 +70,8 @@ class CsvFile(File):
             return
         field_names: list[str] = list(dict.fromkeys(str(key) for dictionary in data for key in dictionary.keys()))
         with open(file=self.path, mode='w', encoding=self.encoding, newline='') as file:
-            writer: csv.DictWriter = csv.DictWriter(file, fieldnames=field_names)
+            # noinspection PyTypeChecker
+            writer: DictWriter = DictWriter(file, fieldnames=field_names)
             writer.writeheader()
             writer.writerows(data)
         return
@@ -81,13 +82,13 @@ class CsvFile(File):
 
         Each row in the CSV is converted into a dictionary where keys are column headers.
 
-        :returns: A list of dictionaries, where each dictionary represents a row.
+        :return: A list of dictionaries, where each dictionary represents a row.
         :raises FileNotFoundError: If the CSV file does not exist at the specified path.
         """
         if not self.path.exists():
             raise FileNotFoundError(f"File {self.path} does not exist")
         with open(file=self.path, mode='r', encoding=self.encoding) as file:
-            return list(csv.DictReader(f=file))
+            return list(DictReader(f=file))
 
 
 class YamlFile(File):
@@ -98,6 +99,45 @@ class YamlFile(File):
     from a YAML file. It supports both multi-document and single-document
     YAML formats.
     """
+
+    def save_single_document(self, data: list[dict[any, any]] | dict[any, any]) -> None:
+        """
+        Saves data (a list of dictionaries or a single dictionary) as a single YAML document.
+
+        If the parent directory of the file does not exist, it will be created.
+        YAML aliases are ignored.
+
+        :param data: The data to be saved as a single YAML document.
+        """
+        if not self.path.parent.exists():
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+        yaml.Dumper.ignore_aliases = lambda _, __: True
+        with open(file=self.path, mode='w', encoding=self.encoding) as file:
+            yaml.dump(data=data, stream=file, allow_unicode=True, sort_keys=False)
+        return
+
+    def load_single_document(self) -> Optional[list[dict[any, any]] | dict[any, any]]:
+        """
+        Loads data from a YAML file expected to contain a single document.
+
+        Uses ``yaml.SafeLoader`` for security.
+
+        :return: The loaded data, which can be a list of dictionaries, a single dictionary,
+                  or ``None`` if the file is empty.
+        :raises FileNotFoundError: If the YAML file does not exist at the specified path.
+        :raises yaml.YAMLError: If there is an error parsing the YAML content.
+        """
+        if not self.path.exists():
+            raise FileNotFoundError(f"File {self.path} does not exist")
+        with open(file=self.path, mode='r', encoding=self.encoding) as file:
+            try:
+                content: str = file.read()
+                if not content.strip():
+                    return None
+                loaded_data: any = yaml.safe_load(stream=content)
+                return loaded_data
+            except yaml.YAMLError as e:
+                raise yaml.YAMLError(f"Error parsing YAML file {self.path}: {e}")
 
     def save_multi_document(self, data: list[dict[any, any]]) -> None:
         """
@@ -111,7 +151,7 @@ class YamlFile(File):
         """
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
-        yaml.Dumper.ignore_aliases = lambda self, data_node: True
+        yaml.Dumper.ignore_aliases = lambda _, __: True
         with open(file=self.path, mode='w', encoding=self.encoding) as file:
             yaml.dump_all(documents=data, stream=file, allow_unicode=True, sort_keys=False)
         return
@@ -124,7 +164,7 @@ class YamlFile(File):
         Uses ``yaml.SafeLoader`` for security. Only documents that are dictionaries
         and not None are returned.
 
-        :returns: A list of dictionaries, each representing a YAML document.
+        :return: A list of dictionaries, each representing a YAML document.
                   Returns an empty list if the file is empty or contains no valid dictionary documents.
         :raises FileNotFoundError: If the YAML file does not exist at the specified path.
         :raises yaml.YAMLError: If there is an error parsing the YAML content.
@@ -138,98 +178,29 @@ class YamlFile(File):
                     loaded_data.append(doc)
         return loaded_data
 
-    def save_single_document(self, data: list[dict[any, any]] | dict[any, any]) -> None:
-        """
-        Saves data (a list of dictionaries or a single dictionary) as a single YAML document.
-
-        If the parent directory of the file does not exist, it will be created.
-        YAML aliases are ignored.
-
-        :param data: The data to be saved as a single YAML document.
-        """
-        if not self.path.parent.exists():
-            self.path.parent.mkdir(parents=True, exist_ok=True)
-        yaml.Dumper.ignore_aliases = lambda self, data_node: True
-        with open(file=self.path, mode='w', encoding=self.encoding) as file:
-            yaml.dump(data=data, stream=file, allow_unicode=True, sort_keys=False)
-        return
-
-    def load_single_document(self) -> Optional[list[dict[any, any]] | dict[any, any]]:
-        """
-        Loads data from a YAML file expected to contain a single document.
-
-        Uses ``yaml.SafeLoader`` for security.
-
-        :returns: The loaded data, which can be a list of dictionaries, a single dictionary,
-                  or ``None`` if the file is empty.
-        :raises FileNotFoundError: If the YAML file does not exist at the specified path.
-        :raises yaml.YAMLError: If there is an error parsing the YAML content.
-        """
-        if not self.path.exists():
-            raise FileNotFoundError(f"File {self.path} does not exist")
-        with open(file=self.path, mode='r', encoding=self.encoding) as file:
-            try:
-                content: str = file.read()
-                if not content.strip():
-                    return None
-                loaded_data: Any = yaml.safe_load(stream=content)
-                return loaded_data
-            except yaml.YAMLError as e:
-                raise yaml.YAMLError(f"Error parsing YAML file {self.path}: {e}")
-
     def save(self, data: list[dict[any, any]] | dict[any, any]) -> None:
         """
-        Default save method for ``YamlFile``. Saves data as a single YAML document.
+        Default save method for ``YamlFile``. Saves data as multiple YAML documents.
 
-        This method calls ``save_single_document``.
+        This method calls ``save_multi_document``. If the input `data` is a single
+        dictionary, it will be wrapped in a list before being passed to
+        ``save_multi_document``, effectively saving it as a single document
+        within a multi-document structure.
 
-        :param data: The data to be saved, which can be a list of dictionaries or a single dictionary.
+        :param data: The data to be saved. Can be a single dictionary or a list of dictionaries.
         """
-        self.save_single_document(data=data)
+        data_to_save: list[dict[any, any]] = [data] if isinstance(data, dict) else data
+        self.save_multi_document(data=data_to_save)
         return
 
     def load(self) -> Optional[list[dict[any, any]] | dict[any, any]]:
         """
-        Default load method for ``YamlFile``. Loads data as a single YAML document.
+        Default load method for ``YamlFile``. Loads data as multiple YAML documents.
 
-        This method calls ``load_single_document``.
+        This method calls ``load_multi_document`` and is suitable for files
+        expected to contain one or more YAML documents.
 
-        :returns: The loaded data, which can be a list of dictionaries, a single dictionary,
-                  or ``None`` if the file is empty or loading fails.
+        :return: A list of dictionaries, where each dictionary represents a YAML document.
+                 Returns an empty list if the file is empty or contains no valid dictionary documents.
         """
-        return self.load_single_document()
-
-
-if __name__ == "__main__":
-    box_paths = list(Path('../../datasets/box_office_prediction/dataset_2024/box_office').glob('*.yaml'))
-    review_paths = list(Path('../../datasets/box_office_prediction/dataset_2024/public_review').glob('*.yaml'))
-    box_old_data = [{'path': path, 'data': YamlFile(path=path).load_multi_document(),
-                     'new_path': path.parent.with_name('new_box_office').joinpath(path.name)} for path in box_paths]
-    review_old_data = [{'path': path, 'data': YamlFile(path=path).load_multi_document(),
-                        'new_path': path.parent.with_name('new_public_review').joinpath(path.name)} for path in
-                       review_paths]
-    box_new_data = [{
-        **single_file_data,
-        'new_data': [{
-            'start_date': data.get('start_date'),
-            'end_date': data.get('end_date'),
-            'box_office': data.get('box_office')
-        } for data in single_file_data.get('data')]}
-        for single_file_data in box_old_data]
-
-    review_new_data = [{
-        **single_file_data,
-        'new_data': [{
-            'title': data.get('title'),
-            'url': data.get('url'),
-            'date': data.get('date'),
-            'content': data.get('content'),
-            'reply_count': data.get('reply_count'),
-            'sentiment_score': 1 if bool(data.get('emotion_analyse')) else 0
-        } for data in single_file_data.get('data')]}
-        for single_file_data in review_old_data]
-    saving_func = lambda file_data: YamlFile(file_data.get('new_path')).save_single_document(
-        data=file_data.get('new_data', []))
-    for _ in map(saving_func, box_new_data): pass
-    for _ in map(saving_func, review_new_data): pass
-    a = 1
+        return self.load_multi_document()
