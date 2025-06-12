@@ -1,26 +1,24 @@
+from argparse import ArgumentParser, Namespace
 from logging import Logger
 from pathlib import Path
-from argparse import ArgumentParser, Namespace
 from typing import Optional
 
-from src.utilities.util import recreate_folder
 from src.core.constants import Constants
-from utilities.plot import plot_training_loss, plot_validation_loss, \
-    plot_trend_accuracy, plot_range_accuracy
-from src.core.logging_manager import LoggingManager, LogLevel, HandlerSettings
+from src.core.logging_manager import HandlerSettings, LoggingManager, LogLevel
+from src.data_collection.box_office_collector import BoxOfficeCollector
+from src.data_collection.review_collector import ReviewCollector
 from src.data_handling.movie_data import load_index_file, MovieData
-from data_collection.review_collector import ReviewCollector
-from data_collection.box_office_collector import BoxOfficeCollector
 from src.models.box_office_prediction import MoviePredictionModel
 from src.models.review_sentiment_analysis import ReviewSentimentAnalyseModel
+from src.utilities.plot import plot_range_accuracy, plot_training_loss, plot_trend_accuracy, plot_validation_loss
+from src.utilities.util import recreate_folder
 
 
 def set_argument_parser() -> Namespace:
     """
     Sets up the argument parser for the program.
 
-    Returns:
-        Namespace: Parsed command-line arguments.
+    :returns: Parsed command-line arguments.
     """
     parser: ArgumentParser = ArgumentParser(prog=None, usage=None, description=None, epilog=None)
     group = parser.add_mutually_exclusive_group(required=True)

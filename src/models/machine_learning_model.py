@@ -19,19 +19,17 @@ class LossLoggingCallback(Callback):
     If validation loss ('val_loss') is available in the logs, it will also be logged.
     """
 
-    def on_epoch_end(self, epoch: int, logs: Optional[dict[str: any]] = None):
+    def on_epoch_end(self, epoch: int, logs: Optional[dict[str, any]] = None):
         """Called at the end of an epoch.
 
-        Logs the training and validation loss if they are present in the logs.
+        Logs the training and validation loss if they are present in the logs dictionary.
 
-        Args:
-            epoch: Integer, index of epoch.
-            logs: Dictionary of logs. Contains the loss values, and optionally
-                metrics values, and validation results (if one does).
-                The `logs` argument may contain `loss` for the training loss,
-                and `val_loss` for the validation loss.
+        :param epoch: Integer, index of epoch (0-indexed).
+        :param logs: Dictionary of logs. Contains loss values, and optionally
+                     metric values. May contain 'loss' for training loss
+                     and 'val_loss' for validation loss.
         """
-        logger:Logger = LoggingManager().get_logger('machine_learning')
+        logger: Logger = LoggingManager().get_logger('machine_learning')
         logs = logs or {}
         loss = logs.get('loss')
         if loss is not None:
@@ -42,25 +40,31 @@ class LossLoggingCallback(Callback):
 
 
 class MachineLearningModel(ABC):
-    """
-    Abstract base class for machine learning models.
+    """Abstract base class for machine learning models.
+
+    Provides a common interface and basic functionalities for model loading,
+    saving, training, and prediction. Subclasses must implement the abstract methods.
     """
 
     def __init__(self, model_path: Optional[Path] = None):
-        """
-        Initializes the MachineLearningModel.
+        """Initializes the MachineLearningModel.
 
-        Args:
-            model_path (Optional[Path]): Path to the pre-trained model. Defaults to None.
+        If a valid ``model_path`` is provided, the pre-trained Keras model is loaded.
+        Otherwise, ``self._model`` is initialized to ``None``.
+
+        :param model_path: Optional path to a pre-trained Keras model file.
         """
         self._model: Optional[Sequential] = load_model(model_path) if check_path(model_path) else None
 
     def _save_model(self, file_path: Path) -> None:
-        """
-        Saves the model to the specified file path.
+        """Saves the Keras model (``self._model``) to the specified file path.
 
-        Args:
-            file_path (Path): The path to save the model.
+        If the parent directory of ``file_path`` does not exist, it will be created.
+        Requires ``self._model`` to be an initialized Keras model.
+
+        :param file_path: The path where the model will be saved.
+        :raises AttributeError: If ``self._model`` is ``None`` (not loaded or created).
+        :raises Exception: For potential I/O errors during folder creation or model saving.
         """
         if not file_path.parent.exists():
             file_path.parent.mkdir(parents=True)
@@ -70,38 +74,37 @@ class MachineLearningModel(ABC):
     @classmethod
     @abstractmethod
     def _load_training_data(cls, data_path: Path) -> any:
-        """
-        Abstract method to load training data from a given path.
+        """Abstract method to load training data from a given path.
 
-        Args:
-            data_path (Path): The path to the training data.
+        Subclasses must implement this method to define how training data is loaded.
 
-        Returns:
-            any: The loaded training data.
+        :param data_path: The path to the training data.
+        :returns: The loaded training data in a format expected by ``_prepare_data``.
         """
         pass
 
     @abstractmethod
     def _prepare_data(self, data: any) -> tuple[NDArray, NDArray, NDArray, NDArray]:
-        """
-        Abstract method to prepare data for training and testing.
+        """Abstract method to prepare raw data for model training and testing.
 
-        Args:
-            data (any): The raw data to be prepared.
+        Subclasses must implement this method to define data preprocessing steps,
+        such as feature extraction, scaling, and splitting into training and testing sets.
 
-        Returns:
-            tuple[NDArray, NDArray, NDArray, NDArray]: A tuple containing x_train, y_train, x_test, y_test.
+        :param data: The raw data to be prepared.
+        :returns: A tuple containing ``x_train``, ``y_train``, ``x_test``, ``y_test`` as NumPy arrays.
         """
         pass
 
     @abstractmethod
     def _build_model(self, model: Sequential, layers: list) -> None:
-        """
-        Abstract method to build the model architecture.
+        """Abstract method to define and build the model architecture.
 
-        Args:
-            model (Sequential): The Sequential model to build upon.
-            layers (list): A list of Keras layers to add to the model.
+        This method is responsible for adding layers to the provided Keras ``Sequential`` model
+        and compiling it. The base implementation adds layers from the ``layers`` list.
+        Subclasses typically override this to define a specific architecture and compilation process.
+
+        :param model: The Keras ``Sequential`` model instance to build upon.
+        :param layers: A list of Keras layers to add to the model.
         """
         for layer in layers:
             model.add(layer)
@@ -109,51 +112,55 @@ class MachineLearningModel(ABC):
 
     @abstractmethod
     def train(self, data: any, epoch: int, old_model_path: Optional[Path] = None, ):
-        """
-        Abstract method to train the model.
+        """Abstract method to train the machine learning model.
 
-        Args:
-            data (any): The training data.
-            epoch (int): The number of training epochs.
-            old_model_path (Optional[Path]): Path to a pre-existing model to continue training. Defaults to None.
+        Subclasses must implement this method to define the complete training workflow,
+        which usually involves data loading, preparation, model creation/loading,
+        and fitting the model.
+
+        :param data: The training data, or a path to it.
+        :param epoch: The number of training epochs.
+        :param old_model_path: Optional path to a pre-existing model to continue training from.
         """
         pass
 
     @abstractmethod
     def predict(self, data_input: any):
-        """
-        Abstract method to make predictions using the model.
+        """Abstract method to make predictions using the trained model.
 
-        Args:
-            data_input (any): The input data for prediction.
+        Subclasses must implement this method to define how input data is processed
+        for prediction and how the model's output is returned.
 
-        Returns:
-            any: The prediction result.
+        :param data_input: The input data for which predictions are to be made.
+        :returns: The prediction result from the model.
         """
         pass
 
     @staticmethod
     def _check_save_folder(folder_path: Path) -> None:
-        """
-        Checks if a folder exists and creates it if it doesn't.
+        """Checks if a folder exists at the given path and creates it if it doesn't.
 
-        Args:
-            folder_path (Path): The path to the folder.
+        This includes creating any necessary parent directories.
+
+        :param folder_path: The path to the folder to check and potentially create.
+        :raises Exception: For potential I/O or permission errors during folder creation.
         """
         if not folder_path.exists():
             folder_path.mkdir(parents=True)
         return
 
     def _create_model(self, layers: Optional[list] = None, old_model_path: Optional[Path] = None) -> Sequential:
-        """
-        Creates or loads a model.
+        """Creates a new Keras ``Sequential`` model or loads an existing one.
 
-        Args:
-            layers (Optional[list]): A list of Keras layers to build a new model, if needed.
-            old_model_path (Optional[Path]): Path to an existing model to load. Defaults to None.
+        If ``old_model_path`` is provided and valid, the model is loaded from that path.
+        Otherwise, if ``layers`` are provided, a new ``Sequential`` model is created
+        and built using ``self._build_model``.
 
-        Returns:
-            Sequential: The created or loaded Sequential model.
+        :param layers: An optional list of Keras layers to build a new model.
+                       Required if ``old_model_path`` is not provided or invalid.
+        :param old_model_path: Optional path to an existing Keras model file to load.
+        :raises ValueError: If neither ``layers`` nor a valid ``old_model_path`` is provided.
+        :returns: The created or loaded Keras ``Sequential`` model.
         """
         if not old_model_path and not layers:
             raise ValueError('Either layers or old_model_path must be provided.')
@@ -165,28 +172,26 @@ class MachineLearningModel(ABC):
         return model
 
     def train_model(self, x_train: NDArray, y_train: NDArray, epoch: int = 200, batch_size: any = None) -> None:
-        """
-        Trains the model with the given training data.
+        """Trains the Keras model (``self._model``) with the given training data.
 
-        Args:
-            x_train (NDArray): The input training data.
-            y_train (NDArray): The target training data.
-            epoch (int): The number of training epochs. Defaults to 200.
-            batch_size (any): The batch size for training. Defaults to None.
+        Uses the ``LossLoggingCallback`` to log training and validation loss.
+
+        :param x_train: The input training data (features).
+        :param y_train: The target training data (labels).
+        :param epoch: The number of training epochs.
+        :param batch_size: The batch size for training. If ``None``, Keras will use its default.
+        :raises AttributeError: If ``self._model`` is ``None`` (not loaded or created).
         """
         self._model.fit(x_train, y_train, epochs=epoch, batch_size=batch_size, verbose=1,
                         callbacks=LossLoggingCallback())
         return
 
     def evaluate_model(self, x_test: NDArray, y_test: NDArray) -> float:
-        """
-        Evaluates the model with the given test data.
+        """Evaluates the Keras model (``self._model``) with the given test data.
 
-        Args:
-            x_test (NDArray): The input test data.
-            y_test (NDArray): The target test data.
-
-        Returns:
-            float: The evaluation loss.
+        :param x_test: The input test data (features).
+        :param y_test: The target test data (labels).
+        :raises AttributeError: If ``self._model`` is ``None`` (not loaded or created).
+        :returns: The evaluation loss (or primary metric if multiple are configured during compile).
         """
         return self._model.evaluate(x_test, y_test, verbose=0)

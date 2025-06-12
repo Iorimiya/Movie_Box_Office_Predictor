@@ -1,23 +1,29 @@
-import json
-
-import re
-from logging import Logger
 from datetime import datetime
 from enum import Enum
-from typing import TypeAlias, Final, TypedDict
+import json
+from logging import Logger
+from pathlib import Path
+import re
+from typing import Final, Optional, TypeAlias, TypedDict
 
-from selenium.common.exceptions import *
+from selenium.common.exceptions import (
+    InvalidSwitchToTargetException,
+    NoSuchElementException,
+    TimeoutException,
+    UnexpectedAlertPresentException
+)
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support.expected_conditions import visibility_of_element_located, element_to_be_clickable
+from selenium.webdriver.support.expected_conditions import element_to_be_clickable, visibility_of_element_located
 from tqdm import tqdm
 from urllib3.exceptions import ReadTimeoutError
 
-from src.data_collection.browser import Browser
-from src.data_handling.movie_data import BoxOffice, MovieData, load_index_file
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
-from src.utilities.util import *
+from src.data_collection.browser import Browser
+from src.data_handling.file_io import CsvFile
+from src.data_handling.movie_data import BoxOffice, load_index_file, MovieData
+from src.utilities.util import CSVFileData, initialize_index_file
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
 PageChangeCondition: TypeAlias = Browser.PageChangeCondition
@@ -26,25 +32,53 @@ WaitingCondition: TypeAlias = Browser.WaitingCondition
 
 class BoxOfficeCollector:
     """
-    A class to collect box office data from a website.
+    Collects box office data from a specific website.
+
+    This class handles navigating to movie pages, downloading box office data files,
+    parsing these files, and updating movie data objects. It also manages
+    download progress.
+
+    :ivar __download_mode: The mode for downloading data (e.g., weekly or weekend).
+    :ivar __logger: Logger instance for logging messages.
+    :ivar __scrap_file_extension: The file extension of the initially downloaded (scraped) data files.
+    :ivar __store_file_extension: The file extension used for storing processed box office data.
+    :ivar __page_loading_timeout: Timeout in seconds for page loading operations.
+    :ivar __searching_url: The base URL for searching movies on the target website.
+    :ivar __index_file_header: The expected header for the movie index CSV file.
+    :ivar __progress_file_header: The expected header for the download progress CSV file.
+    :ivar __box_office_data_folder: The path to the folder where box office data is stored and downloaded.
+    :ivar __index_file_path: The path to the movie index file.
+    :ivar __progress_file_path: The path to the download progress tracking file.
+    :ivar __temporary_file_downloaded_path: The path where raw downloaded files are temporarily stored.
+    :ivar __browser: An instance of the ``Browser`` class for web interactions.
     """
+
     class Mode(Enum):
         """
-        Enum representing the download mode.
+        Represents the download mode for box office data.
+
+        :cvar WEEK: Indicates that weekly box office data should be downloaded.
+        :cvar WEEKEND: Indicates that weekend box office data should be downloaded.
         """
         WEEK = 1
         WEEKEND = 2
 
     class UpdateType(Enum):
         """
-        Enum representing the update type for progress information.
+        Represents the type of information being updated in the progress file.
+
+        :cvar URL: Indicates that the movie's URL on the box office website is being updated.
+        :cvar FILE_PATH: Indicates that the local file path of the downloaded box office data is being updated.
         """
         URL = 1
         FILE_PATH = 2
 
     class ProgressData(TypedDict):
         """
-        TypedDict representing the progress data.
+        Represents the structure of a single entry in the download progress data.
+
+        Keys are dynamically set based on ``Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER``.
+        Typically includes movie ID, URL, and file path.
         """
         Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[0]: int | str
         Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[1]: str
@@ -56,15 +90,17 @@ class BoxOfficeCollector:
         """
         Initializes the BoxOfficeCollector.
 
-        Args:
-            index_file_path (Path): Path to the index file. Defaults to Constants.INDEX_PATH.
-            box_office_data_folder (Path): Path to the box office data folder. Defaults to Constants.BOX_OFFICE_FOLDER.
-            download_mode (Mode): Download mode (WEEK or WEEKEND). Defaults to Mode.WEEK.
-            page_loading_timeout (float): Page loading timeout in seconds. Defaults to 30.
+        Sets up paths, download mode, logging, and the web browser instance.
+        Ensures the box office data folder exists.
+
+        :param index_file_path: Path to the movie index file.
+        :param box_office_data_folder: Path to the folder for storing box office data.
+        :param download_mode: The mode for downloading data (WEEK or WEEKEND).
+        :param page_loading_timeout: Timeout in seconds for web page loading.
         """
         # download mode amd type settings
         self.__download_mode: Final[BoxOfficeCollector.Mode] = download_mode
-        self.__logger:Logger = LoggingManager().get_logger('root')
+        self.__logger: Logger = LoggingManager().get_logger('root')
         self.__logger.info(f"Using {self.__download_mode.name} mode to download data.")
 
         # constants
@@ -92,20 +128,40 @@ class BoxOfficeCollector:
         return
 
     def __enter__(self) -> any:
+        """
+        Enters the runtime context for the ``BoxOfficeCollector``, primarily for managing the browser resource.
+
+        This allows the ``BoxOfficeCollector`` to be used with the ``with`` statement,
+        ensuring that the browser is properly initialized.
+
+        :returns: The ``BoxOfficeCollector`` instance itself.
+        """
         self.__browser = self.__browser.__enter__()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> any:
+        """
+        Exits the runtime context, ensuring the browser resource is properly released.
+
+        This is called automatically when exiting a ``with`` statement, and it
+        delegates to the browser's ``__exit__`` method to close the browser.
+
+        :param exc_type: The type of the exception that caused the context to be exited, if any.
+        :param exc_val: The exception instance that caused the context to be exited, if any.
+        :param exc_tb: A traceback object encapsulating the call stack at the point
+                       where the exception was raised, if any.
+        """
         return self.__browser.__exit__(exc_type=exc_type, exc_val=exc_val, exc_tb=exc_tb)
 
     def __update_progress_information(self, index: int, update_type: UpdateType, new_data_value: Path | str) -> None:
         """
-        Updates the progress information in the progress file.
+        Updates a specific field in the download progress CSV file for a given movie index.
 
-        Args:
-            index (int): Index of the movie.
-            update_type (UpdateType): Type of update (URL or FILE_PATH).
-            new_data_value (Path | str): New data value.
+        It reads the existing progress data, modifies the specified entry, and saves it back.
+
+        :param index: The 0-based index of the movie in the progress file (corresponds to movie_id if progress file is 0-indexed by movie_id).
+        :param update_type: The type of information to update (URL or FILE_PATH).
+        :param new_data_value: The new value (URL string or file Path) to write.
         """
         # read progress data from csv file
         progress_data = read_data_from_csv(self.__progress_file_path)
@@ -121,13 +177,16 @@ class BoxOfficeCollector:
 
     def __navigate_to_movie_page(self, movie_data: MovieData) -> None:
         """
-        Navigates to the movie page on the website.
+        Navigates the browser to the specific movie's page on the box office website.
 
-        Args:
-            movie_data (MovieData): Movie data.
+        It first searches for the movie by name, then selects the correct entry
+        from the search results drop-down list to go to the movie's detail page.
+        Updates the progress file with the movie's page URL if successful.
 
-        Raises:
-            InvalidSwitchToTargetException: If navigation fails.
+        :param movie_data: The ``MovieData`` object containing the movie's name and ID.
+        :raises InvalidSwitchToTargetException: If navigation to the search page fails,
+                                               if the movie is not found in the search results,
+                                               or if clicking the movie link fails to change the page.
         """
         movie_name = movie_data.movie_name
         searching_url: str = f"{self.__searching_url}/{movie_name}"
@@ -169,13 +228,15 @@ class BoxOfficeCollector:
 
     def __click_download_button(self, trying_times: int) -> None:
         """
-        Clicks the download button on the page.
+        Locates and clicks the appropriate download button on the movie's box office page.
 
-        Args:
-            trying_times (int): Number of trying times.
+        If the download mode is 'WEEK', it first clicks a button to switch to weekly data view.
+        Then, it clicks the button to download data in the specified scrap file format (e.g., JSON).
+        Waits for the download to complete.
 
-        Raises:
-            NoSuchElementException: If the download button is not found.
+        :param trying_times: The current attempt number, used to adjust the download timeout.
+        :raises NoSuchElementException: If the '本週' button (for WEEK mode) or the
+                                       main download button cannot be found or clicked.
         """
         # by defaults, the page is show the weekend data
         if self.__download_mode == self.Mode.WEEK:
@@ -212,17 +273,17 @@ class BoxOfficeCollector:
 
     def __load_box_office_data_from_json_file(self, movie_data: MovieData) -> MovieData:
         """
-        Loads box office data from a JSON file.
+        Loads box office data from the downloaded JSON file and updates the ``MovieData`` object.
 
-        Args:
-            movie_data (MovieData): Movie data.
+        Parses the JSON file, extracts weekly box office figures, start dates, and end dates,
+        then creates ``BoxOffice`` objects and updates the provided ``movie_data``.
 
-        Returns:
-            MovieData: Updated movie data.
-
-        Raises:
-            TypeError: If an error occurs during data loading.
-            ValueError: If box office data is None.
+        :param movie_data: The ``MovieData`` object to be updated.
+        :returns: The updated ``MovieData`` object with loaded box office data.
+        :raises TypeError: If there's an issue parsing dates or amounts from the JSON data,
+                           often due to unexpected data format or ``None`` values where numbers are expected.
+        :raises ValueError: If the loaded box office data list (``weekly_box_office_data``) is empty after parsing.
+        :raises FileNotFoundError: If the temporary downloaded JSON file does not exist.
         """
         date_format: Final[str] = '%Y-%m-%d'
         date_split_pattern: Final[str] = '~'
@@ -247,15 +308,17 @@ class BoxOfficeCollector:
     def __search_and_download_data(self, movie_data: MovieData, progress: Optional[ProgressData],
                                    trying_times: int = 10) -> None:
         """
-        Searches and downloads box office data for a movie.
+        Manages the process of searching for and downloading box office data for a single movie.
 
-        Args:
-            movie_data (MovieData): Movie data.
-            progress (Optional[ProgressData]): Progress data.
-            trying_times (int): Number of trying times. Defaults to 10.
+        It checks existing progress, navigates to the movie page if necessary,
+        clicks the download button, loads data from the downloaded file,
+        saves it in the standard format, and updates progress.
+        Includes retry logic for robustness.
 
-        Raises:
-            AssertionError: If download fails after multiple tries.
+        :param movie_data: The ``MovieData`` object for the movie.
+        :param progress: The current progress data for this movie from the progress file.
+        :param trying_times: The maximum number of attempts to download the data.
+        :raises AssertionError: If the download and processing fail after all ``trying_times`` attempts.
         """
         movie_name = movie_data.movie_name
         movie_id = movie_data.movie_id
@@ -325,10 +388,14 @@ class BoxOfficeCollector:
 
     def download_single_box_office_data(self, movie_data: MovieData) -> None:
         """
-        Downloads box office data for a single movie.
+        Downloads and processes box office data for a single specified movie.
 
-        Args:
-            movie_data (MovieData): Movie data.
+        This method orchestrates the download, data loading, and initial saving.
+        It then loads the saved data back into the ``movie_data`` object and cleans up
+        the initially saved file, assuming further processing or aggregation might occur elsewhere.
+        The temporary downloaded file is also cleaned up.
+
+        :param movie_data: The ``MovieData`` object for which to download box office data.
         """
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
@@ -344,11 +411,17 @@ class BoxOfficeCollector:
     def download_multiple_box_office_data(self, input_file_path: Optional[Path] = None,
                                           input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
         """
-        Downloads box office data for multiple movies.
+        Downloads box office data for multiple movies listed in an index file.
 
-        Args:
-            input_file_path (Optional[Path]): Path to the input file. Defaults to None.
-            input_csv_file_header (str): Header of the input CSV file. Defaults to Constants.INPUT_MOVIE_LIST_HEADER.
+        It initializes the index file if it doesn't exist (using ``input_file_path`` if provided).
+        It also initializes or loads a progress tracking file.
+        Then, it iterates through the movies, attempting to download data for each,
+        and updates a progress bar.
+
+        :param input_file_path: Optional path to an input CSV file containing movie names,
+                                used to initialize the index file if it's missing.
+        :param input_csv_file_header: The header name for the movie title column in the
+                                      ``input_file_path`` CSV, used if initializing the index.
         """
         # delete previous searching results
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
