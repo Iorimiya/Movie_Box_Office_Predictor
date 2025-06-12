@@ -6,6 +6,7 @@ from typing import cast, Literal
 
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectConfig
+from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData
@@ -24,6 +25,18 @@ class Dataset:
     @property
     def index_file_path(self) -> Path:
         return self.dataset_path / 'index.csv'
+
+    @property
+    def box_office_folder_path(self) -> Path:
+        return self.dataset_path / 'box_office'
+
+    @property
+    def public_review_folder_path(self) -> Path:
+        return self.dataset_path / 'public_review'
+
+    @property
+    def expert_review_folder_path(self) -> Path:
+        return self.dataset_path / 'expert_review'
 
     @property
     def index_file(self) -> CsvFile:
@@ -64,6 +77,19 @@ class Dataset:
             )) is not None
         ]
 
+    def initialize_index_file(self, source_csv: CsvFile) -> None:
+        source: list[dict[str, str]] = source_csv.load()
+        index_data: list[dict[str, str]] = [{'id': index, 'name': movie.get('movie_name')} for index, movie in
+                                            enumerate(source)]
+        self.index_file.save(data=index_data)
+        return
+
+    def collect_box_office(self):
+        box_office_collector: BoxOfficeCollector = BoxOfficeCollector(
+            index_file_path=self.index_file_path, box_office_data_folder=self.box_office_folder_path,
+            download_mode=BoxOfficeCollector.Mode.WEEK)
+        box_office_collector.download_multiple_box_office_data_v2()
+
     def load_movie_source_info(self) -> list[MoviePathMetadata]:
         """
         從 Dataset 的 index_file 載入並創建 MovieSourceInfo 物件列表。
@@ -84,7 +110,7 @@ class Dataset:
         return [MoviePathMetadata.from_metadata(source=movie_metadata, dataset_root_path=self.dataset_path)
                 for movie_metadata in self.movies_metadata]
 
-    def load_all_movie_data(self,mode:Literal['ALL','META'])-> list[MovieData]:
+    def load_all_movie_data(self, mode: Literal['ALL', 'META']) -> list[MovieData]:
         logger: Logger = LoggingManager().get_logger("root")
         if mode == 'ALL':
             source_infos: list[MoviePathMetadata] = self.load_movie_source_info()
@@ -94,11 +120,11 @@ class Dataset:
 
             return [
                 MovieData(id=movie_meta_info.id,
-                    name=movie_meta_info.name,
-                    box_office=BoxOffice.create_multiple(source=movie_meta_info.box_office_file_path),
-                    public_reviews=PublicReview.create_multiple(source=movie_meta_info.public_reviews_file_path),
-                    expert_reviews=ExpertReview.create_multiple(source=movie_meta_info.expert_reviews_file_path)
-                    ) for movie_meta_info in source_infos
+                          name=movie_meta_info.name,
+                          box_office=BoxOffice.create_multiple(source=movie_meta_info.box_office_file_path),
+                          public_reviews=PublicReview.create_multiple(source=movie_meta_info.public_reviews_file_path),
+                          expert_reviews=ExpertReview.create_multiple(source=movie_meta_info.expert_reviews_file_path)
+                          ) for movie_meta_info in source_infos
             ]
         elif mode == 'Meta':
             movies_meta: list[MovieMetadata] = self.movies_metadata
@@ -106,5 +132,6 @@ class Dataset:
                 logger.info(f"No processable movie metadata after initial validation from '{self.index_file_path}'.")
                 return []
 
-            return [MovieData(id=movie_meta.id, name=movie_meta.name, box_office=[], public_reviews=[], expert_reviews=[])
-                    for movie_meta in movies_meta]
+            return [
+                MovieData(id=movie_meta.id, name=movie_meta.name, box_office=[], public_reviews=[], expert_reviews=[])
+                for movie_meta in movies_meta]

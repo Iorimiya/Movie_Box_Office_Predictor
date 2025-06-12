@@ -23,7 +23,6 @@ from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import Browser
 from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_data_old import BoxOffice, load_index_file, MovieData
-from src.utilities.util import CSVFileData, initialize_index_file
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
 PageChangeCondition: TypeAlias = Browser.PageChangeCondition
@@ -408,32 +407,57 @@ class BoxOfficeCollector:
         delete_file_path.unlink()
         return
 
-    def download_multiple_box_office_data(self, input_file_path: Optional[Path] = None,
-                                          input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
-        """
-        Downloads box office data for multiple movies listed in an index file.
-
-        It initializes the index file if it doesn't exist (using ``input_file_path`` if provided).
-        It also initializes or loads a progress tracking file.
-        Then, it iterates through the movies, attempting to download data for each,
-        and updates a progress bar.
-
-        :param input_file_path: Optional path to an input CSV file containing movie names,
-                                used to initialize the index file if it's missing.
-        :param input_csv_file_header: The header name for the movie title column in the
-                                      ``input_file_path`` CSV, used if initializing the index.
-        """
-        # delete previous searching results
+    # def download_multiple_box_office_data(self, input_file_path: Optional[Path] = None,
+    #                                       input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
+    #     """
+    #     Downloads box office data for multiple movies listed in an index file.
+    #
+    #     It initializes the index file if it doesn't exist (using ``input_file_path`` if provided).
+    #     It also initializes or loads a progress tracking file.
+    #     Then, it iterates through the movies, attempting to download data for each,
+    #     and updates a progress bar.
+    #
+    #     :param input_file_path: Optional path to an input CSV file containing movie names,
+    #                             used to initialize the index file if it's missing.
+    #     :param input_csv_file_header: The header name for the movie title column in the
+    #                                   ``input_file_path`` CSV, used if initializing the index.
+    #     """
+    #     # delete previous searching results
+    #     self.__temporary_file_downloaded_path.unlink(missing_ok=True)
+    #     # read index data
+    #     # if not exist, create it from input file
+    #     if not self.__index_file_path.exists():
+    #         if input_file_path:
+    #             initialize_index_file(CSVFileData(path=input_file_path, header=input_csv_file_header),
+    #                                   CSVFileData(path=self.__index_file_path, header=self.__index_file_header))
+    #         else:
+    #             self.__logger.error("No previous index file, please enter input file path.")
+    #             exit(1)
+    #
+    #     movie_data: list[MovieData] = load_index_file(file_path=self.__index_file_path,
+    #                                                   index_header=self.__index_file_header)
+    #     progress_file: CsvFile = CsvFile(self.__progress_file_path)
+    #     # read_download progress
+    #     # if not exist, create it.
+    #     if not self.__progress_file_path.exists():
+    #         self.__progress_file_path.touch()
+    #         progress_file.save(data=[{self.__progress_file_header[0]: single_movie_data.movie_id,
+    #                                   self.__progress_file_header[1]: '',
+    #                                   self.__progress_file_header[2]: ''} for single_movie_data in movie_data])
+    #     current_progress: list = progress_file.load()
+    #
+    #     with tqdm(total=len(current_progress), bar_format=Constants.STATUS_BAR_FORMAT) as pbar:
+    #         for movie, progress in zip(movie_data, current_progress):
+    #             try:
+    #                 self.__search_and_download_data(movie_data=movie, progress=progress)
+    #             except AssertionError:
+    #                 pbar.update(1)
+    #                 continue
+    #             else:
+    #                 pbar.update(1)
+    #     return
+    def download_multiple_box_office_data_v2(self):
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
-        # read index data
-        # if not exist, create it from input file
-        if not self.__index_file_path.exists():
-            if input_file_path:
-                initialize_index_file(CSVFileData(path=input_file_path, header=input_csv_file_header),
-                                      CSVFileData(path=self.__index_file_path, header=self.__index_file_header))
-            else:
-                self.__logger.error("No previous index file, please enter input file path.")
-                exit(1)
 
         movie_data: list[MovieData] = load_index_file(file_path=self.__index_file_path,
                                                       index_header=self.__index_file_header)
@@ -457,3 +481,5 @@ class BoxOfficeCollector:
                 else:
                     pbar.update(1)
         return
+
+    # TODO: 重構 BoxOfficeCollector.download_multiple_box_office_data()：•使其接收一個明確的電影列表（例如 list[MovieData] 或 list[MovieMetadata]）作為主要輸入，而不是依賴內部讀取 self.__index_file_path。•移除所有索引檔案初始化相關的邏輯和參數（如 input_file_path）。2.更新 Dataset.collect_box_office()：•在內部，Dataset 會先從其 index_file 載入電影列表（例如，使用 self.movies_metadata，並可能轉換為 BoxOfficeCollector 需要的 MovieData 格式）。•然後將這個電影列表傳遞給重構後的 BoxOfficeCollector.download_multiple_box_office_data(movies_to_process=...)。
