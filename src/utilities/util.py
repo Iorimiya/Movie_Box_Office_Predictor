@@ -1,73 +1,7 @@
-import csv
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Hashable, Iterable, TypeVar
 
-from src.core.constants import Constants
-from src.data_handling.file_io import CsvFile
-
 T = TypeVar('T', bound=Hashable)
-
-@dataclass
-class CSVFileData:
-    """Represents the metadata for a CSV file.
-
-    :ivar path: The path to the CSV file.
-    :ivar header: The header for the CSV file.
-                  If a string, it typically represents a single column name (e.g., for reading a specific value).
-                  If a tuple of strings, it represents the complete header row (e.g., for writing or defining multiple specific columns).
-    """
-    path: Path
-    header: tuple[str] | str
-
-
-def initialize_index_file(input_file: CSVFileData, index_file: CSVFileData | None = None) -> None:
-    """Initializes an index file from an input CSV file.
-
-    The function reads movie names from a specified column in the input CSV
-    and creates an index file mapping these names to sequential indices.
-
-    Note:
-        - The `input_file.header` attribute **must** be a string for this function.
-        - If `index_file` is provided, its `header` attribute **must** be a tuple of two strings.
-
-    :param input_file: The input CSV file data.
-                       Its ``header`` attribute is expected to be a string representing the
-                       column name from which to extract movie names.
-    :param index_file: The index CSV file data. If ``None``, defaults are used
-                       (``Constants.INDEX_PATH``, ``Constants.INDEX_HEADER``).
-                       If provided, its ``header`` attribute is expected to be a tuple
-                       of two strings. The first string will be the header for the 'index' column,
-                       and the second for the 'name' column in the output index file.
-    :raises FileNotFoundError: If the ``input_file.path`` does not exist.
-    :raises KeyError: If ``input_file.header`` (when a string) is not a valid column in the input CSV.
-    :raises TypeError: If `input_file.header` is not a string, or if `index_file.header` is not a suitable tuple when expected.
-    :raises IndexError: If ``index_file.header`` (when a tuple) does not contain at least two elements when accessed.
-    :raises Exception: For other potential I/O errors.
-    :returns: None
-    """
-    # get movie names from input csv
-    if index_file is None:
-        index_file = CSVFileData(path=Constants.INDEX_PATH, header=Constants.INDEX_HEADER)
-
-    # Runtime check for input_file.header type, as docstring specifies it must be str
-    if not isinstance(input_file.header, str):
-        raise TypeError(f"input_file.header must be a string, but got {type(input_file.header)}")
-
-    # Runtime check for index_file.header type if it's not the default one from Constants
-    # (assuming Constants.INDEX_HEADER is correctly a tuple of two strings)
-    if not (isinstance(index_file.header, tuple) and len(index_file.header) >= 2):
-         raise TypeError(f"index_file.header must be a tuple of at least two strings, but got {index_file.header}")
-
-
-    with open(file=input_file.path, mode='r', encoding='utf-8') as file:
-        # The previous check ensures input_file.header is a string here
-        movie_names: list[str] = [row[input_file.header] for row in csv.DictReader(file)]
-
-
-    CsvFile(path=index_file.path).save(data=[{index_file.header[0]: index, index_file.header[1]: name}
-                                             for index, name in enumerate(movie_names)])
-    return
 
 
 def recreate_folder(path: Path) -> None:
@@ -82,7 +16,7 @@ def recreate_folder(path: Path) -> None:
     :returns: None
     """
     if path.exists():
-        rmtree(path=path) # Calls the rmtree function defined below
+        rmtree(path=path)  # Calls the rmtree function defined below
     path.mkdir(parents=True, exist_ok=True)
     return
 

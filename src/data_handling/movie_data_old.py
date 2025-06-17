@@ -4,44 +4,45 @@ from dataclasses import asdict, dataclass
 from datetime import date, datetime
 from enum import Enum
 from pathlib import Path
-from typing import Optional
+from typing import cast, Optional
 
 import yaml
 
 from src.core.constants import Constants
 from src.data_handling.file_io import CsvFile
+from src.data_handling.box_office import BoxOffice, BoxOfficeRawData
 from src.utilities.util import delete_duplicate
 
 
-@dataclass(kw_only=True)
-class BoxOffice:
-    """Represents box office data for a specific period.
-
-    :ivar start_date: The start date of the box office period.
-    :ivar end_date: The end date of the box office period.
-    :ivar box_office: The box office revenue for the period.
-    """
-    start_date: date
-    end_date: date
-    box_office: int
-
-    @classmethod
-    def from_dict(cls, dictionary) -> 'BoxOffice':
-        """Creates a BoxOffice object from a dictionary.
-
-        Assumes date strings in the dictionary are in '%Y-%m-%d' format.
-
-        :param dictionary: The dictionary containing box office data with keys
-                           'start_date', 'end_date', and 'box_office'.
-        :returns: A new ``BoxOffice`` object.
-        :raises KeyError: If required keys are missing from the dictionary.
-        :raises ValueError: If date strings are not in the expected format or
-                            if 'box_office' cannot be converted to an integer.
-        """
-        date_format: str = '%Y-%m-%d'
-        return cls(start_date=datetime.strptime(dictionary['start_date'], date_format).date(),
-                   end_date=datetime.strptime(dictionary['end_date'], date_format).date(),
-                   box_office=int(dictionary['box_office']))
+# @dataclass(kw_only=True)
+# class BoxOffice:
+#     """Represents box office data for a specific period.
+#
+#     :ivar start_date: The start date of the box office period.
+#     :ivar end_date: The end date of the box office period.
+#     :ivar box_office: The box office revenue for the period.
+#     """
+#     start_date: date
+#     end_date: date
+#     box_office: int
+#
+#     @classmethod
+#     def from_dict(cls, dictionary) -> 'BoxOffice':
+#         """Creates a BoxOffice object from a dictionary.
+#
+#         Assumes date strings in the dictionary are in '%Y-%m-%d' format.
+#
+#         :param dictionary: The dictionary containing box office data with keys
+#                            'start_date', 'end_date', and 'box_office'.
+#         :returns: A new ``BoxOffice`` object.
+#         :raises KeyError: If required keys are missing from the dictionary.
+#         :raises ValueError: If date strings are not in the expected format or
+#                             if 'box_office' cannot be converted to an integer.
+#         """
+#         date_format: str = '%Y-%m-%d'
+#         return cls(start_date=datetime.strptime(dictionary['start_date'], date_format).date(),
+#                    end_date=datetime.strptime(dictionary['end_date'], date_format).date(),
+#                    box_office=int(dictionary['box_office']))
 
 
 @dataclass(kw_only=True)
@@ -290,7 +291,7 @@ class MovieData:
         :param file_path: The path to the YAML file where data will be saved.
         :param data: The list of dataclass objects to save.
         :param encoding: The file encoding to use.
-        :raises Exception: For potential I/O errors during folder creation or file writing.
+        :raises Exception: For potential, I/O errors during folder creation or file writing.
         """
         if not file_path.parent.exists():
             file_path.parent.mkdir(parents=True)
@@ -349,7 +350,9 @@ class MovieData:
         :returns: None
         """
         file_extension: str = Constants.DEFAULT_SAVE_FILE_EXTENSION
-        self.box_office = [BoxOffice.from_dict(data) for data in
+
+        # noinspection PyTypeChecker
+        self.box_office = [BoxOffice.create_multiple(source=cast(list[BoxOfficeRawData], data)) for data in
                            self.__load(file_path=load_folder_path.joinpath(f"{self.movie_id}.{file_extension}"),
                                        encoding=encoding)]
         return
@@ -434,3 +437,6 @@ def load_index_file(file_path: Path = Constants.INDEX_PATH, index_header=None,
             return movie_list
         case _:
             raise ValueError(f"Unknown index load mode {mode}")
+
+# TODO: replace Review, PublicReview and ExpertReview with v2 version
+# TODO: replace MovieData with v2 version

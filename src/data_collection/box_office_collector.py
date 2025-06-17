@@ -1,4 +1,3 @@
-from datetime import datetime
 from enum import Enum
 import json
 from logging import Logger
@@ -22,8 +21,8 @@ from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import Browser
 from src.data_handling.file_io import CsvFile
-from src.data_handling.movie_data_old import BoxOffice, load_index_file, MovieData
-from src.utilities.util import CSVFileData, initialize_index_file
+from src.data_handling.movie_data_old import  load_index_file, MovieData
+from src.data_handling.box_office import BoxOffice, BoxOfficeRawData
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
 PageChangeCondition: TypeAlias = Browser.PageChangeCondition
@@ -78,7 +77,7 @@ class BoxOfficeCollector:
         Represents the structure of a single entry in the download progress data.
 
         Keys are dynamically set based on ``Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER``.
-        Typically includes movie ID, URL, and file path.
+        Typically, includes movie ID, URL, and file path.
         """
         Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[0]: int | str
         Constants.BOX_OFFICE_DOWNLOAD_PROGRESS_HEADER[1]: str
@@ -282,26 +281,94 @@ class BoxOfficeCollector:
         :returns: The updated ``MovieData`` object with loaded box office data.
         :raises TypeError: If there's an issue parsing dates or amounts from the JSON data,
                            often due to unexpected data format or ``None`` values where numbers are expected.
-        :raises ValueError: If the loaded box office data list (``weekly_box_office_data``) is empty after parsing.
+                           (Note: This specific TypeError might be less likely with the new parsing,
+                           ValueError from _prepare_constructor_args is more probable for format issues).
+        :raises ValueError: If the loaded box office data list (``weekly_box_office_data``) is empty after parsing
+                            valid JSON 'Rows', or if data conversion within BoxOffice.create_multiple fails.
         :raises FileNotFoundError: If the temporary downloaded JSON file does not exist.
         """
-        date_format: Final[str] = '%Y-%m-%d'
+        # date_format: Final[str] = '%Y-%m-%d' # 舊版使用，新版 BoxOffice._prepare_constructor_args 使用 date.fromisoformat
         date_split_pattern: Final[str] = '~'
         input_encoding: Final[str] = 'utf-8-sig'
+
+        if not self.__temporary_file_downloaded_path.exists():
+            self.__logger.error(f"Temporary downloaded JSON file not found: {self.__temporary_file_downloaded_path}")
+            raise FileNotFoundError(f"Temporary downloaded JSON file not found: {self.__temporary_file_downloaded_path}")
+
         with open(self.__temporary_file_downloaded_path, mode='r', encoding=input_encoding) as file:
-            json_data = json.load(file)
+            json_data: dict = json.load(file)
+
+        prepared_raw_data_list: list[BoxOfficeRawData] = []
+        json_rows: list[dict] = json_data.get('Rows', [])
+
+        if not json_rows:
+            self.__logger.info(f"No 'Rows' found in JSON data from {self.__temporary_file_downloaded_path} or 'Rows' is empty.")
+            movie_data.update_data(box_offices=[])
+            raise ValueError("JSON 'Rows' data is missing or empty, cannot load box office data.")
+
+
+        for week_data_item in json_rows:
+            date_str: Optional[str] = week_data_item.get("Date")
+            amount_val: Optional[str | int | float] = week_data_item.get("Amount") # Amount can be string, int, or float
+
+            if date_str is None:
+                self.__logger.warning(f"Missing 'Date' in week_data_item: {week_data_item} from file {self.__temporary_file_downloaded_path}")
+                continue  # Skip this malformed item
+
+            try:
+                start_date_str, end_date_str = map(str.strip, re.split(date_split_pattern, date_str))
+            except ValueError:  # Handles cases where split doesn't return exactly two items
+                self.__logger.warning(f"Could not split 'Date' string '{date_str}' in {week_data_item} from file {self.__temporary_file_downloaded_path}")
+                continue
+
+            box_office_for_raw: str | int
+            if amount_val is None:
+                box_office_for_raw = "0" # Default to "0" if Amount is missing, _prepare_constructor_args will handle int conversion
+            elif isinstance(amount_val, (int, float)):
+                box_office_for_raw = int(amount_val) # Convert float to int
+            else: # Assumed to be string
+                box_office_for_raw = str(amount_val)
+
+            prepared_raw_data_list.append(BoxOfficeRawData(
+                start_date=start_date_str,end_date=end_date_str,box_office=box_office_for_raw
+            ))
+
+
+        if not prepared_raw_data_list and json_rows:
+             # This case means all items in json_rows were malformed and skipped
+            self.__logger.warning(f"All items in 'Rows' from {self.__temporary_file_downloaded_path} were malformed. No data prepared.")
+            movie_data.update_data(box_offices=[])
+            raise ValueError("All JSON 'Rows' items were malformed, cannot load box office data.")
+
+
         try:
-            weekly_box_office_data: list[BoxOffice] = [BoxOffice(
-                start_date=datetime.strptime(re.split(date_split_pattern, week_data["Date"])[0], date_format).date(),
-                end_date=datetime.strptime(re.split(date_split_pattern, week_data["Date"])[1], date_format).date(),
-                box_office=int(week_data["Amount"]) if week_data["Amount"] is not None else 0)
-                for week_data in json_data['Rows']]
-        except TypeError:
-            self.__logger.debug("An error occurred. See below.", exc_info=True)
-            raise
-        if not weekly_box_office_data:
-            self.__logger.debug("Variable \"box_office_data\" is None.")
-            raise ValueError
+            # Use the new BoxOffice class's create_multiple method
+            # noinspection PyTypeChecker
+            weekly_box_office_data: list[BoxOffice] = BoxOffice.create_multiple(source=prepared_raw_data_list)
+        except ValueError as e:
+            # This catches errors from _prepare_constructor_args (e.g., invalid date format, non-integer box_office)
+            self.__logger.error(f"Error creating BoxOffice instances from prepared data from {self.__temporary_file_downloaded_path}: {e}", exc_info=True)
+            # To maintain similarity with old error handling, re-raise.
+            # Old code raised TypeError for strptime issues, ValueError for empty list.
+            # New code's _prepare_constructor_args raises ValueError for parsing issues.
+            raise ValueError(f"Failed to parse box office data: {e}") from e
+
+
+        # The old code raised ValueError if weekly_box_office_data was empty *after* a successful loop.
+        # BoxOffice.create_multiple will return an empty list if prepared_raw_data_list is empty
+        # or if all items in it fail validation in _prepare_constructor_args (though those would raise ValueError above).
+        # If prepared_raw_data_list was non-empty but all failed validation *silently* in create_multiple (not typical for _prepare_constructor_args),
+        # then weekly_box_office_data could be empty.
+        # Given the checks above, if json_rows was populated and prepared_raw_data_list was also populated,
+        # an error during create_multiple would likely have already raised a ValueError.
+        # If prepared_raw_data_list was empty due to all rows being malformed, that's handled.
+        # This final check is more of a safeguard.
+        if not weekly_box_office_data and prepared_raw_data_list:
+             self.__logger.error(f"Box office data list is empty after processing {len(prepared_raw_data_list)} prepared items from {self.__temporary_file_downloaded_path}.")
+             raise ValueError("Failed to create any valid BoxOffice objects from the prepared data.")
+
+
+        # Assuming movie_data_old.MovieData.update_data can handle a list of new BoxOffice objects
         movie_data.update_data(box_offices=weekly_box_office_data)
         return movie_data
 
@@ -408,32 +475,57 @@ class BoxOfficeCollector:
         delete_file_path.unlink()
         return
 
-    def download_multiple_box_office_data(self, input_file_path: Optional[Path] = None,
-                                          input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
-        """
-        Downloads box office data for multiple movies listed in an index file.
-
-        It initializes the index file if it doesn't exist (using ``input_file_path`` if provided).
-        It also initializes or loads a progress tracking file.
-        Then, it iterates through the movies, attempting to download data for each,
-        and updates a progress bar.
-
-        :param input_file_path: Optional path to an input CSV file containing movie names,
-                                used to initialize the index file if it's missing.
-        :param input_csv_file_header: The header name for the movie title column in the
-                                      ``input_file_path`` CSV, used if initializing the index.
-        """
-        # delete previous searching results
+    # def download_multiple_box_office_data(self, input_file_path: Optional[Path] = None,
+    #                                       input_csv_file_header: str = Constants.INPUT_MOVIE_LIST_HEADER) -> None:
+    #     """
+    #     Downloads box office data for multiple movies listed in an index file.
+    #
+    #     It initializes the index file if it doesn't exist (using ``input_file_path`` if provided).
+    #     It also initializes or loads a progress tracking file.
+    #     Then, it iterates through the movies, attempting to download data for each,
+    #     and updates a progress bar.
+    #
+    #     :param input_file_path: Optional path to an input CSV file containing movie names,
+    #                             used to initialize the index file if it's missing.
+    #     :param input_csv_file_header: The header name for the movie title column in the
+    #                                   ``input_file_path`` CSV, used if initializing the index.
+    #     """
+    #     # delete previous searching results
+    #     self.__temporary_file_downloaded_path.unlink(missing_ok=True)
+    #     # read index data
+    #     # if not exist, create it from input file
+    #     if not self.__index_file_path.exists():
+    #         if input_file_path:
+    #             initialize_index_file(CSVFileData(path=input_file_path, header=input_csv_file_header),
+    #                                   CSVFileData(path=self.__index_file_path, header=self.__index_file_header))
+    #         else:
+    #             self.__logger.error("No previous index file, please enter input file path.")
+    #             exit(1)
+    #
+    #     movie_data: list[MovieData] = load_index_file(file_path=self.__index_file_path,
+    #                                                   index_header=self.__index_file_header)
+    #     progress_file: CsvFile = CsvFile(self.__progress_file_path)
+    #     # read_download progress
+    #     # if not exist, create it.
+    #     if not self.__progress_file_path.exists():
+    #         self.__progress_file_path.touch()
+    #         progress_file.save(data=[{self.__progress_file_header[0]: single_movie_data.movie_id,
+    #                                   self.__progress_file_header[1]: '',
+    #                                   self.__progress_file_header[2]: ''} for single_movie_data in movie_data])
+    #     current_progress: list = progress_file.load()
+    #
+    #     with tqdm(total=len(current_progress), bar_format=Constants.STATUS_BAR_FORMAT) as pbar:
+    #         for movie, progress in zip(movie_data, current_progress):
+    #             try:
+    #                 self.__search_and_download_data(movie_data=movie, progress=progress)
+    #             except AssertionError:
+    #                 pbar.update(1)
+    #                 continue
+    #             else:
+    #                 pbar.update(1)
+    #     return
+    def download_multiple_box_office_data_v2(self):
         self.__temporary_file_downloaded_path.unlink(missing_ok=True)
-        # read index data
-        # if not exist, create it from input file
-        if not self.__index_file_path.exists():
-            if input_file_path:
-                initialize_index_file(CSVFileData(path=input_file_path, header=input_csv_file_header),
-                                      CSVFileData(path=self.__index_file_path, header=self.__index_file_header))
-            else:
-                self.__logger.error("No previous index file, please enter input file path.")
-                exit(1)
 
         movie_data: list[MovieData] = load_index_file(file_path=self.__index_file_path,
                                                       index_header=self.__index_file_header)
@@ -457,3 +549,6 @@ class BoxOfficeCollector:
                 else:
                     pbar.update(1)
         return
+
+# TODO: 重構 BoxOfficeCollector.download_multiple_box_office_data()：•使其接收一個明確的電影列表（例如 list[MovieData] 或 list[MovieMetadata]）作為主要輸入，而不是依賴內部讀取 self.__index_file_path。•移除所有索引檔案初始化相關的邏輯和參數（如 input_file_path）。2.更新 Dataset.collect_box_office()：•在內部，Dataset 會先從其 index_file 載入電影列表（例如，使用 self.movies_metadata，並可能轉換為 BoxOfficeCollector 需要的 MovieData 格式）。•然後將這個電影列表傳遞給重構後的 BoxOfficeCollector.download_multiple_box_office_data(movies_to_process=...)。
+# TODO: 重構所有function以更符合OO的設計原則
