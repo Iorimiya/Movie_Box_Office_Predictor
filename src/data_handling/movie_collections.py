@@ -85,6 +85,7 @@ class WeekData:
 
         :return: The average sentiment score, or None if no scores are available.
         """
+
         # noinspection PyTypeChecker
         scores: list[float] = [review.sentiment_score for review in chain(self.public_reviews, self.expert_reviews) if
                                review.sentiment_score is not None]
@@ -135,7 +136,7 @@ class WeekData:
         elif review_class is ExpertReview:
             target_attribute_name: str = 'expert_reviews'
         else:
-            # 處理未預期的 review_class 型別
+
             raise ValueError(
                 f"Unsupported review_class: {review_class.__name__}. "
                 "Expected PublicReview or ExpertReview."
@@ -531,17 +532,17 @@ class MovieData(MovieMetadata):
             f"Attempting to load {component_name_for_log} for movie ID {self.id} from '{source_file_path}'."
         )
 
-        # 1. 檢查檔案是否存在
+
         if not source_file_path.exists():
             logger.warning(
                 f"Data file not found for {component_name_for_log} for movie ID {self.id} at '{source_file_path}'. "
                 f"The '{component_type}' list in MovieData instance will be empty."
             )
-            setattr(self, component_type, [])  # 將對應屬性設為空列表
-            return  # 檔案不存在，提前返回
+            setattr(self, component_type, [])
+            return
 
         try:
-            # 2. 從映射中安全地獲取目標類別
+
             target_class: Optional[Type[BoxOffice] | Type[PublicReview] | Type[ExpertReview]] = \
                 COMPONENT_CLASS_MAP.get(component_type)
 
@@ -556,7 +557,7 @@ class MovieData(MovieMetadata):
             setattr(self, component_type, loaded_items_list)
 
 
-        except Exception as e:  # 捕獲未預期的錯誤
+        except Exception as e:
             logger.error(
                 f"Unexpected error during the loading process of {component_name_for_log} data "
                 f"for movie ID {self.id} from '{source_file_path}': {e}"
@@ -594,7 +595,7 @@ class MovieData(MovieMetadata):
         self.__load_component(component_type='expert_reviews', target_directory=target_directory)
 
     def __update_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
-                           update_method: Literal['replace', 'extend'],
+                           update_method: Literal['REPLACE', 'EXTEND'],
                            data: MovieComponent) -> None:
         """
         Internal helper to update a specific component's data list (box office, public reviews, or expert reviews).
@@ -603,7 +604,7 @@ class MovieData(MovieMetadata):
         Duplicate items are removed after the operation.
 
         :param component_type: The type of component to update.
-        :param update_method: The method of update ('replace' or 'extend').
+        :param update_method: The method of update ('REPLACE' or 'EXTEND').
         :param data: A list of new data items (BoxOffice, PublicReview, or ExpertReview instances).
         :raises ValueError: If an invalid `update_method` is provided.
         """
@@ -616,14 +617,14 @@ class MovieData(MovieMetadata):
             f"using method '{update_method}' with {incoming_data_count} new items."
         )
 
-        current_data_list: MovieComponent = getattr(self, component_type, [])  # 安全獲取，如果屬性不存在則預設為空列表
+        current_data_list: MovieComponent = getattr(self, component_type, [])
         original_data_count: int = len(current_data_list)
 
         match update_method:
             case 'replace':
                 deduplicated_new_data: MovieComponent = delete_duplicate(data)
                 setattr(self, component_type, deduplicated_new_data)
-                new_count: int = len(deduplicated_new_data)  # 使用傳入 data 的長度
+                new_count: int = len(deduplicated_new_data)
                 logger.info(
                     f"Replaced {component_name_for_log} for movie ID {self.id}. "
                     f"Previous count: {original_data_count}, New count: {new_count}."
@@ -634,7 +635,7 @@ class MovieData(MovieMetadata):
                     f"Original count: {original_data_count}, Items to add: {incoming_data_count}."
                 )
                 combined_data: MovieComponent = current_data_list + data
-                # 假設 delete_duplicate 來自 src.utilities.util 並且功能正確
+
                 deduplicated_new_data: MovieComponent = delete_duplicate(combined_data)
                 setattr(self, component_type, deduplicated_new_data)
                 final_count: int = len(deduplicated_new_data)
@@ -647,7 +648,7 @@ class MovieData(MovieMetadata):
                 logger.error(msg)
                 raise ValueError(msg)
 
-    def update_box_office(self, update_method: Literal['replace', 'extend'], data: list[BoxOffice]) -> None:
+    def update_box_office(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[BoxOffice]) -> None:
         """
         Updates the movie's box office data.
 
@@ -659,7 +660,7 @@ class MovieData(MovieMetadata):
         """
         self.__update_component(component_type='box_office', update_method=update_method, data=data)
 
-    def update_public_reviews(self, update_method: Literal['replace', 'extend'], data: list[PublicReview]) -> None:
+    def update_public_reviews(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[PublicReview]) -> None:
         """
         Updates the movie's public reviews data.
 
@@ -671,7 +672,7 @@ class MovieData(MovieMetadata):
         """
         self.__update_component(component_type='public_reviews', update_method=update_method, data=data)
 
-    def update_expert_reviews(self, update_method: Literal['replace', 'extend'], data: list[ExpertReview]) -> None:
+    def update_expert_reviews(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[ExpertReview]) -> None:
         """
         Updates the movie's expert reviews data.
 
