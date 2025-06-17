@@ -72,6 +72,8 @@ def check_path_exists(path_obj: Path | None) -> bool:
     """Checks if a given object is a ``pathlib.Path`` instance and if the path exists on the filesystem.
 
     :param path_obj: The object to check. Can be None.
-    :returns: ``True`` if ``path_obj`` is a ``pathlib.Path`` object and it exists, ``False`` otherwise (including if path_obj is None).
+    :returns: ``True`` if ``path_obj`` is a ``pathlib.Path`` object, and it exists, ``False`` otherwise (including if path_obj is None).
     """
     return isinstance(path_obj, Path) and path_obj.exists()
+
+# TODO: 組合成path相關類別並用@static方法實現

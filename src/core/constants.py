@@ -46,3 +46,5 @@ class Constants:
 
     # other
     STATUS_BAR_FORMAT: Final[str] = '{desc}: {percentage:3.2f}%|{bar}{r_bar}'
+
+# TODO:replace all path constants with ProjectConfig

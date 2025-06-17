@@ -129,3 +129,5 @@ class ProjectConfig:
 
             valid_types = ["box_office_prediction", "review_sentiment_analysis"]
             raise ValueError(f"Unknown model_type: '{model_type}'. Must be one of {valid_types}.")
+
+# TODO: create ProjectPaths class，將所有的變數設為類別變數，所有的function除staticmethod外皆設為classmethod

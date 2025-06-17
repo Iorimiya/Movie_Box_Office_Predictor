@@ -84,6 +84,7 @@ if __name__ == "__main__":
             main_logger.info(f"Epoch inputted: {args.target_epoch}.")
             input_epoch: int = int(args.target_epoch)
             BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK).download_multiple_box_office_data()
+            # TODO: 將download_multiple_box_office_data改用download_multiple_box_office_data_v2
             ReviewCollector(target_website=ReviewCollector.TargetWebsite.PTT).search_review_with_multiple_movie()
             ReviewSentimentAnalyseModel(
                 model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
@@ -99,6 +100,7 @@ if __name__ == "__main__":
                 with BoxOfficeCollector(download_mode=BoxOfficeCollector.Mode.WEEK) as collector:
                     collector.download_multiple_box_office_data(
                         input_file_path=Path(args.path) if args.path else None)
+                    # TODO: 將download_multiple_box_office_data改用download_multiple_box_office_data_v2
             case "collect_ptt_review":
                 main_logger.info("Collecting ptt review.")
                 target_website: ReviewCollector.TargetWebsite = ReviewCollector.TargetWebsite.PTT
