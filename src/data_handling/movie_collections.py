@@ -17,7 +17,7 @@ from src.data_handling.reviews import (
     PublicReview, PublicReviewRawData, PublicReviewSerializableData,
     ExpertReview, ExpertReviewRawData, ExpertReviewSerializableData
 )
-from src.utilities.util import delete_duplicate
+from src.utilities.collection_utils import delete_duplicate
 
 WeekDataReviewType = TypeVar('WeekDataReviewType', PublicReview, ExpertReview)
 PublicReviewLoadableSource: TypeAlias = Path | YamlFile | list[PublicReviewRawData]

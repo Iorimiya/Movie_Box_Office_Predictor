@@ -1,13 +1,13 @@
+import re
 from datetime import datetime
 from enum import Enum
 from logging import Logger
 from pathlib import Path
-import re
 from typing import Final, Optional, TypeAlias
 
+import requests
 from bs4 import BeautifulSoup
 from bs4.element import NavigableString
-import requests
 from requests import Response
 from selenium.common.exceptions import StaleElementReferenceException
 from tqdm import tqdm
@@ -17,7 +17,7 @@ from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import CaptchaBrowser
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview
-from src.utilities.util import delete_duplicate
+from src.utilities.collection_utils import delete_duplicate
 
 Url: TypeAlias = str
 RegularExpressionPattern: TypeAlias = str
