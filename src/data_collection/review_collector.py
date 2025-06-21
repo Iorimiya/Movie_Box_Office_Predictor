@@ -15,7 +15,9 @@ from tqdm import tqdm
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import CaptchaBrowser
-from src.data_handling.movie_data_old import load_index_file, MovieData, PublicReview
+from src.data_handling.file_io import YamlFile
+from src.data_handling.movie_collections import MovieData
+from src.data_handling.reviews import PublicReview
 from src.utilities.util import delete_duplicate
 
 Url: TypeAlias = str
@@ -45,19 +47,20 @@ class ReviewCollector:
         IMDB = 2
         ROTTEN_TOMATO = 3
 
-    def __init__(self, target_website: TargetWebsite):
+    def __init__(self, target_website: TargetWebsite, review_folder:Path) -> None:
         """
         Initializes the ReviewCollector.
 
         :param target_website: The target website for review collection.
         """
+        self.__logger: Logger = LoggingManager().get_logger('root')
         self.__search_target: TargetWebsite = target_website
         self.__base_url: tuple[str, str, str, str] = ('https://www.ptt.cc/bbs/movie/', 'https://www.dcard.tw/',
                                                       'https://www.imdb.com/', 'https://www.rottentomatoes.com/')
         self.__search_url_part: tuple[str, str, str, str] = \
             ('search?q=', 'search?forum=movie&query=', 'find/?q=', 'search?search=')
         self.__browser: Optional[CaptchaBrowser] = None
-        self.__logger: Logger = LoggingManager().get_logger('root')
+        self.__review_folder: Path = review_folder
         self.__logger.info(f"Download {self.__search_target.name} data.")
 
     @staticmethod
@@ -302,7 +305,7 @@ class ReviewCollector:
                     return None
 
         return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies),
-                            sentiment_score=False)
+                            sentiment_score=None)
 
     def __get_reviews_by_keyword(self, search_key: str) -> list[PublicReview]:
         """
@@ -347,6 +350,7 @@ class ReviewCollector:
         self.__logger.info("Deletion of duplicate reviews finished.")
         return reviews
 
+
     def __search_review_and_save(self, movie_list: list[MovieData], save_folder_path: Path) -> None:
         """
         Searches for public reviews for each movie in a list and saves them.
@@ -359,12 +363,15 @@ class ReviewCollector:
         :param movie_list: A list of ``MovieData`` objects for which to search and save reviews.
         :param save_folder_path: The directory where the review files (named by movie ID) will be saved.
         """
+
+        save_folder_path.mkdir(parents=True, exist_ok=True)
         for movie in tqdm(movie_list, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
-            reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie.movie_name)
-            if save_folder_path.joinpath(f"{movie.movie_id}.{Constants.DEFAULT_SAVE_FILE_EXTENSION}").exists():
-                movie.load_public_review()
-            movie.update_data(public_reviews=reviews)
-            movie.save_public_review(save_folder_path=save_folder_path)
+            movie.load_public_reviews(target_directory=save_folder_path)
+            newly_fetched_reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie.name)
+            movie.update_public_reviews(update_method='EXTEND', data=newly_fetched_reviews)
+            movie.save_public_reviews(target_directory=save_folder_path)
+
+
 
     def search_review_with_single_movie(self, movie_data: str | MovieData) -> list[PublicReview] | None:
         """
@@ -383,7 +390,7 @@ class ReviewCollector:
                             or if the ``self.__search_target`` is not PTT or Dcard.
         """
         if isinstance(movie_data, MovieData):
-            movie_name = movie_data.movie_name
+            movie_name = movie_data.name
         elif isinstance(movie_data, str):
             movie_name = movie_data
         else:
@@ -397,38 +404,21 @@ class ReviewCollector:
             case _:
                 raise ValueError
         if isinstance(movie_data, MovieData):
-            movie_data.update_data(public_reviews=reviews)
+            movie_data.update_public_reviews(data=reviews,update_method='EXTEND')
             return None
         elif isinstance(movie_data, str):
             return reviews
         else:
             raise ValueError
 
-    def search_review_with_multiple_movie(self, index_path: Path = Constants.INDEX_PATH,
-                                          save_folder_path: Path = None):
-        """
-        Searches for public reviews for multiple movies listed in an index file and saves them.
+    def collect_reviews_for_movies(self, movie_list:list[MovieData])->None:
+        for movie in movie_list:
+            self.search_review_with_single_movie(movie_data=movie)
+            movie.save_public_reviews(target_directory=self.__review_folder)
 
-        It loads movie data from the ``index_path``. For each movie, it fetches reviews
-        and saves them to ``save_folder_path`` (defaults to ``Constants.PUBLIC_REVIEW_FOLDER``).
-        Requires ``CaptchaBrowser`` for Dcard.
-
-        :param index_path: The path to the movie index file.
-        :param save_folder_path: The directory where review files will be saved.
-                                  If ``None``, defaults to ``Constants.PUBLIC_REVIEW_FOLDER``.
-        """
-        # with CaptchaBrowser() as self.__browser:
-        if save_folder_path is None:
-            save_folder_path = Constants.PUBLIC_REVIEW_FOLDER
-        if not save_folder_path.exists():
-            save_folder_path.mkdir(parents=True)
-        movie_data: list[MovieData] = load_index_file(file_path=index_path)
-        match self.__search_target:
-            case TargetWebsite.PTT:
-                self.__search_review_and_save(movie_list=movie_data, save_folder_path=save_folder_path)
-            case TargetWebsite.DCARD:
-                with CaptchaBrowser() as self.__browser:
-                    self.__search_review_and_save(movie_list=movie_data, save_folder_path=save_folder_path)
-
+    # TODO:將self.__browser的生命週期放入collect_reviews_for_movies
 
 TargetWebsite: TypeAlias = ReviewCollector.TargetWebsite
+
+# TODO: multiple輸出None並存入檔案內，single輸出Review物件(ask 潔米奈)
+# TODO: 潔米奈：TargetWeksite的優化

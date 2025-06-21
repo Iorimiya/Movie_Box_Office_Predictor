@@ -15,12 +15,14 @@ from keras.src.optimizers import Adam
 from keras.src.optimizers.schedules import ExponentialDecay
 from keras_preprocessing.sequence import pad_sequences
 
-from src.utilities.util import check_path, recreate_folder
+from src.utilities.util import check_path_exists, recreate_folder
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.models.machine_learning_model import MachineLearningModel
-from src.data_handling.movie_data_old import MovieData, load_index_file, PublicReview, IndexLoadMode
-
+# from src.data_handling.movie_data_old import MovieData, load_index_file, PublicReview, IndexLoadMode
+from src.data_handling.dataset import Dataset
+from src.data_handling.movie_collections import MovieData
+from src.data_handling.reviews import PublicReview
 
 class MoviePredictionInputData(TypedDict):
     """A TypedDict representing the input data structure for a single week of a movie's performance.
@@ -66,13 +68,13 @@ class MoviePredictionModel(MachineLearningModel):
                                       (e.g., ``training_data_len``, ``training_week_limit``).
         """
         super().__init__(model_path=model_path)
-        self.__transform_scaler: Optional[MinMaxScaler] = scaler_load(transform_scaler_path) if check_path(
+        self.__transform_scaler: Optional[MinMaxScaler] = scaler_load(transform_scaler_path) if check_path_exists(
             transform_scaler_path) else None
         self.__training_week_limit: Optional[int] = None
         self.__training_data_len: Optional[int] = None
         self.__split_rate: Optional[float] = None
         self.__logger: Logger = LoggingManager().get_logger('machine_learning')
-        if check_path(training_setting_path):
+        if check_path_exists(training_setting_path):
             self.__load_training_setting(training_setting_path)
         return
 
@@ -146,19 +148,25 @@ class MoviePredictionModel(MachineLearningModel):
         self.__save_scaler(base_folder.joinpath('scaler.gz'))
 
     @classmethod
-    def _load_training_data(cls, data_path: Path) -> list[list[MoviePredictionInputData]]:
+    def _load_training_data(cls, dataset_name:str) -> list[list[MoviePredictionInputData]]:
         """
-        Loads movie data from an index file and transforms it into the model's input format.
+        Loads movie data from a specified dataset and transforms it into the model's input format.
 
-        :param data_path: The path to the index file containing movie data.
+        :param dataset_name: The name of the dataset to load movie data from.
         :returns: A list of movies, where each movie is a list of ``MoviePredictionInputData`` for each week.
-        :raises FileNotFoundError: If the ``data_path`` does not exist.
-        :raises Exception: For other potential errors during file loading or data transformation.
+        :raises Exception: For potential errors during dataset loading or data transformation.
         """
         LoggingManager().get_logger('root').info("Loading training data.")
-        movie_data: list[MovieData] = load_index_file(file_path=data_path, mode=IndexLoadMode.FULL)
+        dataset: Dataset = Dataset(name=dataset_name)
+        # Load full movie data including box office and reviews
+        movie_data_list: list[MovieData] = dataset.load_movie_data(mode='ALL')
+
+        if not movie_data_list:
+            LoggingManager().get_logger(name='root').warning(f"No movie data loaded from dataset: {dataset_name}")
+            return []
+
         training_data: list[list[MoviePredictionInputData]] = [cls.__transform_single_movie_data(movie=movie) for movie
-                                                               in movie_data]
+                                                               in movie_data_list]
         return training_data
 
     @staticmethod
@@ -231,7 +239,7 @@ class MoviePredictionModel(MachineLearningModel):
                 filter(lambda review_: week.start_date <= review_.date <= week.end_date, movie.public_reviews))
             for review in week_reviews:
                 replies_count += review.reply_count
-                review_sentiment_score.append(review.sentiment_score)
+                review_sentiment_score.append(review.sentiment_score_v1)
                 review_contents.append(review.content)
             output.append(MoviePredictionInputData(box_office=box_office, review_contents=review_contents,
                                                    review_sentiment_score=review_sentiment_score,
@@ -621,37 +629,18 @@ class MoviePredictionModel(MachineLearningModel):
         accuracy: float = self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Range")
         return accuracy
 
-    def simple_train(self, input_data: Path | list[MovieData] | None,
+    def simple_train(self, input_dataset_name: Optional[str],
                      old_model_path: Optional[Path] = None,
                      epoch: int | tuple[int, int] = 1000,
                      model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
                      training_week_limit: int = 4,
                      split_rate: float = 0.8) -> None:
-        """
-        A simplified training function that accepts different types of input data.
 
-        It handles data loading/generation based on ``input_data`` type and then calls the main ``train`` method.
-
-        :param input_data: The input training data.
-                           - If ``Path``: Path to an index file containing movie data.
-                           - If ``list[MovieData]``: A list of ``MovieData`` objects.
-                           - If ``None``: Generates random training data for testing.
-        :param old_model_path: Path to a pre-trained model to continue training from.
-        :param epoch: The number of training epochs or a tuple (max_epoch, save_interval).
-        :param model_name: The base name for the saved model file. If ``input_data`` is ``None``,
-                           this is overridden to "gen_data".
-        :param training_week_limit: The number of past weeks to use as input for prediction.
-        :param split_rate: The ratio for splitting the data into training and testing sets.
-        :raises ValueError: If ``input_data`` is of an unexpected type.
-        """
-        if input_data is None:
+        if input_dataset_name is None:
             train_data: list[list[MoviePredictionInputData]] = self.__generate_random_data(100, (4, 30), (0, 200))
             model_name = "gen_data"
-        elif isinstance(input_data, list):
-            train_data: list[list[MoviePredictionInputData]] = [self.__transform_single_movie_data(movie=movie) for
-                                                                movie in input_data]
-        elif isinstance(input_data, Path):
-            train_data: list[list[MoviePredictionInputData]] = self._load_training_data(data_path=input_data)
+        elif isinstance(input_dataset_name, str):
+            train_data: list[list[MoviePredictionInputData]] = self._load_training_data(dataset_name=input_dataset_name)
         else:
             raise ValueError
         self.train(data=train_data, old_model_path=old_model_path, epoch=epoch, model_name=model_name,

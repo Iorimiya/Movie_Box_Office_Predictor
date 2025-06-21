@@ -453,7 +453,7 @@ class MovieData(MovieMetadata):
         :param mode: Specifies the loading mode ('ALL' for full data, 'META' for metadata only).
         :return: A list of MovieData instances.
         """
-        return Dataset(name=dataset_name).load_all_movie_data(mode=mode)
+        return Dataset(name=dataset_name).load_movie_data(mode=mode)
 
     def __save_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
                          target_directory: Path) -> None:

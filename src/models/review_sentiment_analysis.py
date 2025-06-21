@@ -4,8 +4,9 @@ from logging import Logger
 import numpy as np
 import pandas as pd
 from pathlib import Path
+
 from pandas import Series
-from typing import Optional
+from typing import Optional, Literal
 from numpy.typing import NDArray
 from numpy import int32, int64, float32
 from sklearn.model_selection import train_test_split
@@ -15,8 +16,8 @@ from keras.src.models import Sequential
 from keras.src.layers import Embedding, LSTM, Dense, Dropout, Input
 
 from src.models.machine_learning_model import MachineLearningModel
-from src.data_handling.movie_data_old import load_index_file
-from src.utilities.util import check_path
+from src.data_handling.dataset import Dataset
+from src.utilities.util import check_path_exists
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 
@@ -39,7 +40,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         :param review_max_length: The maximum length of a review sequence after padding. Defaults to 100.
         """
         super().__init__(model_path=model_path)
-        self.__tokenizer: Optional[Tokenizer] = self.__load_tokenizer(tokenizer_path) if check_path(
+        self.__tokenizer: Optional[Tokenizer] = self.__load_tokenizer(tokenizer_path) if check_path_exists(
             tokenizer_path) else None
         self.__num_words: int = num_words
         self.__review_max_len: int = review_max_length
@@ -69,6 +70,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         """
         self._check_save_folder(file_path.parent)
         with open(file_path, 'wb') as handle:
+            # noinspection PyTypeChecker
             pickle.dump(self.__tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
         return
 
@@ -202,23 +204,18 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         self._save_model(model_save_folder.joinpath(f"{save_name}.keras"))
         return None
 
-    def predict(self, data_input: str = "這是一個非常感人的產品，值得推薦！") -> bool:
-        """Predicts the sentiment of a given review text.
+    def predict(self, data_input: str = "這是一個非常感人的產品，值得推薦！") -> float:
 
-        The input text is first segmented using jieba, then converted to a padded sequence
-        using the model's tokenizer. The model then predicts the sentiment.
-
-        :param data_input: The input review text string.
-        :raises ValueError: If the model (``self._model``) or tokenizer (``self.__tokenizer``) has not been loaded or initialized.
-        :returns: ``True`` if the predicted sentiment is positive (prediction > 0.5), ``False`` otherwise.
-        """
         if not self._model or not self.__tokenizer:
             raise ValueError("model and tokenizer must be loaded.")
         data_input: str = " ".join(jieba.lcut(data_input))
         input_text: NDArray[int32] = self.__text_to_sequences(data_input)
         prediction: NDArray[float32] = self._model.predict(input_text)
 
-        return True if prediction[0][0] > 0.5 else False
+        return float(prediction[0][0])
+
+    def predict_sentiment_label(self,data_input:str) -> bool:
+        return True if self.predict(data_input=data_input) > 0.5 else False
 
     def simple_train(self, input_data: Path, old_model_path: Optional[Path] = None, epoch: int = 1000,
                      model_save_folder: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_FOLDER,
@@ -244,26 +241,17 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         self.train(data=train_data, old_model_path=old_model_path, epoch=epoch, model_save_folder=model_save_folder,
                    model_save_name=model_save_name, tokenizer_save_path=tokenizer_save_path)
 
-    def simple_predict(self, input_data: str | None) -> None:
-        """A simplified interface for making predictions.
+    def simple_predict(self, source_input:str, input_type:Literal['DATASET','SENTENCE']) -> None:
+        match input_type:
+            case 'DATASET':
+                dataset:Dataset = Dataset(name=source_input)
+                for movie in dataset.movie_data:
+                    movie.load_public_reviews(target_directory=dataset.public_review_folder_path)
+                    for review in movie.public_reviews:
+                        review.sentiment_score = self.predict(review.content)
+                    movie.save_public_reviews(Constants.PUBLIC_REVIEW_FOLDER)
+            case 'SENTENCE':
+                print(self.predict(source_input))
+            case _:
+                raise ValueError
 
-        If ``input_data`` is a string, it predicts the sentiment of that single string and prints the result.
-        If ``input_data`` is ``None``, it loads all movies from an index file, processes their public reviews,
-        predicts sentiment for each review, updates the review objects, and saves them.
-
-        :param input_data: A single review text string for prediction, or ``None`` to process reviews from the index file.
-        :raises ValueError: If ``input_data`` is not a string or ``None``.
-                           Also, indirectly, if the model/tokenizer are not loaded when ``predict`` is called.
-        :raises FileNotFoundError: If ``Constants.INDEX_PATH`` (used by ``load_index_file``) does not exist when ``input_data`` is ``None``.
-        """
-        if isinstance(input_data, str):
-            print(self.predict(input_data))
-        elif input_data is None:
-            for movie in load_index_file():
-                movie.load_public_review()
-                for review in movie.public_reviews:
-                    review.sentiment_score = self.predict(review.content)
-                movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
-        else:
-            raise ValueError
-        return
