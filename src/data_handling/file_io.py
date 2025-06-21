@@ -90,7 +90,7 @@ class CsvFile(File):
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
 
-        field_names: Optional[list[str]] = None
+        field_names: Optional[list[str]]
 
         if self.header is not None:
             field_names = list(self.header)
@@ -112,7 +112,7 @@ class CsvFile(File):
             # noinspection PyTypeChecker
             writer: DictWriter = DictWriter(f=file, fieldnames=field_names)
             writer.writeheader()
-            if data:  # Only write rows if data is not empty
+            if data:
                 writer.writerows(rowdicts=data)
         return
 

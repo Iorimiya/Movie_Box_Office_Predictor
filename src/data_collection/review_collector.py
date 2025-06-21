@@ -15,7 +15,6 @@ from tqdm import tqdm
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import CaptchaBrowser
-from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview
 from src.utilities.util import delete_duplicate

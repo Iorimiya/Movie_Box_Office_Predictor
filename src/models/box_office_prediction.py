@@ -1,28 +1,29 @@
-import yaml
 import random
-import numpy as np
-from pathlib import Path
 from logging import Logger
-from numpy.typing import NDArray
-from numpy import float32, float64, int64
+from pathlib import Path
 from typing import Optional, TypedDict
 
-from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+import yaml
 from joblib import dump as scaler_dump, load as scaler_load
-from keras.src.models import Sequential
 from keras.src.layers import LSTM, Dense, Masking, Input, Dropout
+from keras.src.models import Sequential
 from keras.src.optimizers import Adam
 from keras.src.optimizers.schedules import ExponentialDecay
 from keras_preprocessing.sequence import pad_sequences
+from numpy import float32, float64, int64
+from numpy.typing import NDArray
+from sklearn.preprocessing import MinMaxScaler
 
-from src.utilities.util import check_path_exists, recreate_folder
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
-from src.models.machine_learning_model import MachineLearningModel
-# from src.data_handling.movie_data_old import MovieData, load_index_file, PublicReview, IndexLoadMode
+from src.core.project_config import ProjectPaths, ProjectModelType
 from src.data_handling.dataset import Dataset
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview
+from src.models.machine_learning_model import MachineLearningModel
+from src.utilities.util import check_path_exists, recreate_folder
+
 
 class MoviePredictionInputData(TypedDict):
     """A TypedDict representing the input data structure for a single week of a movie's performance.
@@ -373,9 +374,9 @@ class MoviePredictionModel(MachineLearningModel):
         model.compile(optimizer=optimizer, loss='mse')
 
     def train(self, data: list[list[MoviePredictionInputData]],
+              model_name: str,
               old_model_path: Optional[Path] = None,
               epoch: int | tuple[int, int] = 1000,
-              model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
               training_week_limit: int = 4,
               split_rate: float = 0.8) -> None:
         """
@@ -428,7 +429,9 @@ class MoviePredictionModel(MachineLearningModel):
             loss: float = self.evaluate_model(x_test, y_test)
             self.__logger.info(f"Model validation loss: {loss}.")
 
-            base_save_folder: Path = Constants.BOX_OFFICE_PREDICTION_FOLDER.joinpath(f'{save_name}')
+            base_save_folder: Path = ProjectPaths.get_model_root_path(model_id=model_name,
+                                                                      model_type=ProjectModelType.PREDICTION).joinpath(
+                f'{save_name}')
 
             # save training results
             self.__save_all(base_folder=base_save_folder, model_name=save_name,
@@ -543,7 +546,7 @@ class MoviePredictionModel(MachineLearningModel):
         return accuracy
 
     def evaluate_loss(self,
-                      test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> float:
+                      test_data_folder_path) -> float:
         """
         Evaluates the model's loss on the test set.
 
@@ -562,7 +565,7 @@ class MoviePredictionModel(MachineLearningModel):
         return self.evaluate_model(x_test=x_test_loaded, y_test=y_test_loaded)
 
     def evaluate_trend(self,
-                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> float:
+                       test_data_folder_path) -> float:
         """
         Evaluates the model's accuracy in predicting the trend (increase or decrease)
         of box office revenue compared to the last week of the input sequence.
@@ -587,8 +590,8 @@ class MoviePredictionModel(MachineLearningModel):
         accuracy: float = self.__log_and_print_evaluation_results(correct_predictions, total_predictions, "Trend")
         return accuracy
 
-    def evaluate_range(self, box_office_ranges: tuple[int,] = (1000000, 10000000, 90000000),
-                       test_data_folder_path: Path = Constants.BOX_OFFICE_PREDICTION_DEFAULT_MODEL_FOLDER) -> float:
+    def evaluate_range(self, test_data_folder_path,
+                       box_office_ranges: tuple[int,] = (1000000, 10000000, 90000000)) -> float:
         """
         Evaluates the model's prediction accuracy based on whether the predicted and actual
         box office values fall into the same predefined monetary range.
@@ -630,9 +633,9 @@ class MoviePredictionModel(MachineLearningModel):
         return accuracy
 
     def simple_train(self, input_dataset_name: Optional[str],
+                     model_name: str,
                      old_model_path: Optional[Path] = None,
                      epoch: int | tuple[int, int] = 1000,
-                     model_name: str = Constants.BOX_OFFICE_PREDICTION_MODEL_NAME,
                      training_week_limit: int = 4,
                      split_rate: float = 0.8) -> None:
 

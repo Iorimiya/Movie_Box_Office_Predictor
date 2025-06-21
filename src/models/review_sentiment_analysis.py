@@ -1,25 +1,23 @@
-import jieba
 import pickle
 from logging import Logger
+from pathlib import Path
+from typing import Optional
+
+import jieba
 import numpy as np
 import pandas as pd
-from pathlib import Path
-
-from pandas import Series
-from typing import Optional, Literal
-from numpy.typing import NDArray
-from numpy import int32, int64, float32
-from sklearn.model_selection import train_test_split
-from keras_preprocessing.text import Tokenizer
-from keras_preprocessing.sequence import pad_sequences
-from keras.src.models import Sequential
 from keras.src.layers import Embedding, LSTM, Dense, Dropout, Input
+from keras.src.models import Sequential
+from keras_preprocessing.sequence import pad_sequences
+from keras_preprocessing.text import Tokenizer
+from numpy import int32, int64, float32
+from numpy.typing import NDArray
+from pandas import Series
+from sklearn.model_selection import train_test_split
 
-from src.models.machine_learning_model import MachineLearningModel
-from src.data_handling.dataset import Dataset
-from src.utilities.util import check_path_exists
-from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
+from src.models.machine_learning_model import MachineLearningModel
+from src.utilities.util import check_path_exists
 
 
 class ReviewSentimentAnalyseModel(MachineLearningModel):
@@ -75,7 +73,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         return
 
     @staticmethod
-    def __load_tokenizer(file_path: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH) -> Tokenizer:
+    def __load_tokenizer(file_path: Path) -> Tokenizer:
         """Loads a tokenizer from a pickle file.
 
         :param file_path: Path to the tokenizer pickle file. Defaults to ``Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH``.
@@ -160,11 +158,12 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
     def train(self, data: any,
+              tokenizer_save_path,
+              model_save_folder: Path,
+              model_save_name: str,
               old_model_path: Optional[Path] = None,
-              epoch: int = 1000,
-              model_save_folder: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_FOLDER,
-              model_save_name: str = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_NAME,
-              tokenizer_save_path: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH) -> None:
+              epoch: int = 1000
+              ) -> None:
         """Trains the sentiment analysis model.
 
         If ``old_model_path`` is provided and valid, training continues from the loaded model.
@@ -217,10 +216,10 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
     def predict_sentiment_label(self,data_input:str) -> bool:
         return True if self.predict(data_input=data_input) > 0.5 else False
 
-    def simple_train(self, input_data: Path, old_model_path: Optional[Path] = None, epoch: int = 1000,
-                     model_save_folder: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_FOLDER,
-                     model_save_name: str = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_NAME,
-                     tokenizer_save_path: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH) -> None:
+    def simple_train(self, input_data: Path, tokenizer_save_path: Path,
+                     model_save_name: str,model_save_folder:Path,
+                     old_model_path: Optional[Path] = None, epoch: int = 1000
+                     ) -> None:
         """A simplified interface to load data from a CSV file and train the model.
 
         This method first loads training data using ``_load_training_data`` and then calls
@@ -240,18 +239,3 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
             raise ValueError
         self.train(data=train_data, old_model_path=old_model_path, epoch=epoch, model_save_folder=model_save_folder,
                    model_save_name=model_save_name, tokenizer_save_path=tokenizer_save_path)
-
-    def simple_predict(self, source_input:str, input_type:Literal['DATASET','SENTENCE']) -> None:
-        match input_type:
-            case 'DATASET':
-                dataset:Dataset = Dataset(name=source_input)
-                for movie in dataset.movie_data:
-                    movie.load_public_reviews(target_directory=dataset.public_review_folder_path)
-                    for review in movie.public_reviews:
-                        review.sentiment_score = self.predict(review.content)
-                    movie.save_public_reviews(Constants.PUBLIC_REVIEW_FOLDER)
-            case 'SENTENCE':
-                print(self.predict(source_input))
-            case _:
-                raise ValueError
-

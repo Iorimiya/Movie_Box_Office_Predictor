@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import cast, Literal, Optional
 
 from src.core.logging_manager import LoggingManager
-from src.core.project_config import ProjectConfig
+from src.core.project_config import ProjectPaths, ProjectDatasetType, ProjectModelType
 from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
@@ -13,6 +13,7 @@ from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.movie_metadata import MovieMetadata, MovieMetadataRawData, MoviePathMetadata
 from src.data_handling.reviews import PublicReview, ExpertReview
+from src.models.review_sentiment_analysis import ReviewSentimentAnalyseModel
 
 
 @dataclass(kw_only=True)
@@ -35,7 +36,7 @@ class Dataset:
     @property
     def dataset_path(self) -> Path:
         """The root path for this dataset's files."""
-        return ProjectConfig().get_processed_box_office_dataset_path(self.name)
+        return ProjectPaths.get_dataset_path(dataset_name=self.name, dataset_type=ProjectDatasetType.STRUCTURED)
 
     @property
     def index_file_path(self) -> Path:
@@ -357,4 +358,14 @@ class Dataset:
     def collect_expert_review(self) -> None:
         # TODO waiting for ReviewCollector
         pass
+
+    def compute_sentiment(self, model_id:str,model_epoch:int)->None:
+        model_folder:Path = ProjectPaths.get_model_root_path(model_id=model_id,model_type=ProjectModelType.SENTIMENT)
+        model_file_path:Path = model_folder / f"{model_epoch}.keras"
+        tokenizer_path = model_folder / "tokenizer.pickle"
+        for movie in self.movie_data:
+            movie.load_public_reviews(target_directory=self.public_review_folder_path)
+            for review in movie.public_reviews:
+                review.sentiment_score = ReviewSentimentAnalyseModel(model_path=model_file_path,tokenizer_path=tokenizer_path).predict(review.content)
+            movie.save_public_reviews(target_directory=self.public_review_folder_path)
 # TODO: Docstring, comment

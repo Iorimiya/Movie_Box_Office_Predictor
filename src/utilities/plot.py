@@ -1,13 +1,13 @@
+import re
 from logging import Logger
 from pathlib import Path
-import re
 from typing import Final
 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
+from src.core.project_config import ProjectPaths, ProjectModelType
 from src.models.box_office_prediction import MoviePredictionModel
 
 
@@ -23,9 +23,10 @@ def search_model(model_name: str) -> tuple[list[Path], list[int]]:
               - A list of integers representing the epochs extracted from the folder names.
     """
     logger: Logger = LoggingManager().get_logger('root')
-    logger.info(f"Search models in \"{Constants.BOX_OFFICE_PREDICTION_FOLDER}\" folder")
+    model_path:Path = ProjectPaths.get_model_root_path(model_id=model_name,model_type=ProjectModelType.PREDICTION)
+    logger.info(f"Search models in \"{model_path}\" folder")
     folder_list: list[Path] = list(
-        filter(lambda file: file.is_dir(), Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*")))
+        filter(lambda file: file.is_dir(), model_path.glob(f"{model_name}_*")))
     model_epochs: list[int] = [int(folder.name.split("_")[-1]) for folder in folder_list]
     return folder_list, model_epochs
 

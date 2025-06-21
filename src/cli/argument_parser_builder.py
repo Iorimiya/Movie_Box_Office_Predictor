@@ -1,5 +1,3 @@
-# /src/cli/argument_parser_builder.py
-
 from argparse import ArgumentParser, Namespace
 from typing import cast, Optional, TypeVar
 

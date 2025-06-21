@@ -2,12 +2,9 @@ from argparse import ArgumentParser, Namespace
 from logging import Logger
 from pathlib import Path
 
-from src.core.constants import Constants
-from src.core.project_config import ProjectConfig
+from src.core.project_config import ProjectPaths, ProjectDatasetType,ProjectModelType
 from src.core.logging_manager import LoggingManager
 from src.data_handling.dataset import Dataset
-from src.models.review_sentiment_analysis import ReviewSentimentAnalyseModel
-
 
 class DatasetHandler:
     """
@@ -45,7 +42,9 @@ class DatasetHandler:
             self.__logger.info(f"執行: 為資料集 '{args.structured_dataset_name}' 蒐集票房資料。")
             structured_dataset_name = args.structured_dataset_name
             if Path(
-                ProjectConfig().get_processed_box_office_dataset_path(dataset_name=structured_dataset_name)
+                ProjectPaths.get_dataset_path(
+                    dataset_name=structured_dataset_name,dataset_type=ProjectDatasetType.STRUCTURED
+                )
             ).exists():
                 Dataset(name=structured_dataset_name).collect_box_office()
             else:
@@ -66,7 +65,9 @@ class DatasetHandler:
             self.__logger.info(f"執行: 為資料集 '{args.structured_dataset_name}' 蒐集 PTT 評論。")
             structured_dataset_name = args.structured_dataset_name
             if Path(
-                ProjectConfig().get_processed_box_office_dataset_path(dataset_name=structured_dataset_name)
+                ProjectPaths.get_dataset_path(
+                    dataset_name=structured_dataset_name, dataset_type=ProjectDatasetType.STRUCTURED
+                )
             ).exists():
                 Dataset(name=structured_dataset_name).collect_public_review(target_website='PTT')
             else:
@@ -86,7 +87,9 @@ class DatasetHandler:
             self.__logger.info(f"執行: 為資料集 '{args.structured_dataset_name}' 蒐集 Dcard 評論。")
             structured_dataset_name = args.structured_dataset_name
             if Path(
-                ProjectConfig().get_processed_box_office_dataset_path(dataset_name=structured_dataset_name)
+                ProjectPaths.get_dataset_path(
+                    dataset_name=structured_dataset_name, dataset_type=ProjectDatasetType.STRUCTURED
+                )
             ).exists():
                 Dataset(name=structured_dataset_name).collect_public_review(target_website='DCARD')
         elif args.movie_name:
@@ -103,20 +106,13 @@ class DatasetHandler:
         self.__logger.info(
             f"執行: 計算資料集 '{args.structured_dataset_name}' 的情感分數，使用模型 '{args.model_id}' (epoch: {args.epoch})。")
         structured_dataset_name = args.structured_dataset_name
-        if Path(
-            ProjectConfig().get_processed_box_office_dataset_path(dataset_name=structured_dataset_name)
-        ).exists() and Path(ProjectConfig().get_model_root_path(model_type='review_sentiment_analysis',model_instance_name=args.model_id)).exists():
+        if Path(ProjectPaths.get_dataset_path(
+            dataset_name=structured_dataset_name, dataset_type=ProjectDatasetType.STRUCTURED
+        )).exists() and Path(ProjectPaths.get_model_root_path(
+            model_id=args.model_id,model_type=ProjectModelType.PREDICTION
+        )).exists():
+            Dataset(name=structured_dataset_name).compute_sentiment(model_id=args.model_id,model_epoch=args.epoch)
 
-            analyzer: ReviewSentimentAnalyseModel = ReviewSentimentAnalyseModel(
-                        model_path=Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_PATH,
-                        tokenizer_path=Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH)
-            dataset = Dataset(name=structured_dataset_name)
-            for movie in dataset.movie_data:
-                movie.load_public_reviews(target_directory=dataset.public_review_folder_path)
-                for review in movie.public_reviews:
-                    review.sentiment_score = analyzer.predict(review.content)
-                movie.save_public_reviews(Constants.PUBLIC_REVIEW_FOLDER)
-        # TODO
 
 
 class SentimentModelHandler:
