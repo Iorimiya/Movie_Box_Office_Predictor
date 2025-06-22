@@ -456,7 +456,7 @@ class MovieData(MovieMetadata):
         return Dataset(name=dataset_name).load_movie_data(mode=mode)
 
     def __save_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
-                         target_directory: Path) -> None:
+                         target_directory: Path) -> Path:
         """
         Internal helper to save a specific component (box office, public reviews, or expert reviews) to a YAML file.
 
@@ -485,30 +485,31 @@ class MovieData(MovieMetadata):
             f"Successfully saved {len(component_data)} {component_name} items "
             f"for movie ID {self.id} to '{output_file_path}'."
         )
+        return output_file_path
 
-    def save_box_office(self, target_directory: Path) -> None:
+    def save_box_office(self, target_directory: Path) -> Path:
         """
         Saves the movie's box office data to a YAML file in the specified directory.
 
         :param target_directory: The directory where the box office data file will be saved.
         """
-        self.__save_component(component_type='box_office', target_directory=target_directory)
+        return self.__save_component(component_type='box_office', target_directory=target_directory)
 
-    def save_public_reviews(self, target_directory: Path) -> None:
+    def save_public_reviews(self, target_directory: Path) -> Path:
         """
         Saves the movie's public reviews data to a YAML file in the specified directory.
 
         :param target_directory: The directory where the public reviews data file will be saved.
         """
-        self.__save_component(component_type='public_reviews', target_directory=target_directory)
+        return self.__save_component(component_type='public_reviews', target_directory=target_directory)
 
-    def save_expert_reviews(self, target_directory: Path) -> None:
+    def save_expert_reviews(self, target_directory: Path) -> Path:
         """
         Saves the movie's expert reviews data to a YAML file in the specified directory.
 
         :param target_directory: The directory where the expert reviews data file will be saved.
         """
-        self.__save_component(component_type='expert_reviews', target_directory=target_directory)
+        return self.__save_component(component_type='expert_reviews', target_directory=target_directory)
 
     def __load_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
                          target_directory: Path) -> None:

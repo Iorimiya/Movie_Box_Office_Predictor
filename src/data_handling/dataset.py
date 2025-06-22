@@ -282,10 +282,8 @@ class Dataset:
         try:
             # The BoxOfficeCollector will modify the MovieData objects in movies_to_collect_for
             # and save data to files.
-            with BoxOfficeCollector(
-                box_office_data_folder=self.box_office_folder_path, download_mode='WEEK'
-            ) as collector:  # Use context manager for BoxOfficeCollector if it supports it
-                collector.download_multiple_box_office_data(multiple_movie_data=movies_to_collect_for)
+            with BoxOfficeCollector(download_mode='WEEK') as collector:  # Use context manager for BoxOfficeCollector if it supports it
+                collector.download_multiple_box_office_data(multiple_movie_data=movies_to_collect_for,data_folder=self.box_office_folder_path)
 
             self.__logger.info(f"Box office collection process finished for dataset '{self.name}'. "
                                f"The `movie_data` cache remains invalidated; reload to see updates.")
