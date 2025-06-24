@@ -1,283 +1,307 @@
+from abc import ABC, abstractmethod
 from argparse import ArgumentParser, Namespace
 from logging import Logger
 from pathlib import Path
 
-from src.core.project_config import ProjectPaths, ProjectDatasetType,ProjectModelType
 from src.core.logging_manager import LoggingManager
+from src.core.project_config import ProjectDatasetType, ProjectModelType, ProjectPaths
 from src.data_handling.dataset import Dataset
+
 
 class DatasetHandler:
     """
-    處理與資料集相關的 CLI 命令。
+    Handles Command-Line Interface (CLI) commands related to dataset management.
 
-    :成員變數:
-        - parser (ArgumentParser): 用於錯誤報告的 ArgumentParser 實例。
+    :ivar _logger: The logger instance for this class.
+    :ivar _parser: The argument parser instance for handling CLI arguments.
     """
+    _logger: Logger = LoggingManager().get_logger()
+    _parser: ArgumentParser
 
     def __init__(self, parser: ArgumentParser) -> None:
-        self.__logger: Logger = LoggingManager().get_logger()
-        self.__parser = parser
+        """
+        Initializes the DatasetHandler.
+
+        :param parser: The argument parser instance.
+        """
+        self._parser = parser
 
     def create_index(self, args: Namespace) -> None:
         """
-        處理 'dataset index' 命令。
+        Creates an index file for a structured dataset from a source CSV file.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        :param args: The namespace object containing command-line arguments,
+                     expected to have 'structured_dataset_name' and 'source_file'.
+        :raises FileNotFoundError: If the specified source file does not exist.
         """
-        self.__logger.info(f"執行: 建立資料集索引，資料集名稱: {args.structured_dataset_name}")
-        if Path(args.source_file).exists():
-            Dataset(name = args.structured_dataset_name).initialize_index_file(source_csv=args.source_file)
-        else:
-            raise AttributeError
+        self._logger.info(
+            f"Executing: Create dataset index for '{args.structured_dataset_name}'"
+        )
+        source_path: Path = Path(args.source_file)
+        if not source_path.exists():
+            raise FileNotFoundError(f"Source file not found at: {args.source_file}")
+
+        Dataset(name=args.structured_dataset_name).initialize_index_file(
+            source_csv=args.source_file
+        )
+
+    @staticmethod
+    def _validate_dataset_path(dataset_name: str) -> Path:
+        """
+        Validates the existence of a structured dataset path.
+
+        :param dataset_name: The name of the structured dataset.
+        :return: The validated path to the dataset.
+        :raises FileNotFoundError: If the dataset path does not exist.
+        """
+        dataset_path: Path = ProjectPaths.get_dataset_path(
+            dataset_name=dataset_name,
+            dataset_type=ProjectDatasetType.STRUCTURED
+        )
+        if not dataset_path.exists():
+            raise FileNotFoundError(f"Dataset '{dataset_name}' not found at expected path: {dataset_path}")
+        return dataset_path
 
     def collect_box_office(self, args: Namespace) -> None:
         """
-        處理 'dataset collect box-office' 命令。
+        Collects box office data for an entire dataset or a single movie.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        :param args: The namespace object containing command-line arguments,
+                     expected to have 'structured_dataset_name' or 'movie_name'.
+        :raises FileNotFoundError: If the specified dataset path does not exist.
         """
         if args.structured_dataset_name:
-            self.__logger.info(f"執行: 為資料集 '{args.structured_dataset_name}' 蒐集票房資料。")
-            structured_dataset_name = args.structured_dataset_name
-            if Path(
-                ProjectPaths.get_dataset_path(
-                    dataset_name=structured_dataset_name,dataset_type=ProjectDatasetType.STRUCTURED
-                )
-            ).exists():
-                Dataset(name=structured_dataset_name).collect_box_office()
-            else:
-                raise AttributeError
+            dataset_name: str = args.structured_dataset_name
+            self._logger.info(f"Executing: Collect box office data for dataset '{dataset_name}'.")
+            self._validate_dataset_path(dataset_name=dataset_name)
+            Dataset(name=dataset_name).collect_box_office()
         elif args.movie_name:
-            self.__logger.info(f"執行: 為電影 '{args.movie_name}' 蒐集票房資料。")
-            # TODO
-
+            self._logger.info(f"Executing: Collect box office data for movie '{args.movie_name}'.")
+            # TODO: Implement single movie box office collection logic
+            pass
 
     def collect_ptt_review(self, args: Namespace) -> None:
         """
-        處理 'dataset collect ptt-review' 命令。
+        Collects PTT reviews for an entire dataset or a single movie.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        :param args: The namespace object containing command-line arguments,
+                     expected to have 'structured_dataset_name' or 'movie_name'.
+        :raises FileNotFoundError: If the specified dataset path does not exist.
         """
         if args.structured_dataset_name:
-            self.__logger.info(f"執行: 為資料集 '{args.structured_dataset_name}' 蒐集 PTT 評論。")
-            structured_dataset_name = args.structured_dataset_name
-            if Path(
-                ProjectPaths.get_dataset_path(
-                    dataset_name=structured_dataset_name, dataset_type=ProjectDatasetType.STRUCTURED
-                )
-            ).exists():
-                Dataset(name=structured_dataset_name).collect_public_review(target_website='PTT')
-            else:
-                raise AttributeError
+            dataset_name: str = args.structured_dataset_name
+            self._logger.info(f"Executing: Collect PTT reviews for dataset '{dataset_name}'.")
+            self._validate_dataset_path(dataset_name=dataset_name)
+            Dataset(name=dataset_name).collect_public_review(target_website='PTT')
         elif args.movie_name:
-            self.__logger.info(f"執行: 為電影 '{args.movie_name}' 蒐集 PTT 評論。")
-            # TODO
+            self._logger.info(f"Executing: Collect PTT reviews for movie '{args.movie_name}'.")
+            # TODO: Implement single movie PTT review collection logic
+            pass
 
     def collect_dcard_review(self, args: Namespace) -> None:
         """
-        處理 'dataset collect dcard-review' 命令。
+        Collects Dcard reviews for an entire dataset or a single movie.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        :param args: The namespace object containing command-line arguments,
+                     expected to have 'structured_dataset_name' or 'movie_name'.
+        :raises FileNotFoundError: If the specified dataset path does not exist.
         """
         if args.structured_dataset_name:
-            self.__logger.info(f"執行: 為資料集 '{args.structured_dataset_name}' 蒐集 Dcard 評論。")
-            structured_dataset_name = args.structured_dataset_name
-            if Path(
-                ProjectPaths.get_dataset_path(
-                    dataset_name=structured_dataset_name, dataset_type=ProjectDatasetType.STRUCTURED
-                )
-            ).exists():
-                Dataset(name=structured_dataset_name).collect_public_review(target_website='DCARD')
+            dataset_name: str = args.structured_dataset_name
+            self._logger.info(f"Executing: Collect Dcard reviews for dataset '{dataset_name}'.")
+            self._validate_dataset_path(dataset_name=dataset_name)
+            Dataset(name=dataset_name).collect_public_review(target_website='DCARD')
         elif args.movie_name:
-            self.__logger.info(f"執行: 為電影 '{args.movie_name}' 蒐集 Dcard 評論。")
-            # TODO
+            self._logger.info(f"Executing: Collect Dcard reviews for movie '{args.movie_name}'.")
+            # TODO: Implement single movie Dcard review collection logic
+            pass
 
     def compute_sentiment(self, args: Namespace) -> None:
         """
-        處理 'dataset compute_sentiment' 命令。
+        Computes sentiment scores for a structured dataset using a specified model.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        :param args: The namespace object containing command-line arguments,
+                     expected to have 'structured_dataset_name', 'model_id', and 'epoch'.
+        :raises FileNotFoundError: If the dataset or model path does not exist.
         """
-        self.__logger.info(
-            f"執行: 計算資料集 '{args.structured_dataset_name}' 的情感分數，使用模型 '{args.model_id}' (epoch: {args.epoch})。")
-        structured_dataset_name = args.structured_dataset_name
-        if Path(ProjectPaths.get_dataset_path(
-            dataset_name=structured_dataset_name, dataset_type=ProjectDatasetType.STRUCTURED
-        )).exists() and Path(ProjectPaths.get_model_root_path(
-            model_id=args.model_id,model_type=ProjectModelType.PREDICTION
-        )).exists():
-            Dataset(name=structured_dataset_name).compute_sentiment(model_id=args.model_id,model_epoch=args.epoch)
+        self._logger.info(
+            f"Executing: Compute sentiment for dataset '{args.structured_dataset_name}' "
+            f"using model '{args.model_id}' (epoch: {args.epoch})."
+        )
+        dataset_name: str = args.structured_dataset_name
+        self._validate_dataset_path(dataset_name=dataset_name)
+
+        model_path: Path = ProjectPaths.get_model_root_path(
+            model_id=args.model_id,
+            model_type=ProjectModelType.SENTIMENT
+        )
+        if not model_path.exists():
+            raise FileNotFoundError(f"Model '{args.model_id}' not found at expected path: {model_path}")
+
+        Dataset(name=dataset_name).compute_sentiment(
+            model_id=args.model_id,
+            model_epoch=args.epoch
+        )
 
 
-
-class SentimentModelHandler:
+class BaseModelHandler(ABC):
     """
-    處理與情感分數模型相關的 CLI 命令。
+    An abstract base class for model handlers to reduce code duplication.
 
-    :成員變數:
-        - parser (ArgumentParser): 用於錯誤報告的 ArgumentParser 實例。
+    :ivar _logger: The shared logger instance for all model handlers.
+    :ivar _parser: The argument parser instance for the specific command.
+    :ivar _model_type_name: The display name of the model type (e.g., "Sentiment").
     """
+    _logger: Logger = LoggingManager().get_logger()
+    _parser: ArgumentParser
+    _model_type_name: str
 
-    def __init__(self, parser: ArgumentParser) -> None:
-        self.__logger: Logger = LoggingManager().get_logger()
-        self.__parser = parser
+    def __init__(self, parser: ArgumentParser, model_type_name: str) -> None:
+        """
+        Initializes the BaseModelHandler.
+
+        :param parser: The argument parser instance.
+        :param model_type_name: The name of the model type for logging.
+        """
+        self._parser = parser
+        self._model_type_name = model_type_name
 
     def train(self, args: Namespace) -> None:
         """
-        處理 'sentiment-score-model train' 命令。
+        Trains a model based on the provided arguments.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        This method handles the logic for initiating a model training process,
+        logging the configuration, and selecting the data source.
+
+        :param args: The namespace object containing command-line arguments
+                     for model training, such as data source, model ID, and epochs.
         """
-        source_type = ""
+        source_type: str = ""
         if args.feature_dataset_name:
-            source_type = f"特徵資料集: {args.feature_dataset_name}"
+            source_type = f"feature dataset: {args.feature_dataset_name}"
         elif args.structured_dataset_name:
-            source_type = f"結構化資料集: {args.structured_dataset_name}"
+            source_type = f"structured dataset: {args.structured_dataset_name}"
         elif args.random_data:
-            source_type = "隨機生成資料"
+            source_type = "randomly generated data"
 
-        self.__logger.info(f"執行: 訓練情感分數模型 '{args.model_id}'。來源: {source_type}。")
-        self.__logger.info(
-            f"舊 Epoch: {args.old_epoch if args.old_epoch else '無'}，目標 Epoch: {args.target_epoch}，檢查點間隔: {args.checkpoint_interval if args.checkpoint_interval else '無'}")
+        self._logger.info(f"Executing: Train {self._model_type_name} model '{args.model_id}'. Source: {source_type}.")
+        self._logger.info(
+            f"  Old Epoch: {args.old_epoch if args.old_epoch else 'None'}, "
+            f"Target Epoch: {args.target_epoch}, "
+            f"Checkpoint Interval: {args.checkpoint_interval if args.checkpoint_interval else 'None'}"
+        )
+        # TODO: Add actual training logic here
 
+    @abstractmethod
     def test(self, args: Namespace) -> None:
         """
-        處理 'sentiment-score-model test' 命令。
+        An abstract method for testing a model. Must be implemented by subclasses.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        :param args: The namespace object containing command-line arguments.
         """
-        self.__logger.info(
-            f"執行: 測試情感分數模型 '{args.model_id}' (epoch: {args.epoch})，輸入句子: '{args.input_sentence}'")
+        pass
 
     def plot_graph(self, args: Namespace) -> None:
         """
-        處理 'sentiment-score-model evaluate plot' 命令。
+        Plots evaluation graphs (e.g., loss, F1-score) for a model.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
-        :引發錯誤:
-            - SystemExit: 如果沒有選擇任何繪圖選項。
+        :param args: The namespace object containing command-line arguments,
+                     including 'model_id' and flags for which graphs to plot.
         """
         if not (args.training_loss or args.validation_loss or args.f1_score):
-            self.__parser.error("繪圖時，請至少選擇 --training-loss, --validation-loss, 或 --f1-score 其中一個旗標。")
+            self._parser.error(
+                "At least one flag from --training-loss, --validation-loss, or --f1-score must be selected for plotting."
+            )
 
-        self.__logger.info(f"執行: 繪製情感分數模型 '{args.model_id}' 的評估圖表。")
+        self._logger.info(f"Executing: Plot evaluation graphs for {self._model_type_name} model '{args.model_id}'.")
         if args.training_loss:
-            self.__logger.info("  - 繪製訓練損失曲線。")
+            self._logger.info("  - Plotting training loss curve.")
         if args.validation_loss:
-            self.__logger.info("  - 繪製驗證損失曲線。")
+            self._logger.info("  - Plotting validation loss curve.")
         if args.f1_score:
-            self.__logger.info("  - 繪製 F1 分數曲線。")
+            self._logger.info("  - Plotting F1-score curve.")
+        # TODO: Add actual plotting logic here
 
     def get_metrics(self, args: Namespace) -> None:
         """
-        處理 'sentiment-score-model evaluate get-metrics' 命令。
+        Retrieves and displays evaluation metrics for a model at a specific epoch.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
-        :引發錯誤:
-            - SystemExit: 如果沒有選擇任何指標選項。
+        :param args: The namespace object containing command-line arguments,
+                     including 'model_id', 'epoch', and flags for which metrics to retrieve.
         """
         if not (args.training_loss or args.validation_loss or args.f1_score):
-            self.__parser.error("獲取指標時，請至少選擇 --training-loss, --validation-loss, 或 --f1-score 其中一個旗標。")
+            self._parser.error(
+                "At least one flag from --training-loss, --validation-loss, or --f1-score must be selected to get metrics."
+            )
 
-        self.__logger.info(f"執行: 獲取情感分數模型 '{args.model_id}' (epoch: {args.epoch}) 的評估指標。")
+        self._logger.info(
+            f"Executing: Get evaluation metrics for {self._model_type_name} model "
+            f"'{args.model_id}' (epoch: {args.epoch})."
+        )
         if args.training_loss:
-            self.__logger.info("  - 獲取訓練損失。")
+            self._logger.info("  - Retrieving training loss.")
         if args.validation_loss:
-            self.__logger.info("  - 獲取驗證損失。")
+            self._logger.info("  - Retrieving validation loss.")
         if args.f1_score:
-            self.__logger.info("  - 獲取 F1 分數。")
+            self._logger.info("  - Retrieving F1-score.")
+        # TODO: Add actual metric retrieval logic here
 
 
-# 類似地，為 PredictionModel 創建一個類別
-class PredictionModelHandler:
+class SentimentModelHandler(BaseModelHandler):
     """
-    處理與預測模型相關的 CLI 命令。
-
-    :成員變數:
-        - parser (ArgumentParser): 用於錯誤報告的 ArgumentParser 實例。
+    Handles CLI commands related to sentiment analysis model management.
     """
 
     def __init__(self, parser: ArgumentParser) -> None:
-        self.__logger: Logger = LoggingManager().get_logger()
-        self.__parser = parser
-
-    def train(self, args: Namespace) -> None:
         """
-        處理 'prediction-model train' 命令。
+        Initializes the SentimentModelHandler.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        :param parser: The argument parser instance.
         """
-        source_type = ""
-        if args.feature_dataset_name:
-            source_type = f"特徵資料集: {args.feature_dataset_name}"
-        elif args.structured_dataset_name:
-            source_type = f"結構化資料集: {args.structured_dataset_name}"
-        elif args.random_data:
-            source_type = "隨機生成資料"
-
-        self.__logger.info(f"執行: 訓練預測模型 '{args.model_id}'。來源: {source_type}。")
-        self.__logger.info(
-            f"舊 Epoch: {args.old_epoch if args.old_epoch else '無'}，目標 Epoch: {args.target_epoch}，檢查點間隔: {args.checkpoint_interval if args.checkpoint_interval else '無'}")
+        super().__init__(parser=parser, model_type_name="Sentiment")
 
     def test(self, args: Namespace) -> None:
         """
-        處理 'prediction-model test' 命令。
+        Tests a sentiment analysis model with a given input sentence.
 
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
+        :param args: The namespace object containing command-line arguments,
+                     expected to have 'model_id', 'epoch', and 'input_sentence'.
+        """
+        self._logger.info(
+            f"Executing: Test {self._model_type_name} model '{args.model_id}' (epoch: {args.epoch}) "
+            f"with input: '{args.input_sentence}'"
+        )
+        # TODO: Add actual testing logic here
+
+
+class PredictionModelHandler(BaseModelHandler):
+    """
+    Handles CLI commands related to the box office prediction model.
+    """
+
+    def __init__(self, parser: ArgumentParser) -> None:
+        """
+        Initializes the PredictionModelHandler.
+
+        :param parser: The argument parser instance.
+        """
+        super().__init__(parser=parser, model_type_name="Prediction")
+
+    def test(self, args: Namespace) -> None:
+        """
+        Tests the prediction model on a specific movie or with random data.
+
+        :param args: The namespace object containing command-line arguments,
+                     expected to have 'model_id', 'epoch', and either 'movie_name' or 'random'.
         """
         if args.movie_name:
-            self.__logger.info(
-                f"執行: 測試預測模型 '{args.model_id}' (epoch: {args.epoch})，針對電影: '{args.movie_name}'。")
+            self._logger.info(
+                f"Executing: Test {self._model_type_name} model '{args.model_id}' (epoch: {args.epoch}) "
+                f"on movie: '{args.movie_name}'."
+            )
         elif args.random:
-            self.__logger.info(f"執行: 測試預測模型 '{args.model_id}' (epoch: {args.epoch})，使用隨機資料")
-
-    def plot_graph(self, args: Namespace) -> None:
-        """
-        處理 'prediction-model evaluate plot' 命令。
-
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
-        :引發錯誤:
-            - SystemExit: 如果沒有選擇任何繪圖選項。
-        """
-        if not (args.training_loss or args.validation_loss or args.f1_score):
-            self.__parser.error("繪圖時，請至少選擇 --training-loss, --validation-loss, 或 --f1-score 其中一個旗標。")
-
-        self.__logger.info(f"執行: 繪製情感分數模型 '{args.model_id}' 的評估圖表。")
-        if args.training_loss:
-            self.__logger.info("  - 繪製訓練損失曲線。")
-        if args.validation_loss:
-            self.__logger.info("  - 繪製驗證損失曲線。")
-        if args.f1_score:
-            self.__logger.info("  - 繪製 F1 分數曲線。")
-
-    def get_metrics(self, args: Namespace) -> None:
-        """
-        處理 'prediction-model evaluate get-metrics' 命令。
-
-        :輸入變數:
-            - args (Namespace): 解析後的命令列引數。
-        :引發錯誤:
-            - SystemExit: 如果沒有選擇任何指標選項。
-        """
-        if not (args.training_loss or args.validation_loss or args.f1_score):
-            self.__parser.error("獲取指標時，請至少選擇 --training-loss, --validation-loss, 或 --f1-score 其中一個旗標。")
-
-        self.__logger.info(f"執行: 獲取情感分數模型 '{args.model_id}' (epoch: {args.epoch}) 的評估指標。")
-        if args.training_loss:
-            self.__logger.info("  - 獲取訓練損失。")
-        if args.validation_loss:
-            self.__logger.info("  - 獲取驗證損失。")
-        if args.f1_score:
-            self.__logger.info("  - 獲取 F1 分數。")
+            self._logger.info(
+                f"Executing: Test {self._model_type_name} model '{args.model_id}' (epoch: {args.epoch}) "
+                f"with random data."
+            )
+        # TODO: Add actual testing logic here

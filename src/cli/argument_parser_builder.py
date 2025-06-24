@@ -1,241 +1,309 @@
-from argparse import ArgumentParser, Namespace
-from typing import cast, Optional, TypeVar
+# noinspection PyProtectedMember
+from argparse import ArgumentParser, Namespace, _SubParsersAction
+from typing import Optional
 
 from src.cli.handlers import DatasetHandler, SentimentModelHandler, PredictionModelHandler
 
-CliParser = TypeVar("CliParser", bound=ArgumentParser)
-SubcommandAction = TypeVar("SubcommandAction", bound=ArgumentParser)
-
-
 class ArgumentParserBuilder:
+    """
+    Builds and configures the command-line interface using argparse.
+
+    This class encapsulates the entire CLI structure, including commands,
+    sub-commands, and arguments, using a set of reusable parent parsers
+    to avoid code duplication.
+    """
+
+    _MODEL_ID_KWARGS: dict[str, type|bool|str] = {
+        "type": str,
+        "required": True,
+        "help": "The unique identifier for the model series."
+    }
 
     def __init__(self) -> None:
         """Initializes the ArgumentParserBuilder."""
-        self.parser: CliParser = ArgumentParser(
+        self.parser: ArgumentParser = ArgumentParser(
             prog="movie_predictor",
-            description="Movie Box Office Prediction Tool"
+            description="A command-line tool for movie box office prediction and analysis."
         )
-        self._subparsers_action: SubcommandAction = cast(SubcommandAction, self.parser.add_subparsers(
+        self._subparsers_action: _SubParsersAction = self.parser.add_subparsers(
             dest="command_group",
             required=True,
             title="Available command groups",
             description="Select a command group to see its specific commands."
-        ))
-        # Arguments Parent Parser
-        self.__structured_dataset_name_args_parser: CliParser = self.__create_structured_dataset_name_args_parser()
-        self.__model_id_args_parser: CliParser = self.__create_model_id_args_parser()
-        self.__model_file_args_parser: CliParser = self.__create_model_file_args_parser()
+        )
+        self._built = False
 
-        # Common Behavior Parser
-        self.__collect_common_behavior_parser: CliParser = self.__create_collect_common_behavior_parser()
-        self.__train_common_behavior_parser: CliParser = self.__create_train_common_behavior_parser()
-        self.__evaluate_common_behavior_parser: CliParser = self.__create_evaluate_common_behavior_parser()
-        self.__plot_common_behavior_parser: CliParser = self.__create_plot_common_behavior_parser()
-        self.__get_metrics_common_behavior_parser: CliParser = self.__create_get_metrics_common_behavior_parser()
+        self._initialize_parent_parsers()
+        self._initialize_handlers()
 
-        # Handler
+    def _initialize_parent_parsers(self) -> None:
+        """Creates and stores reusable parent parsers for common arguments."""
+        # Parent parser for arguments identifying a specific model file
+        self.__model_file_args_parser: ArgumentParser = self.__create_model_file_args_parser()
+
+        # Parent parser for commands that operate on a collection target
+        self.__collect_common_behavior_parser: ArgumentParser = self.__create_collect_common_behavior_parser()
+
+        # Parent parser for common training arguments
+        self.__train_common_behavior_parser: ArgumentParser = self.__create_train_common_behavior_parser()
+
+        # Parent parsers for evaluation-related commands
+        self.__evaluate_common_behavior_parser: ArgumentParser = self.__create_evaluate_common_behavior_parser()
+        self.__plot_common_behavior_parser: ArgumentParser = self.__create_plot_common_behavior_parser()
+        self.__get_metrics_common_behavior_parser: ArgumentParser = self.__create_get_metrics_common_behavior_parser()
+
+    def _initialize_handlers(self) -> None:
+        """Initializes handlers for processing parsed commands."""
         self.__dataset_handler = DatasetHandler(self.parser)
         self.__sentiment_model_handler = SentimentModelHandler(self.parser)
         self.__prediction_model_handler = PredictionModelHandler(self.parser)
 
     @staticmethod
-    def __create_structured_dataset_name_args_parser() -> ArgumentParser:
-        parser: CliParser = ArgumentParser(add_help=False)
-        parser.add_argument("--structured-dataset-name", type=str, required=True, help="")
-        return parser
-
-    @staticmethod
-    def __create_model_id_args_parser() -> ArgumentParser:
-        parser: CliParser = ArgumentParser(add_help=False)
-        parser.add_argument('--model-id', type=str, required=True, help="The model ID.")
-        return parser
-
-    @staticmethod
     def __create_model_file_args_parser() -> ArgumentParser:
-        parser: CliParser = ArgumentParser(add_help=False)
+        """Creates a parent parser for identifying a model by its ID and epoch."""
+        parser: ArgumentParser = ArgumentParser(add_help=False)
         model_file_group = parser.add_argument_group(
-            '模型檔案識別',  # 群組的標題
-            description='請提供模型系列名稱與具體訓練輪次以精確定位模型檔案。'  # 群組的描述
+            'Model File Identifier',
+            description='Provide both model ID and epoch to locate a specific model file.'
         )
-        model_file_group.add_argument('--model-id', type=str, required=True, help='The model ID.')
-        model_file_group.add_argument('--epoch', type=int, required=True, help='')
+        model_file_group.add_argument('--model-id', **ArgumentParserBuilder._MODEL_ID_KWARGS)
+        model_file_group.add_argument(
+            '--epoch',
+            type=int,
+            required=True,
+            help='The specific training epoch of the model to use.'
+        )
         return parser
 
     @staticmethod
     def __create_collect_common_behavior_parser() -> ArgumentParser:
-        parser: CliParser = ArgumentParser(add_help=False)
+        """Creates a parent parser for specifying a data collection target."""
+        parser: ArgumentParser = ArgumentParser(add_help=False)
         target_group = parser.add_mutually_exclusive_group(required=True)
-        target_group.add_argument('--structured-dataset-name', type=str, help='為此資料集內的電影蒐集資料。')
-        target_group.add_argument('--movie_name', type=str, help='為此電影蒐集資料。')
+        target_group.add_argument(
+            '--structured-dataset-name',
+            type=str,
+            help='Target an entire structured dataset for data collection.'
+        )
+        target_group.add_argument(
+            '--movie-name',
+            type=str,
+            help='Target a single movie for data collection.'
+        )
         return parser
 
     def __create_train_common_behavior_parser(self) -> ArgumentParser:
-        parser: CliParser = ArgumentParser(add_help=False, parents=[self.__model_id_args_parser])
-        source_group = parser.add_mutually_exclusive_group(required=True)
-        source_group.add_argument('--feature-dataset-name', type=str, help='指定訓練資料集名稱。')
-        source_group.add_argument('--structured-dataset-name', type=str, help='指定原始來源資料名稱。')
-        source_group.add_argument('--random-data', action='store_true', help='使用隨機生成資料進行訓練。')
+        """Creates a parent parser with common arguments for model training."""
+        parser: ArgumentParser = ArgumentParser(add_help=False)
+        parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
 
-        # 通用訓練參數
-        parser.add_argument('--old-epoch', type=int, required=False, help='基於舊模型繼續訓練的名稱。')
-        parser.add_argument('--target-epoch', type=int, required=True, help='目標訓練 epoch 數量。')
-        parser.add_argument('--checkpoint-interval', type=int, required=False, help='儲存模型的 epoch 間隔。')
+        source_group = parser.add_mutually_exclusive_group(required=True)
+        source_group.add_argument(
+            '--feature-dataset-name',
+            type=str,
+            help='Specify the name of the feature dataset for training.'
+        )
+        source_group.add_argument(
+            '--structured-dataset-name',
+            type=str,
+            help='Specify the name of the structured dataset to use as a source.'
+        )
+        source_group.add_argument(
+            '--random-data',
+            action='store_true',
+            help='Use randomly generated data for training.'
+        )
+
+        parser.add_argument(
+            '--old-epoch',
+            type=int,
+            required=False,
+            help='The epoch of an existing model to continue training from.'
+        )
+        parser.add_argument(
+            '--target-epoch',
+            type=int,
+            required=True,
+            help='The target number of training epochs.'
+        )
+        parser.add_argument(
+            '--checkpoint-interval',
+            type=int,
+            required=False,
+            help='The interval in epochs at which to save model checkpoints.'
+        )
         return parser
 
     @staticmethod
     def __create_evaluate_common_behavior_parser() -> ArgumentParser:
-        parser: CliParser = ArgumentParser(add_help=False)
-
-        # --- 關鍵點：建立一個 ArgumentGroup 來組織相關旗標 ---
+        """Creates a parent parser for selecting which metrics to evaluate or plot."""
+        parser: ArgumentParser = ArgumentParser(add_help=False)
         plot_options_group = parser.add_argument_group(
-            '圖表選項',  # Group 的標題
-            description='請選擇至少一個要繪製的圖表類型。可多選。'  # Group 的描述
+            'Evaluation Options',
+            description='Select at least one metric. Multiple selections are allowed.'
         )
-        # 將旗標添加到這個群組中
-        plot_options_group.add_argument('--training-loss', action='store_true', help='繪製訓練損失曲線。')
-        plot_options_group.add_argument('--validation-loss', action='store_true', help='繪製驗證損失曲線。')
-        plot_options_group.add_argument('--f1-score', action='store_true', help='繪製 F1 分數曲線。')
+        plot_options_group.add_argument('--training-loss', action='store_true',
+                                        help='Evaluate or plot the training loss.')
+        plot_options_group.add_argument('--validation-loss', action='store_true',
+                                        help='Evaluate or plot the validation loss.')
+        plot_options_group.add_argument('--f1-score', action='store_true', help='Evaluate or plot the F1-score.')
         return parser
 
     def __create_plot_common_behavior_parser(self) -> ArgumentParser:
+        """Creates a parent parser for plotting graphs, combining evaluation and model ID parsers."""
+        model_id_parser = ArgumentParser(add_help=False)
+        model_id_parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
         return ArgumentParser(
-            add_help=False, parents=[self.__evaluate_common_behavior_parser, self.__model_id_args_parser]
+            add_help=False, parents=[self.__evaluate_common_behavior_parser, model_id_parser]
         )
 
     def __create_get_metrics_common_behavior_parser(self) -> ArgumentParser:
+        """Creates a parent parser for getting metrics, combining evaluation and model file parsers."""
         return ArgumentParser(
             add_help=False, parents=[self.__evaluate_common_behavior_parser, self.__model_file_args_parser]
         )
 
     def __setup_dataset_subparser(self) -> None:
-        dataset_parser: CliParser = self._subparsers_action.add_parser("dataset", help="", )
-        dataset_subparsers: SubcommandAction = cast(
-            SubcommandAction, dataset_parser.add_subparsers(dest="dataset", required=True, help="")
+        """Configures the 'dataset' command group and its sub-commands."""
+        dataset_parser: ArgumentParser = self._subparsers_action.add_parser(
+            "dataset",
+            help="Commands for dataset creation and data collection."
         )
-        index_parser: CliParser = dataset_subparsers.add_parser(
-            "index", help="", parents=[self.__structured_dataset_name_args_parser]
+        dataset_subparsers: _SubParsersAction = dataset_parser.add_subparsers(
+            dest="dataset_command", required=True, help="Available dataset commands."
         )
-        index_parser.add_argument("--source-file", type=str, required=True, help="")
+
+        # Command: dataset index
+        index_parser: ArgumentParser = dataset_subparsers.add_parser(
+            "index",
+            help="Create an index file for a new structured dataset from a source CSV."
+        )
+        index_parser.add_argument(
+            "--structured-dataset-name", type=str, required=True, help="The name for the new structured dataset."
+        )
+        index_parser.add_argument(
+            "--source-file", type=str, required=True, help="Path to the source CSV file."
+        )
         index_parser.set_defaults(func=self.__dataset_handler.create_index)
-        collect_parser: CliParser = dataset_subparsers.add_parser("collect", help="")
-        collect_subparsers: SubcommandAction = cast(
-            SubcommandAction, collect_parser.add_subparsers(dest="collect", required=True, help="")
-        )
 
-        box_office_parser: CliParser = collect_subparsers.add_parser(
-            "box-office", help="", parents=[self.__collect_common_behavior_parser]
+        # Command group: dataset collect
+        collect_parser: ArgumentParser = dataset_subparsers.add_parser(
+            "collect", help="Collect data (e.g., box office, reviews) for a dataset."
         )
-        box_office_parser.set_defaults(func=self.__dataset_handler.collect_box_office)
-        ptt_review_parser: CliParser = collect_subparsers.add_parser(
-            "ptt-review", help="", parents=[self.__collect_common_behavior_parser]
+        collect_subparsers: _SubParsersAction = collect_parser.add_subparsers(
+            dest="collect_command", required=True, help="Specify the type of data to collect."
         )
-        ptt_review_parser.set_defaults(func=self.__dataset_handler.collect_ptt_review)
-        dcard_review_parser: CliParser = collect_subparsers.add_parser(
-            "dcard-review", help="", parents=[self.__collect_common_behavior_parser]
-        )
-        dcard_review_parser.set_defaults(func=self.__dataset_handler.collect_dcard_review)
+        collect_subparsers.add_parser(
+            "box-office", help="Collect box office data.", parents=[self.__collect_common_behavior_parser]
+        ).set_defaults(func=self.__dataset_handler.collect_box_office)
+        collect_subparsers.add_parser(
+            "ptt-review", help="Collect PTT reviews.", parents=[self.__collect_common_behavior_parser]
+        ).set_defaults(func=self.__dataset_handler.collect_ptt_review)
+        collect_subparsers.add_parser(
+            "dcard-review", help="Collect Dcard reviews.", parents=[self.__collect_common_behavior_parser]
+        ).set_defaults(func=self.__dataset_handler.collect_dcard_review)
 
-        compute_sentiment_parser: CliParser = dataset_subparsers.add_parser(
-            "compute_sentiment",
-            help="",
-            parents=[self.__structured_dataset_name_args_parser, self.__model_file_args_parser]
+        # Command: dataset compute-sentiment
+        compute_sentiment_parser: ArgumentParser = dataset_subparsers.add_parser(
+            "compute-sentiment",
+            help="Compute sentiment scores for reviews in a dataset using a trained model.",
+            parents=[self.__model_file_args_parser]
+        )
+        compute_sentiment_parser.add_argument(
+            "--structured-dataset-name", type=str, required=True, help="The dataset to process."
         )
         compute_sentiment_parser.set_defaults(func=self.__dataset_handler.compute_sentiment)
 
-    def __setup_sentiment_score_model_subparser(self) -> None:
-        sentiment_parser: CliParser = self._subparsers_action.add_parser("sentiment-score-model", help="")
-        sentiment_subparsers: SubcommandAction = cast(
-            SubcommandAction, sentiment_parser.add_subparsers(dest="sentiment_score_model", required=True, help="")
+    def __setup_sentiment_model_subparser(self) -> None:
+        """Configures the 'sentiment-model' command group and its sub-commands."""
+        sentiment_parser: ArgumentParser = self._subparsers_action.add_parser(
+            "sentiment-model", help="Commands for the sentiment analysis model."
         )
-        train_parser: CliParser = sentiment_subparsers.add_parser(
-            'train',
-            help='訓練情感分數模型。',
-            parents=[self.__train_common_behavior_parser]
+        sentiment_subparsers: _SubParsersAction = sentiment_parser.add_subparsers(
+            dest="sentiment_subcommand", required=True, help="Available sentiment model commands."
         )
-        train_parser.set_defaults(func=self.__sentiment_model_handler.train)
-        test_parser: CliParser = sentiment_subparsers.add_parser(
-            'test',
-            help="",
-            parents=[self.__model_file_args_parser]
+
+        sentiment_subparsers.add_parser(
+            'train', help='Train a sentiment analysis model.', parents=[self.__train_common_behavior_parser]
+        ).set_defaults(func=self.__sentiment_model_handler.train)
+
+        test_parser: ArgumentParser = sentiment_subparsers.add_parser(
+            'test', help="Test the sentiment model with a sentence.", parents=[self.__model_file_args_parser]
         )
-        test_parser.add_argument("--input-sentence", type=str, required=True, help="")
+        test_parser.add_argument("--input-sentence", type=str, required=True, help="The sentence to analyze.")
         test_parser.set_defaults(func=self.__sentiment_model_handler.test)
-        evaluate_parser: CliParser = sentiment_subparsers.add_parser('evaluate', help='')
-        evaluate_subparsers: SubcommandAction = cast(
-            SubcommandAction, evaluate_parser.add_subparsers(dest="evaluate", required=True, help="")
+
+        evaluate_parser: ArgumentParser = sentiment_subparsers.add_parser(
+            'evaluate', help='Evaluate the sentiment model.'
         )
-        plot_parser: CliParser = evaluate_subparsers.add_parser(
-            'plot', help="", parents=[self.__plot_common_behavior_parser]
+        evaluate_subparsers: _SubParsersAction = evaluate_parser.add_subparsers(
+            dest="evaluate_command", required=True
         )
-        plot_parser.set_defaults(func=self.__sentiment_model_handler.plot_graph)
-        get_metrics_parser: CliParser = evaluate_subparsers.add_parser(
-            'get-metrics', help="", parents=[self.__get_metrics_common_behavior_parser]
-        )
-        get_metrics_parser.set_defaults(func=self.__sentiment_model_handler.get_metrics)
+        evaluate_subparsers.add_parser(
+            'plot', help="Plot evaluation graphs.", parents=[self.__plot_common_behavior_parser]
+        ).set_defaults(func=self.__sentiment_model_handler.plot_graph)
+        evaluate_subparsers.add_parser(
+            'get-metrics', help="Get specific evaluation metrics.", parents=[self.__get_metrics_common_behavior_parser]
+        ).set_defaults(func=self.__sentiment_model_handler.get_metrics)
 
     def __setup_prediction_model_subparser(self) -> None:
-        prediction_parser: CliParser = self._subparsers_action.add_parser("prediction-model", help="")
-        prediction_subparsers: SubcommandAction = cast(
-            SubcommandAction, prediction_parser.add_subparsers(dest="prediction-model", required=True, help="")
+        """Configures the 'prediction-model' command group and its sub-commands."""
+        prediction_parser: ArgumentParser = self._subparsers_action.add_parser(
+            "prediction-model", help="Commands for the box office prediction model."
         )
-        train_parser: CliParser = prediction_subparsers.add_parser(
-            'train',
-            help='訓練情感分數模型。',
-            parents=[self.__train_common_behavior_parser]
+        prediction_subparsers: _SubParsersAction = prediction_parser.add_subparsers(
+            dest="prediction_subcommand", required=True, help="Available prediction model commands."
         )
-        train_parser.set_defaults(func=self.__prediction_model_handler.train)
-        test_parser: CliParser = prediction_subparsers.add_parser(
-            'test',
-            help="",
-            parents=[self.__model_file_args_parser]
-        )
-        source_options_group = test_parser.add_mutually_exclusive_group(required=True)
-        # 將旗標添加到這個群組中
-        source_options_group.add_argument('--movie_name', type=str, help='')
-        source_options_group.add_argument('--random', action='store_true', help='')
 
+        prediction_subparsers.add_parser(
+            'train', help='Train a box office prediction model.', parents=[self.__train_common_behavior_parser]
+        ).set_defaults(func=self.__prediction_model_handler.train)
+
+        test_parser: ArgumentParser = prediction_subparsers.add_parser(
+            'test', help="Test the prediction model.", parents=[self.__model_file_args_parser]
+        )
+        source_group = test_parser.add_mutually_exclusive_group(required=True)
+        source_group.add_argument('--movie-name', type=str, help='The name of the movie to test a prediction on.')
+        source_group.add_argument('--random', action='store_true', help='Use random data for the prediction test.')
         test_parser.set_defaults(func=self.__prediction_model_handler.test)
-        evaluate_parser: CliParser = prediction_subparsers.add_parser('evaluate', help='')
-        evaluate_subparsers: SubcommandAction = cast(
-            SubcommandAction, evaluate_parser.add_subparsers(dest="evaluate", required=True, help="")
+
+        evaluate_parser: ArgumentParser = prediction_subparsers.add_parser(
+            'evaluate', help='Evaluate the prediction model.'
         )
-        plot_parser: CliParser = evaluate_subparsers.add_parser(
-            'plot', help="", parents=[self.__plot_common_behavior_parser]
+        evaluate_subparsers: _SubParsersAction = evaluate_parser.add_subparsers(
+            dest="evaluate_command", required=True
         )
-        plot_parser.set_defaults(func=self.__prediction_model_handler.plot_graph)
-        get_metrics_parser: CliParser = evaluate_subparsers.add_parser(
-            'get-metrics', help="", parents=[self.__get_metrics_common_behavior_parser]
-        )
-        get_metrics_parser.set_defaults(func=self.__prediction_model_handler.get_metrics)
+        evaluate_subparsers.add_parser(
+            'plot', help="Plot evaluation graphs.", parents=[self.__plot_common_behavior_parser]
+        ).set_defaults(func=self.__prediction_model_handler.plot_graph)
+        evaluate_subparsers.add_parser(
+            'get-metrics', help="Get specific evaluation metrics.", parents=[self.__get_metrics_common_behavior_parser]
+        ).set_defaults(func=self.__prediction_model_handler.get_metrics)
 
     def build(self) -> ArgumentParser:
         """
         Builds the complete argument parser by setting up all subparsers.
+        This method is idempotent.
 
         :returns: The fully configured ArgumentParser instance.
         """
-
-        # And then use this where appropriate, or adjust the main _dataset_name_parser.
-        # For now, the example keeps the original _dataset_name_parser as required=True
-        # and expects the calling logic in main.py to handle cases like --use_random_data.
+        if self._built:
+            return self.parser
 
         self.__setup_dataset_subparser()
-        self.__setup_sentiment_score_model_subparser()
+        self.__setup_sentiment_model_subparser()
         self.__setup_prediction_model_subparser()
+        self._built = True
         return self.parser
 
     def parse_args(self, args: Optional[list[str]] = None) -> Namespace:
         """
-        Parses command-line arguments using the built parser.
+        Builds the parser if not already built, then parses command-line arguments.
 
-        This is a convenience method.
+        This is a convenience method that simplifies the user-facing API.
 
         :param args: Optional list of strings to parse. Defaults to sys.argv[1:].
         :returns: An object holding the parsed arguments.
         """
-        # The build method should ideally be called once.
-        # If parse_args can be called multiple times, ensure build() isn't re-executed wastefully.
-        # A simple flag or checking if subparsers exist can manage this.
-        # For this structure, build() is called before returning self.parser,
-        # so self.parser is always the fully built one.
+        self.build()
         return self.parser.parse_args(args=args)
