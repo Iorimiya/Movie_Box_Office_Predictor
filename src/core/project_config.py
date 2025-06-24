@@ -1,19 +1,7 @@
-from enum import Enum
 from pathlib import Path
 from typing import Final
 
-
-class ProjectModelType(Enum):
-    """
-    Enum representing the types of machine learning models in the project.
-    """
-    PREDICTION = "box_office_prediction"
-    SENTIMENT = "review_sentiment_analysis"
-
-
-class ProjectDatasetType(Enum):
-    STRUCTURED = "structured"
-    FEATURE = "feature"
+from src.core.types import ProjectDatasetType, ProjectModelType
 
 
 class ProjectPaths:
@@ -26,7 +14,6 @@ class ProjectPaths:
     dynamic paths and for ensuring the directory structure exists.
     """
 
-
     @staticmethod
     def _find_project_root() -> Path:
         """
@@ -37,11 +24,11 @@ class ProjectPaths:
         :raises FileNotFoundError: If the project root cannot be found within a reasonable search depth.
         :returns: The Path object representing the project's root directory.
         """
-
         current_dir: Path = Path(__file__).resolve().parent
-        project_markers: list[str] = [".git", "src"]
+        project_markers: Final[list[str]] = [".git", "src"]
+        max_search_depth: Final[int] = 5
 
-        for _ in range(5):
+        for _ in range(max_search_depth):
             if any((current_dir / marker).exists() for marker in project_markers):
                 return current_dir
             if current_dir.parent == current_dir:
@@ -68,30 +55,31 @@ class ProjectPaths:
     structured_datasets_dir: Final[Path] = datasets_dir / "structured"
     feature_datasets_dir: Final[Path] = datasets_dir / "feature"
 
-    box_office_prediction_models_root: Final[Path] = models_dir / "box_office_prediction"
-    review_sentiment_analysis_models_root: Final[Path] = models_dir / "review_sentiment_analysis"
+    box_office_prediction_models_root: Final[Path] = models_dir / ProjectModelType.PREDICTION.value
+    review_sentiment_analysis_models_root: Final[Path] = models_dir / ProjectModelType.SENTIMENT.value
 
     @classmethod
     def initialize_directories(cls) -> None:
         """
         Ensures that all essential project directories exist, creating them if necessary.
         """
+        for dir_path in [
+            cls.input_dir, cls.datasets_dir, cls.logs_dir, cls.models_dir, cls.temp_dir
+        ]:
+            dir_path.mkdir(parents=True, exist_ok=True)
 
-        cls.input_dir.mkdir(parents=True, exist_ok=True)
-        cls.datasets_dir.mkdir(parents=True, exist_ok=True)
-        cls.logs_dir.mkdir(parents=True, exist_ok=True)
-        cls.models_dir.mkdir(parents=True, exist_ok=True)
-        cls.temp_dir.mkdir(parents=True, exist_ok=True)
-
-        cls.raw_index_sources_dir.mkdir(parents=False, exist_ok=True)
-        cls.sentiment_analysis_resources_dir.mkdir(parents=False, exist_ok=True)
-        cls.structured_datasets_dir.mkdir(parents=False, exist_ok=True)
-        cls.feature_datasets_dir.mkdir(parents=False, exist_ok=True)
-        cls.box_office_prediction_models_root.mkdir(parents=False, exist_ok=True)
-        cls.review_sentiment_analysis_models_root.mkdir(parents=False, exist_ok=True)
+        for dir_path in [
+            cls.raw_index_sources_dir, cls.sentiment_analysis_resources_dir,
+            cls.structured_datasets_dir, cls.feature_datasets_dir,
+            cls.box_office_prediction_models_root, cls.review_sentiment_analysis_models_root
+        ]:
+            dir_path.mkdir(parents=False, exist_ok=True)
 
     @classmethod
     def get_dataset_path(cls, dataset_name: str, dataset_type: ProjectDatasetType) -> Path:
+        """
+        Constructs the full path for a given dataset.
+        """
         match dataset_type:
             case ProjectDatasetType.STRUCTURED:
                 return cls.structured_datasets_dir / dataset_name
@@ -102,6 +90,9 @@ class ProjectPaths:
 
     @classmethod
     def get_model_root_path(cls, model_id: str, model_type: ProjectModelType) -> Path:
+        """
+        Constructs the root path for a specific model instance.
+        """
         match model_type:
             case ProjectModelType.PREDICTION:
                 return cls.box_office_prediction_models_root / model_id
