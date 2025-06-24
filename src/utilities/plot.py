@@ -12,7 +12,8 @@ from src.models.box_office_prediction import MoviePredictionModel
 
 
 def search_model(model_name: str) -> tuple[list[Path], list[int]]:
-    """Searches for model folders matching a given model name pattern and extracts their epochs.
+    """
+    Searches for model folders matching a given model name pattern and extracts their epochs.
 
     This function scans the ``Constants.BOX_OFFICE_PREDICTION_FOLDER`` for directories
     that start with ``model_name_`` and end with an epoch number.
@@ -23,7 +24,7 @@ def search_model(model_name: str) -> tuple[list[Path], list[int]]:
               - A list of integers representing the epochs extracted from the folder names.
     """
     logger: Logger = LoggingManager().get_logger('root')
-    model_path:Path = ProjectPaths.get_model_root_path(model_id=model_name,model_type=ProjectModelType.PREDICTION)
+    model_path: Path = ProjectPaths.get_model_root_path(model_id=model_name, model_type=ProjectModelType.PREDICTION)
     logger.info(f"Search models in \"{model_path}\" folder")
     folder_list: list[Path] = list(
         filter(lambda file: file.is_dir(), model_path.glob(f"{model_name}_*")))
@@ -35,7 +36,8 @@ def plot_line_graph(title: str, save_file_path: Path,
                     x_data: list[int], y_data: list[float],
                     format_type: str, y_label: str,
                     x_label: str = 'epoch') -> None:
-    """Plots a line graph with specified title, data, and formatting, then saves and shows it.
+    """
+    Plots a line graph with specified title, data, and formatting, then saves and shows it.
 
     :param title: The title of the graph.
     :param save_file_path: The path to save the graph image.
@@ -69,7 +71,8 @@ def plot_line_graph(title: str, save_file_path: Path,
 
 
 def plot_training_loss(log_path: Path) -> None:
-    """Loads training log data, extracts training loss values and corresponding epochs,
+    """
+    Loads training log data, extracts training loss values and corresponding epochs,
     and plots them as a line graph.
 
     The function parses a log file to find the target epoch, saving interval,
@@ -130,7 +133,8 @@ def plot_training_loss(log_path: Path) -> None:
 
 
 def plot_validation_loss(model_name: str) -> None:
-    """Plots the test loss of a specified model across different training epochs.
+    """
+    Plots the test loss of a specified model across different training epochs.
 
     It searches for model folders, evaluates the test loss for each epoch's model
     (using its associated test data), and then plots these losses against their epochs.
@@ -157,7 +161,8 @@ def plot_validation_loss(model_name: str) -> None:
 
 
 def plot_trend_accuracy(model_name: str):
-    """Plots the trend prediction accuracy of a specified model across different training epochs.
+    """
+    Plots the trend prediction accuracy of a specified model across different training epochs.
 
     It searches for model folders, evaluates the trend accuracy for each epoch's model
     (using its associated test data), and then plots these accuracies (as percentages)
@@ -183,7 +188,8 @@ def plot_trend_accuracy(model_name: str):
 
 
 def plot_range_accuracy(model_name: str):
-    """Plots the box office range prediction accuracy of a specified model across different training epochs.
+    """
+    Plots the box office range prediction accuracy of a specified model across different training epochs.
 
     It searches for model folders, evaluates the range accuracy for each epoch's model
     (using its associated test data), and then plots these accuracies (as percentages)

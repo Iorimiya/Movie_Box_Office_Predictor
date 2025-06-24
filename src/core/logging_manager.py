@@ -1,11 +1,11 @@
+import logging
+import sys
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from io import TextIOBase
-import logging
 from logging import FileHandler, Formatter, getLevelName, Handler, Logger, StreamHandler
 from pathlib import Path
-import sys
 from typing import Literal, Optional, overload, TypeAlias
 
 from colorama.ansitowin32 import StreamWrapper

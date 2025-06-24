@@ -1,7 +1,7 @@
 import random
 from logging import Logger
 from pathlib import Path
-from typing import Optional, TypedDict
+from typing import Optional, TypedDict, TypeAlias
 
 import numpy as np
 import yaml
@@ -22,11 +22,15 @@ from src.data_handling.dataset import Dataset
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview
 from src.models.machine_learning_model import MachineLearningModel
-from src.utilities.util import check_path_exists, recreate_folder
+from src.utilities.util import FilesystemUtils
+
+check_path_exists: TypeAlias = FilesystemUtils.check_path_exists
+recreate_folder: TypeAlias = FilesystemUtils.recreate_folder
 
 
 class MoviePredictionInputData(TypedDict):
-    """A TypedDict representing the input data structure for a single week of a movie's performance.
+    """
+    A TypedDict representing the input data structure for a single week of a movie's performance.
 
     This structure is used as an intermediate representation when transforming raw movie data
     into a format suitable for the prediction model.

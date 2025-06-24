@@ -1,10 +1,10 @@
+import json
+import re
 from dataclasses import dataclass
 from datetime import date
-import json
 from logging import Logger
 from pathlib import Path
-import re
-from typing import Final,Optional, Type, TypedDict
+from typing import Final, Optional, Type, TypedDict
 
 from src.core.logging_manager import LoggingManager
 from src.data_handling.loader_mixin import MovieAuxiliaryDataMixin

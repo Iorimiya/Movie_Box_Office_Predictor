@@ -13,9 +13,8 @@ class FilesystemUtils:
         """
         Deletes a path (file or folder) if it exists, then recreates it as an empty folder.
 
-        If the path points to a file, the file is deleted, and a folder with the same
-        name (at the same location) is created. If the path points to a directory, it is
-        recursively deleted and then recreated as an empty folder.
+        If the path points to a file, the file is deleted, and a folder with the same name (at the same location) is
+        created. If the path points to a directory, it is recursively deleted and then recreated as an empty folder.
 
         :param path: The path to the folder to be recreated.
         :raises OSError: For potential I/O or permission errors during deletion or creation.
