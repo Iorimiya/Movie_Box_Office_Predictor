@@ -9,7 +9,7 @@ from keras.src.models import Sequential
 from numpy.typing import NDArray
 
 from src.core.logging_manager import LoggingManager
-from src.utilities.util import FilesystemUtils
+from src.utilities.filesystem_utils import FilesystemUtils
 
 check_path_exists:TypeAlias = FilesystemUtils.check_path_exists
 

@@ -47,8 +47,6 @@ class FilesystemUtils:
             path.unlink()
         elif path.is_dir():
             rmtree(path)
-        # else: path exists but is not a regular file, symlink, or directory.
-        # This case is currently not explicitly handled (e.g. it won't be deleted).
 
     @staticmethod
     def check_path_exists(path_obj: Optional[Path]) -> bool:

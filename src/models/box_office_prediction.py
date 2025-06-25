@@ -22,7 +22,7 @@ from src.data_handling.dataset import Dataset
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview
 from src.models.machine_learning_model import MachineLearningModel
-from src.utilities.util import FilesystemUtils
+from src.utilities.filesystem_utils import FilesystemUtils
 
 check_path_exists: TypeAlias = FilesystemUtils.check_path_exists
 recreate_folder: TypeAlias = FilesystemUtils.recreate_folder
