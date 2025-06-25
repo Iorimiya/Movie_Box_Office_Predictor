@@ -134,7 +134,7 @@ class ExpertReviewSerializableData(ReviewSerializableData):
     expert_score: float
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedArgs, ReviewSerializableData]):
     """
     Represents a general review.
@@ -272,7 +272,7 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
         )
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True,frozen=True)
 class PublicReview(Review):
     """
     Represents a public review, extending Review with a reply count.
@@ -332,7 +332,7 @@ class PublicReview(Review):
         )
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True,frozen=True)
 class ExpertReview(Review):
     """
     Represents an expert review, extending Review with an expert score.
@@ -389,3 +389,8 @@ class ExpertReview(Review):
             sentiment_score=self.sentiment_score,
             expert_score=self.expert_score
         )
+
+
+# TODO: Review加入sentiment 的 frozen處理(dataclass replace)
+# TODO: review __hash__的修正 and
+#  delete duplicate 的優化

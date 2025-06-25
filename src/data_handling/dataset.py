@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from functools import cached_property
 from logging import Logger
 from pathlib import Path
@@ -215,8 +215,7 @@ class Dataset:
 
                 loaded_data: list[MovieData] = [
                     MovieData(
-                        id=movie_meta_info.id,
-                        name=movie_meta_info.name,
+                        metadata=movie_meta_info,
                         box_office=BoxOffice.create_multiple(source=movie_meta_info.box_office_file_path),
                         public_reviews=PublicReview.create_multiple(source=movie_meta_info.public_reviews_file_path),
                         expert_reviews=ExpertReview.create_multiple(source=movie_meta_info.expert_reviews_file_path)
@@ -236,7 +235,7 @@ class Dataset:
 
                 meta_data_list: list[MovieData] = [
                     MovieData(
-                        id=movie_meta.id, name=movie_meta.name, box_office=[], public_reviews=[], expert_reviews=[]
+                        metadata=movie_meta, box_office=[], public_reviews=[], expert_reviews=[]
                     )
                     for movie_meta in movies_meta
                 ]
@@ -283,7 +282,8 @@ class Dataset:
             # The BoxOfficeCollector will modify the MovieData objects in movies_to_collect_for
             # and save data to files.
             with BoxOfficeCollector(download_mode='WEEK') as collector:  # Use context manager for BoxOfficeCollector if it supports it
-                collector.download_multiple_box_office_data(multiple_movie_data=movies_to_collect_for,data_folder=self.box_office_folder_path)
+                collector.download_box_office_data_for_movies(multiple_movie_data=movies_to_collect_for,
+                                                              data_folder=self.box_office_folder_path)
 
             self.__logger.info(f"Box office collection process finished for dataset '{self.name}'. "
                                f"The `movie_data` cache remains invalidated; reload to see updates.")
@@ -310,7 +310,7 @@ class Dataset:
         """
 
         try:
-            target_website_enum: TargetWebsite = TargetWebsite[target_website.upper()]
+            target_website_enum: TargetWebsite = cast(TargetWebsite, TargetWebsite[target_website.upper()])
         except KeyError:
             self.__logger.error(
                 f"Invalid target_website_str: '{target_website}'. Available: {[e.name for e in TargetWebsite]}")
@@ -357,13 +357,55 @@ class Dataset:
         # TODO waiting for ReviewCollector
         pass
 
-    def compute_sentiment(self, model_id:str,model_epoch:int)->None:
-        model_folder:Path = ProjectPaths.get_model_root_path(model_id=model_id,model_type=ProjectModelType.SENTIMENT)
-        model_file_path:Path = model_folder / f"{model_epoch}.keras"
-        tokenizer_path = model_folder / "tokenizer.pickle"
+    def compute_sentiment(self, model_id: str, model_epoch: int) -> None:
+        """
+        Computes sentiment scores for all public reviews in the dataset and updates them.
+
+        This method loads a specified sentiment analysis model, iterates through each
+        movie's public reviews, calculates a sentiment score for each, and then
+        creates new review objects with the computed scores using `dataclasses.replace`.
+        The updated reviews are then saved back to their respective files.
+
+        :param model_id: The ID of the sentiment analysis model to use.
+        :param model_epoch: The specific epoch of the model to use.
+        :raises FileNotFoundError: If the required model or tokenizer files are not found.
+        """
+        model_folder: Path = ProjectPaths.get_model_root_path(
+            model_id=model_id, model_type=ProjectModelType.SENTIMENT
+        )
+        # The model file name is assumed to be in the format {model_id}_{epoch}.keras,
+        # which aligns with the saving logic in ReviewSentimentAnalyseModel.
+        model_file_name: str = f"{model_id}_{model_epoch}.keras"
+        model_file_path: Path = model_folder / model_file_name
+        tokenizer_path: Path = model_folder / "tokenizer.pickle"
+
+        if not model_file_path.exists() or not tokenizer_path.exists():
+            error_msg = f"Model file '{model_file_path}' or tokenizer '{tokenizer_path}' not found for model '{model_id}' epoch {model_epoch}."
+            self.__logger.error(error_msg)
+            raise FileNotFoundError(error_msg)
+
+        sentiment_model = ReviewSentimentAnalyseModel(
+            model_path=model_file_path,
+            tokenizer_path=tokenizer_path
+        )
+
         for movie in self.movie_data:
             movie.load_public_reviews(target_directory=self.public_review_folder_path)
-            for review in movie.public_reviews:
-                review.sentiment_score = ReviewSentimentAnalyseModel(model_path=model_file_path,tokenizer_path=tokenizer_path).predict(review.content)
+
+            if not movie.public_reviews:
+                self.__logger.info(f"No public reviews to process for movie ID {movie.id} ('{movie.name}').")
+                continue
+
+            self.__logger.info(
+                f"Computing sentiment for {len(movie.public_reviews)} reviews for movie ID {movie.id}...")
+
+            updated_reviews: list[PublicReview] = [
+                replace(review, sentiment_score=sentiment_model.predict(review.content))
+                for review in movie.public_reviews
+            ]
+
+            # The MovieData object is not frozen, so we can replace its list of reviews.
+            movie.public_reviews = updated_reviews
             movie.save_public_reviews(target_directory=self.public_review_folder_path)
+
 # TODO: Docstring, comment

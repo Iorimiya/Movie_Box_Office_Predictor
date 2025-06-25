@@ -52,7 +52,7 @@ class BoxOfficeSerializableData(TypedDict):
     box_office: int
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class BoxOffice(MovieAuxiliaryDataMixin
                 ["BoxOffice", BoxOfficeRawData, BoxOfficePreparedArgs, BoxOfficeSerializableData]):
     """

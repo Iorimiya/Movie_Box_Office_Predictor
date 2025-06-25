@@ -15,12 +15,13 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.expected_conditions import element_to_be_clickable, visibility_of_element_located
 from tqdm import tqdm
 from urllib3.exceptions import ReadTimeoutError
+from yaml import YAMLError
 
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import Browser
 from src.data_handling.box_office import BoxOffice
-from src.data_handling.file_io import CsvFile
+from src.data_handling.file_io import CsvFile, YamlFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.movie_metadata import MovieMetadata
 
@@ -45,7 +46,6 @@ class BoxOfficeProgressFile(CsvFile):
     This file tracks the download status (URL, saved file path) for each movie.
     """
 
-    # Define the expected header explicitly
     HEADER: Final[tuple[str, str, str]] = ('id', 'url', 'file_path')
 
     def __init__(self, path: Path, encoding: str = Constants.DEFAULT_ENCODING):
@@ -100,7 +100,7 @@ class BoxOfficeProgressFile(CsvFile):
                 row_factory=self._progress_entry_factory)
             processed_data: list[BoxOfficeProgressEntry] = [entry for entry in loaded_entries if entry is not None]
             return processed_data
-        except FileNotFoundError:  # Should be caught by exists() check, but good for robustness
+        except FileNotFoundError:
             self.__logger.error(f"FileNotFoundError during load after exists() check for '{self.path}'.")
             return []
         except Exception as e:
@@ -300,10 +300,10 @@ class BoxOfficeCollector:
             try:
                 self.__browser.get(url=known_url)
                 # Wait for the page to load, but don't expect a URL change if we're already there
-                # We need to ensure the page content is ready
+                # Need to ensure the page content is ready
                 self.__browser.wait(method_setting=WaitingCondition(
                     condition=visibility_of_element_located(
-                        locator=(By.CSS_SELECTOR, 'div#export-button-container button')), # A common element on the page
+                        locator=(By.CSS_SELECTOR, 'div#export-button-container button')),
                     timeout=self.__page_loading_timeout,
                     error_message=f"Direct navigation to '{known_url}' failed to load expected elements."
                 ))
@@ -314,7 +314,7 @@ class BoxOfficeCollector:
                     self.__logger.warning(f"Direct navigation to '{known_url}' resulted in redirect to '{self.__browser.current_url}'. Falling back to search.")
             except TimeoutException as e:
                 self.__logger.warning(f"Direct navigation to '{known_url}' timed out: {e}. Falling back to search.")
-            except Exception as e: # Catch other potential issues with direct get()
+            except Exception as e:
                 self.__logger.warning(f"Error during direct navigation to '{known_url}': {e}. Falling back to search.")
 
         # Fallback to search-and-click logic
@@ -406,7 +406,7 @@ class BoxOfficeCollector:
 
     def __search_and_fetch_box_office(self,
                                       movie_name: str,
-                                      movie_id: Optional[int] = None, # Changed to Optional
+                                      movie_id: Optional[int] = None,
                                       progress_file: Optional[BoxOfficeProgressFile] = None,
                                       trying_times: int = 3) -> \
             Tuple[Optional[list[BoxOffice]], Optional[str]]:
@@ -425,7 +425,6 @@ class BoxOfficeCollector:
                   Both can be ``None`` if the fetch fails.
         """
         self._check_browser_active()
-        # Adjust logging to handle optional movie_id
         log_id: str = f" (ID: {movie_id})" if movie_id is not None else ""
         self.__logger.info(f"Fetching box office data for '{movie_name}'{log_id}.")
 
@@ -450,7 +449,7 @@ class BoxOfficeCollector:
 
                         # Determine if we have a known URL from progress file (only if progress_file and movie_id are provided)
                         known_url: Optional[str] = None
-                        if progress_file and movie_id is not None: # Added check for movie_id
+                        if progress_file and movie_id is not None:
                             progress_entries: list[BoxOfficeProgressEntry] = progress_file.load()
                             current_progress: Optional[BoxOfficeProgressEntry] = next(
                                 (p for p in progress_entries if p['id'] == movie_id), None)
@@ -461,7 +460,7 @@ class BoxOfficeCollector:
                         movie_url: Optional[str] = self.__navigate_to_movie_page(
                             movie_name=movie_name, known_url=known_url)
                         if not movie_url:
-                            continue  # Try again if navigation fails
+                            continue
 
                         self.__click_download_button(temp_download_path=temp_download_file_path, trying_times=attempt)
 
@@ -483,7 +482,7 @@ class BoxOfficeCollector:
                             return None, None
         return None, None
 
-    def download_single_box_office_data(self, movie_name: str) -> Optional[list[BoxOffice]]: # Removed movie_id
+    def download_box_office_data_for_movie(self, movie_name: str) -> list[BoxOffice]:
         """
         Fetches box office data for a single movie by name and returns it.
 
@@ -494,14 +493,18 @@ class BoxOfficeCollector:
         :returns: A list of ``BoxOffice`` objects if successful, otherwise ``None``.
         """
         self._check_browser_active()
-        # For single download, movie_id is None and progress_file is None
+
         box_office_data, _ = self.__search_and_fetch_box_office(
-            movie_name=movie_name, movie_id=None, progress_file=None) # Pass movie_id=None
+            movie_name=movie_name, movie_id=None, progress_file=None)
+        if box_office_data is None:
+            error_message: str = f"Failed to download box office data for movie '{movie_name}' after multiple attempts."
+            self.__logger.error(error_message)
+            raise RuntimeError(error_message)
         return box_office_data
 
-    def download_multiple_box_office_data(self,
-                                          multiple_movie_data: list[MovieData],
-                                          data_folder: Path) -> None:
+    def download_box_office_data_for_movies(self,
+                                            multiple_movie_data: list[MovieData],
+                                            data_folder: Path) -> None:
         """
         Downloads and saves box office data for multiple movies, tracking progress.
 
@@ -557,7 +560,38 @@ class BoxOfficeCollector:
                     except (ValueError, FileNotFoundError) as e:
                         self.__logger.error(f"Failed to update progress for movie ID {movie.id}: {e}")
                 else:
-                    self.__logger.error(f"Failed to download box office data for movie ID {movie.id}.")
+                    empty_file_path: Path = data_folder / f"{movie.id}.yaml"
+                    self.__logger.warning(
+                        f"No box office data found or URL not retrieved for movie ID {movie.id}. "
+                        f"Attempting to create empty file and update progress."
+                    )
+                    try:
+                        # Attempt 1: Create empty YAML file
+                        YamlFile(path=empty_file_path).save([])
+                        self.__logger.info(
+                            f"Created empty box office file for movie ID {movie.id} at '{empty_file_path}'.")
 
+                        # Attempt 2: Update progress file (only if file creation succeeded)
+                        progress_file.update_entry(movie_id=movie.id, update_field='url',
+                                                   new_value=movie_url if movie_url else '')
+                        progress_file.update_entry(movie_id=movie.id, update_field='file_path',
+                                                   new_value=str(empty_file_path))
+                        self.__logger.info(f"Progress file updated for movie ID {movie.id}.")
+
+                    except (OSError, YAMLError) as e:
+                        # Catches errors specifically from YamlFile operations (e.g., permissions, disk space)
+                        self.__logger.error(
+                            f"Error creating empty box office file for movie ID {movie.id} at '{empty_file_path}': {e}",
+                            exc_info=True)
+                    except (ValueError, FileNotFoundError) as e:
+                        # Catches errors specifically from progress_file.update_entry (e.g., movie ID not found in progress file)
+                        self.__logger.error(
+                            f"Failed to update progress for movie ID {movie.id} after creating empty file: {e}",
+                            exc_info=True)
+                    except Exception as e:
+                        # Catch any other unexpected errors during this block
+                        self.__logger.error(
+                            f"An unexpected error occurred for movie ID {movie.id} during empty file creation or progress update: {e}",
+                            exc_info=True)
                 pbar.update(1)
         return

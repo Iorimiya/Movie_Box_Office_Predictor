@@ -276,18 +276,28 @@ class WeekData:
 
 
 @dataclass(kw_only=True)
-class MovieSessionData(MovieMetadata):
+class MovieSessionData:
     """
     Represents session data for a movie over several weeks.
 
     This includes the movie's ID, name, and a list of WeekData objects
     representing its performance and reviews over consecutive weeks.
 
-    :ivar id: The unique identifier for the movie.
-    :ivar name: The name of the movie.
+    :ivar metadata: The immutable metadata for the movie.
     :ivar weeks_data: A list of WeekData objects for the movie session.
     """
+    metadata: MovieMetadata = field(repr=False)
     weeks_data: list[WeekData]
+
+    @property
+    def id(self) -> int:
+        """The unique integer identifier of the movie."""
+        return self.metadata.id
+
+    @property
+    def name(self) -> str:
+        """The name of the movie."""
+        return self.metadata.name
 
     @classmethod
     def _create_sessions_for_single_movie(cls,
@@ -307,28 +317,21 @@ class MovieSessionData(MovieMetadata):
                   or an empty list if processing fails or no valid sessions are found.
         """
 
-        movie_id_val: int = movie_meta_item.id
-        movie_name_val: str = movie_meta_item.name
+
         box_office_file_path: Path = movie_meta_item.box_office_file_path
         public_reviews_file_path: Path = movie_meta_item.public_reviews_file_path
         expert_reviews_file_path: Path = movie_meta_item.expert_reviews_file_path
 
         logger: Logger = LoggingManager().get_logger('root')
-        if movie_id_val is None or movie_name_val is None:
-            logger.warning(f"Skipping movie due to missing ID or name in index: {movie_meta_item}")
-            return []
-        try:
-            movie_id: int = int(movie_id_val) if isinstance(movie_id_val, str) else movie_id_val
-        except ValueError:
-            logger.warning(f"Skipping movie due to invalid ID '{movie_id_val}' in index: {movie_meta_item}")
-            return []
+
         if not box_office_file_path or not box_office_file_path.exists():
-            logger.warning(f"Box office file not found for movie ID {movie_id}. Skipping movie '{movie_name_val}'.")
+            logger.warning(
+                f"Box office file not found for movie ID {movie_meta_item.id}. Skipping movie '{movie_meta_item.name}'.")
             return []
 
         all_box_office_objects: list[BoxOffice] = BoxOffice.create_multiple(source=box_office_file_path)
         if not all_box_office_objects:
-            logger.info(f"No valid BoxOffice objects could be created for movie ID {movie_id}. Skipping.")
+            logger.info(f"No valid BoxOffice objects could be created for movie ID {movie_meta_item.id}. Skipping.")
             return []
 
         multiple_batches: list[list[BoxOffice]] = [
@@ -341,25 +344,25 @@ class MovieSessionData(MovieMetadata):
             if all(map(lambda week: week.box_office != 0, batch))
         ]
         if not filtered_batches:
-            logger.info(f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_id}.")
+            logger.info(
+                f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_meta_item.id}.")
             return []
 
         loaded_public_reviews: list[PublicReview] = []
         if public_reviews_file_path and public_reviews_file_path.exists():
             loaded_public_reviews = PublicReview.create_multiple(source=public_reviews_file_path)
         else:
-            logger.info(f"Review file not found for movie ID {movie_id} ('{movie_name_val}')."
+            logger.info(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
                         f"Proceeding without reviews for this movie.")
 
         loaded_expert_reviews: list[ExpertReview] = []
         if expert_reviews_file_path and expert_reviews_file_path.exists():
             loaded_expert_reviews = ExpertReview.create_multiple(source=expert_reviews_file_path)
         else:
-            logger.info(f"Review file not found for movie ID {movie_id} ('{movie_name_val}')."
+            logger.info(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
                         f"Proceeding without reviews for this movie.")
 
-        return [cls(id=movie_id,
-                    name=movie_name_val,
+        return [cls(metadata=movie_meta_item,
                     weeks_data=WeekData.create_multiple_week_data(
                         weeks_data_source=single_batch_week_dicts,
                         public_reviews_master_source=loaded_public_reviews,
@@ -388,30 +391,40 @@ class MovieSessionData(MovieMetadata):
         if not source_infos:
             logger.info(f"No processable movie metadata after initial validation from '{dataset.index_file_path}'.")
             return []
-        return chain.from_iterable([cls._create_sessions_for_single_movie(
+        return list(chain.from_iterable([cls._create_sessions_for_single_movie(
             movie_meta_item=movie_meta_with_paths_item,
             number_of_weeks=number_of_weeks)
             for movie_meta_with_paths_item in source_infos
-        ])
+        ]))
 
 
 @dataclass(kw_only=True)
-class MovieData(MovieMetadata):
+class MovieData:
     """
     Represents comprehensive data for a single movie.
 
     This includes its metadata (ID, name), and lists of all its
     box office records, public reviews, and expert reviews.
 
-    Inherits 'id' and 'name' from :class:`~.MovieMetadata`.
-
+    :ivar metadata: The immutable metadata for the movie.
     :ivar box_office: A list of all box office records for the movie.
     :ivar public_reviews: A list of all public reviews for the movie.
     :ivar expert_reviews: A list of all expert reviews for the movie.
     """
+    metadata: MovieMetadata = field(repr=False)
     box_office: list[BoxOffice] = field(default_factory=list)
     public_reviews: list[PublicReview] = field(default_factory=list)
     expert_reviews: list[ExpertReview] = field(default_factory=list)
+
+    @property
+    def id(self) -> int:
+        """The unique integer identifier of the movie."""
+        return self.metadata.id
+
+    @property
+    def name(self) -> str:
+        """The name of the movie."""
+        return self.metadata.name
 
     @property
     def box_office_week_lens(self) -> int:
