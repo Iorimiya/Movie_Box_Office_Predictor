@@ -1,9 +1,12 @@
 import re
+from contextlib import contextmanager
+from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from logging import Logger
 from pathlib import Path
-from typing import Final, Optional, TypeAlias
+from typing import Final, Optional, TypeAlias, Iterator
+from yaml import YAMLError
 
 import requests
 from bs4 import BeautifulSoup
@@ -17,11 +20,48 @@ from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import CaptchaBrowser
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview
+from src.data_handling.file_io import YamlFile
 from src.utilities.collection_utils import delete_duplicate
 
 Url: TypeAlias = str
 RegularExpressionPattern: TypeAlias = str
 Selector: TypeAlias = str
+
+
+@dataclass(kw_only=True, frozen=True)
+class _WebsiteConfig:
+    """
+    A data class to store configuration for a target website.
+
+    :cvar base_url: The base URL of the website.
+    :cvar search_url_part: The part of the URL used for searching.
+    """
+    base_url: str
+    search_url_part: str
+
+
+class TargetWebsite(Enum):
+    """
+    Enum representing the target website for review collection.
+
+    Each member holds a _WebsiteConfig object containing site-specific URLs.
+    """
+    PTT = _WebsiteConfig(
+        base_url='https://www.ptt.cc/bbs/movie/',
+        search_url_part='search?q='
+    )
+    DCARD = _WebsiteConfig(
+        base_url='https://www.dcard.tw/',
+        search_url_part='search?forum=movie&query='
+    )
+    IMDB = _WebsiteConfig(
+        base_url='https://www.imdb.com/',
+        search_url_part='find/?q='
+    )
+    ROTTEN_TOMATO = _WebsiteConfig(
+        base_url='https://www.rottentomatoes.com/',
+        search_url_part='search?search='
+    )
 
 
 class ReviewCollector:
@@ -32,21 +72,7 @@ class ReviewCollector:
     URL retrieval, and parsing review content.
     """
 
-    class TargetWebsite(Enum):
-        """
-        Enum representing the target website for review collection.
-
-        :cvar PTT: Represents the PTT website.
-        :cvar DCARD: Represents the Dcard website.
-        :cvar IMDB: Represents the IMDb website (currently not fully implemented for collection).
-        :cvar ROTTEN_TOMATO: Represents the Rotten Tomatoes website (currently not fully implemented for collection).
-        """
-        PTT = 0
-        DCARD = 1
-        IMDB = 2
-        ROTTEN_TOMATO = 3
-
-    def __init__(self, target_website: TargetWebsite, review_folder:Path) -> None:
+    def __init__(self, target_website: TargetWebsite) -> None:
         """
         Initializes the ReviewCollector.
 
@@ -54,13 +80,7 @@ class ReviewCollector:
         """
         self.__logger: Logger = LoggingManager().get_logger('root')
         self.__search_target: TargetWebsite = target_website
-        self.__base_url: tuple[str, str, str, str] = ('https://www.ptt.cc/bbs/movie/', 'https://www.dcard.tw/',
-                                                      'https://www.imdb.com/', 'https://www.rottentomatoes.com/')
-        self.__search_url_part: tuple[str, str, str, str] = \
-            ('search?q=', 'search?forum=movie&query=', 'find/?q=', 'search?search=')
-        self.__browser: Optional[CaptchaBrowser] = None
-        self.__review_folder: Path = review_folder
-        self.__logger.info(f"Download {self.__search_target.name} data.")
+        self.__logger.info(f"ReviewCollector initialized for target: {self.__search_target.name}")
 
     @staticmethod
     def get_movie_search_keys(movie_name: str) -> list[str]:
@@ -75,7 +95,7 @@ class ReviewCollector:
         :param movie_name: The original name of the movie.
         :returns: A list of generated search key strings.
         """
-        LoggingManager().get_logger('root').info("Creating search keys.")
+        LoggingManager().get_logger('root').info(f"Creating search keys for '{movie_name}'.")
         output = list()
 
         space: Final[RegularExpressionPattern] = " "
@@ -114,18 +134,17 @@ class ReviewCollector:
             output.append(re.sub(pattern=double_quotation, repl=empty, string=movie_name))
         if re.search(pattern=space_with_number_pattern, string=movie_name) is not None:
             output.append(re.sub(pattern=space, repl=empty, string=movie_name))
-        LoggingManager().get_logger('root').info("Creation of search keys finish.")
+        LoggingManager().get_logger('root').info(f"Finished creating {len(output)} search keys.")
         return output
 
-    __get_search_page_url = lambda self, search_key: \
-        f"{self.__base_url[self.__search_target.value]}{self.__search_url_part[self.__search_target.value]}{search_key}"
-    """
-    Constructs the search page URL for the configured target website and a given search key.
+    def __get_search_page_url(self, search_key: str) -> str:
+        """
+        Constructs the search page URL for the configured target website and a given search key.
 
-    :param self: The ``ReviewCollector`` instance.
-    :param search_key: The search key (e.g., movie name) to be used in the URL.
-    :returns: The fully constructed search page URL.
-    """
+        :param search_key: The search key (e.g., movie name) to be used in the URL.
+        :returns: The fully constructed search page URL.
+        """
+        return f"{self.__search_target.value.base_url}{self.__search_target.value.search_url_part}{search_key}"
 
     def __get_bs_element(self, url: str) -> BeautifulSoup:
         """
@@ -138,7 +157,7 @@ class ReviewCollector:
         :returns: A ``BeautifulSoup`` object representing the parsed HTML content.
         :raises requests.exceptions.RequestException: For issues during the HTTP request (e.g., network problems, invalid URL).
         """
-        # PTT在特定的板中需要over18=1這個cookies
+        # Some boards on PTT require the over18=1 cookie.
         match self.__search_target:
             case TargetWebsite.PTT:
                 response: Response = requests.get(url=url, cookies={'over18': '1'})
@@ -173,7 +192,7 @@ class ReviewCollector:
             case _:
                 raise ValueError
 
-    def __get_review_urls(self, search_key: str) -> list[str]:
+    def __get_review_urls(self, search_key: str, browser: Optional[CaptchaBrowser]) -> list[str]:
         """
         Gets a list of review URLs for a given search key from the target website.
 
@@ -181,53 +200,57 @@ class ReviewCollector:
         For Dcard, it uses a Selenium browser to scroll through search results and extract URLs.
 
         :param search_key: The search key (e.g., movie name) to find reviews for.
+        :param browser: The browser instance to use for Dcard, or None for PTT.
         :returns: A list of unique review URLs. Returns an empty list if no URLs are found
                   or if an error occurs during PTT page number retrieval.
         :raises ValueError: If the ``self.__search_target`` is not ``TargetWebsite.PTT`` or ``TargetWebsite.DCARD``.
+        :raises RuntimeError: If Dcard collection is attempted without a browser instance.
         """
-        search_url: Url = self.__get_search_page_url(search_key)
+        search_url: Url = self.__get_search_page_url(search_key=search_key)
         match self.__search_target:
             case TargetWebsite.PTT:
                 try:
-                    max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(search_url))
+                    max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(url=search_url))
                 except IndexError:
                     return list()
-                self.__logger.info(f"Find {max_page_number} pages of result.")
+                self.__logger.info(f"Found {max_page_number} pages of results for '{search_key}'.")
                 domain_pattern: Final[RegularExpressionPattern] = '^[^:\/]+:\/\/[^\/]+'
-                base_url = re.search(pattern=domain_pattern, string=self.__base_url[self.__search_target.value]).group(
-                    0)
+                base_url: str = re.search(pattern=domain_pattern, string=self.__search_target.value.base_url).group(0)
                 selector: Selector = "#main-container div.r-list-container div.title a"
                 urls: list[str] = [base_url + review['href']
                                    for current_page_number in range(1, max_page_number + 1)
                                    for review in
-                                   self.__get_bs_element(f"{search_url}&page={current_page_number}").select(selector)]
+                                   self.__get_bs_element(url=f"{search_url}&page={current_page_number}").select(
+                                       selector)]
 
             case TargetWebsite.DCARD:
-                self.__browser.get(search_url, captcha=True)
+                if not browser:
+                    raise RuntimeError("A CaptchaBrowser instance is required for Dcard collection.")
+                browser.get(url=search_url, captcha=True)
                 selector: Selector = "div#__next div[role='main'] div[data-key] article[role='article'] h2 a[href]"
-                scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
+                scroll_height: int = int(browser.find_element(selector="body").get_attribute("scrollHeight"))
                 urls = list()
                 for current_height in range(0, scroll_height, 150):
-                    self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
+                    browser.execute_script(f"window.scrollTo(0,{current_height})")
                     new_urls = list()
-                    for element in self.__browser.find_elements(selector=selector):
+                    for element in browser.find_elements(selector=selector):
                         try:
-                            # selenium.common.exceptions.StaleElementReferenceException
-                            href = element.get_attribute("href")
+                            href: str = element.get_attribute("href")
                         except StaleElementReferenceException:
-                            self.__logger.error(f"Cannot locale element on {search_key}, height {current_height}.",
-                                                exc_info=True)
+                            self.__logger.error(
+                                f"StaleElementReferenceException for '{search_key}' at height {current_height}.",
+                                exc_info=True)
                         else:
                             new_urls.append(href)
                     urls.extend(url for url in new_urls)
-                urls = delete_duplicate(urls)
+                urls = delete_duplicate(items=urls)
 
             case _:
-                raise ValueError
-        self.__logger.info(f"{len(urls)} urls found.")
+                raise ValueError(f"Unsupported target website: {self.__search_target.name}")
+        self.__logger.info(f"Found {len(urls)} review URLs for '{search_key}'.")
         return urls
 
-    def __get_review_information(self, url: str) -> PublicReview | None:
+    def __get_review_information(self, url: str, browser: Optional[CaptchaBrowser]) -> Optional[PublicReview]:
         """
         Extracts review information (title, content, post time, replies) from a given review URL.
 
@@ -235,14 +258,16 @@ class ReviewCollector:
         The extracted information is used to create a ``PublicReview`` object.
 
         :param url: The URL of the review page.
+        :param browser: The browser instance to use for Dcard, or None for PTT.
         :returns: A ``PublicReview`` object containing the extracted information,
                   or ``None`` if essential information cannot be found or an error occurs during parsing.
+        :raises RuntimeError: If Dcard collection is attempted without a browser instance.
         """
-        self.__logger.info(f"Search review information for \"{url}\".")
-        title: str | None = None
-        content: str | None = None
-        replies: list[str] | None = None
-        posted_time: datetime | None = None
+        self.__logger.info(f"Fetching review information from: \"{url}\".")
+        title: Optional[str] = None
+        content: Optional[str] = None
+        replies: Optional[list[str]] = None
+        posted_time: Optional[datetime] = None
         match self.__search_target:
             case TargetWebsite.PTT:
                 meta_element_selector: Final[Selector] = '.article-metaline'
@@ -251,8 +276,11 @@ class ReviewCollector:
                 time_format: Final[str] = '%a %b %d %H:%M:%S %Y'
                 key_words: Final[tuple[str, str]] = ('標題', '時間')
                 try:
-                    content_base_element: BeautifulSoup | None = self.__get_bs_element(url=url).select_one(
+                    content_base_element: Optional[BeautifulSoup] = self.__get_bs_element(url=url).select_one(
                         selector='#main-content')
+                    if not content_base_element:
+                        self.__logger.warning(f"Could not find main content element in URL: \"{url}\".")
+                        return None
                     article_meta_elements = content_base_element.select(selector=meta_element_selector)
                     for article_meta_element in article_meta_elements:
                         if article_meta_element.select_one(selector=meta_tag_selector).text == key_words[0]:
@@ -265,13 +293,15 @@ class ReviewCollector:
                         [element for element in content_base_element if
                          isinstance(element, NavigableString)]).strip()
                     replies = [reply.text for reply in content_base_element.select(selector='.push .push-content')]
-                    if not (title and posted_time and content and replies):
+                    if not (title and posted_time and content):
                         return None
                 except Exception as e:
-                    self.__logger.warning(f"Cannot search element in url:\"{url}\".")
-                    self.__logger.error(f"Error message: {e}")
+                    self.__logger.warning(f"Cannot parse element in URL: \"{url}\".")
+                    self.__logger.error(f"Error message: {e}", exc_info=True)
                     return None
             case TargetWebsite.DCARD:
+                if not browser:
+                    raise RuntimeError("A CaptchaBrowser instance is required for Dcard collection.")
                 selector_base: Final[Selector] = "div#__next div[role='main']"
                 selector_title: Final[Selector] = selector_base + " article h1"
                 selector_time: Final[Selector] = selector_base + " article time"
@@ -279,34 +309,35 @@ class ReviewCollector:
                 selector_reply: Final[Selector] = selector_base + " section div[data-key^='comment'] span:not([class])"
                 time_format: Final[str] = '%Y 年 %m 月 %d 日 %H:%M'
 
-                self.__browser.home()
-                self.__browser.get(url=url, captcha=True)
+                browser.home()
+                browser.get(url=url, captcha=True)
 
                 try:
-
-                    title = self.__browser.find_element(selector=selector_title).text
+                    title = browser.find_element(selector=selector_title).text
                     posted_time = datetime.strptime(
-                        self.__browser.find_element(selector=selector_time).text,
+                        browser.find_element(selector=selector_time).text,
                         time_format)
-                    content = self.__browser.find_element(selector=selector_content).text
-                    # selenium.common.exceptions.InvalidSelectorException
-                    scroll_height: int = int(self.__browser.find_element(selector="body").get_attribute("scrollHeight"))
+                    content = browser.find_element(selector=selector_content).text
+                    scroll_height: int = int(browser.find_element(selector="body").get_attribute("scrollHeight"))
                     replies_list = list()
                     for current_height in range(0, scroll_height, 150):
-                        self.__browser.execute_script(f"window.scrollTo(0,{current_height})")
-                        # 　selenium.common.exceptions.StaleElementReferenceException
+                        browser.execute_script(f"window.scrollTo(0,{current_height})")
                         replies = [reply_element.text for reply_element in
-                                   self.__browser.find_elements(selector=selector_reply)]
+                                   browser.find_elements(selector=selector_reply)]
                         replies_list.extend(replies)
+                    replies = replies_list
                 except Exception as e:
-                    self.__logger.warning(f"Cannot search element in url:\"{url}\".")
-                    self.__logger.error(f"Error message: {e}")
+                    self.__logger.warning(f"Cannot find element in URL: \"{url}\".")
+                    self.__logger.error(f"Error message: {e}", exc_info=True)
                     return None
 
-        return PublicReview(url=url, title=title, content=content, date=posted_time.date(), reply_count=len(replies),
-                            sentiment_score=None)
+        if title and content and posted_time:
+            return PublicReview(url=url, title=title, content=content, date=posted_time.date(),
+                                reply_count=len(replies or []),
+                                sentiment_score=None)
+        return None
 
-    def __get_reviews_by_keyword(self, search_key: str) -> list[PublicReview]:
+    def __get_reviews_by_keyword(self, search_key: str, browser: Optional[CaptchaBrowser]) -> list[PublicReview]:
         """
         Retrieves and processes all public reviews found using a specific search keyword.
 
@@ -315,21 +346,18 @@ class ReviewCollector:
         Only successfully parsed reviews are returned.
 
         :param search_key: The keyword to search for reviews.
+        :param browser: The browser instance to use for Dcard, or None for PTT.
         :returns: A list of ``PublicReview`` objects.
         :raises ValueError: If the ``self.__search_target`` is not ``TargetWebsite.PTT`` or ``TargetWebsite.DCARD``
                             (propagated from ``__get_review_urls``).
         """
-        match self.__search_target:
-            case TargetWebsite.PTT | TargetWebsite.DCARD:
-                self.__logger.info(f"Start search reviews with search key \"{search_key}.")
-                urls: list[str] = [url for url in self.__get_review_urls(search_key=search_key)]
-                return list(filter(lambda x: x, [self.__get_review_information(url=url) for url in
-                                                 tqdm(urls, desc='review urls',
-                                                      bar_format=Constants.STATUS_BAR_FORMAT)]))
-            case _:
-                raise ValueError
+        self.__logger.info(f"Searching reviews with keyword: \"{search_key}\".")
+        urls: list[str] = self.__get_review_urls(search_key=search_key, browser=browser)
+        return list(filter(None, [self.__get_review_information(url=url, browser=browser) for url in
+                                  tqdm(urls, desc=f'Fetching reviews for "{search_key}"',
+                                       bar_format=Constants.STATUS_BAR_FORMAT)]))
 
-    def __get_reviews_by_name(self, movie_name: str) -> list[PublicReview] | None:
+    def __get_reviews_by_name(self, movie_name: str, browser: Optional[CaptchaBrowser]) -> list[PublicReview]:
         """
         Gets all unique public reviews for a given movie name.
 
@@ -338,86 +366,98 @@ class ReviewCollector:
         Finally, it consolidates and de-duplicates all found reviews.
 
         :param movie_name: The name of the movie.
-        :returns: A list of unique ``PublicReview`` objects, or ``None`` if an error occurs
-                  (though current implementation always returns a list, potentially empty).
+        :param browser: The browser instance to use for Dcard, or None for PTT.
+        :returns: A list of unique ``PublicReview`` objects. Returns an empty list if no reviews are found.
         """
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
         reviews: list[PublicReview] = [review for search_key in search_keys for review in
-                                       self.__get_reviews_by_keyword(search_key=search_key)]
-        self.__logger.info("Trying to delete duplicate reviews.")
-        reviews = delete_duplicate(reviews)
-        self.__logger.info("Deletion of duplicate reviews finished.")
+                                       self.__get_reviews_by_keyword(search_key=search_key, browser=browser)]
+        self.__logger.info(f"Found {len(reviews)} raw reviews for '{movie_name}'. De-duplicating...")
+        reviews = delete_duplicate(items=reviews)
+        self.__logger.info(f"Finished with {len(reviews)} unique reviews for '{movie_name}'.")
         return reviews
 
-
-    def __search_review_and_save(self, movie_list: list[MovieData], save_folder_path: Path) -> None:
+    @contextmanager
+    def _managed_browser_session(self) -> Iterator[Optional[CaptchaBrowser]]:
         """
-        Searches for public reviews for each movie in a list and saves them.
+        A context manager that provides a CaptchaBrowser session only if the target is DCARD.
 
-        For each movie, it retrieves reviews using ``__get_reviews_by_name``.
-        If a review file already exists for the movie, existing reviews are loaded first.
-        The newly found reviews are then added (duplicates are handled), and the updated
-        set of reviews is saved back to the movie's review file.
+        This centralizes the logic for browser instantiation and cleanup. For non-DCARD
+        targets, it yields None and does nothing.
 
-        :param movie_list: A list of ``MovieData`` objects for which to search and save reviews.
-        :param save_folder_path: The directory where the review files (named by movie ID) will be saved.
+        :yields: A ``CaptchaBrowser`` instance if the target is DCARD, otherwise ``None``.
         """
-
-        save_folder_path.mkdir(parents=True, exist_ok=True)
-        for movie in tqdm(movie_list, desc='movies', bar_format=Constants.STATUS_BAR_FORMAT):
-            movie.load_public_reviews(target_directory=save_folder_path)
-            newly_fetched_reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie.name)
-            movie.update_public_reviews(update_method='EXTEND', data=newly_fetched_reviews)
-            movie.save_public_reviews(target_directory=save_folder_path)
-
-
-
-    def search_review_with_single_movie(self, movie_data: str | MovieData) -> list[PublicReview] | None:
-        """
-        Searches for public reviews for a single movie, specified either by name or a ``MovieData`` object.
-
-        If ``movie_data`` is a ``MovieData`` object, the found reviews are updated directly into it,
-        and the method returns ``None``.
-        If ``movie_data`` is a string (movie name), the method returns the list of found ``PublicReview`` objects.
-        Requires ``CaptchaBrowser`` for Dcard.
-
-        :param movie_data: The movie name (string) or a ``MovieData`` object.
-        :returns: A list of ``PublicReview`` objects if ``movie_data`` is a string and reviews are found,
-                  otherwise ``None`` (specifically when ``movie_data`` is a ``MovieData`` object).
-                  Returns an empty list if no reviews are found for a string input.
-        :raises ValueError: If ``movie_data`` is not a string or ``MovieData`` instance,
-                            or if the ``self.__search_target`` is not PTT or Dcard.
-        """
-        if isinstance(movie_data, MovieData):
-            movie_name = movie_data.name
-        elif isinstance(movie_data, str):
-            movie_name = movie_data
+        if self.__search_target == TargetWebsite.DCARD:
+            browser: Optional[CaptchaBrowser] = CaptchaBrowser()
+            try:
+                browser.__enter__()
+                yield browser
+            finally:
+                browser.__exit__(None, None, None)
         else:
-            raise ValueError
-        match self.__search_target:
-            case TargetWebsite.PTT:
-                reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_name)
-            case TargetWebsite.DCARD:
-                with CaptchaBrowser() as self.__browser:
-                    reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_name)
-            case _:
-                raise ValueError
-        if isinstance(movie_data, MovieData):
-            movie_data.update_public_reviews(data=reviews,update_method='EXTEND')
-            return None
-        elif isinstance(movie_data, str):
-            return reviews
-        else:
-            raise ValueError
+            yield None
 
-    def collect_reviews_for_movies(self, movie_list:list[MovieData])->None:
-        for movie in movie_list:
-            self.search_review_with_single_movie(movie_data=movie)
-            movie.save_public_reviews(target_directory=self.__review_folder)
+    def collect_reviews_for_movie(self, movie_name: str) -> list[PublicReview]:
+        """
+        Searches for public reviews for a single movie by name.
 
-    # TODO:將self.__browser的生命週期放入collect_reviews_for_movies
+        This method fetches reviews for the specified movie. If no reviews are found,
+        an empty list is returned. Any errors during the collection process will be raised.
 
-TargetWebsite: TypeAlias = ReviewCollector.TargetWebsite
+        :param movie_name: The name of the movie.
+        :returns: A list of PublicReview objects. Returns an empty list if no reviews are found.
+        :raises Exception: Propagates any exceptions encountered during the review collection process.
+        """
+        self.__logger.info(f"Starting single collection for movie: '{movie_name}'.")
+        with self._managed_browser_session() as browser:
+            reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_name, browser=browser)
+        self.__logger.info(f"Finished collecting {len(reviews)} reviews for '{movie_name}'.")
+        return reviews
 
-# TODO: multiple輸出None並存入檔案內，single輸出Review物件(ask 潔米奈)
-# TODO: 潔米奈：TargetWeksite的優化
+    def collect_reviews_for_movies(self, movie_list: list[MovieData], data_folder: Path) -> None:
+        """
+        Collects public reviews for a list of movies and saves them to files.
+
+        For each movie, it fetches reviews. If no reviews are found, an empty YAML file
+        is created. If an error occurs during collection for a movie, it is logged,
+        and the process continues to the next movie. CaptchaBrowser is instantiated
+        only once for Dcard collection across all movies.
+
+        :param movie_list: A list of MovieData objects for which to collect reviews.
+        :param data_folder: The directory where the final data will be saved.
+        """
+        self.__logger.info(f"Starting batch review collection for {len(movie_list)} movies.")
+        data_folder.mkdir(parents=True, exist_ok=True)
+
+        with self._managed_browser_session() as browser:
+            for movie in tqdm(movie_list, desc='Collecting Reviews', bar_format=Constants.STATUS_BAR_FORMAT):
+                self.__logger.debug(f"Processing reviews for movie ID {movie.id} ('{movie.name}').")
+                try:
+                    newly_fetched_reviews: list[PublicReview] = self.__get_reviews_by_name(
+                        movie_name=movie.name, browser=browser
+                    )
+
+                    movie.update_public_reviews(update_method='EXTEND', data=newly_fetched_reviews)
+                    saved_path: Path = movie.save_public_reviews(target_directory=data_folder)
+
+                    if not newly_fetched_reviews:
+                        self.__logger.info(
+                            f"No new reviews found for movie ID {movie.id}. Empty file created at '{saved_path}'.")
+                    else:
+                        self.__logger.info(
+                            f"Successfully collected and saved {len(newly_fetched_reviews)} reviews for movie ID {movie.id} to '{saved_path}'.")
+
+                except Exception as e:
+                    self.__logger.error(
+                        f"Failed to collect reviews for movie ID {movie.id} ('{movie.name}'): {e}",
+                        exc_info=True
+                    )
+                    empty_file_path: Path = data_folder / f"{movie.id}.yaml"
+                    try:
+                        YamlFile(path=empty_file_path).save(data=[])
+                        self.__logger.info(
+                            f"Created empty review file for failed movie ID {movie.id} at '{empty_file_path}'.")
+                    except (OSError, YAMLError) as file_e:
+                        self.__logger.error(
+                            f"Failed to create empty review file for movie ID {movie.id}: {file_e}",
+                            exc_info=True)
