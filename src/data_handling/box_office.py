@@ -66,6 +66,14 @@ class BoxOffice(MovieAuxiliaryDataMixin
     end_date: date
     box_office: int
 
+    def __str__(self) -> str:
+        """
+        Returns a string representation of the BoxOffice object for display.
+        """
+        return (
+            f"  Start date: {self.start_date}, End date: {self.end_date}, Box office: {self.box_office}"
+        )
+
     @classmethod
     def _prepare_constructor_args(cls: Type["BoxOffice"], raw_data: BoxOfficeRawData) -> BoxOfficePreparedArgs:
         """
@@ -183,32 +191,24 @@ class BoxOffice(MovieAuxiliaryDataMixin
 
             box_office_for_raw: str | int
             if amount_val is None:
-                # Default to "0" if Amount is missing, _prepare_constructor_args will handle int conversion
-                # and raise ValueError if it's truly missing and required.
-                # Or, if None implies an error/skip:
-                # logger.warning(f"Missing 'Amount' in week_data_item: {week_data_item} from file {file_path}. Skipping item.")
-                # continue
                 box_office_for_raw = "0"
             elif isinstance(amount_val, float):
                 box_office_for_raw = int(amount_val)
             elif isinstance(amount_val, int):
                 box_office_for_raw = amount_val
-            else:  # Assumed to be string
+            else:
                 box_office_for_raw = str(amount_val)
 
             prepared_raw_data_list.append(BoxOfficeRawData(
                 start_date=start_date_str, end_date=end_date_str, box_office=box_office_for_raw
             ))
 
-        if not prepared_raw_data_list: # This means all items in json_rows were skipped
+        if not prepared_raw_data_list:
             msg = f"All items in 'Rows' from {file_path} were malformed or lacked necessary data. No data prepared."
             logger.error(msg)
             raise ValueError(msg)
 
         try:
-            # create_multiple will call _try_create_from_source, which calls _prepare_constructor_args
-            # _prepare_constructor_args will raise ValueError for individual item parsing errors.
-            # If all items fail _prepare_constructor_args, create_multiple returns an empty list.
             # noinspection PyTypeChecker
             weekly_box_office_data: list["BoxOffice"] = cls.create_multiple(source=prepared_raw_data_list)
         except ValueError as e: # Catch errors from _prepare_constructor_args if they propagate
