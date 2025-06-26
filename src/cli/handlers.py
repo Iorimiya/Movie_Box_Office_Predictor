@@ -5,7 +5,11 @@ from pathlib import Path
 
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectDatasetType, ProjectModelType, ProjectPaths
+from src.data_collection.box_office_collector import BoxOfficeCollector
+from src.data_collection.review_collector import ReviewCollector, TargetWebsite
+from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import Dataset
+from src.data_handling.reviews import PublicReview
 
 
 class DatasetHandler:
@@ -62,6 +66,38 @@ class DatasetHandler:
             raise FileNotFoundError(f"Dataset '{dataset_name}' not found at expected path: {dataset_path}")
         return dataset_path
 
+    @staticmethod
+    def _log_box_office_data(logger: Logger, movie_name: str, box_office_data: list[BoxOffice]) -> None:
+        """
+        Logs formatted box office data for a movie.
+
+        :param logger: The logger instance to use for logging.
+        :param movie_name: The name of the movie.
+        :param box_office_data: A list of BoxOffice objects.
+        """
+        logger.info(f"--- Box Office Data for '{movie_name}' ---")
+        for entry in box_office_data:
+            logger.info(str(entry))
+        logger.info(f"---------------------------------------")
+
+    @staticmethod
+    def _log_reviews_data(logger: Logger, movie_name: str, reviews: list[PublicReview], review_type: str) -> None:
+        """
+        Logs formatted review data for a movie.
+
+        :param logger: The logger instance to use for logging.
+        :param movie_name: The name of the movie.
+        :param reviews: A list of PublicReview objects.
+        :param review_type: The type of review (e.g., "PTT", "Dcard").
+        """
+        logger.info(f"--- {review_type} Reviews for '{movie_name}' ---")
+        for i, review in enumerate(reviews):
+            logger.info(f"Review {i + 1}:")
+            logger.info(str(review))
+            if i < len(reviews) - 1:
+                logger.info("-" * 40)
+        logger.info(f"---------------------------------------")
+
     def collect_box_office(self, args: Namespace) -> None:
         """
         Collects box office data for an entire dataset or a single movie.
@@ -76,9 +112,27 @@ class DatasetHandler:
             self._validate_dataset_path(dataset_name=dataset_name)
             Dataset(name=dataset_name).collect_box_office()
         elif args.movie_name:
-            self._logger.info(f"Executing: Collect box office data for movie '{args.movie_name}'.")
-            # TODO: Implement single movie box office collection logic
-            pass
+            movie_name: str = args.movie_name
+            self._logger.info(f"Executing: Collect box office data for movie '{movie_name}'.")
+
+            try:
+                with BoxOfficeCollector(download_mode='WEEK') as collector:
+                    box_office_data: list[BoxOffice] = collector.download_box_office_data_for_movie(
+                        movie_name=movie_name
+                    )
+
+                    if box_office_data:
+                        self._logger.info(f"Successfully retrieved box office data for '{movie_name}'.")
+                        self._log_box_office_data(logger=self._logger, movie_name=movie_name, box_office_data=box_office_data)
+                    else:
+                        self._logger.warning(f"No box office data found for '{movie_name}'.")
+            except RuntimeError as e:
+                self._logger.error(f"Failed to retrieve box office data for '{movie_name}': {e}")
+            except Exception as e:
+                self._logger.error(
+                    f"An unexpected error occurred while collecting box office data for '{movie_name}': {e}",
+                    exc_info=True
+                )
 
     def collect_ptt_review(self, args: Namespace) -> None:
         """
@@ -94,8 +148,24 @@ class DatasetHandler:
             self._validate_dataset_path(dataset_name=dataset_name)
             Dataset(name=dataset_name).collect_public_review(target_website='PTT')
         elif args.movie_name:
-            self._logger.info(f"Executing: Collect PTT reviews for movie '{args.movie_name}'.")
-            # TODO: Implement single movie PTT review collection logic
+            movie_name: str = args.movie_name
+            self._logger.info(f"Executing: Collect PTT reviews for movie '{movie_name}'.")
+
+            try:
+                with ReviewCollector(target_website=TargetWebsite.PTT) as collector:
+                    reviews: list[PublicReview] = collector.collect_reviews_for_movie(movie_name=movie_name)
+                    if reviews:
+                        self._logger.info(f"Successfully retrieved PTT reviews for '{movie_name}'.")
+                        self._log_reviews_data(logger=self._logger, movie_name=movie_name, reviews=reviews,
+                                               review_type="PTT")
+                    else:
+                        self._logger.warning(f"No PTT reviews found for '{movie_name}'.")
+
+            except Exception as e:
+                self._logger.error(
+                    f"An error occurred while collecting PTT reviews for '{movie_name}': {e}",
+                    exc_info=True
+                )
             pass
 
     def collect_dcard_review(self, args: Namespace) -> None:
@@ -112,8 +182,22 @@ class DatasetHandler:
             self._validate_dataset_path(dataset_name=dataset_name)
             Dataset(name=dataset_name).collect_public_review(target_website='DCARD')
         elif args.movie_name:
-            self._logger.info(f"Executing: Collect Dcard reviews for movie '{args.movie_name}'.")
-            # TODO: Implement single movie Dcard review collection logic
+            movie_name: str = args.movie_name
+            self._logger.info(f"Executing: Collect Dcard reviews for movie '{movie_name}'.")
+
+            try:
+                with ReviewCollector(target_website=TargetWebsite.DCARD) as collector:
+                    reviews: list[PublicReview] = collector.collect_reviews_for_movie(movie_name=movie_name)
+                    if reviews:
+                        self._logger.info(f"Successfully retrieved Dcard reviews for '{movie_name}'.")
+                        self._log_reviews_data(logger=self._logger, movie_name=movie_name, reviews=reviews, review_type="Dcard")
+                    else:
+                        self._logger.warning(f"No Dcard reviews found for '{movie_name}'.")
+            except Exception as e:
+                self._logger.error(
+                    f"An error occurred while collecting Dcard reviews for '{movie_name}': {e}",
+                    exc_info=True
+                )
             pass
 
     def compute_sentiment(self, args: Namespace) -> None:
