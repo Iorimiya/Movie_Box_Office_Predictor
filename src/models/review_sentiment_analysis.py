@@ -1,7 +1,7 @@
 import pickle
 from logging import Logger
 from pathlib import Path
-from typing import Optional, TypeAlias
+from typing import Optional
 
 import jieba
 import numpy as np
@@ -17,9 +17,7 @@ from sklearn.model_selection import train_test_split
 
 from src.core.logging_manager import LoggingManager
 from src.models.machine_learning_model import MachineLearningModel
-from src.utilities.filesystem_utils import FilesystemUtils
-
-check_path_exists: TypeAlias = FilesystemUtils.check_path_exists
+from src.utilities.filesystem_utils import is_existing_path
 
 class ReviewSentimentAnalyseModel(MachineLearningModel):
     """
@@ -41,7 +39,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         :param review_max_length: The maximum length of a review sequence after padding. Defaults to 100.
         """
         super().__init__(model_path=model_path)
-        self.__tokenizer: Optional[Tokenizer] = self.__load_tokenizer(tokenizer_path) if check_path_exists(
+        self.__tokenizer: Optional[Tokenizer] = self.__load_tokenizer(tokenizer_path) if is_existing_path(
             tokenizer_path) else None
         self.__num_words: int = num_words
         self.__review_max_len: int = review_max_length

@@ -1,7 +1,7 @@
 import random
 from logging import Logger
 from pathlib import Path
-from typing import Optional, TypedDict, TypeAlias
+from typing import Optional, TypedDict
 
 import numpy as np
 import yaml
@@ -22,10 +22,7 @@ from src.data_handling.dataset import Dataset
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview
 from src.models.machine_learning_model import MachineLearningModel
-from src.utilities.filesystem_utils import FilesystemUtils
-
-check_path_exists: TypeAlias = FilesystemUtils.check_path_exists
-recreate_folder: TypeAlias = FilesystemUtils.recreate_folder
+from src.utilities.filesystem_utils import is_existing_path, recreate_folder
 
 
 class MoviePredictionInputData(TypedDict):
@@ -73,13 +70,13 @@ class MoviePredictionModel(MachineLearningModel):
                                       (e.g., ``training_data_len``, ``training_week_limit``).
         """
         super().__init__(model_path=model_path)
-        self.__transform_scaler: Optional[MinMaxScaler] = scaler_load(transform_scaler_path) if check_path_exists(
+        self.__transform_scaler: Optional[MinMaxScaler] = scaler_load(transform_scaler_path) if is_existing_path(
             transform_scaler_path) else None
         self.__training_week_limit: Optional[int] = None
         self.__training_data_len: Optional[int] = None
         self.__split_rate: Optional[float] = None
         self.__logger: Logger = LoggingManager().get_logger('machine_learning')
-        if check_path_exists(training_setting_path):
+        if is_existing_path(training_setting_path):
             self.__load_training_setting(training_setting_path)
         return
 

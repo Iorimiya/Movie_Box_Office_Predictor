@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from logging import Logger
 from pathlib import Path
-from typing import Optional, TypeAlias
+from typing import Optional
 
 from keras.api.models import load_model
 from keras.src.callbacks import Callback
@@ -9,9 +9,7 @@ from keras.src.models import Sequential
 from numpy.typing import NDArray
 
 from src.core.logging_manager import LoggingManager
-from src.utilities.filesystem_utils import FilesystemUtils
-
-check_path_exists:TypeAlias = FilesystemUtils.check_path_exists
+from src.utilities.filesystem_utils import is_existing_path
 
 
 class LossLoggingCallback(Callback):
@@ -61,7 +59,7 @@ class MachineLearningModel(ABC):
 
         :param model_path: Optional path to a pre-trained Keras model file.
         """
-        self._model: Optional[Sequential] = load_model(model_path) if check_path_exists(model_path) else None
+        self._model: Optional[Sequential] = load_model(model_path) if is_existing_path(model_path) else None
 
     def _save_model(self, file_path: Path) -> None:
         """
@@ -179,7 +177,7 @@ class MachineLearningModel(ABC):
         """
         if not old_model_path and not layers:
             raise ValueError('Either layers or old_model_path must be provided.')
-        elif check_path_exists(old_model_path):
+        elif is_existing_path(old_model_path):
             model: Sequential = load_model(old_model_path)
         else:
             model: Sequential = Sequential()
