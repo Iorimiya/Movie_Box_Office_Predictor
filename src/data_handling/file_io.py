@@ -1,9 +1,11 @@
 from abc import ABC, abstractmethod
 from csv import DictReader, DictWriter
 from pathlib import Path
-from typing import Final, Optional
+from typing import Callable, Final, Optional
 
 import yaml
+
+from src.core.constants import Constants
 
 
 class File(ABC):
@@ -14,7 +16,7 @@ class File(ABC):
     :ivar encoding: The encoding of the file.
     """
 
-    def __init__(self, path: Path, encoding: str = 'utf-8'):
+    def __init__(self, path: Path, encoding: str = Constants.DEFAULT_ENCODING):
         """Initializes the File object.
 
         :param path: The path to the file.
@@ -22,6 +24,16 @@ class File(ABC):
         """
         self.path: Final[Path] = path
         self.encoding: Final[str] = encoding
+
+    @property
+    def exists(self) -> bool:
+        return self.path.exists()
+
+    def touch(self, exist_ok: bool = False) -> None:
+        return self.path.touch(exist_ok=exist_ok)
+
+    def delete(self, missing_ok: bool = False) -> None:
+        return self.path.unlink(missing_ok=missing_ok)
 
     @abstractmethod
     def save(self, data: list[dict[any, any]] | dict[any, any]) -> None:
@@ -52,6 +64,18 @@ class CsvFile(File):
     and load data from a CSV file into a list of dictionaries.
     """
 
+    def __init__(self, path: Path, encoding: str = Constants.DEFAULT_ENCODING,
+                 header: Optional[tuple[str, ...]] = None):
+        """
+        Initializes the CsvFile object.
+
+        :param path: The path to the CSV file.
+        :param encoding: The encoding of the file, defaults to 'utf-8'.
+        :param header: An optional tuple of strings to be used as the CSV header.
+        """
+        super().__init__(path=path, encoding=encoding)
+        self.header: Final[Optional[tuple[str, ...]]] = header
+
     def save(self, data: list[dict[any, any]]) -> None:
         """
         Saves a list of dictionaries to the CSV file.
@@ -65,30 +89,54 @@ class CsvFile(File):
         """
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
-        if not data:
-            self.path.touch()
+
+        field_names: Optional[list[str]]
+
+        if self.header is not None:
+            field_names = list(self.header)
+        elif data:  # data is not empty, and no header was provided, so infer from data
+            # Ensure all keys are strings for field names
+            field_names = list(dict.fromkeys(str(key) for dictionary in data for key in dictionary.keys()))
+        else:  # data is empty and no header was provided
+            self.touch(exist_ok=True)  # Create an empty file
             return
-        field_names: list[str] = list(dict.fromkeys(str(key) for dictionary in data for key in dictionary.keys()))
+
+        # At this point, field_names should be set if we are proceeding to write
+        if field_names is None:
+            # This case should ideally not be reached if logic above is correct,
+            # but as a safeguard for empty data and no header.
+            self.touch(exist_ok=True)
+            return
+
         with open(file=self.path, mode='w', encoding=self.encoding, newline='') as file:
             # noinspection PyTypeChecker
-            writer: DictWriter = DictWriter(file, fieldnames=field_names)
+            writer: DictWriter = DictWriter(f=file, fieldnames=field_names)
             writer.writeheader()
-            writer.writerows(data)
+            if data:
+                writer.writerows(rowdicts=data)
         return
 
-    def load(self) -> list[dict[str, str]]:
+
+    def load(self, row_factory: Optional[Callable[[dict[str, str]], any]] = None) -> list[any]:
         """
-        Loads data from the CSV file into a list of dictionaries.
+        Loads data from the CSV file.
 
         Each row in the CSV is converted into a dictionary where keys are column headers.
+        If a `row_factory` is provided, it is called for each row dictionary to transform it.
 
-        :return: A list of dictionaries, where each dictionary represents a row.
+        :param row_factory: An optional callable that takes a raw row dictionary (dict[str, str])
+                            and returns a transformed row.
+        :return: A list of dictionaries (or transformed objects if `row_factory` is used).
         :raises FileNotFoundError: If the CSV file does not exist at the specified path.
         """
         if not self.path.exists():
             raise FileNotFoundError(f"File {self.path} does not exist")
         with open(file=self.path, mode='r', encoding=self.encoding) as file:
-            return list(DictReader(f=file))
+            reader: DictReader = DictReader(f=file)
+            if row_factory:
+                return [row_factory(row) for row in reader]
+            else:
+                return list(reader)
 
 
 class YamlFile(File):

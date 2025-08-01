@@ -1,16 +1,16 @@
+import logging
+import sys
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from io import TextIOBase
-import logging
 from logging import FileHandler, Formatter, getLevelName, Handler, Logger, StreamHandler
 from pathlib import Path
-import sys
 from typing import Literal, Optional, overload, TypeAlias
 
 from colorama.ansitowin32 import StreamWrapper
 
-from src.core.project_config import ProjectConfig
+from src.core.project_config import ProjectPaths
 
 
 class LogLevel(Enum):
@@ -698,7 +698,7 @@ class LoggingManager:
         :return: An initialized LoggingManager instance with the predefined components.
         """
         common_log_level: LogLevel = LogLevel.INFO
-        common_log_directory: Path = ProjectConfig().logs_dir
+        common_log_directory: Path = ProjectPaths().logs_dir
         current_time: str = datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')
         # Main settings
         main_name: str = 'main'
@@ -751,5 +751,5 @@ class LoggingManager:
             HandlerSettings(
                 name=name,
                 level=log_level,
-                output=ProjectConfig().logs_dir / f"{name}_{datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')}_{getLevelName(log_level.value)}.log"
+                output=ProjectPaths().logs_dir / f"{name}_{datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')}_{getLevelName(log_level.value)}.log"
             )

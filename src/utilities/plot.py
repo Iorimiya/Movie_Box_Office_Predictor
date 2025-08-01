@@ -1,18 +1,19 @@
+import re
 from logging import Logger
 from pathlib import Path
-import re
 from typing import Final
 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
+from src.core.project_config import ProjectPaths, ProjectModelType
 from src.models.box_office_prediction import MoviePredictionModel
 
 
 def search_model(model_name: str) -> tuple[list[Path], list[int]]:
-    """Searches for model folders matching a given model name pattern and extracts their epochs.
+    """
+    Searches for model folders matching a given model name pattern and extracts their epochs.
 
     This function scans the ``Constants.BOX_OFFICE_PREDICTION_FOLDER`` for directories
     that start with ``model_name_`` and end with an epoch number.
@@ -23,9 +24,10 @@ def search_model(model_name: str) -> tuple[list[Path], list[int]]:
               - A list of integers representing the epochs extracted from the folder names.
     """
     logger: Logger = LoggingManager().get_logger('root')
-    logger.info(f"Search models in \"{Constants.BOX_OFFICE_PREDICTION_FOLDER}\" folder")
+    model_path: Path = ProjectPaths.get_model_root_path(model_id=model_name, model_type=ProjectModelType.PREDICTION)
+    logger.info(f"Search models in \"{model_path}\" folder")
     folder_list: list[Path] = list(
-        filter(lambda file: file.is_dir(), Constants.BOX_OFFICE_PREDICTION_FOLDER.glob(f"{model_name}_*")))
+        filter(lambda file: file.is_dir(), model_path.glob(f"{model_name}_*")))
     model_epochs: list[int] = [int(folder.name.split("_")[-1]) for folder in folder_list]
     return folder_list, model_epochs
 
@@ -34,7 +36,8 @@ def plot_line_graph(title: str, save_file_path: Path,
                     x_data: list[int], y_data: list[float],
                     format_type: str, y_label: str,
                     x_label: str = 'epoch') -> None:
-    """Plots a line graph with specified title, data, and formatting, then saves and shows it.
+    """
+    Plots a line graph with specified title, data, and formatting, then saves and shows it.
 
     :param title: The title of the graph.
     :param save_file_path: The path to save the graph image.
@@ -68,7 +71,8 @@ def plot_line_graph(title: str, save_file_path: Path,
 
 
 def plot_training_loss(log_path: Path) -> None:
-    """Loads training log data, extracts training loss values and corresponding epochs,
+    """
+    Loads training log data, extracts training loss values and corresponding epochs,
     and plots them as a line graph.
 
     The function parses a log file to find the target epoch, saving interval,
@@ -129,7 +133,8 @@ def plot_training_loss(log_path: Path) -> None:
 
 
 def plot_validation_loss(model_name: str) -> None:
-    """Plots the test loss of a specified model across different training epochs.
+    """
+    Plots the test loss of a specified model across different training epochs.
 
     It searches for model folders, evaluates the test loss for each epoch's model
     (using its associated test data), and then plots these losses against their epochs.
@@ -156,7 +161,8 @@ def plot_validation_loss(model_name: str) -> None:
 
 
 def plot_trend_accuracy(model_name: str):
-    """Plots the trend prediction accuracy of a specified model across different training epochs.
+    """
+    Plots the trend prediction accuracy of a specified model across different training epochs.
 
     It searches for model folders, evaluates the trend accuracy for each epoch's model
     (using its associated test data), and then plots these accuracies (as percentages)
@@ -182,7 +188,8 @@ def plot_trend_accuracy(model_name: str):
 
 
 def plot_range_accuracy(model_name: str):
-    """Plots the box office range prediction accuracy of a specified model across different training epochs.
+    """
+    Plots the box office range prediction accuracy of a specified model across different training epochs.
 
     It searches for model folders, evaluates the range accuracy for each epoch's model
     (using its associated test data), and then plots these accuracies (as percentages)
@@ -202,5 +209,29 @@ def plot_range_accuracy(model_name: str):
     model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
 
     plot_line_graph(title='range_accuracy', save_file_path=Path('data/graph/range_accuracy.png'),
+                    x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
+                    format_type='percent', y_label='accuracy')
+
+def plot_f1_score(model_name: str):
+    """
+    Plots the range accuracy of a specified model across different training epochs.
+
+    Args:
+        model_name (str): The name of the model to evaluate.
+
+    Returns:
+        None.
+    """
+    logger: Logger = LoggingManager().get_logger('root')
+    logger.info("Plot f1 score of range accuracy.")
+    folder_list, model_epochs = search_model(model_name=model_name)
+    logger.info("calculating range accuracy.")
+    accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
+                                                    training_setting_path=folder.joinpath(f'setting.yaml'),
+                                                    transform_scaler_path=folder.joinpath(f'scaler.gz')) \
+                                   .calculate_f1_score_for_ranges(test_data_folder_path=folder) for folder in folder_list]
+    model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
+
+    plot_line_graph(title='f1 score', save_file_path=Path('data/graph/f1_score.png'),
                     x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
                     format_type='percent', y_label='accuracy')

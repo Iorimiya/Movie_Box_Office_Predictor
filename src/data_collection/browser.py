@@ -1,19 +1,20 @@
+import time
+from contextlib import contextmanager
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
-import time
-from typing import Callable, Final, Optional, TypeAlias
+from typing import Callable, Final, Iterator, Optional, TypeAlias
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.common.exceptions import (
     ElementClickInterceptedException,
     NoSuchElementException,
     TimeoutException
 )
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.ui import WebDriverWait
 from seleniumbase import Driver
 from seleniumbase import undetected as sel_undef
 from typing_extensions import override
@@ -114,7 +115,7 @@ class Browser(webdriver.Chrome):
         :param target_url: An optional URL to navigate to immediately after the browser is initialized.
         """
         # driver options
-        self.__download_path: Final[Path] = download_path
+        self.__download_path: Path = download_path
         self.__page_loading_timeout: Final[float] = page_loading_timeout
         self.__home_url: Final[str] = "chrome://newtab"
 
@@ -277,6 +278,51 @@ class Browser(webdriver.Chrome):
             return
         else:
             raise NoSuchElementException
+
+    def set_download_path(self, new_path: Path) -> None:
+        """
+        Dynamically sets the download directory for the current browser session.
+
+        This method uses the Chrome DevTools Protocol (CDP) command 'Page.setDownloadBehavior'
+        to change the download path of the running browser instance.
+
+        :param new_path: The new absolute path for the download directory.
+        """
+        if not new_path.is_absolute():
+            new_path:Path = new_path.resolve(strict=True)
+
+        self.execute_cdp_cmd(
+            cmd='Page.setDownloadBehavior',
+            cmd_args={'behavior': 'allow', 'downloadPath': str(new_path)}
+        )
+        self.__download_path = new_path
+        self.__logger.info(f"Dynamically set browser download path to '{new_path}'.")
+        return
+
+    @contextmanager
+    def temporary_download_path(self, new_path: Path) -> Iterator[None]:
+        """
+        Provides a context manager to temporarily change the browser's download path.
+
+        Upon entering the `with` block, the download path is changed to `new_path`.
+        Upon exiting the block (either normally or due to an exception), the
+        original download path is automatically restored.
+
+        :param new_path: The temporary download path to use within the context.
+        """
+        original_path: Optional[Path] = self.__download_path
+        self.__logger.debug(f"Temporarily setting download path to '{new_path}'. Original was '{original_path}'.")
+        self.set_download_path(new_path=new_path)
+        try:
+            yield
+        finally:
+            if original_path:
+                self.__logger.debug(f"Restoring original download path to '{original_path}'.")
+                self.set_download_path(new_path=original_path)
+            else:
+                # If there was no original path, we can't restore it.
+                # The behavior here could be to set it to a default, but for now, we just log it.
+                self.__logger.debug("No original download path to restore.")
 
 
 class CaptchaBrowser:

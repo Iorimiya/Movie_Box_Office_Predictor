@@ -134,7 +134,7 @@ class ExpertReviewSerializableData(ReviewSerializableData):
     expert_score: float
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedArgs, ReviewSerializableData]):
     """
     Represents a general review.
@@ -187,6 +187,21 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
         if isinstance(other, Review):
             return self._key() == other._key()
         return NotImplemented
+
+    def __str__(self) -> str:
+        """
+        Returns a string representation of the Review object for display.
+        """
+        sentiment_display: str = f"{self.sentiment_score:.4f}" if self.sentiment_score is not None else 'N/A'
+        # Truncate content for display
+        content_truncated: str = f"{self.content[:200]}..." if self.content else 'N/A'
+        return (
+            f"  Title: {self.title}\n"
+            f"  Date: {self.date}\n"
+            f"  Sentiment Score: {sentiment_display}\n"
+            f"  URL: {self.url}\n"
+            f"  Content: {content_truncated}"
+        )
 
     @property
     def sentiment_score_v1(self) -> bool:
@@ -272,7 +287,7 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
         )
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True,frozen=True)
 class PublicReview(Review):
     """
     Represents a public review, extending Review with a reply count.
@@ -281,6 +296,14 @@ class PublicReview(Review):
     :ivar reply_count: The number of replies to this public review.
     """
     reply_count: int
+
+    def __str__(self) -> str:
+        """
+        Returns a string representation of the PublicReview object for display.
+        """
+        base_str: str = super().__str__()
+        return f"{base_str}\n  Reply Count: {self.reply_count}"
+
 
     @classmethod
     def _prepare_constructor_args(cls: Type[SelfReview], raw_data: PublicReviewRawData) -> PublicReviewPreparedArgs:
@@ -332,7 +355,7 @@ class PublicReview(Review):
         )
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True,frozen=True)
 class ExpertReview(Review):
     """
     Represents an expert review, extending Review with an expert score.
@@ -341,6 +364,14 @@ class ExpertReview(Review):
     :ivar expert_score: The score given by the expert.
     """
     expert_score: float
+
+    def __str__(self) -> str:
+        """
+        Returns a string representation of the ExpertReview object for display.
+        """
+        base_str: str = super().__str__()
+        return f"{base_str}\n  Expert Score: {self.expert_score}"
+
 
     @classmethod
     def _prepare_constructor_args(cls: Type[SelfReview], raw_data: ExpertReviewRawData) -> ExpertReviewPreparedArgs:

@@ -20,7 +20,7 @@ class MovieMetadataRawData(TypedDict, total=False):
     name: str
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class MovieMetadata:
     """
     Represents structured movie metadata.
@@ -48,28 +48,28 @@ class MovieMetadata:
         raw_id: Optional[str] = source.get('id')
         raw_name: Optional[str] = source.get('name')
 
-        if not raw_id:  # 檢查 None 或空字串
+        if not raw_id:
             logger.warning(f"Movie 'id' is missing or empty in raw data: {source}. Skipping.")
             return None
-        if not raw_name:  # 檢查 None 或空字串
+        if not raw_name:
             logger.warning(
                 f"Movie 'name' is missing or empty for potential id '{raw_id}': {source}. Skipping.")
             return None
 
         try:
-            movie_id: int = int(raw_id)  # 將 id 從 str 轉換為 int
+            movie_id: int = int(raw_id)
         except ValueError:
             logger.warning(f"Invalid movie 'id' format '{raw_id}' in raw data: {source}. Skipping.")
             return None
 
         try:
             return cls(id=movie_id, name=raw_name)
-        except Exception as e:  # 捕獲路徑構建或 dataclass 初始化時的潛在錯誤
+        except Exception as e:
             logger.error(f"Error creating MovieMetadata for id '{raw_id}': {e}. Raw data: {source}")
             return None
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class MoviePathMetadata(MovieMetadata):
     """
     Represents movie metadata including paths to associated data files.

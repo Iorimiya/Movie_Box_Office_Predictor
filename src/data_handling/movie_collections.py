@@ -17,7 +17,7 @@ from src.data_handling.reviews import (
     PublicReview, PublicReviewRawData, PublicReviewSerializableData,
     ExpertReview, ExpertReviewRawData, ExpertReviewSerializableData
 )
-from src.utilities.util import delete_duplicate
+from src.utilities.collection_utils import delete_duplicate
 
 WeekDataReviewType = TypeVar('WeekDataReviewType', PublicReview, ExpertReview)
 PublicReviewLoadableSource: TypeAlias = Path | YamlFile | list[PublicReviewRawData]
@@ -85,6 +85,7 @@ class WeekData:
 
         :return: The average sentiment score, or None if no scores are available.
         """
+
         # noinspection PyTypeChecker
         scores: list[float] = [review.sentiment_score for review in chain(self.public_reviews, self.expert_reviews) if
                                review.sentiment_score is not None]
@@ -135,7 +136,7 @@ class WeekData:
         elif review_class is ExpertReview:
             target_attribute_name: str = 'expert_reviews'
         else:
-            # 處理未預期的 review_class 型別
+
             raise ValueError(
                 f"Unsupported review_class: {review_class.__name__}. "
                 "Expected PublicReview or ExpertReview."
@@ -275,18 +276,28 @@ class WeekData:
 
 
 @dataclass(kw_only=True)
-class MovieSessionData(MovieMetadata):
+class MovieSessionData:
     """
     Represents session data for a movie over several weeks.
 
     This includes the movie's ID, name, and a list of WeekData objects
     representing its performance and reviews over consecutive weeks.
 
-    :ivar id: The unique identifier for the movie.
-    :ivar name: The name of the movie.
+    :ivar metadata: The immutable metadata for the movie.
     :ivar weeks_data: A list of WeekData objects for the movie session.
     """
+    metadata: MovieMetadata = field(repr=False)
     weeks_data: list[WeekData]
+
+    @property
+    def id(self) -> int:
+        """The unique integer identifier of the movie."""
+        return self.metadata.id
+
+    @property
+    def name(self) -> str:
+        """The name of the movie."""
+        return self.metadata.name
 
     @classmethod
     def _create_sessions_for_single_movie(cls,
@@ -306,28 +317,21 @@ class MovieSessionData(MovieMetadata):
                   or an empty list if processing fails or no valid sessions are found.
         """
 
-        movie_id_val: int = movie_meta_item.id
-        movie_name_val: str = movie_meta_item.name
+
         box_office_file_path: Path = movie_meta_item.box_office_file_path
         public_reviews_file_path: Path = movie_meta_item.public_reviews_file_path
         expert_reviews_file_path: Path = movie_meta_item.expert_reviews_file_path
 
         logger: Logger = LoggingManager().get_logger('root')
-        if movie_id_val is None or movie_name_val is None:
-            logger.warning(f"Skipping movie due to missing ID or name in index: {movie_meta_item}")
-            return []
-        try:
-            movie_id: int = int(movie_id_val) if isinstance(movie_id_val, str) else movie_id_val
-        except ValueError:
-            logger.warning(f"Skipping movie due to invalid ID '{movie_id_val}' in index: {movie_meta_item}")
-            return []
+
         if not box_office_file_path or not box_office_file_path.exists():
-            logger.warning(f"Box office file not found for movie ID {movie_id}. Skipping movie '{movie_name_val}'.")
+            logger.warning(
+                f"Box office file not found for movie ID {movie_meta_item.id}. Skipping movie '{movie_meta_item.name}'.")
             return []
 
         all_box_office_objects: list[BoxOffice] = BoxOffice.create_multiple(source=box_office_file_path)
         if not all_box_office_objects:
-            logger.info(f"No valid BoxOffice objects could be created for movie ID {movie_id}. Skipping.")
+            logger.info(f"No valid BoxOffice objects could be created for movie ID {movie_meta_item.id}. Skipping.")
             return []
 
         multiple_batches: list[list[BoxOffice]] = [
@@ -340,25 +344,25 @@ class MovieSessionData(MovieMetadata):
             if all(map(lambda week: week.box_office != 0, batch))
         ]
         if not filtered_batches:
-            logger.info(f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_id}.")
+            logger.info(
+                f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_meta_item.id}.")
             return []
 
         loaded_public_reviews: list[PublicReview] = []
         if public_reviews_file_path and public_reviews_file_path.exists():
             loaded_public_reviews = PublicReview.create_multiple(source=public_reviews_file_path)
         else:
-            logger.info(f"Review file not found for movie ID {movie_id} ('{movie_name_val}')."
+            logger.info(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
                         f"Proceeding without reviews for this movie.")
 
         loaded_expert_reviews: list[ExpertReview] = []
         if expert_reviews_file_path and expert_reviews_file_path.exists():
             loaded_expert_reviews = ExpertReview.create_multiple(source=expert_reviews_file_path)
         else:
-            logger.info(f"Review file not found for movie ID {movie_id} ('{movie_name_val}')."
+            logger.info(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
                         f"Proceeding without reviews for this movie.")
 
-        return [cls(id=movie_id,
-                    name=movie_name_val,
+        return [cls(metadata=movie_meta_item,
                     weeks_data=WeekData.create_multiple_week_data(
                         weeks_data_source=single_batch_week_dicts,
                         public_reviews_master_source=loaded_public_reviews,
@@ -387,30 +391,40 @@ class MovieSessionData(MovieMetadata):
         if not source_infos:
             logger.info(f"No processable movie metadata after initial validation from '{dataset.index_file_path}'.")
             return []
-        return chain.from_iterable([cls._create_sessions_for_single_movie(
+        return list(chain.from_iterable([cls._create_sessions_for_single_movie(
             movie_meta_item=movie_meta_with_paths_item,
             number_of_weeks=number_of_weeks)
             for movie_meta_with_paths_item in source_infos
-        ])
+        ]))
 
 
 @dataclass(kw_only=True)
-class MovieData(MovieMetadata):
+class MovieData:
     """
     Represents comprehensive data for a single movie.
 
     This includes its metadata (ID, name), and lists of all its
     box office records, public reviews, and expert reviews.
 
-    Inherits 'id' and 'name' from :class:`~.MovieMetadata`.
-
+    :ivar metadata: The immutable metadata for the movie.
     :ivar box_office: A list of all box office records for the movie.
     :ivar public_reviews: A list of all public reviews for the movie.
     :ivar expert_reviews: A list of all expert reviews for the movie.
     """
+    metadata: MovieMetadata = field(repr=False)
     box_office: list[BoxOffice] = field(default_factory=list)
     public_reviews: list[PublicReview] = field(default_factory=list)
     expert_reviews: list[ExpertReview] = field(default_factory=list)
+
+    @property
+    def id(self) -> int:
+        """The unique integer identifier of the movie."""
+        return self.metadata.id
+
+    @property
+    def name(self) -> str:
+        """The name of the movie."""
+        return self.metadata.name
 
     @property
     def box_office_week_lens(self) -> int:
@@ -452,10 +466,10 @@ class MovieData(MovieMetadata):
         :param mode: Specifies the loading mode ('ALL' for full data, 'META' for metadata only).
         :return: A list of MovieData instances.
         """
-        return Dataset(name=dataset_name).load_all_movie_data(mode=mode)
+        return Dataset(name=dataset_name).load_movie_data(mode=mode)
 
     def __save_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
-                         target_directory: Path) -> None:
+                         target_directory: Path) -> Path:
         """
         Internal helper to save a specific component (box office, public reviews, or expert reviews) to a YAML file.
 
@@ -484,30 +498,31 @@ class MovieData(MovieMetadata):
             f"Successfully saved {len(component_data)} {component_name} items "
             f"for movie ID {self.id} to '{output_file_path}'."
         )
+        return output_file_path
 
-    def save_box_office(self, target_directory: Path) -> None:
+    def save_box_office(self, target_directory: Path) -> Path:
         """
         Saves the movie's box office data to a YAML file in the specified directory.
 
         :param target_directory: The directory where the box office data file will be saved.
         """
-        self.__save_component(component_type='box_office', target_directory=target_directory)
+        return self.__save_component(component_type='box_office', target_directory=target_directory)
 
-    def save_public_reviews(self, target_directory: Path) -> None:
+    def save_public_reviews(self, target_directory: Path) -> Path:
         """
         Saves the movie's public reviews data to a YAML file in the specified directory.
 
         :param target_directory: The directory where the public reviews data file will be saved.
         """
-        self.__save_component(component_type='public_reviews', target_directory=target_directory)
+        return self.__save_component(component_type='public_reviews', target_directory=target_directory)
 
-    def save_expert_reviews(self, target_directory: Path) -> None:
+    def save_expert_reviews(self, target_directory: Path) -> Path:
         """
         Saves the movie's expert reviews data to a YAML file in the specified directory.
 
         :param target_directory: The directory where the expert reviews data file will be saved.
         """
-        self.__save_component(component_type='expert_reviews', target_directory=target_directory)
+        return self.__save_component(component_type='expert_reviews', target_directory=target_directory)
 
     def __load_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
                          target_directory: Path) -> None:
@@ -531,17 +546,17 @@ class MovieData(MovieMetadata):
             f"Attempting to load {component_name_for_log} for movie ID {self.id} from '{source_file_path}'."
         )
 
-        # 1. 檢查檔案是否存在
+
         if not source_file_path.exists():
             logger.warning(
                 f"Data file not found for {component_name_for_log} for movie ID {self.id} at '{source_file_path}'. "
                 f"The '{component_type}' list in MovieData instance will be empty."
             )
-            setattr(self, component_type, [])  # 將對應屬性設為空列表
-            return  # 檔案不存在，提前返回
+            setattr(self, component_type, [])
+            return
 
         try:
-            # 2. 從映射中安全地獲取目標類別
+
             target_class: Optional[Type[BoxOffice] | Type[PublicReview] | Type[ExpertReview]] = \
                 COMPONENT_CLASS_MAP.get(component_type)
 
@@ -556,7 +571,7 @@ class MovieData(MovieMetadata):
             setattr(self, component_type, loaded_items_list)
 
 
-        except Exception as e:  # 捕獲未預期的錯誤
+        except Exception as e:
             logger.error(
                 f"Unexpected error during the loading process of {component_name_for_log} data "
                 f"for movie ID {self.id} from '{source_file_path}': {e}"
@@ -594,7 +609,7 @@ class MovieData(MovieMetadata):
         self.__load_component(component_type='expert_reviews', target_directory=target_directory)
 
     def __update_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
-                           update_method: Literal['replace', 'extend'],
+                           update_method: Literal['REPLACE', 'EXTEND'],
                            data: MovieComponent) -> None:
         """
         Internal helper to update a specific component's data list (box office, public reviews, or expert reviews).
@@ -603,7 +618,7 @@ class MovieData(MovieMetadata):
         Duplicate items are removed after the operation.
 
         :param component_type: The type of component to update.
-        :param update_method: The method of update ('replace' or 'extend').
+        :param update_method: The method of update ('REPLACE' or 'EXTEND').
         :param data: A list of new data items (BoxOffice, PublicReview, or ExpertReview instances).
         :raises ValueError: If an invalid `update_method` is provided.
         """
@@ -616,14 +631,14 @@ class MovieData(MovieMetadata):
             f"using method '{update_method}' with {incoming_data_count} new items."
         )
 
-        current_data_list: MovieComponent = getattr(self, component_type, [])  # 安全獲取，如果屬性不存在則預設為空列表
+        current_data_list: MovieComponent = getattr(self, component_type, [])
         original_data_count: int = len(current_data_list)
 
         match update_method:
             case 'replace':
                 deduplicated_new_data: MovieComponent = delete_duplicate(data)
                 setattr(self, component_type, deduplicated_new_data)
-                new_count: int = len(deduplicated_new_data)  # 使用傳入 data 的長度
+                new_count: int = len(deduplicated_new_data)
                 logger.info(
                     f"Replaced {component_name_for_log} for movie ID {self.id}. "
                     f"Previous count: {original_data_count}, New count: {new_count}."
@@ -634,7 +649,7 @@ class MovieData(MovieMetadata):
                     f"Original count: {original_data_count}, Items to add: {incoming_data_count}."
                 )
                 combined_data: MovieComponent = current_data_list + data
-                # 假設 delete_duplicate 來自 src.utilities.util 並且功能正確
+
                 deduplicated_new_data: MovieComponent = delete_duplicate(combined_data)
                 setattr(self, component_type, deduplicated_new_data)
                 final_count: int = len(deduplicated_new_data)
@@ -647,7 +662,7 @@ class MovieData(MovieMetadata):
                 logger.error(msg)
                 raise ValueError(msg)
 
-    def update_box_office(self, update_method: Literal['replace', 'extend'], data: list[BoxOffice]) -> None:
+    def update_box_office(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[BoxOffice]) -> None:
         """
         Updates the movie's box office data.
 
@@ -659,7 +674,7 @@ class MovieData(MovieMetadata):
         """
         self.__update_component(component_type='box_office', update_method=update_method, data=data)
 
-    def update_public_reviews(self, update_method: Literal['replace', 'extend'], data: list[PublicReview]) -> None:
+    def update_public_reviews(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[PublicReview]) -> None:
         """
         Updates the movie's public reviews data.
 
@@ -671,7 +686,7 @@ class MovieData(MovieMetadata):
         """
         self.__update_component(component_type='public_reviews', update_method=update_method, data=data)
 
-    def update_expert_reviews(self, update_method: Literal['replace', 'extend'], data: list[ExpertReview]) -> None:
+    def update_expert_reviews(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[ExpertReview]) -> None:
         """
         Updates the movie's expert reviews data.
 

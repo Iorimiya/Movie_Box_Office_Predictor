@@ -1,18 +1,20 @@
+from abc import ABC, abstractmethod
 from logging import Logger
 from pathlib import Path
 from typing import Optional
-from abc import ABC, abstractmethod
-from keras.src.models import Sequential
+
 from keras.api.models import load_model
 from keras.src.callbacks import Callback
+from keras.src.models import Sequential
 from numpy.typing import NDArray
 
-from src.utilities.util import check_path
 from src.core.logging_manager import LoggingManager
+from src.utilities.filesystem_utils import is_existing_path
 
 
 class LossLoggingCallback(Callback):
-    """A Keras Callback that logs training and validation loss at the end of each epoch.
+    """
+    A Keras Callback that logs training and validation loss at the end of each epoch.
 
     The loss values are logged using the standard Python logging module at the INFO level.
     If training loss ('loss') is available in the logs, it will be logged.
@@ -20,9 +22,10 @@ class LossLoggingCallback(Callback):
     """
 
     def on_epoch_end(self, epoch: int, logs: Optional[dict[str, any]] = None):
-        """Called at the end of an epoch.
+        """
+        Called at the end of an epoch.
 
-        Logs the training and validation loss if they are present in the logs dictionary.
+        Logs the training and validation loss if they are present in the logs' dictionary.
 
         :param epoch: Integer, index of epoch (0-indexed).
         :param logs: Dictionary of logs. Contains loss values, and optionally
@@ -40,24 +43,27 @@ class LossLoggingCallback(Callback):
 
 
 class MachineLearningModel(ABC):
-    """Abstract base class for machine learning models.
+    """
+    Abstract base class for machine learning models.
 
     Provides a common interface and basic functionalities for model loading,
     saving, training, and prediction. Subclasses must implement the abstract methods.
     """
 
     def __init__(self, model_path: Optional[Path] = None):
-        """Initializes the MachineLearningModel.
+        """
+        Initializes the MachineLearningModel.
 
         If a valid ``model_path`` is provided, the pre-trained Keras model is loaded.
         Otherwise, ``self._model`` is initialized to ``None``.
 
         :param model_path: Optional path to a pre-trained Keras model file.
         """
-        self._model: Optional[Sequential] = load_model(model_path) if check_path(model_path) else None
+        self._model: Optional[Sequential] = load_model(model_path) if is_existing_path(model_path) else None
 
     def _save_model(self, file_path: Path) -> None:
-        """Saves the Keras model (``self._model``) to the specified file path.
+        """
+        Saves the Keras model (``self._model``) to the specified file path.
 
         If the parent directory of ``file_path`` does not exist, it will be created.
         Requires ``self._model`` to be an initialized Keras model.
@@ -74,7 +80,8 @@ class MachineLearningModel(ABC):
     @classmethod
     @abstractmethod
     def _load_training_data(cls, data_path: Path) -> any:
-        """Abstract method to load training data from a given path.
+        """
+        Abstract method to load training data from a given path.
 
         Subclasses must implement this method to define how training data is loaded.
 
@@ -85,7 +92,8 @@ class MachineLearningModel(ABC):
 
     @abstractmethod
     def _prepare_data(self, data: any) -> tuple[NDArray, NDArray, NDArray, NDArray]:
-        """Abstract method to prepare raw data for model training and testing.
+        """
+        Abstract method to prepare raw data for model training and testing.
 
         Subclasses must implement this method to define data preprocessing steps,
         such as feature extraction, scaling, and splitting into training and testing sets.
@@ -97,7 +105,8 @@ class MachineLearningModel(ABC):
 
     @abstractmethod
     def _build_model(self, model: Sequential, layers: list) -> None:
-        """Abstract method to define and build the model architecture.
+        """
+        Abstract method to define and build the model architecture.
 
         This method is responsible for adding layers to the provided Keras ``Sequential`` model
         and compiling it. The base implementation adds layers from the ``layers`` list.
@@ -112,7 +121,8 @@ class MachineLearningModel(ABC):
 
     @abstractmethod
     def train(self, data: any, epoch: int, old_model_path: Optional[Path] = None, ):
-        """Abstract method to train the machine learning model.
+        """
+        Abstract method to train the machine learning model.
 
         Subclasses must implement this method to define the complete training workflow,
         which usually involves data loading, preparation, model creation/loading,
@@ -126,7 +136,8 @@ class MachineLearningModel(ABC):
 
     @abstractmethod
     def predict(self, data_input: any):
-        """Abstract method to make predictions using the trained model.
+        """
+        Abstract method to make predictions using the trained model.
 
         Subclasses must implement this method to define how input data is processed
         for prediction and how the model's output is returned.
@@ -138,7 +149,8 @@ class MachineLearningModel(ABC):
 
     @staticmethod
     def _check_save_folder(folder_path: Path) -> None:
-        """Checks if a folder exists at the given path and creates it if it doesn't.
+        """
+        Checks if a folder exists at the given path and creates it if it doesn't.
 
         This includes creating any necessary parent directories.
 
@@ -150,7 +162,8 @@ class MachineLearningModel(ABC):
         return
 
     def _create_model(self, layers: Optional[list] = None, old_model_path: Optional[Path] = None) -> Sequential:
-        """Creates a new Keras ``Sequential`` model or loads an existing one.
+        """
+        Creates a new Keras ``Sequential`` model or loads an existing one.
 
         If ``old_model_path`` is provided and valid, the model is loaded from that path.
         Otherwise, if ``layers`` are provided, a new ``Sequential`` model is created
@@ -164,7 +177,7 @@ class MachineLearningModel(ABC):
         """
         if not old_model_path and not layers:
             raise ValueError('Either layers or old_model_path must be provided.')
-        elif check_path(old_model_path):
+        elif is_existing_path(old_model_path):
             model: Sequential = load_model(old_model_path)
         else:
             model: Sequential = Sequential()
@@ -172,7 +185,8 @@ class MachineLearningModel(ABC):
         return model
 
     def train_model(self, x_train: NDArray, y_train: NDArray, epoch: int = 200, batch_size: any = None) -> None:
-        """Trains the Keras model (``self._model``) with the given training data.
+        """
+        Trains the Keras model (``self._model``) with the given training data.
 
         Uses the ``LossLoggingCallback`` to log training and validation loss.
 
@@ -187,7 +201,8 @@ class MachineLearningModel(ABC):
         return
 
     def evaluate_model(self, x_test: NDArray, y_test: NDArray) -> float:
-        """Evaluates the Keras model (``self._model``) with the given test data.
+        """
+        Evaluates the Keras model (``self._model``) with the given test data.
 
         :param x_test: The input test data (features).
         :param y_test: The target test data (labels).

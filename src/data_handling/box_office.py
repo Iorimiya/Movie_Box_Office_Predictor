@@ -1,7 +1,10 @@
+import json
+import re
 from dataclasses import dataclass
 from datetime import date
 from logging import Logger
-from typing import Optional, Type, TypedDict
+from pathlib import Path
+from typing import Final, Optional, Type, TypedDict
 
 from src.core.logging_manager import LoggingManager
 from src.data_handling.loader_mixin import MovieAuxiliaryDataMixin
@@ -49,7 +52,7 @@ class BoxOfficeSerializableData(TypedDict):
     box_office: int
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class BoxOffice(MovieAuxiliaryDataMixin
                 ["BoxOffice", BoxOfficeRawData, BoxOfficePreparedArgs, BoxOfficeSerializableData]):
     """
@@ -62,6 +65,14 @@ class BoxOffice(MovieAuxiliaryDataMixin
     start_date: date
     end_date: date
     box_office: int
+
+    def __str__(self) -> str:
+        """
+        Returns a string representation of the BoxOffice object for display.
+        """
+        return (
+            f"  Start date: {self.start_date}, End date: {self.end_date}, Box office: {self.box_office}"
+        )
 
     @classmethod
     def _prepare_constructor_args(cls: Type["BoxOffice"], raw_data: BoxOfficeRawData) -> BoxOfficePreparedArgs:
@@ -121,3 +132,95 @@ class BoxOffice(MovieAuxiliaryDataMixin
             end_date=self.end_date,
             box_office=self.box_office
         )
+
+    @classmethod
+    def from_json_file(cls: Type["BoxOffice"], file_path: Path, encoding: str = 'utf-8-sig') -> list["BoxOffice"]:
+        """
+        Loads and parses box office data from a JSON file to create a list of BoxOffice instances.
+
+        The JSON file is expected to have a 'Rows' key, where each item in 'Rows'
+        contains 'Date' (e.g., "YYYY-MM-DD~YYYY-MM-DD") and 'Amount' fields.
+
+        :param file_path: The path to the JSON file.
+        :param encoding: The encoding of the JSON file.
+        :raises FileNotFoundError: If the specified `file_path` does not exist.
+        :raises json.JSONDecodeError: If the JSON file is malformed.
+        :raises ValueError: If the JSON 'Rows' data is missing, empty, or all items are malformed,
+                           or if data conversion within `BoxOffice.create_multiple` fails.
+        :return: A list of `BoxOffice` instances.
+        """
+        logger: Logger = LoggingManager().get_logger('root')
+        date_split_pattern: Final[str] = '~'
+
+        if not file_path.exists():
+            logger.error(f"JSON file not found: {file_path}")
+            raise FileNotFoundError(f"JSON file not found: {file_path}")
+
+        try:
+            with open(file=file_path, mode='r', encoding=encoding) as f:
+                json_data: dict = json.load(fp=f)
+        except json.JSONDecodeError as e:
+            logger.error(f"Failed to decode JSON from {file_path}: {e}")
+            raise
+
+        json_rows: list[dict] = json_data.get('Rows', [])
+
+        if not json_rows:
+            msg: str = f"No 'Rows' found in JSON data from {file_path} or 'Rows' is empty."
+            logger.error(msg)
+            raise ValueError(msg)
+
+        prepared_raw_data_list: list[BoxOfficeRawData] = []
+        for week_data_item in json_rows:
+            date_str: Optional[str] = week_data_item.get("Date")
+            amount_val: Optional[str | int | float] = week_data_item.get("Amount")
+
+            if date_str is None:
+                logger.warning(
+                    f"Missing 'Date' in week_data_item: {week_data_item} from file {file_path}. Skipping item."
+                )
+                continue
+
+            try:
+                start_date_str, end_date_str = map(str.strip, re.split(date_split_pattern, date_str))
+            except ValueError:
+                logger.warning(
+                    f"Could not split 'Date' string '{date_str}' in {week_data_item} from file {file_path}. Skipping item."
+                )
+                continue
+
+            box_office_for_raw: str | int
+            if amount_val is None:
+                box_office_for_raw = "0"
+            elif isinstance(amount_val, float):
+                box_office_for_raw = int(amount_val)
+            elif isinstance(amount_val, int):
+                box_office_for_raw = amount_val
+            else:
+                box_office_for_raw = str(amount_val)
+
+            prepared_raw_data_list.append(BoxOfficeRawData(
+                start_date=start_date_str, end_date=end_date_str, box_office=box_office_for_raw
+            ))
+
+        if not prepared_raw_data_list:
+            msg = f"All items in 'Rows' from {file_path} were malformed or lacked necessary data. No data prepared."
+            logger.error(msg)
+            raise ValueError(msg)
+
+        try:
+            # noinspection PyTypeChecker
+            weekly_box_office_data: list["BoxOffice"] = cls.create_multiple(source=prepared_raw_data_list)
+        except ValueError as e: # Catch errors from _prepare_constructor_args if they propagate
+            logger.error(
+                f"Error creating BoxOffice instances from prepared data from {file_path}: {e}",
+                exc_info=True
+            )
+            raise # Re-raise the ValueError from _prepare_constructor_args
+
+        if not weekly_box_office_data: # If create_multiple returned empty list (all items failed validation)
+            msg = f"Failed to create any valid BoxOffice objects from the prepared data in {file_path}."
+            logger.error(msg)
+            raise ValueError(msg)
+
+        return weekly_box_office_data

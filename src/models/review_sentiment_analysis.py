@@ -1,28 +1,27 @@
-import jieba
 import pickle
 from logging import Logger
+from pathlib import Path
+from typing import Optional
+
+import jieba
 import numpy as np
 import pandas as pd
-from pathlib import Path
-from pandas import Series
-from typing import Optional
-from numpy.typing import NDArray
-from numpy import int32, int64, float32
-from sklearn.model_selection import train_test_split
-from keras_preprocessing.text import Tokenizer
-from keras_preprocessing.sequence import pad_sequences
-from keras.src.models import Sequential
 from keras.src.layers import Embedding, LSTM, Dense, Dropout, Input
+from keras.src.models import Sequential
+from keras_preprocessing.sequence import pad_sequences
+from keras_preprocessing.text import Tokenizer
+from numpy import int32, int64, float32
+from numpy.typing import NDArray
+from pandas import Series
+from sklearn.model_selection import train_test_split
 
-from src.models.machine_learning_model import MachineLearningModel
-from src.data_handling.movie_data_old import load_index_file
-from src.utilities.util import check_path
-from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
-
+from src.models.machine_learning_model import MachineLearningModel
+from src.utilities.filesystem_utils import is_existing_path
 
 class ReviewSentimentAnalyseModel(MachineLearningModel):
-    """A machine learning model for analyzing review sentiment.
+    """
+    A machine learning model for analyzing review sentiment.
 
     This model uses an LSTM network to classify the sentiment of text reviews
     as positive or negative. It handles tokenization, sequence padding,
@@ -31,7 +30,8 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
 
     def __init__(self, model_path: Optional[Path] = None, tokenizer_path: Optional[Path] = None, num_words: int = 5000,
                  review_max_length: int = 100):
-        """Initializes the ReviewSentimentAnalyseModel.
+        """
+        Initializes the ReviewSentimentAnalyseModel.
 
         :param model_path: Path to the pre-trained Keras model file. If provided, the model will be loaded. Defaults to None.
         :param tokenizer_path: Path to the pre-trained Tokenizer pickle file. If provided, the tokenizer will be loaded. Defaults to None.
@@ -39,7 +39,7 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         :param review_max_length: The maximum length of a review sequence after padding. Defaults to 100.
         """
         super().__init__(model_path=model_path)
-        self.__tokenizer: Optional[Tokenizer] = self.__load_tokenizer(tokenizer_path) if check_path(
+        self.__tokenizer: Optional[Tokenizer] = self.__load_tokenizer(tokenizer_path) if is_existing_path(
             tokenizer_path) else None
         self.__num_words: int = num_words
         self.__review_max_len: int = review_max_length
@@ -47,19 +47,21 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         return
 
     def __text_to_sequences(self, texts: list[str] | str) -> NDArray:
-        """Converts text(s) to sequences of integers and pads them to a fixed length.
+        """
+        Converts text(s) to sequences of integers and pads them to a fixed length.
 
         Requires the tokenizer (``self.__tokenizer``) to be initialized.
 
         :param texts: A single string or a list of strings to be converted.
         :raises AttributeError: If ``self.__tokenizer`` has not been initialized (e.g., by loading or fitting).
-        :returns: A NumPy array of padded sequences.
+        :returns: A NumPy array of padded sequences (``NDArray``).
         """
         sequence = self.__tokenizer.texts_to_sequences(texts if isinstance(texts, list) else [texts])
         return pad_sequences(sequence, maxlen=self.__review_max_len)
 
     def __save_tokenizer(self, file_path: Path) -> None:
-        """Saves the current tokenizer (``self.__tokenizer``) to a file using pickle.
+        """
+        Saves the current tokenizer (``self.__tokenizer``) to a file using pickle.
 
         The parent directory of ``file_path`` will be created if it doesn't exist.
 
@@ -69,18 +71,20 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         """
         self._check_save_folder(file_path.parent)
         with open(file_path, 'wb') as handle:
+            # noinspection PyTypeChecker
             pickle.dump(self.__tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
         return
 
     @staticmethod
-    def __load_tokenizer(file_path: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH) -> Tokenizer:
-        """Loads a tokenizer from a pickle file.
+    def __load_tokenizer(file_path: Path) -> Tokenizer:
+        """
+        Loads a tokenizer from a pickle file.
 
         :param file_path: Path to the tokenizer pickle file. Defaults to ``Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH``.
-        :raises FileNotFoundError: If the tokenizer file does not exist at the given path.
+        :raises FileNotFoundError: If the tokenizer file does not exist.
         :raises pickle.UnpicklingError: If the file cannot be unpickled.
         :raises Exception: For other potential I/O errors.
-        :returns: The loaded ``keras_preprocessing.text.Tokenizer`` object.
+        :returns: The loaded ``Tokenizer`` object.
         """
         if not file_path.exists():
             raise FileNotFoundError(f"File {file_path} does not exist")
@@ -90,19 +94,21 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
 
     @classmethod
     def _load_training_data(cls, data_path: Path) -> any:
-        """Loads training data from a CSV file into a pandas DataFrame.
+        """
+        Loads training data from a CSV file into a pandas DataFrame.
 
-        :param data_path: Path to the CSV file containing the training data.
-        :raises FileNotFoundError: If the ``data_path`` does not exist.
+        :param data_path: Path to the CSV file.
+        :raises FileNotFoundError: If the file does not exist.
         :raises pd.errors.EmptyDataError: If the CSV file is empty.
-        :raises Exception: For other potential I/O or parsing errors by pandas.
+        :raises Exception: For other potential I/O or parsing errors.
         :returns: The loaded training data as a pandas DataFrame.
         """
         LoggingManager().get_logger('root').info("Loading training data.")
         return pd.read_csv(data_path)
 
     def _prepare_data(self, data: any) -> tuple[NDArray[int32], NDArray[int64], NDArray[int32], NDArray[int64]]:
-        """Prepares data for training and testing a sentiment analysis model.
+        """
+        Prepares data for training and testing a sentiment analysis model.
 
         This involves:
         1. Separating positive and negative words from the input DataFrame.
@@ -116,8 +122,6 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         :param data: Input data, expected to be a pandas DataFrame with 'is_positive' (boolean) and 'word' (string) columns.
         :raises KeyError: If 'is_positive' or 'word' columns are missing from the input DataFrame.
         :returns: A tuple containing (x_train, y_train, x_test, y_test) as NumPy arrays.
-                  x_train and x_test are padded sequences of word indices.
-                  y_train and y_test are arrays of sentiment labels.
         """
         self.__logger.info("Change data format start.")
         positive_words: Series = data[data['is_positive']].dropna().loc[:, 'word']
@@ -144,38 +148,39 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         return x_train, y_train, x_test, y_test
 
     def _build_model(self, model: Sequential, layers: list) -> None:
-        """Builds and compiles the Keras Sequential model for binary sentiment classification.
+        """
+        Builds and compiles the Keras Sequential model for binary sentiment classification.
 
         The model is compiled with the 'adam' optimizer, 'binary_crossentropy' loss (suitable for binary classification),
         and 'accuracy' as a metric.
 
-        :param model: The Keras ``Sequential`` model instance to build upon.
-        :param layers: A list of Keras layers to add to the model. This parameter is passed from the superclass
-                       but typically, for this specific model, layers are defined directly in the ``train`` method
-                       if a new model is created. If ``layers`` are provided, they will be added.
+        :param model: The Keras ``Sequential`` model instance.
+        :param layers: A list of Keras layers to add to the model.
+        :returns: None
         """
         super()._build_model(model=model, layers=layers)
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
     def train(self, data: any,
+              tokenizer_save_path,
+              model_save_folder: Path,
+              model_save_name: str,
               old_model_path: Optional[Path] = None,
-              epoch: int = 1000,
-              model_save_folder: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_FOLDER,
-              model_save_name: str = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_NAME,
-              tokenizer_save_path: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH) -> None:
-        """Trains the sentiment analysis model.
+              epoch: int = 1000
+              ) -> None:
+        """
+        Trains the sentiment analysis model.
 
         If ``old_model_path`` is provided and valid, training continues from the loaded model.
         Otherwise, a new model is created with an Embedding layer, LSTM layer, Dropout, and a Dense output layer.
         The tokenizer used for preparing data is saved, and the trained model is saved after training.
 
-        :param data: Training data, typically a pandas DataFrame to be processed by ``_prepare_data``.
-        :param old_model_path: Optional path to a pre-trained Keras model file to continue training.
-                               The epoch number is inferred from this path to adjust the new save name.
-        :param epoch: Number of training epochs to run.
-        :param model_save_folder: Folder where the trained Keras model file will be saved.
-        :param model_save_name: Base name for the saved Keras model file (epoch number will be appended).
-        :param tokenizer_save_path: Path where the tokenizer used during training will be saved.
+        :param data: Training data.
+        :param tokenizer_save_path: Path to save the tokenizer.
+        :param model_save_folder: Folder to save the model.
+        :param model_save_name: Base name for the model file.
+        :param old_model_path: Optional path to a pre-trained Keras model.
+        :param epoch: Number of training epochs.
         :returns: None
         """
         self.__logger.info("Training procedure start.")
@@ -202,40 +207,49 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
         self._save_model(model_save_folder.joinpath(f"{save_name}.keras"))
         return None
 
-    def predict(self, data_input: str = "這是一個非常感人的產品，值得推薦！") -> bool:
-        """Predicts the sentiment of a given review text.
-
-        The input text is first segmented using jieba, then converted to a padded sequence
-        using the model's tokenizer. The model then predicts the sentiment.
-
-        :param data_input: The input review text string.
-        :raises ValueError: If the model (``self._model``) or tokenizer (``self.__tokenizer``) has not been loaded or initialized.
-        :returns: ``True`` if the predicted sentiment is positive (prediction > 0.5), ``False`` otherwise.
+    def predict(self, data_input: str = "這是一個非常感人的產品，值得推薦！") -> float:
         """
+        Predicts the sentiment score for a given text input.
+
+        :param data_input: The text string to predict sentiment for.
+        :raises ValueError: If the model or tokenizer has not been loaded.
+        :returns: The predicted sentiment score, a float between 0 and 1.
+        """
+
         if not self._model or not self.__tokenizer:
             raise ValueError("model and tokenizer must be loaded.")
         data_input: str = " ".join(jieba.lcut(data_input))
         input_text: NDArray[int32] = self.__text_to_sequences(data_input)
         prediction: NDArray[float32] = self._model.predict(input_text)
 
-        return True if prediction[0][0] > 0.5 else False
+        return float(prediction[0][0])
 
-    def simple_train(self, input_data: Path, old_model_path: Optional[Path] = None, epoch: int = 1000,
-                     model_save_folder: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_FOLDER,
-                     model_save_name: str = Constants.REVIEW_SENTIMENT_ANALYSIS_MODEL_NAME,
-                     tokenizer_save_path: Path = Constants.REVIEW_SENTIMENT_ANALYSIS_TOKENIZER_PATH) -> None:
-        """A simplified interface to load data from a CSV file and train the model.
+    def predict_sentiment_label(self,data_input:str) -> bool:
+        """
+        Predicts the sentiment label (positive/negative) for a given text input.
+
+        :param data_input: The text string to predict sentiment for.
+        :returns: True if the sentiment is positive (score > 0.5), False otherwise.
+        """
+        return True if self.predict(data_input=data_input) > 0.5 else False
+
+    def simple_train(self, input_data: Path, tokenizer_save_path: Path,
+                     model_save_name: str,model_save_folder:Path,
+                     old_model_path: Optional[Path] = None, epoch: int = 1000
+                     ) -> None:
+        """
+        A simplified interface to load data from a CSV file and train the model.
 
         This method first loads training data using ``_load_training_data`` and then calls
         the main ``train`` method.
 
-        :param input_data: Path to the CSV file containing the training data.
-        :param old_model_path: Optional path to a pre-trained Keras model file to continue training.
+        :param input_data: Path to the CSV file.
+        :param tokenizer_save_path: Path to save the tokenizer.
+        :param model_save_name: Base name for the model file.
+        :param model_save_folder: Folder to save the model.
+        :param old_model_path: Optional path to a pre-trained Keras model.
         :param epoch: Number of training epochs.
-        :param model_save_folder: Folder where the trained Keras model file will be saved.
-        :param model_save_name: Base name for the saved Keras model file.
-        :param tokenizer_save_path: Path where the tokenizer will be saved.
-        :raises ValueError: If ``input_data`` is not a ``pathlib.Path`` instance.
+        :raises ValueError: If ``input_data`` is not a ``Path`` instance.
         """
         if isinstance(input_data, Path):
             train_data: any = self._load_training_data(data_path=input_data)
@@ -243,27 +257,3 @@ class ReviewSentimentAnalyseModel(MachineLearningModel):
             raise ValueError
         self.train(data=train_data, old_model_path=old_model_path, epoch=epoch, model_save_folder=model_save_folder,
                    model_save_name=model_save_name, tokenizer_save_path=tokenizer_save_path)
-
-    def simple_predict(self, input_data: str | None) -> None:
-        """A simplified interface for making predictions.
-
-        If ``input_data`` is a string, it predicts the sentiment of that single string and prints the result.
-        If ``input_data`` is ``None``, it loads all movies from an index file, processes their public reviews,
-        predicts sentiment for each review, updates the review objects, and saves them.
-
-        :param input_data: A single review text string for prediction, or ``None`` to process reviews from the index file.
-        :raises ValueError: If ``input_data`` is not a string or ``None``.
-                           Also, indirectly, if the model/tokenizer are not loaded when ``predict`` is called.
-        :raises FileNotFoundError: If ``Constants.INDEX_PATH`` (used by ``load_index_file``) does not exist when ``input_data`` is ``None``.
-        """
-        if isinstance(input_data, str):
-            print(self.predict(input_data))
-        elif input_data is None:
-            for movie in load_index_file():
-                movie.load_public_review()
-                for review in movie.public_reviews:
-                    review.sentiment_score = self.predict(review.content)
-                movie.save_public_review(Constants.PUBLIC_REVIEW_FOLDER)
-        else:
-            raise ValueError
-        return
