@@ -4,9 +4,10 @@ from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
 from typing import Final
-from typing_extensions import override
 
 from numpy.typing import NDArray
+from src.utilities.plot import plot_multi_line_graph, PlotDataset
+from typing_extensions import override
 
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectDatasetType, ProjectModelType, ProjectPaths
@@ -17,14 +18,14 @@ from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.reviews import PublicReview
 from src.models.sentiment.components.data_processor import (
-    SentimentDataProcessor, SentimentPredictionConfig, SentimentTrainingConfig
+    SentimentDataProcessor, SentimentTrainingConfig
 )
 from src.models.sentiment.components.evaluator import (
     SentimentEvaluator, SentimentEvaluationResult, SentimentEvaluationConfig
 )
 from src.models.sentiment.components.model_core import SentimentModelCore, SentimentPredictConfig
 from src.models.sentiment.pipelines.training_pipeline import SentimentTrainingPipeline
-from src.utilities.plot_old import plot_multi_line_graph, PlotDataset
+
 
 @dataclass(frozen=True)
 class SentimentMultiEpochEvaluationResult:

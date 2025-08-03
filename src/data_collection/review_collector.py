@@ -6,7 +6,6 @@ from enum import Enum
 from logging import Logger
 from pathlib import Path
 from typing import Final, Optional, TypeAlias, Iterator
-from yaml import YAMLError
 
 import requests
 from bs4 import BeautifulSoup
@@ -14,13 +13,14 @@ from bs4.element import NavigableString
 from requests import Response
 from selenium.common.exceptions import StaleElementReferenceException
 from tqdm import tqdm
+from yaml import YAMLError
 
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import CaptchaBrowser
+from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview
-from src.data_handling.file_io import YamlFile
 from src.utilities.collection_utils import delete_duplicate
 
 Url: TypeAlias = str

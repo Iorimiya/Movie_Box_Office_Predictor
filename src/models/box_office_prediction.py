@@ -1,10 +1,6 @@
 import random
 from logging import Logger
 from pathlib import Path
-from logging import Logger
-
-from numpy.typing import NDArray
-from numpy import float32, float64, int64
 from typing import Optional, TypedDict, Literal
 
 import numpy as np
@@ -15,6 +11,8 @@ from keras.src.models import Sequential
 from keras.src.optimizers import Adam
 from keras.src.optimizers.schedules import ExponentialDecay
 from keras_preprocessing.sequence import pad_sequences
+from numpy import float32, float64, int64
+from numpy.typing import NDArray
 from sklearn.metrics import f1_score
 
 from src.core.constants import Constants

@@ -19,6 +19,7 @@ from src.core.logging_manager import LoggingManager
 from src.models.machine_learning_model import MachineLearningModel
 from src.utilities.filesystem_utils import is_existing_path
 
+
 class ReviewSentimentAnalyseModel(MachineLearningModel):
     """
     A machine learning model for analyzing review sentiment.
