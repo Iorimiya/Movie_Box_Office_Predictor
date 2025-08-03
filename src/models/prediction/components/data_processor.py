@@ -1,11 +1,15 @@
 from dataclasses import dataclass
+from logging import Logger
 from pathlib import Path
-from typing import TypedDict, Optional
+from typing import TypedDict, Optional, Final
 
 from numpy import float32, float64
 from numpy.typing import NDArray
+from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
+from src.core.logging_manager import LoggingManager
+from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieData
 from src.models.base.base_data_processor import BaseDataProcessor
 
@@ -72,13 +76,16 @@ class PredictionDataProcessor(
     ]
 ):
     """
-     Handles all data-related tasks for the box office prediction model.
+    Handles all data-related tasks for the box office prediction model.
 
-     This processor loads movie data, transforms it into weekly features,
-     creates sequences, scales the data using a MinMaxScaler, and splits it
-     into training, validation, and test sets. It manages the MinMaxScaler
-     and key training parameters as its primary artifacts.
-     """
+    This processor loads movie data, transforms it into weekly features,
+    creates sequences, scales the data using a MinMaxScaler, and splits it
+    into training, validation, and test sets. It manages the MinMaxScaler
+    and key training parameters as its primary artifacts.
+    """
+
+    SCALER_FILE_NAME: Final[str] = "scaler_and_settings.pickle"
+
 
     @override
     def __init__(self, model_artifacts_path: Optional[Path] = None):
@@ -87,7 +94,9 @@ class PredictionDataProcessor(
 
         :param model_artifacts_path: Path to the directory for model artifacts.
         """
-        # TODO
+        self.scaler: Optional[MinMaxScaler] = None
+        self.training_week_len: Optional[int] = None
+        self.logger: Logger = LoggingManager().get_logger('machine_learning')
         super().__init__(model_artifacts_path=model_artifacts_path)
 
     @override
@@ -97,16 +106,41 @@ class PredictionDataProcessor(
 
         :raises ValueError: If `model_artifacts_path` is not set or artifacts are not available.
         """
-        pass
-        # TODO
+        if not self.model_artifacts_path:
+            raise ValueError("model_artifacts_path is not set. Cannot save artifacts.")
+        if not self.scaler or self.training_week_len is None:
+            raise ValueError("Scaler or training parameters are not available to be saved.")
+
+        self.model_artifacts_path.mkdir(parents=True, exist_ok=True)
+        artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
+        self.logger.info(f"Saving scaler and settings artifact to: {artifact_path}")
+
+        PickleFile(path=artifact_path).save(data={'scaler': self.scaler, 'training_week_len': self.training_week_len})
+
 
     @override
     def load_artifacts(self) -> None:
         """
         Loads the MinMaxScaler and training parameters from the artifact file.
         """
-        pass
-        # TODO
+        if not self.model_artifacts_path:
+            return
+
+        artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
+        if artifact_path.exists():
+            self.logger.info(f"Loading scaler and settings artifact from: {artifact_path}")
+            try:
+                load_data: dict = PickleFile(path=artifact_path).load()
+                self.scaler: MinMaxScaler = load_data.get('scaler')
+                self.training_week_len = load_data.get('training_week_len')
+                self.logger.info(
+                    f"Loaded artifacts: training_week_limit={self.training_week_len}."
+                )
+            except (TypeError, ValueError) as e:
+                self.logger.error(f"Failed to load artifacts from {artifact_path}: {e}", exc_info=True)
+                # Reset to ensure a clean state
+                self.scaler = None
+                self.training_week_len = None
 
     @override
     def load_raw_data(self, source: PredictionDataSource) -> PredictionRawData:
