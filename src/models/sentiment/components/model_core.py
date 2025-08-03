@@ -1,8 +1,9 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
+from keras.api.models import Sequential
 from keras.src.callbacks import Callback, History
-
+from keras.src.layers import LSTM, Dense, Dropout, Embedding, Input
 from numpy.typing import NDArray
 from typing_extensions import override
 
@@ -90,6 +91,14 @@ class SentimentModelCore(
 
         :param config: The configuration object containing model build parameters.
         """
+        self._model = Sequential(layers=[
+            Input(shape=(config.max_sequence_length,)),
+            Embedding(input_dim=config.vocabulary_size, output_dim=config.embedding_dim),
+            LSTM(units=config.lstm_units, return_sequences=False),
+            Dropout(rate=0.5),
+            Dense(units=1, activation='sigmoid')
+        ])
+        self._compile_model()
 
     @override
     def train(self, x_train: NDArray[any], y_train: NDArray[any], config: SentimentTrainConfig) -> History:
@@ -102,7 +111,19 @@ class SentimentModelCore(
         :returns: A Keras `History` object containing a record of training loss values and metrics.
         :raises ValueError: If the model is not built or loaded before training.
         """
+        if not self._model:
+            raise ValueError("Model is not built or loaded. Cannot start training.")
 
+        return self._model.fit(
+            x=x_train,
+            y=y_train,
+            epochs=config.epochs,
+            batch_size=config.batch_size,
+            validation_data=config.validation_data,
+            callbacks=config.callbacks,
+            verbose=config.verbose,
+            initial_epoch=config.initial_epoch
+        )
 
     @override
     def predict(self, data: NDArray[any], config: SentimentPredictConfig) -> NDArray[any]:
@@ -114,7 +135,10 @@ class SentimentModelCore(
         :returns: A NumPy array of predictions.
         :raises ValueError: If the model is not built or loaded before prediction.
         """
+        if not self._model:
+            raise ValueError("Model is not built or loaded. Cannot make predictions.")
 
+        return self._model.predict(x=data, batch_size=config.batch_size, verbose=config.verbose)
 
     @override
     def evaluate(self, x_test: NDArray[any], y_test: NDArray[any], config: SentimentEvaluateConfig) -> any:
@@ -127,7 +151,10 @@ class SentimentModelCore(
         :returns: A scalar loss value, or a list of scalars (loss and metrics) for the model.
         :raises ValueError: If the model is not built or loaded before evaluation.
         """
+        if not self._model:
+            raise ValueError("Model is not built or loaded. Cannot evaluate.")
 
+        return self._model.evaluate(x=x_test, y=y_test, batch_size=config.batch_size, verbose=config.verbose)
 
     def _compile_model(self) -> None:
         """
@@ -136,4 +163,7 @@ class SentimentModelCore(
 
         :raises ValueError: If the model has not been created by calling `build` first.
         """
+        if not self._model:
+            raise ValueError("Model has not been created yet. Call 'build' first.")
 
+        self._model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
