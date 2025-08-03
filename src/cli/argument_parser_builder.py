@@ -1,8 +1,10 @@
 # noinspection PyProtectedMember
 from argparse import ArgumentParser, Namespace, _SubParsersAction
+from pathlib import Path
 from typing import Optional
 
-from src.cli.handlers import DatasetHandler, SentimentModelHandler, PredictionModelHandler
+from src.cli.handlers import DatasetHandler, SentimentModelHandler, PredictionModelHandler, BaseModelHandler
+
 
 class ArgumentParserBuilder:
     """
@@ -95,43 +97,72 @@ class ArgumentParserBuilder:
     def __create_train_common_behavior_parser(self) -> ArgumentParser:
         """Creates a parent parser with common arguments for model training."""
         parser: ArgumentParser = ArgumentParser(add_help=False)
+
+        # --- Required Argument ---
         parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
 
-        source_group = parser.add_mutually_exclusive_group(required=True)
-        source_group.add_argument(
-            '--feature-dataset-name',
-            type=str,
-            help='Specify the name of the feature dataset for training.'
+        # --- Optional Override Method 1: File-based ---
+        file_override_group = parser.add_argument_group(
+            'File-based Parameter Override (Optional)',
+            description='Override default parameters using a configuration file. '
+                        'Note: This is mutually exclusive with individual parameter overrides below.'
         )
-        source_group.add_argument(
-            '--structured-dataset-name',
-            type=str,
-            help='Specify the name of the structured dataset to use as a source.'
-        )
-        source_group.add_argument(
-            '--random-data',
-            action='store_true',
-            help='Use randomly generated data for training.'
+        file_override_group.add_argument(
+            '--config-override',
+            type=Path,
+            required=False,
+            help='Path to a YAML file with parameters to override the defaults.'
         )
 
-        parser.add_argument(
-            '--old-epoch',
+        # --- Optional Override Method 2: Individual Parameters ---
+        params_override_group = parser.add_argument_group(
+            'Individual Parameter Overrides (Optional)',
+            description='Override specific default parameters directly. '
+                        'Note: This is mutually exclusive with the file-based override above.'
+        )
+        params_override_group.add_argument(
+            '--dataset-file-name', type=str, required=False, help='Override the source dataset CSV file name.'
+        )
+        params_override_group.add_argument(
+            '--epochs', type=int, required=False, help='Override the number of training epochs.'
+        )
+        params_override_group.add_argument(
+            '--batch-size', type=int, required=False, help='Override the batch size for training.'
+        )
+        params_override_group.add_argument(
+            '--vocabulary-size', type=int, required=False, help='Override the vocabulary size.'
+        )
+        params_override_group.add_argument(
+            '--embedding-dim', type=int, required=False, help='Override the embedding dimension.'
+        )
+        params_override_group.add_argument(
+            '--lstm-units', type=int, required=False, help='Override the number of LSTM units.'
+        )
+        params_override_group.add_argument(
+            '--split-ratios', type=int, nargs=3, metavar=('TRAIN', 'VAL', 'TEST'),
+            required=False, help='Override the data split ratios (e.g., 8 1 1 for 80/10/10).'
+        )
+        params_override_group.add_argument(
+            '--random-state', type=int, required=False, help='Override the random state for data splitting.'
+        )
+        params_override_group.add_argument(
+            '--checkpoint-interval', type=int, required=False, help='Override the model checkpoint interval.'
+        )
+
+        continue_group = parser.add_argument_group(
+            'Continue Training (Optional)',
+            description='Options to continue training from a previously saved checkpoint. '
+                        'If used, a new model will not be created. The configuration '
+                        'from the original model run will be used.'
+        )
+
+        continue_group.add_argument(
+            '--continue-from-epoch',
             type=int,
             required=False,
-            help='The epoch of an existing model to continue training from.'
+            help='The epoch number of the checkpoint to load and continue training from.'
         )
-        parser.add_argument(
-            '--target-epoch',
-            type=int,
-            required=True,
-            help='The target number of training epochs.'
-        )
-        parser.add_argument(
-            '--checkpoint-interval',
-            type=int,
-            required=False,
-            help='The interval in epochs at which to save model checkpoints.'
-        )
+
         return parser
 
     @staticmethod
@@ -162,6 +193,36 @@ class ArgumentParserBuilder:
         return ArgumentParser(
             add_help=False, parents=[self.__evaluate_common_behavior_parser, self.__model_file_args_parser]
         )
+
+    def __add_evaluate_subcommands(
+        self,
+        parent_subparsers: _SubParsersAction,
+        handler: BaseModelHandler,
+        model_type_name: str
+    ) -> None:
+        """
+        Adds the 'evaluate' command and its sub-commands ('plot', 'get-metrics')
+        to a parent subparser.
+
+        This helper method centralizes the creation of the evaluation command
+        structure to avoid code duplication across different model types.
+
+        :param parent_subparsers: The subparsers action object to which the 'evaluate' command will be added.
+        :param handler: The model-specific handler instance that contains the logic for plotting and getting metrics.
+        :param model_type_name: The name of the model type (e.g., 'sentiment'), used for help messages.
+        """
+        evaluate_parser: ArgumentParser = parent_subparsers.add_parser(
+            'evaluate', help=f'Evaluate the {model_type_name} model.'
+        )
+        evaluate_subparsers: _SubParsersAction = evaluate_parser.add_subparsers(
+            dest="evaluate_command", required=True
+        )
+        evaluate_subparsers.add_parser(
+            'plot', help="Plot evaluation graphs.", parents=[self.__plot_common_behavior_parser]
+        ).set_defaults(func=handler.plot_graph)
+        evaluate_subparsers.add_parser(
+            'get-metrics', help="Get specific evaluation metrics.", parents=[self.__get_metrics_common_behavior_parser]
+        ).set_defaults(func=handler.get_metrics)
 
     def __setup_dataset_subparser(self) -> None:
         """Configures the 'dataset' command group and its sub-commands."""
@@ -227,27 +288,30 @@ class ArgumentParserBuilder:
             'train', help='Train a sentiment analysis model.', parents=[self.__train_common_behavior_parser]
         ).set_defaults(func=self.__sentiment_model_handler.train)
 
-        test_parser: ArgumentParser = sentiment_subparsers.add_parser(
-            'test', help="Test the sentiment model with a sentence.", parents=[self.__model_file_args_parser]
+        predict_parser: ArgumentParser = sentiment_subparsers.add_parser(
+            'predict', help="Test the sentiment model with a sentence.", parents=[self.__model_file_args_parser]
         )
-        test_parser.add_argument("--input-sentence", type=str, required=True, help="The sentence to analyze.")
-        test_parser.set_defaults(func=self.__sentiment_model_handler.test)
+        predict_parser.add_argument(
+            "--input-sentence", type=str, required=True, help="The sentence to analyze."
+        )
+        predict_parser.set_defaults(func=self.__sentiment_model_handler.predict)
 
-        evaluate_parser: ArgumentParser = sentiment_subparsers.add_parser(
-            'evaluate', help='Evaluate the sentiment model.'
+        self.__add_evaluate_subcommands(
+            parent_subparsers=sentiment_subparsers,
+            handler=self.__sentiment_model_handler,
+            model_type_name="sentiment"
         )
-        evaluate_subparsers: _SubParsersAction = evaluate_parser.add_subparsers(
-            dest="evaluate_command", required=True
-        )
-        evaluate_subparsers.add_parser(
-            'plot', help="Plot evaluation graphs.", parents=[self.__plot_common_behavior_parser]
-        ).set_defaults(func=self.__sentiment_model_handler.plot_graph)
-        evaluate_subparsers.add_parser(
-            'get-metrics', help="Get specific evaluation metrics.", parents=[self.__get_metrics_common_behavior_parser]
-        ).set_defaults(func=self.__sentiment_model_handler.get_metrics)
 
     def __setup_prediction_model_subparser(self) -> None:
-        """Configures the 'prediction-model' command group and its sub-commands."""
+        """
+        Sets up the 'prediction-model' command group and its sub-commands.
+
+        This defines the following command structure:
+        - `prediction-model train`: To train a new model.
+        - `prediction-model predict`: To test the model.
+        - `prediction-model evaluate plot`: To plot evaluation graphs.
+        - `prediction-model evaluate get-metrics`: To get specific metric values.
+        """
         prediction_parser: ArgumentParser = self._subparsers_action.add_parser(
             "prediction-model", help="Commands for the box office prediction model."
         )
@@ -259,26 +323,23 @@ class ArgumentParserBuilder:
             'train', help='Train a box office prediction model.', parents=[self.__train_common_behavior_parser]
         ).set_defaults(func=self.__prediction_model_handler.train)
 
-        test_parser: ArgumentParser = prediction_subparsers.add_parser(
-            'test', help="Test the prediction model.", parents=[self.__model_file_args_parser]
+        predict_parser: ArgumentParser = prediction_subparsers.add_parser(
+            'predict', help="Test the prediction model.", parents=[self.__model_file_args_parser]
         )
-        source_group = test_parser.add_mutually_exclusive_group(required=True)
-        source_group.add_argument('--movie-name', type=str, help='The name of the movie to test a prediction on.')
-        source_group.add_argument('--random', action='store_true', help='Use random data for the prediction test.')
-        test_parser.set_defaults(func=self.__prediction_model_handler.test)
+        source_group = predict_parser.add_mutually_exclusive_group(required=True)
+        source_group.add_argument(
+            '--movie-name', type=str, help='The name of the movie to predict a prediction on.'
+        )
+        source_group.add_argument(
+            '--random', action='store_true', help='Use random data for the prediction predict.'
+        )
+        predict_parser.set_defaults(func=self.__prediction_model_handler.predict)
 
-        evaluate_parser: ArgumentParser = prediction_subparsers.add_parser(
-            'evaluate', help='Evaluate the prediction model.'
+        self.__add_evaluate_subcommands(
+            parent_subparsers=prediction_subparsers,
+            handler=self.__prediction_model_handler,
+            model_type_name="prediction"
         )
-        evaluate_subparsers: _SubParsersAction = evaluate_parser.add_subparsers(
-            dest="evaluate_command", required=True
-        )
-        evaluate_subparsers.add_parser(
-            'plot', help="Plot evaluation graphs.", parents=[self.__plot_common_behavior_parser]
-        ).set_defaults(func=self.__prediction_model_handler.plot_graph)
-        evaluate_subparsers.add_parser(
-            'get-metrics', help="Get specific evaluation metrics.", parents=[self.__get_metrics_common_behavior_parser]
-        ).set_defaults(func=self.__prediction_model_handler.get_metrics)
 
     def build(self) -> ArgumentParser:
         """
