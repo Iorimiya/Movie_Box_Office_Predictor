@@ -346,11 +346,8 @@ class Dataset:
         self.__logger.info(
             f"Proceeding with public review collection for {len(movies_to_collect_for)} movies in dataset '{self.name}' from {target_website_enum.name}.")
         try:
-            collector: ReviewCollector = ReviewCollector(
-                target_website=target_website_enum,
-                review_folder=self.public_review_folder_path
-            )
-            collector.collect_reviews_for_movies(movie_list=movies_to_collect_for)
+            collector: ReviewCollector = ReviewCollector(target_website=target_website_enum)
+            collector.collect_reviews_for_movies(movie_list=movies_to_collect_for,data_folder=self.public_review_folder_path)
 
             self.__logger.info(
                 f"Public review collection process finished for dataset '{self.name}' from {target_website_enum.name}. "
