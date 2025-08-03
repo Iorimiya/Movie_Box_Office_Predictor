@@ -8,13 +8,27 @@ from src.cli.handlers import DatasetHandler, SentimentModelHandler, PredictionMo
 
 class ArgumentParserBuilder:
     """
-    Builds and configures the command-line interface using argparse.
+    Builds and configures the ArgumentParser for the application's command-line interface.
 
-    This class encapsulates the entire CLI structure, including commands,
-    sub-commands, and arguments, using a set of reusable parent parsers
-    to avoid code duplication.
+    This class encapsulates the entire CLI structure, including command groups,
+    sub-commands, and their respective arguments. It uses a builder pattern to
+    construct the parser lazily and ensures that the setup logic is organized
+    and reusable through parent parsers and handler classes.
+
+    :cvar _MODEL_ID_KWARGS: A dictionary of common keyword arguments for the '--model-id' CLI option.
+    :ivar parser: The root ArgumentParser instance.
+    :ivar _subparsers_action: The subparsers action object for adding command groups.
+    :ivar _built: A flag to prevent re-building the parser.
+    :ivar __model_file_args_parser: A parent parser for identifying a specific model file.
+    :ivar __collect_common_behavior_parser: A parent parser for data collection commands.
+    :ivar __train_common_behavior_parser: A parent parser for model training commands.
+    :ivar __evaluate_common_behavior_parser: A parent parser for common evaluation options.
+    :ivar __plot_common_behavior_parser: A parent parser for plotting evaluation graphs.
+    :ivar __get_metrics_common_behavior_parser: A parent parser for fetching evaluation metrics.
+    :ivar __dataset_handler: The handler for 'dataset' command logic.
+    :ivar __sentiment_model_handler: The handler for 'sentiment-model' command logic.
+    :ivar __prediction_model_handler: The handler for 'prediction-model' command logic.
     """
-
     _MODEL_ID_KWARGS: dict[str, type|bool|str] = {
         "type": str,
         "required": True,
@@ -22,7 +36,12 @@ class ArgumentParserBuilder:
     }
 
     def __init__(self) -> None:
-        """Initializes the ArgumentParserBuilder."""
+        """
+        Initializes the ArgumentParserBuilder.
+
+        Sets up the main parser, its subparsers, and then calls initialization
+        methods for parent parsers and command handlers.
+        """
         self.parser: ArgumentParser = ArgumentParser(
             prog="movie_predictor",
             description="A command-line tool for movie box office prediction and analysis."
@@ -39,7 +58,13 @@ class ArgumentParserBuilder:
         self._initialize_handlers()
 
     def _initialize_parent_parsers(self) -> None:
-        """Creates and stores reusable parent parsers for common arguments."""
+        """
+        Creates and initializes all parent parsers for reusable argument groups.
+
+        Parent parsers define common sets of arguments (e.g., for identifying a model,
+        training, or evaluation) that can be inherited by multiple sub-commands,
+        reducing code duplication.
+        """
         # Parent parser for arguments identifying a specific model file
         self.__model_file_args_parser: ArgumentParser = self.__create_model_file_args_parser()
 
@@ -55,14 +80,25 @@ class ArgumentParserBuilder:
         self.__get_metrics_common_behavior_parser: ArgumentParser = self.__create_get_metrics_common_behavior_parser()
 
     def _initialize_handlers(self) -> None:
-        """Initializes handlers for processing parsed commands."""
+        """
+        Initializes the command handler instances.
+
+        Each handler is responsible for the logic associated with a specific command
+        group (e.g., 'dataset', 'sentiment-model').
+        """
         self.__dataset_handler = DatasetHandler(self.parser)
         self.__sentiment_model_handler = SentimentModelHandler(self.parser)
         self.__prediction_model_handler = PredictionModelHandler(self.parser)
 
     @staticmethod
     def __create_model_file_args_parser() -> ArgumentParser:
-        """Creates a parent parser for identifying a model by its ID and epoch."""
+        """
+        Creates a parent parser for arguments that identify a specific model file.
+
+        This parser includes the '--model-id' and '--epoch' arguments.
+
+        :returns: An ArgumentParser configured with model file identifier arguments.
+        """
         parser: ArgumentParser = ArgumentParser(add_help=False)
         model_file_group = parser.add_argument_group(
             'Model File Identifier',
@@ -79,7 +115,14 @@ class ArgumentParserBuilder:
 
     @staticmethod
     def __create_collect_common_behavior_parser() -> ArgumentParser:
-        """Creates a parent parser for specifying a data collection target."""
+        """
+        Creates a parent parser for common arguments in data collection commands.
+
+        This parser defines a mutually exclusive group for targeting either an
+        entire dataset ('--structured-dataset-name') or a single movie ('--movie-name').
+
+        :returns: An ArgumentParser configured with data collection target arguments.
+        """
         parser: ArgumentParser = ArgumentParser(add_help=False)
         target_group = parser.add_mutually_exclusive_group(required=True)
         target_group.add_argument(
@@ -95,7 +138,15 @@ class ArgumentParserBuilder:
         return parser
 
     def __create_train_common_behavior_parser(self) -> ArgumentParser:
-        """Creates a parent parser with common arguments for model training."""
+        """
+        Creates a parent parser for common arguments in model training commands.
+
+        This includes the required '--model-id', optional configuration overrides
+        (via file or individual parameters), and options for continuing training
+        from a checkpoint.
+
+        :returns: An ArgumentParser configured with common training arguments.
+        """
         parser: ArgumentParser = ArgumentParser(add_help=False)
 
         # --- Required Argument ---
@@ -167,7 +218,14 @@ class ArgumentParserBuilder:
 
     @staticmethod
     def __create_evaluate_common_behavior_parser() -> ArgumentParser:
-        """Creates a parent parser for selecting which metrics to evaluate or plot."""
+        """
+        Creates a parent parser for common arguments in model evaluation commands.
+
+        This parser provides boolean flags for selecting which metrics to evaluate
+        or plot, such as '--training-loss', '--validation-loss', and '--f1-score'.
+
+        :returns: An ArgumentParser configured with common evaluation metric-selection arguments.
+        """
         parser: ArgumentParser = ArgumentParser(add_help=False)
         plot_options_group = parser.add_argument_group(
             'Evaluation Options',
@@ -181,7 +239,14 @@ class ArgumentParserBuilder:
         return parser
 
     def __create_plot_common_behavior_parser(self) -> ArgumentParser:
-        """Creates a parent parser for plotting graphs, combining evaluation and model ID parsers."""
+        """
+        Creates a parent parser for plotting evaluation graphs.
+
+        This parser combines the common evaluation metric-selection arguments with
+        the '--model-id' argument.
+
+        :returns: An ArgumentParser configured for plotting commands.
+        """
         model_id_parser = ArgumentParser(add_help=False)
         model_id_parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
         return ArgumentParser(
@@ -189,7 +254,14 @@ class ArgumentParserBuilder:
         )
 
     def __create_get_metrics_common_behavior_parser(self) -> ArgumentParser:
-        """Creates a parent parser for getting metrics, combining evaluation and model file parsers."""
+        """
+        Creates a parent parser for fetching specific evaluation metrics.
+
+        This parser combines the common evaluation metric-selection arguments with
+        the arguments for identifying a specific model file (model ID and epoch).
+
+        :returns: An ArgumentParser configured for getting specific metrics.
+        """
         return ArgumentParser(
             add_help=False, parents=[self.__evaluate_common_behavior_parser, self.__model_file_args_parser]
         )
@@ -225,7 +297,14 @@ class ArgumentParserBuilder:
         ).set_defaults(func=handler.get_metrics)
 
     def __setup_dataset_subparser(self) -> None:
-        """Configures the 'dataset' command group and its sub-commands."""
+        """
+        Sets up the 'dataset' command group and its sub-commands.
+
+        This defines the following command structure:
+        - `dataset index`: To create a dataset index.
+        - `dataset collect <type>`: To collect data (box-office, ptt-review, etc.).
+        - `dataset compute-sentiment`: To run sentiment analysis on a dataset.
+        """
         dataset_parser: ArgumentParser = self._subparsers_action.add_parser(
             "dataset",
             help="Commands for dataset creation and data collection."
@@ -276,7 +355,15 @@ class ArgumentParserBuilder:
         compute_sentiment_parser.set_defaults(func=self.__dataset_handler.compute_sentiment)
 
     def __setup_sentiment_model_subparser(self) -> None:
-        """Configures the 'sentiment-model' command group and its sub-commands."""
+        """
+        Sets up the 'sentiment-model' command group and its sub-commands.
+
+        This defines the following command structure:
+        - `sentiment-model train`: To train a new model.
+        - `sentiment-model predict`: To test the model with a sentence.
+        - `sentiment-model evaluate plot`: To plot evaluation graphs.
+        - `sentiment-model evaluate get-metrics`: To get specific metric values.
+        """
         sentiment_parser: ArgumentParser = self._subparsers_action.add_parser(
             "sentiment-model", help="Commands for the sentiment analysis model."
         )
@@ -343,8 +430,10 @@ class ArgumentParserBuilder:
 
     def build(self) -> ArgumentParser:
         """
-        Builds the complete argument parser by setting up all subparsers.
-        This method is idempotent.
+        Constructs and returns the complete ArgumentParser.
+
+        This method orchestrates the setup of all command groups and their
+        sub-commands. It ensures the parser is only built once.
 
         :returns: The fully configured ArgumentParser instance.
         """
