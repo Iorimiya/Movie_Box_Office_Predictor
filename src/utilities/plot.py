@@ -1,237 +1,73 @@
-import re
 from logging import Logger
 from pathlib import Path
-from typing import Final
+from typing import Literal, Optional, TypedDict
 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
 from src.core.logging_manager import LoggingManager
-from src.core.project_config import ProjectPaths, ProjectModelType
-from src.models.box_office_prediction import MoviePredictionModel
 
 
-def search_model(model_name: str) -> tuple[list[Path], list[int]]:
+class PlotDataset(TypedDict):
     """
-    Searches for model folders matching a given model name pattern and extracts their epochs.
+    Represents a single dataset to be plotted on a graph.
 
-    This function scans the ``Constants.BOX_OFFICE_PREDICTION_FOLDER`` for directories
-    that start with ``model_name_`` and end with an epoch number.
-
-    :param model_name: The base name of the model to search for.
-    :returns: A tuple containing:
-              - A list of ``pathlib.Path`` objects pointing to the found model folders.
-              - A list of integers representing the epochs extracted from the folder names.
+    :ivar label: The label for this dataset, which will appear in the legend.
+    :ivar data: A list of numerical values for the y-axis.
     """
-    logger: Logger = LoggingManager().get_logger('root')
-    model_path: Path = ProjectPaths.get_model_root_path(model_id=model_name, model_type=ProjectModelType.PREDICTION)
-    logger.info(f"Search models in \"{model_path}\" folder")
-    folder_list: list[Path] = list(
-        filter(lambda file: file.is_dir(), model_path.glob(f"{model_name}_*")))
-    model_epochs: list[int] = [int(folder.name.split("_")[-1]) for folder in folder_list]
-    return folder_list, model_epochs
+    label: str
+    data: list[float]
 
 
-def plot_line_graph(title: str, save_file_path: Path,
-                    x_data: list[int], y_data: list[float],
-                    format_type: str, y_label: str,
-                    x_label: str = 'epoch') -> None:
+def plot_multi_line_graph(
+    title: str,
+    save_path: Path,
+    x_data: list[int | float],
+    y_datasets: list[PlotDataset],
+    x_label: str,
+    y_label: str,
+    y_formatter: Optional[Literal['percent', 'sci-notation']] = None
+) -> None:
     """
-    Plots a line graph with specified title, data, and formatting, then saves and shows it.
+    Plots a line graph with one or more datasets, a legend, and saves it.
 
     :param title: The title of the graph.
-    :param save_file_path: The path to save the graph image.
-    :param x_data: The data for the x-axis.
-    :param y_data: The data for the y-axis.
-    :param format_type: The formatting type for the y-axis. Accepts 'percent' or 'sci-notation'.
+    :param save_path: The full path where the graph image will be saved.
+    :param x_data: The data for the x-axis, shared by all y-datasets.
+    :param y_datasets: A list of PlotDataset dictionaries, each representing a line to plot.
+    :param x_label: The label for the x-axis.
     :param y_label: The label for the y-axis.
-    :param x_label: The label for the x-axis, defaults to 'epoch'.
-    :raises ValueError: If ``format_type`` is not 'percent' or 'sci-notation'.
-    :returns: None
+    :param y_formatter: Optional formatting for the y-axis ('percent' or 'sci-notation').
     """
     logger: Logger = LoggingManager().get_logger('root')
-    logger.info("Plot line graph.")
+    logger.info(f"Plotting multi-line graph: '{title}'")
+
+    plt.figure(figsize=(10, 6))
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    match format_type:
-        case 'percent':
-            logger.info("Plot line graph with percent formatting.")
-            plt.gca().yaxis.set_major_formatter(PercentFormatter())
-        case 'sci-notation':
-            logger.info("Plot line graph with sci-notation formatting.")
-            plt.gca().ticklabel_format(style='sci', scilimits=(-2, 1), axis='y')
-        case _:
-            raise ValueError(f"Format need to be either \'percent\' or \'sci-notation\'.")
-    plt.plot(x_data, y_data)
-    logger.info(f"Saving image to \"{save_file_path}\".")
-    plt.savefig(save_file_path)
+    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
+
+    for dataset in y_datasets:
+        plt.plot(x_data, dataset['data'], label=dataset['label'])
+
+    if y_formatter:
+        match y_formatter:
+            case 'percent':
+                logger.info("Applying 'percent' formatting to y-axis.")
+                plt.gca().yaxis.set_major_formatter(PercentFormatter(xmax=100))
+            case 'sci-notation':
+                logger.info("Applying 'sci-notation' formatting to y-axis.")
+                plt.gca().ticklabel_format(style='sci', scilimits=(-2, 3), axis='y')
+            case _:
+                # This case should ideally not be hit if types are checked, but as a safeguard.
+                logger.warning(f"Unknown y_formatter '{y_formatter}'. No formatting applied.")
+
+    plt.legend()
+    plt.tight_layout()
+
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+    logger.info(f"Saving graph to: '{save_path}'")
+    plt.savefig(save_path)
     plt.show()
-    return
-
-
-def plot_training_loss(log_path: Path) -> None:
-    """
-    Loads training log data, extracts training loss values and corresponding epochs,
-    and plots them as a line graph.
-
-    The function parses a log file to find the target epoch, saving interval,
-    and recorded training loss values at each saved epoch.
-
-    :param log_path: The path to the log file containing training loss information.
-    :raises FileNotFoundError: If the ``log_path`` does not exist.
-    :raises AttributeError: If expected patterns (e.g., for target epoch, saving interval, or loss) are not found in the log file.
-    :raises ValueError: If numerical conversion of parsed log data (e.g., epoch, interval, loss) fails.
-    :returns: None
-    """
-    logger: Logger = LoggingManager().get_logger('root')
-    logger.info("Plot line graph of training loss.")
-    # read log content
-    logger.info(f"Read log file from \"{log_path}\".")
-    with open(log_path, 'r') as file:
-        text: str = file.read()
-
-    logger.info("Collect loss value form log content.")
-    # find loss value in every saving epoch and calculate epoch.
-    target_epoch_search_pattern: Final[str] = 'INFO - (Target )?epoch inputted: \d+\.?$'
-    target_epoch: int = int(list(
-        filter(lambda x: x, re.split(": |\.?$", re.search(target_epoch_search_pattern, text, re.MULTILINE).group(0))))[
-                                -1])
-    logger.info(f"Found target epoch: {target_epoch}.")
-    saving_interval_search_pattern: Final[list[str]] = ['INFO - Saving model every \d+ epoch.$',
-                                                        'INFO - loop epoch inputted: \d+\.?$']
-    try:
-        saving_interval: int = int(
-            re.split(' ', re.search(saving_interval_search_pattern[0], text, re.MULTILINE).group(0))[-2])
-    except AttributeError:
-        saving_interval: int = int(
-            re.split(' ', re.search(saving_interval_search_pattern[1], text, re.MULTILINE).group(0))[-1])
-
-    logger.info(f"Found saving interval of epoch: {saving_interval}.")
-    model_information_search_pattern: Final[str] = \
-        "^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}\] \{[^:]+:\d+} INFO - Epoch \d+: Training (?:L|l)oss = [\de\+\-\.]+\.?\n" \
-        "\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}\] \{[^:]+:\d+} INFO - (?:Model validation|model test) loss: [\de\+\-\.]+\.?$"
-    found_information: list = re.findall(model_information_search_pattern, text, re.MULTILINE)
-    init_epoch = target_epoch - len(found_information) * saving_interval
-    logger.info(f"Epoch when start training: {init_epoch}.")
-
-    model_epochs: list[int] = [epoch + saving_interval for single_record, epoch in
-                               zip(found_information, range(init_epoch, target_epoch, saving_interval))]
-    loss_search_pattern: Final[str] = '(L|l)oss = .+'
-
-    model_losses: list[float] = [
-        float(list(filter(lambda x: x, re.split(" |\.?$", re.search(loss_search_pattern, single_record).group(0))))[-1])
-        for
-        single_record, epoch in zip(found_information, range(init_epoch, target_epoch, saving_interval))]
-
-    # pyplot drawing
-    plot_line_graph(title='training_loss', save_file_path=Path('data/graph/training_loss.png'),
-                    x_data=model_epochs, y_data=model_losses,
-                    format_type='sci-notation', y_label='loss')
-
-    return
-
-
-def plot_validation_loss(model_name: str) -> None:
-    """
-    Plots the test loss of a specified model across different training epochs.
-
-    It searches for model folders, evaluates the test loss for each epoch's model
-    (using its associated test data), and then plots these losses against their epochs.
-    The graph title is 'validation_loss' for consistency with potential naming conventions,
-    though it reflects performance on a test set.
-
-    :param model_name: The base name of the model to evaluate.
-    :returns: None
-    """
-    logger: Logger = LoggingManager().get_logger('root')
-    logger.info("Plot line graph of validation loss.")
-    folder_list, model_epochs = search_model(model_name=model_name)
-    logger.info("calculating validation loss.")
-    loss: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
-                                              training_setting_path=folder.joinpath(f'setting.yaml'),
-                                              transform_scaler_path=folder.joinpath(f'scaler.gz')) \
-                             .evaluate_loss(test_data_folder_path=folder) for folder in folder_list]
-    model_epochs, loss = (zip(*sorted(zip(model_epochs, loss), key=lambda x: x[0])))
-
-    # pyplot drawing
-    plot_line_graph(title='validation_loss', save_file_path=Path('data/graph/validation_loss.png'),
-                    x_data=model_epochs, y_data=loss,
-                    format_type='sci-notation', y_label='loss')
-
-
-def plot_trend_accuracy(model_name: str):
-    """
-    Plots the trend prediction accuracy of a specified model across different training epochs.
-
-    It searches for model folders, evaluates the trend accuracy for each epoch's model
-    (using its associated test data), and then plots these accuracies (as percentages)
-    against their epochs.
-
-    :param model_name: The base name of the model to evaluate.
-    :returns: None
-    """
-    logger: Logger = LoggingManager().get_logger('root')
-    logger.info("Plot line graph of trend accuracy.")
-    folder_list, model_epochs = search_model(model_name=model_name)
-    logger.info("calculating trend accuracy.")
-    accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
-                                                    training_setting_path=folder.joinpath(f'setting.yaml'),
-                                                    transform_scaler_path=folder.joinpath(f'scaler.gz')) \
-                                   .evaluate_trend(test_data_folder_path=folder) for folder in folder_list]
-    model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
-
-    # pyplot drawing
-    plot_line_graph(title='trend_accuracy', save_file_path=Path('data/graph/trend_accuracy.png'),
-                    x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
-                    format_type='percent', y_label='accuracy')
-
-
-def plot_range_accuracy(model_name: str):
-    """
-    Plots the box office range prediction accuracy of a specified model across different training epochs.
-
-    It searches for model folders, evaluates the range accuracy for each epoch's model
-    (using its associated test data), and then plots these accuracies (as percentages)
-    against their epochs.
-
-    :param model_name: The base name of the model to evaluate.
-    :returns: None
-    """
-    logger: Logger = LoggingManager().get_logger('root')
-    logger.info("Plot line graph of range accuracy.")
-    folder_list, model_epochs = search_model(model_name=model_name)
-    logger.info("calculating range accuracy.")
-    accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
-                                                    training_setting_path=folder.joinpath(f'setting.yaml'),
-                                                    transform_scaler_path=folder.joinpath(f'scaler.gz')) \
-                                   .evaluate_range(test_data_folder_path=folder) for folder in folder_list]
-    model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
-
-    plot_line_graph(title='range_accuracy', save_file_path=Path('data/graph/range_accuracy.png'),
-                    x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
-                    format_type='percent', y_label='accuracy')
-
-def plot_f1_score(model_name: str):
-    """
-    Plots the range accuracy of a specified model across different training epochs.
-
-    Args:
-        model_name (str): The name of the model to evaluate.
-
-    Returns:
-        None.
-    """
-    logger: Logger = LoggingManager().get_logger('root')
-    logger.info("Plot f1 score of range accuracy.")
-    folder_list, model_epochs = search_model(model_name=model_name)
-    logger.info("calculating range accuracy.")
-    accuracies: list[float] = [MoviePredictionModel(model_path=folder.joinpath(f"{folder.name}.keras"),
-                                                    training_setting_path=folder.joinpath(f'setting.yaml'),
-                                                    transform_scaler_path=folder.joinpath(f'scaler.gz')) \
-                                   .calculate_f1_score_for_ranges(test_data_folder_path=folder) for folder in folder_list]
-    model_epochs, accuracies = (zip(*sorted(zip(model_epochs, accuracies), key=lambda x: x[0])))
-
-    plot_line_graph(title='f1 score', save_file_path=Path('data/graph/f1_score.png'),
-                    x_data=model_epochs, y_data=list(map(lambda accuracy: 100 * accuracy, accuracies)),
-                    format_type='percent', y_label='accuracy')
+    plt.close()
