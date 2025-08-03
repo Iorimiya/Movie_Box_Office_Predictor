@@ -1,3 +1,4 @@
+import pickle
 from abc import ABC, abstractmethod
 from csv import DictReader, DictWriter
 from pathlib import Path
@@ -27,12 +28,33 @@ class File(ABC):
 
     @property
     def exists(self) -> bool:
+        """
+        Checks if the file exists at the specified path.
+
+        :returns: ``True`` if the file exists, ``False`` otherwise.
+        """
         return self.path.exists()
 
     def touch(self, exist_ok: bool = False) -> None:
+        """
+        Creates the file if it does not exist.
+
+        This is a wrapper around ``pathlib.Path.touch``.
+
+        :param exist_ok: If ``False`` (the default), ``FileExistsError`` is raised if the file
+                         already exists. If ``True``, the operation is a no-op if the file exists.
+        """
         return self.path.touch(exist_ok=exist_ok)
 
     def delete(self, missing_ok: bool = False) -> None:
+        """
+        Deletes the file.
+
+        This is a wrapper around ``pathlib.Path.unlink``.
+
+        :param missing_ok: If ``False`` (the default), ``FileNotFoundError`` is raised if the
+                           file does not exist. If ``True``, the exception is suppressed.
+        """
         return self.path.unlink(missing_ok=missing_ok)
 
     @abstractmethod
@@ -51,7 +73,7 @@ class File(ABC):
         Loads data from the file.
         This method must be implemented by subclasses.
 
-        :return: The loaded data, which can be a list of dictionaries or a single dictionary.
+        :returns: The loaded data, which can be a list of dictionaries or a single dictionary.
         """
         pass
 
@@ -126,7 +148,7 @@ class CsvFile(File):
 
         :param row_factory: An optional callable that takes a raw row dictionary (dict[str, str])
                             and returns a transformed row.
-        :return: A list of dictionaries (or transformed objects if `row_factory` is used).
+        :returns: A list of dictionaries (or transformed objects if `row_factory` is used).
         :raises FileNotFoundError: If the CSV file does not exist at the specified path.
         """
         if not self.path.exists():
@@ -170,7 +192,7 @@ class YamlFile(File):
 
         Uses ``yaml.SafeLoader`` for security.
 
-        :return: The loaded data, which can be a list of dictionaries, a single dictionary,
+        :returns: The loaded data, which can be a list of dictionaries, a single dictionary,
                   or ``None`` if the file is empty.
         :raises FileNotFoundError: If the YAML file does not exist at the specified path.
         :raises yaml.YAMLError: If there is an error parsing the YAML content.
@@ -212,7 +234,7 @@ class YamlFile(File):
         Uses ``yaml.SafeLoader`` for security. Only documents that are dictionaries
         and not None are returned.
 
-        :return: A list of dictionaries, each representing a YAML document.
+        :returns: A list of dictionaries, each representing a YAML document.
                   Returns an empty list if the file is empty or contains no valid dictionary documents.
         :raises FileNotFoundError: If the YAML file does not exist at the specified path.
         :raises yaml.YAMLError: If there is an error parsing the YAML content.
@@ -248,7 +270,45 @@ class YamlFile(File):
         This method calls ``load_multi_document`` and is suitable for files
         expected to contain one or more YAML documents.
 
-        :return: A list of dictionaries, where each dictionary represents a YAML document.
+        :returns: A list of dictionaries, where each dictionary represents a YAML document.
                  Returns an empty list if the file is empty or contains no valid dictionary documents.
         """
         return self.load_multi_document()
+
+
+class PickleFile(File):
+    """
+    Handles Python object serialization and deserialization using pickle.
+
+    This class provides a simple interface to save any Python object to a
+    binary file and load it back.
+    """
+
+    def save(self, data: any) -> None:
+        """
+        Serializes and saves a Python object to the file.
+
+        If the parent directory of the file does not exist, it will be created.
+
+        :param data: The Python object to be saved.
+        """
+        if not self.path.parent.exists():
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(file=self.path, mode='wb') as handle:
+            # noinspection PyTypeChecker
+            pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+    def load(self) -> any:
+        """
+        Loads and deserializes a Python object from the file.
+
+        :returns: The deserialized Python object.
+        :raises FileNotFoundError: If the pickle file does not exist.
+        :raises pickle.UnpicklingError: If the file content is corrupted or not a valid pickle stream.
+        """
+        if not self.path.exists():
+            raise FileNotFoundError(f"Pickle file not found: {self.path}")
+
+        with open(file=self.path, mode='rb') as handle:
+            return pickle.load(handle)
