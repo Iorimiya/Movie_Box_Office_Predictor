@@ -299,6 +299,108 @@ class MovieSessionData:
         """The name of the movie."""
         return self.metadata.name
 
+    @staticmethod
+    def _create_sliding_window_batches(
+        items: list[BoxOffice],
+        window_size: int
+    ) -> list[list[BoxOffice]]:
+        """
+        Creates sliding window batches from a list of items.
+
+        :param items: The list of items to create batches from.
+        :param window_size: The size of each batch (window).
+        :return: A list of batches.
+        """
+        if not items or len(items) < window_size:
+            return []
+
+        return [items[i: i + window_size] for i in range(len(items) - window_size + 1)]
+
+    @staticmethod
+    def _filter_valid_batches(batches: list[list[BoxOffice]]) -> list[list[BoxOffice]]:
+        """
+        Filters a list of batches to keep only those where all weeks have non-zero box office.
+
+        :param batches: A list of batches, where each batch is a list of BoxOffice objects.
+        :return: A new list containing only the valid batches.
+        """
+        return [batch for batch in batches if all(map(lambda week: week.box_office != 0, batch))]
+
+    @classmethod
+    def create_sessions_from_single_movie_data(
+        cls,
+        movie_data: 'MovieData',
+        number_of_weeks: int
+    ) -> list['MovieSessionData']:
+        """
+        Creates a list of MovieSessionData objects from a single MovieData instance.
+
+        This is the core logic for segmenting a movie's full history into valid,
+        fixed-length sessions.
+
+        :param movie_data: A complete MovieData object for a single movie.
+        :param number_of_weeks: The number of weeks each movie session should span.
+        :return: A list of all valid MovieSessionData objects for the given movie.
+        """
+        logger: Logger = LoggingManager().get_logger("root")
+        box_office_history: list[BoxOffice] = movie_data.box_office
+        if len(box_office_history) < number_of_weeks:
+            return []
+
+        all_batches: list[list[BoxOffice]] = cls._create_sliding_window_batches(
+            items=box_office_history,
+            window_size=number_of_weeks
+        )
+
+        valid_batches: list[list[BoxOffice]] = cls._filter_valid_batches(batches=all_batches)
+
+        if not valid_batches:
+            logger.info(
+                f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_data.id}."
+            )
+            return []
+
+        return [
+            cls(
+                metadata=movie_data.metadata,
+                weeks_data=WeekData.create_multiple_week_data(
+                    weeks_data_source=single_batch,
+                    public_reviews_master_source=movie_data.public_reviews,
+                    expert_reviews_master_source=movie_data.expert_reviews
+                )
+            )
+            for single_batch in valid_batches
+        ]
+
+    @classmethod
+    def create_sessions_from_movie_data_list(
+        cls,
+        movie_data_list: list['MovieData'],
+        number_of_weeks: int
+    ) -> list['MovieSessionData']:
+        """
+        Creates MovieSessionData objects from a list of in-memory MovieData objects.
+
+        This method iterates through each MovieData object and delegates the session
+        creation to `create_sessions_from_single_movie_data`.
+
+        :param movie_data_list: A list of MovieData objects to process.
+        :param number_of_weeks: The number of weeks each movie session should span.
+        :return: A flattened list of all valid MovieSessionData objects created.
+        """
+        logger: Logger = LoggingManager().get_logger("root")
+        all_sessions: list['MovieSessionData'] = list(chain.from_iterable(
+            cls.create_sessions_from_single_movie_data(
+                movie_data=movie_data,
+                number_of_weeks=number_of_weeks
+            )
+            for movie_data in movie_data_list
+        ))
+        logger.info(
+            f"Created a total of {len(all_sessions)} sessions from {len(movie_data_list)} movies."
+        )
+        return all_sessions
+
     @classmethod
     def _create_sessions_for_single_movie(cls,
                                           movie_meta_item: MoviePathMetadata,
@@ -329,25 +431,6 @@ class MovieSessionData:
                 f"Box office file not found for movie ID {movie_meta_item.id}. Skipping movie '{movie_meta_item.name}'.")
             return []
 
-        all_box_office_objects: list[BoxOffice] = BoxOffice.create_multiple(source=box_office_file_path)
-        if not all_box_office_objects:
-            logger.info(f"No valid BoxOffice objects could be created for movie ID {movie_meta_item.id}. Skipping.")
-            return []
-
-        multiple_batches: list[list[BoxOffice]] = [
-            all_box_office_objects[i: i + number_of_weeks]
-            for i in range(len(all_box_office_objects) - number_of_weeks + 1)
-        ]
-
-        filtered_batches: list[list[BoxOffice]] = [
-            batch for batch in multiple_batches
-            if all(map(lambda week: week.box_office != 0, batch))
-        ]
-        if not filtered_batches:
-            logger.info(
-                f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_meta_item.id}.")
-            return []
-
         loaded_public_reviews: list[PublicReview] = []
         if public_reviews_file_path and public_reviews_file_path.exists():
             loaded_public_reviews = PublicReview.create_multiple(source=public_reviews_file_path)
@@ -362,12 +445,14 @@ class MovieSessionData:
             logger.info(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
                         f"Proceeding without reviews for this movie.")
 
-        return [cls(metadata=movie_meta_item,
-                    weeks_data=WeekData.create_multiple_week_data(
-                        weeks_data_source=single_batch_week_dicts,
-                        public_reviews_master_source=loaded_public_reviews,
-                        expert_reviews_master_source=loaded_expert_reviews))
-                for single_batch_week_dicts in filtered_batches]
+        movie_data = MovieData(
+            metadata=movie_meta_item,
+            box_office=BoxOffice.create_multiple(source=movie_meta_item.box_office_file_path),
+            public_reviews=loaded_public_reviews,
+            expert_reviews=loaded_expert_reviews
+        )
+
+        return cls.create_sessions_from_single_movie_data(movie_data=movie_data, number_of_weeks=number_of_weeks)
 
     @classmethod
     def create_movie_sessions_from_dataset(cls, dataset_name: str, number_of_weeks: int) -> list['MovieSessionData']:
