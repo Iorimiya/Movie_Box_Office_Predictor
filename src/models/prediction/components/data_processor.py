@@ -203,21 +203,21 @@ class PredictionDataProcessor(
 
         # transform_raw_to_weekly_data
         sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
-            movie_data_list=raw_data, number_of_weeks=self.training_week_len)
+            movie_data_list=raw_data, number_of_weeks=self.training_week_len+1)
 
         if not sessions:
             raise ValueError("No sessions data available.")
 
-        x, y = self._create_xy_from_sessions(sessions=sessions, week_limit=self.training_week_len)
+        x, y = PredictionDataProcessor._create_xy_from_sessions(sessions=sessions, week_limit=self.training_week_len)
 
-        splitted_data: SplitDataset[NDArray[float32], NDArray[float64]] = self.splitter.split(
+        split_data: SplitDataset[NDArray[float32], NDArray[float64]] = self.splitter.split(
             x_data=x,
             y_data=y,
             split_ratios=config.split_ratios,
             random_state=config.random_state,
             shuffle=True
         )
-        scaled_data: PredictionTrainingProcessedData = self._scale_data(unscaled_data=splitted_data)
+        scaled_data: PredictionTrainingProcessedData = self._scale_data(unscaled_data=split_data)
 
         return scaled_data
 
@@ -248,7 +248,7 @@ class PredictionDataProcessor(
             expert_reviews_master_source=single_input.expert_reviews
         )
         numerical_sequence: list[list[int | float]] = \
-            self._convert_weeks_to_numerical_sequence(weeks=latest_weeks_data)
+            PredictionDataProcessor._convert_weeks_to_numerical_sequence(weeks=latest_weeks_data)
 
         if len(numerical_sequence) != self.training_week_len:
             raise ValueError("Failed to create a numerical sequence of the required length.")
@@ -261,7 +261,8 @@ class PredictionDataProcessor(
         # Reshape for model input (1 sample, N timesteps, M features)
         return np.expand_dims(processed_array, axis=0)
 
-    def _create_xy_from_sessions(self, sessions: list[MovieSessionData], week_limit: int) \
+    @staticmethod
+    def _create_xy_from_sessions(sessions: list[MovieSessionData], week_limit: int) \
         -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Creates input sequences (x) and target values (y) from a list of MovieSessionData.
@@ -279,7 +280,7 @@ class PredictionDataProcessor(
 
         for session in sessions:
             numerical_movie: list[list[int | float]] = (
-                self._convert_weeks_to_numerical_sequence(weeks=session.weeks_data))
+                PredictionDataProcessor._convert_weeks_to_numerical_sequence(weeks=session.weeks_data))
 
             # Each session should have exactly `week_limit + 1` weeks.
             if len(numerical_movie) == week_limit + 1:
@@ -303,8 +304,8 @@ class PredictionDataProcessor(
             avg_sentiment=week.average_sentiment_score or 0.0,
             reply_count=week.total_reply_count
         )
-
-    def _convert_weeks_to_numerical_sequence(self, weeks: list[WeekData]) -> list[list[int | float]]:
+    @staticmethod
+    def _convert_weeks_to_numerical_sequence( weeks: list[WeekData]) -> list[list[int | float]]:
         """
         Converts a list of WeekData objects into a numerical sequence.
 
@@ -315,33 +316,27 @@ class PredictionDataProcessor(
         :returns: A list of lists, where each inner list represents the numerical features for a week.
         """
 
-        return list(map(lambda week: self._extract_features_from_week(week=week).as_numerical_list(), weeks))
+        return list(map(lambda week: PredictionDataProcessor._extract_features_from_week(week=week).as_numerical_list(), weeks))
 
     def _scale_feature_in_sequences(self, sequences: NDArray[float32]) -> NDArray[float32]:
         """
-        Applies the fitted scaler to the box office feature within padded sequences.
+        Applies the fitted scaler to the box office feature within sequences.
+
+        This version assumes sequences are dense (no padding) and uses vectorized
+        operations for efficiency.
 
         :param sequences: A 3D array of sequences (samples, timesteps, features).
         :returns: The sequences with the first feature scaled.
         """
         if not self.scaler:
             raise ValueError("Scaler is not fitted.")
+        if sequences.size == 0:
+            return sequences
 
-        scaled_sequences = sequences.copy()
-        # We need to handle the padding (zeros) correctly.
-        # We only scale non-zero values.
-        for i in range(sequences.shape[0]):
-            # Get the box office feature for all timesteps
-            box_office_feature = sequences[i, :, 0]
-            # Find where the actual data is (non-zero)
-            non_zero_mask = box_office_feature != 0
-            if np.any(non_zero_mask):
-                # Reshape for scaler
-                original_shape_data = box_office_feature[non_zero_mask].reshape(-1, 1)
-                # Scale
-                scaled_data = self.scaler.transform(original_shape_data)
-                # Put it back
-                scaled_sequences[i, non_zero_mask, 0] = scaled_data.flatten()
+        scaled_sequences: NDArray[float32] = sequences.copy()
+        box_office_data: NDArray[float32] = scaled_sequences[:, :, 0].reshape(-1, 1)
+        scaled_box_office: NDArray[float32] = self.scaler.transform(box_office_data)
+        scaled_sequences[:, :, 0] = scaled_box_office.reshape(sequences.shape[0], sequences.shape[1])
 
         return scaled_sequences
 
