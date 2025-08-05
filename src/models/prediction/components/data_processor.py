@@ -210,14 +210,14 @@ class PredictionDataProcessor(
 
         x, y = PredictionDataProcessor._create_xy_from_sessions(sessions=sessions, week_limit=self.training_week_len)
 
-        splitted_data: SplitDataset[NDArray[float32], NDArray[float64]] = self.splitter.split(
+        split_data: SplitDataset[NDArray[float32], NDArray[float64]] = self.splitter.split(
             x_data=x,
             y_data=y,
             split_ratios=config.split_ratios,
             random_state=config.random_state,
             shuffle=True
         )
-        scaled_data: PredictionTrainingProcessedData = self._scale_data(unscaled_data=splitted_data)
+        scaled_data: PredictionTrainingProcessedData = self._scale_data(unscaled_data=split_data)
 
         return scaled_data
 
@@ -320,7 +320,10 @@ class PredictionDataProcessor(
 
     def _scale_feature_in_sequences(self, sequences: NDArray[float32]) -> NDArray[float32]:
         """
-        Applies the fitted scaler to the box office feature within padded sequences.
+        Applies the fitted scaler to the box office feature within sequences.
+
+        This version assumes sequences are dense (no padding) and uses vectorized
+        operations for efficiency.
 
         :param sequences: A 3D array of sequences (samples, timesteps, features).
         :returns: The sequences with the first feature scaled.
@@ -330,9 +333,10 @@ class PredictionDataProcessor(
         if sequences.size == 0:
             return sequences
 
-        scaled_sequences = sequences.copy()
-        # We need to handle the padding (zeros) correctly.
-        # We only scale non-zero values.
+        scaled_sequences: NDArray[float32] = sequences.copy()
+        box_office_data: NDArray[float32] = scaled_sequences[:, :, 0].reshape(-1, 1)
+        scaled_box_office: NDArray[float32] = self.scaler.transform(box_office_data)
+        scaled_sequences[:, :, 0] = scaled_box_office.reshape(sequences.shape[0], sequences.shape[1])
 
         box_office_data = scaled_sequences[:, :, 0].reshape(-1, 1)
         scaled_box_office = self.scaler.transform(box_office_data)
