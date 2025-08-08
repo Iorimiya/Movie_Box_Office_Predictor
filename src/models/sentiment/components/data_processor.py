@@ -30,21 +30,10 @@ class SentimentDataSource:
     file_name: str
 
 
-@dataclass(frozen=True)
-class SentimentDataConfig:
-    """
-    Configuration for processing data for sentiment model training.
-
-    :ivar vocabulary_size: The maximum number of words to keep, based on word frequency.
-    :ivar split_ratios: The ratio for splitting data into train, validation, and test sets.
-    :ivar random_state: The seed used by the random number generator for data splitting.
-    """
-    vocabulary_size: int
-    split_ratios: tuple[int, int, int]
-    random_state: int
+SentimentTrainingRawData: type = DataFrame
 
 
-class ProcessedSentimentData(TypedDict):
+class SentimentTrainingProcessedData(TypedDict):
     """
     A TypedDict representing the processed and split dataset for sentiment analysis.
 
@@ -63,13 +52,31 @@ class ProcessedSentimentData(TypedDict):
     y_test: NDArray[int64]
 
 
+SentimentPredictionRawData: type = str
+SentimentPredictionProcessedData: type = NDArray[int32]
+
+
+@dataclass(frozen=True)
+class SentimentDataConfig:
+    """
+    Configuration for processing data for sentiment model training.
+
+    :ivar vocabulary_size: The maximum number of words to keep, based on word frequency.
+    :ivar split_ratios: The ratio for splitting data into train, validation, and test sets.
+    :ivar random_state: The seed used by the random number generator for data splitting.
+    """
+    vocabulary_size: int
+    split_ratios: tuple[int, int, int]
+    random_state: int
+
+
 class SentimentDataProcessor(
     BaseDataProcessor[
         SentimentDataSource,
-        DataFrame,
-        ProcessedSentimentData,
-        str,
-        NDArray[int32],
+        SentimentTrainingRawData,
+        SentimentTrainingProcessedData,
+        SentimentPredictionRawData,
+        SentimentPredictionProcessedData,
         SentimentDataConfig
     ]
 ):
@@ -142,7 +149,7 @@ class SentimentDataProcessor(
                 self.max_sequence_length = None
 
     @override
-    def load_raw_data(self, source: SentimentDataSource) -> DataFrame:
+    def load_raw_data(self, source: SentimentDataSource) -> SentimentTrainingRawData:
         """
         Loads training data from a CSV file.
 
@@ -154,10 +161,11 @@ class SentimentDataProcessor(
         file_path: Path = ProjectPaths.sentiment_analysis_resources_dir / source.file_name
         self.logger.info(f"Loading raw sentiment data from: {file_path}")
         csv_file: CsvFile = CsvFile(path=file_path)
-        return DataFrame(csv_file.load())
+        return SentimentTrainingRawData(csv_file.load())
 
     @override
-    def process_for_training(self, raw_data: DataFrame, config: SentimentDataConfig) -> ProcessedSentimentData:
+    def process_for_training(self, raw_data: SentimentTrainingRawData,
+                             config: SentimentDataConfig) -> SentimentTrainingProcessedData:
         """
         Prepares raw data for training a sentiment analysis model.
 
@@ -189,10 +197,10 @@ class SentimentDataProcessor(
             shuffle=True
         )
 
-        return ProcessedSentimentData(**processed_data)
+        return SentimentTrainingProcessedData(**processed_data)
 
     @override
-    def process_for_prediction(self, single_input: str, config: Optional[SentimentDataConfig] = None) -> NDArray[int32]:
+    def process_for_prediction(self, single_input: SentimentPredictionRawData, config: Optional[SentimentDataConfig] = None) -> NDArray[int32]:
         """
         Processes a single text input for sentiment prediction.
 
@@ -214,7 +222,7 @@ class SentimentDataProcessor(
         )
         return padded_sequence
 
-    def _construct_and_segment_texts(self, raw_data: DataFrame) -> tuple[list[str], list[int]]:
+    def _construct_and_segment_texts(self, raw_data: SentimentTrainingRawData) -> tuple[list[str], list[int]]:
         """
         Constructs sample sentences and performs word segmentation.
 

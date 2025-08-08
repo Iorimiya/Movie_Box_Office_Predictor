@@ -11,7 +11,7 @@ from src.core.project_config import ProjectPaths, ProjectModelType
 from src.data_handling.file_io import PickleFile
 from src.models.base.base_evaluator import BaseEvaluator
 from src.models.sentiment.components.data_processor import (
-    ProcessedSentimentData,
+    SentimentTrainingProcessedData,
     SentimentDataProcessor,
     SentimentDataSource,
     SentimentDataConfig
@@ -158,7 +158,7 @@ class SentimentEvaluator(
         raw_data = data_processor.load_raw_data(source=data_source)
 
         # Re-run processing to get the exact same test split
-        processed_data: ProcessedSentimentData = data_processor.process_for_training(
+        processed_data: SentimentTrainingProcessedData = data_processor.process_for_training(
             raw_data=raw_data, config=processing_config
         )
         return processed_data['x_test'], processed_data['y_test']
