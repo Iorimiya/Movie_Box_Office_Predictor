@@ -114,7 +114,10 @@ class SentimentDataProcessor(
         artifact_path: Path = self.model_artifacts_path / self.ARTIFACTS_FILE_NAME
         self.logger.info(f"Saving Tokenizer and max_sequence_length artifact to: {artifact_path}")
         pickle_file: PickleFile = PickleFile(path=artifact_path)
-        pickle_file.save(data=(self.tokenizer, self.max_sequence_length))
+        pickle_file.save(data={
+            'tokenizer': self.tokenizer,
+            'max_sequence_length': self.max_sequence_length
+        })
 
     @override
     def load_artifacts(self) -> None:
@@ -129,11 +132,13 @@ class SentimentDataProcessor(
             self.logger.info(f"Loading Tokenizer and max_sequence_length artifact from: {tokenizer_path}")
             pickle_file: PickleFile = PickleFile(path=tokenizer_path)
             try:
-                self.tokenizer, self.max_sequence_length = pickle_file.load()
+                loaded_dict: dict = pickle_file.load()
+                self.tokenizer = loaded_dict.get('tokenizer')
+                self.max_sequence_length = loaded_dict.get('max_sequence_length')
                 self.logger.info(f"Loaded max_sequence_length: {self.max_sequence_length}")
             except (TypeError, ValueError):
-                self.logger.warning("Could not unpack two values from pickle. Assuming old format (tokenizer only).")
-                self.tokenizer = pickle_file.load()
+                self.logger.warning("Could not unpack two values from pickle.")
+                self.tokenizer = None
                 self.max_sequence_length = None
 
     @override
