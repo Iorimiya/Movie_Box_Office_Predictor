@@ -1,15 +1,14 @@
-from dataclasses import dataclass, field
-from typing import Optional
+from dataclasses import dataclass
 
-from keras.api.models import Sequential
-from keras.src.callbacks import Callback, History
-from keras.src.layers import LSTM, Dense, Dropout, Input, Masking
-from keras.src.optimizers import Adam
-from keras.src.optimizers.schedules import ExponentialDecay
 from numpy.typing import NDArray
+from tensorflow.python.keras import Sequential, Input
+from tensorflow.python.keras.callbacks import History
+from tensorflow.python.keras.layers import Masking, LSTM, Dropout, Dense
+from tensorflow.python.keras.optimizer_v2.adam import Adam
+from tensorflow.python.keras.optimizer_v2.learning_rate_schedule import ExponentialDecay
 from typing_extensions import override
 
-from src.models.base.base_model_core import BaseModelCore
+from src.models.base.base_model_core import BaseModelCore, BaseTrainConfig, BasePredictConfig, BaseEvaluateConfig
 
 
 # --- Configuration Dataclasses ---
@@ -28,48 +27,32 @@ class PredictionBuildConfig:
     dropout_rate: float
 
 
-@dataclass(frozen=True)
-class PredictionTrainConfig:
-    """
-    Configuration for training the box office prediction model.
 
-    :ivar epochs: The total number of epochs to train the model.
-    :ivar batch_size: The batch size for training.
-    :ivar validation_data: A tuple containing validation features and labels.
-    :ivar verbose: Verbosity mode for Keras training output.
-    :ivar callbacks: A list of Keras callbacks to use during training.
-    :ivar initial_epoch: The epoch at which to start training (useful for resuming).
+@dataclass(frozen=True)
+class PredictionTrainConfig(BaseTrainConfig):
     """
-    epochs: int
-    batch_size: int
-    validation_data: tuple[NDArray[any], NDArray[any]]
-    verbose: int | str = 1
-    callbacks: list[Callback] = field(default_factory=list)
-    initial_epoch: int = 0
+    Configuration for training the prediction model.
+    Inherits all common training parameters from BaseTrainConfig.
+    """
+    pass
 
 
 @dataclass(frozen=True)
-class PredictionPredictConfig:
+class PredictionPredictConfig(BasePredictConfig):
     """
-    Configuration for predicting with the box office prediction model.
-
-    :ivar batch_size: The batch size for prediction.
-    :ivar verbose: Verbosity mode for Keras `predict`.
+    Configuration for predicting with the prediction model.
+    Inherits all common prediction parameters from BasePredictConfig.
     """
-    batch_size: Optional[int] = None
-    verbose: int | str = 'auto'
+    pass
 
 
 @dataclass(frozen=True)
-class PredictionEvaluateConfig:
+class PredictionEvaluateConfig(BaseEvaluateConfig):
     """
-    Configuration for evaluating the box office prediction model.
-
-    :ivar batch_size: The batch size for evaluation.
-    :ivar verbose: Verbosity mode for Keras `evaluate`.
+    Configuration for evaluating the prediction model.
+    Inherits all common evaluation parameters from BaseEvaluateConfig.
     """
-    batch_size: Optional[int] = None
-    verbose: int | str = 'auto'
+    pass
 
 
 # --- Model Core Implementation ---
