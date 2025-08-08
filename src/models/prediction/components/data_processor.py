@@ -253,13 +253,11 @@ class PredictionDataProcessor(
         if len(numerical_sequence) != self.training_week_len:
             raise ValueError("Failed to create a numerical sequence of the required length.")
 
-        # Scale the features
-        processed_array: NDArray[float32] = np.array(numerical_sequence, dtype=float32)
-        # Note: We only scale the box office feature (index 0)
-        processed_array[:, 0] = self.scaler.transform(processed_array[:, 0].reshape(-1, 1)).flatten()
-
-        # Reshape for model input (1 sample, N timesteps, M features)
-        return np.expand_dims(processed_array, axis=0)
+        unscaled_array: NDArray[float32] = np.expand_dims(
+            np.array(numerical_sequence, dtype=float32), axis=0
+        )
+        scaled_array: NDArray[float32] = self._scale_feature_in_sequences(sequences=unscaled_array)
+        return scaled_array
 
     @staticmethod
     def _create_xy_from_sessions(sessions: list[MovieSessionData], week_limit: int) \
