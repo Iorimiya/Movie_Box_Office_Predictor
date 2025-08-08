@@ -5,13 +5,11 @@ from typing import override, Optional
 from keras.src.callbacks import History, ModelCheckpoint
 
 from src.core.project_config import ProjectPaths, ProjectModelType
-from src.data_handling.file_io import YamlFile, PickleFile
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.models.base.callbacks import F1ScoreHistory
 from src.models.sentiment.components.data_processor import (
     ProcessedSentimentData, SentimentDataProcessor, SentimentDataSource, SentimentDataConfig
 )
-from src.models.sentiment.components.evaluator import SentimentEvaluator
 from src.models.sentiment.components.model_core import (
     SentimentBuildConfig, SentimentModelCore, SentimentTrainConfig
 )
@@ -52,7 +50,7 @@ class SentimentPipelineConfig:
 
 
 class SentimentTrainingPipeline(
-    BaseTrainingPipeline[SentimentDataProcessor, SentimentModelCore, Path]
+    BaseTrainingPipeline[SentimentDataProcessor, SentimentModelCore, SentimentPipelineConfig]
 ):
     """
     Orchestrates the end-to-end training process for the sentiment analysis model.
@@ -62,34 +60,25 @@ class SentimentTrainingPipeline(
     loading, processing, model building, training, and artifact saving.
     """
 
+    HISTORY_FILE_NAME: str = "training_history.pkl"
+
     @override
-    def run(self, config_path: Path, continue_from_epoch: Optional[int] = None) -> None:
+    def run(self, config: SentimentPipelineConfig, continue_from_epoch: Optional[int] = None) -> None:
         """
         Executes the sentiment model training pipeline from a configuration file.
 
         This method orchestrates the entire process, including handling both
         new training runs and continuing from a saved checkpoint.
 
-        :param config_path: The path to the master YAML configuration file for this run.
+        :param config: The master configuration object for this run.
         :param continue_from_epoch: If provided, loads the model from this epoch and continues training.
                                      If None, starts a new training run.
         :raises FileNotFoundError: If the configuration or required artifacts are not found.
         :raises ValueError: If the configuration file is empty or invalid.
         """
-        self.logger.info(f"--- Starting SENTIMENT training pipeline from config: {config_path} ---")
-
-        # 1. Load Master Configuration
-        self.logger.info("Step 1: Loading master configuration file...")
-        if not config_path.exists():
-            raise FileNotFoundError(f"Configuration file not found: {config_path}")
-
-        yaml_loader: YamlFile = YamlFile(path=config_path)
-        raw_config: dict[str, any] | None = yaml_loader.load_single_document()
-        if not raw_config:
-            raise ValueError(f"Configuration file is empty or invalid: {config_path}")
-
-        master_config: SentimentPipelineConfig = SentimentPipelineConfig(**raw_config)
-        self.logger.info(f"Pipeline configured with: {master_config}")
+        self.logger.info(f"--- Starting SENTIMENT training pipeline for model: {config.model_id} ---")
+        self.logger.info(f"Pipeline configured with: {config}")
+        master_config = config
 
         artifacts_folder: Path = ProjectPaths.get_model_root_path(
             model_id=master_config.model_id, model_type=ProjectModelType.SENTIMENT
@@ -99,24 +88,14 @@ class SentimentTrainingPipeline(
         # 2. Model Building or Loading
         if continue_from_epoch:
             self.logger.info(f"Step 2 (Continue): Loading existing model from epoch {continue_from_epoch}...")
-            # In continue mode, the DataProcessor must load its existing tokenizer.
-            # The Handler already initialized it with the correct path.
-            self.data_processor.load_artifacts()
-            if not self.data_processor.tokenizer:
-                raise FileNotFoundError(f"Could not load tokenizer for continued training from {artifacts_folder}.")
-
-            model_to_load_path = artifacts_folder / f"{master_config.model_id}_{continue_from_epoch:04d}.keras"
-            if not model_to_load_path.exists():
-                raise FileNotFoundError(f"Checkpoint to continue from not found: {model_to_load_path}")
-
-            # Re-initialize ModelCore with the loaded model
-            self.model_core = SentimentModelCore(model_path=model_to_load_path)
-            self.logger.info(f"Successfully loaded model from: {model_to_load_path}")
+            self.model_core = self._setup_for_continuation(
+                artifacts_folder=artifacts_folder,
+                model_id=master_config.model_id,
+                continue_from_epoch=continue_from_epoch
+            )
         else:
             # This is a new training run.
             self.logger.info("Step 2 (New): Building new model architecture...")
-            # The DataProcessor will fit a new tokenizer in the next step.
-            pass
 
         # 3. Data Loading and Processing
         self.logger.info("Step 3: Loading and processing data...")
@@ -188,36 +167,78 @@ class SentimentTrainingPipeline(
         self.logger.info("Model training complete.")
 
         # 5. Saving Artifacts
-        self.logger.info("Step 5: Saving all artifacts...")
-        history_save_path: Path = artifacts_folder / SentimentEvaluator.HISTORY_FILE_NAME
-
-        # Merge histories if we are continuing a run
-        if continue_from_epoch and history_save_path.exists():
-            self.logger.info(f"Loading existing history from {history_save_path} to append new results.")
-            old_history: History = PickleFile(path=history_save_path).load()
-            for key, value in history.history.items():
-                old_history.history.setdefault(key, []).extend(value)
-            # Add the new F1 scores to the merged history
-            old_history.history.setdefault('val_f1_score', []).extend(f1_callback.f1_scores)
-            history_to_save = old_history
-        else:
-            # This is a new run, or the old history file is missing
-            history.history['val_f1_score'] = f1_callback.f1_scores
-            history_to_save = history
-
-        # Save the (potentially merged) history
-        PickleFile(path=history_save_path).save(data=history_to_save)
-        self.logger.info(f"Training history saved to: {history_save_path}")
-
-        # Save Data Processor Artifacts (Tokenizer) only on a new run
-        if not continue_from_epoch:
-            self.data_processor.save_artifacts()
-            self.logger.info(f"Data processor artifacts saved in: {self.data_processor.model_artifacts_path}")
-
-        # Always save the final model state if it wasn't already saved by a checkpoint
-        final_model_save_path: Path = artifacts_folder / f"{master_config.model_id}_{master_config.epochs:04d}.keras"
-        if not final_model_save_path.exists():
-            self.model_core.save(file_path=final_model_save_path)
-            self.logger.info(f"Final model state for epoch {master_config.epochs} saved to: {final_model_save_path}")
+        self._save_run_artifacts(
+            config=master_config,
+            history=history,
+            artifacts_folder=artifacts_folder,
+            continue_from_epoch=continue_from_epoch
+        )
 
         self.logger.info("--- SENTIMENT training pipeline finished successfully. ---")
+
+    @override
+    def _check_required_artifacts_for_continuation(self) -> None:
+        """
+        Checks if the tokenizer is loaded for the sentiment model.
+        """
+        if not self.data_processor.tokenizer:
+            raise FileNotFoundError(
+                f"Could not load tokenizer for continued training from {self.data_processor.model_artifacts_path}."
+            )
+
+    @override
+    def _create_model_core(self, model_path: Path) -> SentimentModelCore:
+        """
+        Creates a SentimentModelCore instance from a saved model file.
+        """
+        return SentimentModelCore(model_path=model_path)
+
+    @override
+    def _get_history_filename(self) -> str:
+        """
+        Returns the history filename for the prediction model.
+        """
+        return self.HISTORY_FILE_NAME
+
+    @override
+    def _merge_histories(
+        self,
+        new_history: History,
+        history_save_path: Path,
+        continue_from_epoch: Optional[int]
+    ) -> History:
+        """
+        Extends the base history merging to also handle the 'val_f1_score' metric.
+        """
+        # First, let the parent class do the standard merging of Keras metrics
+        merged_history: History = super()._merge_histories(
+            new_history=new_history,
+            history_save_path=history_save_path,
+            continue_from_epoch=continue_from_epoch
+        )
+
+        # Now, add the specific logic for the custom F1 score callback
+        # The F1 scores are already in new_history.history from the callback
+        if 'val_f1_score' in new_history.history:
+            # If we are continuing, the base method already merged the f1 scores.
+            # If it's a new run, we just need to ensure the key exists in the final object.
+            # The base implementation already handles this correctly.
+            # This override is more about documenting the special case and
+            # would be the place to add more complex logic if needed.
+            pass
+
+        # If it's a new run, the base class just returns new_history. We need to ensure
+        # the f1_score from the callback is correctly represented.
+        # The current base implementation handles this correctly because it iterates all keys.
+        # Let's refine the logic to be more explicit for the sentiment case.
+
+        f1_callback = next((cb for cb in new_history.callbacks if isinstance(cb, F1ScoreHistory)), None)
+        if f1_callback:
+            if continue_from_epoch and history_save_path.exists():
+                # The base class has already merged standard keys. We just add/extend F1.
+                merged_history.history.setdefault('val_f1_score', []).extend(f1_callback.f1_scores)
+            else:
+                # It's a new run, so merged_history is just new_history. Add the F1 scores.
+                merged_history.history['val_f1_score'] = f1_callback.f1_scores
+
+        return merged_history
