@@ -53,7 +53,7 @@ PredictionPredictionRawData: type = MovieData
 PredictionPredictionProcessedData: type = NDArray[float32]
 
 @dataclass(frozen=True)
-class PredictionTrainingConfig:
+class PredictionDataConfig:
     """
     Configuration for processing data for prediction model training.
 
@@ -89,7 +89,7 @@ class PredictionDataProcessor(
         PredictionTrainingProcessedData,
         PredictionPredictionRawData,
         PredictionPredictionProcessedData,
-        PredictionTrainingConfig
+        PredictionDataConfig
     ]
 ):
     """
@@ -101,7 +101,7 @@ class PredictionDataProcessor(
     and key training parameters as its primary artifacts.
     """
 
-    SCALER_FILE_NAME: Final[str] = "scaler_and_settings.pickle"
+    SCALER_FILE_NAME: Final[str] = "scaler.pickle"
 
 
     @override
@@ -112,7 +112,6 @@ class PredictionDataProcessor(
         :param model_artifacts_path: Path to the directory for model artifacts.
         """
         self.scaler: Optional[MinMaxScaler] = None
-        self.training_week_len: Optional[int] = None
         self.splitter: DatasetSplitter[NDArray[float32], NDArray[float64]] = \
             DatasetSplitter[NDArray[float32], NDArray[float64]]()
         self.logger: Logger = LoggingManager().get_logger('machine_learning')
@@ -127,39 +126,32 @@ class PredictionDataProcessor(
         """
         if not self.model_artifacts_path:
             raise ValueError("model_artifacts_path is not set. Cannot save artifacts.")
-        if not self.scaler or self.training_week_len is None:
-            raise ValueError("Scaler or training parameters are not available to be saved.")
+        if self.scaler is None:
+            raise ValueError("Scaler is not available to be saved.")
 
         self.model_artifacts_path.mkdir(parents=True, exist_ok=True)
         artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
         self.logger.info(f"Saving scaler and settings artifact to: {artifact_path}")
 
-        PickleFile(path=artifact_path).save(data={'scaler': self.scaler, 'training_week_len': self.training_week_len})
-
+        PickleFile(path=artifact_path).save(data=self.scaler)  # <-- 只儲存 scaler
 
     @override
     def load_artifacts(self) -> None:
         """
-        Loads the MinMaxScaler and training parameters from the artifact file.
+        Loads the MinMaxScaler from the artifact file.
         """
         if not self.model_artifacts_path:
             return
 
         artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
         if artifact_path.exists():
-            self.logger.info(f"Loading scaler and settings artifact from: {artifact_path}")
+            self.logger.info(f"Loading scaler artifact from: {artifact_path}")
             try:
-                load_data: dict = PickleFile(path=artifact_path).load()
-                self.scaler: MinMaxScaler = load_data.get('scaler')
-                self.training_week_len = load_data.get('training_week_len')
-                self.logger.info(
-                    f"Loaded artifacts: training_week_limit={self.training_week_len}."
-                )
+                self.scaler = PickleFile(path=artifact_path).load()
+                self.logger.info("Scaler artifact loaded successfully.")
             except (TypeError, ValueError) as e:
-                self.logger.error(f"Failed to load artifacts from {artifact_path}: {e}", exc_info=True)
-                # Reset to ensure a clean state
+                self.logger.error(f"Failed to load scaler artifact from {artifact_path}: {e}", exc_info=True)
                 self.scaler = None
-                self.training_week_len = None
 
     @override
     def load_raw_data(self, source: PredictionDataSource) -> PredictionTrainingRawData:
@@ -183,7 +175,7 @@ class PredictionDataProcessor(
 
     @override
     def process_for_training(
-        self, raw_data: PredictionTrainingRawData, config: PredictionTrainingConfig
+        self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig
     ) -> PredictionTrainingProcessedData:
         """
         Processes raw movie data into a format suitable for model training.
@@ -199,16 +191,14 @@ class PredictionDataProcessor(
         :param config: A configuration object for the training process.
         :returns: The processed and split data, ready to be fed into a model.
         """
-        self.training_week_len = config.training_week_len
-
         # transform_raw_to_weekly_data
         sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
-            movie_data_list=raw_data, number_of_weeks=self.training_week_len+1)
+            movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1)
 
         if not sessions:
             raise ValueError("No sessions data available.")
 
-        x, y = PredictionDataProcessor._create_xy_from_sessions(sessions=sessions, week_limit=self.training_week_len)
+        x, y = PredictionDataProcessor._create_xy_from_sessions(sessions=sessions, week_limit=config.training_week_len)
 
         split_data: SplitDataset[NDArray[float32], NDArray[float64]] = self.splitter.split(
             x_data=x,
@@ -222,24 +212,33 @@ class PredictionDataProcessor(
         return scaled_data
 
     @override
-    def process_for_prediction(self, single_input: PredictionPredictionRawData) -> PredictionPredictionProcessedData:
+    def process_for_prediction(self, single_input: PredictionPredictionRawData,
+                               config: Optional[PredictionDataConfig] = None) -> PredictionPredictionProcessedData:
         """
         Processes a single movie's data for prediction.
 
         :param single_input: A `MovieData` object for a single movie.
+        :param config: A configuration object containing necessary parameters like `training_week_len`.
         :returns: A processed and padded sequence ready for the model.
         :raises ValueError: If artifacts (scaler, etc.) are not loaded or input is invalid.
         """
-        if not self.scaler or self.training_week_len is None:
-            raise ValueError("Scaler or training_week_len has not been set. Please train first or load an artifact.")
+
+        if config is None:
+            raise ValueError(
+                "PredictionDataConfig is required for processing prediction data."
+            )
+
+        if not self.scaler:
+            raise ValueError("Scaler has not been set. Please train first or load an artifact.")
 
         box_office_history: list[BoxOffice] = single_input.box_office
-        if len(box_office_history) < self.training_week_len:
+        training_week_len: int = config.training_week_len
+        if len(box_office_history) < training_week_len:
             raise ValueError(
                 f"Input movie '{single_input.name}' has only {len(box_office_history)} weeks of data, "
-                f"but the model requires {self.training_week_len} weeks."
+                f"but the model requires {training_week_len} weeks."
             )
-        latest_box_office_weeks: list[BoxOffice] = box_office_history[-self.training_week_len:]
+        latest_box_office_weeks: list[BoxOffice] = box_office_history[-training_week_len:]
 
         # Convert this slice into WeekData objects to get reviews
         latest_weeks_data: list[WeekData] = WeekData.create_multiple_week_data(
@@ -250,16 +249,14 @@ class PredictionDataProcessor(
         numerical_sequence: list[list[int | float]] = \
             PredictionDataProcessor._convert_weeks_to_numerical_sequence(weeks=latest_weeks_data)
 
-        if len(numerical_sequence) != self.training_week_len:
+        if len(numerical_sequence) != training_week_len:
             raise ValueError("Failed to create a numerical sequence of the required length.")
 
-        # Scale the features
-        processed_array: NDArray[float32] = np.array(numerical_sequence, dtype=float32)
-        # Note: We only scale the box office feature (index 0)
-        processed_array[:, 0] = self.scaler.transform(processed_array[:, 0].reshape(-1, 1)).flatten()
-
-        # Reshape for model input (1 sample, N timesteps, M features)
-        return np.expand_dims(processed_array, axis=0)
+        unscaled_array: NDArray[float32] = np.expand_dims(
+            np.array(numerical_sequence, dtype=float32), axis=0
+        )
+        scaled_array: NDArray[float32] = self._scale_feature_in_sequences(sequences=unscaled_array)
+        return scaled_array
 
     @staticmethod
     def _create_xy_from_sessions(sessions: list[MovieSessionData], week_limit: int) \

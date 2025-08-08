@@ -9,7 +9,7 @@ from src.data_handling.file_io import YamlFile, PickleFile
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.models.base.callbacks import F1ScoreHistory
 from src.models.sentiment.components.data_processor import (
-    ProcessedSentimentData, SentimentDataProcessor, SentimentDataSource, SentimentTrainingConfig
+    ProcessedSentimentData, SentimentDataProcessor, SentimentDataSource, SentimentDataConfig
 )
 from src.models.sentiment.components.evaluator import SentimentEvaluator
 from src.models.sentiment.components.model_core import (
@@ -123,7 +123,7 @@ class SentimentTrainingPipeline(
         data_source: SentimentDataSource = SentimentDataSource(file_name=master_config.dataset_file_name)
         raw_data = self.data_processor.load_raw_data(source=data_source)
 
-        processing_config: SentimentTrainingConfig = SentimentTrainingConfig(
+        processing_config: SentimentDataConfig = SentimentDataConfig(
             vocabulary_size=master_config.vocabulary_size,
             split_ratios=master_config.split_ratios,
             random_state=master_config.random_state
