@@ -14,7 +14,7 @@ from src.models.sentiment.components.data_processor import (
     ProcessedSentimentData,
     SentimentDataProcessor,
     SentimentDataSource,
-    SentimentTrainingConfig
+    SentimentDataConfig
 )
 from src.models.sentiment.components.model_core import (
     SentimentEvaluateConfig,
@@ -41,7 +41,7 @@ class SentimentEvaluationConfig:
     model_id: str
     model_epoch: int
     evaluation_dataset_file_name: str
-    data_processing_config: SentimentTrainingConfig
+    data_processing_config: SentimentDataConfig
 
 
 @dataclass(frozen=True)
@@ -143,7 +143,7 @@ class SentimentEvaluator(
         self,
         data_processor: SentimentDataProcessor,
         file_name: str,
-        processing_config: SentimentTrainingConfig
+        processing_config: SentimentDataConfig
     ) -> tuple[NDArray[any], NDArray[any]]:
         """
         Loads and processes data to retrieve the test set.

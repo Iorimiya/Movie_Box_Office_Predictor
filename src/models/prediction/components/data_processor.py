@@ -53,7 +53,7 @@ PredictionPredictionRawData: type = MovieData
 PredictionPredictionProcessedData: type = NDArray[float32]
 
 @dataclass(frozen=True)
-class PredictionTrainingConfig:
+class PredictionDataConfig:
     """
     Configuration for processing data for prediction model training.
 
@@ -89,7 +89,7 @@ class PredictionDataProcessor(
         PredictionTrainingProcessedData,
         PredictionPredictionRawData,
         PredictionPredictionProcessedData,
-        PredictionTrainingConfig
+        PredictionDataConfig
     ]
 ):
     """
@@ -183,7 +183,7 @@ class PredictionDataProcessor(
 
     @override
     def process_for_training(
-        self, raw_data: PredictionTrainingRawData, config: PredictionTrainingConfig
+        self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig
     ) -> PredictionTrainingProcessedData:
         """
         Processes raw movie data into a format suitable for model training.

@@ -31,7 +31,7 @@ class SentimentDataSource:
 
 
 @dataclass(frozen=True)
-class SentimentTrainingConfig:
+class SentimentDataConfig:
     """
     Configuration for processing data for sentiment model training.
 
@@ -70,7 +70,7 @@ class SentimentDataProcessor(
         ProcessedSentimentData,
         str,
         NDArray[int32],
-        SentimentTrainingConfig
+        SentimentDataConfig
     ]
 ):
     """
@@ -152,7 +152,7 @@ class SentimentDataProcessor(
         return DataFrame(csv_file.load())
 
     @override
-    def process_for_training(self, raw_data: DataFrame, config: SentimentTrainingConfig) -> ProcessedSentimentData:
+    def process_for_training(self, raw_data: DataFrame, config: SentimentDataConfig) -> ProcessedSentimentData:
         """
         Prepares raw data for training a sentiment analysis model.
 
