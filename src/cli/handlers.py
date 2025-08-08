@@ -18,7 +18,7 @@ from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.reviews import PublicReview
 from src.models.sentiment.components.data_processor import (
-    SentimentDataProcessor, SentimentTrainingConfig
+    SentimentDataProcessor, SentimentDataConfig
 )
 from src.models.sentiment.components.evaluator import (
     SentimentEvaluator, SentimentEvaluationResult, SentimentEvaluationConfig
@@ -609,7 +609,7 @@ class SentimentModelHandler(BaseModelHandler):
         # --- 2. Run evaluation ---
         try:
             # noinspection PyTypeChecker
-            data_proc_config = SentimentTrainingConfig(
+            data_proc_config = SentimentDataConfig(
                 vocabulary_size=original_config_data['vocabulary_size'],
                 split_ratios=tuple(original_config_data['split_ratios']),
                 random_state=original_config_data['random_state']
@@ -792,7 +792,7 @@ class SentimentModelHandler(BaseModelHandler):
 
             self._logger.info(f"--- Evaluating epoch {epoch} for plotting (not cached) ---")
             # noinspection PyTypeChecker
-            data_proc_config = SentimentTrainingConfig(
+            data_proc_config = SentimentDataConfig(
                 vocabulary_size=original_config_data['vocabulary_size'],
                 split_ratios=tuple(original_config_data['split_ratios']),
                 random_state=original_config_data['random_state']
