@@ -187,11 +187,12 @@ class SentimentDataProcessor(
         return ProcessedSentimentData(**processed_data)
 
     @override
-    def process_for_prediction(self, single_input: str) -> NDArray[int32]:
+    def process_for_prediction(self, single_input: str, config: Optional[SentimentDataConfig] = None) -> NDArray[int32]:
         """
         Processes a single text input for sentiment prediction.
 
         :param single_input: The text string to predict sentiment for.
+        :param config: This parameter is ignored by this implementation.
         :returns: A processed and padded sequence ready for the model.
         :raises ValueError: If the tokenizer has not been fitted or `max_sequence_length` is not provided.
         """
