@@ -258,6 +258,41 @@ class PredictionDataProcessor(
         scaled_array: NDArray[float32] = self._scale_feature_in_sequences(sequences=unscaled_array)
         return scaled_array
 
+    def process_for_evaluation(
+        self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig
+    ) -> tuple[NDArray[float32], NDArray[float64]]:
+        """
+        Processes a full raw dataset for evaluation without splitting it.
+
+        This method is designed for evaluating a model on a new, unseen dataset
+        where the entire dataset should be treated as a single test set. It
+        performs all processing steps (sequencing, feature extraction, scaling)
+        except for the train/val/test split.
+
+        :param raw_data: The raw list of `MovieData` objects.
+        :param config: A configuration object, primarily used for `training_week_len`.
+        :returns: A tuple containing the full processed features (x) and labels (y).
+        :raises ValueError: If the scaler is not loaded or no data sessions can be created.
+        """
+        self.logger.info("Processing full dataset for evaluation (no splitting).")
+        sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
+            movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1
+        )
+
+        if not sessions:
+            raise ValueError("No sessions data available for evaluation.")
+
+        x, y = self._create_xy_from_sessions(sessions=sessions, week_limit=config.training_week_len)
+
+        # Scale the entire dataset using the pre-loaded scaler
+        if not self.scaler:
+            raise ValueError("Scaler must be loaded to process data for evaluation.")
+
+        x_scaled: NDArray[float32] = self._scale_feature_in_sequences(sequences=x)
+        y_scaled: NDArray[float64] = self.scaler.transform(y.reshape(-1, 1)).flatten()
+
+        return x_scaled, y_scaled
+
     @staticmethod
     def _create_xy_from_sessions(sessions: list[MovieSessionData], week_limit: int) \
         -> tuple[NDArray[float32], NDArray[float64]]:
