@@ -1,19 +1,3 @@
-在 SentimentTrainingPipeline 中，合併歷史紀錄的程式碼如下：
-```Python
-# ...
-for key, value in history.history.items():
-    old_history.history.setdefault(key, []).extend(value)
-# Add the new F1 scores to the merged history
-old_history.history.setdefault('val_f1_score', []).extend(f1_callback.f1_scores)
-# ...
-```
-F1ScoreHistory 回呼函式已經將 val_f1_score 加入到 Keras 的 logs 中，Keras 會自動將其放入 history.history。因此，第一個 for 迴圈其實已經處理了 val_f1_score。最後一行 extend(f1_callback.f1_scores) 是多餘的，可以移除，以避免重複添加。
-
-### 優化評估時的資料處理效率
-SentimentEvaluator 為了取得測試集，會重新執行一次完整的資料處理流程。雖然這確保了資料一致性，但在資料量大時會有效率問題。建議：可以在 SentimentTrainingPipeline 執行完畢後，將切分好的測試集（x_test, y_test）額外儲存為一個檔案（如 test_data.npy）。這樣 Evaluator 就可以直接載入這個檔案，而無需重新處理整個原始資料集。
-
----
-
 - [X] 需要100筆的測試SKEP有效與否的資料
 - [ ] model(data_processor)的完成
 - [ ] 用同樣的數據對SKEP和Sentiment model做比較
@@ -29,3 +13,46 @@ SentimentEvaluator 為了取得測試集，會重新執行一次完整的資料�
           - 計算每一篇Review的讚和噓的比例，加以平均
           - 計算本週所有讚和噓的比例
 
+#### 使用新OO架構重構程式
+
+- [ ] finish prediction data processor
+- [ ] finish prediction model core
+- [ ] finish prediction pipeline
+- [ ] finish prediction evaluator
+- [ ] fix prediction data preprocess bug
+- [ ] fix prediction duplicate scaling bug
+- [ ] change prediction continuous data selection
+
+#### SKEP
+
+- [x] 測試環境相容性
+- [ ] 測試程式相容性
+	- [x] 新的環境和SKEP本身的相容性
+	- [ ] 新環境和原本的scraping code、prediction model的相容性
+		- [ ] class測試
+			- [ ] function測試
+- [ ] 測試pretrained model效能
+- [ ] 遷入主專案
+- [ ] 訓練新prediciton model
+- [ ] 評估prediction model效能
+
+#### BERT
+
+- [ ] 測試環境相容性
+- [ ] 遷入主專案
+- [ ] 測試程式相容性
+- [ ] 建立符合BERT訓練輸入的資料集
+- [ ] 訓練新prediciton model
+- [ ] 評估prediction model效能
+
+#### Method to optimize model
+
+- change learning rate
+- change limit week
+- change layers parameter
+- using MovieSessionData
+- using MovieSessionData with One Movie One Data
+- GRU replace LSTM
+- Stop training when f1 not increase
+- 可變長度序列嵌入到固定長度特徵向量(新研究)
+- OverSampling、UnderSampling

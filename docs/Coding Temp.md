@@ -1,3 +1,5 @@
+# Global
+## ML 評估方法
 | PredictionDataProcessor 中的方法/邏輯 | 對應到 MoviePredictionModel 中的方法/邏輯 | 說明 | 
 | :--- | :--- | :--- |
 | load_raw_data() | _load_training_data() | 職責：載入原始資料。兩者都從指定的 `dataset` 載入電影資料，並呼叫一個輔助函式將每部電影的資料轉換成 MoviePredictionInputData 的格式。 |
@@ -48,7 +50,7 @@ MoviePredictionModel (迴歸模型) 的學術評估對於票房預測這類迴�
 
 
 
-# 結論
+### 結論
 
 - 兩者需生成training loss, validation loss來解釋訓練過程的變化
 - 需要test loss，但僅作為下列兩點的生成基礎
@@ -72,3 +74,21 @@ MoviePredictionModel (迴歸模型) 的學術評估對於票房預測這類迴�
 | 序列化 (Sequencing) | _tokenize_and_pad_sequences：使用 Tokenizer 將文字轉為數字序列，並進行 padding。 | _create_sequences：使用滑動窗口 (sliding window) 的方式，手動從時間序列中切出 (X, y) 對，並進行 padding。 | 目標相同，方法不同。兩者都是為了產生模型可用的、等長的數值序列。Sentiment 依賴 Keras 的標準工具，而 Prediction 則需要客製化的時間序列切片邏輯。 | 
 | 資料分割 (Splitting) | _split_data：使用 sklearn.model_selection.train_test_split，並設定 random_state 和 stratify。 | _split_and_scale_data：使用簡單的陣列切片 (slicing) x[:train_end_idx]。 | 這是最關鍵的差異點。<br>• Sentiment 的作法更優越：使用 random_state 確保了每次分割的結果都可重現。使用 stratify=y_data 確保了訓練、驗證、測試集中的正負樣本比例一致，這對於分類問題至關重要。<br>• Prediction 的作法較為簡單：按順序分割。這種方法雖然簡單，但不具備隨機性，如果資料的順序有特定模式，可能會導致偏差。 |
 | 資料縮放 (Scaling) | (無) | _split_and_scale_data 和 _scale_feature_in_sequences：使用 MinMaxScaler。 | 這是 Prediction 模型特有的步驟，因為它處理的是連續的數值特徵。Sentiment 的作法是正確的：只在 y_train 上 fit scaler，然後用這個 scaler 去 transform 其他所有資料，避免了資料洩漏。 |
+
+
+# Local
+## Sentiment History
+
+在 SentimentTrainingPipeline 中，合併歷史紀錄的程式碼如下：
+```Python
+# ...
+for key, value in history.history.items():
+    old_history.history.setdefault(key, []).extend(value)
+# Add the new F1 scores to the merged history
+old_history.history.setdefault('val_f1_score', []).extend(f1_callback.f1_scores)
+# ...
+```
+F1ScoreHistory 回呼函式已經將 val_f1_score 加入到 Keras 的 logs 中，Keras 會自動將其放入 history.history。因此，第一個 for 迴圈其實已經處理了 val_f1_score。最後一行 extend(f1_callback.f1_scores) 是多餘的，可以移除，以避免重複添加。
+
+### 優化評估時的資料處理效率
+SentimentEvaluator 為了取得測試集，會重新執行一次完整的資料處理流程。雖然這確保了資料一致性，但在資料量大時會有效率問題。建議：可以在 SentimentTrainingPipeline 執行完畢後，將切分好的測試集（x_test, y_test）額外儲存為一個檔案（如 test_data.npy）。這樣 Evaluator 就可以直接載入這個檔案，而無需重新處理整個原始資料集。
