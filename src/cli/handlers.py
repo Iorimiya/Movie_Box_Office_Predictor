@@ -18,7 +18,7 @@ from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.reviews import PublicReview
 from src.models.sentiment.components.data_processor import (
-    SentimentDataProcessor, SentimentTrainingConfig
+    SentimentDataProcessor, SentimentDataConfig
 )
 from src.models.sentiment.components.evaluator import (
     SentimentEvaluator, SentimentEvaluationResult, SentimentEvaluationConfig
@@ -609,7 +609,7 @@ class SentimentModelHandler(BaseModelHandler):
         # --- 2. Run evaluation ---
         try:
             # noinspection PyTypeChecker
-            data_proc_config = SentimentTrainingConfig(
+            data_proc_config = SentimentDataConfig(
                 vocabulary_size=original_config_data['vocabulary_size'],
                 split_ratios=tuple(original_config_data['split_ratios']),
                 random_state=original_config_data['random_state']
@@ -792,7 +792,7 @@ class SentimentModelHandler(BaseModelHandler):
 
             self._logger.info(f"--- Evaluating epoch {epoch} for plotting (not cached) ---")
             # noinspection PyTypeChecker
-            data_proc_config = SentimentTrainingConfig(
+            data_proc_config = SentimentDataConfig(
                 vocabulary_size=original_config_data['vocabulary_size'],
                 split_ratios=tuple(original_config_data['split_ratios']),
                 random_state=original_config_data['random_state']
@@ -860,6 +860,7 @@ class PredictionModelHandler(BaseModelHandler):
     Handles CLI commands related to the box office prediction model.
     """
 
+    @override
     def __init__(self, parser: ArgumentParser) -> None:
         """
         Initializes the PredictionModelHandler.
@@ -868,7 +869,20 @@ class PredictionModelHandler(BaseModelHandler):
         """
         super().__init__(parser=parser, model_type_name="Prediction")
 
-    def test(self, args: Namespace) -> None:
+    @override
+    def train(self, args: Namespace) -> None:
+        """
+        Orchestrates the box office prediction model training process.
+
+        Note: This method is a placeholder and its full implementation is pending.
+
+        :param args: The namespace object from argparse, containing training parameters.
+        """
+        # TODO: Add actual testing logic here
+        pass
+
+    @override
+    def predict(self, args: Namespace) -> None:
         """
         Tests the prediction model on a specific movie or with random data.
 
@@ -886,3 +900,27 @@ class PredictionModelHandler(BaseModelHandler):
                 f"with random data."
             )
         # TODO: Add actual testing logic here
+
+    @override
+    def get_metrics(self, args: Namespace) -> None:
+        """
+        Retrieves and displays evaluation metrics for a prediction model.
+
+        Note: This method is a placeholder and its full implementation is pending.
+
+        :param args: The namespace object from argparse, containing evaluation parameters.
+        """
+        # TODO: Add actual testing logic here
+        pass
+
+    @override
+    def plot_graph(self, args: Namespace) -> None:
+        """
+        Generates and saves evaluation graphs for a prediction model series.
+
+        Note: This method is a placeholder and its full implementation is pending.
+
+        :param args: The namespace object from argparse, containing plotting parameters.
+        """
+        # TODO: Add actual testing logic here
+        pass

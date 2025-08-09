@@ -7,7 +7,7 @@ RawDataType = TypeVar('RawDataType')
 ProcessedTrainingDataType = TypeVar('ProcessedTrainingDataType')
 PredictionDataType = TypeVar('PredictionDataType')
 ProcessedPredictionDataType = TypeVar('ProcessedPredictionDataType')
-TrainingConfigType = TypeVar('TrainingConfigType')
+DataConfigType = TypeVar('DataConfigType')
 
 
 class BaseDataProcessor(
@@ -17,7 +17,7 @@ class BaseDataProcessor(
         ProcessedTrainingDataType,
         PredictionDataType,
         ProcessedPredictionDataType,
-        TrainingConfigType],
+        DataConfigType],
     ABC
 ):
     """
@@ -74,7 +74,7 @@ class BaseDataProcessor(
         pass
 
     @abstractmethod
-    def process_for_training(self, raw_data: RawDataType, config: TrainingConfigType) -> ProcessedTrainingDataType:
+    def process_for_training(self, raw_data: RawDataType, config: DataConfigType) -> ProcessedTrainingDataType:
         """
         Processes raw data into a format suitable for model training.
 
@@ -88,16 +88,18 @@ class BaseDataProcessor(
         pass
 
     @abstractmethod
-    def process_for_prediction(self, single_input: PredictionDataType) -> ProcessedPredictionDataType:
+    def process_for_prediction(self, single_input: PredictionDataType,
+                               config: Optional[DataConfigType]) -> ProcessedPredictionDataType:
         """
         Processes a single input sample for prediction.
 
         This method should use the already-fitted artifacts (e.g., a loaded tokenizer)
         to transform a single piece of input data into a format the model can understand.
         It relies entirely on the processor's internal state (loaded artifacts) and
-        does not require an external configuration object for prediction.
+        may require an external configuration object for prediction.
 
         :param single_input: A single raw input sample (e.g., a string of text or a dictionary of features).
+        :param config: An optional configuration object containing necessary parameters.
         :returns: The processed sample, ready for the model's predict method.
         """
-        pass
+        raise NotImplementedError
