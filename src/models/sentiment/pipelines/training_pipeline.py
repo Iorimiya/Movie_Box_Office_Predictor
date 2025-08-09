@@ -8,7 +8,7 @@ from src.core.project_config import ProjectPaths, ProjectModelType
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.models.base.callbacks import F1ScoreHistory
 from src.models.sentiment.components.data_processor import (
-    ProcessedSentimentData, SentimentDataProcessor, SentimentDataSource, SentimentDataConfig
+    SentimentDataProcessor, SentimentDataSource, SentimentTrainingProcessedData, SentimentDataConfig
 )
 from src.models.sentiment.components.model_core import (
     SentimentBuildConfig, SentimentModelCore, SentimentTrainConfig
@@ -109,7 +109,7 @@ class SentimentTrainingPipeline(
         )
         # Note: In "continue training" mode, this re-processes the data, which is necessary
         # to get the validation set for Keras. The tokenizer is loaded, not re-fitted.
-        processed_data: ProcessedSentimentData = self.data_processor.process_for_training(
+        processed_data: SentimentTrainingProcessedData = self.data_processor.process_for_training(
             raw_data=raw_data,
             config=processing_config
         )
