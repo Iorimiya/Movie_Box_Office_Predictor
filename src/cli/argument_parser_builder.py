@@ -172,7 +172,7 @@ class ArgumentParserBuilder:
                         'Note: This is mutually exclusive with the file-based override above.'
         )
         params_override_group.add_argument(
-            '--dataset-file-name', type=str, required=False, help='Override the source dataset CSV file name.'
+            '--dataset-name', type=str, required=False, help='Override the name of the dataset to use for training.'
         )
         params_override_group.add_argument(
             '--epochs', type=int, required=False, help='Override the number of training epochs.'
@@ -236,6 +236,12 @@ class ArgumentParserBuilder:
         plot_options_group.add_argument('--validation-loss', action='store_true',
                                         help='Evaluate or plot the validation loss.')
         plot_options_group.add_argument('--f1-score', action='store_true', help='Evaluate or plot the F1-score.')
+        parser.add_argument('--dataset-name', type=str,
+            help=
+    'Optional. Specify a new dataset to evaluate on. '
+    'If provided, this triggers \'exploratory mode\' to test on the full, unsplit dataset. '
+    'If omitted (default), the original training dataset is used to reproduce the exact test set.'
+)
         return parser
 
     def __create_plot_common_behavior_parser(self) -> ArgumentParser:
