@@ -1,13 +1,14 @@
-from dataclasses import dataclass, field
-from typing import Optional
+from dataclasses import dataclass
 
-from keras.api.models import Sequential
-from keras.src.callbacks import Callback, History
-from keras.src.layers import LSTM, Dense, Dropout, Embedding, Input
+
+# from keras.models import Sequential
+# from keras.layers import LSTM, Dense, Dropout, Embedding, Input
 from numpy.typing import NDArray
+from tensorflow.python.keras import Sequential, Input
+from tensorflow.python.keras.layers import Embedding, LSTM, Dropout, Dense
 from typing_extensions import override
 
-from src.models.base.base_model_core import BaseModelCore
+from src.models.base.base_model_core import BaseModelCore, BaseTrainConfig, BasePredictConfig, BaseEvaluateConfig
 
 
 @dataclass(frozen=True)
@@ -25,47 +26,32 @@ class SentimentBuildConfig:
     lstm_units: int
     max_sequence_length: int
 
-
 @dataclass(frozen=True)
-class SentimentTrainConfig:
+class SentimentTrainConfig(BaseTrainConfig):
     """
     Configuration for training the sentiment analysis model.
-
-    :ivar epochs: The total number of epochs to train the model.
-    :ivar batch_size: The batch size for training.
-    :ivar validation_data: A tuple containing validation features and labels.
-    :ivar callbacks: A list of Keras callbacks to use during training.
+    Inherits all common training parameters from BaseTrainConfig.
     """
-    epochs: int
-    batch_size: int
-    validation_data: tuple[NDArray[any], NDArray[any]]
-    verbose: int | str = 1
-    callbacks: list[Callback] = field(default_factory=list)
-    initial_epoch: int = 0
+    # No extra fields needed for now, so we just pass.
+    pass
 
 
 @dataclass(frozen=True)
-class SentimentPredictConfig:
+class SentimentPredictConfig(BasePredictConfig):
     """
     Configuration for predicting with the sentiment model.
-
-    :ivar batch_size: The batch size for prediction.
-    :ivar verbose: Verbosity mode for Keras `predict`.
+    Inherits all common prediction parameters from BasePredictConfig.
     """
-    batch_size: Optional[int] = None
-    verbose: int | str = 'auto'
+    pass
 
 
 @dataclass(frozen=True)
-class SentimentEvaluateConfig:
+class SentimentEvaluateConfig(BaseEvaluateConfig):
     """
     Configuration for evaluating the sentiment model.
-
-    :ivar batch_size: The batch size for evaluation.
-    :ivar verbose: Verbosity mode for Keras `evaluate`.
+    Inherits all common evaluation parameters from BaseEvaluateConfig.
     """
-    batch_size: Optional[int] = None
-    verbose: int | str = 'auto'
+    pass
 
 
 # --- Model Core Implementation ---

@@ -1,18 +1,69 @@
 from abc import ABC, abstractmethod
+from dataclasses import field, dataclass
 from pathlib import Path
 from typing import Generic, Optional, TypeVar
 
-from keras.api.models import load_model
-from keras.src.callbacks import History
-from keras.src.models import Model
 from numpy.typing import NDArray
+from tensorflow.python.keras import Model
+from tensorflow.python.keras.callbacks import Callback, History
+from tensorflow.python.keras.models import load_model
 
 from src.utilities.filesystem_utils import is_existing_path
 
+@dataclass(frozen=True)
+class BaseTrainConfig:
+    """
+    A base configuration for training a Keras model.
+
+    Contains common parameters passed to the `model.fit()` method.
+
+    :ivar epochs: The total number of epochs to train the model.
+    :ivar batch_size: The batch size for training.
+    :ivar validation_data: A tuple containing validation features and labels.
+    :ivar verbose: Verbosity mode for Keras training output.
+    :ivar callbacks: A list of Keras callbacks to use during training.
+    :ivar initial_epoch: The epoch at which to start training (useful for resuming).
+    """
+    epochs: int
+    batch_size: int
+    validation_data: tuple[NDArray[any], NDArray[any]]
+    verbose: int | str = 1
+    callbacks: list[Callback] = field(default_factory=list)
+    initial_epoch: int = 0
+
+
+@dataclass(frozen=True)
+class BasePredictConfig:
+    """
+    A base configuration for predicting with a Keras model.
+
+    Contains common parameters passed to the `model.predict()` method.
+
+    :ivar batch_size: The batch size for prediction.
+    :ivar verbose: Verbosity mode for Keras `predict`.
+    """
+    batch_size: Optional[int] = None
+    verbose: int | str = 'auto'
+
+
+@dataclass(frozen=True)
+class BaseEvaluateConfig:
+    """
+    A base configuration for evaluating a Keras model.
+
+    Contains common parameters passed to the `model.evaluate()` method.
+
+    :ivar batch_size: The batch size for evaluation.
+    :ivar verbose: Verbosity mode for Keras `evaluate`.
+    """
+    batch_size: Optional[int] = None
+    verbose: int | str = 'auto'
+
+
 ModelBuildConfigType = TypeVar('ModelBuildConfigType')
-TrainConfigType = TypeVar('TrainConfigType')
-PredictConfigType = TypeVar('PredictConfigType')
-EvaluateConfigType = TypeVar('EvaluateConfigType')
+TrainConfigType = TypeVar('TrainConfigType', bound=BaseTrainConfig)
+PredictConfigType = TypeVar('PredictConfigType', bound=BasePredictConfig)
+EvaluateConfigType = TypeVar('EvaluateConfigType', bound=BaseEvaluateConfig)
 
 
 class BaseModelCore(
