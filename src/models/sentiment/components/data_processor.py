@@ -15,8 +15,8 @@ from typing_extensions import override
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectPaths
 from src.data_handling.file_io import CsvFile, PickleFile
-from src.models.base.base_data_processor import BaseDataProcessor
 from src.models.base.data_splitter import DatasetSplitter, SplitDataset
+from src.models.base.evaluable_data_processor import EvaluableDataProcessor
 
 
 @dataclass(frozen=True)
@@ -71,7 +71,7 @@ class SentimentDataConfig:
 
 
 class SentimentDataProcessor(
-    BaseDataProcessor[
+    EvaluableDataProcessor[
         SentimentDataSource,
         SentimentTrainingRawData,
         SentimentTrainingProcessedData,
@@ -221,6 +221,35 @@ class SentimentDataProcessor(
             sequences=sequence, maxlen=self.max_sequence_length
         )
         return padded_sequence
+
+    def process_for_evaluation(
+        self, raw_data: SentimentTrainingRawData, config: Optional[SentimentDataConfig] = None
+    ) -> tuple[NDArray[int32], NDArray[int64]]:
+        """
+        Processes a full raw dataset for evaluation without splitting it.
+
+        This method is designed for evaluating a model on a new, unseen dataset
+        where the entire dataset should be treated as a single test set. It
+        performs all processing steps (segmentation, tokenization, padding)
+        except for the train/val/test split.
+
+        :param raw_data: The raw DataFrame containing the data.
+        :param config: This parameter is ignored by this implementation.
+        :returns: A tuple containing the full processed features (x) and labels (y).
+        :raises ValueError: If the tokenizer is not loaded.
+        """
+        self.logger.info("Processing full dataset for evaluation (no splitting).")
+        if not self.tokenizer or self.max_sequence_length is None:
+            raise ValueError("Tokenizer must be loaded to process data for evaluation.")
+
+        segmented_texts, labels = self._construct_and_segment_texts(raw_data=raw_data)
+
+        # Use the pre-loaded tokenizer, do not re-fit
+        sequences: list[list[int]] = self.tokenizer.texts_to_sequences(texts=segmented_texts)
+        x_data: NDArray[int32] = pad_sequences(sequences=sequences, maxlen=self.max_sequence_length)
+        y_data: NDArray[int64] = np.array(labels)
+
+        return x_data, y_data
 
     def _construct_and_segment_texts(self, raw_data: SentimentTrainingRawData) -> tuple[list[str], list[int]]:
         """
