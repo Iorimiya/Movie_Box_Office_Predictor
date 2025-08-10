@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import Final
 
 from numpy.typing import NDArray
-from src.utilities.plot import plot_multi_line_graph, PlotDataset
 from typing_extensions import override
 
 from src.core.logging_manager import LoggingManager
@@ -23,6 +22,7 @@ from src.models.sentiment.components.evaluator import (
 )
 from src.models.sentiment.components.model_core import SentimentModelCore, SentimentPredictConfig
 from src.models.sentiment.pipelines.training_pipeline import SentimentTrainingPipeline, SentimentPipelineConfig
+from src.utilities.plot import plot_multi_line_graph, PlotDataset
 
 
 @dataclass(frozen=True)
@@ -279,8 +279,9 @@ class BaseModelHandler(ABC):
     _logger: Logger = LoggingManager().get_logger()
     _parser: ArgumentParser
     _model_type_name: str
+    _model_type: ProjectModelType
 
-    def __init__(self, parser: ArgumentParser, model_type_name: str) -> None:
+    def __init__(self, parser: ArgumentParser, model_type_name: str, model_type: ProjectModelType) -> None:
         """
         Initializes the BaseModelHandler.
 
@@ -289,35 +290,7 @@ class BaseModelHandler(ABC):
         """
         self._parser = parser
         self._model_type_name = model_type_name
-
-    @staticmethod
-    def _find_available_epochs(model_id: str, model_type: ProjectModelType) -> list[int]:
-        """
-        Finds all available model checkpoint epochs for a given model ID and type.
-
-        This is a static utility method that scans the appropriate model artifact
-        directory for files matching the pattern '<model_id>_*.keras' and extracts
-        the epoch numbers.
-
-        :param model_id: The unique identifier for the model series.
-        :param model_type: The type of the model (e.g., SENTIMENT, PREDICTION).
-        :returns: A sorted list of available epoch numbers.
-        """
-        model_artifacts_path: Path = ProjectPaths.get_model_root_path(
-            model_id=model_id, model_type=model_type
-        )
-        if not model_artifacts_path.exists():
-            return []
-
-        epochs: list[int] = []
-        for f in model_artifacts_path.glob(f"{model_id}_*.keras"):
-            try:
-                # Extracts the number from 'model_id_0080.keras'
-                epoch_str = f.stem.split('_')[-1]
-                epochs.append(int(epoch_str))
-            except (ValueError, IndexError):
-                continue
-        return sorted(epochs)
+        self._model_type = model_type
 
     @abstractmethod
     def train(self, args: Namespace) -> None:
@@ -355,6 +328,100 @@ class BaseModelHandler(ABC):
         """
         pass
 
+    @staticmethod
+    def _find_available_epochs(model_id: str, model_type: ProjectModelType) -> list[int]:
+        """
+        Finds all available model checkpoint epochs for a given model ID and type.
+
+        This is a static utility method that scans the appropriate model artifact
+        directory for files matching the pattern '<model_id>_*.keras' and extracts
+        the epoch numbers.
+
+        :param model_id: The unique identifier for the model series.
+        :param model_type: The type of the model (e.g., SENTIMENT, PREDICTION).
+        :returns: A sorted list of available epoch numbers.
+        """
+        model_artifacts_path: Path = ProjectPaths.get_model_root_path(
+            model_id=model_id, model_type=model_type
+        )
+        if not model_artifacts_path.exists():
+            return []
+
+        epochs: list[int] = []
+        for f in model_artifacts_path.glob(f"{model_id}_*.keras"):
+            try:
+                # Extracts the number from 'model_id_0080.keras'
+                epoch_str = f.stem.split('_')[-1]
+                epochs.append(int(epoch_str))
+            except (ValueError, IndexError):
+                continue
+        return sorted(epochs)
+
+    @staticmethod
+    def _get_individual_overrides(args: Namespace, is_continue_mode: bool = False) -> dict[str, any]:
+        """
+        Extracts individual parameter overrides from the argparse Namespace.
+
+        This helper method filters out arguments that are not considered
+        overridable parameters.
+
+        :param args: The namespace object from argparse.
+        :param is_continue_mode: A flag to adjust the keys to exclude for continuation mode.
+        :returns: A dictionary of individual override parameters.
+        """
+        # Keys that are part of the CLI mechanism, not overridable config values
+        # The subcommand key can vary, so we find it dynamically.
+        subcommand_key: str | None = next((key for key in vars(args) if key.endswith('_subcommand')), None)
+
+        base_exclude_keys = {'command_group', 'func', 'model_id', 'config_override'}
+        if subcommand_key:
+            base_exclude_keys.add(subcommand_key)
+
+        if is_continue_mode:
+            base_exclude_keys.add('continue_from_epoch')
+
+        return {
+            key: value for key, value in vars(args).items()
+            if key not in base_exclude_keys and value is not None
+        }
+
+    def _prepare_evaluation_context(self, args: Namespace, required_flags: list[str]) -> dict[str, any]:
+        """
+        Performs common setup tasks for evaluation commands.
+
+        This includes validating metric flags, logging initial messages, and loading
+        the master configuration file for the specified model.
+
+        :param args: The namespace object from argparse.
+        :param required_flags: A list of attribute names on `args` to check for truthiness.
+        :returns: The loaded dictionary from the model's config.yaml.
+        :raises SystemExit: If validation fails or the config file cannot be loaded.
+        """
+        # 1. Validate that at least one metric flag is present
+        if not any(getattr(args, flag, False) for flag in required_flags):
+            self._parser.error(
+                f"At least one flag from --{', --'.join(flag.replace('_', '-') for flag in required_flags)} must be selected."
+            )
+
+        # 2. Log initial messages
+        command_name = "Get evaluation metrics" if 'epoch' in args else "Plot evaluation graphs"
+        self._logger.info(
+            f"Executing: {command_name} for {self._model_type_name} model '{args.model_id}'."
+        )
+        if args.dataset_name:
+            self._logger.info(f"Evaluation will be performed on new dataset: '{args.dataset_name}'")
+
+        # 3. Load original training configuration
+        config_path: Path = ProjectPaths.get_model_root_path(
+            model_id=args.model_id, model_type=self._model_type
+        ) / "config.yaml"
+        if not config_path.exists():
+            self._parser.error(f"Master config file 'config.yaml' not found for model_id '{args.model_id}'.")
+
+        try:
+            return YamlFile(path=config_path).load_single_document()
+        except Exception as e:
+            self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
 
 # noinspection PyUnreachableCode
 class SentimentModelHandler(BaseModelHandler):
@@ -371,7 +438,7 @@ class SentimentModelHandler(BaseModelHandler):
 
         :param parser: The argument parser instance.
         """
-        super().__init__(parser=parser, model_type_name="Sentiment")
+        super().__init__(parser=parser, model_type_name="Sentiment", model_type=ProjectModelType.SENTIMENT)
         self._evaluator: SentimentEvaluator = SentimentEvaluator()
 
     @override
@@ -683,69 +750,6 @@ class SentimentModelHandler(BaseModelHandler):
                 y_formatter='percent'
             )
 
-    @staticmethod
-    def _get_individual_overrides(args: Namespace, is_continue_mode: bool = False) -> dict[str, any]:
-        """
-        Extracts individual parameter overrides from the argparse Namespace.
-
-        This helper method filters out arguments that are not considered
-        overridable parameters.
-
-        :param args: The namespace object from argparse.
-        :param is_continue_mode: A flag to adjust the keys to exclude for continuation mode.
-        :returns: A dictionary of individual override parameters.
-        """
-        # Keys that are part of the CLI mechanism, not overridable config values
-        base_exclude_keys = {'command_group', 'sentiment_subcommand', 'func', 'model_id', 'config_override'}
-        if is_continue_mode:
-            base_exclude_keys.add('continue_from_epoch')
-
-        return {
-            key: value for key, value in vars(args).items()
-            if key not in base_exclude_keys and value is not None
-        }
-
-    def _prepare_evaluation_context(self, args: Namespace, required_flags: list[str]) -> dict[str, any]:
-        """
-        Performs common setup tasks for evaluation commands.
-
-        This includes validating metric flags, logging initial messages, and loading
-        the master configuration file for the specified model.
-
-        :param args: The namespace object from argparse.
-        :param required_flags: A list of attribute names on `args` to check for truthiness.
-        :returns: The loaded dictionary from the model's config.yaml.
-        :raises SystemExit: If validation fails or the config file cannot be loaded.
-        """
-        # 1. Validate that at least one metric flag is present
-        if not any(getattr(args, flag, False) for flag in required_flags):
-            self._parser.error(
-                f"At least one flag from --{', --'.join(flag.replace('_', '-') for flag in required_flags)} must be selected."
-            )
-
-        # 2. Log initial messages
-        command_name = "Get evaluation metrics" if 'epoch' in args else "Plot evaluation graphs"
-        self._logger.info(
-            f"Executing: {command_name} for {self._model_type_name} model '{args.model_id}'."
-        )
-        if args.dataset_name:
-            self._logger.info(f"Evaluation will be performed on new dataset: '{args.dataset_name}'")
-
-        # 3. Load original training configuration
-        config_path: Path = ProjectPaths.get_model_root_path(
-            model_id=args.model_id, model_type=ProjectModelType.SENTIMENT
-        ) / "config.yaml"
-        if not config_path.exists():
-            self._parser.error(f"Master config file 'config.yaml' not found for model_id '{args.model_id}'.")
-            # self._parser.error will raise SystemExit, so no return is needed
-
-        try:
-            return YamlFile(path=config_path).load_single_document()
-        except Exception as e:
-            self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
-            # This line is technically unreachable but good for clarity
-            raise  # Re-raise after parser exits
-
     def _build_evaluation_config(
         self, args: Namespace, original_config_data: dict[str, any], epoch_to_evaluate: int
     ) -> SentimentEvaluationConfig:
@@ -919,7 +923,7 @@ class PredictionModelHandler(BaseModelHandler):
 
         :param parser: The argument parser instance.
         """
-        super().__init__(parser=parser, model_type_name="Prediction")
+        super().__init__(parser=parser, model_type_name="Prediction", model_type=ProjectModelType.PREDICTION)
 
     @override
     def train(self, args: Namespace) -> None:
