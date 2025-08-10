@@ -10,7 +10,7 @@ from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile
-from src.data_handling.movie_collections import MovieData
+from src.data_handling.movie_collections import MovieData, MovieSessionData
 from src.data_handling.movie_metadata import MovieMetadata, MovieMetadataRawData, MoviePathMetadata
 from src.data_handling.reviews import PublicReview, ExpertReview
 from src.models.sentiment.components.data_processor import SentimentDataProcessor
@@ -259,6 +259,34 @@ class Dataset:
                 err_msg: str = f"Invalid mode '{mode}' specified for load_all_movie_data. Must be 'ALL' or 'META'."
                 self.__logger.error(err_msg)
                 raise ValueError(err_msg)
+
+    def load_movie_sessions(self, number_of_weeks: int) -> list[MovieSessionData]:
+        """
+        Creates MovieSessionData objects for all movies in this dataset.
+
+        It reads the index file to get movie metadata, then for each movie,
+        it loads its full data and segments it into valid, fixed-length sessions.
+
+        :param number_of_weeks: The number of weeks each movie session should span.
+        :return: A flattened list of all MovieSessionData objects created from the dataset.
+        :raises FileNotFoundError: If the dataset's index file is not found (propagated).
+        :raises ValueError: If the index file is found but contains no processable movie metadata (propagated).
+        """
+        self.__logger.info(f"Creating {number_of_weeks}-week sessions for all movies in dataset '{self.name}'.")
+
+        # Use the existing property to get all fully-loaded MovieData objects
+        all_movie_data: list[MovieData] = self.movie_data
+
+        if not all_movie_data:
+            self.__logger.warning(f"No movie data available in dataset '{self.name}' to create sessions from.")
+            return []
+
+        # Delegate to the existing class method in MovieSessionData that works on an in-memory list
+        all_sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
+            movie_data_list=all_movie_data,
+            number_of_weeks=number_of_weeks
+        )
+        return all_sessions
 
     def collect_box_office(self) -> None:
         """

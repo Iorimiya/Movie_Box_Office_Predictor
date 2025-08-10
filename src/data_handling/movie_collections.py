@@ -9,7 +9,6 @@ import numpy as np
 
 from src.core.logging_manager import LoggingManager
 from src.data_handling.box_office import BoxOffice, BoxOfficeRawData, BoxOfficeSerializableData
-from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_metadata import MovieMetadata, MoviePathMetadata
 from src.data_handling.reviews import (
@@ -454,35 +453,6 @@ class MovieSessionData:
 
         return cls.create_sessions_from_single_movie_data(movie_data=movie_data, number_of_weeks=number_of_weeks)
 
-    @classmethod
-    def create_movie_sessions_from_dataset(cls, dataset_name: str, number_of_weeks: int) -> list['MovieSessionData']:
-        """
-        Creates MovieSessionData objects for all movies in a specified dataset.
-
-        It reads an index file from the dataset to get movie metadata, then for each movie,
-        it constructs paths to its box office and review files. These are then passed to
-        `_create_sessions_for_single_movie` to generate the sessions.
-
-        :param dataset_name: The name of the dataset to process.
-        :param number_of_weeks: The number of weeks each movie session should span.
-        :return: A flattened list of all MovieSessionData objects created from the dataset.
-        :raises FileNotFoundError: If the dataset's index file is not found (propagated).
-        :raises ValueError: If the index file is found but contains no processable movie metadata (propagated).
-        """
-
-        logger: Logger = LoggingManager().get_logger("root")
-        dataset: Dataset = Dataset(name=dataset_name)
-        source_infos: list[MoviePathMetadata] = dataset.load_movie_source_info()
-        if not source_infos:
-            logger.info(f"No processable movie metadata after initial validation from '{dataset.index_file_path}'.")
-            return []
-        return list(chain.from_iterable([cls._create_sessions_for_single_movie(
-            movie_meta_item=movie_meta_with_paths_item,
-            number_of_weeks=number_of_weeks)
-            for movie_meta_with_paths_item in source_infos
-        ]))
-
-
 @dataclass(kw_only=True)
 class MovieData:
     """
@@ -538,20 +508,6 @@ class MovieData:
         :return: The count of ``PublicReview`` objects, or 0 if none exist.
         """
         return len(self.public_reviews) if self.public_reviews else 0
-
-    @classmethod
-    def load_multiple_movie_data_from_dataset(cls, dataset_name: str, mode: Literal['ALL', 'META']) \
-        -> list['MovieData']:
-        """
-        Loads multiple MovieData instances from a specified dataset.
-
-        Delegates to the Dataset class to load all movie data based on the given mode.
-
-        :param dataset_name: The name of the dataset to load from.
-        :param mode: Specifies the loading mode ('ALL' for full data, 'META' for metadata only).
-        :return: A list of MovieData instances.
-        """
-        return Dataset(name=dataset_name).load_movie_data(mode=mode)
 
     def __save_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
                          target_directory: Path) -> Path:

@@ -11,6 +11,7 @@ from typing_extensions import override
 
 from src.core.logging_manager import LoggingManager
 from src.data_handling.box_office import BoxOffice
+from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieData, WeekData, MovieSessionData
 from src.models.base.data_splitter import DatasetSplitter, SplitDataset
@@ -165,8 +166,8 @@ class PredictionDataProcessor(
         :returns: A list of MovieData objects.
         """
         self.logger.info(f"Loading raw prediction data from dataset: '{source.dataset_name}'")
-        movie_data_list: list[MovieData] = MovieData.load_multiple_movie_data_from_dataset(
-            dataset_name=source.dataset_name, mode='ALL')
+        dataset = Dataset(name=source.dataset_name)
+        movie_data_list: list[MovieData] = dataset.load_movie_data(mode='ALL')
 
         if not movie_data_list:
             self.logger.warning(f"No movie data loaded from dataset: {source.dataset_name}")
