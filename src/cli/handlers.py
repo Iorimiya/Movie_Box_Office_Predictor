@@ -16,7 +16,7 @@ from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import Dataset
-from src.data_handling.file_io import YamlFile
+from src.data_handling.file_io import YamlFile, CsvFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.movie_metadata import MovieMetadata
 from src.data_handling.reviews import PublicReview
@@ -107,12 +107,12 @@ class DatasetHandler:
         self._logger.info(
             f"Executing: Create dataset index for '{args.structured_dataset_name}'"
         )
-        source_path: Path = Path(args.source_file)
+        source_path: Path = ProjectPaths.raw_index_sources_dir / args.source_file
         if not source_path.exists():
-            raise FileNotFoundError(f"Source file not found at: {args.source_file}")
+            raise FileNotFoundError(f"Source file not found at: {source_path}")
 
         Dataset(name=args.structured_dataset_name).initialize_index_file(
-            source_csv=args.source_file
+            source_csv=CsvFile(path=source_path)
         )
 
     @staticmethod
