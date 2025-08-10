@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Final
+from typing import Final, Optional
 
 from keras.src.callbacks import History
 from numpy.typing import NDArray
@@ -13,8 +13,7 @@ from src.models.base.base_evaluator import BaseEvaluator
 from src.models.sentiment.components.data_processor import (
     SentimentTrainingProcessedData,
     SentimentDataProcessor,
-    SentimentDataSource,
-    SentimentDataConfig
+    SentimentDataSource, SentimentDataConfig
 )
 from src.models.sentiment.components.model_core import (
     SentimentEvaluateConfig,
@@ -30,18 +29,24 @@ class SentimentEvaluationConfig:
 
     :ivar model_id: The unique identifier for the model series.
     :ivar model_epoch: The specific training epoch of the model to evaluate.
-    :ivar evaluation_dataset_file_name: The name of the CSV file in the
-                                        `sentiment_analysis_resources` directory
-                                        to use for evaluation.
-    :ivar data_processing_config: The configuration that was used for the
-                                  original data processing during training.
-                                  This is needed to ensure the test split is
-                                  recreated identically.
+    :ivar dataset_file_name: The name of the CSV file to use for evaluation.
+    :ivar vocabulary_size: The vocabulary size used during original training.
+                           Required for reproducibility mode.
+    :ivar evaluate_on_full_dataset: If True, evaluates on the entire dataset
+                                    without splitting. If False, reproduces
+                                    the original test split.
+    :ivar split_ratios: The train/val/test split ratios. Required only for
+                        reproducibility mode.
+    :ivar random_state: The random seed for data splitting. Required only for
+                        reproducibility mode.
     """
     model_id: str
     model_epoch: int
-    evaluation_dataset_file_name: str
-    data_processing_config: SentimentDataConfig
+    dataset_file_name: str
+    vocabulary_size: int
+    evaluate_on_full_dataset: bool = False
+    split_ratios: Optional[tuple[int, int, int]] = None
+    random_state: Optional[int] = None
 
 
 @dataclass(frozen=True)
@@ -142,26 +147,54 @@ class SentimentEvaluator(
     def _prepare_test_data(
         self,
         data_processor: SentimentDataProcessor,
-        file_name: str,
-        processing_config: SentimentDataConfig
+        config: SentimentEvaluationConfig
+
     ) -> tuple[NDArray[any], NDArray[any]]:
         """
         Loads and processes data to retrieve the test set.
 
+        This method supports two modes based on `config.evaluate_on_full_dataset`:
+        - If False (default), it reproduces the original test split.
+        - If True, it processes the entire dataset as a single evaluation set.
+
         :param data_processor: The initialized data processor.
-        :param file_name: The name of the evaluation dataset file.
-        :param processing_config: The configuration used for the original training run.
-        :returns: A tuple containing the test features (x_test) and labels (y_test).
+        :param config: The configuration object for the evaluation run.
+        :returns: A tuple containing the evaluation features (x_eval) and labels (y_eval).
         """
         self.logger.info("Step 3: Loading and processing evaluation dataset...")
-        data_source = SentimentDataSource(file_name=file_name)
+        data_source = SentimentDataSource(file_name=config.dataset_file_name)
         raw_data = data_processor.load_raw_data(source=data_source)
 
-        # Re-run processing to get the exact same test split
-        processed_data: SentimentTrainingProcessedData = data_processor.process_for_training(
-            raw_data=raw_data, config=processing_config
-        )
-        return processed_data['x_test'], processed_data['y_test']
+
+        if config.evaluate_on_full_dataset:
+            # --- Mode 2: Exploratory (New Dataset) ---
+            self.logger.info("Evaluation mode: Processing the full dataset as the test set.")
+            x_eval, y_eval = data_processor.process_for_evaluation(raw_data=raw_data)
+            return x_eval, y_eval
+        else:
+            # --- Mode 1: Reproducibility (Original Dataset) ---
+            self.logger.info("Evaluation mode: Reproducing the original test split.")
+
+            # Validate that necessary parameters for this mode are present
+            if config.split_ratios is None or config.random_state is None:
+                raise ValueError(
+                    "For reproducibility mode (evaluate_on_full_dataset=False), "
+                    "'split_ratios' and 'random_state' must be provided in the configuration."
+                )
+
+            # Construct the specific config needed by the data processor
+            processing_config = SentimentDataConfig(
+                vocabulary_size=config.vocabulary_size,
+                split_ratios=config.split_ratios,
+                random_state=config.random_state
+            )
+
+            # Re-run processing to get the exact same test split
+            processed_data: SentimentTrainingProcessedData = data_processor.process_for_training(
+                raw_data=raw_data, config=processing_config
+            )
+            return processed_data['x_test'], processed_data['y_test']
+
 
     def _calculate_test_metrics(
         self, model_core: SentimentModelCore, x_test: NDArray[any], y_test: NDArray[any]
@@ -215,8 +248,7 @@ class SentimentEvaluator(
 
         x_test, y_test = self._prepare_test_data(
             data_processor=data_processor,
-            file_name=config.evaluation_dataset_file_name,
-            processing_config=config.data_processing_config
+            config=config
         )
 
         metrics = self._calculate_test_metrics(model_core=model_core, x_test=x_test, y_test=y_test)

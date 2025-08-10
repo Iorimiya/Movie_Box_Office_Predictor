@@ -222,6 +222,34 @@ class SentimentDataProcessor(
         )
         return padded_sequence
 
+    def process_for_evaluation(
+        self, raw_data: SentimentTrainingRawData
+    ) -> tuple[NDArray[int32], NDArray[int64]]:
+        """
+        Processes a full raw dataset for evaluation without splitting it.
+
+        This method is designed for evaluating a model on a new, unseen dataset
+        where the entire dataset should be treated as a single test set. It
+        performs all processing steps (segmentation, tokenization, padding)
+        except for the train/val/test split.
+
+        :param raw_data: The raw DataFrame containing the data.
+        :returns: A tuple containing the full processed features (x) and labels (y).
+        :raises ValueError: If the tokenizer is not loaded.
+        """
+        self.logger.info("Processing full dataset for evaluation (no splitting).")
+        if not self.tokenizer or self.max_sequence_length is None:
+            raise ValueError("Tokenizer must be loaded to process data for evaluation.")
+
+        segmented_texts, labels = self._construct_and_segment_texts(raw_data=raw_data)
+
+        # Use the pre-loaded tokenizer, do not re-fit
+        sequences: list[list[int]] = self.tokenizer.texts_to_sequences(texts=segmented_texts)
+        x_data: NDArray[int32] = pad_sequences(sequences=sequences, maxlen=self.max_sequence_length)
+        y_data: NDArray[int64] = np.array(labels)
+
+        return x_data, y_data
+
     def _construct_and_segment_texts(self, raw_data: SentimentTrainingRawData) -> tuple[list[str], list[int]]:
         """
         Constructs sample sentences and performs word segmentation.
