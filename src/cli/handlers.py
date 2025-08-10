@@ -17,9 +17,7 @@ from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.reviews import PublicReview
-from src.models.sentiment.components.data_processor import (
-    SentimentDataProcessor, SentimentDataConfig
-)
+from src.models.sentiment.components.data_processor import SentimentDataProcessor
 from src.models.sentiment.components.evaluator import (
     SentimentEvaluator, SentimentEvaluationResult, SentimentEvaluationConfig
 )
@@ -572,59 +570,34 @@ class SentimentModelHandler(BaseModelHandler):
         """
         Retrieves and displays evaluation metrics for a model at a specific epoch.
 
-        This method runs a full evaluation for the specified model and epoch,
-        then prints the metrics requested by the user via CLI flags.
+        This method supports two evaluation modes:
+        1. Reproducibility (default): Recreates the original test set.
+        2. Exploratory (with --dataset-name): Evaluates on a new, full dataset.
 
         :param args: The namespace object from argparse, containing `model_id`,
                      `epoch`, and flags for which metrics to retrieve.
         """
-        if not (args.training_loss or args.validation_loss or args.f1_score):
-            self._parser.error(
-                "At least one flag from --training-loss, --validation-loss, or --f1-score must be selected to get metrics."
-            )
 
-        self._logger.info(
-            f"Executing: Get evaluation metrics for {self._model_type_name} model "
-            f"'{args.model_id}' (epoch: {args.epoch})."
-        )
-
-        # --- Load original training configuration ---
-        config_path: Path = ProjectPaths.get_model_root_path(
-            model_id=args.model_id, model_type=ProjectModelType.SENTIMENT
-        ) / "config.yaml"
-        if not config_path.exists():
-            self._parser.error(f"Master config file 'config.yaml' not found for model_id '{args.model_id}'.")
-            return
-        try:
-            original_config_data: dict[str, any] = YamlFile(path=config_path).load_single_document()
-        except Exception as e:
-            self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
-            return
+        metric_flags = ['training_loss', 'validation_loss', 'f1_score']
+        original_config_data = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
 
         # --- Run evaluation ---
         try:
-            # noinspection PyTypeChecker
-            data_proc_config = SentimentDataConfig(
-                vocabulary_size=original_config_data['vocabulary_size'],
-                split_ratios=tuple(original_config_data['split_ratios']),
-                random_state=original_config_data['random_state']
-            )
-            eval_config = SentimentEvaluationConfig(
-                model_id=args.model_id,
-                model_epoch=args.epoch,
-                evaluation_dataset_file_name=original_config_data['dataset_file_name'],
-                data_processing_config=data_proc_config
+            eval_config: SentimentEvaluationConfig = self._build_evaluation_config(
+                args=args,
+                original_config_data=original_config_data,
+                epoch_to_evaluate=args.epoch
             )
             result: SentimentEvaluationResult = self._evaluator.run(config=eval_config)
-        except FileNotFoundError as e:
-            self._parser.error(f"Evaluation failed: A required file was not found. Details: {e}")
+        except (FileNotFoundError, ValueError) as e:
+            self._parser.error(f"Evaluation failed: {e}")
             return
         except Exception as e:
             self._logger.error(f"An unexpected error occurred during evaluation: {e}", exc_info=True)
             self._parser.error("Evaluation failed. Check logs for details.")
             return
 
-        # --- Display results ---
+        # --- Display results (logic remains the same) ---
         self._logger.info(f"--- Metrics for {args.model_id} @ Epoch {args.epoch} ---")
         if args.training_loss:
             try:
@@ -639,11 +612,11 @@ class SentimentModelHandler(BaseModelHandler):
             try:
                 val_loss = result.validation_loss_history[args.epoch - 1]
                 self._logger.info(f"  - Validation Loss: {val_loss:.6f}")
-                self._logger.info(f"  - Test Loss:       {result.test_loss:.6f}")
             except IndexError:
                 self._logger.warning(
                     f"  - Validation Loss: Not available for epoch {args.epoch} (history length: {len(result.validation_loss_history)}).")
-                self._logger.info(f"  - Test Loss:       {result.test_loss:.6f}")
+            # Test loss is always available from the current evaluation run
+            self._logger.info(f"  - Test Loss:       {result.test_loss:.6f}")
 
         if args.f1_score:
             self._logger.info(f"  - F1-Score (Test): {result.f1_score:.4f} ({result.f1_score:.2%})")
@@ -654,56 +627,39 @@ class SentimentModelHandler(BaseModelHandler):
         """
         Generates and saves evaluation graphs for a sentiment model series.
 
-        This method orchestrates the evaluation of all model checkpoints and
-        then plots the results based on user-selected metrics.
+        This method supports two evaluation modes for generating the test set curve:
+        1. Reproducibility (default): Uses the original test set.
+        2. Exploratory (with --dataset-name): Uses a new, full dataset.
 
         :param args: The namespace object from argparse, containing `model_id`
                      and flags for which graphs to plot.
         """
-        if not (args.training_loss or args.validation_loss or args.f1_score):
-            self._parser.error(
-                "At least one flag from --training-loss, --validation-loss, or --f1-score must be selected for plotting."
-            )
-
-        self._logger.info(f"Executing: Plot evaluation graphs for {self._model_type_name} model '{args.model_id}'.")
-
         try:
-            # --- Collect all evaluation data ---
-            eval_results: SentimentMultiEpochEvaluationResult = self._evaluate_all_epochs(model_id=args.model_id)
+            eval_results = self._evaluate_all_epochs(
+                model_id=args.model_id, args=args
+            )
         except (FileNotFoundError, ValueError) as e:
             self._parser.error(str(e))
             return
 
-        # --- Prepare and plot graphs based on user selection ---
+        # --- Prepare and plot graphs (logic remains the same) ---
         output_dir: Path = ProjectPaths.project_root / "outputs" / "graphs" / args.model_id
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Plot Loss graph
         if args.training_loss or args.validation_loss:
             datasets_to_plot: list[PlotDataset] = []
-            # The x-axis for history is 1-based epoch numbers
             history_epochs = list(range(1, len(eval_results.full_training_loss_history) + 1))
 
             if args.training_loss:
-                datasets_to_plot.append({
-                    "label": "Training Loss",
-                    "data": eval_results.full_training_loss_history
-                })
+                datasets_to_plot.append({"label": "Training Loss", "data": eval_results.full_training_loss_history})
             if args.validation_loss:
-                datasets_to_plot.append({
-                    "label": "Validation Loss",
-                    "data": eval_results.full_validation_loss_history
-                })
-                # Align test loss data with the full epoch history for plotting
+                datasets_to_plot.append({"label": "Validation Loss", "data": eval_results.full_validation_loss_history})
                 test_loss_aligned_data = [float('nan')] * len(history_epochs)
                 for i, epoch in enumerate(eval_results.evaluated_epochs):
                     if 1 <= epoch <= len(history_epochs):
                         test_loss_aligned_data[epoch - 1] = eval_results.test_losses[i]
-
-                datasets_to_plot.append({
-                    "label": "Test Loss",
-                    "data": test_loss_aligned_data
-                })
+                datasets_to_plot.append({"label": "Test Loss", "data": test_loss_aligned_data})
 
             plot_multi_line_graph(
                 title=f"Loss Curves for {args.model_id}",
@@ -727,17 +683,126 @@ class SentimentModelHandler(BaseModelHandler):
                 y_formatter='percent'
             )
 
+    @staticmethod
+    def _get_individual_overrides(args: Namespace, is_continue_mode: bool = False) -> dict[str, any]:
+        """
+        Extracts individual parameter overrides from the argparse Namespace.
 
-    def _evaluate_all_epochs(self, model_id: str) -> SentimentMultiEpochEvaluationResult:
+        This helper method filters out arguments that are not considered
+        overridable parameters.
+
+        :param args: The namespace object from argparse.
+        :param is_continue_mode: A flag to adjust the keys to exclude for continuation mode.
+        :returns: A dictionary of individual override parameters.
+        """
+        # Keys that are part of the CLI mechanism, not overridable config values
+        base_exclude_keys = {'command_group', 'sentiment_subcommand', 'func', 'model_id', 'config_override'}
+        if is_continue_mode:
+            base_exclude_keys.add('continue_from_epoch')
+
+        return {
+            key: value for key, value in vars(args).items()
+            if key not in base_exclude_keys and value is not None
+        }
+
+    def _prepare_evaluation_context(self, args: Namespace, required_flags: list[str]) -> dict[str, any]:
+        """
+        Performs common setup tasks for evaluation commands.
+
+        This includes validating metric flags, logging initial messages, and loading
+        the master configuration file for the specified model.
+
+        :param args: The namespace object from argparse.
+        :param required_flags: A list of attribute names on `args` to check for truthiness.
+        :returns: The loaded dictionary from the model's config.yaml.
+        :raises SystemExit: If validation fails or the config file cannot be loaded.
+        """
+        # 1. Validate that at least one metric flag is present
+        if not any(getattr(args, flag, False) for flag in required_flags):
+            self._parser.error(
+                f"At least one flag from --{', --'.join(flag.replace('_', '-') for flag in required_flags)} must be selected."
+            )
+
+        # 2. Log initial messages
+        command_name = "Get evaluation metrics" if 'epoch' in args else "Plot evaluation graphs"
+        self._logger.info(
+            f"Executing: {command_name} for {self._model_type_name} model '{args.model_id}'."
+        )
+        if args.dataset_name:
+            self._logger.info(f"Evaluation will be performed on new dataset: '{args.dataset_name}'")
+
+        # 3. Load original training configuration
+        config_path: Path = ProjectPaths.get_model_root_path(
+            model_id=args.model_id, model_type=ProjectModelType.SENTIMENT
+        ) / "config.yaml"
+        if not config_path.exists():
+            self._parser.error(f"Master config file 'config.yaml' not found for model_id '{args.model_id}'.")
+            # self._parser.error will raise SystemExit, so no return is needed
+
+        try:
+            return YamlFile(path=config_path).load_single_document()
+        except Exception as e:
+            self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
+            # This line is technically unreachable but good for clarity
+            raise  # Re-raise after parser exits
+
+    def _build_evaluation_config(
+        self, args: Namespace, original_config_data: dict[str, any], epoch_to_evaluate: int
+    ) -> SentimentEvaluationConfig:
+        """
+        Builds the appropriate SentimentEvaluationConfig based on CLI arguments.
+
+        This helper centralizes the logic for switching between "reproducibility"
+        and "exploratory" evaluation modes.
+
+        :param args: The namespace object from argparse.
+        :param original_config_data: The loaded dictionary from the model's config.yaml.
+        :param epoch_to_evaluate: The specific epoch to be evaluated.
+        :returns: A fully constructed, flattened SentimentEvaluationConfig object.
+        """
+        # Exploratory Mode: A new dataset is specified via CLI.
+        if args.dataset_name:
+            self._logger.info(f"Building evaluation config for EXPLORATORY mode on dataset '{args.dataset_name}'.")
+            return SentimentEvaluationConfig(
+                model_id=args.model_id,
+                model_epoch=epoch_to_evaluate,
+                dataset_file_name=args.dataset_name,
+                evaluate_on_full_dataset=True,
+                # This is required by the config dataclass but not used for splitting in this mode.
+                # It ensures consistency if other parts of the evaluator need it.
+                vocabulary_size=original_config_data['vocabulary_size'],
+                split_ratios=None,  # Explicitly None as we are not splitting
+                random_state=None  # Explicitly None as we are not splitting
+            )
+        # Reproducibility Mode: No new dataset is specified.
+        else:
+            self._logger.info("Building evaluation config for REPRODUCIBILITY mode.")
+            # noinspection PyTypeChecker
+            return SentimentEvaluationConfig(
+                model_id=args.model_id,
+                model_epoch=epoch_to_evaluate,
+                dataset_file_name=original_config_data['dataset_file_name'],
+                evaluate_on_full_dataset=False,
+                vocabulary_size=original_config_data['vocabulary_size'],
+                split_ratios=tuple(original_config_data['split_ratios']),
+                random_state=original_config_data['random_state']
+            )
+
+    def _evaluate_all_epochs(self, model_id: str, args: Namespace) -> SentimentMultiEpochEvaluationResult:
         """
         Finds and evaluates all available checkpoints for a model, using a cache
         to avoid re-computation, and returns aggregated results.
 
         :param model_id: The unique identifier for the model series to evaluate.
+        :param args: The namespace object from argparse, used to determine evaluation mode.
         :returns: A SentimentMultiEpochEvaluationResult object containing all collected metrics.
         :raises FileNotFoundError: If the master config or history file for the model is not found.
         :raises ValueError: If evaluation fails for all available epochs.
         """
+
+        metric_flags = ['training_loss', 'validation_loss', 'f1_score']
+        original_config_data = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
+
         # --- Setup paths and find available epochs ---
         artifacts_folder: Path = ProjectPaths.get_model_root_path(
             model_id=model_id, model_type=ProjectModelType.SENTIMENT
@@ -752,25 +817,21 @@ class SentimentModelHandler(BaseModelHandler):
 
         self._logger.info(f"Found {len(available_epochs)} checkpoints to evaluate: {available_epochs}")
 
-        # --- Load master config ---
-        config_path: Path = artifacts_folder / "config.yaml"
-        if not config_path.exists():
-            raise FileNotFoundError(f"Master config file 'config.yaml' not found for model_id '{model_id}'.")
-        original_config_data: dict[str, any] = YamlFile(path=config_path).load_single_document()
-
         # --- Load or initialize cache ---
         cache_path: Path = artifacts_folder / self._EVALUATION_CACHE_FILE_NAME
         cache_handler = YamlFile(path=cache_path)
         cached_results: dict[int, dict[str, float]] = {}
-        if cache_path.exists():
+        # REFACTORED: Only use cache if not in exploratory mode
+        if cache_path.exists() and not args.dataset_name:
             try:
                 loaded_cache = cache_handler.load_single_document()
                 if isinstance(loaded_cache, dict):
-                    # YAML keys might be loaded as strings, convert them to int
                     cached_results = {int(k): v for k, v in loaded_cache.items() if isinstance(v, dict)}
                     self._logger.info(f"Loaded {len(cached_results)} results from cache: {cache_path}")
             except Exception as e:
                 self._logger.warning(f"Could not load or parse cache file at {cache_path}. Re-evaluating. Error: {e}")
+        elif args.dataset_name:
+            self._logger.info(f"Ignoring cache because a new dataset '{args.dataset_name}' was specified.")
 
         # --- Iterate, evaluate, and collect data ---
         test_f1_scores: list[float] = []
@@ -778,31 +839,28 @@ class SentimentModelHandler(BaseModelHandler):
         first_eval_result: SentimentEvaluationResult | None = None
 
         for epoch in available_epochs:
-            if epoch in cached_results:
+            if epoch in cached_results and not args.dataset_name:
                 self._logger.info(f"--- Using cached evaluation for epoch {epoch} ---")
                 cached_metric = cached_results[epoch]
                 test_f1_scores.append(cached_metric.get('f1_score', float('nan')))
                 test_losses.append(cached_metric.get('loss', float('nan')))
                 continue
 
-            self._logger.info(f"--- Evaluating epoch {epoch} for plotting (not cached) ---")
-            # noinspection PyTypeChecker
-            data_proc_config = SentimentDataConfig(
-                vocabulary_size=original_config_data['vocabulary_size'],
-                split_ratios=tuple(original_config_data['split_ratios']),
-                random_state=original_config_data['random_state']
+            self._logger.info(f"--- Evaluating epoch {epoch} for plotting ---")
+
+            eval_config: SentimentEvaluationConfig = self._build_evaluation_config(
+                args=args,
+                original_config_data=original_config_data,
+                epoch_to_evaluate=epoch
             )
-            eval_config = SentimentEvaluationConfig(
-                model_id=model_id,
-                model_epoch=epoch,
-                evaluation_dataset_file_name=original_config_data['dataset_file_name'],
-                data_processing_config=data_proc_config
-            )
+
             try:
                 result: SentimentEvaluationResult = self._evaluator.run(config=eval_config)
                 test_f1_scores.append(result.f1_score)
                 test_losses.append(result.test_loss)
-                cached_results[epoch] = {'f1_score': result.f1_score, 'loss': result.test_loss}
+
+                if not args.dataset_name:
+                    cached_results[epoch] = {'f1_score': result.f1_score, 'loss': result.test_loss}
 
                 if first_eval_result is None:
                     first_eval_result = result
@@ -811,18 +869,17 @@ class SentimentModelHandler(BaseModelHandler):
                 test_f1_scores.append(float('nan'))
                 test_losses.append(float('nan'))
 
-        # --- Save updated cache ---
-        try:
-            cache_handler.save_single_document(data=cached_results)
-            self._logger.info(f"Updated evaluation cache file at: {cache_path}")
-        except Exception as e:
-            self._logger.error(f"Failed to save evaluation cache to {cache_path}: {e}")
+        if not args.dataset_name and cached_results:
+            try:
+                cache_handler.save_single_document(data=cached_results)
+                self._logger.info(f"Updated evaluation cache file at: {cache_path}")
+            except Exception as e:
+                self._logger.error(f"Failed to save evaluation cache to {cache_path}: {e}")
 
-        # --- Consolidate results ---
+        # --- Consolidate results (logic remains the same) ---
         if not any(not (isinstance(v, float) and v != v) for v in test_f1_scores):
             raise ValueError("Evaluation failed for all epochs. Cannot generate plots.")
 
-        # Load history. If an evaluation ran, use its history. Otherwise, load manually.
         full_training_loss_history: list[float] = []
         full_validation_loss_history: list[float] = []
         if first_eval_result:
@@ -849,29 +906,6 @@ class SentimentModelHandler(BaseModelHandler):
             full_training_loss_history=full_training_loss_history,
             full_validation_loss_history=full_validation_loss_history
         )
-
-    @staticmethod
-    def _get_individual_overrides(args: Namespace, is_continue_mode: bool = False) -> dict[str, any]:
-        """
-        Extracts individual parameter overrides from the argparse Namespace.
-
-        This helper method filters out arguments that are not considered
-        overridable parameters.
-
-        :param args: The namespace object from argparse.
-        :param is_continue_mode: A flag to adjust the keys to exclude for continuation mode.
-        :returns: A dictionary of individual override parameters.
-        """
-        # Keys that are part of the CLI mechanism, not overridable config values
-        base_exclude_keys = {'command_group', 'sentiment_subcommand', 'func', 'model_id', 'config_override'}
-        if is_continue_mode:
-            base_exclude_keys.add('continue_from_epoch')
-
-        return {
-            key: value for key, value in vars(args).items()
-            if key not in base_exclude_keys and value is not None
-        }
-
 
 class PredictionModelHandler(BaseModelHandler):
     """
