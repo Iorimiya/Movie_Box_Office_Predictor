@@ -24,7 +24,7 @@ from src.models.sentiment.components.evaluator import (
     SentimentEvaluator, SentimentEvaluationResult, SentimentEvaluationConfig
 )
 from src.models.sentiment.components.model_core import SentimentModelCore, SentimentPredictConfig
-from src.models.sentiment.pipelines.training_pipeline import SentimentTrainingPipeline
+from src.models.sentiment.pipelines.training_pipeline import SentimentTrainingPipeline, SentimentPipelineConfig
 
 
 @dataclass(frozen=True)
@@ -418,11 +418,8 @@ class SentimentModelHandler(BaseModelHandler):
             if args.config_override:
                 self._parser.error("Argument --config-override cannot be used with --continue-from-epoch.")
 
-            individual_overrides: dict[str, any] = {
-                key: value for key, value in vars(args).items()
-                if key not in ['command_group', 'sentiment_subcommand', 'func', 'model_id',
-                               'continue_from_epoch'] and value is not None
-            }
+            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=True)
+
             if individual_overrides:
                 self._parser.error(
                     f"Individual overrides like --{next(iter(individual_overrides))} cannot be used with --continue-from-epoch.")
@@ -434,18 +431,15 @@ class SentimentModelHandler(BaseModelHandler):
                 )
 
             self._logger.info(f"Using existing configuration file: {final_config_path}")
+            effective_config: dict[str, any] = YamlFile(path=final_config_path).load_single_document()
 
         else:
-            # --- 1. Check for mutually exclusive arguments ---
-            individual_overrides: dict[str, any] = {
-                key: value for key, value in vars(args).items()
-                if key not in ['command_group', 'sentiment_subcommand', 'func', 'model_id',
-                               'config_override'] and value is not None
-            }
+            # --- Check for mutually exclusive arguments ---
+            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=True)
             if args.config_override and individual_overrides:
                 self._parser.error("Argument --config-override cannot be used with individual parameter overrides.")
 
-            # --- 2. Load default configuration ---
+            # --- Load default configuration ---
             default_config_path: Path = ProjectPaths.project_root / "configs" / "sentiment_defaults.yaml"
             try:
                 default_config: dict[str, any] = YamlFile(path=default_config_path).load_single_document()
@@ -454,7 +448,7 @@ class SentimentModelHandler(BaseModelHandler):
                 self._parser.error(f"Default configuration file not found at: {default_config_path}")
                 return
 
-            # --- 3. Apply overrides ---
+            # --- Apply overrides ---
             effective_config: dict[str, any] = default_config.copy()
             if args.config_override:
                 try:
@@ -468,15 +462,9 @@ class SentimentModelHandler(BaseModelHandler):
                 self._logger.info(f"Applying individual overrides: {individual_overrides}")
                 effective_config.update(individual_overrides)
 
-            # --- 4. Create artifact directory and save the final configuration ---
-            model_id: str = args.model_id
-            artifacts_folder: Path = ProjectPaths.get_model_root_path(
-                model_id=model_id, model_type=ProjectModelType.SENTIMENT
-            )
+            # --- Create artifact directory and save the final configuration ---
             artifacts_folder.mkdir(parents=True, exist_ok=True)
-
             effective_config['model_id'] = model_id
-            final_config_path: Path = artifacts_folder / "config.yaml"
             try:
                 YamlFile(path=final_config_path).save_single_document(data=effective_config)
                 self._logger.info(f"Effective configuration saved to: {final_config_path}")
@@ -484,8 +472,10 @@ class SentimentModelHandler(BaseModelHandler):
                 self._parser.error(f"Failed to save final configuration file: {e}")
                 return
 
-        # --- 5. Execute the pipeline ---
+        # --- Execute the pipeline ---
         try:
+
+            pipeline_config: SentimentPipelineConfig = SentimentPipelineConfig(**effective_config)
             data_processor: SentimentDataProcessor = SentimentDataProcessor(model_artifacts_path=artifacts_folder)
             model_core: SentimentModelCore = SentimentModelCore()
             pipeline: SentimentTrainingPipeline = SentimentTrainingPipeline(
@@ -493,9 +483,14 @@ class SentimentModelHandler(BaseModelHandler):
             )
 
             pipeline.run(
-                config_path=final_config_path,
+                config=pipeline_config,
                 continue_from_epoch=args.continue_from_epoch
             )
+        except TypeError as e:
+            self._logger.error(
+                f"Configuration error: Mismatch between config data and pipeline requirements. Details: {e}",
+                exc_info=True)
+            self._parser.error("Pipeline execution failed due to a configuration mismatch. Check logs.")
         except Exception as e:
             self._logger.error(f"An error occurred during the training pipeline execution: {e}", exc_info=True)
             self._parser.error(f"Pipeline execution failed. Check logs for details.")
@@ -518,7 +513,7 @@ class SentimentModelHandler(BaseModelHandler):
             f"with input: '{args.input_sentence}'"
         )
 
-        # --- 1. Locate artifact paths ---
+        # --- Locate artifact paths ---
         model_artifacts_path: Path = ProjectPaths.get_model_root_path(
             model_id=args.model_id, model_type=ProjectModelType.SENTIMENT
         )
@@ -528,7 +523,7 @@ class SentimentModelHandler(BaseModelHandler):
             self._parser.error(f"Model file not found at: {model_file_path}")
             return
 
-        # --- 2. Instantiate and load components ---
+        # --- Instantiate and load components ---
         try:
             # DataProcessor automatically calls load_artifacts in its __init__
             data_processor: SentimentDataProcessor = SentimentDataProcessor(model_artifacts_path=model_artifacts_path)
@@ -547,7 +542,7 @@ class SentimentModelHandler(BaseModelHandler):
             self._parser.error(f"An unexpected error occurred while loading components: {e}")
             return
 
-        # --- 3. Process input and make a prediction ---
+        # --- Process input and make a prediction ---
         try:
             # Process the single input sentence
             processed_input: NDArray[any] = data_processor.process_for_prediction(
@@ -593,7 +588,7 @@ class SentimentModelHandler(BaseModelHandler):
             f"'{args.model_id}' (epoch: {args.epoch})."
         )
 
-        # --- 1. Load original training configuration ---
+        # --- Load original training configuration ---
         config_path: Path = ProjectPaths.get_model_root_path(
             model_id=args.model_id, model_type=ProjectModelType.SENTIMENT
         ) / "config.yaml"
@@ -606,7 +601,7 @@ class SentimentModelHandler(BaseModelHandler):
             self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
             return
 
-        # --- 2. Run evaluation ---
+        # --- Run evaluation ---
         try:
             # noinspection PyTypeChecker
             data_proc_config = SentimentDataConfig(
@@ -629,7 +624,7 @@ class SentimentModelHandler(BaseModelHandler):
             self._parser.error("Evaluation failed. Check logs for details.")
             return
 
-        # --- 3. Display results ---
+        # --- Display results ---
         self._logger.info(f"--- Metrics for {args.model_id} @ Epoch {args.epoch} ---")
         if args.training_loss:
             try:
@@ -673,13 +668,13 @@ class SentimentModelHandler(BaseModelHandler):
         self._logger.info(f"Executing: Plot evaluation graphs for {self._model_type_name} model '{args.model_id}'.")
 
         try:
-            # --- 1. Collect all evaluation data ---
+            # --- Collect all evaluation data ---
             eval_results: SentimentMultiEpochEvaluationResult = self._evaluate_all_epochs(model_id=args.model_id)
         except (FileNotFoundError, ValueError) as e:
             self._parser.error(str(e))
             return
 
-        # --- 2. Prepare and plot graphs based on user selection ---
+        # --- Prepare and plot graphs based on user selection ---
         output_dir: Path = ProjectPaths.project_root / "outputs" / "graphs" / args.model_id
         output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -743,7 +738,7 @@ class SentimentModelHandler(BaseModelHandler):
         :raises FileNotFoundError: If the master config or history file for the model is not found.
         :raises ValueError: If evaluation fails for all available epochs.
         """
-        # --- 1. Setup paths and find available epochs ---
+        # --- Setup paths and find available epochs ---
         artifacts_folder: Path = ProjectPaths.get_model_root_path(
             model_id=model_id, model_type=ProjectModelType.SENTIMENT
         )
@@ -757,13 +752,13 @@ class SentimentModelHandler(BaseModelHandler):
 
         self._logger.info(f"Found {len(available_epochs)} checkpoints to evaluate: {available_epochs}")
 
-        # --- 2. Load master config ---
+        # --- Load master config ---
         config_path: Path = artifacts_folder / "config.yaml"
         if not config_path.exists():
             raise FileNotFoundError(f"Master config file 'config.yaml' not found for model_id '{model_id}'.")
         original_config_data: dict[str, any] = YamlFile(path=config_path).load_single_document()
 
-        # --- 3. Load or initialize cache ---
+        # --- Load or initialize cache ---
         cache_path: Path = artifacts_folder / self._EVALUATION_CACHE_FILE_NAME
         cache_handler = YamlFile(path=cache_path)
         cached_results: dict[int, dict[str, float]] = {}
@@ -777,7 +772,7 @@ class SentimentModelHandler(BaseModelHandler):
             except Exception as e:
                 self._logger.warning(f"Could not load or parse cache file at {cache_path}. Re-evaluating. Error: {e}")
 
-        # --- 4. Iterate, evaluate, and collect data ---
+        # --- Iterate, evaluate, and collect data ---
         test_f1_scores: list[float] = []
         test_losses: list[float] = []
         first_eval_result: SentimentEvaluationResult | None = None
@@ -816,14 +811,14 @@ class SentimentModelHandler(BaseModelHandler):
                 test_f1_scores.append(float('nan'))
                 test_losses.append(float('nan'))
 
-        # --- 5. Save updated cache ---
+        # --- Save updated cache ---
         try:
             cache_handler.save_single_document(data=cached_results)
             self._logger.info(f"Updated evaluation cache file at: {cache_path}")
         except Exception as e:
             self._logger.error(f"Failed to save evaluation cache to {cache_path}: {e}")
 
-        # --- 6. Consolidate results ---
+        # --- Consolidate results ---
         if not any(not (isinstance(v, float) and v != v) for v in test_f1_scores):
             raise ValueError("Evaluation failed for all epochs. Cannot generate plots.")
 
@@ -854,6 +849,29 @@ class SentimentModelHandler(BaseModelHandler):
             full_training_loss_history=full_training_loss_history,
             full_validation_loss_history=full_validation_loss_history
         )
+
+    @staticmethod
+    def _get_individual_overrides(args: Namespace, is_continue_mode: bool = False) -> dict[str, any]:
+        """
+        Extracts individual parameter overrides from the argparse Namespace.
+
+        This helper method filters out arguments that are not considered
+        overridable parameters.
+
+        :param args: The namespace object from argparse.
+        :param is_continue_mode: A flag to adjust the keys to exclude for continuation mode.
+        :returns: A dictionary of individual override parameters.
+        """
+        # Keys that are part of the CLI mechanism, not overridable config values
+        base_exclude_keys = {'command_group', 'sentiment_subcommand', 'func', 'model_id', 'config_override'}
+        if is_continue_mode:
+            base_exclude_keys.add('continue_from_epoch')
+
+        return {
+            key: value for key, value in vars(args).items()
+            if key not in base_exclude_keys and value is not None
+        }
+
 
 class PredictionModelHandler(BaseModelHandler):
     """
