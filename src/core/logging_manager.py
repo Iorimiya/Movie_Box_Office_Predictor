@@ -541,7 +541,13 @@ class LoggingManager:
 
         final_stdout_handler_setting: HandlerSettings
         if user_stdout_setting:
-            if user_stdout_setting.output is not sys.stdout:
+            is_truly_stdout: bool = (
+                hasattr(user_stdout_setting.output, 'fileno') and
+                hasattr(sys.stdout, 'fileno') and
+                user_stdout_setting.output.fileno() == sys.stdout.fileno()
+            )
+
+            if not is_truly_stdout:
                 raise ValueError(
                     f"Stdout handler '{user_stdout_setting.name}' specified an output '{user_stdout_setting.output!r}' "
                     "that is not sys.stdout. The 'stdout' handler must exclusively target sys.stdout."
