@@ -25,9 +25,14 @@ ExpertReviewLoadableSource: TypeAlias = Path | YamlFile | list[ExpertReviewRawDa
 MovieComponentSerializableData: TypeAlias = \
     list[BoxOfficeSerializableData] | list[PublicReviewSerializableData] | list[ExpertReviewSerializableData]
 MovieComponent: TypeAlias = list[BoxOffice] | list[PublicReview] | list[ExpertReview]
-COMPONENT_CLASS_MAP: Final[dict[Literal['box_office', 'public_reviews', 'expert_reviews']],
-Type[BoxOffice] | Type[PublicReview] | Type[ExpertReview]] = {
-    'box_office': BoxOffice, 'public_reviews': PublicReview, 'expert_reviews': ExpertReview
+ComponentClassMapType: TypeAlias = dict[
+    Literal['box_office', 'public_reviews', 'expert_reviews'],
+    Type[BoxOffice] | Type[PublicReview] | Type[ExpertReview]
+]
+COMPONENT_CLASS_MAP: Final[ComponentClassMapType] = {
+    'box_office': BoxOffice,
+    'public_reviews': PublicReview,
+    'expert_reviews': ExpertReview
 }
 
 
