@@ -48,6 +48,7 @@ class ProjectPaths:
     logs_dir: Final[Path] = project_root / "logs"
     models_dir: Final[Path] = project_root / "models"
     temp_dir: Final[Path] = project_root / "temp"
+    configs_dir: Final[Path] = project_root / "configs"
 
     raw_index_sources_dir: Final[Path] = input_dir / "raw_index_sources"
     sentiment_analysis_resources_dir: Final[Path] = input_dir / "sentiment_analysis_resources"
@@ -100,3 +101,28 @@ class ProjectPaths:
                 return cls.review_sentiment_analysis_models_root / model_id
             case _:
                 raise ValueError(f"Unknown model_type: '{model_type}'. Must be a member of ProjectModelType.")
+
+    @classmethod
+    def get_config_path(cls, config_name: str) -> Path:
+        """
+        Constructs the full path for a given configuration file.
+
+        :param config_name: The name of the configuration file (e.g., "sentiment_defaults.yaml").
+        :returns: The full path to the configuration file.
+        """
+        return cls.configs_dir / config_name
+
+    @classmethod
+    def get_model_plots_path(cls, model_id: str, model_type: ProjectModelType) -> Path:
+        """
+        Constructs the path for saving evaluation plots for a specific model.
+
+        This path is located within the model's own artifact directory,
+        ensuring that all outputs for a model run are co-located.
+
+        :param model_id: The unique identifier of the model.
+        :param model_type: The type of the model (e.g., SENTIMENT, PREDICTION).
+        :returns: The full path to the evaluation plots directory for the model.
+        """
+        model_root: Path = cls.get_model_root_path(model_id=model_id, model_type=model_type)
+        return model_root / "evaluation_plots"

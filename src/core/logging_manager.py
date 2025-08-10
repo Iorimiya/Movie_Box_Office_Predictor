@@ -751,5 +751,5 @@ class LoggingManager:
             HandlerSettings(
                 name=name,
                 level=log_level,
-                output=ProjectPaths().logs_dir / f"{name}_{datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')}_{getLevelName(log_level.value)}.log"
+                output=ProjectPaths.logs_dir / f"{name}_{datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')}_{getLevelName(log_level.value)}.log"
             )

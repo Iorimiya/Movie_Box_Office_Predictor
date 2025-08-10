@@ -534,7 +534,7 @@ class SentimentModelHandler(BaseModelHandler):
                 self._parser.error("Argument --config-override cannot be used with individual parameter overrides.")
 
             # --- Load default configuration ---
-            default_config_path: Path = ProjectPaths.project_root / "configs" / "sentiment_defaults.yaml"
+            default_config_path: Path = ProjectPaths.get_config_path(config_name="sentiment_defaults.yaml")
             try:
                 default_config: dict[str, any] = YamlFile(path=default_config_path).load_single_document()
                 self._logger.info(f"Loaded default configuration from: {default_config_path}")
@@ -729,7 +729,7 @@ class SentimentModelHandler(BaseModelHandler):
             self._parser.error(str(e))
 
         # --- Prepare and plot graphs (logic remains the same) ---
-        output_dir: Path = ProjectPaths.project_root / "outputs" / "graphs" / args.model_id
+        output_dir: Path = ProjectPaths.get_model_plots_path(model_id=args.model_id, model_type=self._model_type)
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Plot Loss graph
@@ -1012,7 +1012,7 @@ class PredictionModelHandler(BaseModelHandler):
                 self._parser.error("Argument --config-override cannot be used with individual parameter overrides.")
 
             # --- Load default configuration ---
-            default_config_path: Path = ProjectPaths.project_root / "configs" / "prediction_defaults.yaml"
+            default_config_path: Path = ProjectPaths.get_config_path(config_name="prediction_defaults.yaml")
             try:
                 default_config: dict[str, any] = YamlFile(path=default_config_path).load_single_document()
                 self._logger.info(f"Loaded default configuration from: {default_config_path}")
@@ -1241,7 +1241,7 @@ class PredictionModelHandler(BaseModelHandler):
             self._parser.error(str(e))
 
             # --- Prepare and plot graphs ---
-        output_dir: Path = ProjectPaths.project_root / "outputs" / "graphs" / args.model_id
+        output_dir: Path = ProjectPaths.get_model_plots_path(model_id=args.model_id, model_type=self._model_type)
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Plot Loss graph
