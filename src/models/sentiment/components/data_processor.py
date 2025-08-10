@@ -15,8 +15,8 @@ from typing_extensions import override
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectPaths
 from src.data_handling.file_io import CsvFile, PickleFile
-from src.models.base.base_data_processor import BaseDataProcessor
 from src.models.base.data_splitter import DatasetSplitter, SplitDataset
+from src.models.base.evaluable_data_processor import EvaluableDataProcessor
 
 
 @dataclass(frozen=True)
@@ -71,7 +71,7 @@ class SentimentDataConfig:
 
 
 class SentimentDataProcessor(
-    BaseDataProcessor[
+    EvaluableDataProcessor[
         SentimentDataSource,
         SentimentTrainingRawData,
         SentimentTrainingProcessedData,
@@ -223,7 +223,7 @@ class SentimentDataProcessor(
         return padded_sequence
 
     def process_for_evaluation(
-        self, raw_data: SentimentTrainingRawData
+        self, raw_data: SentimentTrainingRawData, config: Optional[SentimentDataConfig] = None
     ) -> tuple[NDArray[int32], NDArray[int64]]:
         """
         Processes a full raw dataset for evaluation without splitting it.
@@ -234,6 +234,7 @@ class SentimentDataProcessor(
         except for the train/val/test split.
 
         :param raw_data: The raw DataFrame containing the data.
+        :param config: This parameter is ignored by this implementation.
         :returns: A tuple containing the full processed features (x) and labels (y).
         :raises ValueError: If the tokenizer is not loaded.
         """

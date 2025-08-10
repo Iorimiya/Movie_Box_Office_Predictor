@@ -13,8 +13,8 @@ from src.core.logging_manager import LoggingManager
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieData, WeekData, MovieSessionData
-from src.models.base.base_data_processor import BaseDataProcessor
 from src.models.base.data_splitter import DatasetSplitter, SplitDataset
+from src.models.base.evaluable_data_processor import EvaluableDataProcessor
 
 
 @dataclass(frozen=True)
@@ -83,7 +83,7 @@ class PredictionFeature:
         return [self.box_office, self.avg_sentiment, self.reply_count]
 
 class PredictionDataProcessor(
-    BaseDataProcessor[
+    EvaluableDataProcessor[
         PredictionDataSource,
         PredictionTrainingRawData,
         PredictionTrainingProcessedData,
@@ -259,7 +259,7 @@ class PredictionDataProcessor(
         return scaled_array
 
     def process_for_evaluation(
-        self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig
+        self, raw_data: PredictionTrainingRawData, config: Optional[PredictionDataConfig] = None
     ) -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Processes a full raw dataset for evaluation without splitting it.
@@ -274,6 +274,12 @@ class PredictionDataProcessor(
         :returns: A tuple containing the full processed features (x) and labels (y).
         :raises ValueError: If the scaler is not loaded or no data sessions can be created.
         """
+
+        if config is None:
+            raise ValueError(
+                "PredictionDataConfig is required for processing prediction data."
+            )
+
         self.logger.info("Processing full dataset for evaluation (no splitting).")
         sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
             movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1
