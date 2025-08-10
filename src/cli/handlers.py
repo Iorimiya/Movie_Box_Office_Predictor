@@ -1,6 +1,8 @@
+import random
 from abc import ABC, abstractmethod
 from argparse import ArgumentParser, Namespace
 from dataclasses import dataclass
+from datetime import date, timedelta
 from logging import Logger
 from pathlib import Path
 from typing import Final
@@ -15,7 +17,14 @@ from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import YamlFile
+from src.data_handling.movie_collections import MovieData
+from src.data_handling.movie_metadata import MovieMetadata
 from src.data_handling.reviews import PublicReview
+from src.models.prediction.components.data_processor import PredictionDataProcessor, PredictionDataConfig
+from src.models.prediction.components.evaluator import PredictionEvaluationResult, PredictionEvaluationConfig, \
+    PredictionEvaluator
+from src.models.prediction.components.model_core import PredictionModelCore, PredictionPredictConfig
+from src.models.prediction.pipelines.training_pipeline import PredictionPipelineConfig, PredictionTrainingPipeline
 from src.models.sentiment.components.data_processor import SentimentDataProcessor
 from src.models.sentiment.components.evaluator import (
     SentimentEvaluator, SentimentEvaluationResult, SentimentEvaluationConfig
@@ -43,6 +52,27 @@ class SentimentMultiEpochEvaluationResult:
     evaluated_epochs: list[int]
     test_f1_scores: list[float]
     test_losses: list[float]
+    full_training_loss_history: list[float]
+    full_validation_loss_history: list[float]
+
+@dataclass(frozen=True)
+class PredictionMultiEpochEvaluationResult:
+    """
+    Holds the aggregated results from evaluating multiple epochs of a single prediction model series.
+
+    This class is used to gather all necessary data for plotting comparative graphs.
+
+    :ivar model_id: The unique identifier for the model series.
+    :ivar evaluated_epochs: A list of the epoch numbers that were actually evaluated.
+    :ivar test_mse_losses: A list of MSE loss values from the test set, corresponding to each evaluated epoch.
+    :ivar test_f1_scores: A list of F1-scores from the test set, corresponding to each evaluated epoch.
+    :ivar full_training_loss_history: The complete training loss history from the original run.
+    :ivar full_validation_loss_history: The complete validation loss history from the original run.
+    """
+    model_id: str
+    evaluated_epochs: list[int]
+    test_mse_losses: list[float]
+    test_f1_scores: list[float]
     full_training_loss_history: list[float]
     full_validation_loss_history: list[float]
 
@@ -423,7 +453,6 @@ class BaseModelHandler(ABC):
         except Exception as e:
             self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
 
-# noinspection PyUnreachableCode
 class SentimentModelHandler(BaseModelHandler):
     """
     Handles CLI commands related to sentiment analysis model management.
@@ -500,7 +529,7 @@ class SentimentModelHandler(BaseModelHandler):
 
         else:
             # --- Check for mutually exclusive arguments ---
-            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=True)
+            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=False)
             if args.config_override and individual_overrides:
                 self._parser.error("Argument --config-override cannot be used with individual parameter overrides.")
 
@@ -511,7 +540,6 @@ class SentimentModelHandler(BaseModelHandler):
                 self._logger.info(f"Loaded default configuration from: {default_config_path}")
             except FileNotFoundError:
                 self._parser.error(f"Default configuration file not found at: {default_config_path}")
-                return
 
             # --- Apply overrides ---
             effective_config: dict[str, any] = default_config.copy()
@@ -522,7 +550,6 @@ class SentimentModelHandler(BaseModelHandler):
                     effective_config.update(override_config)
                 except FileNotFoundError:
                     self._parser.error(f"Override configuration file not found: {args.config_override}")
-                    return
             elif individual_overrides:
                 self._logger.info(f"Applying individual overrides: {individual_overrides}")
                 effective_config.update(individual_overrides)
@@ -535,7 +562,6 @@ class SentimentModelHandler(BaseModelHandler):
                 self._logger.info(f"Effective configuration saved to: {final_config_path}")
             except Exception as e:
                 self._parser.error(f"Failed to save final configuration file: {e}")
-                return
 
         # --- Execute the pipeline ---
         try:
@@ -586,7 +612,6 @@ class SentimentModelHandler(BaseModelHandler):
 
         if not model_file_path.exists():
             self._parser.error(f"Model file not found at: {model_file_path}")
-            return
 
         # --- Instantiate and load components ---
         try:
@@ -598,14 +623,11 @@ class SentimentModelHandler(BaseModelHandler):
                 self._parser.error(
                     f"Tokenizer or max_sequence_length could not be loaded from artifacts at: {model_artifacts_path}"
                 )
-                return
 
         except FileNotFoundError as e:
             self._parser.error(f"Failed to load model artifacts: {e}")
-            return
         except Exception as e:
             self._parser.error(f"An unexpected error occurred while loading components: {e}")
-            return
 
         # --- Process input and make a prediction ---
         try:
@@ -658,11 +680,9 @@ class SentimentModelHandler(BaseModelHandler):
             result: SentimentEvaluationResult = self._evaluator.run(config=eval_config)
         except (FileNotFoundError, ValueError) as e:
             self._parser.error(f"Evaluation failed: {e}")
-            return
         except Exception as e:
             self._logger.error(f"An unexpected error occurred during evaluation: {e}", exc_info=True)
             self._parser.error("Evaluation failed. Check logs for details.")
-            return
 
         # --- Display results (logic remains the same) ---
         self._logger.info(f"--- Metrics for {args.model_id} @ Epoch {args.epoch} ---")
@@ -707,7 +727,6 @@ class SentimentModelHandler(BaseModelHandler):
             )
         except (FileNotFoundError, ValueError) as e:
             self._parser.error(str(e))
-            return
 
         # --- Prepare and plot graphs (logic remains the same) ---
         output_dir: Path = ProjectPaths.project_root / "outputs" / "graphs" / args.model_id
@@ -817,7 +836,6 @@ class SentimentModelHandler(BaseModelHandler):
         )
         if not available_epochs:
             self._parser.error(f"No model checkpoints found for model_id '{model_id}'. Cannot generate plots.")
-            raise ValueError(f"No checkpoints found for {model_id}")
 
         self._logger.info(f"Found {len(available_epochs)} checkpoints to evaluate: {available_epochs}")
 
@@ -916,6 +934,8 @@ class PredictionModelHandler(BaseModelHandler):
     Handles CLI commands related to the box office prediction model.
     """
 
+    _EVALUATION_CACHE_FILE_NAME: Final[str] = "prediction_evaluation_cache.yaml"
+
     @override
     def __init__(self, parser: ArgumentParser) -> None:
         """
@@ -924,18 +944,125 @@ class PredictionModelHandler(BaseModelHandler):
         :param parser: The argument parser instance.
         """
         super().__init__(parser=parser, model_type_name="Prediction", model_type=ProjectModelType.PREDICTION)
+        self._evaluator:PredictionEvaluator= PredictionEvaluator()
 
     @override
     def train(self, args: Namespace) -> None:
         """
-        Orchestrates the box office prediction model training process.
+        Orchestrates the box office prediction model training process, handling both new
+        and continued training runs.
 
-        Note: This method is a placeholder and its full implementation is pending.
+        If continuing a training run (using `--continue-from-epoch`), this method
+        enforces the use of the original model's configuration and disallows any
+        new overrides.
 
-        :param args: The namespace object from argparse, containing training parameters.
+        For a new training run, it implements a 'default + override' configuration
+        logic, creating and saving a new master configuration file before
+        launching the training pipeline.
+
+        :param args: The namespace object from argparse, containing `model_id` and
+                     other training-related parameters.
         """
-        # TODO: Add actual testing logic here
-        pass
+        model_id: str = args.model_id
+        artifacts_folder: Path = ProjectPaths.get_model_root_path(
+            model_id=model_id, model_type=self._model_type
+        )
+        final_config_path: Path = artifacts_folder / "config.yaml"
+
+        # --- Cache Invalidation ---
+        # A new training run will invalidate any previous evaluation results.
+        cache_path: Path = artifacts_folder / self._EVALUATION_CACHE_FILE_NAME
+        if cache_path.exists():
+            self._logger.info(f"Invalidating evaluation cache at '{cache_path}' due to new training run.")
+            cache_path.unlink()
+
+        # --- Main logic branch: Determine if it's a "New" or "Continue" training run ---
+        if args.continue_from_epoch:
+            # --- Mode: Continue Training ---
+            self._logger.info(
+                f"Executing: Continue training {self._model_type_name} model '{model_id}' "
+                f"from epoch {args.continue_from_epoch}."
+            )
+
+            # Rule: No new overrides are allowed when continuing training
+            if args.config_override:
+                self._parser.error("Argument --config-override cannot be used with --continue-from-epoch.")
+
+            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=True)
+            if individual_overrides:
+                self._parser.error(
+                    f"Individual overrides like --{next(iter(individual_overrides))} cannot be used with --continue-from-epoch.")
+
+            # Rule: The original config.yaml must be found
+            if not final_config_path.exists():
+                self._parser.error(
+                    f"Cannot continue training: Original config.yaml not found for model '{model_id}' at '{final_config_path}'."
+                )
+
+            self._logger.info(f"Using existing configuration file: {final_config_path}")
+            effective_config: dict[str, any] = YamlFile(path=final_config_path).load_single_document()
+
+        else:
+            # --- Mode: New Training ---
+            self._logger.info(f"Executing: Start new training for {self._model_type_name} model '{model_id}'.")
+
+            # --- Check for mutually exclusive arguments ---
+            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args)
+            if args.config_override and individual_overrides:
+                self._parser.error("Argument --config-override cannot be used with individual parameter overrides.")
+
+            # --- Load default configuration ---
+            default_config_path: Path = ProjectPaths.project_root / "configs" / "prediction_defaults.yaml"
+            try:
+                default_config: dict[str, any] = YamlFile(path=default_config_path).load_single_document()
+                self._logger.info(f"Loaded default configuration from: {default_config_path}")
+            except FileNotFoundError:
+                self._parser.error(f"Default configuration file not found at: {default_config_path}")
+
+            # --- Apply overrides ---
+            effective_config: dict[str, any] = default_config.copy()
+            if args.config_override:
+                try:
+                    self._logger.info(f"Applying overrides from file: {args.config_override}")
+                    override_config: dict[str, any] = YamlFile(path=Path(args.config_override)).load_single_document()
+                    effective_config.update(override_config)
+                except FileNotFoundError:
+                    self._parser.error(f"Override configuration file not found: {args.config_override}")
+            elif individual_overrides:
+                self._logger.info(f"Applying individual overrides: {individual_overrides}")
+                effective_config.update(individual_overrides)
+
+            # --- Create artifact directory and save the final configuration ---
+            artifacts_folder.mkdir(parents=True, exist_ok=True)
+            effective_config['model_id'] = model_id
+            try:
+                YamlFile(path=final_config_path).save_single_document(data=effective_config)
+                self._logger.info(f"Effective configuration saved to: {final_config_path}")
+            except Exception as e:
+                self._parser.error(f"Failed to save final configuration file: {e}")
+
+        # --- Execute the pipeline ---
+        try:
+            pipeline_config: PredictionPipelineConfig = PredictionPipelineConfig(**effective_config)
+            data_processor: PredictionDataProcessor = PredictionDataProcessor(model_artifacts_path=artifacts_folder)
+            model_core: PredictionModelCore = PredictionModelCore()
+            pipeline: PredictionTrainingPipeline = PredictionTrainingPipeline(
+                data_processor=data_processor, model_core=model_core
+            )
+
+            pipeline.run(
+                config=pipeline_config,
+                continue_from_epoch=args.continue_from_epoch
+            )
+        except TypeError as e:
+            self._logger.error(
+                f"Configuration error: Mismatch between config data and pipeline requirements. Details: {e}",
+                exc_info=True)
+            self._parser.error("Pipeline execution failed due to a configuration mismatch. Check logs.")
+        except Exception as e:
+            self._logger.error(f"An error occurred during the training pipeline execution: {e}", exc_info=True)
+            self._parser.error(f"Pipeline execution failed. Check logs for details.")
+
 
     @override
     def predict(self, args: Namespace) -> None:
@@ -945,17 +1072,98 @@ class PredictionModelHandler(BaseModelHandler):
         :param args: The namespace object containing command-line arguments,
                      expected to have 'model_id', 'epoch', and either 'movie_name' or 'random'.
         """
-        if args.movie_name:
-            self._logger.info(
-                f"Executing: Test {self._model_type_name} model '{args.model_id}' (epoch: {args.epoch}) "
-                f"on movie: '{args.movie_name}'."
+        self._logger.info(
+            f"Executing: Predict with {self._model_type_name} model '{args.model_id}' (epoch: {args.epoch})."
+        )
+
+        # --- 1. Load Model and Artifacts ---
+        try:
+            # Load master config to get training parameters
+            config_path: Path = ProjectPaths.get_model_root_path(
+                model_id=args.model_id, model_type=self._model_type
+            ) / "config.yaml"
+            if not config_path.exists():
+                self._parser.error(f"Master config file 'config.yaml' not found for model_id '{args.model_id}'.")
+            original_config_data: dict[str, any] = YamlFile(path=config_path).load_single_document()
+
+            # Instantiate components
+            artifacts_folder: Path = ProjectPaths.get_model_root_path(
+                model_id=args.model_id, model_type=self._model_type
             )
-        elif args.random:
-            self._logger.info(
-                f"Executing: Test {self._model_type_name} model '{args.model_id}' (epoch: {args.epoch}) "
-                f"with random data."
+            model_file_path: Path = artifacts_folder / f"{args.model_id}_{args.epoch:04d}.keras"
+
+            data_processor: PredictionDataProcessor = PredictionDataProcessor(model_artifacts_path=artifacts_folder)
+            model_core: PredictionModelCore = PredictionModelCore(model_path=model_file_path)
+
+            if not data_processor.scaler:
+                self._parser.error(f"Scaler artifact not found for model '{args.model_id}'. Cannot make predictions.")
+
+        except (FileNotFoundError, ValueError) as e:
+            self._parser.error(f"Failed to load model components: {e}")
+        except Exception as e:
+            self._parser.error(f"An unexpected error occurred while loading components: {e}")
+
+        # --- 2. Get Input Data (Movie or Random) ---
+        try:
+            input_data: MovieData
+            if args.movie_name:
+                self._logger.info(f"Mode: Predicting for movie '{args.movie_name}'.")
+                dataset_name: str | None = original_config_data.get('dataset_name')
+                if not dataset_name:
+                    self._parser.error(f"Config for model '{args.model_id}' is missing 'dataset_name'.")
+
+                dataset: Dataset = Dataset(name=dataset_name)
+                target_movie_data: MovieData | None = next(
+                    (m for m in dataset.movie_data if m.name == args.movie_name), None
+                )
+
+                if not target_movie_data:
+                    self._parser.error(f"Movie '{args.movie_name}' not found in dataset '{dataset_name}'.")
+
+                input_data = target_movie_data
+
+            elif args.random:
+                self._logger.info("Mode: Predicting with randomly generated data.")
+                training_week_len: int | None = original_config_data.get('training_week_len')
+                if not training_week_len:
+                    self._parser.error(f"Config for model '{args.model_id}' is missing 'training_week_len'.")
+                # Generate a bit more data than needed to ensure a valid sequence can be extracted
+                input_data = self._generate_random_movie_data(weeks=training_week_len + 5)
+
+            else:
+                # This case should not be hit due to argparse mutual exclusion
+                self._parser.error("Either --movie-name or --random must be specified.")
+
+            # --- 3. Process Input and Predict ---
+            processing_config: PredictionDataConfig = PredictionDataConfig(
+                training_week_len=original_config_data['training_week_len'],
+                split_ratios=original_config_data['split_ratios'],  # Not used but required by dataclass
+                random_state=original_config_data['random_state']  # Not used but required by dataclass
             )
-        # TODO: Add actual testing logic here
+
+            processed_input: NDArray[any] = data_processor.process_for_prediction(
+                single_input=input_data, config=processing_config
+            )
+
+            pred_config: PredictionPredictConfig = PredictionPredictConfig(verbose=0)
+            scaled_prediction: NDArray[any] = model_core.predict(data=processed_input, config=pred_config)
+
+            # Inverse transform the prediction
+            unscaled_prediction: float = data_processor.scaler.inverse_transform(scaled_prediction)[0][0]
+
+            # --- 4. Display Result ---
+            self._logger.info("--- Prediction Result ---")
+            self._logger.info(f"  Input: {input_data.name}")
+            self._logger.info(f"  Predicted Box Office (Next Week): ${unscaled_prediction:,.0f} TWD")
+            self._logger.info("-------------------------")
+
+        except (ValueError, TypeError) as e:
+            self._logger.error(f"Prediction failed due to a data or configuration error: {e}", exc_info=True)
+            self._parser.error(f"Prediction failed: {e}")
+        except Exception as e:
+            self._logger.error(f"An unexpected error occurred during prediction: {e}", exc_info=True)
+            self._parser.error("Prediction failed. Check logs for details.")
+
 
     @override
     def get_metrics(self, args: Namespace) -> None:
@@ -966,8 +1174,55 @@ class PredictionModelHandler(BaseModelHandler):
 
         :param args: The namespace object from argparse, containing evaluation parameters.
         """
-        # TODO: Add actual testing logic here
-        pass
+        # The common parser defines these flags for both models
+        metric_flags = ['training_loss', 'validation_loss', 'f1_score']
+        original_config_data = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
+
+        # --- Run evaluation ---
+        try:
+            eval_config: PredictionEvaluationConfig = self._build_evaluation_config(
+                args=args,
+                original_config_data=original_config_data,
+                epoch_to_evaluate=args.epoch
+            )
+            result: PredictionEvaluationResult = self._evaluator.run(config=eval_config)
+        except (FileNotFoundError, ValueError) as e:
+            self._parser.error(f"Evaluation failed: {e}")
+        except Exception as e:
+            self._logger.error(f"An unexpected error occurred during evaluation: {e}", exc_info=True)
+            self._parser.error("Evaluation failed. Check logs for details.")
+
+        # --- Display results ---
+        self._logger.info(f"--- Metrics for {args.model_id} @ Epoch {args.epoch} ---")
+        if args.training_loss:
+            try:
+                # Epochs are 1-based, list indices are 0-based
+                train_loss = result.training_loss_history[args.epoch - 1]
+                self._logger.info(f"  - Training Loss (MSE):   {train_loss:.6f}")
+            except IndexError:
+                self._logger.warning(
+                    f"  - Training Loss:   Not available for epoch {args.epoch} (history length: {len(result.training_loss_history)}).")
+
+        if args.validation_loss:
+            try:
+                val_loss = result.validation_loss_history[args.epoch - 1]
+                self._logger.info(f"  - Validation Loss (MSE): {val_loss:.6f}")
+            except IndexError:
+                self._logger.warning(
+                    f"  - Validation Loss: Not available for epoch {args.epoch} (history length: {len(result.validation_loss_history)}).")
+            # Test loss is always available from the current evaluation run if requested
+            if result.mse_loss is not None:
+                self._logger.info(f"  - Test Loss (MSE):       {result.mse_loss:.6f}")
+            else:
+                self._logger.warning("  - Test Loss (MSE):       Not calculated (was not requested).")
+
+        if args.f1_score:
+            if result.f1_score is not None:
+                self._logger.info(f"  - F1-Score (Ranges): {result.f1_score:.4f} ({result.f1_score:.2%})")
+            else:
+                self._logger.warning("  - F1-Score (Ranges): Not calculated (was not requested).")
+
+        self._logger.info("-------------------------------------------------")
 
     @override
     def plot_graph(self, args: Namespace) -> None:
@@ -978,5 +1233,260 @@ class PredictionModelHandler(BaseModelHandler):
 
         :param args: The namespace object from argparse, containing plotting parameters.
         """
-        # TODO: Add actual testing logic here
-        pass
+        try:
+            eval_results: PredictionMultiEpochEvaluationResult = self._evaluate_all_epochs(
+                model_id=args.model_id, args=args
+            )
+        except (FileNotFoundError, ValueError) as e:
+            self._parser.error(str(e))
+
+            # --- Prepare and plot graphs ---
+        output_dir: Path = ProjectPaths.project_root / "outputs" / "graphs" / args.model_id
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        # Plot Loss graph
+        if args.training_loss or args.validation_loss:
+            datasets_to_plot: list[PlotDataset] = []
+            history_epochs: list[int] = list(range(1, len(eval_results.full_training_loss_history) + 1))
+
+            if args.training_loss:
+                datasets_to_plot.append({"label": "Training Loss", "data": eval_results.full_training_loss_history})
+            if args.validation_loss:
+                datasets_to_plot.append({"label": "Validation Loss", "data": eval_results.full_validation_loss_history})
+                test_loss_aligned_data: list[float] = [float('nan')] * len(history_epochs)
+                for i, epoch in enumerate(eval_results.evaluated_epochs):
+                    if 1 <= epoch <= len(history_epochs):
+                        test_loss_aligned_data[epoch - 1] = eval_results.test_mse_losses[i]
+                datasets_to_plot.append({"label": "Test Loss (MSE)", "data": test_loss_aligned_data})
+
+            plot_multi_line_graph(
+                title=f"Loss Curves for {args.model_id}",
+                save_path=output_dir / "loss_curves.png",
+                x_data=history_epochs,
+                y_datasets=datasets_to_plot,
+                x_label="Epoch",
+                y_label="Loss (MSE)",
+                y_formatter='sci-notation'
+            )
+
+        # Plot F1-Score graph
+        if args.f1_score:
+            plot_multi_line_graph(
+                title=f"F1-Score on Test Set for {args.model_id}",
+                save_path=output_dir / "f1_score_curve.png",
+                x_data=eval_results.evaluated_epochs,
+                y_datasets=[{"label": "Test F1-Score (Ranges)", "data": eval_results.test_f1_scores}],
+                x_label="Epoch",
+                y_label="F1-Score",
+                y_formatter='percent'
+            )
+
+
+    def _generate_random_movie_data(self, weeks: int) -> MovieData:
+        """
+        Generates a MovieData object with random data for demonstration.
+
+        :param weeks: The number of weeks of box office data to generate.
+        :returns: A MovieData object populated with random data.
+        """
+        self._logger.info(f"Generating random movie data with {weeks} weeks of history.")
+
+        # Create a dummy metadata object
+        random_metadata: MovieMetadata = MovieMetadata(id=-1, name="Randomly Generated Movie")
+
+        # Generate a list of weekly box office data
+        box_office_history: list[BoxOffice] = []
+        current_end_date: date = date.today()
+        for _ in range(weeks):
+            start_date: date = current_end_date - timedelta(days=6)
+            random_revenue: int = random.randint(1_000_000, 50_000_000)
+            box_office_entry: BoxOffice = BoxOffice(
+                start_date=start_date,
+                end_date=current_end_date,
+                box_office=random_revenue
+            )
+            box_office_history.append(box_office_entry)
+            current_end_date = start_date - timedelta(days=1)
+
+        # The list is generated backwards, so reverse it to be chronological
+        box_office_history.reverse()
+
+        return MovieData(
+            metadata=random_metadata,
+            box_office=box_office_history,
+            public_reviews=[],  # No need to generate random reviews
+            expert_reviews=[]
+        )
+
+    def _build_evaluation_config(
+        self, args: Namespace, original_config_data: dict[str, any], epoch_to_evaluate: int
+    ) -> PredictionEvaluationConfig:
+        """
+        Builds the appropriate PredictionEvaluationConfig based on CLI arguments.
+
+        :param args: The namespace object from argparse.
+        :param original_config_data: The loaded dictionary from the model's config.yaml.
+        :param epoch_to_evaluate: The specific epoch to be evaluated.
+        :returns: A fully constructed PredictionEvaluationConfig object.
+        """
+        # Map CLI flags to config flags
+        # Note: --validation-loss implies we need the test loss (mse_loss)
+        calculate_loss = args.validation_loss or args.training_loss
+        calculate_f1 = args.f1_score
+
+        # In exploratory mode, we evaluate on a new dataset
+        if args.dataset_name:
+            self._logger.info(f"Building evaluation config for EXPLORATORY mode on dataset '{args.dataset_name}'.")
+            return PredictionEvaluationConfig(
+                model_id=args.model_id,
+                model_epoch=epoch_to_evaluate,
+                dataset_name=args.dataset_name,
+                evaluate_on_full_dataset=True,
+                # These are needed by the config but not used for splitting in this mode.
+                # They are used to create sequences.
+                training_week_len=original_config_data['training_week_len'],
+                split_ratios=None,
+                random_state=None,
+                # Set calculation flags
+                calculate_loss=calculate_loss,
+                calculate_f1_score=calculate_f1,
+                # The other accuracy metrics are not triggered by current CLI flags
+                calculate_trend_accuracy=False,
+                calculate_range_accuracy=False
+            )
+        # In reproducibility mode, we recreate the original test set
+        else:
+            self._logger.info("Building evaluation config for REPRODUCIBILITY mode.")
+            # noinspection PyTypeChecker
+            return PredictionEvaluationConfig(
+                model_id=args.model_id,
+                model_epoch=epoch_to_evaluate,
+                dataset_name=original_config_data['dataset_name'],
+                evaluate_on_full_dataset=False,
+                # Load all necessary parameters from the original config
+                training_week_len=original_config_data['training_week_len'],
+                split_ratios=tuple(original_config_data['split_ratios']),
+                random_state=original_config_data['random_state'],
+                # Set calculation flags based on CLI input
+                calculate_loss=calculate_loss,
+                calculate_f1_score=calculate_f1,
+                # The other accuracy metrics are not triggered by current CLI flags
+                calculate_trend_accuracy=False,
+                calculate_range_accuracy=False
+            )
+
+    def _evaluate_all_epochs(self, model_id: str, args: Namespace) -> PredictionMultiEpochEvaluationResult:
+        """
+        Finds and evaluates all available checkpoints for a prediction model, using a cache
+        to avoid re-computation, and returns aggregated results.
+
+        :param model_id: The unique identifier for the model series to evaluate.
+        :param args: The namespace object from argparse, used to determine evaluation mode.
+        :returns: A PredictionMultiEpochEvaluationResult object containing all collected metrics.
+        :raises FileNotFoundError: If the master config or history file for the model is not found.
+        :raises ValueError: If evaluation fails for all available epochs.
+        """
+        metric_flags = ['training_loss', 'validation_loss', 'f1_score']
+        original_config_data = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
+
+        # --- Setup paths and find available epochs ---
+        artifacts_folder: Path = ProjectPaths.get_model_root_path(
+            model_id=model_id, model_type=self._model_type
+        )
+        available_epochs: list[int] = self._find_available_epochs(
+            model_id=model_id,
+            model_type=self._model_type
+        )
+        if not available_epochs:
+            self._parser.error(f"No model checkpoints found for model_id '{model_id}'. Cannot generate plots.")
+
+        self._logger.info(f"Found {len(available_epochs)} checkpoints to evaluate: {available_epochs}")
+
+        # --- Load or initialize cache ---
+        cache_path: Path = artifacts_folder / self._EVALUATION_CACHE_FILE_NAME
+        cache_handler = YamlFile(path=cache_path)
+        cached_results: dict[int, dict[str, float]] = {}
+        if cache_path.exists() and not args.dataset_name:
+            try:
+                loaded_cache = cache_handler.load_single_document()
+                if isinstance(loaded_cache, dict):
+                    cached_results = {int(k): v for k, v in loaded_cache.items() if isinstance(v, dict)}
+                    self._logger.info(f"Loaded {len(cached_results)} results from cache: {cache_path}")
+            except Exception as e:
+                self._logger.warning(f"Could not load or parse cache file at {cache_path}. Re-evaluating. Error: {e}")
+        elif args.dataset_name:
+            self._logger.info(f"Ignoring cache because a new dataset '{args.dataset_name}' was specified.")
+
+        # --- Iterate, evaluate, and collect data ---
+        test_mse_losses: list[float] = []
+        test_f1_scores: list[float] = []
+        first_eval_result: PredictionEvaluationResult | None = None
+
+        for epoch in available_epochs:
+            if epoch in cached_results and not args.dataset_name:
+                self._logger.info(f"--- Using cached evaluation for epoch {epoch} ---")
+                cached_metric = cached_results[epoch]
+                test_mse_losses.append(cached_metric.get('mse_loss', float('nan')))
+                test_f1_scores.append(cached_metric.get('f1_score', float('nan')))
+                continue
+
+            self._logger.info(f"--- Evaluating epoch {epoch} for plotting ---")
+
+            eval_config: PredictionEvaluationConfig = self._build_evaluation_config(
+                args=args,
+                original_config_data=original_config_data,
+                epoch_to_evaluate=epoch
+            )
+
+            try:
+                result: PredictionEvaluationResult = self._evaluator.run(config=eval_config)
+                test_mse_losses.append(result.mse_loss)
+                test_f1_scores.append(result.f1_score)
+
+                if not args.dataset_name:
+                    cached_results[epoch] = {'mse_loss': result.mse_loss, 'f1_score': result.f1_score}
+
+                if first_eval_result is None:
+                    first_eval_result = result
+            except Exception as e:
+                self._logger.error(f"Failed to evaluate epoch {epoch}: {e}. Skipping this epoch for plot.")
+                test_mse_losses.append(float('nan'))
+                test_f1_scores.append(float('nan'))
+
+        if not args.dataset_name and cached_results:
+            try:
+                cache_handler.save_single_document(data=cached_results)
+                self._logger.info(f"Updated evaluation cache file at: {cache_path}")
+            except Exception as e:
+                self._logger.error(f"Failed to save evaluation cache to {cache_path}: {e}")
+
+        # --- Consolidate results ---
+        if not any(v is not None and not (isinstance(v, float) and v != v) for v in test_mse_losses + test_f1_scores):
+            raise ValueError("Evaluation failed for all epochs. Cannot generate plots.")
+
+        full_training_loss_history: list[float] = []
+        full_validation_loss_history: list[float] = []
+        if first_eval_result:
+            full_training_loss_history = first_eval_result.training_loss_history
+            full_validation_loss_history = first_eval_result.validation_loss_history
+        elif cached_results:
+            self._logger.info("All results were from cache. Loading training history manually.")
+            history_path = artifacts_folder / self._evaluator.HISTORY_FILE_NAME
+            if history_path.exists():
+                try:
+                    full_training_loss_history, full_validation_loss_history = self._evaluator.load_training_history(
+                        history_file_path=history_path
+                    )
+                except Exception as e:
+                    self._logger.error(f"Failed to load history file {history_path} even though cache exists: {e}")
+            else:
+                self._logger.warning(f"Evaluation cache exists, but history file {history_path} is missing.")
+
+        return PredictionMultiEpochEvaluationResult(
+            model_id=model_id,
+            evaluated_epochs=available_epochs,
+            test_mse_losses=test_mse_losses,
+            test_f1_scores=test_f1_scores,
+            full_training_loss_history=full_training_loss_history,
+            full_validation_loss_history=full_validation_loss_history
+        )
