@@ -139,7 +139,8 @@ class BaseTrainingPipeline(
         self,
         new_history: History,
         history_save_path: Path,
-        continue_from_epoch: Optional[int]
+        continue_from_epoch: Optional[int],
+        **kwargs: any
     ) -> History:
         """
         Merges a new training history with an existing one if applicable.
@@ -150,6 +151,7 @@ class BaseTrainingPipeline(
         :param new_history: The History object from the latest training run.
         :param history_save_path: The path to the history file.
         :param continue_from_epoch: The epoch number the training continued from.
+        :param kwargs: Catches extra arguments passed from subclasses.
         :returns: The final, potentially merged, History object to be saved.
         """
         if continue_from_epoch and history_save_path.exists():
@@ -167,7 +169,8 @@ class BaseTrainingPipeline(
         config: PipelineConfigType,
         history: History,
         artifacts_folder: Path,
-        continue_from_epoch: Optional[int]
+        continue_from_epoch: Optional[int],
+        **kwargs: any
     ) -> None:
         """
         Handles the common logic for saving all artifacts at the end of a run.
@@ -179,6 +182,7 @@ class BaseTrainingPipeline(
         :param history: The History object from the completed training.
         :param artifacts_folder: The root directory for model artifacts.
         :param continue_from_epoch: The epoch number the training continued from, if any.
+        :param kwargs: Extra arguments to be passed to helper methods like _merge_histories.
         """
         self.logger.info("Saving all run artifacts...")
 

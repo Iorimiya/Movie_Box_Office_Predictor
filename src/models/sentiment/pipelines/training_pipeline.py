@@ -186,7 +186,8 @@ class SentimentTrainingPipeline(
             config=master_config,
             history=history,
             artifacts_folder=artifacts_folder,
-            continue_from_epoch=continue_from_epoch
+            continue_from_epoch=continue_from_epoch,
+            f1_callback=f1_callback
         )
 
         self.logger.info("--- SENTIMENT training pipeline finished successfully. ---")
@@ -220,40 +221,28 @@ class SentimentTrainingPipeline(
         self,
         new_history: History,
         history_save_path: Path,
-        continue_from_epoch: Optional[int]
+        continue_from_epoch: Optional[int],
+        f1_callback: Optional[F1ScoreHistory] = None
     ) -> History:
         """
         Extends the base history merging to also handle the 'val_f1_score' metric.
+
+        :param new_history: The History object from the latest training run.
+        :param history_save_path: The path to the history file.
+        :param continue_from_epoch: The epoch number the training continued from.
+        :param f1_callback: The F1ScoreHistory callback instance used during training.
+        :returns: The final, potentially merged, History object to be saved.
         """
-        # First, let the parent class do the standard merging of Keras metrics
         merged_history: History = super()._merge_histories(
             new_history=new_history,
             history_save_path=history_save_path,
             continue_from_epoch=continue_from_epoch
         )
 
-        # Now, add the specific logic for the custom F1 score callback
-        # The F1 scores are already in new_history.history from the callback
-        if 'val_f1_score' in new_history.history:
-            # If we are continuing, the base method already merged the f1 scores.
-            # If it's a new run, we just need to ensure the key exists in the final object.
-            # The base implementation already handles this correctly.
-            # This override is more about documenting the special case and
-            # would be the place to add more complex logic if needed.
-            pass
-
-        # If it's a new run, the base class just returns new_history. We need to ensure
-        # the f1_score from the callback is correctly represented.
-        # The current base implementation handles this correctly because it iterates all keys.
-        # Let's refine the logic to be more explicit for the sentiment case.
-
-        f1_callback = next((cb for cb in new_history.callbacks if isinstance(cb, F1ScoreHistory)), None)
         if f1_callback:
             if continue_from_epoch and history_save_path.exists():
-                # The base class has already merged standard keys. We just add/extend F1.
                 merged_history.history.setdefault('val_f1_score', []).extend(f1_callback.f1_scores)
             else:
-                # It's a new run, so merged_history is just new_history. Add the F1 scores.
                 merged_history.history['val_f1_score'] = f1_callback.f1_scores
 
         return merged_history
