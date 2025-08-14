@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import override, Optional
+from typing import Optional
 
 from keras.src.callbacks import History, ModelCheckpoint
+from typing_extensions import override
 
 from src.core.project_config import ProjectPaths, ProjectModelType
 from src.models.base.base_pipeline import BaseTrainingPipeline
