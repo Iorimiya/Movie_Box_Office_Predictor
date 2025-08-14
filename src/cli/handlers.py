@@ -568,8 +568,10 @@ class SentimentModelHandler(BaseModelHandler):
 
         # --- Execute the pipeline ---
         try:
-
-            pipeline_config: SentimentPipelineConfig = SentimentPipelineConfig(**effective_config)
+            pipeline_config_process = lambda original: {'dataset_file_name' if k == 'dataset_name' else k: v for k, v in
+                                                        original.items()}
+            pipeline_config: SentimentPipelineConfig = SentimentPipelineConfig(
+                **pipeline_config_process(effective_config))
             data_processor: SentimentDataProcessor = SentimentDataProcessor(model_artifacts_path=artifacts_folder)
             model_core: SentimentModelCore = SentimentModelCore()
             pipeline: SentimentTrainingPipeline = SentimentTrainingPipeline(
