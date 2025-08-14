@@ -4,11 +4,14 @@ from pathlib import Path
 from typing import Generic, Optional, TypeVar
 
 from numpy.typing import NDArray
-from tensorflow.python.keras import Model
-from tensorflow.python.keras.callbacks import Callback, History
-from tensorflow.python.keras.models import load_model
 
+from src.models.base.keras_setup import keras_base
 from src.utilities.filesystem_utils import is_existing_path
+
+Model = keras_base.Model
+Callback = keras_base.callbacks.Callback
+History = keras_base.callbacks.History
+load_model = keras_base.models.load_model
 
 @dataclass(frozen=True)
 class BaseTrainConfig:

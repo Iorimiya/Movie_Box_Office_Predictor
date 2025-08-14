@@ -2,11 +2,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from keras.src.callbacks import History, ModelCheckpoint
 from typing_extensions import override
 
 from src.core.project_config import ProjectPaths, ProjectModelType
 from src.models.base.base_pipeline import BaseTrainingPipeline
+from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
     PredictionDataProcessor, PredictionDataSource, PredictionDataConfig, PredictionTrainingProcessedData
 )
@@ -14,6 +14,8 @@ from src.models.prediction.components.model_core import (
     PredictionBuildConfig, PredictionModelCore, PredictionTrainConfig
 )
 
+History = keras_base.callbacks.History
+ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
 
 @dataclass(frozen=True)
 class PredictionPipelineConfig:

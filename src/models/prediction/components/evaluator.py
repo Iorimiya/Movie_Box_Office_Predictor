@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import Final, Optional
 
 import numpy as np
-from keras.src.callbacks import History
 from numpy.typing import NDArray
 from sklearn.metrics import f1_score
 from sklearn.preprocessing import MinMaxScaler
@@ -12,6 +11,7 @@ from typing_extensions import override
 from src.core.project_config import ProjectPaths, ProjectModelType
 from src.data_handling.file_io import PickleFile
 from src.models.base.base_evaluator import BaseEvaluator
+from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
     PredictionDataProcessor,
     PredictionDataSource,
@@ -23,6 +23,8 @@ from src.models.prediction.components.model_core import (
     PredictionEvaluateConfig,
     PredictionPredictConfig,
 )
+
+History = keras_base.callbacks.History
 
 
 @dataclass(frozen=True)

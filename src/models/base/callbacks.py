@@ -1,8 +1,10 @@
-from keras.src.callbacks import Callback
 from numpy.typing import NDArray
 from sklearn.metrics import f1_score
 from typing_extensions import override
 
+from src.models.base.keras_setup import keras_base
+
+Callback = keras_base.callbacks.Callback
 
 class F1ScoreHistory(Callback):
     """

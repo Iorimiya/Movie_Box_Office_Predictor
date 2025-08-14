@@ -1,17 +1,21 @@
 from dataclasses import dataclass
 
 from numpy.typing import NDArray
-from tensorflow.python.keras import Sequential, Input
-from tensorflow.python.keras.callbacks import History
-from tensorflow.python.keras.layers import Masking, LSTM, Dropout, Dense
-from tensorflow.python.keras.optimizer_v2.adam import Adam
-from tensorflow.python.keras.optimizer_v2.learning_rate_schedule import ExponentialDecay
 from typing_extensions import override
 
 from src.models.base.base_model_core import BaseModelCore, BaseTrainConfig, BasePredictConfig, BaseEvaluateConfig
+from src.models.base.keras_setup import keras_base
 
+History = keras_base.callbacks.History
+Sequential = keras_base.models.Sequential
+Dense = keras_base.layers.Dense
+Dropout = keras_base.layers.Dropout
+Input = keras_base.layers.Input
+LSTM = keras_base.layers.LSTM
+Masking = keras_base.layers.Masking
+Adam = keras_base.optimizers.Adam
+ExponentialDecay = keras_base.optimizers.schedules.ExponentialDecay
 
-# --- Configuration Dataclasses ---
 
 @dataclass(frozen=True)
 class PredictionBuildConfig:

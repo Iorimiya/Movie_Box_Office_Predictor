@@ -3,12 +3,13 @@ from logging import Logger
 from pathlib import Path
 from typing import Generic, TypeVar, Optional
 
-from keras.src.callbacks import History
-from src.data_handling.file_io import PickleFile
-
 from src.core.logging_manager import LoggingManager
+from src.data_handling.file_io import PickleFile
 from src.models.base.base_data_processor import BaseDataProcessor
 from src.models.base.base_model_core import BaseModelCore
+from src.models.base.keras_setup import keras_base
+
+History = keras_base.callbacks.History
 
 DataProcessorType = TypeVar('DataProcessorType', bound=BaseDataProcessor)
 ModelCoreType = TypeVar('ModelCoreType', bound=BaseModelCore)

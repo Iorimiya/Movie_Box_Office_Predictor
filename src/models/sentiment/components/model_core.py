@@ -1,14 +1,18 @@
 from dataclasses import dataclass
 
-
-# from keras.models import Sequential
-# from keras.layers import LSTM, Dense, Dropout, Embedding, Input
 from numpy.typing import NDArray
-from tensorflow.python.keras import Sequential, Input
-from tensorflow.python.keras.layers import Embedding, LSTM, Dropout, Dense
 from typing_extensions import override
 
 from src.models.base.base_model_core import BaseModelCore, BaseTrainConfig, BasePredictConfig, BaseEvaluateConfig
+from src.models.base.keras_setup import keras_base
+
+History = keras_base.callbacks.History
+Sequential = keras_base.models.Sequential
+Dense = keras_base.layers.Dense
+Dropout = keras_base.layers.Dropout
+Embedding = keras_base.layers.Embedding
+Input = keras_base.layers.Input
+LSTM = keras_base.layers.LSTM
 
 
 @dataclass(frozen=True)
