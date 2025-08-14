@@ -161,7 +161,18 @@ class SentimentDataProcessor(
         file_path: Path = ProjectPaths.sentiment_analysis_resources_dir / source.file_name
         self.logger.info(f"Loading raw sentiment data from: {file_path}")
         csv_file: CsvFile = CsvFile(path=file_path)
-        return SentimentTrainingRawData(csv_file.load())
+        csv_raw_data: list[dict[str, any]] = csv_file.load()
+        raw_dataframe: DataFrame = SentimentTrainingRawData(csv_raw_data)
+
+        if 'is_positive' in raw_dataframe.columns:
+            self.logger.debug("Converting 'is_positive' column to boolean type.")
+            # This handles strings like 'True', 'False', 'true', 'false'
+            raw_dataframe['is_positive'] = raw_dataframe['is_positive'].astype(bool)
+        else:
+            # This is a critical data error, so we should raise it.
+            raise KeyError("The required column 'is_positive' was not found in the loaded data.")
+
+        return raw_dataframe
 
     @override
     def process_for_training(self, raw_data: SentimentTrainingRawData,
@@ -259,8 +270,8 @@ class SentimentDataProcessor(
         :returns: A tuple containing the list of segmented texts and their corresponding labels.
         """
         self.logger.info("Constructing sample sentences and performing word segmentation...")
-        positive_words: Series = raw_data[raw_data['is_positive']].dropna().loc[:, 'word']
-        negative_words: Series = raw_data[~raw_data['is_positive']].dropna().loc[:, 'word']
+        positive_words: Series = raw_data.loc[raw_data['is_positive'], 'word'].dropna()
+        negative_words: Series = raw_data.loc[~raw_data['is_positive'], 'word'].dropna()
 
         positive_samples: list[str] = [f"這是一個非常{word}的電影，值得推薦！" for word in positive_words]
         negative_samples: list[str] = [f"這是一個非常{word}的電影，完全不推薦！" for word in negative_words]
