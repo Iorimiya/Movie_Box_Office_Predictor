@@ -85,7 +85,7 @@ class DatasetHandler:
     :ivar _logger: The logger instance for this class.
     :ivar _parser: The argument parser instance for handling CLI arguments.
     """
-    _logger: Logger = LoggingManager().get_logger()
+    _logger: Logger
     _parser: ArgumentParser
 
     def __init__(self, parser: ArgumentParser) -> None:
@@ -95,6 +95,7 @@ class DatasetHandler:
         :param parser: The argument parser instance.
         """
         self._parser = parser
+        self._logger = LoggingManager().get_logger()
 
     def create_index(self, args: Namespace) -> None:
         """
@@ -306,7 +307,7 @@ class BaseModelHandler(ABC):
     :ivar _parser: The argument parser instance for the specific command.
     :ivar _model_type_name: The display name of the model type (e.g., "Sentiment").
     """
-    _logger: Logger = LoggingManager().get_logger()
+    _logger: Logger
     _parser: ArgumentParser
     _model_type_name: str
     _model_type: ProjectModelType
@@ -321,6 +322,8 @@ class BaseModelHandler(ABC):
         self._parser = parser
         self._model_type_name = model_type_name
         self._model_type = model_type
+        self._logger = LoggingManager().get_logger()
+
 
     @abstractmethod
     def train(self, args: Namespace) -> None:

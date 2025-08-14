@@ -2,6 +2,7 @@ import sys
 from argparse import ArgumentParser, Namespace
 
 from src.cli.argument_parser_builder import ArgumentParserBuilder
+from src.core.logging_manager import LoggingManager
 
 
 def main() -> None:
@@ -14,6 +15,7 @@ def main() -> None:
     :raises SystemExit: If an unhandled SystemExit occurs during command execution.
     :raises Exception: For any other unexpected errors during command execution.
     """
+    LoggingManager.create_predefined_manager()
     builder: ArgumentParserBuilder = ArgumentParserBuilder()
     parser: ArgumentParser = builder.build()
     args: Namespace = parser.parse_args()

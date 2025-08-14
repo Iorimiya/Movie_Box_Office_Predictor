@@ -32,7 +32,17 @@ class Dataset:
     """
     name: str
     __movies_data_cache: Optional[list[MovieData]] = field(default=None, init=False, repr=False)
-    __logger: Logger = LoggingManager().get_logger('root')
+    __logger: Logger = field(init=False, repr=False)
+
+    def __post_init__(self) -> None:
+        """
+        Performs post-initialization setup, primarily for acquiring the logger.
+
+        This ensures the logger is acquired only when a `Dataset` object is
+        instantiated, preventing premature initialization of the LoggingManager
+        during module import.
+        """
+        self.__logger = LoggingManager().get_logger('root')
 
     @property
     def dataset_path(self) -> Path:
