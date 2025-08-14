@@ -127,12 +127,28 @@ class PredictionTrainingPipeline(
         self.logger.info("Starting model training...")
         callbacks_to_use = []
         if master_config.checkpoint_interval:
+
+            num_train_samples: int = len(processed_data['x_train'])
+            save_frequency_in_batches: int | str
+
+            if num_train_samples == 0:
+                self.logger.warning("Training data is empty. Checkpoint callback will fall back to saving every epoch.")
+                save_frequency_in_batches = 'epoch'
+            else:
+                # Calculate steps per epoch using ceiling division
+                steps_per_epoch: int = (num_train_samples + master_config.batch_size - 1) // master_config.batch_size
+                save_frequency_in_batches = master_config.checkpoint_interval * steps_per_epoch
+                self.logger.info(
+                    f"Checkpoint interval of {master_config.checkpoint_interval} epochs "
+                    f"translates to a save frequency of {save_frequency_in_batches} batches "
+                    f"(steps_per_epoch: {steps_per_epoch})."
+                )
+
             checkpoint_filepath = artifacts_folder / f"{master_config.model_id}_{{epoch:04d}}.keras"
             model_checkpoint_callback = ModelCheckpoint(
                 filepath=checkpoint_filepath,
                 save_weights_only=False,
-                save_freq='epoch',
-                period=master_config.checkpoint_interval,
+                save_freq=save_frequency_in_batches,
                 verbose=1
             )
             callbacks_to_use.append(model_checkpoint_callback)
