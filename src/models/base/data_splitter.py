@@ -1,10 +1,11 @@
 from logging import Logger
-from typing import Generic, Optional, TypedDict, TypeVar
+from typing import Generic, Optional, TypeVar
 
 import numpy as np
 from numpy.typing import NDArray
 from sklearn.model_selection import train_test_split
 
+from src.core.compat import TypedDict
 from src.core.logging_manager import LoggingManager
 
 X_Type = TypeVar('X_Type', bound=NDArray[any])
