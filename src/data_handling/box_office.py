@@ -21,8 +21,8 @@ class BoxOfficeRawData(TypedDict, total=False):
     :ivar end_date: The end date of the box office period.
     :ivar box_office: The box office revenue.
     """
-    start_date: str
-    end_date: str
+    start_date: str | date
+    end_date: str | date
     box_office: str | int
 
 
@@ -89,16 +89,16 @@ class BoxOffice(MovieAuxiliaryDataMixin
 
         logger: Logger = LoggingManager().get_logger('root')
 
-        raw_start_date: Optional[str] = raw_data.get('start_date')
-        raw_end_data: Optional[str] = raw_data.get('end_date')
+        raw_start_date: Optional[str | date] = raw_data.get('start_date')
+        raw_end_date: Optional[str | date] = raw_data.get('end_date')
         raw_box_office: Optional[str | int] = raw_data.get('box_office')
 
-        if not isinstance(raw_start_date, str):
-            msg: str = f"Required field 'start_date' is missing or not a string in BoxOffice data: {raw_data}"
+        if not isinstance(raw_start_date, str) and not isinstance(raw_start_date, date):
+            msg: str = f"Required field 'start_date' is missing or not a string or date object in BoxOffice data: {raw_data}"
             logger.error(msg)
             raise ValueError(msg)
-        if not isinstance(raw_end_data, str):
-            msg: str = f"Required field 'end_date' is missing or not a string in BoxOffice data: {raw_data}"
+        if not isinstance(raw_end_date, str) and not isinstance(raw_end_date, date):
+            msg: str = f"Required field 'end_date' is missing or not a string or date object in BoxOffice data: {raw_data}"
             logger.error(msg)
             raise ValueError(msg)
         if raw_box_office is None:
@@ -107,8 +107,10 @@ class BoxOffice(MovieAuxiliaryDataMixin
             raise ValueError(msg)
 
         try:
-            processed_start_date: date = date.fromisoformat(raw_start_date)
-            processed_end_date: date = date.fromisoformat(raw_end_data)
+            processed_start_date: date = date.fromisoformat(raw_start_date) \
+                if isinstance(raw_start_date, str) else raw_start_date
+            processed_end_date: date = date.fromisoformat(raw_end_date) \
+                if isinstance(raw_end_date, str) else raw_end_date
             processed_box_office: int = int(raw_box_office)
         except (ValueError, TypeError) as e:
             msg: str = f"Error parsing BoxOffice data fields: {e}. Data: {raw_data}"
