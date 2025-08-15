@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Optional, TypedDict
 
 from src.core.logging_manager import LoggingManager
+from src.core.project_config import ProjectPaths
 
 
 class MovieMetadataRawData(TypedDict, total=False):
@@ -99,6 +100,6 @@ class MoviePathMetadata(MovieMetadata):
         """
         return cls(id=source.id,
                    name=source.name,
-                   box_office_file_path=dataset_root_path / 'box_office' / f"{source.id}.yaml",
-                   public_reviews_file_path=dataset_root_path / 'public_reviews' / f"{source.id}.yaml",
-                   expert_reviews_file_path=dataset_root_path / 'expert_reviews' / f"{source.id}.yaml")
+                   box_office_file_path=dataset_root_path / ProjectPaths.BOX_OFFICE_SUBFOLDER_NAME / f"{source.id}.yaml",
+                   public_reviews_file_path=dataset_root_path / ProjectPaths.PUBLIC_REVIEWS_SUBFOLDER_NAME / f"{source.id}.yaml",
+                   expert_reviews_file_path=dataset_root_path / ProjectPaths.EXPERT_REVIEWS_SUBFOLDER_NAME / f"{source.id}.yaml")

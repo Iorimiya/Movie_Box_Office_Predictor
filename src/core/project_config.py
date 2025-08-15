@@ -59,6 +59,11 @@ class ProjectPaths:
     box_office_prediction_models_root: Final[Path] = models_dir / ProjectModelType.PREDICTION.value
     review_sentiment_analysis_models_root: Final[Path] = models_dir / ProjectModelType.SENTIMENT.value
 
+    BOX_OFFICE_SUBFOLDER_NAME: Final[str] = "box_office"
+    PUBLIC_REVIEWS_SUBFOLDER_NAME: Final[str] = "public_reviews"
+    EXPERT_REVIEWS_SUBFOLDER_NAME: Final[str] = "expert_reviews"
+    INDEX_FILE_NAME: Final[str] = "index.csv"
+
     @classmethod
     def initialize_directories(cls) -> None:
         """

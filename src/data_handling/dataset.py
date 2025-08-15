@@ -52,22 +52,22 @@ class Dataset:
     @property
     def index_file_path(self) -> Path:
         """The path to the index CSV file for this dataset."""
-        return self.dataset_path / 'index.csv'
+        return self.dataset_path / ProjectPaths.INDEX_FILE_NAME
 
     @property
     def box_office_folder_path(self) -> Path:
         """The path to the folder containing box office data files for this dataset."""
-        return self.dataset_path / 'box_office'
+        return self.dataset_path / ProjectPaths.BOX_OFFICE_SUBFOLDER_NAME
 
     @property
     def public_review_folder_path(self) -> Path:
         """The path to the folder containing public review data files for this dataset."""
-        return self.dataset_path / 'public_review'
+        return self.dataset_path / ProjectPaths.PUBLIC_REVIEWS_SUBFOLDER_NAME
 
     @property
     def expert_review_folder_path(self) -> Path:
         """The path to the folder containing expert review data files for this dataset."""
-        return self.dataset_path / 'expert_review'
+        return self.dataset_path / ProjectPaths.EXPERT_REVIEWS_SUBFOLDER_NAME
 
     @property
     def index_file(self) -> CsvFile:
