@@ -120,7 +120,7 @@ class SentimentEvaluator(
         model_artifacts_path: Path = ProjectPaths.get_model_root_path(
             model_id=model_id, model_type=ProjectModelType.SENTIMENT
         )
-        model_file_path: Path = model_artifacts_path / f"{model_id}_{model_epoch}.keras"
+        model_file_path: Path = model_artifacts_path / f"{model_id}_{model_epoch:04d}.keras"
 
         data_processor = SentimentDataProcessor(model_artifacts_path=model_artifacts_path)
         model_core = SentimentModelCore(model_path=model_file_path)
