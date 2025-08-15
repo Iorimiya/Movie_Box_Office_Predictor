@@ -681,7 +681,7 @@ class MovieData:
         original_data_count: int = len(current_data_list)
 
         match update_method:
-            case 'replace':
+            case 'REPLACE':
                 deduplicated_new_data: MovieComponent = delete_duplicate(data)
                 setattr(self, component_type, deduplicated_new_data)
                 new_count: int = len(deduplicated_new_data)
@@ -689,7 +689,7 @@ class MovieData:
                     f"Replaced {component_name_for_log} for movie ID {self.id}. "
                     f"Previous count: {original_data_count}, New count: {new_count}."
                 )
-            case 'extend':
+            case 'EXTEND':
                 logger.info(
                     f"Extending {component_name_for_log} for movie ID {self.id}. "
                     f"Original count: {original_data_count}, Items to add: {incoming_data_count}."
