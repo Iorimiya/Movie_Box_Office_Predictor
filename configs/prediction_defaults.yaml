@@ -15,7 +15,7 @@ training_week_len: 8
 split_ratios: [8, 1, 1]
 
 # The seed for the random number generator to ensure reproducible data splits.
-random_state: 42
+#random_state: 42
 
 
 # --- Model Architecture ---

@@ -557,6 +557,18 @@ class SentimentModelHandler(BaseModelHandler):
                 self._logger.info(f"Applying individual overrides: {individual_overrides}")
                 effective_config.update(individual_overrides)
 
+            if effective_config.get('random_state') is None:
+                # Generate a new random state if not provided
+                new_random_state: int = random.randint(0, 2 ** 32 - 1)
+                effective_config['random_state'] = new_random_state
+                self._logger.warning(
+                    "The 'random_state' was not provided in the configuration. "
+                    f"A new random state has been generated: {new_random_state}"
+                )
+                self._logger.warning(
+                    "For full reproducibility, please add this 'random_state' to your configuration file for future runs."
+                )
+
             # --- Create artifact directory and save the final configuration ---
             artifacts_folder.mkdir(parents=True, exist_ok=True)
             effective_config['model_id'] = model_id
@@ -1036,6 +1048,18 @@ class PredictionModelHandler(BaseModelHandler):
             elif individual_overrides:
                 self._logger.info(f"Applying individual overrides: {individual_overrides}")
                 effective_config.update(individual_overrides)
+
+            if effective_config.get('random_state') is None:
+                # Generate a new random state if not provided
+                new_random_state: int = random.randint(0, 2 ** 32 - 1)
+                effective_config['random_state'] = new_random_state
+                self._logger.warning(
+                    "The 'random_state' was not provided in the configuration. "
+                    f"A new random state has been generated: {new_random_state}"
+                )
+                self._logger.warning(
+                    "For full reproducibility, please add this 'random_state' to your configuration file for future runs."
+                )
 
             # --- Create artifact directory and save the final configuration ---
             artifacts_folder.mkdir(parents=True, exist_ok=True)

@@ -33,7 +33,7 @@ class PredictionPipelineConfig:
     :ivar dropout_rate: The dropout rate to apply after the LSTM layer.
     :ivar epochs: The number of epochs for training.
     :ivar batch_size: The batch size for training.
-    :ivar random_state: The seed for the random number generator. If None, a random seed will be generated.
+    :ivar random_state: The seed for the random number generator.
     :ivar verbose: The verbosity mode for Keras training output.
     :ivar checkpoint_interval: The interval in epochs at which to save model checkpoints.
                                If None, only the final model is saved.
@@ -46,7 +46,7 @@ class PredictionPipelineConfig:
     dropout_rate: float
     epochs: int
     batch_size: int
-    random_state: Optional[int] = None
+    random_state: int
     verbose: int | str = 1
     checkpoint_interval: int | None = None
 
