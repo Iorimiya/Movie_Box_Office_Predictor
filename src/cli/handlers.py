@@ -221,14 +221,14 @@ class DatasetHandler:
             self._logger.info(f"Executing: Collect PTT reviews for movie '{movie_name}'.")
 
             try:
-                with ReviewCollector(target_website=TargetWebsite.PTT) as collector:
-                    reviews: list[PublicReview] = collector.collect_reviews_for_movie(movie_name=movie_name)
-                    if reviews:
-                        self._logger.info(f"Successfully retrieved PTT reviews for '{movie_name}'.")
-                        self._log_reviews_data(logger=self._logger, movie_name=movie_name, reviews=reviews,
-                                               review_type="PTT")
-                    else:
-                        self._logger.warning(f"No PTT reviews found for '{movie_name}'.")
+                collector = ReviewCollector(target_website=TargetWebsite.PTT)
+                reviews: list[PublicReview] = collector.collect_reviews_for_movie(movie_name=movie_name)
+                if reviews:
+                    self._logger.info(f"Successfully retrieved PTT reviews for '{movie_name}'.")
+                    self._log_reviews_data(logger=self._logger, movie_name=movie_name, reviews=reviews,
+                                           review_type="PTT")
+                else:
+                    self._logger.warning(f"No PTT reviews found for '{movie_name}'.")
 
             except Exception as e:
                 self._logger.error(
@@ -255,15 +255,15 @@ class DatasetHandler:
             self._logger.info(f"Executing: Collect Dcard reviews for movie '{movie_name}'.")
 
             try:
-                with ReviewCollector(target_website=TargetWebsite.DCARD) as collector:
-                    reviews: list[PublicReview] = collector.collect_reviews_for_movie(movie_name=movie_name)
-                    if reviews:
-                        self._logger.info(f"Successfully retrieved Dcard reviews for '{movie_name}'.")
-                        self._log_reviews_data(
-                            logger=self._logger, movie_name=movie_name, reviews=reviews, review_type="Dcard"
-                        )
-                    else:
-                        self._logger.warning(f"No Dcard reviews found for '{movie_name}'.")
+                collector = ReviewCollector(target_website=TargetWebsite.DCARD)
+                reviews: list[PublicReview] = collector.collect_reviews_for_movie(movie_name=movie_name)
+                if reviews:
+                    self._logger.info(f"Successfully retrieved Dcard reviews for '{movie_name}'.")
+                    self._log_reviews_data(
+                        logger=self._logger, movie_name=movie_name, reviews=reviews, review_type="Dcard"
+                    )
+                else:
+                    self._logger.warning(f"No Dcard reviews found for '{movie_name}'.")
             except Exception as e:
                 self._logger.error(
                     f"An error occurred while collecting Dcard reviews for '{movie_name}': {e}",
