@@ -43,5 +43,3 @@ class F1ScoreHistory(Callback):
         # Optionally, add it to the Keras logs so it's printed
         if logs is not None:
             logs['val_f1_score'] = score
-
-        print(f" — val_f1_score: {score:.4f}")
