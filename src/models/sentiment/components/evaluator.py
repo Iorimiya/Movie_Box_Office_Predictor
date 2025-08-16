@@ -33,9 +33,10 @@ class SentimentEvaluationConfig(BaseEvaluationConfig):
     :ivar vocabulary_size: The vocabulary size used during original training.
     :ivar calculate_accuracy: Flag to calculate accuracy on the test set.
     """
+
     vocabulary_size: int
     calculate_accuracy: bool
-    f1_average_method: str = 'binary'
+    # f1_average_method: str = 'binary'
 
 
 @dataclass(frozen=True)

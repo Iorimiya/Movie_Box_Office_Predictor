@@ -53,7 +53,6 @@ class BaseDataProcessor(
                                      (like a scaler or tokenizer) are or will be stored.
         """
         self.model_artifacts_path: Optional[Path] = model_artifacts_path
-        self.load_artifacts()
 
     @abstractmethod
     def save_artifacts(self) -> None:

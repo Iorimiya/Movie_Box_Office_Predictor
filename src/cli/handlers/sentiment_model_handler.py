@@ -29,8 +29,12 @@ class SentimentModelHandler(BaseModelHandler):
 
         :param parser: The argument parser instance.
         """
-        super().__init__(parser=parser, model_type_name="Sentiment", model_type=ProjectModelType.SENTIMENT)
-        self._evaluator: SentimentEvaluator = SentimentEvaluator()
+        super().__init__(
+            parser=parser,
+            model_type_name="Sentiment",
+            model_type=ProjectModelType.SENTIMENT,
+            evaluator=SentimentEvaluator()
+        )
 
     @override
     def train(self, args: Namespace) -> None:
@@ -209,7 +213,8 @@ class SentimentModelHandler(BaseModelHandler):
                 # Set calculation flags
                 calculate_loss=calculate_loss,
                 calculate_accuracy=calculate_accuracy,
-                calculate_f1_score=calculate_f1
+                calculate_f1_score=calculate_f1,
+                f1_average_method='binary'
                 # f1_average_method uses its default 'binary'
             )
             # Reproducibility Mode: No new dataset is specified.
@@ -227,7 +232,8 @@ class SentimentModelHandler(BaseModelHandler):
                 # Set calculation flags
                 calculate_loss=calculate_loss,
                 calculate_accuracy=calculate_accuracy,
-                calculate_f1_score=calculate_f1
+                calculate_f1_score=calculate_f1,
+                f1_average_method='binary'
             )
 
     @override

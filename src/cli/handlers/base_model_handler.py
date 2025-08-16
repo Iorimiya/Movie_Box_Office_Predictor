@@ -50,7 +50,7 @@ class BaseModelHandler(ABC):
     _evaluator: BaseEvaluator
 
     def __init__(
-        self, parser: ArgumentParser, model_type_name: str, model_type: ProjectModelType,evaluator: BaseEvaluator
+        self, parser: ArgumentParser, model_type_name: str, model_type: ProjectModelType, evaluator: BaseEvaluator
     ) -> None:
         """
         Initializes the BaseModelHandler.

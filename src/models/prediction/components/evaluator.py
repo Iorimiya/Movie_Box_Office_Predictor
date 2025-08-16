@@ -43,7 +43,7 @@ class PredictionEvaluationConfig(BaseEvaluationConfig):
     calculate_trend_accuracy: bool
     calculate_range_accuracy: bool
     box_office_ranges: tuple[int, ...] = (1_000_000, 10_000_000, 90_000_000)
-    f1_average_method: str = 'macro'
+    # f1_average_method: str = 'macro'
 
 
 @dataclass(frozen=True)

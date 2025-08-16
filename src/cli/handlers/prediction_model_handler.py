@@ -35,8 +35,12 @@ class PredictionModelHandler(BaseModelHandler):
 
         :param parser: The argument parser instance.
         """
-        super().__init__(parser=parser, model_type_name="Prediction", model_type=ProjectModelType.PREDICTION)
-        self._evaluator: PredictionEvaluator = PredictionEvaluator()
+        super().__init__(
+            parser=parser,
+            model_type_name="Prediction",
+            model_type=ProjectModelType.PREDICTION,
+            evaluator=PredictionEvaluator()
+        )
 
     @override
     def train(self, args: Namespace) -> None:
@@ -243,7 +247,8 @@ class PredictionModelHandler(BaseModelHandler):
                 calculate_f1_score=calculate_f1,
                 # The other accuracy metrics are not triggered by current CLI flags
                 calculate_trend_accuracy=False,
-                calculate_range_accuracy=False
+                calculate_range_accuracy=False,
+                f1_average_method='macro'
             )
         # In reproducibility mode, we recreate the original test set
         else:
@@ -263,7 +268,8 @@ class PredictionModelHandler(BaseModelHandler):
                 calculate_f1_score=calculate_f1,
                 # The other accuracy metrics are not triggered by current CLI flags
                 calculate_trend_accuracy=False,
-                calculate_range_accuracy=False
+                calculate_range_accuracy=False,
+                f1_average_method='macro'
             )
 
     def _generate_random_movie_data(self, weeks: int) -> MovieData:
@@ -311,4 +317,4 @@ class PredictionModelHandler(BaseModelHandler):
         #     self._logger.info(f"  - Trend Accuracy:  {result.trend_accuracy:.2%}")
         # if args.range_accuracy: # Assuming a new CLI flag
         #     self._logger.info(f"  - Range Accuracy:  {result.test_accuracy:.2%}")
-        pass # No specific metrics are displayed by default for now
+        pass  # No specific metrics are displayed by default for now

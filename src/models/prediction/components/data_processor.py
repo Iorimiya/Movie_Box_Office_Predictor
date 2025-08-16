@@ -94,8 +94,9 @@ class PredictionDataProcessor(
 
         :param model_artifacts_path: Path to the directory for model artifacts.
         """
-        self.scaler: Optional[MinMaxScaler] = None
         super().__init__(model_artifacts_path=model_artifacts_path)
+        self.scaler: Optional[MinMaxScaler] = None
+        self.load_artifacts()
 
     @override
     def save_artifacts(self) -> None:
