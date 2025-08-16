@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Final, Optional
+from typing import Optional
 
 import numpy as np
 from numpy.typing import NDArray
@@ -9,8 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
 from src.core.project_config import ProjectPaths, ProjectModelType
-from src.data_handling.file_io import PickleFile
-from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult
+from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult, BaseEvaluationConfig
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
     PredictionDataProcessor,
@@ -28,33 +27,21 @@ History = keras_base.callbacks.History
 
 
 @dataclass(frozen=True)
-class PredictionEvaluationConfig:
+class PredictionEvaluationConfig(BaseEvaluationConfig):
     """
     Configuration for running a prediction model evaluation.
 
-    :ivar model_id: The unique identifier for the model series.
-    :ivar model_epoch: The specific training epoch of the model to evaluate.
-    :ivar dataset_name: The name of the source dataset to recreate the test set.
+    Inherits common evaluation parameters from BaseEvaluationConfig.
+
     :ivar training_week_len: The number of past weeks used for prediction.
-    :ivar split_ratios: The train/validation/test split ratios.
-    :ivar calculate_loss: Flag to calculate Mean Squared Error loss.
     :ivar calculate_trend_accuracy: Flag to calculate trend prediction accuracy.
     :ivar calculate_range_accuracy: Flag to calculate range prediction accuracy.
-    :ivar calculate_f1_score: Flag to calculate F1-score for range prediction.
     :ivar box_office_ranges: A tuple defining the upper boundaries of box office ranges.
-    :ivar f1_average_method: The averaging method for F1 score calculation.
     """
-    model_id: str
-    model_epoch: int
-    dataset_name: str
+
     training_week_len: int
-    split_ratios: Optional[tuple[int, int, int]]
-    random_state: Optional[int]
-    evaluate_on_full_dataset: bool = False
-    calculate_loss: bool = True
-    calculate_trend_accuracy: bool = False
-    calculate_range_accuracy: bool = False
-    calculate_f1_score: bool = False
+    calculate_trend_accuracy: bool
+    calculate_range_accuracy: bool
     box_office_ranges: tuple[int, ...] = (1_000_000, 10_000_000, 90_000_000)
     f1_average_method: str = 'macro'
 
@@ -74,7 +61,6 @@ class PredictionEvaluationResult(BaseEvaluationResult):  # <-- Inherit from Base
     test_accuracy: Optional[float]
 
 
-
 class PredictionEvaluator(
     BaseEvaluator[PredictionDataProcessor, PredictionModelCore, PredictionEvaluationConfig, PredictionEvaluationResult]
 ):
@@ -85,77 +71,8 @@ class PredictionEvaluator(
     recreates the test dataset, and computes various performance metrics such as
     MSE loss, trend accuracy, range accuracy, and F1-score.
     """
-    HISTORY_FILE_NAME: Final[str] = "training_history.pkl"
 
     @override
-    def run(self, config: PredictionEvaluationConfig) -> PredictionEvaluationResult:
-        """
-        Executes the evaluation pipeline for the prediction model.
-
-        :param config: The configuration object for the evaluation run.
-        :returns: A structured result object containing all requested evaluation metrics.
-        :raises FileNotFoundError: If required model or data processor artifacts are not found.
-        """
-        self.logger.info(
-            f"--- Starting PREDICTION evaluation for model '{config.model_id}' at epoch {config.model_epoch} ---"
-        )
-
-        data_processor, model_core, artifacts_path = self._setup_components(
-            model_id=config.model_id, model_epoch=config.model_epoch
-        )
-
-        history_path = artifacts_path / self.HISTORY_FILE_NAME
-        training_loss, validation_loss = self.load_training_history(history_file_path=history_path)
-
-        x_test, y_test = self._prepare_test_data(data_processor=data_processor, config=config)
-
-        # Calculate metrics based on config flags
-        mse_loss: Optional[float] = None
-        trend_acc: Optional[float] = None
-        range_acc: Optional[float] = None
-        f1: Optional[float] = None
-
-        if config.calculate_loss:
-            mse_loss = self._calculate_mse_loss(model_core, x_test, y_test)
-
-        needs_unscaling: bool = any([
-            config.calculate_trend_accuracy,
-            config.calculate_range_accuracy,
-            config.calculate_f1_score
-        ])
-
-        if needs_unscaling:
-            unscaled_pred, unscaled_actual, unscaled_inputs = self._get_unscaled_predictions(
-                model_core=model_core,
-                scaler=data_processor.scaler,
-                x_test=x_test,
-                y_test=y_test
-            )
-            if config.calculate_trend_accuracy:
-                trend_acc = self._calculate_trend_accuracy(
-                    predictions=unscaled_pred, actual=unscaled_actual, last_inputs=unscaled_inputs
-                )
-            if config.calculate_range_accuracy:
-                range_acc = self._calculate_range_accuracy(
-                    predictions=unscaled_pred, actual=unscaled_actual, ranges=config.box_office_ranges
-                )
-            if config.calculate_f1_score:
-                f1 = self._calculate_f1_score(
-                    predictions=unscaled_pred, actual=unscaled_actual, config=config
-                )
-
-        self.logger.info("Step 5: Compiling final evaluation results...")
-        return PredictionEvaluationResult(
-            model_id=config.model_id,
-            model_epoch=config.model_epoch,
-            test_loss=mse_loss,
-            trend_accuracy=trend_acc,
-            test_accuracy=range_acc,
-            f1_score=f1,
-            training_loss_history=training_loss,
-            validation_loss_history=validation_loss
-        )
-
     def _setup_components(
         self, model_id: str, model_epoch: int
     ) -> tuple[PredictionDataProcessor, PredictionModelCore, Path]:
@@ -173,12 +90,7 @@ class PredictionEvaluator(
         model_core = PredictionModelCore(model_path=model_file_path)
         return data_processor, model_core, artifacts_path
 
-    def load_training_history(self, history_file_path: Path) -> tuple[list[float], list[float]]:
-        """Loads the training and validation loss history from a pickle file."""
-        self.logger.info(f"Step 2: Loading training history from '{history_file_path}'...")
-        history: History = PickleFile(path=history_file_path).load()
-        return history.history.get('loss', []), history.history.get('val_loss', [])
-
+    @override
     def _prepare_test_data(
         self, data_processor: PredictionDataProcessor, config: PredictionEvaluationConfig
     ) -> tuple[NDArray[np.float32], NDArray[np.float64]]:
@@ -222,6 +134,77 @@ class PredictionEvaluator(
                 raw_data=raw_data, config=processing_config
             )
             return processed_data['x_test'], processed_data['y_test']
+
+    @override
+    def _calculate_metrics(
+        self,
+        model_core: PredictionModelCore,
+        data_processor: PredictionDataProcessor,
+        x_test: NDArray[np.float32],
+        y_test: NDArray[np.float64],
+        config: PredictionEvaluationConfig
+    ) -> dict[str, Optional[float]]:
+        """
+        Calculates MSE loss, trend accuracy, range accuracy, and F1-score.
+        """
+        metrics: dict[str, Optional[float]] = {
+            'test_loss': None,
+            'trend_accuracy': None,
+            'test_accuracy': None,  # Corresponds to range accuracy
+            'f1_score': None
+        }
+
+        if config.calculate_loss:
+            metrics['test_loss'] = self._calculate_mse_loss(model_core, x_test, y_test)
+
+        needs_unscaling: bool = any([
+            config.calculate_trend_accuracy,
+            config.calculate_range_accuracy,
+            config.calculate_f1_score
+        ])
+
+        if needs_unscaling:
+            unscaled_pred, unscaled_actual, unscaled_inputs = self._get_unscaled_predictions(
+                model_core=model_core,
+                scaler=data_processor.scaler,
+                x_test=x_test,
+                y_test=y_test
+            )
+            if config.calculate_trend_accuracy:
+                metrics['trend_accuracy'] = self._calculate_trend_accuracy(
+                    predictions=unscaled_pred, actual=unscaled_actual, last_inputs=unscaled_inputs
+                )
+            if config.calculate_range_accuracy:
+                metrics['test_accuracy'] = self._calculate_range_accuracy(
+                    predictions=unscaled_pred, actual=unscaled_actual, ranges=config.box_office_ranges
+                )
+            if config.calculate_f1_score:
+                metrics['f1_score'] = self._calculate_f1_score(
+                    predictions=unscaled_pred, actual=unscaled_actual, config=config
+                )
+        return metrics
+
+    @override
+    def _compile_final_result(
+        self,
+        config: PredictionEvaluationConfig,
+        metrics: dict[str, Optional[float]],
+        training_history: list[float],
+        validation_history: list[float]
+    ) -> PredictionEvaluationResult:
+        """
+        Compiles the final result object for the prediction evaluation.
+        """
+        return PredictionEvaluationResult(
+            model_id=config.model_id,
+            model_epoch=config.model_epoch,
+            test_loss=metrics.get('test_loss'),
+            trend_accuracy=metrics.get('trend_accuracy'),
+            test_accuracy=metrics.get('test_accuracy'),
+            f1_score=metrics.get('f1_score'),
+            training_loss_history=training_history,
+            validation_loss_history=validation_history
+        )
 
     def _calculate_mse_loss(
         self, model_core: PredictionModelCore, x_test: NDArray[np.float32], y_test: NDArray[np.float64]

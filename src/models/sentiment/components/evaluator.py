@@ -1,14 +1,13 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Final, Optional
+from typing import Optional
 
 from numpy.typing import NDArray
 from sklearn.metrics import f1_score
 from typing_extensions import override
 
 from src.core.project_config import ProjectPaths, ProjectModelType
-from src.data_handling.file_io import PickleFile
-from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult
+from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult, BaseEvaluationConfig
 from src.models.base.keras_setup import keras_base
 from src.models.sentiment.components.data_processor import (
     SentimentTrainingProcessedData,
@@ -23,31 +22,20 @@ from src.models.sentiment.components.model_core import (
 
 History = keras_base.callbacks.History
 
+
 @dataclass(frozen=True)
-class SentimentEvaluationConfig:
+class SentimentEvaluationConfig(BaseEvaluationConfig):
     """
     Configuration for running a sentiment model evaluation.
 
-    :ivar model_id: The unique identifier for the model series.
-    :ivar model_epoch: The specific training epoch of the model to evaluate.
-    :ivar dataset_file_name: The name of the CSV file to use for evaluation.
+    Inherits common evaluation parameters from BaseEvaluationConfig.
+
     :ivar vocabulary_size: The vocabulary size used during original training.
-                           Required for reproducibility mode.
-    :ivar evaluate_on_full_dataset: If True, evaluates on the entire dataset
-                                    without splitting. If False, reproduces
-                                    the original test split.
-    :ivar split_ratios: The train/val/test split ratios. Required only for
-                        reproducibility mode.
-    :ivar random_state: The random seed for data splitting. Required only for
-                        reproducibility mode.
+    :ivar calculate_accuracy: Flag to calculate accuracy on the test set.
     """
-    model_id: str
-    model_epoch: int
-    dataset_file_name: str
     vocabulary_size: int
-    evaluate_on_full_dataset: bool = False
-    split_ratios: Optional[tuple[int, int, int]] = None
-    random_state: Optional[int] = None
+    calculate_accuracy: bool
+    f1_average_method: str = 'binary'
 
 
 @dataclass(frozen=True)
@@ -62,23 +50,6 @@ class SentimentEvaluationResult(BaseEvaluationResult):  # <-- Inherit from BaseE
     test_accuracy: float
 
 
-@dataclass(frozen=True)
-class _TestMetrics:
-    """
-    A private dataclass to hold the calculated metrics from the test set.
-
-    This structure serves as an internal data container to pass evaluation
-    results within the SentimentEvaluator.
-
-    :ivar loss: The calculated loss value on the test set.
-    :ivar accuracy: The calculated accuracy on the test set.
-    :ivar f1: The calculated F1-score on the test set.
-    """
-    loss: float
-    accuracy: float
-    f1: float
-
-
 class SentimentEvaluator(
     BaseEvaluator[SentimentDataProcessor, SentimentModelCore, SentimentEvaluationConfig, SentimentEvaluationResult]
 ):
@@ -90,8 +61,8 @@ class SentimentEvaluator(
     accuracy, and F1-score on a test set, and combines them with the
     historical training/validation loss for a comprehensive report.
     """
-    HISTORY_FILE_NAME: Final[str] = "training_history.pkl"
 
+    @override
     def _setup_components(
         self, model_id: str, model_epoch: int
     ) -> tuple[SentimentDataProcessor, SentimentModelCore, Path]:
@@ -119,20 +90,7 @@ class SentimentEvaluator(
             )
         return data_processor, model_core, model_artifacts_path
 
-    def load_training_history(self, history_file_path: Path) -> tuple[list[float], list[float]]:
-        """
-        Loads the training and validation loss history from a pickle file.
-
-        :param history_file_path: The path to the 'training_history.pkl' file.
-        :returns: A tuple containing the training loss list and validation loss list.
-        """
-        self.logger.info(f"Step 2: Loading training history from '{history_file_path}'...")
-        history_loader = PickleFile(path=history_file_path)
-        history: History = history_loader.load()
-        training_loss: list[float] = history.history.get('loss', [])
-        validation_loss: list[float] = history.history.get('val_loss', [])
-        return training_loss, validation_loss
-
+    @override
     def _prepare_test_data(
         self,
         data_processor: SentimentDataProcessor,
@@ -151,9 +109,8 @@ class SentimentEvaluator(
         :returns: A tuple containing the evaluation features (x_eval) and labels (y_eval).
         """
         self.logger.info("Step 3: Loading and processing evaluation dataset...")
-        data_source = SentimentDataSource(file_name=config.dataset_file_name)
+        data_source = SentimentDataSource(file_name=config.dataset_name)
         raw_data = data_processor.load_raw_data(source=data_source)
-
 
         if config.evaluate_on_full_dataset:
             # --- Mode 2: Exploratory (New Dataset) ---
@@ -184,74 +141,64 @@ class SentimentEvaluator(
             )
             return processed_data['x_test'], processed_data['y_test']
 
-
-    def _calculate_test_metrics(
-        self, model_core: SentimentModelCore, x_test: NDArray[any], y_test: NDArray[any]
-    ) -> _TestMetrics:
+    @override
+    def _calculate_metrics(
+        self,
+        model_core: SentimentModelCore,
+        data_processor: SentimentDataProcessor,
+        x_test: NDArray[any],
+        y_test: NDArray[any],
+        config: SentimentEvaluationConfig
+    ) -> dict[str, Optional[float]]:
         """
-        Calculates loss, accuracy, and F1-score on the test set.
-
-        :param model_core: The loaded model core.
-        :param x_test: The test features.
-        :param y_test: The test labels.
-        :returns: A dataclass containing the calculated metrics.
+        Calculates loss, accuracy, and F1-score for the sentiment model.
         """
-        self.logger.info("Step 4: Calculating metrics on the test set...")
-        # Loss and Accuracy
-        eval_config = SentimentEvaluateConfig(verbose=0)
-        eval_results: list[float] = model_core.evaluate(x_test=x_test, y_test=y_test, config=eval_config)
-        test_loss: float = eval_results[0]
-        test_accuracy: float = eval_results[1]
-        self.logger.info(f"  - Test Loss: {test_loss:.4f}")
-        self.logger.info(f"  - Test Accuracy: {test_accuracy:.4f}")
+        metrics: dict[str, Optional[float]] = {
+            'test_loss': None,
+            'test_accuracy': None,
+            'f1_score': None
+        }
 
-        # F1-Score
-        predict_config = SentimentPredictConfig(verbose=0)
-        y_pred_probs: NDArray[any] = model_core.predict(data=x_test, config=predict_config)
-        y_pred_labels: NDArray[any] = (y_pred_probs > 0.5).astype("int32")
-        f1: float = f1_score(y_true=y_test, y_pred=y_pred_labels, average='binary')
-        self.logger.info(f"  - F1-Score: {f1:.4f}")
+        if config.calculate_loss or config.calculate_accuracy:
+            eval_config = SentimentEvaluateConfig(verbose=0)
+            eval_results: list[float] = model_core.evaluate(x_test=x_test, y_test=y_test, config=eval_config)
+            metrics['test_loss'] = eval_results[0]
+            metrics['test_accuracy'] = eval_results[1]
+            self.logger.info(f"  - Test Loss: {metrics['test_loss']:.4f}")
+            self.logger.info(f"  - Test Accuracy: {metrics['test_accuracy']:.4f}")
 
-        return _TestMetrics(loss=test_loss, accuracy=test_accuracy, f1=f1)
+        if config.calculate_f1_score:
+            predict_config = SentimentPredictConfig(verbose=0)
+            y_pred_probs: NDArray[any] = model_core.predict(data=x_test, config=predict_config)
+            y_pred_labels: NDArray[any] = (y_pred_probs > 0.5).astype("int32")
+            f1 = f1_score(
+                y_true=y_test,
+                y_pred=y_pred_labels,
+                average=config.f1_average_method,
+                zero_division=0
+            )
+            metrics['f1_score'] = f1
+            self.logger.info(f"  - F1-Score (average='{config.f1_average_method}'): {f1:.4f}")
+
+        return metrics
 
     @override
-    def run(self, config: SentimentEvaluationConfig) -> SentimentEvaluationResult:
+    def _compile_final_result(
+        self,
+        config: SentimentEvaluationConfig,
+        metrics: dict[str, Optional[float]],
+        training_history: list[float],
+        validation_history: list[float]
+    ) -> SentimentEvaluationResult:
         """
-        Executes the evaluation pipeline for the sentiment model.
-
-        :param config: The configuration object for the evaluation run.
-        :returns: A structured result object containing all evaluation metrics.
-        :raises FileNotFoundError: If the model, tokenizer, or history artifacts
-                                   for the specified model_id and epoch are not found.
+        Compiles the final result object for the sentiment evaluation.
         """
-        self.logger.info(
-            f"--- Starting SENTIMENT evaluation for model '{config.model_id}' at epoch {config.model_epoch} ---"
-        )
-
-        data_processor, model_core, artifacts_path = self._setup_components(
-            model_id=config.model_id, model_epoch=config.model_epoch
-        )
-
-        history_path = artifacts_path / self.HISTORY_FILE_NAME
-        training_loss, validation_loss = self.load_training_history(history_file_path=history_path)
-
-        x_test, y_test = self._prepare_test_data(
-            data_processor=data_processor,
-            config=config
-        )
-
-        metrics = self._calculate_test_metrics(model_core=model_core, x_test=x_test, y_test=y_test)
-
-        self.logger.info("Step 5: Compiling final evaluation results...")
-        final_result = SentimentEvaluationResult(
+        return SentimentEvaluationResult(
             model_id=config.model_id,
             model_epoch=config.model_epoch,
-            test_loss=metrics.loss,
-            test_accuracy=metrics.accuracy,
-            f1_score=metrics.f1,
-            training_loss_history=training_loss,
-            validation_loss_history=validation_loss
+            test_loss=metrics.get('test_loss'),
+            test_accuracy=metrics.get('test_accuracy'),
+            f1_score=metrics.get('f1_score'),
+            training_loss_history=training_history,
+            validation_loss_history=validation_history
         )
-
-        self.logger.info("--- SENTIMENT evaluation finished ---")
-        return final_result

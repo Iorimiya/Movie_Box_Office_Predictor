@@ -287,7 +287,7 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
         )
 
 
-@dataclass(kw_only=True,frozen=True)
+@dataclass(kw_only=True, frozen=True)
 class PublicReview(Review):
     """
     Represents a public review, extending Review with a reply count.
@@ -303,7 +303,6 @@ class PublicReview(Review):
         """
         base_str: str = super().__str__()
         return f"{base_str}\n  Reply Count: {self.reply_count}"
-
 
     @classmethod
     def _prepare_constructor_args(cls: Type[SelfReview], raw_data: PublicReviewRawData) -> PublicReviewPreparedArgs:
@@ -355,7 +354,7 @@ class PublicReview(Review):
         )
 
 
-@dataclass(kw_only=True,frozen=True)
+@dataclass(kw_only=True, frozen=True)
 class ExpertReview(Review):
     """
     Represents an expert review, extending Review with an expert score.
@@ -371,7 +370,6 @@ class ExpertReview(Review):
         """
         base_str: str = super().__str__()
         return f"{base_str}\n  Expert Score: {self.expert_score}"
-
 
     @classmethod
     def _prepare_constructor_args(cls: Type[SelfReview], raw_data: ExpertReviewRawData) -> ExpertReviewPreparedArgs:

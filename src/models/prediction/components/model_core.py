@@ -31,7 +31,6 @@ class PredictionBuildConfig:
     dropout_rate: float
 
 
-
 @dataclass(frozen=True)
 class PredictionTrainConfig(BaseTrainConfig):
     """

@@ -128,10 +128,12 @@ class Dataset:
         """
         if self.__movies_data_cache is None:
             self.__logger.info(f"Cache miss for 'movie_data' in dataset '{self.name}'. Loading all movie data.")
-            self.__movies_data_cache = self.load_movie_data(mode= 'ALL')
-            self.__logger.info(f"Populated 'movie_data' cache for dataset '{self.name}' with {len(self.__movies_data_cache)} items.")
+            self.__movies_data_cache = self.load_movie_data(mode='ALL')
+            self.__logger.info(
+                f"Populated 'movie_data' cache for dataset '{self.name}' with {len(self.__movies_data_cache)} items.")
         else:
-            self.__logger.debug(f"Returning cached 'movie_data' for dataset '{self.name}' with {len(self.__movies_data_cache)} items.")
+            self.__logger.debug(
+                f"Returning cached 'movie_data' for dataset '{self.name}' with {len(self.__movies_data_cache)} items.")
         return self.__movies_data_cache
 
     def initialize_index_file(self, source_csv: CsvFile) -> None:
@@ -207,7 +209,6 @@ class Dataset:
         ]
         self.__logger.debug(f"Generated {len(path_metadata_list)} MoviePathMetadata objects for dataset '{self.name}'.")
         return path_metadata_list
-
 
     def load_movie_data(self, mode: Literal['ALL', 'META']) -> list[MovieData]:
         """
@@ -340,7 +341,7 @@ class Dataset:
                                 exc_info=True)
         return
 
-    def collect_public_review(self, target_website:Literal['PTT','DCARD']) -> None:
+    def collect_public_review(self, target_website: Literal['PTT', 'DCARD']) -> None:
         """
         Collects public review data for all movies in this dataset from the specified target website.
 
@@ -385,7 +386,8 @@ class Dataset:
             f"Proceeding with public review collection for {len(movies_to_collect_for)} movies in dataset '{self.name}' from {target_website_enum.name}.")
         try:
             collector: ReviewCollector = ReviewCollector(target_website=target_website_enum)
-            collector.collect_reviews_for_movies(movie_list=movies_to_collect_for,data_folder=self.public_review_folder_path)
+            collector.collect_reviews_for_movies(movie_list=movies_to_collect_for,
+                                                 data_folder=self.public_review_folder_path)
 
             self.__logger.info(
                 f"Public review collection process finished for dataset '{self.name}' from {target_website_enum.name}. "

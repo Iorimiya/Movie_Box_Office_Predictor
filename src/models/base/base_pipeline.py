@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from logging import Logger
 from pathlib import Path
-from typing import Generic, TypeVar, Optional
+from typing import Generic, TypeVar, Optional, Final
 
 from src.core.logging_manager import LoggingManager
 from src.data_handling.file_io import PickleFile
@@ -32,6 +32,9 @@ class BaseTrainingPipeline(
     :ivar data_processor: An instance of a DataProcessor subclass.
     :ivar model_core: An instance of a ModelCore subclass.
     """
+
+    HISTORY_FILE_NAME: Final[str] = "training_history.pkl"
+
     logger: Logger
     data_processor: DataProcessorType
     model_core: ModelCoreType
@@ -126,14 +129,13 @@ class BaseTrainingPipeline(
 
         return loaded_model_core
 
-    @abstractmethod
-    def _get_history_filename(self) -> str:
+    def get_history_filename(self) -> str:
         """
         Returns the specific filename for the training history pickle file.
 
         :returns: The name of the history file (e.g., "training_history.pkl").
         """
-        pass
+        return self.HISTORY_FILE_NAME
 
     def _merge_histories(
         self,
@@ -187,7 +189,7 @@ class BaseTrainingPipeline(
         self.logger.info("Saving all run artifacts...")
 
         # 1. Save History (delegating merging logic)
-        history_filename: str = self._get_history_filename()
+        history_filename: str = self.get_history_filename()
         history_save_path: Path = artifacts_folder / history_filename
         history_to_save: History = self._merge_histories(
             new_history=history,
@@ -209,4 +211,3 @@ class BaseTrainingPipeline(
         if not final_model_save_path.exists():
             self.model_core.save(file_path=final_model_save_path)
             self.logger.info(f"Final model state for epoch {config.epochs} saved to: {final_model_save_path}")
-

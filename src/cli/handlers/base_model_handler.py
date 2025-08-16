@@ -3,12 +3,13 @@ from argparse import ArgumentParser, Namespace
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
-from random import random
+from random import randint
 
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.file_io import YamlFile
-from src.models.base.base_evaluator import BaseEvaluationResult
+from src.models.base.base_evaluator import BaseEvaluationResult, BaseEvaluationConfig, BaseEvaluator
+from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.utilities.plot import PlotDataset, plot_multi_line_graph
 
 
@@ -46,17 +47,23 @@ class BaseModelHandler(ABC):
     _parser: ArgumentParser
     _model_type_name: str
     _model_type: ProjectModelType
+    _evaluator: BaseEvaluator
 
-    def __init__(self, parser: ArgumentParser, model_type_name: str, model_type: ProjectModelType) -> None:
+    def __init__(
+        self, parser: ArgumentParser, model_type_name: str, model_type: ProjectModelType,evaluator: BaseEvaluator
+    ) -> None:
         """
         Initializes the BaseModelHandler.
 
         :param parser: The argument parser instance.
         :param model_type_name: The name of the model type for logging.
+        :param model_type: The enum member for the model type.
+        :param evaluator: An instance of a class that inherits from BaseEvaluator.
         """
         self._parser = parser
         self._model_type_name = model_type_name
         self._model_type = model_type
+        self._evaluator = evaluator
         self._logger = LoggingManager().get_logger()
 
     @abstractmethod
@@ -238,7 +245,7 @@ class BaseModelHandler(ABC):
 
             # --- Handle Random State ---
             if effective_config.get('random_state') is None:
-                new_random_state: int = random.randint(0, 2 ** 32 - 1)
+                new_random_state: int = randint(0, 2 ** 32 - 1)
                 effective_config['random_state'] = new_random_state
                 self._logger.warning(
                     "The 'random_state' was not provided in the configuration. "
@@ -271,7 +278,7 @@ class BaseModelHandler(ABC):
     @abstractmethod
     def _build_evaluation_config(
         self, args: Namespace, original_config_data: dict[str, any], epoch_to_evaluate: int
-    ) -> any:
+    ) -> BaseEvaluationConfig:
         """
         Builds the appropriate evaluation configuration object for a single epoch.
 
@@ -283,7 +290,7 @@ class BaseModelHandler(ABC):
         pass
 
     @abstractmethod
-    def _run_evaluation_for_epoch(self, eval_config: any) -> BaseEvaluationResult:
+    def _run_evaluation_for_epoch(self, eval_config: BaseEvaluationConfig) -> BaseEvaluationResult:
         """
         Runs the evaluation for a single epoch using the model-specific evaluator.
 
@@ -292,8 +299,8 @@ class BaseModelHandler(ABC):
         """
         pass
 
+    @staticmethod
     def _create_multi_epoch_evaluation_result(
-        self,
         model_id: str,
         available_epochs: list[int],
         collected_metrics: dict[str, list[float]],
@@ -319,25 +326,6 @@ class BaseModelHandler(ABC):
             full_training_loss_history=training_history,
             full_validation_loss_history=validation_history
         )
-
-    @abstractmethod
-    def _get_history_filename(self) -> str:
-        """
-        Returns the specific filename for the training history pickle file.
-
-        :returns: The name of the history file (e.g., "training_history.pkl").
-        """
-        pass
-
-    @abstractmethod
-    def _load_training_history(self, history_file_path: Path) -> tuple[list[float], list[float]]:
-        """
-        Loads the training and validation loss history from a pickle file.
-
-        :param history_file_path: The path to the history file.
-        :returns: A tuple containing the training loss list and validation loss list.
-        """
-        pass
 
     def _evaluate_all_epochs(self, model_id: str, args: Namespace) -> MultiEpochEvaluationResult:
         """
@@ -379,7 +367,7 @@ class BaseModelHandler(ABC):
             self._logger.info(f"Ignoring cache because a new dataset '{args.dataset_name}' was specified.")
 
         collected_metrics: dict[str, list[float]] = {}
-        first_eval_result: any | None = None
+        first_eval_result: any = None
 
         for epoch in available_epochs:
             if epoch in cached_results and not args.dataset_name:
@@ -394,7 +382,7 @@ class BaseModelHandler(ABC):
             )
 
             try:
-                result:BaseEvaluationResult = self._run_evaluation_for_epoch(eval_config=eval_config)
+                result: BaseEvaluationResult = self._run_evaluation_for_epoch(eval_config=eval_config)
                 epoch_metrics = {'loss': result.test_loss, 'f1_score': result.f1_score}
 
                 for metric_name, value in epoch_metrics.items():
@@ -434,10 +422,12 @@ class BaseModelHandler(ABC):
             full_validation_loss_history = first_eval_result.validation_loss_history
         elif cached_results:
             self._logger.info("All results were from cache. Loading training history manually.")
-            history_path = artifacts_folder / self._get_history_filename()
+            history_path: Path = artifacts_folder / BaseTrainingPipeline.HISTORY_FILE_NAME
             if history_path.exists():
                 try:
-                    full_training_loss_history, full_validation_loss_history = self._load_training_history(
+                    # self._evaluator 是在子類別中定義的，但 BaseModelHandler 的這個方法
+                    # 總是透過子類別的實例來呼叫，所以 self._evaluator 是可用的。
+                    full_training_loss_history, full_validation_loss_history = self._evaluator.load_training_history(
                         history_file_path=history_path
                     )
                 except Exception as e:
@@ -548,40 +538,58 @@ class BaseModelHandler(ABC):
         except Exception as e:
             self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
 
+    @abstractmethod
+    def _display_specific_metrics(self, result: BaseEvaluationResult, args: Namespace) -> None:
+        """
+        Displays model-specific metrics that are not common to all models.
+
+        :param result: The evaluation result object containing the metrics.
+        :param args: The command-line arguments.
+        """
+        pass
+
     def _display_metrics(self, result: BaseEvaluationResult, args: Namespace) -> None:
         """
-        Displays the evaluation metrics for the sentiment model.
+        A template method to display evaluation metrics.
 
-        :param result: The evaluation result object for the sentiment model.
+        It displays common metrics and then delegates to a subclass to display
+        model-specific metrics.
+
+        :param result: The evaluation result object.
         :param args: The command-line arguments to check which metrics to display.
         """
         self._logger.info(f"--- Metrics for {args.model_id} @ Epoch {args.epoch} ---")
         if args.training_loss:
             try:
-                # Epochs are 1-based, list indices are 0-based
                 train_loss: float = result.training_loss_history[args.epoch - 1]
                 self._logger.info(f"  - Training Loss:   {train_loss:.6f}")
             except IndexError:
                 self._logger.warning(
                     f"  - Training Loss:   Not available for epoch {args.epoch} (history length: {len(result.training_loss_history)}).")
 
-        if args.validation_loss or args.test_loss:
-            if args.validation_loss:
-                try:
-                    val_loss: float = result.validation_loss_history[args.epoch - 1]
-                    self._logger.info(f"  - Validation Loss: {val_loss:.6f}")
-                except IndexError:
-                    self._logger.warning(
-                        f"  - Validation Loss: Not available for epoch {args.epoch} (history length: {len(result.validation_loss_history)}).")
-            # Test loss is always available from the current evaluation run
-            if args.test_loss:
-                self._logger.info(f"  - Test Loss:       {result.test_loss:.6f}")
+        if args.validation_loss:
+            try:
+                val_loss: float = result.validation_loss_history[args.epoch - 1]
+                self._logger.info(f"  - Validation Loss: {val_loss:.6f}")
+            except IndexError:
+                self._logger.warning(
+                    f"  - Validation Loss: Not available for epoch {args.epoch} (history length: {len(result.validation_loss_history)}).")
 
+        # Test loss is a common metric
+        if args.test_loss:
+            self._logger.info(f"  - Test Loss:       {result.test_loss:.6f}")
+
+        # F1-score is a common metric
         if args.f1_score:
             self._logger.info(f"  - F1-Score (Test): {result.f1_score:.4f} ({result.f1_score:.2%})")
+
+        # --- 呼叫抽象方法來顯示特定指標 ---
+        self._display_specific_metrics(result=result, args=args)
+
         self._logger.info("-------------------------------------------------")
 
-    def _plot_loss_graph(self, eval_results: MultiEpochEvaluationResult, output_dir: Path,
+    @staticmethod
+    def _plot_loss_graph(eval_results: MultiEpochEvaluationResult, output_dir: Path,
                          args: Namespace) -> None:
         """
         Plots the loss curves for the sentiment model.

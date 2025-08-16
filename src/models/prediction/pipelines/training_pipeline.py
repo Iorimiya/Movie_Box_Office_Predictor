@@ -17,6 +17,7 @@ from src.models.prediction.components.model_core import (
 History = keras_base.callbacks.History
 ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
 
+
 @dataclass(frozen=True)
 class PredictionPipelineConfig:
     """
@@ -62,8 +63,6 @@ class PredictionTrainingPipeline(
     loading, processing, model building, training, and artifact saving.
     """
 
-    HISTORY_FILE_NAME: str = "training_history.pkl"
-
     @override
     def run(self, config: PredictionPipelineConfig, continue_from_epoch: Optional[int] = None) -> None:
         """
@@ -94,8 +93,6 @@ class PredictionTrainingPipeline(
             )
         else:
             self.logger.info("Step 2 (New): This is a new training run.")
-
-
 
         # 3. Data Loading and Processing
         self.logger.info("Step 3: Loading and processing data...")
@@ -195,12 +192,3 @@ class PredictionTrainingPipeline(
         Creates a PredictionModelCore instance from a saved model file.
         """
         return PredictionModelCore(model_path=model_path)
-
-    @override
-    def _get_history_filename(self) -> str:
-        """
-        Returns the history filename for the prediction model.
-        """
-        return self.HISTORY_FILE_NAME
-
-

@@ -25,7 +25,6 @@ def recreate_folder(path: Path) -> None:
         raise type(e)(f"Failed to recreate folder at {path}: {e}") from e
 
 
-
 def _remove_path(path: Path) -> None:
     """
     Recursively removes a file or a directory if it exists.

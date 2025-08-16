@@ -1,6 +1,5 @@
 import random
 from argparse import ArgumentParser, Namespace
-from dataclasses import dataclass
 from datetime import date, timedelta
 from pathlib import Path
 from typing import Final
@@ -20,28 +19,6 @@ from src.models.prediction.components.evaluator import PredictionEvaluationResul
     PredictionEvaluator
 from src.models.prediction.components.model_core import PredictionModelCore, PredictionPredictConfig
 from src.models.prediction.pipelines.training_pipeline import PredictionPipelineConfig, PredictionTrainingPipeline
-
-
-@dataclass(frozen=True)
-class PredictionMultiEpochEvaluationResult:
-    """
-    Holds the aggregated results from evaluating multiple epochs of a single prediction model series.
-
-    This class is used to gather all necessary data for plotting comparative graphs.
-
-    :ivar model_id: The unique identifier for the model series.
-    :ivar evaluated_epochs: A list of the epoch numbers that were actually evaluated.
-    :ivar test_losses: A list of MSE loss values from the test set, corresponding to each evaluated epoch.
-    :ivar test_f1_scores: A list of F1-scores from the test set, corresponding to each evaluated epoch.
-    :ivar full_training_loss_history: The complete training loss history from the original run.
-    :ivar full_validation_loss_history: The complete validation loss history from the original run.
-    """
-    model_id: str
-    evaluated_epochs: list[int]
-    test_losses: list[float]
-    test_f1_scores: list[float]
-    full_training_loss_history: list[float]
-    full_validation_loss_history: list[float]
 
 
 class PredictionModelHandler(BaseModelHandler):
@@ -223,23 +200,6 @@ class PredictionModelHandler(BaseModelHandler):
         return self._EVALUATION_CACHE_FILE_NAME
 
     @override
-    def _get_history_filename(self) -> str:
-        """
-        Returns the history filename for the prediction model.
-        """
-        return self._evaluator.HISTORY_FILE_NAME
-
-    @override
-    def _load_training_history(self, history_file_path: Path) -> tuple[list[float], list[float]]:
-        """
-        Loads the training and validation loss history using the prediction evaluator.
-
-        :param history_file_path: The path to the history file.
-        :returns: A tuple containing the training loss list and validation loss list.
-        """
-        return self._evaluator.load_training_history(history_file_path=history_file_path)
-
-    @override
     def _run_evaluation_for_epoch(self, eval_config: PredictionEvaluationConfig) -> PredictionEvaluationResult:
         """
         Runs the evaluation for a single epoch using the prediction evaluator.
@@ -262,7 +222,7 @@ class PredictionModelHandler(BaseModelHandler):
         """
         # Map CLI flags to config flags
         # Note: --validation-loss implies we need the test loss (mse_loss)
-        calculate_loss = args.validation_loss or args.training_loss
+        calculate_loss = args.test_loss
         calculate_f1 = args.f1_score
 
         # In exploratory mode, we evaluate on a new dataset
@@ -341,3 +301,14 @@ class PredictionModelHandler(BaseModelHandler):
             public_reviews=[],  # No need to generate random reviews
             expert_reviews=[]
         )
+
+    @override
+    def _display_specific_metrics(self, result: PredictionEvaluationResult, args: Namespace) -> None:
+        # Prediction model has trend_accuracy and range_accuracy (test_accuracy)
+        # These are not currently triggered by CLI flags, but if they were, the logic would go here.
+        # For example:
+        # if args.trend_accuracy:
+        #     self._logger.info(f"  - Trend Accuracy:  {result.trend_accuracy:.2%}")
+        # if args.range_accuracy: # Assuming a new CLI flag
+        #     self._logger.info(f"  - Range Accuracy:  {result.test_accuracy:.2%}")
+        pass # No specific metrics are displayed by default for now

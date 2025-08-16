@@ -289,7 +289,7 @@ class Browser(webdriver.Chrome):
         :param new_path: The new absolute path for the download directory.
         """
         if not new_path.is_absolute():
-            new_path:Path = new_path.resolve(strict=True)
+            new_path: Path = new_path.resolve(strict=True)
 
         self.execute_cdp_cmd(
             cmd='Page.setDownloadBehavior',

@@ -6,6 +6,8 @@ from src.models.base.keras_setup import keras_base
 
 Callback = keras_base.callbacks.Callback
 
+
+# noinspection PyOverrides
 class F1ScoreHistory(Callback):
     """
     A Keras Callback to calculate and record the F1 score on validation data at the end of each epoch.

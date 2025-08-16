@@ -1,5 +1,4 @@
 from argparse import ArgumentParser, Namespace
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Final
 
@@ -14,28 +13,6 @@ from src.models.sentiment.components.evaluator import (
 )
 from src.models.sentiment.components.model_core import SentimentModelCore, SentimentPredictConfig
 from src.models.sentiment.pipelines.training_pipeline import SentimentTrainingPipeline, SentimentPipelineConfig
-
-
-@dataclass(frozen=True)
-class SentimentMultiEpochEvaluationResult:
-    """
-    Holds the aggregated results from evaluating multiple epochs of a single model series.
-
-    This class is used to gather all necessary data for plotting comparative graphs.
-
-    :ivar model_id: The unique identifier for the model series.
-    :ivar evaluated_epochs: A list of the epoch numbers that were actually evaluated.
-    :ivar test_f1_scores: A list of F1-scores from the test set, corresponding to each evaluated epoch.
-    :ivar test_losses: A list of loss values from the test set, corresponding to each evaluated epoch.
-    :ivar full_training_loss_history: The complete training loss history from the original run.
-    :ivar full_validation_loss_history: The complete validation loss history from the original run.
-    """
-    model_id: str
-    evaluated_epochs: list[int]
-    test_f1_scores: list[float]
-    test_losses: list[float]
-    full_training_loss_history: list[float]
-    full_validation_loss_history: list[float]
 
 
 class SentimentModelHandler(BaseModelHandler):
@@ -190,23 +167,6 @@ class SentimentModelHandler(BaseModelHandler):
         return self._EVALUATION_CACHE_FILE_NAME
 
     @override
-    def _get_history_filename(self) -> str:
-        """
-        Returns the history filename for the sentiment model.
-        """
-        return self._evaluator.HISTORY_FILE_NAME
-
-    @override
-    def _load_training_history(self, history_file_path: Path) -> tuple[list[float], list[float]]:
-        """
-        Loads the training and validation loss history using the sentiment evaluator.
-
-        :param history_file_path: The path to the history file.
-        :returns: A tuple containing the training loss list and validation loss list.
-        """
-        return self._evaluator.load_training_history(history_file_path=history_file_path)
-
-    @override
     def _run_evaluation_for_epoch(self, eval_config: SentimentEvaluationConfig) -> SentimentEvaluationResult:
         """
         Runs the evaluation for a single epoch using the sentiment evaluator.
@@ -230,30 +190,49 @@ class SentimentModelHandler(BaseModelHandler):
         :param epoch_to_evaluate: The specific epoch to be evaluated.
         :returns: A fully constructed, flattened SentimentEvaluationConfig object.
         """
+
+        calculate_loss: bool = args.test_loss
+        calculate_accuracy: bool = args.test_loss
+        calculate_f1: bool = args.f1_score
+
         # Exploratory Mode: A new dataset is specified via CLI.
         if args.dataset_name:
             self._logger.info(f"Building evaluation config for EXPLORATORY mode on dataset '{args.dataset_name}'.")
             return SentimentEvaluationConfig(
                 model_id=args.model_id,
                 model_epoch=epoch_to_evaluate,
-                dataset_file_name=args.dataset_name,
+                dataset_name=args.dataset_name,
                 evaluate_on_full_dataset=True,
-                # This is required by the config dataclass but not used for splitting in this mode.
-                # It ensures consistency if other parts of the evaluator need it.
                 vocabulary_size=original_config_data['vocabulary_size'],
-                split_ratios=None,  # Explicitly None as we are not splitting
-                random_state=None  # Explicitly None as we are not splitting
+                split_ratios=None,
+                random_state=None,
+                # Set calculation flags
+                calculate_loss=calculate_loss,
+                calculate_accuracy=calculate_accuracy,
+                calculate_f1_score=calculate_f1
+                # f1_average_method uses its default 'binary'
             )
-        # Reproducibility Mode: No new dataset is specified.
+            # Reproducibility Mode: No new dataset is specified.
         else:
             self._logger.info("Building evaluation config for REPRODUCIBILITY mode.")
             # noinspection PyTypeChecker
             return SentimentEvaluationConfig(
                 model_id=args.model_id,
                 model_epoch=epoch_to_evaluate,
-                dataset_file_name=original_config_data['dataset_file_name'],
+                dataset_name=original_config_data['dataset_file_name'],
                 evaluate_on_full_dataset=False,
                 vocabulary_size=original_config_data['vocabulary_size'],
                 split_ratios=tuple(original_config_data['split_ratios']),
-                random_state=original_config_data['random_state']
+                random_state=original_config_data['random_state'],
+                # Set calculation flags
+                calculate_loss=calculate_loss,
+                calculate_accuracy=calculate_accuracy,
+                calculate_f1_score=calculate_f1
             )
+
+    @override
+    def _display_specific_metrics(self, result: SentimentEvaluationResult, args: Namespace) -> None:
+        # The base class handles test_loss, so we only need to check for accuracy here.
+        # Since they are linked in _build_evaluation_config, checking args.test_loss is correct.
+        if args.test_loss:
+            self._logger.info(f"  - Test Accuracy:   {result.test_accuracy:.4f} ({result.test_accuracy:.2%})")

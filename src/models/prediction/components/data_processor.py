@@ -1,7 +1,6 @@
 from dataclasses import dataclass
-from logging import Logger
 from pathlib import Path
-from typing import Final, Optional, TypedDict
+from typing import Final, Optional
 
 import numpy as np
 from numpy import float32, float64
@@ -9,12 +8,12 @@ from numpy.typing import NDArray
 from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
-from src.core.logging_manager import LoggingManager
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieData, WeekData, MovieSessionData
-from src.models.base.data_splitter import DatasetSplitter, SplitDataset
+from src.models.base.base_data_processor import BaseDataConfig
+from src.models.base.data_splitter import SplitDataset
 from src.models.base.evaluable_data_processor import EvaluableDataProcessor
 
 
@@ -29,41 +28,22 @@ class PredictionDataSource:
 
 
 PredictionTrainingRawData: type = list[MovieData]
-
-
-class PredictionTrainingProcessedData(TypedDict):
-    """
-    A TypedDict representing the processed and split dataset for box office prediction.
-
-    :ivar x_train: Training data (features).
-    :ivar y_train: Training data (labels).
-    :ivar x_val: Validation data (features).
-    :ivar y_val: Validation data (labels).
-    :ivar x_test: Test data (features).
-    :ivar y_test: Test data (labels).
-    """
-    x_train: NDArray[float32]
-    y_train: NDArray[float64]
-    x_val: NDArray[float32]
-    y_val: NDArray[float64]
-    x_test: NDArray[float32]
-    y_test: NDArray[float64]
-
-
+PredictionTrainingProcessedData: type = SplitDataset[NDArray[float32], NDArray[float64]]
 PredictionPredictionRawData: type = MovieData
 PredictionPredictionProcessedData: type = NDArray[float32]
 
+
 @dataclass(frozen=True)
-class PredictionDataConfig:
+class PredictionDataConfig(BaseDataConfig):  # <-- Inherit from BaseDataConfig
     """
     Configuration for processing data for prediction model training.
 
+    Inherits common splitting parameters from BaseDataConfig.
+
     :ivar training_week_len: The number of past weeks to use as input for prediction.
-    :ivar split_ratios: The ratio for splitting data into train, validation, and test sets.
     """
+    # The common fields are now inherited. We only need to define the unique ones.
     training_week_len: int
-    split_ratios: tuple[int, int, int]
-    random_state: int
 
 
 @dataclass(frozen=True)
@@ -83,6 +63,7 @@ class PredictionFeature:
         """
         return [self.box_office, self.avg_sentiment, self.reply_count]
 
+
 class PredictionDataProcessor(
     EvaluableDataProcessor[
         PredictionDataSource,
@@ -90,7 +71,9 @@ class PredictionDataProcessor(
         PredictionTrainingProcessedData,
         PredictionPredictionRawData,
         PredictionPredictionProcessedData,
-        PredictionDataConfig
+        PredictionDataConfig,
+        NDArray[float32],
+        NDArray[float64]
     ]
 ):
     """
@@ -104,7 +87,6 @@ class PredictionDataProcessor(
 
     SCALER_FILE_NAME: Final[str] = "scaler.pickle"
 
-
     @override
     def __init__(self, model_artifacts_path: Optional[Path] = None):
         """
@@ -113,9 +95,6 @@ class PredictionDataProcessor(
         :param model_artifacts_path: Path to the directory for model artifacts.
         """
         self.scaler: Optional[MinMaxScaler] = None
-        self.splitter: DatasetSplitter[NDArray[float32], NDArray[float64]] = \
-            DatasetSplitter[NDArray[float32], NDArray[float64]]()
-        self.logger: Logger = LoggingManager().get_logger('machine_learning')
         super().__init__(model_artifacts_path=model_artifacts_path)
 
     @override
@@ -134,7 +113,7 @@ class PredictionDataProcessor(
         artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
         self.logger.info(f"Saving scaler and settings artifact to: {artifact_path}")
 
-        PickleFile(path=artifact_path).save(data=self.scaler)  # <-- 只儲存 scaler
+        PickleFile(path=artifact_path).save(data=self.scaler)
 
     @override
     def load_artifacts(self) -> None:
@@ -173,44 +152,6 @@ class PredictionDataProcessor(
             self.logger.warning(f"No movie data loaded from dataset: {source.dataset_name}")
 
         return movie_data_list
-
-    @override
-    def process_for_training(
-        self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig
-    ) -> PredictionTrainingProcessedData:
-        """
-        Processes raw movie data into a format suitable for model training.
-
-        This method orchestrates the full transformation pipeline:
-        1. Converts raw `MovieData` objects into weekly `WeekData`.
-        2. Transforms weekly data into a numerical format.
-        3. Creates time-series sequences for the LSTM model.
-        4. Splits the data into train, validation, and test sets.
-        5. Applies scaling to the split data.
-
-        :param raw_data: The raw list of `MovieData` objects.
-        :param config: A configuration object for the training process.
-        :returns: The processed and split data, ready to be fed into a model.
-        """
-        # transform_raw_to_weekly_data
-        sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
-            movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1)
-
-        if not sessions:
-            raise ValueError("No sessions data available.")
-
-        x, y = PredictionDataProcessor._create_xy_from_sessions(sessions=sessions, week_limit=config.training_week_len)
-
-        split_data: SplitDataset[NDArray[float32], NDArray[float64]] = self.splitter.split(
-            x_data=x,
-            y_data=y,
-            split_ratios=config.split_ratios,
-            random_state=config.random_state,
-            shuffle=True
-        )
-        scaled_data: PredictionTrainingProcessedData = self._scale_data(unscaled_data=split_data)
-
-        return scaled_data
 
     @override
     def process_for_prediction(self, single_input: PredictionPredictionRawData,
@@ -300,6 +241,29 @@ class PredictionDataProcessor(
 
         return x_scaled, y_scaled
 
+    @override
+    def _prepare_for_split(self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig) -> tuple[
+        NDArray[float32], NDArray[float64]]:
+        """
+        Creates time-series sequences (x and y) from raw movie data.
+        """
+        sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
+            movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1)
+
+        if not sessions:
+            raise ValueError("No sessions data available.")
+
+        x, y = PredictionDataProcessor._create_xy_from_sessions(sessions=sessions, week_limit=config.training_week_len)
+        return x, y
+
+    @override
+    def _post_process_splits(self, split_data: SplitDataset[NDArray[float32], NDArray[float64]],
+                             config: PredictionDataConfig) -> PredictionTrainingProcessedData:
+        """
+        Fits the scaler on the training data and applies it to all data splits.
+        """
+        return self._scale_data(unscaled_data=split_data)
+
     @staticmethod
     def _create_xy_from_sessions(sessions: list[MovieSessionData], week_limit: int) \
         -> tuple[NDArray[float32], NDArray[float64]]:
@@ -343,8 +307,9 @@ class PredictionDataProcessor(
             avg_sentiment=week.average_sentiment_score or 0.0,
             reply_count=week.total_reply_count
         )
+
     @staticmethod
-    def _convert_weeks_to_numerical_sequence( weeks: list[WeekData]) -> list[list[int | float]]:
+    def _convert_weeks_to_numerical_sequence(weeks: list[WeekData]) -> list[list[int | float]]:
         """
         Converts a list of WeekData objects into a numerical sequence.
 
@@ -355,7 +320,8 @@ class PredictionDataProcessor(
         :returns: A list of lists, where each inner list represents the numerical features for a week.
         """
 
-        return list(map(lambda week: PredictionDataProcessor._extract_features_from_week(week=week).as_numerical_list(), weeks))
+        return list(
+            map(lambda week: PredictionDataProcessor._extract_features_from_week(week=week).as_numerical_list(), weeks))
 
     def _scale_feature_in_sequences(self, sequences: NDArray[float32]) -> NDArray[float32]:
         """

@@ -3,10 +3,10 @@ from argparse import ArgumentParser, Namespace, _SubParsersAction
 from pathlib import Path
 from typing import Optional
 
-from src.cli.handlers.dataset_handler import DatasetHandler
 from src.cli.handlers.base_model_handler import BaseModelHandler
-from src.cli.handlers.sentiment_model_handler import SentimentModelHandler
+from src.cli.handlers.dataset_handler import DatasetHandler
 from src.cli.handlers.prediction_model_handler import PredictionModelHandler
+from src.cli.handlers.sentiment_model_handler import SentimentModelHandler
 
 
 class ArgumentParserBuilder:
@@ -32,7 +32,7 @@ class ArgumentParserBuilder:
     :ivar __sentiment_model_handler: The handler for 'sentiment-model' command logic.
     :ivar __prediction_model_handler: The handler for 'prediction-model' command logic.
     """
-    _MODEL_ID_KWARGS: dict[str, type|bool|str] = {
+    _MODEL_ID_KWARGS: dict[str, type | bool | str] = {
         "type": str,
         "required": True,
         "help": "The unique identifier for the model series."
@@ -242,11 +242,11 @@ class ArgumentParserBuilder:
                                         help='Evaluate or plot the test loss.')
         plot_options_group.add_argument('--f1-score', action='store_true', help='Evaluate or plot the F1-score.')
         parser.add_argument('--dataset-name', type=str,
-            help=
-    'Optional. Specify a new dataset to evaluate on. '
-    'If provided, this triggers \'exploratory mode\' to test on the full, unsplit dataset. '
-    'If omitted (default), the original training dataset is used to reproduce the exact test set.'
-)
+                            help=
+                            'Optional. Specify a new dataset to evaluate on. '
+                            'If provided, this triggers \'exploratory mode\' to test on the full, unsplit dataset. '
+                            'If omitted (default), the original training dataset is used to reproduce the exact test set.'
+                            )
         return parser
 
     def __create_plot_common_behavior_parser(self) -> ArgumentParser:

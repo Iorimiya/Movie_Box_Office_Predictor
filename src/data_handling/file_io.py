@@ -138,7 +138,6 @@ class CsvFile(File):
                 writer.writerows(rowdicts=data)
         return
 
-
     def load(self, row_factory: Optional[Callable[[dict[str, str]], any]] = None) -> list[any]:
         """
         Loads data from the CSV file.

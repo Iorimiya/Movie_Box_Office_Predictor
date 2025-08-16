@@ -311,7 +311,8 @@ class BoxOfficeCollector:
                     self.__logger.info(f"Successfully navigated directly to '{known_url}'.")
                     return known_url
                 else:
-                    self.__logger.warning(f"Direct navigation to '{known_url}' resulted in redirect to '{self.__browser.current_url}'. Falling back to search.")
+                    self.__logger.warning(
+                        f"Direct navigation to '{known_url}' resulted in redirect to '{self.__browser.current_url}'. Falling back to search.")
             except TimeoutException as e:
                 self.__logger.warning(f"Direct navigation to '{known_url}' timed out: {e}. Falling back to search.")
             except Exception as e:
@@ -409,7 +410,7 @@ class BoxOfficeCollector:
                                       movie_id: Optional[int] = None,
                                       progress_file: Optional[BoxOfficeProgressFile] = None,
                                       trying_times: int = 3) -> \
-            Tuple[Optional[list[BoxOffice]], Optional[str]]:
+        Tuple[Optional[list[BoxOffice]], Optional[str]]:
         """
         Core logic to fetch box office data for a single movie.
 
@@ -528,7 +529,7 @@ class BoxOfficeCollector:
             )
 
         with tqdm(
-                total=len(multiple_movie_data), bar_format=Constants.STATUS_BAR_FORMAT, desc="Collecting Box Office"
+            total=len(multiple_movie_data), bar_format=Constants.STATUS_BAR_FORMAT, desc="Collecting Box Office"
         ) as pbar:
             for movie in multiple_movie_data:
                 pbar.set_postfix_str(f"Movie: {movie.name[:30]}...", refresh=True)

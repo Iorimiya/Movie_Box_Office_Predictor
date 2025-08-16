@@ -1,13 +1,30 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Generic, Optional, TypeVar
+
+
+@dataclass(frozen=True)
+class BaseDataConfig:
+    """
+    A base dataclass for data processing configurations.
+
+    Defines common attributes required for processing data for model training,
+    such as data splitting parameters.
+
+    :ivar split_ratios: The ratio for splitting data into train, validation, and test sets.
+    :ivar random_state: The seed used by the random number generator for data splitting.
+    """
+    split_ratios: tuple[int, int, int]
+    random_state: int
+
 
 RawDataSourceType = TypeVar('RawDataSourceType')
 RawDataType = TypeVar('RawDataType')
 ProcessedTrainingDataType = TypeVar('ProcessedTrainingDataType')
 PredictionDataType = TypeVar('PredictionDataType')
 ProcessedPredictionDataType = TypeVar('ProcessedPredictionDataType')
-DataConfigType = TypeVar('DataConfigType')
+DataConfigType = TypeVar('DataConfigType', bound=BaseDataConfig)
 
 
 class BaseDataProcessor(

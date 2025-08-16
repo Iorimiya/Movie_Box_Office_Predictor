@@ -30,6 +30,7 @@ class SentimentBuildConfig:
     lstm_units: int
     max_sequence_length: int
 
+
 @dataclass(frozen=True)
 class SentimentTrainConfig(BaseTrainConfig):
     """

@@ -13,6 +13,7 @@ Callback = keras_base.callbacks.Callback
 History = keras_base.callbacks.History
 load_model = keras_base.models.load_model
 
+
 @dataclass(frozen=True)
 class BaseTrainConfig:
     """

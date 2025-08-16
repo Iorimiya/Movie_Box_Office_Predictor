@@ -213,14 +213,14 @@ class BoxOffice(MovieAuxiliaryDataMixin
         try:
             # noinspection PyTypeChecker
             weekly_box_office_data: list["BoxOffice"] = cls.create_multiple(source=prepared_raw_data_list)
-        except ValueError as e: # Catch errors from _prepare_constructor_args if they propagate
+        except ValueError as e:  # Catch errors from _prepare_constructor_args if they propagate
             logger.error(
                 f"Error creating BoxOffice instances from prepared data from {file_path}: {e}",
                 exc_info=True
             )
-            raise # Re-raise the ValueError from _prepare_constructor_args
+            raise  # Re-raise the ValueError from _prepare_constructor_args
 
-        if not weekly_box_office_data: # If create_multiple returned empty list (all items failed validation)
+        if not weekly_box_office_data:  # If create_multiple returned empty list (all items failed validation)
             msg = f"Failed to create any valid BoxOffice objects from the prepared data in {file_path}."
             logger.error(msg)
             raise ValueError(msg)

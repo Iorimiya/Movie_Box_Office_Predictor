@@ -18,6 +18,7 @@ from src.models.sentiment.components.model_core import (
 History = keras_base.callbacks.History
 ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
 
+
 @dataclass(frozen=True)
 class SentimentPipelineConfig:
     """
@@ -62,8 +63,6 @@ class SentimentTrainingPipeline(
     full training run based on a master configuration file. It handles data
     loading, processing, model building, training, and artifact saving.
     """
-
-    HISTORY_FILE_NAME: str = "training_history.pkl"
 
     @override
     def run(self, config: SentimentPipelineConfig, continue_from_epoch: Optional[int] = None) -> None:
@@ -208,13 +207,6 @@ class SentimentTrainingPipeline(
         Creates a SentimentModelCore instance from a saved model file.
         """
         return SentimentModelCore(model_path=model_path)
-
-    @override
-    def _get_history_filename(self) -> str:
-        """
-        Returns the history filename for the prediction model.
-        """
-        return self.HISTORY_FILE_NAME
 
     @override
     def _merge_histories(

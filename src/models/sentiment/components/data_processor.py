@@ -1,7 +1,6 @@
 from dataclasses import dataclass
-from logging import Logger
 from pathlib import Path
-from typing import Final, Optional, TypedDict
+from typing import Final, Optional
 
 import jieba
 import numpy as np
@@ -12,10 +11,10 @@ from numpy.typing import NDArray
 from pandas import DataFrame
 from typing_extensions import override
 
-from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectPaths
 from src.data_handling.file_io import CsvFile, PickleFile
-from src.models.base.data_splitter import DatasetSplitter, SplitDataset
+from src.models.base.base_data_processor import BaseDataConfig
+from src.models.base.data_splitter import SplitDataset
 from src.models.base.evaluable_data_processor import EvaluableDataProcessor
 
 
@@ -31,43 +30,22 @@ class SentimentDataSource:
 
 
 SentimentTrainingRawData: type = DataFrame
-
-
-class SentimentTrainingProcessedData(TypedDict):
-    """
-    A TypedDict representing the processed and split dataset for sentiment analysis.
-
-    :ivar x_train: Training data (features).
-    :ivar y_train: Training data (labels).
-    :ivar x_val: Validation data (features).
-    :ivar y_val: Validation data (labels).
-    :ivar x_test: Test data (features).
-    :ivar y_test: Test data (labels).
-    """
-    x_train: NDArray[int32]
-    y_train: NDArray[int64]
-    x_val: NDArray[int32]
-    y_val: NDArray[int64]
-    x_test: NDArray[int32]
-    y_test: NDArray[int64]
-
-
+SentimentTrainingProcessedData: type = SplitDataset[NDArray[int32], NDArray[int64]]
 SentimentPredictionRawData: type = str
 SentimentPredictionProcessedData: type = NDArray[int32]
 
 
 @dataclass(frozen=True)
-class SentimentDataConfig:
+class SentimentDataConfig(BaseDataConfig):
     """
     Configuration for processing data for sentiment model training.
 
+    Inherits common splitting parameters from BaseDataConfig.
+
     :ivar vocabulary_size: The maximum number of words to keep, based on word frequency.
-    :ivar split_ratios: The ratio for splitting data into train, validation, and test sets.
-    :ivar random_state: The seed used by the random number generator for data splitting.
     """
+    # The common fields are now inherited. We only need to define the unique ones.
     vocabulary_size: int
-    split_ratios: tuple[int, int, int]
-    random_state: int
 
 
 class SentimentDataProcessor(
@@ -77,7 +55,9 @@ class SentimentDataProcessor(
         SentimentTrainingProcessedData,
         SentimentPredictionRawData,
         SentimentPredictionProcessedData,
-        SentimentDataConfig
+        SentimentDataConfig,
+        NDArray[int32],
+        NDArray[int64]
     ]
 ):
     """
@@ -100,9 +80,6 @@ class SentimentDataProcessor(
         """
         self.tokenizer: Optional[Tokenizer] = None
         self.max_sequence_length: Optional[int] = None
-        self.logger: Logger = LoggingManager().get_logger('machine_learning')
-        self.splitter: DatasetSplitter[NDArray[int32], NDArray[int64]] = \
-            DatasetSplitter[NDArray[int32], NDArray[int64]]()
         super().__init__(model_artifacts_path=model_artifacts_path)
 
     @override
@@ -120,8 +97,7 @@ class SentimentDataProcessor(
         self.model_artifacts_path.mkdir(parents=True, exist_ok=True)
         artifact_path: Path = self.model_artifacts_path / self.ARTIFACTS_FILE_NAME
         self.logger.info(f"Saving Tokenizer and max_sequence_length artifact to: {artifact_path}")
-        pickle_file: PickleFile = PickleFile(path=artifact_path)
-        pickle_file.save(data={
+        PickleFile(path=artifact_path).save(data={
             'tokenizer': self.tokenizer,
             'max_sequence_length': self.max_sequence_length
         })
@@ -175,62 +151,8 @@ class SentimentDataProcessor(
         return raw_dataframe
 
     @override
-    def process_for_training(self, raw_data: SentimentTrainingRawData,
-                             config: SentimentDataConfig) -> SentimentTrainingProcessedData:
-        """
-        Prepares raw data for training a sentiment analysis model.
-
-        This involves constructing sample sentences, performing word segmentation,
-        initializing and fitting a Tokenizer, converting texts to padded sequences,
-        and splitting the data into training, validation, and testing sets.
-
-        :param raw_data: Input data with 'is_positive' and 'word' columns.
-        :param config: The configuration object with training parameters.
-        :returns: A dictionary containing all data splits.
-        :raises ValueError: If the sum of `split_ratios` is zero.
-        """
-        # Step 1 & 2: Construct and segment texts
-        segmented_texts, labels = self._construct_and_segment_texts(raw_data=raw_data)
-
-        x_text: NDArray[object] = np.array(segmented_texts, dtype=object)
-        y_data: NDArray[int64] = np.array(labels)
-
-        self.logger.info("Splitting raw text data before tokenization...")
-        text_splitter: DatasetSplitter[NDArray[object], NDArray[int64]] = DatasetSplitter()
-        text_splits: SplitDataset[NDArray[object], NDArray[int64]] = text_splitter.split(
-            x_data=x_text,
-            y_data=y_data,
-            split_ratios=config.split_ratios,
-            random_state=config.random_state,
-            shuffle=True
-        )
-
-        # Step 3 & 4: Fit tokenizer on the training set and transform all sets.
-        x_train_seq, x_val_seq, x_test_seq = self._fit_tokenizer_and_transform_splits(
-            x_train_text=text_splits['x_train'],
-            x_val_text=text_splits['x_val'],
-            x_test_text=text_splits['x_test'],
-            vocabulary_size=config.vocabulary_size
-        )
-
-        # Step 5: Pad all sequences to the same length.
-        self.logger.info("Padding all sequence splits to a uniform length...")
-        self.max_sequence_length = max(len(s) for s in x_train_seq + x_val_seq + x_test_seq) if (
-                x_train_seq or x_val_seq or x_test_seq) else 0
-        self.logger.info(f"Determined max_sequence_length: {self.max_sequence_length}")
-
-        x_train_pad: NDArray[int32] = pad_sequences(sequences=x_train_seq, maxlen=self.max_sequence_length)
-        x_val_pad: NDArray[int32] = pad_sequences(sequences=x_val_seq, maxlen=self.max_sequence_length)
-        x_test_pad: NDArray[int32] = pad_sequences(sequences=x_test_seq, maxlen=self.max_sequence_length)
-
-        return SentimentTrainingProcessedData(
-            x_train=x_train_pad, y_train=text_splits['y_train'],
-            x_val=x_val_pad, y_val=text_splits['y_val'],
-            x_test=x_test_pad, y_test=text_splits['y_test']
-        )
-
-    @override
-    def process_for_prediction(self, single_input: SentimentPredictionRawData, config: Optional[SentimentDataConfig] = None) -> NDArray[int32]:
+    def process_for_prediction(self, single_input: SentimentPredictionRawData,
+                               config: Optional[SentimentDataConfig] = None) -> NDArray[int32]:
         """
         Processes a single text input for sentiment prediction.
 
@@ -280,6 +202,45 @@ class SentimentDataProcessor(
         y_data: NDArray[int64] = np.array(labels)
 
         return x_data, y_data
+
+    @override
+    def _prepare_for_split(self, raw_data: SentimentTrainingRawData, config: SentimentDataConfig) -> tuple[
+        NDArray[object], NDArray[int64]]:
+        """
+        Constructs and segments texts from raw data to prepare for splitting.
+        """
+        segmented_texts, labels = self._construct_and_segment_texts(raw_data=raw_data)
+        x_text: NDArray[object] = np.array(segmented_texts, dtype=object)
+        y_data: NDArray[int64] = np.array(labels)
+        return x_text, y_data
+
+    @override
+    def _post_process_splits(self, split_data: SplitDataset[NDArray[object], NDArray[int64]],
+                             config: SentimentDataConfig) -> SentimentTrainingProcessedData:
+        """
+        Fits tokenizer on the training split and then pads all sequence splits.
+        """
+        x_train_seq, x_val_seq, x_test_seq = self._fit_tokenizer_and_transform_splits(
+            x_train_text=split_data['x_train'],
+            x_val_text=split_data['x_val'],
+            x_test_text=split_data['x_test'],
+            vocabulary_size=config.vocabulary_size
+        )
+
+        self.logger.info("Padding all sequence splits to a uniform length...")
+        self.max_sequence_length = max(len(s) for s in x_train_seq + x_val_seq + x_test_seq) if (
+            x_train_seq or x_val_seq or x_test_seq) else 0
+        self.logger.info(f"Determined max_sequence_length: {self.max_sequence_length}")
+
+        x_train_pad: NDArray[int32] = pad_sequences(sequences=x_train_seq, maxlen=self.max_sequence_length)
+        x_val_pad: NDArray[int32] = pad_sequences(sequences=x_val_seq, maxlen=self.max_sequence_length)
+        x_test_pad: NDArray[int32] = pad_sequences(sequences=x_test_seq, maxlen=self.max_sequence_length)
+
+        return SplitDataset(
+            x_train=x_train_pad, y_train=split_data['y_train'],
+            x_val=x_val_pad, y_val=split_data['y_val'],
+            x_test=x_test_pad, y_test=split_data['y_test']
+        )
 
     def _construct_and_segment_texts(self, raw_data: SentimentTrainingRawData) -> tuple[list[str], list[int]]:
         """

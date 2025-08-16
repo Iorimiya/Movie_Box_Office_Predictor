@@ -423,7 +423,6 @@ class MovieSessionData:
                   or an empty list if processing fails or no valid sessions are found.
         """
 
-
         box_office_file_path: Path = movie_meta_item.box_office_file_path
         public_reviews_file_path: Path = movie_meta_item.public_reviews_file_path
         expert_reviews_file_path: Path = movie_meta_item.expert_reviews_file_path
@@ -457,6 +456,7 @@ class MovieSessionData:
         )
 
         return cls.create_sessions_from_single_movie_data(movie_data=movie_data, number_of_weeks=number_of_weeks)
+
 
 @dataclass(kw_only=True)
 class MovieData:
@@ -591,7 +591,6 @@ class MovieData:
         logger.info(
             f"Attempting to load {component_name_for_log} for movie ID {self.id} from '{source_file_path}'."
         )
-
 
         if not source_file_path.exists():
             logger.warning(
