@@ -758,6 +758,7 @@ class SentimentModelHandler(BaseModelHandler):
                 datasets_to_plot.append({"label": "Training Loss", "data": eval_results.full_training_loss_history})
             if args.validation_loss:
                 datasets_to_plot.append({"label": "Validation Loss", "data": eval_results.full_validation_loss_history})
+            if args.test_loss:
                 test_loss_aligned_data = [float('nan')] * len(history_epochs)
                 for i, epoch in enumerate(eval_results.evaluated_epochs):
                     if 1 <= epoch <= len(history_epochs):
@@ -1232,18 +1233,18 @@ class PredictionModelHandler(BaseModelHandler):
                 self._logger.warning(
                     f"  - Training Loss:   Not available for epoch {args.epoch} (history length: {len(result.training_loss_history)}).")
 
-        if args.validation_loss:
-            try:
-                val_loss = result.validation_loss_history[args.epoch - 1]
-                self._logger.info(f"  - Validation Loss (MSE): {val_loss:.6f}")
-            except IndexError:
-                self._logger.warning(
-                    f"  - Validation Loss: Not available for epoch {args.epoch} (history length: {len(result.validation_loss_history)}).")
-            # Test loss is always available from the current evaluation run if requested
-            if result.mse_loss is not None:
-                self._logger.info(f"  - Test Loss (MSE):       {result.mse_loss:.6f}")
-            else:
-                self._logger.warning("  - Test Loss (MSE):       Not calculated (was not requested).")
+        if args.validation_loss or args.test_loss:
+            if args.validation_loss:
+                try:
+                    val_loss = result.validation_loss_history[args.epoch - 1]
+                    self._logger.info(f"  - Validation Loss: {val_loss:.6f}")
+                except IndexError:
+                    self._logger.warning(
+                        f"  - Validation Loss: Not available for epoch {args.epoch} (history length: {len(result.validation_loss_history)}).")
+
+            # Test loss is always available from the current evaluation run
+            # Now it can be triggered by either --validation-loss or --test-loss
+            self._logger.info(f"  - Test Loss:       {result.mse_loss:.6f}")
 
         if args.f1_score:
             if result.f1_score is not None:
@@ -1282,11 +1283,12 @@ class PredictionModelHandler(BaseModelHandler):
                 datasets_to_plot.append({"label": "Training Loss", "data": eval_results.full_training_loss_history})
             if args.validation_loss:
                 datasets_to_plot.append({"label": "Validation Loss", "data": eval_results.full_validation_loss_history})
-                test_loss_aligned_data: list[float] = [float('nan')] * len(history_epochs)
+            if args.test_loss:
+                test_loss_aligned_data = [float('nan')] * len(history_epochs)
                 for i, epoch in enumerate(eval_results.evaluated_epochs):
                     if 1 <= epoch <= len(history_epochs):
-                        test_loss_aligned_data[epoch - 1] = eval_results.test_mse_losses[i]
-                datasets_to_plot.append({"label": "Test Loss (MSE)", "data": test_loss_aligned_data})
+                        test_loss_aligned_data[epoch - 1] = eval_results.test_losses[i]
+                datasets_to_plot.append({"label": "Test Loss", "data": test_loss_aligned_data})
 
             plot_multi_line_graph(
                 title=f"Loss Curves for {args.model_id}",

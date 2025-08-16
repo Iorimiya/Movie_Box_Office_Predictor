@@ -222,7 +222,7 @@ class ArgumentParserBuilder:
         Creates a parent parser for common arguments in model evaluation commands.
 
         This parser provides boolean flags for selecting which metrics to evaluate
-        or plot, such as '--training-loss', '--validation-loss', and '--f1-score'.
+        or plot, such as '--training-loss', '--validation-loss', '--test-loss' and '--f1-score'.
 
         :returns: An ArgumentParser configured with common evaluation metric-selection arguments.
         """
@@ -235,6 +235,8 @@ class ArgumentParserBuilder:
                                         help='Evaluate or plot the training loss.')
         plot_options_group.add_argument('--validation-loss', action='store_true',
                                         help='Evaluate or plot the validation loss.')
+        plot_options_group.add_argument('--test-loss', action='store_true',
+                                        help='Evaluate or plot the test loss.')
         plot_options_group.add_argument('--f1-score', action='store_true', help='Evaluate or plot the F1-score.')
         parser.add_argument('--dataset-name', type=str,
             help=
