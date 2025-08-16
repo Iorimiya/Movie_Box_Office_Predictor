@@ -9,7 +9,7 @@ from keras_preprocessing.sequence import pad_sequences
 from keras_preprocessing.text import Tokenizer
 from numpy import int32, int64
 from numpy.typing import NDArray
-from pandas import DataFrame, Series
+from pandas import DataFrame
 from typing_extensions import override
 
 from src.core.logging_manager import LoggingManager
@@ -269,17 +269,14 @@ class SentimentDataProcessor(
         :param raw_data: The raw data containing positive and negative words.
         :returns: A tuple containing the list of segmented texts and their corresponding labels.
         """
-        self.logger.info("Constructing sample sentences and performing word segmentation...")
-        positive_words: Series = raw_data.loc[raw_data['is_positive'], 'word'].dropna()
-        negative_words: Series = raw_data.loc[~raw_data['is_positive'], 'word'].dropna()
+        self.logger.info("Extracting sentences and performing word segmentation...")
 
-        positive_samples: list[str] = [f"這是一個非常{word}的電影，值得推薦！" for word in positive_words]
-        negative_samples: list[str] = [f"這是一個非常{word}的電影，完全不推薦！" for word in negative_words]
-
-        texts: list[str] = positive_samples + negative_samples
-        labels: list[int] = [1] * len(positive_samples) + [0] * len(negative_samples)
-
+        clean_data: DataFrame = raw_data.dropna(subset=['word', 'is_positive'])
+        texts: list[str] = clean_data['word'].tolist()
+        labels: list[int] = clean_data['is_positive'].astype(int).tolist()
         segmented_texts: list[str] = [" ".join(jieba.lcut(text)) for text in texts]
+
+        self.logger.info(f"Processed {len(segmented_texts)} sentences for training.")
         return segmented_texts, labels
 
     def _tokenize_and_pad_sequences(
