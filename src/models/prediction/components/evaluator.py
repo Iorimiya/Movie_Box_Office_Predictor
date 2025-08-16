@@ -10,7 +10,7 @@ from typing_extensions import override
 
 from src.core.project_config import ProjectPaths, ProjectModelType
 from src.data_handling.file_io import PickleFile
-from src.models.base.base_evaluator import BaseEvaluator
+from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
     PredictionDataProcessor,
@@ -60,27 +60,19 @@ class PredictionEvaluationConfig:
 
 
 @dataclass(frozen=True)
-class PredictionEvaluationResult:
+class PredictionEvaluationResult(BaseEvaluationResult):  # <-- Inherit from BaseEvaluationResult
     """
     A structured result of a prediction model evaluation run.
 
-    :ivar model_id: The unique identifier for the evaluated model series.
-    :ivar model_epoch: The specific epoch of the evaluated model.
-    :ivar mse_loss: The Mean Squared Error calculated on the test set.
+    Inherits common fields from BaseEvaluationResult.
+
     :ivar trend_accuracy: The trend prediction accuracy on the test set.
-    :ivar range_accuracy: The range prediction accuracy on the test set.
-    :ivar f1_score: The F1-score for range prediction on the test set.
-    :ivar training_loss_history: A list of training loss values from the original run.
-    :ivar validation_loss_history: A list of validation loss values from the original run.
+    :ivar test_accuracy: The range prediction accuracy on the test set.
     """
-    model_id: str
-    model_epoch: int
-    mse_loss: Optional[float]
+    # The common fields are now inherited. We only need to define the unique ones.
     trend_accuracy: Optional[float]
-    range_accuracy: Optional[float]
-    f1_score: Optional[float]
-    training_loss_history: list[float]
-    validation_loss_history: list[float]
+    test_accuracy: Optional[float]
+
 
 
 class PredictionEvaluator(
@@ -156,9 +148,9 @@ class PredictionEvaluator(
         return PredictionEvaluationResult(
             model_id=config.model_id,
             model_epoch=config.model_epoch,
-            mse_loss=mse_loss,
+            test_loss=mse_loss,
             trend_accuracy=trend_acc,
-            range_accuracy=range_acc,
+            test_accuracy=range_acc,
             f1_score=f1,
             training_loss_history=training_loss,
             validation_loss_history=validation_loss

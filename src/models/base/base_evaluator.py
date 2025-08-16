@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from logging import Logger
-from typing import  Generic, TypeVar
+from typing import Generic, Optional, TypeVar
 
 from src.core.logging_manager import LoggingManager
 from src.models.base.base_data_processor import BaseDataProcessor
@@ -10,6 +11,28 @@ DataProcessorType = TypeVar('DataProcessorType', bound=BaseDataProcessor)
 ModelCoreType = TypeVar('ModelCoreType', bound=BaseModelCore)
 EvaluationConfigType = TypeVar('EvaluationConfigType')
 EvaluationResultType = TypeVar('EvaluationResultType')
+
+
+@dataclass(frozen=True)
+class BaseEvaluationResult:
+    """
+    A base dataclass for structured evaluation results.
+
+    Defines the common attributes that all model evaluation results must have.
+
+    :ivar model_id: The unique identifier for the evaluated model series.
+    :ivar model_epoch: The specific epoch of the evaluated model.
+    :ivar test_loss: The loss calculated on the test set.
+    :ivar f1_score: The F1-score calculated on the test set.
+    :ivar training_loss_history: A list of training loss values from the original run.
+    :ivar validation_loss_history: A list of validation loss values from the original run.
+    """
+    model_id: str
+    model_epoch: int
+    test_loss: Optional[float]
+    f1_score: Optional[float]
+    training_loss_history: list[float]
+    validation_loss_history: list[float]
 
 
 class BaseEvaluator(

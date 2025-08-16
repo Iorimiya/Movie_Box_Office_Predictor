@@ -3,7 +3,10 @@ from argparse import ArgumentParser, Namespace, _SubParsersAction
 from pathlib import Path
 from typing import Optional
 
-from src.cli.handlers import DatasetHandler, SentimentModelHandler, PredictionModelHandler, BaseModelHandler
+from src.cli.handlers.dataset_handler import DatasetHandler
+from src.cli.handlers.base_model_handler import BaseModelHandler
+from src.cli.handlers.sentiment_model_handler import SentimentModelHandler
+from src.cli.handlers.prediction_model_handler import PredictionModelHandler
 
 
 class ArgumentParserBuilder:

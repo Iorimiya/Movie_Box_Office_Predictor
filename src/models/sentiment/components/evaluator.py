@@ -8,7 +8,7 @@ from typing_extensions import override
 
 from src.core.project_config import ProjectPaths, ProjectModelType
 from src.data_handling.file_io import PickleFile
-from src.models.base.base_evaluator import BaseEvaluator
+from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult
 from src.models.base.keras_setup import keras_base
 from src.models.sentiment.components.data_processor import (
     SentimentTrainingProcessedData,
@@ -51,27 +51,15 @@ class SentimentEvaluationConfig:
 
 
 @dataclass(frozen=True)
-class SentimentEvaluationResult:
+class SentimentEvaluationResult(BaseEvaluationResult):  # <-- Inherit from BaseEvaluationResult
     """
     A structured result of a sentiment model evaluation run.
 
-    :ivar model_id: The unique identifier for the evaluated model series.
-    :ivar model_epoch: The specific epoch of the evaluated model.
-    :ivar test_loss: The loss calculated on the test set.
+    Inherits common fields from BaseEvaluationResult.
+
     :ivar test_accuracy: The accuracy calculated on the test set.
-    :ivar f1_score: The F1-score calculated on the test set.
-    :ivar training_loss_history: A list of training loss values from each epoch
-                                 of the original training run.
-    :ivar validation_loss_history: A list of validation loss values from each
-                                   epoch of the original training run.
     """
-    model_id: str
-    model_epoch: int
-    test_loss: float
     test_accuracy: float
-    f1_score: float
-    training_loss_history: list[float]
-    validation_loss_history: list[float]
 
 
 @dataclass(frozen=True)
