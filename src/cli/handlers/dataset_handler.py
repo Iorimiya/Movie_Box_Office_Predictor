@@ -137,73 +137,80 @@ class DatasetHandler:
                     exc_info=True
                 )
 
-    def collect_ptt_review(self, args: Namespace) -> None:
+    def _collect_reviews(
+        self, args: Namespace, target_website: TargetWebsite, website_display_name: str
+    ) -> None:
         """
-        Collects PTT reviews for an entire dataset or a single movie.
+        A generic helper method to collect public reviews for a given website.
 
-        :param args: The namespace object containing command-line arguments,
-                     expected to have 'structured_dataset_name' or 'movie_name'.
+        This method contains the shared logic for collecting reviews for either
+        an entire dataset or a single movie, abstracting away the specific
+        target website.
+
+        :param args: The namespace object containing command-line arguments.
+        :param target_website: The enum member representing the target website (e.g., TargetWebsite.PTT).
+        :param website_display_name: The user-friendly name of the website for logging (e.g., "PTT").
         :raises FileNotFoundError: If the specified dataset path does not exist.
         """
         if args.structured_dataset_name:
             dataset_name: str = args.structured_dataset_name
-            self._logger.info(f"Executing: Collect PTT reviews for dataset '{dataset_name}'.")
+            self._logger.info(f"Executing: Collect {website_display_name} reviews for dataset '{dataset_name}'.")
             self._validate_dataset_path(dataset_name=dataset_name)
-            Dataset(name=dataset_name).collect_public_review(target_website='PTT')
+            # noinspection PyTypeChecker
+            Dataset(name=dataset_name).collect_public_review(target_website=target_website.name)
         elif args.movie_name:
             movie_name: str = args.movie_name
-            self._logger.info(f"Executing: Collect PTT reviews for movie '{movie_name}'.")
+            self._logger.info(f"Executing: Collect {website_display_name} reviews for movie '{movie_name}'.")
 
             try:
-                collector = ReviewCollector(target_website=TargetWebsite.PTT)
+                collector = ReviewCollector(target_website=target_website)
                 reviews: list[PublicReview] = collector.collect_reviews_for_movie(movie_name=movie_name)
                 if reviews:
-                    self._logger.info(f"Successfully retrieved PTT reviews for '{movie_name}'.")
-                    self._log_reviews_data(logger=self._logger, movie_name=movie_name, reviews=reviews,
-                                           review_type="PTT")
+                    self._logger.info(f"Successfully retrieved {website_display_name} reviews for '{movie_name}'.")
+                    self._log_reviews_data(
+                        logger=self._logger,
+                        movie_name=movie_name,
+                        reviews=reviews,
+                        review_type=website_display_name
+                    )
                 else:
-                    self._logger.warning(f"No PTT reviews found for '{movie_name}'.")
+                    self._logger.warning(f"No {website_display_name} reviews found for '{movie_name}'.")
 
             except Exception as e:
                 self._logger.error(
-                    f"An error occurred while collecting PTT reviews for '{movie_name}': {e}",
+                    f"An error occurred while collecting {website_display_name} reviews for '{movie_name}': {e}",
                     exc_info=True
                 )
-            pass
+
+    def collect_ptt_review(self, args: Namespace) -> None:
+        """
+        Collects PTT reviews for an entire dataset or a single movie.
+
+        This method delegates the core logic to the generic `_collect_reviews` helper.
+
+        :param args: The namespace object containing command-line arguments,
+                     expected to have 'structured_dataset_name' or 'movie_name'.
+        """
+        self._collect_reviews(
+            args=args,
+            target_website=TargetWebsite.PTT,
+            website_display_name="PTT"
+        )
 
     def collect_dcard_review(self, args: Namespace) -> None:
         """
         Collects Dcard reviews for an entire dataset or a single movie.
 
+        This method delegates the core logic to the generic `_collect_reviews` helper.
+
         :param args: The namespace object containing command-line arguments,
                      expected to have 'structured_dataset_name' or 'movie_name'.
-        :raises FileNotFoundError: If the specified dataset path does not exist.
         """
-        if args.structured_dataset_name:
-            dataset_name: str = args.structured_dataset_name
-            self._logger.info(f"Executing: Collect Dcard reviews for dataset '{dataset_name}'.")
-            self._validate_dataset_path(dataset_name=dataset_name)
-            Dataset(name=dataset_name).collect_public_review(target_website='DCARD')
-        elif args.movie_name:
-            movie_name: str = args.movie_name
-            self._logger.info(f"Executing: Collect Dcard reviews for movie '{movie_name}'.")
-
-            try:
-                collector = ReviewCollector(target_website=TargetWebsite.DCARD)
-                reviews: list[PublicReview] = collector.collect_reviews_for_movie(movie_name=movie_name)
-                if reviews:
-                    self._logger.info(f"Successfully retrieved Dcard reviews for '{movie_name}'.")
-                    self._log_reviews_data(
-                        logger=self._logger, movie_name=movie_name, reviews=reviews, review_type="Dcard"
-                    )
-                else:
-                    self._logger.warning(f"No Dcard reviews found for '{movie_name}'.")
-            except Exception as e:
-                self._logger.error(
-                    f"An error occurred while collecting Dcard reviews for '{movie_name}': {e}",
-                    exc_info=True
-                )
-            pass
+        self._collect_reviews(
+            args=args,
+            target_website=TargetWebsite.DCARD,
+            website_display_name="Dcard"
+        )
 
     def compute_sentiment(self, args: Namespace) -> None:
         """
