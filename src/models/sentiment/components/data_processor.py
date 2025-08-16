@@ -192,23 +192,42 @@ class SentimentDataProcessor(
         # Step 1 & 2: Construct and segment texts
         segmented_texts, labels = self._construct_and_segment_texts(raw_data=raw_data)
 
-        # Step 3 & 4: Tokenize and pad sequences
-        x_data, y_data = self._tokenize_and_pad_sequences(
-            segmented_texts=segmented_texts,
-            vocabulary_size=config.vocabulary_size,
-            labels=labels
-        )
+        x_text: NDArray[object] = np.array(segmented_texts, dtype=object)
+        y_data: NDArray[int64] = np.array(labels)
 
-        # Step 5: Split data
-        processed_data: SplitDataset[NDArray[int32], NDArray[int64]] = self.splitter.split(
-            x_data=x_data,
+        self.logger.info("Splitting raw text data before tokenization...")
+        text_splitter: DatasetSplitter[NDArray[object], NDArray[int64]] = DatasetSplitter()
+        text_splits: SplitDataset[NDArray[object], NDArray[int64]] = text_splitter.split(
+            x_data=x_text,
             y_data=y_data,
             split_ratios=config.split_ratios,
             random_state=config.random_state,
             shuffle=True
         )
 
-        return SentimentTrainingProcessedData(**processed_data)
+        # Step 3 & 4: Fit tokenizer on the training set and transform all sets.
+        x_train_seq, x_val_seq, x_test_seq = self._fit_tokenizer_and_transform_splits(
+            x_train_text=text_splits['x_train'],
+            x_val_text=text_splits['x_val'],
+            x_test_text=text_splits['x_test'],
+            vocabulary_size=config.vocabulary_size
+        )
+
+        # Step 5: Pad all sequences to the same length.
+        self.logger.info("Padding all sequence splits to a uniform length...")
+        self.max_sequence_length = max(len(s) for s in x_train_seq + x_val_seq + x_test_seq) if (
+                x_train_seq or x_val_seq or x_test_seq) else 0
+        self.logger.info(f"Determined max_sequence_length: {self.max_sequence_length}")
+
+        x_train_pad: NDArray[int32] = pad_sequences(sequences=x_train_seq, maxlen=self.max_sequence_length)
+        x_val_pad: NDArray[int32] = pad_sequences(sequences=x_val_seq, maxlen=self.max_sequence_length)
+        x_test_pad: NDArray[int32] = pad_sequences(sequences=x_test_seq, maxlen=self.max_sequence_length)
+
+        return SentimentTrainingProcessedData(
+            x_train=x_train_pad, y_train=text_splits['y_train'],
+            x_val=x_val_pad, y_val=text_splits['y_val'],
+            x_test=x_test_pad, y_test=text_splits['y_test']
+        )
 
     @override
     def process_for_prediction(self, single_input: SentimentPredictionRawData, config: Optional[SentimentDataConfig] = None) -> NDArray[int32]:
@@ -279,25 +298,29 @@ class SentimentDataProcessor(
         self.logger.info(f"Processed {len(segmented_texts)} sentences for training.")
         return segmented_texts, labels
 
-    def _tokenize_and_pad_sequences(
-        self, segmented_texts: list[str], labels: list[int], vocabulary_size: int
-    ) -> tuple[NDArray[int32], NDArray[int64]]:
+    def _fit_tokenizer_and_transform_splits(
+        self,
+        x_train_text: NDArray[object],
+        x_val_text: NDArray[object],
+        x_test_text: NDArray[object],
+        vocabulary_size: int
+    ) -> tuple[list[list[int]], list[list[int]], list[list[int]]]:
         """
-        Initializes, fits a tokenizer, and converts texts to padded sequences.
+        Fits the tokenizer on the training text and then transforms all data splits.
 
-        This method updates `self.tokenizer` and `self.max_sequence_length`.
-
-        :param segmented_texts: A list of space-separated segmented texts.
+        :param x_train_text: The training text data.
+        :param x_val_text: The validation text data.
+        :param x_test_text: The test text data.
         :param vocabulary_size: The maximum number of words for the tokenizer.
-        :returns: A tuple containing the padded feature data (x) and label data (y).
+        :returns: A tuple of tokenized (but not padded) sequences for train, val, and test sets.
         """
-        self.logger.info("Tokenizing texts and padding sequences...")
+        self.logger.info("Fitting tokenizer ONLY on the training data...")
         self.tokenizer = Tokenizer(num_words=vocabulary_size)
-        self.tokenizer.fit_on_texts(texts=segmented_texts)
+        self.tokenizer.fit_on_texts(texts=x_train_text)
 
-        sequences: list[list[int]] = self.tokenizer.texts_to_sequences(texts=segmented_texts)
-        self.max_sequence_length = max(len(s) for s in sequences) if sequences else 0
-        x_data: NDArray[int32] = pad_sequences(sequences=sequences, maxlen=self.max_sequence_length)
-        y_data: NDArray[int64] = np.array(labels)
+        self.logger.info("Transforming all text splits to sequences using the fitted tokenizer...")
+        x_train_seq: list[list[int]] = self.tokenizer.texts_to_sequences(texts=x_train_text)
+        x_val_seq: list[list[int]] = self.tokenizer.texts_to_sequences(texts=x_val_text)
+        x_test_seq: list[list[int]] = self.tokenizer.texts_to_sequences(texts=x_test_text)
 
-        return x_data, y_data
+        return x_train_seq, x_val_seq, x_test_seq
