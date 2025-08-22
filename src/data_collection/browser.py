@@ -32,11 +32,19 @@ class Browser(webdriver.Chrome):
     This class extends the standard Selenium Chrome WebDriver to include
     custom waiting conditions, simplified navigation, and element interaction methods.
     It also configures common Chrome options for headless browsing and custom download paths.
+
+    :ivar __download_path: The directory path where downloaded files are saved.
+    :ivar __page_loading_timeout: The maximum time in seconds to wait for a page to load.
+    :ivar __home_url: The URL for the browser's home page.
+    :ivar __options: The Selenium Chrome options for the browser instance.
+    :ivar __logger: The logger instance for logging messages.
     """
 
     class DownloadFinishCondition(object):
         """
         A condition class to check if a download is finished by verifying the existence of the target file.
+
+        :ivar __download_path: The path to the downloaded file to check for existence.
         """
 
         def __init__(self, download_file_path: Path) -> None:
@@ -61,6 +69,8 @@ class Browser(webdriver.Chrome):
     class PageChangeCondition(object):
         """
         A condition class to check if the browser's current URL has changed from an initial URL.
+
+        :ivar __old_url: The initial URL to compare against the current URL.
         """
 
         def __init__(self, searching_url: str) -> None:

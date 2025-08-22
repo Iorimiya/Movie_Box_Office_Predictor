@@ -24,8 +24,12 @@ from src.models.prediction.pipelines.training_pipeline import PredictionPipeline
 class PredictionModelHandler(BaseModelHandler):
     """
     Handles CLI commands related to the box office prediction model.
-    """
 
+    This class extends `BaseModelHandler` to provide specific implementations
+    for training, predicting with, and evaluating the box office prediction model.
+
+    :cvar _EVALUATION_CACHE_FILE_NAME: The filename for the prediction model's evaluation cache.
+    """
     _EVALUATION_CACHE_FILE_NAME: Final[str] = "prediction_evaluation_cache.yaml"
 
     @override
@@ -49,15 +53,13 @@ class PredictionModelHandler(BaseModelHandler):
         and continued training runs.
 
         If continuing a training run (using `--continue-from-epoch`), this method
-        enforces the use of the original model's configuration and disallows any
-        new overrides.
-
-        For a new training run, it implements a 'default + override' configuration
-        logic, creating and saving a new master configuration file before
-        launching the training pipeline.
+        enforces the use of the original model's configuration. For a new training run,
+        it implements a 'default + override' configuration logic, creating and saving
+        a new master configuration file before launching the training pipeline.
 
         :param args: The namespace object from argparse, containing `model_id` and
                      other training-related parameters.
+        :raises SystemExit: If there is a configuration error or the pipeline fails.
         """
         effective_config: dict[str, any] = self._prepare_training_config(args=args)
 
@@ -88,16 +90,26 @@ class PredictionModelHandler(BaseModelHandler):
     @override
     def predict(self, args: Namespace) -> None:
         """
-        Tests the prediction model on a specific movie or with random data.
+        Makes a prediction using a trained model on a specific movie or random data.
+
+        This method orchestrates the prediction process by:
+        1. Loading the specified model, its configuration, and the data processor artifacts (e.g., scaler).
+        2. Fetching input data, either for a specified movie from its original dataset or by
+           generating a random `MovieData` object for demonstration.
+        3. Processing the input data into the format required by the model.
+        4. Running the prediction and inverse-transforming the output to its original scale.
+        5. Logging the final predicted box office revenue.
 
         :param args: The namespace object containing command-line arguments,
                      expected to have 'model_id', 'epoch', and either 'movie_name' or 'random'.
+        :raises SystemExit: If model components cannot be loaded, input data is not found,
+                            or an error occurs during prediction.
         """
         self._logger.info(
             f"Executing: Predict with {self._model_type_name} model '{args.model_id}' (epoch: {args.epoch})."
         )
 
-        # --- 1. Load Model and Artifacts ---
+        # Load Model and Artifacts
         try:
             # Load master config to get training parameters
             config_path: Path = ProjectPaths.get_model_root_path(
@@ -124,7 +136,7 @@ class PredictionModelHandler(BaseModelHandler):
         except Exception as e:
             self._parser.error(f"An unexpected error occurred while loading components: {e}")
 
-        # --- 2. Get Input Data (Movie or Random) ---
+        # Get Input Data (Movie or Random)
         try:
             input_data: MovieData
             if args.movie_name:
@@ -155,7 +167,7 @@ class PredictionModelHandler(BaseModelHandler):
                 # This case should not be hit due to argparse mutual exclusion
                 self._parser.error("Either --movie-name or --random must be specified.")
 
-            # --- 3. Process Input and Predict ---
+            # Process Input and Predict
             processing_config: PredictionDataConfig = PredictionDataConfig(
                 training_week_len=original_config_data['training_week_len'],
                 split_ratios=original_config_data['split_ratios'],  # Not used but required by dataclass
@@ -172,7 +184,7 @@ class PredictionModelHandler(BaseModelHandler):
             # Inverse transform the prediction
             unscaled_prediction: float = data_processor.scaler.inverse_transform(scaled_prediction)[0][0]
 
-            # --- 4. Display Result ---
+            # Display Result
             self._logger.info("--- Prediction Result ---")
             self._logger.info(f"  Input: {input_data.name}")
             self._logger.info(f"  Predicted Box Office (Next Week): ${unscaled_prediction:,.0f} TWD")
@@ -217,15 +229,22 @@ class PredictionModelHandler(BaseModelHandler):
         self, args: Namespace, original_config_data: dict[str, any], epoch_to_evaluate: int
     ) -> PredictionEvaluationConfig:
         """
-        Builds the appropriate PredictionEvaluationConfig based on CLI arguments.
+        Builds the evaluation configuration object for a single epoch.
 
-        :param args: The namespace object from argparse.
-        :param original_config_data: The loaded dictionary from the model's config.yaml.
+        This method constructs a `PredictionEvaluationConfig` object based on the
+        provided command-line arguments and the model's original training configuration.
+        It distinguishes between two modes:
+        - **Reproducibility Mode (default):** Uses the original dataset and split
+          parameters from `config.yaml` to recreate the exact test set.
+        - **Exploratory Mode (if `--dataset-name` is used):** Evaluates the model
+          on a new, full dataset without splitting.
+
+        :param args: The namespace object from argparse, containing evaluation flags.
+        :param original_config_data: The loaded dictionary from the model's `config.yaml`.
         :param epoch_to_evaluate: The specific epoch to be evaluated.
-        :returns: A fully constructed PredictionEvaluationConfig object.
+        :returns: A `PredictionEvaluationConfig` object tailored for the evaluation run.
         """
         # Map CLI flags to config flags
-        # Note: --validation-loss implies we need the test loss (mse_loss)
         calculate_loss = args.test_loss
         calculate_f1 = args.f1_score
 

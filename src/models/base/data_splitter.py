@@ -38,11 +38,16 @@ class DatasetSplitter(Generic[X_Type, Y_Type]):
     This class provides a standardized, robust, and configurable way to split
     feature (x) and label (y) data, handling various edge cases and supporting
     both shuffled and sequential splitting strategies.
+
+    :ivar logger: A logger instance for logging splitting operations.
     """
 
     def __init__(self, logger: Optional[Logger] = None) -> None:
         """
         Initializes the DatasetSplitter.
+
+        :param logger: An optional logger instance. If not provided, a new
+                       logger will be acquired.
         """
         self.logger: Logger = logger if logger else LoggingManager().get_logger('')
 
@@ -146,7 +151,16 @@ class DatasetSplitter(Generic[X_Type, Y_Type]):
 
     @staticmethod
     def _can_stratify(y_data: Y_Type) -> bool:
-        """Checks if stratification is possible."""
+        """
+        Checks if the label data allows for stratified splitting.
+
+        Stratification is considered possible if the label array is one-dimensional
+        (typical for classification tasks) and every class has at least two members.
+        This is a requirement for `sklearn.model_selection.train_test_split`.
+
+        :param y_data: The label data array to check.
+        :returns: True if the data can be stratified, False otherwise.
+        """
         if y_data.ndim == 1:  # Typical for classification
             _, counts = np.unique(y_data, return_counts=True)
             # Stratification requires at least 2 samples for each class present
@@ -156,7 +170,16 @@ class DatasetSplitter(Generic[X_Type, Y_Type]):
     # noinspection PyTypeChecker
     @staticmethod
     def _create_empty_arrays(x_ref: X_Type, y_ref: Y_Type) -> tuple[X_Type, Y_Type]:
-        """Creates empty arrays with shapes matching the reference arrays."""
+        """
+        Creates empty arrays with dtypes and dimensions matching reference arrays.
+
+        The created arrays will have a shape of (0, *dims), preserving the
+        number of dimensions and data type of the reference arrays.
+
+        :param x_ref: The reference feature array.
+        :param y_ref: The reference label array.
+        :returns: A tuple containing the empty feature array and empty label array.
+        """
         empty_x_shape = (0,) + x_ref.shape[1:] if x_ref.ndim > 1 else (0,)
         empty_y_shape = (0,) + y_ref.shape[1:] if y_ref.ndim > 1 else (0,)
         empty_x = np.array([], dtype=x_ref.dtype).reshape(empty_x_shape)

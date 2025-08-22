@@ -63,10 +63,15 @@ class SentimentDataProcessor(
     """
     Handles all data-related tasks for the review sentiment analysis model.
 
-    This processor loads raw positive/negative words from a CSV, constructs
-    sample sentences, tokenizes them using Jieba and Keras Tokenizer, and
-    prepares training/validation/testing splits. It manages the Keras Tokenizer as its
-    primary artifact.
+    This processor loads raw text data, tokenizes it using Jieba and Keras Tokenizer,
+    and prepares training, validation, and testing splits. It manages the Keras
+    Tokenizer and the maximum sequence length as its primary artifacts, which can be
+    saved and loaded.
+
+    :ivar tokenizer: The Keras Tokenizer instance, fitted on the training data.
+                     It is `None` until the processor is trained or artifacts are loaded.
+    :ivar max_sequence_length: The length to which all sequences are padded.
+                               It is `None` until the processor is trained or artifacts are loaded.
     """
 
     ARTIFACTS_FILE_NAME: Final[str] = "artifacts.pickle"
@@ -86,9 +91,13 @@ class SentimentDataProcessor(
     @override
     def save_artifacts(self) -> None:
         """
-        Saves the Tokenizer and max_sequence_length artifacts to a file named 'tokenizer.pickle'.
+        Saves the tokenizer and max_sequence_length to a pickle file.
 
-        :raises ValueError: If `model_artifacts_path` is not set or the tokenizer is not available.
+        The artifacts are saved as a dictionary to a single file within the
+        `model_artifacts_path` directory.
+
+        :raises ValueError: If `model_artifacts_path` is not set, or if the
+                            tokenizer or `max_sequence_length` has not been set.
         """
         if not self.model_artifacts_path:
             raise ValueError("model_artifacts_path is not set. Cannot save tokenizer.")
@@ -106,7 +115,11 @@ class SentimentDataProcessor(
     @override
     def load_artifacts(self) -> None:
         """
-        Loads the Tokenizer and max_sequence_length artifacts from 'tokenizer.pickle' if it exists.
+        Loads the tokenizer and max_sequence_length from the artifacts file.
+
+        If `model_artifacts_path` is set and the artifact file exists, this method
+        populates `self.tokenizer` and `self.max_sequence_length`. It handles
+        cases where the file is not found or is corrupted.
         """
         if not self.model_artifacts_path:
             return
@@ -128,12 +141,14 @@ class SentimentDataProcessor(
     @override
     def load_raw_data(self, source: SentimentDataSource) -> SentimentTrainingRawData:
         """
-        Loads training data from a CSV file.
+        Loads and pre-processes raw sentiment data from a source CSV file.
 
-        The path is constructed using `ProjectPaths`.
+        The method reads the specified CSV file, converts it into a pandas DataFrame,
+        and ensures the 'is_positive' column exists and is of boolean type.
 
-        :param source: The data source object containing the file name.
-        :returns: The loaded training data.
+        :param source: The data source object specifying the file to load.
+        :returns: A DataFrame containing the raw sentiment data.
+        :raises KeyError: If the 'is_positive' column is not found in the CSV file.
         """
         file_path: Path = ProjectPaths.sentiment_analysis_resources_dir / source.file_name
         self.logger.info(f"Loading raw sentiment data from: {file_path}")
@@ -157,10 +172,14 @@ class SentimentDataProcessor(
         """
         Processes a single text input for sentiment prediction.
 
-        :param single_input: The text string to predict sentiment for.
+        This method segments the input text, converts it to a sequence of integers
+        using the pre-trained tokenizer, and pads it to the required length.
+
+        :param single_input: The text string to process for prediction.
         :param config: This parameter is ignored by this implementation.
         :returns: A processed and padded sequence ready for the model.
-        :raises ValueError: If the tokenizer has not been fitted or `max_sequence_length` is not provided.
+        :raises ValueError: If the tokenizer or `max_sequence_length` has not been
+                            loaded or trained.
         """
         if not self.tokenizer or self.max_sequence_length is None:
             raise ValueError(
@@ -208,7 +227,15 @@ class SentimentDataProcessor(
     def _prepare_for_split(self, raw_data: SentimentTrainingRawData, config: SentimentDataConfig) -> tuple[
         NDArray[object], NDArray[int64]]:
         """
-        Constructs and segments texts from raw data to prepare for splitting.
+        Prepares raw data for the splitting process.
+
+        This method takes the raw DataFrame, extracts and segments the texts and
+        labels, and converts them into NumPy arrays suitable for the data splitter.
+
+        :param raw_data: The input DataFrame containing text and label columns.
+        :param config: The data processing configuration (not used in this method).
+        :returns: A tuple of NumPy arrays: one for the segmented texts (features)
+                  and one for the labels.
         """
         segmented_texts, labels = self._construct_and_segment_texts(raw_data=raw_data)
         x_text: NDArray[object] = np.array(segmented_texts, dtype=object)
@@ -219,7 +246,19 @@ class SentimentDataProcessor(
     def _post_process_splits(self, split_data: SplitDataset[NDArray[object], NDArray[int64]],
                              config: SentimentDataConfig) -> SentimentTrainingProcessedData:
         """
-        Fits tokenizer on the training split and then pads all sequence splits.
+        Finalizes the data processing after splitting.
+
+        This method performs two main tasks:
+        1. Fits a new Keras Tokenizer on the training text data and transforms all
+           text splits (train, validation, test) into integer sequences.
+        2. Determines the maximum sequence length and pads all sequences to this length.
+
+        This method sets the `self.tokenizer` and `self.max_sequence_length` attributes.
+
+        :param split_data: A `SplitDataset` containing the text-based data splits.
+        :param config: The configuration containing parameters like `vocabulary_size`.
+        :returns: A `SentimentTrainingProcessedData` object with all splits tokenized
+                  and padded.
         """
         x_train_seq, x_val_seq, x_test_seq = self._fit_tokenizer_and_transform_splits(
             x_train_text=split_data['x_train'],
@@ -245,10 +284,15 @@ class SentimentDataProcessor(
 
     def _construct_and_segment_texts(self, raw_data: SentimentTrainingRawData) -> tuple[list[str], list[int]]:
         """
-        Constructs sample sentences and performs word segmentation.
+        Extracts text and labels from the raw data and performs word segmentation.
 
-        :param raw_data: The raw data containing positive and negative words.
-        :returns: A tuple containing the list of segmented texts and their corresponding labels.
+        This method cleans the input DataFrame by dropping rows with missing data in
+        key columns ('word', 'is_positive'). It then extracts the text, segments it
+        into words using Jieba, and pairs it with the corresponding integer label.
+
+        :param raw_data: The raw DataFrame containing 'word' and 'is_positive' columns.
+        :returns: A tuple containing a list of space-separated segmented texts and a
+                  list of their corresponding integer labels.
         """
         self.logger.info("Extracting sentences and performing word segmentation...")
 
@@ -268,13 +312,19 @@ class SentimentDataProcessor(
         vocabulary_size: int
     ) -> tuple[list[list[int]], list[list[int]], list[list[int]]]:
         """
-        Fits the tokenizer on the training text and then transforms all data splits.
+        Fits a new tokenizer on the training text and transforms all data splits.
+
+        This method initializes a new Keras Tokenizer, fits it exclusively on the
+        training text data, and then uses this tokenizer to convert the train,
+        validation, and test text sets into sequences of integers. The instance's
+        `tokenizer` attribute is set by this method.
 
         :param x_train_text: The training text data.
         :param x_val_text: The validation text data.
         :param x_test_text: The test text data.
         :param vocabulary_size: The maximum number of words for the tokenizer.
-        :returns: A tuple of tokenized (but not padded) sequences for train, val, and test sets.
+        :returns: A tuple of tokenized (but not padded) sequences for the train,
+                  validation, and test sets.
         """
         self.logger.info("Fitting tokenizer ONLY on the training data...")
         self.tokenizer = Tokenizer(num_words=vocabulary_size)

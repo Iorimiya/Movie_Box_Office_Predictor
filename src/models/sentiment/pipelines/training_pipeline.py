@@ -87,7 +87,7 @@ class SentimentTrainingPipeline(
         )
         artifacts_folder.mkdir(parents=True, exist_ok=True)
 
-        # 2. Model Building or Loading
+        # Model Building or Loading
         if continue_from_epoch:
             self.logger.info(f"Step 2 (Continue): Loading existing model from epoch {continue_from_epoch}...")
             self.model_core = self._setup_for_continuation(
@@ -99,7 +99,7 @@ class SentimentTrainingPipeline(
             # This is a new training run.
             self.logger.info("Step 2 (New): Building new model architecture...")
 
-        # 3. Data Loading and Processing
+        # Data Loading and Processing
         self.logger.info("Step 3: Loading and processing data...")
         data_source: SentimentDataSource = SentimentDataSource(file_name=master_config.dataset_file_name)
         raw_data = self.data_processor.load_raw_data(source=data_source)
@@ -131,7 +131,7 @@ class SentimentTrainingPipeline(
             self.model_core.build(config=build_config)
             self.logger.info("Model building complete.")
 
-        # 4. Model Training
+        # Model Training
         self.logger.info("Step 4: Starting model training...")
         callbacks_to_use = []
         f1_callback = F1ScoreHistory(validation_data=(processed_data['x_val'], processed_data['y_val']))
@@ -180,7 +180,7 @@ class SentimentTrainingPipeline(
         )
         self.logger.info("Model training complete.")
 
-        # 5. Saving Artifacts
+        # Saving Artifacts
         self._save_run_artifacts(
             config=master_config,
             history=history,
@@ -194,7 +194,12 @@ class SentimentTrainingPipeline(
     @override
     def _check_required_artifacts_for_continuation(self) -> None:
         """
-        Checks if the tokenizer is loaded for the sentiment model.
+        Checks if the required artifacts for continuing training are available.
+
+        For the sentiment model, this specifically verifies that the tokenizer
+        has been loaded into the data processor.
+
+        :raises FileNotFoundError: If the tokenizer artifact is not loaded.
         """
         if not self.data_processor.tokenizer:
             raise FileNotFoundError(
@@ -205,6 +210,9 @@ class SentimentTrainingPipeline(
     def _create_model_core(self, model_path: Path) -> SentimentModelCore:
         """
         Creates a SentimentModelCore instance from a saved model file.
+
+        :param model_path: The path to the saved Keras model file.
+        :returns: An instance of `SentimentModelCore` with the model loaded.
         """
         return SentimentModelCore(model_path=model_path)
 

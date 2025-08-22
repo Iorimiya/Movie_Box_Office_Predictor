@@ -33,6 +33,10 @@ WaitingCondition: TypeAlias = Browser.WaitingCondition
 class BoxOfficeProgressEntry(TypedDict):
     """
     Represents the structure of a single entry in the box office download progress file.
+
+    :ivar id: The unique identifier for the movie.
+    :ivar url: The URL of the movie's box office data page.
+    :ivar file_path: The local path where the movie's box office data is saved.
     """
     id: int
     url: str
@@ -41,9 +45,12 @@ class BoxOfficeProgressEntry(TypedDict):
 
 class BoxOfficeProgressFile(CsvFile):
     """
-    Handles read/write operations and updates for the box office download progress CSV file.
+    Handles read/write operations for the box office download progress CSV file.
 
-    This file tracks the download status (URL, saved file path) for each movie.
+    This class extends CsvFile to manage a progress file that tracks the download
+    status (URL, saved file path) for each movie.
+
+    :ivar HEADER: A tuple defining the CSV header fields: ('id', 'url', 'file_path').
     """
 
     HEADER: Final[tuple[str, str, str]] = ('id', 'url', 'file_path')
@@ -60,11 +67,12 @@ class BoxOfficeProgressFile(CsvFile):
 
     def save(self, data: list[BoxOfficeProgressEntry]) -> None:
         """
-        Saves a list of BoxOfficeProgressEntry dictionaries to the progress CSV file.
+        Saves a list of progress entries to the CSV file.
 
-        Ensures the parent directory exists and uses the defined HEADER for field names.
+        This method writes the provided data, ensuring the parent directory exists.
+        It uses the class's predefined HEADER for the CSV field names.
 
-        :param data: A list of progress entries to save.
+        :param data: A list of ``BoxOfficeProgressEntry`` dictionaries to save.
         """
         super().save(data=data)
         self.__logger.info(f"Successfully saved {len(data)} progress entries to '{self.path}'.")
@@ -72,18 +80,18 @@ class BoxOfficeProgressFile(CsvFile):
 
     def load(self, row_factory: Optional[Callable[[dict[str, str]], any]] = None) -> list[BoxOfficeProgressEntry]:
         """
-        Loads data from the progress CSV file into a list of BoxOfficeProgressEntry dictionaries.
+        Loads and parses data from the progress CSV file.
 
-        This method overrides CsvFile.load. It always uses its internal `_progress_entry_factory`
-        for row conversion, regardless of whether a `row_factory` argument is provided.
-        If a `row_factory` is provided, a warning will be logged.
+        This method overrides the parent ``CsvFile.load`` to use a specific internal
+        row factory (``_progress_entry_factory``) for converting rows into
+        ``BoxOfficeProgressEntry`` dictionaries. A warning is logged if an external
+        ``row_factory`` is provided, as it will be ignored.
 
-        Ensures the file exists before attempting to load.
-
-        :param row_factory: An optional callable. If provided, it will be ignored and a warning logged,
-                            as this method uses a specific internal factory.
-        :return: A list of progress entries. Returns an empty list if the file is empty or not found.
-        :raises Exception: Propagates exceptions from CsvFile.load() other than FileNotFoundError.
+        :param row_factory: This parameter is ignored. A warning will be logged if it is provided.
+        :returns: A list of parsed ``BoxOfficeProgressEntry`` objects. Returns an
+                  empty list if the file does not exist or is empty.
+        :raises Exception: Propagates exceptions from the underlying CSV loading
+                           process, except for ``FileNotFoundError``.
         """
         if not self.path.exists():
             self.__logger.info(f"Progress file not found at '{self.path}'. Returning empty list.")
@@ -110,13 +118,15 @@ class BoxOfficeProgressFile(CsvFile):
     @staticmethod
     def _progress_entry_factory(row: dict[str, str]) -> Optional[BoxOfficeProgressEntry]:
         """
-        Factory function to convert a raw CSV row (dict[str, str]) to a BoxOfficeProgressEntry.
+        Converts a raw CSV row into a structured ``BoxOfficeProgressEntry``.
 
-        Performs validation and type conversion for the 'id' field.
-        Returns None if the row is invalid.
+        This factory function validates the input row, ensuring the 'id' field
+        exists and is a valid integer. If the row is invalid, it logs a warning
+        and returns ``None``.
 
-        :param row: A dictionary representing a row from the CSV file.
-        :return: A BoxOfficeProgressEntry instance or None if conversion fails.
+        :param row: A dictionary representing a single row from the CSV file.
+        :returns: A ``BoxOfficeProgressEntry`` instance if the row is valid,
+                  otherwise ``None``.
         """
         logger: Logger = LoggingManager().get_logger(
             BoxOfficeProgressFile.__name__)
@@ -139,12 +149,14 @@ class BoxOfficeProgressFile(CsvFile):
 
     def initialize_from_movie_metadata(self, movies_metadata: list[MovieMetadata]) -> None:
         """
-        Initializes the progress file with entries for a list of movies.
+        Creates and initializes the progress file from a list of movie metadata.
 
-        Each movie gets an entry with its ID, and empty strings for URL and file_path.
-        Overwrites the file if it already exists.
+        This method generates an initial progress entry for each movie, setting the
+        'id' from the metadata and leaving 'url' and 'file_path' empty.
+        It will overwrite the progress file if it already exists.
 
-        :param movies_metadata: A list of MovieMetadata objects.
+        :param movies_metadata: A list of ``MovieMetadata`` objects to use for
+                                initialization.
         """
         initial_data: list[BoxOfficeProgressEntry] = [
             BoxOfficeProgressEntry(id=movie.id, url='', file_path='') for movie in movies_metadata
@@ -155,16 +167,19 @@ class BoxOfficeProgressFile(CsvFile):
 
     def update_entry(self, movie_id: int, update_field: Literal['url', 'file_path'], new_value: str) -> None:
         """
-        Updates a specific field (URL or file_path) for a movie entry in the progress file.
+        Updates a single field for a specific movie entry in the progress file.
 
-        Loads the current data, finds the entry by movie ID, updates the specified field,
-        and saves the data back.
+        This method reads the entire progress file, finds the entry matching the
+        ``movie_id``, modifies the specified ``update_field`` with the ``new_value``,
+        and then writes the entire dataset back to the file.
 
-        :param movie_id: The ID of the movie whose entry to update.
-        :param update_field: The field to update ('url' or 'file_path').
-        :param new_value: The new string value for the field.
-        :raises ValueError: If the movie ID is not found in the progress file or if update_field is invalid.
-        :raises FileNotFoundError: If the progress file does not exist when trying to load for update.
+        :param movie_id: The ID of the movie entry to update.
+        :param update_field: The name of the field to update (either 'url' or 'file_path').
+        :param new_value: The new value to set for the field.
+        :raises ValueError: If the ``movie_id`` is not found in the progress file or
+                            if ``update_field`` is not a valid field name.
+        :raises FileNotFoundError: If the progress file does not exist when an update
+                                   is attempted.
         """
         current_progress: list[BoxOfficeProgressEntry] = self.load()
         if not current_progress and not self.exists:
@@ -202,14 +217,16 @@ class BoxOfficeCollector:
     """
     Collects box office data from a specific website.
 
-    This class provides two main functionalities:
-    1. `download_single_box_office_data`: Fetches data for a single movie by name
-       and returns it in-memory without saving to disk.
-    2. `download_multiple_box_office_data`: Fetches and saves data for a list of
-       movies to a specified directory, managing download progress.
 
-    This class must be used as a context manager (e.g., with a `with` statement)
-    to ensure proper browser initialization and cleanup.
+    This class encapsulates the logic for navigating the website, searching for
+    movies, and downloading their box office data. It is designed to be used
+    as a context manager to ensure the underlying browser instance is properly
+    managed.
+
+    It supports two primary use cases:
+    1. Fetching data for a single movie and returning it in memory.
+    2. Batch downloading data for multiple movies, saving the results to disk
+       and tracking progress to allow for resumption.
 
     :ivar __download_mode: The mode for downloading data (e.g., weekly or weekend).
     :ivar __logger: Logger instance for logging messages.
@@ -227,8 +244,10 @@ class BoxOfficeCollector:
         """
         Initializes the BoxOfficeCollector.
 
-        :param download_mode: The mode for downloading data (WEEK or WEEKEND).
-        :param page_loading_timeout: Timeout in seconds for web page loading.
+        :param download_mode: The type of box office data to download ('WEEK' for
+                              weekly totals, 'WEEKEND' for weekend totals).
+        :param page_loading_timeout: The maximum time in seconds to wait for web
+                                     pages to load.
         """
         self.__logger: Logger = LoggingManager().get_logger('root')
         self.__download_mode: Final[Literal['WEEK', 'WEEKEND']] = download_mode
@@ -257,12 +276,15 @@ class BoxOfficeCollector:
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
         """
-        Exits the runtime context, ensuring the browser resource is properly released.
+        Exits the runtime context and releases the browser resource.
 
-        :param exc_type: The type of the exception that caused the context to be exited, if any.
-        :param exc_val: The exception instance that caused the context to be exited, if any.
-        :param exc_tb: A traceback object encapsulating the call stack at the point
-                       where the exception was raised, if any.
+        This method ensures the underlying Selenium browser instance is properly
+        closed and its resources are freed, even if errors occur within the
+        ``with`` block.
+
+        :param exc_type: The exception type if an exception was raised in the ``with`` block.
+        :param exc_val: The exception value if an exception was raised.
+        :param exc_tb: The traceback object if an exception was raised.
         """
         if self.__browser:
             self.__logger.debug("Exiting context, closing browser...")
@@ -282,15 +304,18 @@ class BoxOfficeCollector:
 
     def __navigate_to_movie_page(self, movie_name: str, known_url: Optional[str] = None) -> Optional[str]:
         """
-        Navigates the browser to the specific movie's page on the box office website.
+        Navigates to a specific movie's data page on the TFAI website.
 
-        If a `known_url` is provided, it attempts to navigate directly to that URL.
-        Otherwise, it searches for the movie by name and selects the correct entry
-        from the search results drop-down list.
+        This method first attempts to navigate directly to the ``known_url`` if one
+        is provided. If direct navigation fails, is not provided, or leads to a
+        redirect, it falls back to searching for the movie by ``movie_name`` and
+        clicking the corresponding link in the search results.
 
-        :param movie_name: The name of the movie to search for.
-        :param known_url: An optional, previously known URL for the movie's page.
-        :returns: The URL of the movie page if successful, otherwise ``None``.
+        :param movie_name: The name of the movie to find.
+        :param known_url: An optional, pre-existing URL for the movie's page to
+                          attempt direct navigation.
+        :returns: The final URL of the movie's page upon successful navigation,
+                  or ``None`` if the page cannot be reached.
         """
         self._check_browser_active()
 
@@ -361,12 +386,20 @@ class BoxOfficeCollector:
 
     def __click_download_button(self, temp_download_path: Path, trying_times: int) -> None:
         """
-        Locates and clicks the appropriate download button and waits for the download to finish.
+        Clicks the data download button and waits for the file to be saved.
 
-        :param temp_download_path: The full path to the temporary file being downloaded.
-        :param trying_times: The current attempt number, used to adjust the download timeout.
-        :raises NoSuchElementException: If a required button cannot be found or clicked.
-        :raises TimeoutException: If waiting for an element or download times out.
+        Depending on the collector's ``download_mode``, this method may first click
+        the 'WEEK' tab. It then finds and clicks the JSON export button and waits
+        for the download to complete by checking for the existence of the target file.
+        The wait timeout for the download increases with ``trying_times``.
+
+        :param temp_download_path: The expected full path of the downloaded file.
+        :param trying_times: The attempt number for the download, used to calculate
+                             an adaptive timeout.
+        :raises NoSuchElementException: If a required UI element (e.g., tab or download
+                                        button) cannot be found or clicked.
+        :raises TimeoutException: If waiting for an element to become clickable or for
+                                  the download to finish exceeds the timeout.
         """
         self._check_browser_active()
         if self.__download_mode == 'WEEK':
@@ -412,18 +445,21 @@ class BoxOfficeCollector:
                                       trying_times: int = 3) -> \
         Tuple[Optional[list[BoxOffice]], Optional[str]]:
         """
-        Core logic to fetch box office data for a single movie.
+        Handles the complete workflow for fetching a single movie's box office data.
 
-        This method uses a temporary directory for the download which is cleaned up afterwards.
-        It can optimize navigation if a `progress_file` with a known URL is provided.
+        This method orchestrates the process of navigating to the movie's page
+        (optimizing with a known URL from ``progress_file`` if available), clicking
+        the download button, and parsing the resulting file. It uses a temporary
+        directory for downloads and includes a retry mechanism to handle transient
+        network or browser issues.
 
         :param movie_name: The name of the movie to fetch.
-        :param movie_id: The ID of the movie, used for progress tracking. Optional for single fetches.
-        :param progress_file: Optional. An instance of `BoxOfficeProgressFile` for progress tracking.
-                              If provided and a URL is found, direct navigation will be attempted.
-        :param trying_times: The maximum number of attempts to download the data.
-        :returns: A tuple containing (list of ``BoxOffice`` objects, movie page URL).
-                  Both can be ``None`` if the fetch fails.
+        :param movie_id: The unique ID of the movie, used for looking up the URL in
+                         the progress file.
+        :param progress_file: An optional progress file handler to read known URLs from.
+        :param trying_times: The maximum number of attempts for the entire fetch process.
+        :returns: A tuple containing the list of ``BoxOffice`` data objects and the
+                  movie's page URL. Both values are ``None`` if all attempts fail.
         """
         self._check_browser_active()
         log_id: str = f" (ID: {movie_id})" if movie_id is not None else ""
@@ -485,13 +521,15 @@ class BoxOfficeCollector:
 
     def download_box_office_data_for_movie(self, movie_name: str) -> list[BoxOffice]:
         """
-        Fetches box office data for a single movie by name and returns it.
+        Fetches box office data for a single movie and returns it in memory.
 
-        This method is for in-memory data retrieval and does not save any files to disk.
-        It must be called within a `with` block for the BoxOfficeCollector.
+        This is a simplified public method for retrieving data for one movie without
+        persisting it to disk or using a progress file. It must be called within
+        the ``with`` context of the collector.
 
         :param movie_name: The name of the movie to fetch data for.
-        :returns: A list of ``BoxOffice`` objects if successful, otherwise ``None``.
+        :returns: A list of ``BoxOffice`` objects representing the movie's data.
+        :raises RuntimeError: If the data cannot be fetched after multiple attempts.
         """
         self._check_browser_active()
 
@@ -507,13 +545,17 @@ class BoxOfficeCollector:
                                             multiple_movie_data: list[MovieData],
                                             data_folder: Path) -> None:
         """
-        Downloads and saves box office data for multiple movies, tracking progress.
+        Downloads and saves box office data for a list of movies.
 
-        This method manages a progress file to avoid re-downloading completed items.
-        It must be called within a `with` block for the BoxOfficeCollector.
+        This method iterates through a list of movies, downloading and saving the
+        box office data for each one to the specified ``data_folder``. It uses a
+        progress file (``download_progress.csv``) within that folder to track
+        completed downloads, allowing the process to be resumed. If a download
+        fails for a movie, an empty data file is created to prevent re-attempts.
 
         :param multiple_movie_data: A list of ``MovieData`` objects to process.
-        :param data_folder: The directory where the final data and progress file will be saved.
+        :param data_folder: The target directory to save the YAML data files and
+                            the progress CSV file.
         """
         self._check_browser_active()
         self.__logger.info(f"Starting batch download to '{data_folder}'.")

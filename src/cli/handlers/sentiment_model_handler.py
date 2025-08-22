@@ -18,6 +18,8 @@ from src.models.sentiment.pipelines.training_pipeline import SentimentTrainingPi
 class SentimentModelHandler(BaseModelHandler):
     """
     Handles CLI commands related to sentiment analysis model management.
+
+    :cvar _EVALUATION_CACHE_FILE_NAME: The filename for the sentiment model's evaluation cache.
     """
 
     _EVALUATION_CACHE_FILE_NAME: Final[str] = "evaluation_cache.yaml"
@@ -52,6 +54,7 @@ class SentimentModelHandler(BaseModelHandler):
 
         :param args: The namespace object from argparse, containing `model_id` and
                      other training-related parameters.
+        :raises SystemExit: If there is a configuration error or the pipeline fails.
         """
         effective_config: dict[str, any] = self._prepare_training_config(args=args)
 
@@ -96,13 +99,14 @@ class SentimentModelHandler(BaseModelHandler):
 
         :param args: The namespace object containing command-line arguments,
                      expected to have 'model_id', 'epoch', and 'input_sentence'.
+        :raises SystemExit: If model components cannot be loaded or an error occurs during prediction.
         """
         self._logger.info(
             f"Executing: Test {self._model_type_name} model '{args.model_id}' (epoch: {args.epoch}) "
             f"with input: '{args.input_sentence}'"
         )
 
-        # --- Locate artifact paths ---
+        # Locate artifact paths
         model_artifacts_path: Path = ProjectPaths.get_model_root_path(
             model_id=args.model_id, model_type=ProjectModelType.SENTIMENT
         )
@@ -111,7 +115,7 @@ class SentimentModelHandler(BaseModelHandler):
         if not model_file_path.exists():
             self._parser.error(f"Model file not found at: {model_file_path}")
 
-        # --- Instantiate and load components ---
+        # Instantiate and load components
         try:
             # DataProcessor automatically calls load_artifacts in its __init__
             data_processor: SentimentDataProcessor = SentimentDataProcessor(model_artifacts_path=model_artifacts_path)
@@ -127,7 +131,7 @@ class SentimentModelHandler(BaseModelHandler):
         except Exception as e:
             self._parser.error(f"An unexpected error occurred while loading components: {e}")
 
-        # --- Process input and make a prediction ---
+        # Process input and make a prediction
         try:
             # Process the single input sentence
             processed_input: NDArray[any] = data_processor.process_for_prediction(
@@ -140,7 +144,7 @@ class SentimentModelHandler(BaseModelHandler):
             prediction: NDArray[any] = model_core.predict(data=processed_input, config=pred_config)
             sentiment_score: float = float(prediction[0][0])
 
-            # --- 4. Present the result ---
+            # Present the result
             sentiment_label: str = "Positive" if sentiment_score > 0.5 else "Negative"
             self._logger.info("--- Prediction Result ---")
             self._logger.info(f"  Input Sentence: '{args.input_sentence}'")
@@ -238,7 +242,14 @@ class SentimentModelHandler(BaseModelHandler):
 
     @override
     def _display_specific_metrics(self, result: SentimentEvaluationResult, args: Namespace) -> None:
-        # The base class handles test_loss, so we only need to check for accuracy here.
-        # Since they are linked in _build_evaluation_config, checking args.test_loss is correct.
+        """
+        Displays model-specific metrics for the sentiment model.
+
+        This method logs the test accuracy. The base class handles displaying
+        common metrics like test loss and F1-score.
+
+        :param result: The evaluation result object containing the metrics.
+        :param args: The command-line arguments, used to check which metrics were requested.
+        """
         if args.test_loss:
             self._logger.info(f"  - Test Accuracy:   {result.test_accuracy:.4f} ({result.test_accuracy:.2%})")

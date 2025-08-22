@@ -39,9 +39,15 @@ class BaseModelHandler(ABC):
     """
     An abstract base class for model handlers to reduce code duplication.
 
+    This class provides a common structure and reusable logic for handling
+    model-related CLI commands like training, prediction, and evaluation.
+    Subclasses must implement the abstract methods to provide model-specific behavior.
+
     :ivar _logger: The shared logger instance for all model handlers.
     :ivar _parser: The argument parser instance for the specific command.
     :ivar _model_type_name: The display name of the model type (e.g., "Sentiment").
+    :ivar _model_type: The enum member for the model type.
+    :ivar _evaluator: An instance of a class that inherits from BaseEvaluator.
     """
     _logger: Logger
     _parser: ArgumentParser
@@ -69,7 +75,10 @@ class BaseModelHandler(ABC):
     @abstractmethod
     def train(self, args: Namespace) -> None:
         """
-        An abstract method for training a model. Must be implemented by subclasses.
+        Handles the model training process based on provided arguments.
+
+        Subclasses must implement this method to define the specific training
+        pipeline for their model type.
 
         :param args: The namespace object containing command-line arguments.
         """
@@ -78,7 +87,10 @@ class BaseModelHandler(ABC):
     @abstractmethod
     def predict(self, args: Namespace) -> None:
         """
-        An abstract method for testing a model. Must be implemented by subclasses.
+        Handles making a prediction with a trained model.
+
+        Subclasses must implement this method to define how to load a model
+        and process input for prediction.
 
         :param args: The namespace object containing command-line arguments.
         """
@@ -117,15 +129,15 @@ class BaseModelHandler(ABC):
 
     def plot_graph(self, args: Namespace) -> None:
         """
-            Generates and saves evaluation graphs for a model series.
+        Generates and saves evaluation graphs for a model series.
 
-            This template method orchestrates the plotting process by first fetching
-            all necessary evaluation data and then delegating the actual plotting
-            of specific graphs to subclass implementations.
+        This template method orchestrates the plotting process by first fetching
+        all necessary evaluation data and then delegating the actual plotting
+        of specific graphs to subclass implementations.
 
-            :param args: The namespace object from argparse, containing `model_id`
-                         and flags for which graphs to plot.
-            """
+        :param args: The namespace object from argparse, containing `model_id`
+                     and flags for which graphs to plot.
+        """
         try:
             eval_results: MultiEpochEvaluationResult = self._evaluate_all_epochs(
                 model_id=args.model_id, args=args
@@ -271,7 +283,10 @@ class BaseModelHandler(ABC):
         """
         Gets the filename for the model's evaluation cache.
 
-        :returns: The name of the evaluation cache file (e.g., "evaluation_cache.yaml").
+        Subclasses must implement this to return their specific evaluation
+        cache file name (e.g., "evaluation_cache.yaml").
+
+        :returns: The name of the evaluation cache file.
         """
         pass
 
@@ -281,6 +296,9 @@ class BaseModelHandler(ABC):
     ) -> BaseEvaluationConfig:
         """
         Builds the appropriate evaluation configuration object for a single epoch.
+
+        Subclasses must implement this to construct a model-specific evaluation
+        config object from the command-line arguments and the original training config.
 
         :param args: The namespace object from argparse.
         :param original_config_data: The loaded dictionary from the model's config.yaml.
@@ -293,6 +311,9 @@ class BaseModelHandler(ABC):
     def _run_evaluation_for_epoch(self, eval_config: BaseEvaluationConfig) -> BaseEvaluationResult:
         """
         Runs the evaluation for a single epoch using the model-specific evaluator.
+
+        Subclasses must implement this to call their specific evaluator instance
+        and return the results.
 
         :param eval_config: The configuration object for the evaluation.
         :returns: The result object from the evaluation.
@@ -316,7 +337,7 @@ class BaseModelHandler(ABC):
                                   and values are lists of metric values for each epoch.
         :param training_history: The full training loss history.
         :param validation_history: The full validation loss history.
-        :returns: An instance of the model-specific multi-epoch evaluation result dataclass.
+        :returns: An instance of the `MultiEpochEvaluationResult` dataclass.
         """
         return MultiEpochEvaluationResult(
             model_id=model_id,
@@ -329,15 +350,15 @@ class BaseModelHandler(ABC):
 
     def _evaluate_all_epochs(self, model_id: str, args: Namespace) -> MultiEpochEvaluationResult:
         """
-        A template method that finds and evaluates all available checkpoints for a model.
+        Finds and evaluates all available checkpoints for a model.
 
-        This method uses a cache to avoid re-computation and returns aggregated results.
-        It is a generic workflow that relies on abstract methods to be implemented
-        by subclasses for model-specific logic.
+        This template method uses a cache to avoid re-computation and returns
+        aggregated results. It provides a generic workflow that relies on abstract
+        methods implemented by subclasses for model-specific logic.
 
         :param model_id: The unique identifier for the model series to evaluate.
         :param args: The namespace object from argparse, used to determine evaluation mode.
-        :returns: A model-specific multi-epoch evaluation result object.
+        :returns: A `MultiEpochEvaluationResult` object containing aggregated results.
         :raises FileNotFoundError: If the master config or history file for the model is not found.
         :raises ValueError: If evaluation fails for all available epochs.
         """
@@ -425,8 +446,6 @@ class BaseModelHandler(ABC):
             history_path: Path = artifacts_folder / BaseTrainingPipeline.HISTORY_FILE_NAME
             if history_path.exists():
                 try:
-                    # self._evaluator 是在子類別中定義的，但 BaseModelHandler 的這個方法
-                    # 總是透過子類別的實例來呼叫，所以 self._evaluator 是可用的。
                     full_training_loss_history, full_validation_loss_history = self._evaluator.load_training_history(
                         history_file_path=history_path
                     )
@@ -448,7 +467,7 @@ class BaseModelHandler(ABC):
         """
         Finds all available model checkpoint epochs for a given model ID and type.
 
-        This is a static utility method that scans the appropriate model artifact
+        This static utility method scans the appropriate model artifact
         directory for files matching the pattern '<model_id>_*.keras' and extracts
         the epoch numbers.
 
@@ -465,7 +484,6 @@ class BaseModelHandler(ABC):
         epochs: list[int] = []
         for f in model_artifacts_path.glob(f"{model_id}_*.keras"):
             try:
-                # Extracts the number from 'model_id_0080.keras'
                 epoch_str = f.stem.split('_')[-1]
                 epochs.append(int(epoch_str))
             except (ValueError, IndexError):
@@ -485,7 +503,7 @@ class BaseModelHandler(ABC):
         :returns: A dictionary of individual override parameters.
         """
         # Keys that are part of the CLI mechanism, not overridable config values
-        # The subcommand key can vary, so we find it dynamically.
+        # The subcommand key can vary, so find it dynamically.
         subcommand_key: str | None = next((key for key in vars(args) if key.endswith('_subcommand')), None)
 
         base_exclude_keys = {'command_group', 'func', 'model_id', 'config_override'}
@@ -512,13 +530,13 @@ class BaseModelHandler(ABC):
         :returns: The loaded dictionary from the model's config.yaml.
         :raises SystemExit: If validation fails or the config file cannot be loaded.
         """
-        # 1. Validate that at least one metric flag is present
+        # Validate that at least one metric flag is present
         if not any(getattr(args, flag, False) for flag in required_flags):
             self._parser.error(
                 f"At least one flag from --{', --'.join(flag.replace('_', '-') for flag in required_flags)} must be selected."
             )
 
-        # 2. Log initial messages
+        # Log initial messages
         command_name = "Get evaluation metrics" if 'epoch' in args else "Plot evaluation graphs"
         self._logger.info(
             f"Executing: {command_name} for {self._model_type_name} model '{args.model_id}'."
@@ -526,7 +544,7 @@ class BaseModelHandler(ABC):
         if args.dataset_name:
             self._logger.info(f"Evaluation will be performed on new dataset: '{args.dataset_name}'")
 
-        # 3. Load original training configuration
+        # Load original training configuration
         config_path: Path = ProjectPaths.get_model_root_path(
             model_id=args.model_id, model_type=self._model_type
         ) / "config.yaml"
@@ -543,6 +561,9 @@ class BaseModelHandler(ABC):
         """
         Displays model-specific metrics that are not common to all models.
 
+        Subclasses must implement this method to print any metrics unique to
+        their model type.
+
         :param result: The evaluation result object containing the metrics.
         :param args: The command-line arguments.
         """
@@ -550,10 +571,10 @@ class BaseModelHandler(ABC):
 
     def _display_metrics(self, result: BaseEvaluationResult, args: Namespace) -> None:
         """
-        A template method to display evaluation metrics.
+        Displays evaluation metrics in a structured format.
 
-        It displays common metrics and then delegates to a subclass to display
-        model-specific metrics.
+        This template method displays common metrics (e.g., loss, F1-score) and
+        then delegates to a subclass to display any model-specific metrics.
 
         :param result: The evaluation result object.
         :param args: The command-line arguments to check which metrics to display.
@@ -583,20 +604,20 @@ class BaseModelHandler(ABC):
         if args.f1_score:
             self._logger.info(f"  - F1-Score (Test): {result.f1_score:.4f} ({result.f1_score:.2%})")
 
-        # --- 呼叫抽象方法來顯示特定指標 ---
         self._display_specific_metrics(result=result, args=args)
 
         self._logger.info("-------------------------------------------------")
 
     @staticmethod
-    def _plot_loss_graph(eval_results: MultiEpochEvaluationResult, output_dir: Path,
-                         args: Namespace) -> None:
+    def _plot_loss_graph(
+        eval_results: MultiEpochEvaluationResult, output_dir: Path, args: Namespace
+    ) -> None:
         """
-        Plots the loss curves for the sentiment model.
+        Plots the loss curves for a model.
 
         Includes training, validation, and test loss based on user flags.
 
-        :param eval_results: The aggregated evaluation results for the sentiment model.
+        :param eval_results: The aggregated evaluation results for the model.
         :param output_dir: The directory to save the plot image.
         :param args: The command-line arguments to check which losses to plot.
         """

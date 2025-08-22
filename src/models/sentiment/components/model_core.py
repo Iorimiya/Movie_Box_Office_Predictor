@@ -59,8 +59,6 @@ class SentimentEvaluateConfig(BaseEvaluateConfig):
     pass
 
 
-# --- Model Core Implementation ---
-
 class SentimentModelCore(
     BaseModelCore[SentimentBuildConfig, SentimentTrainConfig, SentimentPredictConfig, SentimentEvaluateConfig]
 ):
@@ -69,6 +67,9 @@ class SentimentModelCore(
 
     This class implements the `build` method required by `BaseModelCore` to
     construct a specific LSTM network for binary text classification.
+
+    :ivar _model: The internal Keras model instance. It is `None` until `build`
+                  is called or a model is loaded.
     """
 
     @override
@@ -149,8 +150,9 @@ class SentimentModelCore(
 
     def _compile_model(self) -> None:
         """
-        Compiles the Keras model with a specific optimizer and loss function
-        for binary classification.
+        Compiles the Keras model with a specific optimizer and loss function.
+
+        This method configures the model for binary classification.
 
         :raises ValueError: If the model has not been created by calling `build` first.
         """

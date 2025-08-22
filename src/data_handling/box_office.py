@@ -83,8 +83,8 @@ class BoxOffice(MovieAuxiliaryDataMixin
 
         :param cls: The class itself.
         :param raw_data: The raw box office data dictionary.
-        :raises ValueError: If required fields are missing or data types are incorrect.
         :return: A dictionary containing the prepared arguments for the constructor.
+        :raises ValueError: If required fields are missing or data types are incorrect.
         """
 
         logger: Logger = LoggingManager().get_logger('root')

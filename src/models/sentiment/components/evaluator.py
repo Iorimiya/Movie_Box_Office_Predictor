@@ -108,18 +108,20 @@ class SentimentEvaluator(
         :param data_processor: The initialized data processor.
         :param config: The configuration object for the evaluation run.
         :returns: A tuple containing the evaluation features (x_eval) and labels (y_eval).
+        :raises ValueError: If 'split_ratios' or 'random_state' are not provided in the configuration
+                            when `evaluate_on_full_dataset` is False.
         """
         self.logger.info("Step 3: Loading and processing evaluation dataset...")
         data_source = SentimentDataSource(file_name=config.dataset_name)
         raw_data = data_processor.load_raw_data(source=data_source)
 
         if config.evaluate_on_full_dataset:
-            # --- Mode 2: Exploratory (New Dataset) ---
+            # --- Exploratory (New Dataset) ---
             self.logger.info("Evaluation mode: Processing the full dataset as the test set.")
             x_eval, y_eval = data_processor.process_for_evaluation(raw_data=raw_data)
             return x_eval, y_eval
         else:
-            # --- Mode 1: Reproducibility (Original Dataset) ---
+            # --- Reproducibility (Original Dataset) ---
             self.logger.info("Evaluation mode: Reproducing the original test split.")
 
             # Validate that necessary parameters for this mode are present
@@ -153,6 +155,13 @@ class SentimentEvaluator(
     ) -> dict[str, Optional[float]]:
         """
         Calculates loss, accuracy, and F1-score for the sentiment model.
+
+        :param model_core: The initialized model core.
+        :param data_processor: The initialized data processor.
+        :param x_test: The test features.
+        :param y_test: The test labels.
+        :param config: The configuration object for the evaluation run.
+        :returns: A dictionary containing calculated metrics such as 'test_loss', 'test_accuracy', and 'f1_score'.
         """
         metrics: dict[str, Optional[float]] = {
             'test_loss': None,
@@ -193,6 +202,12 @@ class SentimentEvaluator(
     ) -> SentimentEvaluationResult:
         """
         Compiles the final result object for the sentiment evaluation.
+
+        :param config: The configuration object for the evaluation run.
+        :param metrics: A dictionary containing the calculated metrics.
+        :param training_history: A list of training loss values from the model's history.
+        :param validation_history: A list of validation loss values from the model's history.
+        :returns: A `SentimentEvaluationResult` object encapsulating all evaluation results.
         """
         return SentimentEvaluationResult(
             model_id=config.model_id,

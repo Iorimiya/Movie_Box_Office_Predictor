@@ -42,10 +42,15 @@ class EvaluableDataProcessor(
     """
     An abstract base class for data processors that support evaluation on a full, unsplit dataset.
 
-    This class extends the BaseDataProcessor by adding an abstract method
-    `process_for_evaluation`, establishing a contract for processors used
-    in evaluation contexts that require handling of a complete dataset as a
-    single test set.
+    This class extends :class:`~.BaseDataProcessor` by introducing a structured
+    workflow for training data processing and adding an abstract method
+    `process_for_evaluation`. This establishes a contract for processors used
+    in evaluation contexts that require handling a complete dataset as a single
+    test set. It also provides a template method pattern for processing training
+    data, separating pre-split, splitting, and post-split logic.
+
+    :ivar logger: A logger instance for logging processing activities.
+    :ivar splitter: A :class:`~.DatasetSplitter` instance for splitting data.
     """
     logger: Logger
     splitter: DatasetSplitter[X_Type, Y_Type]
@@ -55,7 +60,10 @@ class EvaluableDataProcessor(
         """
         Initializes the EvaluableDataProcessor.
 
-        This now also initializes a shared logger and a generic DatasetSplitter.
+        This also initializes a shared logger and a generic :class:`~.DatasetSplitter`.
+
+        :param model_artifacts_path: Path to the directory where model artifacts
+                                     (like a scaler or tokenizer) are or will be stored.
         """
         super().__init__(model_artifacts_path=model_artifacts_path)
         self.logger: Logger = LoggingManager().get_logger('machine_learning')
@@ -66,9 +74,13 @@ class EvaluableDataProcessor(
         """
         Pre-processes raw data into feature (x) and label (y) arrays ready for splitting.
 
+        This abstract method must be implemented by subclasses to perform initial
+        transformations on the raw data, converting it into a numerical format
+        (e.g., NumPy arrays) suitable for the data splitter.
+
         :param raw_data: The raw data loaded from the source.
         :param config: The data processing configuration.
-        :returns: A tuple containing the feature array and the label array.
+        :returns: A tuple containing the feature array (x) and the label array (y).
         """
         pass
 
@@ -98,16 +110,18 @@ class EvaluableDataProcessor(
         3. Perform post-split processing (`_post_process_splits`).
 
         :param raw_data: The raw data loaded by `load_raw_data`.
-        :param config: A configuration object containing parameters for the training process.
+        :param config: A configuration object containing parameters for the training process,
+                       such as split ratios and random state.
         :returns: The processed data, ready to be fed into a model.
+        :raises ValueError: If the sum of `split_ratios` in the config is zero.
         """
         self.logger.info("--- Starting data processing for training ---")
 
-        # Step 1: Delegate pre-split processing to subclass
+        # Delegate pre-split processing to subclass
         self.logger.info("Step 1: Preparing data for splitting...")
         x_to_split, y_to_split = self._prepare_for_split(raw_data=raw_data, config=config)
 
-        # Step 2: Perform the split (common logic)
+        # Perform the split (common logic)
         self.logger.info("Step 2: Splitting data into train, validation, and test sets...")
         split_data: SplitDataset[X_Type, Y_Type] = self.splitter.split(
             x_data=x_to_split,
@@ -117,7 +131,7 @@ class EvaluableDataProcessor(
             shuffle=True  # Assuming shuffle is standard for training
         )
 
-        # Step 3: Delegate post-split processing to subclass
+        # Delegate post-split processing to subclass
         self.logger.info("Step 3: Performing post-split processing (scaling/tokenizing)...")
         processed_data: ProcessedTrainingDataType = self._post_process_splits(split_data=split_data, config=config)
 

@@ -197,19 +197,19 @@ class BaseEvaluator(
             f"--- Starting evaluation for model '{config.model_id}' at epoch {config.model_epoch} ---"
         )
 
-        # Step 1: Setup components (delegated to subclass)
+        # Setup components (delegated to subclass)
         data_processor, model_core, artifacts_path = self._setup_components(
             model_id=config.model_id, model_epoch=config.model_epoch
         )
 
-        # Step 2: Load history (common logic)
+        # Load history (common logic)
         history_path = artifacts_path / BaseTrainingPipeline.HISTORY_FILE_NAME
         training_loss, validation_loss = self.load_training_history(history_file_path=history_path)
 
-        # Step 3: Prepare test data (delegated to subclass)
+        # Prepare test data (delegated to subclass)
         x_test, y_test = self._prepare_test_data(data_processor=data_processor, config=config)
 
-        # Step 4: Calculate all metrics (delegated to subclass)
+        # Calculate all metrics (delegated to subclass)
         self.logger.info("Step 4: Calculating requested metrics on the test set...")
         calculated_metrics = self._calculate_metrics(
             model_core=model_core,
@@ -219,7 +219,7 @@ class BaseEvaluator(
             config=config
         )
 
-        # Step 5: Compile final result (delegated to subclass)
+        # Compile final result (delegated to subclass)
         self.logger.info("Step 5: Compiling final evaluation results...")
         final_result = self._compile_final_result(
             config=config,

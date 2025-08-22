@@ -41,7 +41,6 @@ class MovieMetadata:
         fields like 'id' or 'name' are missing, empty, or if 'id' cannot be
         converted to an integer, a warning is logged, and None is returned.
 
-        :param cls: The class itself.
         :param source: A dictionary containing the raw movie metadata.
         :return: An instance of MovieMetadata if parsing is successful, otherwise None.
         """
@@ -93,7 +92,6 @@ class MoviePathMetadata(MovieMetadata):
         This method constructs file paths for box office and review data based on
         the movie's ID and the provided dataset root path.
 
-        :param cls: The class itself.
         :param source: An instance of MovieMetadata containing the base movie data.
         :param dataset_root_path: The root directory path for the dataset.
         :return: An instance of MoviePathMetadata with populated file paths.

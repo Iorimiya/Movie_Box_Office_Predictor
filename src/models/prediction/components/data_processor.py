@@ -50,6 +50,10 @@ class PredictionDataConfig(BaseDataConfig):  # <-- Inherit from BaseDataConfig
 class PredictionFeature:
     """
     A structured container for the features of a single week used in the prediction model.
+
+    :ivar box_office: The box office revenue for the week.
+    :ivar avg_sentiment: The average sentiment score of reviews for the week.
+    :ivar reply_count: The total number of replies to reviews for the week.
     """
     box_office: int | float
     avg_sentiment: float
@@ -82,7 +86,11 @@ class PredictionDataProcessor(
     This processor loads movie data, transforms it into weekly features,
     creates sequences, scales the data using a MinMaxScaler, and splits it
     into training, validation, and test sets. It manages the MinMaxScaler
-    and key training parameters as its primary artifacts.
+    as its primary artifact.
+
+    :cvar SCALER_FILE_NAME: The constant filename for the saved scaler artifact.
+    :ivar scaler: The ``MinMaxScaler`` instance used for scaling and inverse-scaling data.
+                  It is ``None`` until it is fitted during training or loaded from an artifact.
     """
 
     SCALER_FILE_NAME: Final[str] = "scaler.pickle"
@@ -247,6 +255,11 @@ class PredictionDataProcessor(
         NDArray[float32], NDArray[float64]]:
         """
         Creates time-series sequences (x and y) from raw movie data.
+
+        :param raw_data: The raw list of ``MovieData`` objects.
+        :param config: The data processing configuration.
+        :returns: A tuple containing the feature sequences (x) and target values (y).
+        :raises ValueError: If no session data can be created from the raw data.
         """
         sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
             movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1)
@@ -262,6 +275,10 @@ class PredictionDataProcessor(
                              config: PredictionDataConfig) -> PredictionTrainingProcessedData:
         """
         Fits the scaler on the training data and applies it to all data splits.
+
+        :param split_data: The TypedDict containing the train, validation, and test splits.
+        :param config: The data processing configuration.
+        :returns: The final, fully processed and scaled data ready for model training.
         """
         return self._scale_data(unscaled_data=split_data)
 
@@ -333,6 +350,7 @@ class PredictionDataProcessor(
 
         :param sequences: A 3D array of sequences (samples, timesteps, features).
         :returns: The sequences with the first feature scaled.
+        :raises ValueError: If the scaler has not been fitted.
         """
         if not self.scaler:
             raise ValueError("Scaler is not fitted.")

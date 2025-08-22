@@ -188,7 +188,7 @@ class BaseTrainingPipeline(
         """
         self.logger.info("Saving all run artifacts...")
 
-        # 1. Save History (delegating merging logic)
+        # Save History (delegating merging logic)
         history_filename: str = self.get_history_filename()
         history_save_path: Path = artifacts_folder / history_filename
         history_to_save: History = self._merge_histories(
@@ -199,12 +199,12 @@ class BaseTrainingPipeline(
         PickleFile(path=history_save_path).save(data=history_to_save)
         self.logger.info(f"Training history saved to: {history_save_path}")
 
-        # 2. Save Data Processor Artifacts (only on a new run)
+        # Save Data Processor Artifacts (only on a new run)
         if not continue_from_epoch:
             self.data_processor.save_artifacts()
             self.logger.info(f"Data processor artifacts saved in: {self.data_processor.model_artifacts_path}")
 
-        # 3. Save Final Model State (if not already saved by a checkpoint)
+        # Save Final Model State (if not already saved by a checkpoint)
         # We need to access model_id and epochs from the config, which requires a bit of care
         # since PipelineConfigType is a generic. We assume it has these attributes.
         final_model_save_path: Path = artifacts_folder / f"{config.model_id}_{config.epochs:04d}.keras"

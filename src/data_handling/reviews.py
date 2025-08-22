@@ -191,6 +191,8 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
     def __str__(self) -> str:
         """
         Returns a string representation of the Review object for display.
+
+        :return: A human-readable string representation of the review.
         """
         sentiment_display: str = f"{self.sentiment_score:.4f}" if self.sentiment_score is not None else 'N/A'
         # Truncate content for display
@@ -300,6 +302,8 @@ class PublicReview(Review):
     def __str__(self) -> str:
         """
         Returns a string representation of the PublicReview object for display.
+
+        :return: A human-readable string representation of the public review, including the reply count.
         """
         base_str: str = super().__str__()
         return f"{base_str}\n  Reply Count: {self.reply_count}"
@@ -367,6 +371,8 @@ class ExpertReview(Review):
     def __str__(self) -> str:
         """
         Returns a string representation of the ExpertReview object for display.
+
+        :return: A human-readable string representation of the expert review, including the expert score.
         """
         base_str: str = super().__str__()
         return f"{base_str}\n  Expert Score: {self.expert_score}"

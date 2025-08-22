@@ -57,9 +57,6 @@ class PredictionEvaluateConfig(BaseEvaluateConfig):
     """
     pass
 
-
-# --- Model Core Implementation ---
-
 class PredictionModelCore(
     BaseModelCore[PredictionBuildConfig, PredictionTrainConfig, PredictionPredictConfig, PredictionEvaluateConfig]
 ):

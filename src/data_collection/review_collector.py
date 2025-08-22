@@ -33,8 +33,8 @@ class _WebsiteConfig:
     """
     A data class to store configuration for a target website.
 
-    :cvar base_url: The base URL of the website.
-    :cvar search_url_part: The part of the URL used for searching.
+    :ivar base_url: The base URL of the website.
+    :ivar search_url_part: The part of the URL used for searching.
     """
     base_url: str
     search_url_part: str
@@ -70,6 +70,9 @@ class ReviewCollector:
 
     It supports fetching reviews from PTT and Dcard, handling search key generation,
     URL retrieval, and parsing review content.
+
+    :ivar __logger: The logger instance for logging messages.
+    :ivar __search_target: The target website for review collection.
     """
 
     def __init__(self, target_website: TargetWebsite) -> None:

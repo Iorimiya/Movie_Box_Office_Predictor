@@ -410,19 +410,18 @@ class MovieSessionData:
                                           movie_meta_item: MoviePathMetadata,
                                           number_of_weeks: int) -> list['MovieSessionData']:
         """
-        Helper method to process a single movie's metadata and create all its weekly sessions.
+        Creates all weekly sessions for a single movie based on its metadata.
 
-        Loads box office and review data for a movie, then segments the box office data
-        into batches of `number_of_weeks`. For each valid batch, a MovieSessionData
-        instance is created with corresponding WeekData.
+        This helper method loads box office and review data for a movie, then segments
+        the box office data into batches of `number_of_weeks`. For each valid batch,
+        a `MovieSessionData` instance is created with corresponding `WeekData`.
 
-        :param movie_meta_item: Metadata for the movie, including 'id', 'name',
+        :param movie_meta_item: Metadata for the movie, including its ID, name,
                                 and paths to its data files.
         :param number_of_weeks: The number of weeks each movie session should span.
-        :return: A list of MovieSessionData objects for the given movie,
-                  or an empty list if processing fails or no valid sessions are found.
+        :return: A list of `MovieSessionData` objects for the given movie,
+                 or an empty list if processing fails or no valid sessions are found.
         """
-
         box_office_file_path: Path = movie_meta_item.box_office_file_path
         public_reviews_file_path: Path = movie_meta_item.public_reviews_file_path
         expert_reviews_file_path: Path = movie_meta_item.expert_reviews_file_path
@@ -517,13 +516,14 @@ class MovieData:
     def __save_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
                          target_directory: Path) -> Path:
         """
-        Internal helper to save a specific component (box office, public reviews, or expert reviews) to a YAML file.
+        Saves a specific component to a YAML file.
 
-        The data for the specified component is serialized and saved to a file
-        named after the movie's ID within the target directory.
+        This internal helper serializes the data for the specified component and saves
+        it to a file named after the movie's ID within the target directory.
 
         :param component_type: The type of component to save.
         :param target_directory: The directory where the component's YAML file will be saved.
+        :return: The path to the saved YAML file.
         :raises Exception: Propagates exceptions from `YamlFile.save()`.
         """
         logger: Logger = LoggingManager().get_logger("root")
@@ -548,25 +548,28 @@ class MovieData:
 
     def save_box_office(self, target_directory: Path) -> Path:
         """
-        Saves the movie's box office data to a YAML file in the specified directory.
+        Saves the movie's box office data to a YAML file.
 
         :param target_directory: The directory where the box office data file will be saved.
+        :return: The path to the saved YAML file.
         """
         return self.__save_component(component_type='box_office', target_directory=target_directory)
 
     def save_public_reviews(self, target_directory: Path) -> Path:
         """
-        Saves the movie's public reviews data to a YAML file in the specified directory.
+        Saves the movie's public reviews data to a YAML file.
 
         :param target_directory: The directory where the public reviews data file will be saved.
+        :return: The path to the saved YAML file.
         """
         return self.__save_component(component_type='public_reviews', target_directory=target_directory)
 
     def save_expert_reviews(self, target_directory: Path) -> Path:
         """
-        Saves the movie's expert reviews data to a YAML file in the specified directory.
+        Saves the movie's expert reviews data to a YAML file.
 
         :param target_directory: The directory where the expert reviews data file will be saved.
+        :return: The path to the saved YAML file.
         """
         return self.__save_component(component_type='expert_reviews', target_directory=target_directory)
 

@@ -83,7 +83,7 @@ class PredictionTrainingPipeline(
         )
         artifacts_folder.mkdir(parents=True, exist_ok=True)
 
-        # 2. Model Building or Loading
+        # Model Building or Loading
         if continue_from_epoch:
             self.logger.info(f"Step 2 (Continue): Setting up for continued training...")
             self.model_core = self._setup_for_continuation(
@@ -94,7 +94,7 @@ class PredictionTrainingPipeline(
         else:
             self.logger.info("Step 2 (New): This is a new training run.")
 
-        # 3. Data Loading and Processing
+        # Data Loading and Processing
         self.logger.info("Step 3: Loading and processing data...")
         data_source = PredictionDataSource(dataset_name=master_config.dataset_name)
         raw_data = self.data_processor.load_raw_data(source=data_source)
@@ -109,7 +109,7 @@ class PredictionTrainingPipeline(
         )
         self.logger.info("Data processing complete.")
 
-        # 4. Build Model (if new run)
+        # Build Model (if new run)
         if not continue_from_epoch:
             num_features = processed_data['x_train'].shape[2]
             build_config = PredictionBuildConfig(
@@ -120,7 +120,7 @@ class PredictionTrainingPipeline(
             self.model_core.build(config=build_config)
             self.logger.info("Model building complete.")
 
-        # 5. Model Training
+        # Model Training
         self.logger.info("Starting model training...")
         callbacks_to_use = []
         if master_config.checkpoint_interval:
@@ -179,7 +179,12 @@ class PredictionTrainingPipeline(
     @override
     def _check_required_artifacts_for_continuation(self) -> None:
         """
-        Checks if the scaler is loaded for the prediction model.
+        Checks if the required artifacts for continuing training are available.
+
+        For the prediction model, this specifically verifies that the scaler
+        has been loaded into the data processor.
+
+        :raises FileNotFoundError: If the scaler artifact is not loaded.
         """
         if not self.data_processor.scaler:
             raise FileNotFoundError(
@@ -190,5 +195,8 @@ class PredictionTrainingPipeline(
     def _create_model_core(self, model_path: Path) -> PredictionModelCore:
         """
         Creates a PredictionModelCore instance from a saved model file.
+
+        :param model_path: The path to the saved Keras model file.
+        :returns: An instance of `PredictionModelCore` with the model loaded.
         """
         return PredictionModelCore(model_path=model_path)

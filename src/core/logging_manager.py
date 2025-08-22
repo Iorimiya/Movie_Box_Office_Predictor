@@ -525,12 +525,17 @@ class LoggingManager:
     def _configure_initial_components(self, components: list[LogComponentSettings]) -> None:
         """
         Configures initial loggers and handlers based on a provided list of settings.
+
         This method is called during __init__ to set up the logging environment.
-        It handles merging with default settings and ensures root logger and stdout handler are
-        correctly configured and positioned.
+        It handles merging with default settings and ensures the root logger and
+        stdout handler are correctly configured and positioned.
 
         :param components: A list of settings to be processed.
                            This list may be default or user-provided.
+        :raises ValueError: If a user-defined 'stdout' handler does not target
+                            sys.stdout, or if any component settings are invalid
+                            (e.g., name conflict, non-existent handler link).
+        :raises TypeError: If an unsupported handler output type is specified.
         """
 
         user_handlers, user_loggers = self._classify_log_components(settings_list=components)
@@ -594,11 +599,11 @@ class LoggingManager:
     def _classify_log_components(settings_list: list[LogComponentSettings]) \
         -> tuple[list[HandlerSettings], list[LoggerSettings]]:
         """
-        Internal helper to classify LogComponentSettings into handlers and loggers,
-        and warn about unknown types.
+        Classifies LogComponentSettings into handlers and loggers.
 
         :param settings_list: A list of settings to classify.
-        :return: A tuple containing two lists: the first for HandlerSettings and the second for LoggerSettings.
+        :return: A tuple containing two lists: the first for HandlerSettings
+                 and the second for LoggerSettings.
         """
         handlers: list[HandlerSettings] = [
             setting for setting in settings_list if isinstance(setting, HandlerSettings)
@@ -616,7 +621,7 @@ class LoggingManager:
     def _update_logger_connection_mapping(self, logger_name: str, handler_name: str, action: Literal['add', 'remove']) \
         -> None:
         """
-        Internal helper to manage the logger-handler connection mapping.
+        Manages the internal logger-handler connection mapping.
 
         :param logger_name: The name of the logger.
         :param handler_name: The name of the handler.
@@ -650,7 +655,7 @@ class LoggingManager:
     @staticmethod
     def _disconnect_handler_from_logger(logger_instance: Logger, handler_instance: Handler) -> None:
         """
-        Internal helper to safely remove a specific handler from a logger instance.
+        Safely removes a specific handler from a logger instance.
 
         :param logger_instance: The logger object from which to remove the handler.
         :param handler_instance: The handler object to remove.
@@ -663,14 +668,12 @@ class LoggingManager:
 
     def _is_handler_in_use(self, handler_name: str, handler_instance: Handler) -> bool:
         """
-        Internal helper to check if a handler is currently in use by any managed logger
-        or any logger in the global logging registry.
+        Checks if a handler is in use by any managed logger or in the global registry.
 
         :param handler_name: The name of the handler.
         :param handler_instance: The handler object to check.
         :return: True if the handler is in use, False otherwise.
         """
-
         is_linked_by_manager: bool = any(
             handler_name in connections for connections in self._logger_handler_connections.values()
         )

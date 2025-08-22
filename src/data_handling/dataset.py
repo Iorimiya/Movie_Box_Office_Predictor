@@ -29,6 +29,7 @@ class Dataset:
     :ivar __movies_data_cache: An internal cache for the fully loaded list of MovieData objects.
                               It is initialized to None and populated on first access to `movie_data` property.
                               The cache is invalidated when data collection methods are called.
+    :ivar __logger: A logger instance for logging messages.
     """
     name: str
     __movies_data_cache: Optional[list[MovieData]] = field(default=None, init=False, repr=False)
@@ -46,32 +47,44 @@ class Dataset:
 
     @property
     def dataset_path(self) -> Path:
-        """The root path for this dataset's files."""
+        """
+        The root path for this dataset's files.
+        """
         return ProjectPaths.get_dataset_path(dataset_name=self.name, dataset_type=ProjectDatasetType.STRUCTURED)
 
     @property
     def index_file_path(self) -> Path:
-        """The path to the index CSV file for this dataset."""
+        """
+        The path to the index CSV file for this dataset.
+        """
         return self.dataset_path / ProjectPaths.INDEX_FILE_NAME
 
     @property
     def box_office_folder_path(self) -> Path:
-        """The path to the folder containing box office data files for this dataset."""
+        """
+        The path to the folder containing box office data files for this dataset.
+        """
         return self.dataset_path / ProjectPaths.BOX_OFFICE_SUBFOLDER_NAME
 
     @property
     def public_review_folder_path(self) -> Path:
-        """The path to the folder containing public review data files for this dataset."""
+        """
+        The path to the folder containing public review data files for this dataset.
+        """
         return self.dataset_path / ProjectPaths.PUBLIC_REVIEWS_SUBFOLDER_NAME
 
     @property
     def expert_review_folder_path(self) -> Path:
-        """The path to the folder containing expert review data files for this dataset."""
+        """
+        The path to the folder containing expert review data files for this dataset.
+        """
         return self.dataset_path / ProjectPaths.EXPERT_REVIEWS_SUBFOLDER_NAME
 
     @property
     def index_file(self) -> CsvFile:
-        """A CsvFile instance for interacting with the dataset's index file."""
+        """
+        A CsvFile instance for interacting with the dataset's index file.
+        """
         return CsvFile(path=self.index_file_path)
 
     @cached_property
@@ -146,6 +159,9 @@ class Dataset:
 
         :param source_csv: A CsvFile instance representing the source CSV file
                            containing at least a 'movie_name' column.
+        :raises (FileNotFoundError, PermissionError, IOError): If an I/O error occurs
+                                                                during file operations.
+        :raises Exception: For any other unexpected errors during initialization.
         """
         self.__logger.info(
             f"Initializing index file '{self.index_file_path}' for dataset '{self.name}' from source '{source_csv.path}'.")
@@ -273,15 +289,15 @@ class Dataset:
 
     def load_movie_sessions(self, number_of_weeks: int) -> list[MovieSessionData]:
         """
-        Creates MovieSessionData objects for all movies in this dataset.
+        Creates fixed-length movie session data from all movies in the dataset.
 
-        It reads the index file to get movie metadata, then for each movie,
-        it loads its full data and segments it into valid, fixed-length sessions.
+        This method leverages the `movie_data` property to get a list of all
+        fully-loaded `MovieData` objects. It then delegates to
+        `MovieSessionData.create_sessions_from_movie_data_list` to segment
+        the data into sessions of the specified length.
 
         :param number_of_weeks: The number of weeks each movie session should span.
-        :return: A flattened list of all MovieSessionData objects created from the dataset.
-        :raises FileNotFoundError: If the dataset's index file is not found (propagated).
-        :raises ValueError: If the index file is found but contains no processable movie metadata (propagated).
+        :returns: A flattened list of all `MovieSessionData` objects created from the dataset.
         """
         self.__logger.info(f"Creating {number_of_weeks}-week sessions for all movies in dataset '{self.name}'.")
 
@@ -301,14 +317,12 @@ class Dataset:
 
     def collect_box_office(self) -> None:
         """
-        Collects box office data for all movies in this dataset.
+        Collects and saves box office data for all movies in the dataset.
 
-        This method initiates the box office data collection process.
-        It first invalidates any cached `movie_data`. Then, it loads
-        movie metadata, passes it to the `BoxOfficeCollector`, which
-        downloads and saves the box office data to the filesystem.
-        The internal `_movies_data_cache` is set to None, so subsequent
-        access to `self.movie_data` will reload the (potentially updated) data.
+        This method initiates the box office data collection process. It invalidates
+        the internal `movie_data` cache, loads movie metadata, and then uses the
+        `BoxOfficeCollector` to download and save the data to the filesystem.
+        Subsequent access to the `movie_data` property will reload the updated data.
         """
         self.__logger.info(f"Starting box office collection for dataset '{self.name}'.")
         if self.__movies_data_cache is not None:
@@ -343,19 +357,16 @@ class Dataset:
 
     def collect_public_review(self, target_website: Literal['PTT', 'DCARD']) -> None:
         """
-        Collects public review data for all movies in this dataset from the specified target website.
+        Collects and saves public reviews for all movies in the dataset.
 
-        This method initiates the public review data collection process.
-        It first invalidates any cached `movie_data`. Then, it loads
-        movie metadata (as MovieData objects), passes this list to the
-        `ReviewCollector`, which fetches and saves public reviews.
-        The internal `__movies_data_cache` is set to None, so subsequent
-        access to `self.movie_data` will reload the (potentially updated) data.
+        This method initiates the public review collection process from a specified
+        website. It invalidates the internal `movie_data` cache, loads movie
+        metadata, and then uses the `ReviewCollector` to fetch and save the reviews
+        to the filesystem. Subsequent access to the `movie_data` property will
+        reload the updated data.
 
-        :param target_website: The name of the website from which to collect reviews (e.g., "PTT", "DCARD").
-                                   Defaults to "PTT".
+        :param target_website: The name of the website from which to collect reviews ("PTT" or "DCARD").
         """
-
         try:
             target_website_enum: TargetWebsite = cast(TargetWebsite, TargetWebsite[target_website.upper()])
         except KeyError:
@@ -399,6 +410,12 @@ class Dataset:
         return
 
     def collect_expert_review(self) -> None:
+        """
+        Collects expert review data for all movies in this dataset.
+
+        .. note::
+           This method is not yet implemented.
+        """
         pass
 
     def compute_sentiment(self, model_id: str, model_epoch: int) -> None:
