@@ -9,7 +9,8 @@ from selenium import webdriver
 from selenium.common.exceptions import (
     ElementClickInterceptedException,
     NoSuchElementException,
-    TimeoutException
+    TimeoutException,
+    UnexpectedAlertPresentException
 )
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -280,6 +281,13 @@ class Browser(webdriver.Chrome):
             try:
                 button.click()
                 self.__logger.info(f"Button is clicked.")
+            except UnexpectedAlertPresentException:
+                # This is the specific error we are now handling.
+                self.__logger.warning("An unexpected alert appeared after clicking the button.")
+                self._handle_alert()
+                # After handling the alert, we raise a known exception to signal the click "failed"
+                # in its primary goal (e.g., starting a download).
+                raise TimeoutException("Click was intercepted by a website alert.")
             except (ElementClickInterceptedException, AttributeError):
                 self.__logger.warning(f"The button cannot be clicked.", exc_info=True)
                 raise NoSuchElementException
@@ -333,6 +341,26 @@ class Browser(webdriver.Chrome):
                 # If there was no original path, we can't restore it.
                 # The behavior here could be to set it to a default, but for now, we just log it.
                 self.__logger.debug("No original download path to restore.")
+
+    def _handle_alert(self) -> None:
+        """
+        Checks for and dismisses any open JavaScript alert.
+
+        This method attempts to switch to an alert, logs its text,
+        and then accepts it to allow the browser to continue.
+        """
+        try:
+            alert: Alert = self.switch_to.alert
+            alert_text: str = alert.text
+            self.__logger.warning(f"Caught an alert from the website: '{alert_text}'")
+            alert.accept()
+            self.__logger.info("Alert dismissed.")
+        except NoSuchElementException:
+            # This is the expected case when no alert is present.
+            pass
+        except Exception as e:
+            # Catch any other potential errors during alert handling.
+            self.__logger.error(f"An unexpected error occurred while handling an alert: {e}", exc_info=True)
 
 
 class CaptchaBrowser:
