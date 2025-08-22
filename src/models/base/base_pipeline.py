@@ -10,6 +10,7 @@ from src.models.base.base_model_core import BaseModelCore
 from src.models.base.keras_setup import keras_base
 
 History = keras_base.callbacks.History
+ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
 
 DataProcessorType = TypeVar('DataProcessorType', bound=BaseDataProcessor)
 ModelCoreType = TypeVar('ModelCoreType', bound=BaseModelCore)
@@ -165,7 +166,6 @@ class BaseTrainingPipeline(
         else:
             return new_history
 
-    # --- NEW TEMPLATE METHOD FOR ARTIFACT SAVING ---
     def _save_run_artifacts(
         self,
         config: PipelineConfigType,
@@ -211,3 +211,57 @@ class BaseTrainingPipeline(
         if not final_model_save_path.exists():
             self.model_core.save(file_path=final_model_save_path)
             self.logger.info(f"Final model state for epoch {config.epochs} saved to: {final_model_save_path}")
+
+    def _setup_checkpoint_callback(
+        self,
+        config: PipelineConfigType,
+        num_train_samples: int,
+        artifacts_folder: Path
+    ) -> Optional[ModelCheckpoint]:
+        """
+        Sets up the ModelCheckpoint callback based on the pipeline configuration.
+
+        This helper method centralizes the logic for creating a checkpoint
+        callback, calculating the save frequency based on the number of
+        training samples and the specified interval in epochs.
+
+        :param config: The master configuration object for the run, which must
+                       have `checkpoint_interval`, `batch_size`, and `model_id` attributes.
+        :param num_train_samples: The number of samples in the training dataset.
+        :param artifacts_folder: The directory where checkpoint files will be saved.
+        :returns: A configured `ModelCheckpoint` instance if checkpointing is
+                  enabled in the config, otherwise `None`.
+        """
+        if not getattr(config, 'checkpoint_interval', None):
+            return None
+
+        save_frequency_in_batches: int | str
+        if num_train_samples == 0:
+            self.logger.warning("Training data is empty. Checkpoint callback will fall back to saving every epoch.")
+            save_frequency_in_batches = 'epoch'
+        else:
+            # Calculate steps per epoch using ceiling division
+            batch_size: int = getattr(config, 'batch_size')
+            checkpoint_interval: int = getattr(config, 'checkpoint_interval')
+            steps_per_epoch: int = (num_train_samples + batch_size - 1) // batch_size
+            save_frequency_in_batches = checkpoint_interval * steps_per_epoch
+            self.logger.info(
+                f"Checkpoint interval of {checkpoint_interval} epochs "
+                f"translates to a save frequency of {save_frequency_in_batches} batches "
+                f"(steps_per_epoch: {steps_per_epoch})."
+            )
+
+        model_id: str = getattr(config, 'model_id')
+        checkpoint_filepath: Path = artifacts_folder / f"{model_id}_{{epoch:04d}}.keras"
+        model_checkpoint_callback: ModelCheckpoint = ModelCheckpoint(
+            filepath=checkpoint_filepath,
+            save_weights_only=False,
+            save_freq=save_frequency_in_batches,
+            verbose=1
+        )
+
+        self.logger.info(
+            f"Model checkpointing enabled. Saving every {getattr(config, 'checkpoint_interval')} epochs."
+        )
+        return model_checkpoint_callback
+
