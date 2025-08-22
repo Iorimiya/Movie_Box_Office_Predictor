@@ -1,0 +1,94 @@
+### top_parser
+
+- dataset
+  - dataset index
+    - --structured-dataset-name: *str* (Required)
+    - --source-file: *str* (Required)
+  - dataset collect
+    - dataset collect box-office
+      - **mutually_exclusive** (Required)
+        - --structured-dataset-name: *str*
+        - --movie-name: *str*
+    - dataset collect ptt-review
+      - **mutually_exclusive** (Required)
+        - --structured-dataset-name: *str*
+        - --movie-name: *str*
+    - dataset collect dcard-review
+      - **mutually_exclusive** (Required)
+        - --structured-dataset-name: *str*
+        - --movie-name: *str*
+  - dataset compute-sentiment
+    - --model-id: *str* (Required)
+    - --epoch: *int* (Required)
+    - --structured-dataset-name: *str* (Required)
+- sentiment-model
+  - sentiment-model train
+    - --model-id: *str* (Required)
+    - --config-override *Path*
+    - --dataset-name: *str* 
+    - --epochs: *str*
+    - --batch-size: *int*
+    - --vocabulary-size: *int*
+    - --embedding-dim: *int*
+    - --lstm-units: *int*
+    - --split-ratios: *int, int, int*
+    - --random-state: *int*
+    - --checkpoint-interval: *int*
+    - --continue-from-epoch: *int*
+  - sentiment-model predict
+    - --model-id: *str* (Required) 
+    - --epoch: *int* (Required)
+    - --input-sentence: *str* (Required)
+  - sentiment-model evaluate
+    - sentiment-model evaluate plot
+      - --model-id: *str* (Required)
+      - --training-loss: *flag*
+      - --validation-loss: *flag*
+      - --test-loss: *flag*
+      - --f1-score: *flag*
+      - --dataset-name *str*
+    - sentiment-model evaluate get-metrics
+      - --model-id: *str* (Required) 
+      - --epoch: *int* (Required)
+      - --training-loss: *flag*
+      - --validation-loss: *flag*
+      - --test-loss: *flag*
+      - --f1-score: *flag*
+      - --dataset-name *str*
+- prediction-model
+  - prediction-model train
+    - --model-id: *str* (Required)
+    - --config-override *Path*
+    - --dataset-name: *str* 
+    - --epochs: *str*
+    - --batch-size: *int*
+    - --vocabulary-size: *int*
+    - --embedding-dim: *int*
+    - --lstm-units: *int*
+    - --split-ratios: *int, int, int*
+    - --random-state: *int*
+    - --checkpoint-interval: *int*
+    - --continue-from-epoch: *int*
+  - prediction-model predict
+    - --model-id: *str* (Required) 
+    - --epoch: *int* (Required)
+    - **mutually_exclusive** (Required)
+      - --movie-name: *str*
+      - --random: *flag*
+  - prediction-model evaluate
+    - prediction-model evaluate plot
+      - --model-id: *str* (Required)
+      - --training-loss: *flag*
+      - --validation-loss: *flag*
+      - --test-loss: *flag*
+      - --f1-score: *flag*
+      - --dataset-name *str*
+    - prediction-model evaluate get-metrics
+      - --model-id: *str* (Required) 
+      - --epoch: *int* (Required)
+      - --training-loss: *flag*
+      - --validation-loss: *flag*
+      - --test-loss: *flag*
+      - --f1-score: *flag*
+      - --dataset-name *str*
+

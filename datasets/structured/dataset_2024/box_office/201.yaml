@@ -1,0 +1,35 @@
+start_date: 2023-12-18
+end_date: 2023-12-24
+box_office: 0
+---
+start_date: 2023-12-25
+end_date: 2023-12-31
+box_office: 69968
+---
+start_date: 2024-01-01
+end_date: 2024-01-07
+box_office: 40987
+---
+start_date: 2024-01-08
+end_date: 2024-01-14
+box_office: 16040
+---
+start_date: 2024-01-15
+end_date: 2024-01-21
+box_office: 7230
+---
+start_date: 2024-01-22
+end_date: 2024-01-28
+box_office: 4110
+---
+start_date: 2024-01-29
+end_date: 2024-02-04
+box_office: 0
+---
+start_date: 2024-02-05
+end_date: 2024-02-11
+box_office: 0
+---
+start_date: 2024-02-12
+end_date: 2024-02-18
+box_office: 2430
