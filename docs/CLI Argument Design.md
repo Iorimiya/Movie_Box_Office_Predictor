@@ -25,7 +25,7 @@
   - sentiment-model train
     - --model-id: *str* (Required)
     - --config-override *Path*
-    - --dataset-file-name: *str* 
+    - --dataset-name: *str* 
     - --epochs: *str*
     - --batch-size: *int*
     - --vocabulary-size: *int*
@@ -44,6 +44,7 @@
       - --model-id: *str* (Required)
       - --training-loss: *flag*
       - --validation-loss: *flag*
+      - --test-loss: *flag*
       - --f1-score: *flag*
       - --dataset-name *str*
     - sentiment-model evaluate get-metrics
@@ -51,12 +52,14 @@
       - --epoch: *int* (Required)
       - --training-loss: *flag*
       - --validation-loss: *flag*
+      - --test-loss: *flag*
       - --f1-score: *flag*
+      - --dataset-name *str*
 - prediction-model
   - prediction-model train
     - --model-id: *str* (Required)
     - --config-override *Path*
-    - --dataset-file-name: *str* 
+    - --dataset-name: *str* 
     - --epochs: *str*
     - --batch-size: *int*
     - --vocabulary-size: *int*
@@ -77,11 +80,15 @@
       - --model-id: *str* (Required)
       - --training-loss: *flag*
       - --validation-loss: *flag*
+      - --test-loss: *flag*
       - --f1-score: *flag*
+      - --dataset-name *str*
     - prediction-model evaluate get-metrics
       - --model-id: *str* (Required) 
       - --epoch: *int* (Required)
       - --training-loss: *flag*
       - --validation-loss: *flag*
+      - --test-loss: *flag*
       - --f1-score: *flag*
       - --dataset-name *str*
+

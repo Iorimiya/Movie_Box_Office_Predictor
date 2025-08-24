@@ -1,0 +1,15 @@
+dataset_file_name: lexicon_sentiment_data.csv
+vocabulary_size: 5000
+split_ratios:
+- 8
+- 1
+- 1
+embedding_dim: 64
+lstm_units: 128
+epochs: 1000
+batch_size: 32
+verbose: 1
+checkpoint_interval: 100
+dataset_name: lexicon_sentiment_data.csv
+random_state: 601769501
+model_id: model1_e1

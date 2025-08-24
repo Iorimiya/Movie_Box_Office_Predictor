@@ -49,7 +49,7 @@
 *.jpg binary
 *.png binary
 *.webp binary
-*.svg binary # SVG can be text, but often treated as binary for simpler diffing
+*.svg binary
 
 # Font files
 *.eot binary

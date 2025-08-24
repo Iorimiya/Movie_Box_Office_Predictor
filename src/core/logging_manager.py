@@ -1,0 +1,764 @@
+import logging
+import sys
+from dataclasses import dataclass, field
+from datetime import datetime
+from enum import Enum
+from io import TextIOBase
+from logging import FileHandler, Formatter, getLevelName, Handler, Logger, StreamHandler
+from pathlib import Path
+from typing import Literal, Optional, overload, TypeAlias
+
+from colorama.ansitowin32 import StreamWrapper
+
+from src.core.project_config import ProjectPaths
+
+
+class LogLevel(Enum):
+    """
+    An enumeration representing standard logging levels.
+
+    :ivar NOTSET: Corresponds to logging.NOTSET (0).
+    :ivar DEBUG: Corresponds to logging.DEBUG (10).
+    :ivar INFO: Corresponds to logging.INFO (20).
+    :ivar WARNING: Corresponds to logging.WARNING (30).
+    :ivar ERROR: Corresponds to logging.ERROR (40).
+    :ivar CRITICAL: Corresponds to logging.CRITICAL (50).
+    """
+    NOTSET: int = logging.NOTSET
+    DEBUG: int = logging.DEBUG
+    INFO: int = logging.INFO
+    WARNING: int = logging.WARNING
+    ERROR: int = logging.ERROR
+    CRITICAL: int = logging.CRITICAL
+
+
+@dataclass
+class LoggerSettings:
+    """
+    Represents the settings for a single Logger instance.
+
+    :ivar name: The name of the logger.
+    :ivar level: The logging level for this logger.
+    :ivar linked_handlers: A list of names of handlers to link to this logger.
+    """
+    name: str
+    level: LogLevel
+    linked_handlers: list[str] = field(default_factory=list)
+
+
+@dataclass
+class HandlerSettings:
+    """
+    Represents the settings for a single Handler instance.
+
+    :ivar name: The name of the handler.
+    :ivar level: The logging level for this handler.
+    :ivar output: The output destination for the handler.
+                  Can be a file path (Path), a text I/O stream (e.g., sys.stdout, sys.stderr), or a StreamWrapper.
+    """
+    name: str
+    level: LogLevel
+    output: Path | TextIOBase | StreamWrapper
+
+
+LogComponentSettings: TypeAlias = LoggerSettings | HandlerSettings
+
+
+class LoggingManager:
+    """
+    Manages all loggers and handlers in a centralized manner using a singleton pattern.
+
+    :ivar _instance: The singleton instance of LoggingManager.
+    :ivar _DEFAULT_INITIAL_COMPONENTS: A class-level list of default logger and handler settings used
+                                       during manager initialization if no custom configurations are provided.
+    :ivar _loggers: A list of all managed Logger objects. The root logger
+                     is guaranteed to be the first element if managed.
+    :ivar _handlers: A dictionary of all managed Handler objects,
+                      where keys are handler names and values are Handler instances.
+                      The 'stdout' handler is guaranteed to exist with a StreamHandler.
+    :ivar _logger_handler_connections: A dictionary mapping logger names to
+                                        a list of names of handlers connected to them.
+    :ivar _default_formatter: The default Formatter instance used for all handlers
+                              added via this manager, ensuring a consistent log format.
+    :ivar _initialized: A flag to prevent re-initialization of the singleton instance.
+    """
+
+    _instance: Optional['LoggingManager'] = None
+    _DEFAULT_INITIAL_COMPONENTS: list[LogComponentSettings] = [
+        HandlerSettings(name='stdout', level=LogLevel.DEBUG, output=sys.stdout),
+        LoggerSettings(name='root', level=LogLevel.DEBUG, linked_handlers=['stdout'])
+    ]
+
+    def __new__(cls, *args: any, **kwargs: any) -> 'LoggingManager':
+        """
+        Ensures that only one instance of LoggingManager is created (Singleton pattern).
+
+        :return: The singleton instance of the LoggingManager.
+        """
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def __init__(self, initial_configs: Optional[list[LogComponentSettings]] = None) -> None:
+        """
+        Initializes the LoggingManager instance.
+        Allows for optional initial configuration of loggers and handlers.
+
+        :param initial_configs: A list of settings to apply during initialization.
+                                If None, default settings will be used.
+        """
+        if not hasattr(self, '_initialized'):
+            self._loggers: list[logging.Logger] = []
+            self._handlers: dict[str, logging.Handler] = {}
+            self._logger_handler_connections: dict[str, list[str]] = {}
+            self._default_formatter: Formatter = Formatter(
+                fmt="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s")
+
+            print("Starting initial configuration...")
+            if initial_configs is None:
+                print("No initial configurations provided. Using default setup.")
+
+                self._configure_initial_components(self._DEFAULT_INITIAL_COMPONENTS)
+            else:
+                print("Initial configurations provided. Applying custom setup.")
+
+                self._configure_initial_components(initial_configs)
+
+            self._initialized: bool = True
+            print("LoggingManager initialized.")
+
+    @property
+    def loggers(self) -> list[Logger]:
+        """
+        Provides a read-only copy of the managed loggers list.
+
+        :return: A shallow copy of the internal list of Logger objects.
+        """
+        return list(self._loggers)
+
+    @property
+    def handlers(self) -> dict[str, Handler]:
+        """
+        Provides a read-only copy of the managed handlers dictionary.
+
+        :return: A shallow copy of the internal dictionary of Handler objects.
+        """
+        return self._handlers.copy()
+
+    @property
+    def logger_handler_connections(self) -> dict[str, list[str]]:
+        """
+        Provides a read-only copy of the logger-handler connections mapping.
+
+        :return: A shallow copy of the internal dictionary mapping logger names to lists of connected handler names.
+                  The lists within the dictionary are also shallow copies.
+        """
+        connections_copy: dict[str, list[str]] = {
+            logger_name: list(handler_names)
+            for logger_name, handler_names in self._logger_handler_connections.items()
+        }
+        return connections_copy
+
+    def get_default_formatter(self) -> logging.Formatter:
+        """
+        Retrieves the default Formatter used by the LoggingManager.
+
+        :return: The default Formatter instance.
+        """
+        return self._default_formatter
+
+    def get_handler(self, name: str) -> Optional[Handler]:
+        """
+        Retrieves a handler by its name.
+
+        :param name: The name of the handler to retrieve.
+        :return: The Handler object if found, otherwise None.
+        """
+        return self._handlers.get(name)
+
+    def add_handler(self, handler_settings: HandlerSettings) -> Handler:
+        """
+        Adds a new handler to the manager based on provided settings.
+
+        :param handler_settings: Settings for the handler to be added.
+        :return: The newly created and managed Handler instance.
+        :raises ValueError: If a handler with the same name already exists in the manager,
+                           or if a handler with the same output target already exists.
+        :raises TypeError: If an unsupported handler output type is specified in settings.
+        """
+        if self.get_handler(handler_settings.name):
+            raise ValueError(f"Handler with name '{handler_settings.name}' already exists in the manager.")
+
+        target_type: type[Handler]
+        target_value: str | TextIOBase | StreamWrapper
+        new_handler: Handler
+        if isinstance(handler_settings.output, Path):
+            target_value = str(handler_settings.output.resolve())
+            handler_settings.output.parent.mkdir(parents=True, exist_ok=True)
+            existing_file_handler: dict[str, FileHandler] = \
+                {name: handler for name, handler in self._handlers.items() if isinstance(handler, FileHandler)}
+            existing_handler_name: Optional[str] = next(
+                (name for name, handler in existing_file_handler.items() if handler.baseFilename == target_value), None)
+            if existing_handler_name:
+                raise ValueError(
+                    f"Conflict detected: A FileHandler named '{existing_handler_name}' "
+                    f"already writes to the same file: '{target_value}'. "
+                    f"Cannot add new handler '{handler_settings.name}' targeting '{target_value}'."
+                )
+            new_handler = FileHandler(filename=handler_settings.output, delay=True)
+            print(f"Constructing FileHandler with delay=True.")
+
+        elif isinstance(handler_settings.output, (TextIOBase, StreamWrapper)):
+            target_value = handler_settings.output
+            existing_stream_handler: dict[str, StreamHandler | StreamWrapper] = \
+                {name: handler for name, handler in self._handlers.items() if isinstance(handler, StreamHandler)}
+            existing_handler_name: Optional[str] = next(
+                (name for name, handler in existing_stream_handler.items() if handler.stream == target_value), None)
+            if existing_handler_name:
+                raise ValueError(
+                    f"Conflict detected: A StreamHandler named '{existing_handler_name}' "
+                    f"already writes to the same stream: {target_value!r}. "
+                    f"Cannot add new handler '{handler_settings.name}' targeting {target_value!r}."
+                )
+            new_handler = StreamHandler(stream=handler_settings.output)
+        else:
+            raise TypeError("Unsupported handler output type. Must be Path or TextIOBase.")
+
+        new_handler.setLevel(handler_settings.level.value)
+        new_handler.setFormatter(self.get_default_formatter())
+        self._handlers[handler_settings.name] = new_handler
+        print(f"Handler '{handler_settings.name}' created and added with target {target_value!r}.")
+        return new_handler
+
+    def remove_handler(self, name: str) -> None:
+        """
+        Removes a handler from the manager and disconnects it from all loggers.
+
+        :param name: The name of the handler to remove.
+        :raises ValueError: If the handler with the specified name is not found.
+        """
+        handler_to_remove: Optional[Handler] = self._handlers.get(name)
+
+        if not handler_to_remove:
+            raise ValueError(f"Handler with name '{name}' not found in the manager.")
+
+        loggers_to_update: list[str] = [
+            logger_name
+            for logger_name, handler_names in list(self._logger_handler_connections.items())
+            if name in handler_names
+        ]
+
+        for logger_name in loggers_to_update:
+            logger_instance: Logger = logging.getLogger(logger_name)
+            self._disconnect_handler_from_logger(logger_instance=logger_instance, handler_instance=handler_to_remove)
+            print(f"Handler '{name}' removed from logger '{logger_name}'.")
+            self._update_logger_connection_mapping(logger_name=logger_name, handler_name=name, action='remove')
+
+        handler_to_remove.close()
+        print(f"Handler '{name}' closed.")
+
+        del self._handlers[name]
+        print(f"Handler '{name}' removed from manager.")
+
+    @overload
+    def get_logger(self, name: str) -> Optional[Logger]:
+        ...
+
+    @overload
+    def get_logger(self, settings: LoggerSettings) -> Logger:
+        ...
+
+    @overload
+    def get_logger(self) -> Logger:
+        ...
+
+    def get_logger(self, arg: Optional[str | LoggerSettings] = None) -> Optional[Logger]:
+        """
+        Retrieves or creates a logger based on its name or settings.
+
+        If no argument is provided (i.e., `arg` is None), it defaults to retrieving
+        the root logger (equivalent to providing an empty string or 'root' as the name).
+
+        If a string `name` is provided:
+        Retrieves an existing logger. An empty string or 'root' will retrieve the root logger.
+        For other names, it returns a logger managed by this LoggingManager if found,
+        otherwise None.
+
+        If `LoggerSettings` are provided:
+        Retrieves a logger by its name. If a logger with the same name already exists
+        and is managed by this LoggingManager (and is not the root logger),
+        it will be returned, and a warning will be issued.
+        Otherwise, a new logger will be created (or an existing unmanaged one configured)
+        based on the provided settings. The root logger, if specified in settings,
+        will be configured but not added to the internal list of managed loggers.
+
+        :param arg: The name of the logger (str), a LoggerSettings object,
+                    or None to get the root logger. Defaults to None.
+        :return: The Logger object if found or created.
+                  Returns None only if `arg` is a string (not 'root' or an empty string)
+                  and the logger is not found among managed loggers.
+        :raises ValueError: If a Handler specified in LoggerSettings.linked_handlers is not found.
+        :raises TypeError: If the provided argument type is not str, LoggerSettings, or None.
+        """
+        if arg is None:
+            return logging.getLogger('')
+        elif isinstance(arg, str):
+            name: str = arg
+            if name == 'root' or name == '':
+                return logging.getLogger('')
+
+            logger_instance: Logger = logging.getLogger(name)
+            return logger_instance if logger_instance in self._loggers else None
+
+        elif isinstance(arg, LoggerSettings):
+            settings: LoggerSettings = arg
+            logger_name: str = settings.name
+
+            logger_instance: Logger = logging.getLogger(logger_name)
+
+            if logger_instance in self._loggers:
+                root_logger_for_warning: Logger = logging.getLogger('')
+                root_logger_for_warning.warning(
+                    f"Logger '{logger_name}' already exists and is managed. "
+                    "Returning existing instance without applying new settings. "
+                    "If you need to update, consider a dedicated update_logger method."
+                )
+                return logger_instance
+            else:
+                self._loggers.append(logger_instance)
+
+                logger_instance.setLevel(settings.level.value)
+
+                for handler in list(logger_instance.handlers):
+                    logger_instance.removeHandler(handler)
+
+                for handler_name in settings.linked_handlers:
+                    handler: Optional[Handler] = self.get_handler(handler_name)
+                    if handler:
+                        logger_instance.addHandler(handler)
+
+                        self._update_logger_connection_mapping(logger_name=logger_name, handler_name=handler_name,
+                                                               action='add')
+                    else:
+                        if logger_name in self._loggers:
+                            self._loggers.remove(logger_instance)
+                        if logger_name in self._logger_handler_connections:
+                            del self._logger_handler_connections[logger_name]
+                        raise ValueError(f"Handler '{handler_name}' not found for logger '{logger_name}'. "
+                                         "Ensure all linked handlers are added first.")
+            return logger_instance
+        else:
+            raise TypeError("Argument must be a string (logger name) or a LoggerSettings object.")
+
+    def remove_logger(self, name: str) -> None:
+        """
+        Removes a logger from the manager and disconnects all its handlers.
+
+        :param name: The name of the logger to remove.
+        :raises ValueError: If the logger with the specified name is not found or cannot be removed (e.g., root logger).
+        """
+        if name == 'root' or name == '':
+            raise ValueError("Root logger cannot be explicitly removed by this method.")
+
+        logger_instance: Logger = logging.getLogger(name)
+
+        if logger_instance not in self._loggers:
+            raise ValueError(f"Logger '{name}' not found or not managed by this manager.")
+
+        for handler in list(logger_instance.handlers):
+            logger_instance.removeHandler(handler)
+            print(
+                f"Handler '{handler.name if hasattr(handler, 'name') else handler.__class__.__name__}' removed from logger '{name}'.")
+
+        if name in self._logger_handler_connections:
+            self._logger_handler_connections.pop(name)
+            print(f"Handler connections for logger '{name}' removed from manager.")
+
+        logger_instance.setLevel(logging.NOTSET)
+        print(f"Logger '{name}' level set to NOTSET.")
+
+        self._loggers.remove(logger_instance)
+        print(f"Logger '{name}' removed from manager's managed loggers list.")
+
+    def link_handler_to_logger(self, logger_name: str, handler_name: str) -> None:
+        """
+        Links an existing handler to an existing logger.
+
+        :param logger_name: The name of the logger to link the handler to.
+        :param handler_name: The name of the handler to link.
+        :raises ValueError: If the specified logger or handler is not found,
+                           or if the handler is already linked to the logger.
+        """
+        logger_instance: Logger = logging.getLogger(logger_name)
+
+        if logger_instance not in self._loggers and logger_name != 'root' and logger_name != '':
+            self._loggers.append(logger_instance)
+            print(f"Logger '{logger_name}' is now managed by LoggingManager for handler linking.")
+
+        handler_instance: Optional[Handler] = self.get_handler(handler_name)
+        if not handler_instance:
+            raise ValueError(f"Handler with name '{handler_name}' not found in the manager.")
+
+        if handler_instance in logger_instance.handlers:
+            raise ValueError(f"Handler '{handler_name}' is already linked to logger '{logger_name}'.")
+
+        logger_instance.addHandler(handler_instance)
+        print(f"Handler '{handler_name}' linked to logger '{logger_name}'.")
+
+        self._update_logger_connection_mapping(logger_name=logger_name, handler_name=handler_name, action='add')
+        print(f"Connection for logger '{logger_name}' to handler '{handler_name}' recorded.")
+
+    def unlink_handler_to_logger(self, logger_name: str, handler_name: str) -> None:
+        """
+        Unlinks an existing handler from an existing logger.
+
+        :param logger_name: The name of the logger to unlink the handler from.
+        :param handler_name: The name of the handler to unlink.
+        :raises ValueError: If the specified logger or handler is not found,
+                           or if the handler is not currently linked to the logger.
+        """
+        logger_instance: Logger = logging.getLogger(logger_name)
+
+        if logger_instance not in self._loggers and logger_name != 'root' and logger_name != '':
+            raise ValueError(f"Logger '{logger_name}' not found or not managed by this manager. Cannot unlink handler.")
+
+        handler_instance: Optional[Handler] = self.get_handler(handler_name)
+        if not handler_instance:
+            raise ValueError(f"Handler with name '{handler_name}' not found in the manager.")
+
+        if handler_instance not in logger_instance.handlers:
+            raise ValueError(f"Handler '{handler_name}' is not linked to logger '{logger_name}'. Cannot unlink.")
+
+        self._disconnect_handler_from_logger(logger_instance=logger_instance, handler_instance=handler_instance)
+        print(f"Handler '{handler_name}' unlinked from logger '{logger_name}'.")
+
+        self._update_logger_connection_mapping(logger_name=logger_name, handler_name=handler_name, action='remove')
+
+    def add_components(self, settings_list: list[LogComponentSettings]) -> None:
+        """
+        Adds multiple loggers and/or handlers to the manager based on a list of settings.
+        Handlers are processed before loggers to ensure proper linking.
+
+        :param settings_list: A list of LoggerSettings and/or HandlerSettings objects to be added.
+        :raises ValueError: If a handler specified in LoggerSettings is not found, or if
+                            any component name conflicts with an existing one.
+        :raises TypeError: If an unsupported component type is found in the list.
+        """
+
+        handlers_to_add: list[HandlerSettings]
+        loggers_to_add: list[LoggerSettings]
+        handlers_to_add, loggers_to_add = self._classify_log_components(settings_list=settings_list)
+
+        print("Adding handlers from settings list...")
+        for handler_setting in handlers_to_add:
+            try:
+                self.add_handler(handler_settings=handler_setting)
+                print(f"Successfully added handler '{handler_setting.name}'.")
+            except (ValueError, TypeError) as e:
+                print(f"Error adding handler '{handler_setting.name}': {e}")
+                raise
+
+        print("Adding loggers from settings list...")
+        for logger_setting in loggers_to_add:
+            try:
+
+                self.get_logger(logger_setting)
+                print(f"Successfully added/configured logger '{logger_setting.name}'.")
+            except ValueError as e:
+                print(f"Error adding logger '{logger_setting.name}': {e}")
+                raise
+
+        print("Finished processing components from settings list.")
+
+    def remove_components(self, settings_list: list[LogComponentSettings]) -> None:
+        """
+        Removes multiple loggers and/or handlers from the manager based on a list of settings.
+        Loggers are processed before handlers to ensure handlers are disconnected first.
+
+        :param settings_list: A list of LoggerSettings and/or HandlerSettings
+                              objects to be removed.
+        :raises ValueError: If a logger or handler name to be removed is not found.
+        :raises TypeError: If an unsupported component type is found in the list.
+        """
+
+        handlers_to_remove: list[HandlerSettings]
+        loggers_to_remove: list[LoggerSettings]
+        handlers_to_remove, loggers_to_remove = self._classify_log_components(settings_list=settings_list)
+
+        print("Removing loggers from settings list...")
+        for logger_setting in loggers_to_remove:
+            try:
+                self.remove_logger(name=logger_setting.name)
+                print(f"Successfully removed logger '{logger_setting.name}'.")
+            except ValueError as e:
+                print(f"Error removing logger '{logger_setting.name}': {e}")
+
+        print("Removing handlers from settings list...")
+        for handler_setting in handlers_to_remove:
+            try:
+                self.remove_handler(name=handler_setting.name)
+                print(f"Successfully removed handler '{handler_setting.name}'.")
+            except ValueError as e:
+                print(f"Error removing handler '{handler_setting.name}': {e}")
+
+        print("Finished processing component removals from settings list.")
+
+    def remove_unused_handler(self, handler_name: str) -> None:
+        """
+        Removes a handler from the manager if it is no longer linked to any managed logger.
+        This function will call remove_handler if the handler is determined to be unused.
+
+        :param handler_name: The name of the handler to check and potentially remove.
+        :raises ValueError: If the handler with the specified name is not found in the manager.
+        """
+        handler_instance: Optional[Handler] = self.get_handler(handler_name)
+        if not handler_instance:
+            raise ValueError(f"Handler with name '{handler_name}' not found in the manager.")
+
+        if not self._is_handler_in_use(handler_name=handler_name, handler_instance=handler_instance):
+            print(f"Handler '{handler_name}' is not attached to any active logger. Proceeding to remove.")
+            self.remove_handler(handler_name)
+        else:
+            print(
+                f"Handler '{handler_name}' is still attached to some logger(s) in the global logging registry. Not removing.")
+
+    def _configure_initial_components(self, components: list[LogComponentSettings]) -> None:
+        """
+        Configures initial loggers and handlers based on a provided list of settings.
+
+        This method is called during __init__ to set up the logging environment.
+        It handles merging with default settings and ensures the root logger and
+        stdout handler are correctly configured and positioned.
+
+        :param components: A list of settings to be processed.
+                           This list may be default or user-provided.
+        :raises ValueError: If a user-defined 'stdout' handler does not target
+                            sys.stdout, or if any component settings are invalid
+                            (e.g., name conflict, non-existent handler link).
+        :raises TypeError: If an unsupported handler output type is specified.
+        """
+
+        user_handlers, user_loggers = self._classify_log_components(settings_list=components)
+
+        stdout_default_setting: HandlerSettings = next(
+            s for s in self._DEFAULT_INITIAL_COMPONENTS if isinstance(s, HandlerSettings) and s.name == 'stdout')
+        user_stdout_setting: Optional[HandlerSettings] = next((s for s in user_handlers if s.name == 'stdout'), None)
+
+        final_stdout_handler_setting: HandlerSettings
+        if user_stdout_setting:
+            is_truly_stdout: bool = (
+                hasattr(user_stdout_setting.output, 'fileno') and
+                hasattr(sys.stdout, 'fileno') and
+                user_stdout_setting.output.fileno() == sys.stdout.fileno()
+            )
+
+            if not is_truly_stdout:
+                raise ValueError(
+                    f"Stdout handler '{user_stdout_setting.name}' specified an output '{user_stdout_setting.output!r}' "
+                    "that is not sys.stdout. The 'stdout' handler must exclusively target sys.stdout."
+                )
+
+            final_stdout_handler_setting = HandlerSettings(
+                name='stdout',
+                level=user_stdout_setting.level,
+                output=sys.stdout
+            )
+
+            user_handlers.remove(user_stdout_setting)
+        else:
+            final_stdout_handler_setting = stdout_default_setting
+
+        root_default_setting: LoggerSettings = next(
+            s for s in self._DEFAULT_INITIAL_COMPONENTS if isinstance(s, LoggerSettings) and s.name == 'root')
+        user_root_setting: Optional[LoggerSettings] = next((s for s in user_loggers if s.name == 'root'), None)
+
+        final_root_logger_setting: LoggerSettings
+        if user_root_setting:
+            linked_handlers_for_root: list[str] = list(user_root_setting.linked_handlers)
+            if 'stdout' not in linked_handlers_for_root:
+                linked_handlers_for_root.append('stdout')
+
+            final_root_logger_setting = LoggerSettings(
+                name='root',
+                level=user_root_setting.level,
+                linked_handlers=linked_handlers_for_root
+            )
+
+            user_loggers.remove(user_root_setting)
+        else:
+            final_root_logger_setting = root_default_setting
+
+        final_ordered_components: list[LogComponentSettings] = \
+            [final_stdout_handler_setting] + user_handlers + [final_root_logger_setting] + user_loggers
+
+        print("Configuring initial components via internal processing...")
+        self.add_components(final_ordered_components)
+        print("Initial components configured.")
+
+    @staticmethod
+    def _classify_log_components(settings_list: list[LogComponentSettings]) \
+        -> tuple[list[HandlerSettings], list[LoggerSettings]]:
+        """
+        Classifies LogComponentSettings into handlers and loggers.
+
+        :param settings_list: A list of settings to classify.
+        :return: A tuple containing two lists: the first for HandlerSettings
+                 and the second for LoggerSettings.
+        """
+        handlers: list[HandlerSettings] = [
+            setting for setting in settings_list if isinstance(setting, HandlerSettings)
+        ]
+        loggers: list[LoggerSettings] = [
+            setting for setting in settings_list if isinstance(setting, LoggerSettings)
+        ]
+
+        for setting in settings_list:
+            if not isinstance(setting, (HandlerSettings, LoggerSettings)):
+                print(f"Warning: Unknown LogComponentSettings type encountered: {type(setting)}. Skipping.")
+
+        return handlers, loggers
+
+    def _update_logger_connection_mapping(self, logger_name: str, handler_name: str, action: Literal['add', 'remove']) \
+        -> None:
+        """
+        Manages the internal logger-handler connection mapping.
+
+        :param logger_name: The name of the logger.
+        :param handler_name: The name of the handler.
+        :param action: The action to perform ('add' to link, 'remove' to unlink).
+        :raises ValueError: If an invalid action is specified.
+        """
+        if action == 'add':
+            if logger_name not in self._logger_handler_connections:
+                self._logger_handler_connections[logger_name]: list[str] = []
+            if handler_name not in self._logger_handler_connections[logger_name]:
+                self._logger_handler_connections[logger_name].append(handler_name)
+                print(f"Connection mapping: Handler '{handler_name}' added for logger '{logger_name}'.")
+            else:
+                print(f"Connection mapping: Handler '{handler_name}' already mapped to logger '{logger_name}'.")
+        elif action == 'remove':
+            if logger_name in self._logger_handler_connections:
+                if handler_name in self._logger_handler_connections[logger_name]:
+                    self._logger_handler_connections[logger_name].remove(handler_name)
+                    print(f"Connection mapping: Handler '{handler_name}' removed for logger '{logger_name}'.")
+
+                    if not self._logger_handler_connections[logger_name]:
+                        del self._logger_handler_connections[logger_name]
+                        print(f"Connection mapping: Logger '{logger_name}' has no more handlers, entry removed.")
+                else:
+                    print(f"Connection mapping: Handler '{handler_name}' not found for logger '{logger_name}'.")
+            else:
+                print(f"Connection mapping: Logger '{logger_name}' has no recorded connections.")
+        else:
+            raise ValueError(f"Invalid action '{action}'. Must be 'add' or 'remove'.")
+
+    @staticmethod
+    def _disconnect_handler_from_logger(logger_instance: Logger, handler_instance: Handler) -> None:
+        """
+        Safely removes a specific handler from a logger instance.
+
+        :param logger_instance: The logger object from which to remove the handler.
+        :param handler_instance: The handler object to remove.
+        """
+        if handler_instance in logger_instance.handlers:
+            logger_instance.removeHandler(handler_instance)
+        else:
+            print(
+                f"Warning: Handler '{handler_instance.name if hasattr(handler_instance, 'name') else handler_instance.__class__.__name__}' was not attached to logger '{logger_instance.name}'.")
+
+    def _is_handler_in_use(self, handler_name: str, handler_instance: Handler) -> bool:
+        """
+        Checks if a handler is in use by any managed logger or in the global registry.
+
+        :param handler_name: The name of the handler.
+        :param handler_instance: The handler object to check.
+        :return: True if the handler is in use, False otherwise.
+        """
+        is_linked_by_manager: bool = any(
+            handler_name in connections for connections in self._logger_handler_connections.values()
+        )
+
+        if is_linked_by_manager:
+            return True
+
+        is_attached_to_managed_logger: bool = any(
+            handler_instance in logger_obj.handlers for logger_obj in self._loggers
+        )
+        if is_attached_to_managed_logger:
+            return True
+
+        if handler_instance in logging.getLogger().handlers:
+            return True
+
+        return False
+
+    @classmethod
+    def create_predefined_manager(cls) -> 'LoggingManager':
+        """
+        Creates and returns a LoggingManager instance configured with a specific set
+        of loggers and handlers as defined by the user.
+
+        The configuration includes:
+        - root_logger: level=LogLevel.INFO, linked_handlers=['stdout', 'main_log']
+        - stdout_handler: level=LogLevel.INFO
+        - main_log_handler: name='main_log', level=LogLevel.INFO, output based on current time and root/main_log levels
+        - machine_learning_logger: name='machine_learning', level=LogLevel.INFO, linked_handlers=[]
+
+        :return: An initialized LoggingManager instance with the predefined components.
+        """
+        common_log_level: LogLevel = LogLevel.INFO
+        common_log_directory: Path = ProjectPaths().logs_dir
+        current_time: str = datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')
+        # Main settings
+        main_name: str = 'main'
+        main_logger_level: LogLevel = common_log_level
+        main_handler_level: LogLevel = common_log_level
+        main_level_string: str = getLevelName(max(main_logger_level.value, main_handler_level.value))
+        main_file_name: str = f"{main_name.upper()}_{current_time}_{main_level_string}.log"
+
+        ml_name: str = 'machine_learning'
+        ml_logger_level: LogLevel = common_log_level
+
+        root_logger_settings: LoggerSettings = LoggerSettings(
+            name='root', level=main_logger_level, linked_handlers=['stdout', main_name]
+        )
+
+        main_log_handler_settings: HandlerSettings = HandlerSettings(
+            name=main_name, level=main_handler_level, output=common_log_directory / main_file_name
+        )
+
+        stdout_handler_settings: HandlerSettings = HandlerSettings(
+            name='stdout', level=main_handler_level, output=sys.stdout
+        )
+
+        machine_learning_logger_settings: LoggerSettings = LoggerSettings(
+            name=ml_name, level=ml_logger_level
+        )
+
+        initial_components_list: list[LogComponentSettings] = [stdout_handler_settings, main_log_handler_settings,
+                                                               root_logger_settings, machine_learning_logger_settings]
+
+        print("Creating LoggingManager with predefined components...")
+        return cls(initial_configs=initial_components_list)
+
+    @staticmethod
+    def create_logger_and_handler_by_name(name: str, log_level: LogLevel = LogLevel.INFO) -> \
+        tuple[LoggerSettings, HandlerSettings]:
+        """
+        Creates settings for a logger and a corresponding file handler.
+
+        The logger and handler will share the provided name. The handler's output
+        file will be located in the project's configured logs directory, and its
+        filename will include the name, current timestamp, and log level.
+        The logger will be configured to use this handler.
+
+        :param name: The base name for the logger and handler.
+        :param log_level: The logging level for both the logger and the handler.
+        :return: A tuple containing the LoggerSettings and HandlerSettings.
+        """
+        return LoggerSettings(name=name, level=log_level, linked_handlers=[name]), \
+            HandlerSettings(
+                name=name,
+                level=log_level,
+                output=ProjectPaths.logs_dir / f"{name}_{datetime.now().strftime('%Y%m%dT%H-%M-%S%Z')}_{getLevelName(log_level.value)}.log"
+            )
