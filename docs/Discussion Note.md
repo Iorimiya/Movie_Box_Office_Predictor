@@ -91,6 +91,19 @@
 
 - [X] 修改Sentiment Model
 - [X] Sentiment Model在Chnsenticorp的評估
+  - [ ] 選擇評估用的Dataset
+    - 繁體中文的原生Dataset -> 目前沒有
+      - 自行產生的問題：
+        - 沒有任何可以支持的效度數據
+      - [] 可能從CSentiPackage或Johnson8187/Chinese_Multi-Emotion_Dialogue_Dataset開始
+    - 簡體中文的Dataset -> Chnsenticorp 或 豆瓣
+      - 共通問題：
+        - 轉為繁體的不精確
+        - 直接訓練會導致predict時繁體的字是完全沒看過的編碼
 - [ ] 比較三種模型
 - [ ] GPT的比較
 - [ ] 第二次電影不採納
+
+- [ ] YAHOO奇麼電影評論資料集
+- [ ] 豆瓣評論(轉成繁體) CSV可以下載
+
