@@ -1,0 +1,45 @@
+# movie box office predictions and analysis system
+# for thesis of zc
+# conda environment
+
+name: movie_box_office_predictor-GPU-v0.2.0
+channels:
+  - defaults
+  - conda-forge
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+  - https://repo.anaconda.com/pkgs/msys2
+dependencies:
+# python
+  - defaults::python=3.10
+  - defaults::ipython=8.30
+  - defaults::pip=25.0
+# web scraping
+  - defaults::requests=2.32
+  - defaults::beautifulsoup4=4.12
+# compute
+  - defaults::numpy=1.26
+  - defaults::pandas=2.2
+# tensorflow
+  - conda-forge::cudatoolkit=11.7
+  - conda-forge::cudnn=8.4
+  - conda-forge::tensorflow=2.9.1=cuda*
+  - defaults::scikit-learn=1.6
+  - conda-forge::keras-preprocessing=1.1
+# others
+  - Paddle::paddlepaddle-gpu=2.6.2
+  - defaults::matplotlib=3.10
+  - defaults::tqdm=4.66
+  - defaults::openpyxl=3.1
+  - defaults::pyyaml=6.0.2
+  - pip:
+    - "seleniumbase==4.34.16"
+    - "wordcloud==1.8.2.2"
+    - "paddlenlp==2.8.1"
+    - "aistudio-sdk==0.2.6"
+variables:
+  LD_LIBRARY_PATH: "/usr/lib/wsl/lib"
+
+# sudo apt-get update
+# Selenium required
+# sudo apt-get install -y libglib2.0-0t64 libnss3 libnspr4 libfontconfig1 libcups2t64 libxdamage1 libxcomposite1 libxrandr2 libasound2t64 libatk1.0-0t64 libgtk-3-0t64 libgdk-pixbuf2.0-0 libxkbcommon0 libxss1
