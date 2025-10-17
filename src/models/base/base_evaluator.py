@@ -169,7 +169,6 @@ class BaseEvaluator(
         """
         pass
 
-    # --- 變成具體方法的 load_training_history ---
     def load_training_history(self, history_file_path: Path) -> tuple[list[float], list[float]]:
         """
         Loads the training and validation loss history from a pickle file.
