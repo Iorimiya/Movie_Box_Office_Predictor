@@ -6,7 +6,6 @@ from typing import Optional
 from src.cli.handlers.base_model_handler import BaseModelHandler
 from src.cli.handlers.dataset_handler import DatasetHandler
 from src.cli.handlers.prediction_model_handler import PredictionModelHandler
-from src.cli.handlers.sentiment_model_handler import SentimentModelHandler
 
 
 class ArgumentParserBuilder:
@@ -29,7 +28,6 @@ class ArgumentParserBuilder:
     :ivar __plot_common_behavior_parser: A parent parser for plotting evaluation graphs.
     :ivar __get_metrics_common_behavior_parser: A parent parser for fetching evaluation metrics.
     :ivar __dataset_handler: The handler for 'dataset' command logic.
-    :ivar __sentiment_model_handler: The handler for 'sentiment-model' command logic.
     :ivar __prediction_model_handler: The handler for 'prediction-model' command logic.
     """
     _MODEL_ID_KWARGS: dict[str, type | bool | str] = {
@@ -90,7 +88,6 @@ class ArgumentParserBuilder:
         group (e.g., 'dataset', 'sentiment-model').
         """
         self.__dataset_handler = DatasetHandler(self.parser)
-        self.__sentiment_model_handler = SentimentModelHandler(self.parser)
         self.__prediction_model_handler = PredictionModelHandler(self.parser)
 
     @staticmethod
@@ -375,30 +372,32 @@ class ArgumentParserBuilder:
         - `sentiment-model evaluate plot`: To plot evaluation graphs.
         - `sentiment-model evaluate get-metrics`: To get specific metric values.
         """
-        sentiment_parser: ArgumentParser = self._subparsers_action.add_parser(
-            "sentiment-model", help="Commands for the sentiment analysis model."
-        )
-        sentiment_subparsers: _SubParsersAction = sentiment_parser.add_subparsers(
-            dest="sentiment_subcommand", required=True, help="Available sentiment model commands."
-        )
-
-        sentiment_subparsers.add_parser(
-            'train', help='Train a sentiment analysis model.', parents=[self.__train_common_behavior_parser]
-        ).set_defaults(func=self.__sentiment_model_handler.train)
-
-        predict_parser: ArgumentParser = sentiment_subparsers.add_parser(
-            'predict', help="Test the sentiment model with a sentence.", parents=[self.__model_file_args_parser]
-        )
-        predict_parser.add_argument(
-            "--input-sentence", type=str, required=True, help="The sentence to analyze."
-        )
-        predict_parser.set_defaults(func=self.__sentiment_model_handler.predict)
-
-        self.__add_evaluate_subcommands(
-            parent_subparsers=sentiment_subparsers,
-            handler=self.__sentiment_model_handler,
-            model_type_name="sentiment"
-        )
+        # sentiment_parser: ArgumentParser = self._subparsers_action.add_parser(
+        #     "sentiment-model", help="Commands for the sentiment analysis model."
+        # )
+        # sentiment_subparsers: _SubParsersAction = sentiment_parser.add_subparsers(
+        #     dest="sentiment_subcommand", required=True, help="Available sentiment model commands."
+        # )
+        #
+        # sentiment_subparsers.add_parser(
+        #     'train', help='Train a sentiment analysis model.', parents=[self.__train_common_behavior_parser]
+        # ).set_defaults(func=self.__sentiment_model_handler.train)
+        #
+        # predict_parser: ArgumentParser = sentiment_subparsers.add_parser(
+        #     'predict', help="Test the sentiment model with a sentence.", parents=[self.__model_file_args_parser]
+        # )
+        # predict_parser.add_argument(
+        #     "--input-sentence", type=str, required=True, help="The sentence to analyze."
+        # )
+        # predict_parser.set_defaults(func=self.__sentiment_model_handler.predict)
+        #
+        # self.__add_evaluate_subcommands(
+        #     parent_subparsers=sentiment_subparsers,
+        #     handler=self.__sentiment_model_handler,
+        #     model_type_name="sentiment"
+        # )
+        pass
+        # TODO: implement code
 
     def __setup_prediction_model_subparser(self) -> None:
         """
