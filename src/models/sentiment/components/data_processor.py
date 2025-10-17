@@ -144,11 +144,11 @@ class SentimentDataProcessor(
         Loads and pre-processes raw sentiment data from a source CSV file.
 
         The method reads the specified CSV file, converts it into a pandas DataFrame,
-        and ensures the 'is_positive' column exists and is of boolean type.
+        and ensures the 'label' column exists and is of boolean type.
 
         :param source: The data source object specifying the file to load.
         :returns: A DataFrame containing the raw sentiment data.
-        :raises KeyError: If the 'is_positive' column is not found in the CSV file.
+        :raises KeyError: If the 'label' column is not found in the CSV file.
         """
         file_path: Path = ProjectPaths.sentiment_analysis_resources_dir / source.file_name
         self.logger.info(f"Loading raw sentiment data from: {file_path}")
@@ -156,13 +156,13 @@ class SentimentDataProcessor(
         csv_raw_data: list[dict[str, any]] = csv_file.load()
         raw_dataframe: DataFrame = SentimentTrainingRawData(csv_raw_data)
 
-        if 'is_positive' in raw_dataframe.columns:
-            self.logger.debug("Converting 'is_positive' column to boolean type.")
+        if 'label' in raw_dataframe.columns:
+            self.logger.debug("Converting 'label' column to boolean type.")
             # This handles strings like 'True', 'False', 'true', 'false'
-            raw_dataframe['is_positive'] = raw_dataframe['is_positive'].astype(bool)
+            raw_dataframe['label'] = raw_dataframe['label'].astype(int)
         else:
             # This is a critical data error, so we should raise it.
-            raise KeyError("The required column 'is_positive' was not found in the loaded data.")
+            raise KeyError("The required column 'label' was not found in the loaded data.")
 
         return raw_dataframe
 
@@ -287,18 +287,18 @@ class SentimentDataProcessor(
         Extracts text and labels from the raw data and performs word segmentation.
 
         This method cleans the input DataFrame by dropping rows with missing data in
-        key columns ('word', 'is_positive'). It then extracts the text, segments it
+        key columns ('word', 'label'). It then extracts the text, segments it
         into words using Jieba, and pairs it with the corresponding integer label.
 
-        :param raw_data: The raw DataFrame containing 'word' and 'is_positive' columns.
+        :param raw_data: The raw DataFrame containing 'word' and 'label' columns.
         :returns: A tuple containing a list of space-separated segmented texts and a
                   list of their corresponding integer labels.
         """
         self.logger.info("Extracting sentences and performing word segmentation...")
 
-        clean_data: DataFrame = raw_data.dropna(subset=['word', 'is_positive'])
-        texts: list[str] = clean_data['word'].tolist()
-        labels: list[int] = clean_data['is_positive'].astype(int).tolist()
+        clean_data: DataFrame = raw_data.dropna(subset=['text', 'label'])
+        texts: list[str] = clean_data['text'].tolist()
+        labels: list[int] = clean_data['label'].astype(int).tolist()
         segmented_texts: list[str] = [" ".join(jieba.lcut(text)) for text in texts]
 
         self.logger.info(f"Processed {len(segmented_texts)} sentences for training.")
