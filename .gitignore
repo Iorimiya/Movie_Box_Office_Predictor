@@ -130,3 +130,7 @@ dmypy.json
 .vscode/
 .idea/
 logs/*.log
+
+# local develop pipeline files
+docs/TODO.md
+docs/Discussion Note.md
