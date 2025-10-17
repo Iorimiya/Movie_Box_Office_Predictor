@@ -268,8 +268,7 @@ class SentimentDataProcessor(
         )
 
         self.logger.info("Padding all sequence splits to a uniform length...")
-        self.max_sequence_length = max(len(s) for s in x_train_seq + x_val_seq + x_test_seq) if (
-            x_train_seq or x_val_seq or x_test_seq) else 0
+        self.max_sequence_length = max(len(s) for s in x_train_seq) if x_train_seq else 0
         self.logger.info(f"Determined max_sequence_length: {self.max_sequence_length}")
 
         x_train_pad: NDArray[int32] = pad_sequences(sequences=x_train_seq, maxlen=self.max_sequence_length)
