@@ -296,8 +296,8 @@ class SentimentDataProcessor(
         """
         self.logger.info("Extracting sentences and performing word segmentation...")
 
-        clean_data: DataFrame = raw_data.dropna(subset=['word', 'label'])
-        texts: list[str] = clean_data['word'].tolist()
+        clean_data: DataFrame = raw_data.dropna(subset=['text', 'label'])
+        texts: list[str] = clean_data['text'].tolist()
         labels: list[int] = clean_data['label'].astype(int).tolist()
         segmented_texts: list[str] = [" ".join(jieba.lcut(text)) for text in texts]
 
