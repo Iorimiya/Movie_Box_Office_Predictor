@@ -1,7 +1,6 @@
 # movie box office predictions and analysis system
-# for thesis of zc
 # conda environment
-## WARNING: NO SENTIMENT ANALYSE INCLUDED ##
+# using LLM to analyse sentiment
 
 name: movie_box_office_predictor-GPU
 channels:
@@ -32,6 +31,7 @@ dependencies:
   - defaults::tqdm=4.66
   - defaults::openpyxl=3.1
   - defaults::pyyaml=6.0.2
+  - conda-forge::openai
   - pip:
     - "seleniumbase==4.34.16"
 
