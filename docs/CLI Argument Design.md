@@ -17,6 +17,9 @@
       - **mutually_exclusive** (Required)
         - --structured-dataset-name: *str*
         - --movie-name: *str*
+  - dataset compute-sentiment
+    - --model-id: *str* (Required)
+    - --structured-dataset-name: *str* (Required)
 - prediction-model
   - prediction-model train
     - --model-id: *str* (Required)

@@ -3,7 +3,7 @@ from logging import Logger
 from pathlib import Path
 
 from src.core.logging_manager import LoggingManager
-from src.core.project_config import ProjectDatasetType, ProjectModelType, ProjectPaths
+from src.core.project_config import ProjectDatasetType, ProjectPaths
 from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
@@ -220,4 +220,13 @@ class DatasetHandler:
                      expected to have 'structured_dataset_name', 'model_id', and 'epoch'.
         :raises FileNotFoundError: If the dataset or model path does not exist.
         """
-        # TODO
+        self._logger.info(
+            f"Executing: Compute sentiment for dataset '{args.structured_dataset_name}' "
+            f"using model '{args.model_id}'."
+        )
+        dataset_name: str = args.structured_dataset_name
+        self._validate_dataset_path(dataset_name=dataset_name)
+
+        Dataset(name=dataset_name).compute_sentiment(
+            model_id=args.model_id
+        )
