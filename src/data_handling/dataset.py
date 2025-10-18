@@ -13,8 +13,6 @@ from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData, MovieSessionData
 from src.data_handling.movie_metadata import MovieMetadata, MovieMetadataRawData, MoviePathMetadata
 from src.data_handling.reviews import PublicReview, ExpertReview
-from src.models.sentiment.components.data_processor import SentimentDataProcessor
-from src.models.sentiment.components.model_core import SentimentModelCore, SentimentPredictConfig
 
 
 @dataclass(kw_only=True)
@@ -418,55 +416,8 @@ class Dataset:
         """
         pass
 
-    def compute_sentiment(self, model_id: str, model_epoch: int) -> None:
+    def compute_sentiment(self) -> None:
         """
         Computes sentiment scores for all public reviews in the dataset and updates them.
-
-        This method loads a specified sentiment analysis model and its data processor,
-        iterates through each movie's public reviews, calculates a sentiment score,
-        and then saves the updated reviews back to their respective files.
-
-        :param model_id: The ID of the sentiment analysis model to use.
-        :param model_epoch: The specific epoch of the model to use.
-        :raises FileNotFoundError: If the required model or processor artifacts are not found.
-        :raises ValueError: If the loaded data processor is missing required components (tokenizer, max_sequence_length).
         """
-        model_artifacts_path: Path = ProjectPaths.get_model_root_path(
-            model_id=model_id, model_type=ProjectModelType.SENTIMENT
-        )
-        model_file_path: Path = model_artifacts_path / f"{model_id}_{model_epoch:04d}.keras"
-
-        try:
-            self.__logger.info(f"Loading sentiment model components for model '{model_id}' (epoch: {model_epoch}).")
-            data_processor = SentimentDataProcessor(model_artifacts_path=model_artifacts_path)
-            model_core = SentimentModelCore(model_path=model_file_path)
-        except Exception as e:
-            self.__logger.error(f"Failed to initialize model components: {e}", exc_info=True)
-            raise
-
-        if not data_processor.tokenizer or data_processor.max_sequence_length is None:
-            raise ValueError(
-                "Data processor is missing required artifacts (tokenizer or max_sequence_length). "
-                "Ensure the model was trained correctly and artifacts were saved."
-            )
-
-        for movie in self.movie_data:
-            if not movie.public_reviews:
-                self.__logger.info(f"No public reviews to process for movie ID {movie.id} ('{movie.name}').")
-                continue
-
-            self.__logger.info(
-                f"Computing sentiment for {len(movie.public_reviews)} reviews for movie ID {movie.id}...")
-
-            updated_reviews: list[PublicReview] = []
-            for review in movie.public_reviews:
-                pred_config = SentimentPredictConfig(verbose=0)
-
-                processed_input = data_processor.process_for_prediction(single_input=review.content)
-                prediction = model_core.predict(data=processed_input, config=pred_config)
-                sentiment_score = float(prediction[0][0])
-
-                updated_reviews.append(replace(review, sentiment_score=sentiment_score))
-
-            movie.public_reviews = updated_reviews
-            movie.save_public_reviews(target_directory=self.public_review_folder_path)
+        # TODO
