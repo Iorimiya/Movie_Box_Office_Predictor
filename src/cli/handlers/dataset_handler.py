@@ -220,21 +220,4 @@ class DatasetHandler:
                      expected to have 'structured_dataset_name', 'model_id', and 'epoch'.
         :raises FileNotFoundError: If the dataset or model path does not exist.
         """
-        self._logger.info(
-            f"Executing: Compute sentiment for dataset '{args.structured_dataset_name}' "
-            f"using model '{args.model_id}' (epoch: {args.epoch})."
-        )
-        dataset_name: str = args.structured_dataset_name
-        self._validate_dataset_path(dataset_name=dataset_name)
-
-        model_path: Path = ProjectPaths.get_model_root_path(
-            model_id=args.model_id,
-            model_type=ProjectModelType.SENTIMENT
-        )
-        if not model_path.exists():
-            raise FileNotFoundError(f"Model '{args.model_id}' not found at expected path: {model_path}")
-
-        Dataset(name=dataset_name).compute_sentiment(
-            model_id=args.model_id,
-            model_epoch=args.epoch
-        )
+        # TODO

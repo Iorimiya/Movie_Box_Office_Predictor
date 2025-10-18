@@ -352,52 +352,8 @@ class ArgumentParserBuilder:
         ).set_defaults(func=self.__dataset_handler.collect_dcard_review)
 
         # Command: dataset compute-sentiment
-        compute_sentiment_parser: ArgumentParser = dataset_subparsers.add_parser(
-            "compute-sentiment",
-            help="Compute sentiment scores for reviews in a dataset using a trained model.",
-            parents=[self.__model_file_args_parser]
-        )
-        compute_sentiment_parser.add_argument(
-            "--structured-dataset-name", type=str, required=True, help="The dataset to process."
-        )
-        compute_sentiment_parser.set_defaults(func=self.__dataset_handler.compute_sentiment)
+        # TODO
 
-    def __setup_sentiment_model_subparser(self) -> None:
-        """
-        Sets up the 'sentiment-model' command group and its sub-commands.
-
-        This defines the following command structure:
-        - `sentiment-model train`: To train a new model.
-        - `sentiment-model predict`: To test the model with a sentence.
-        - `sentiment-model evaluate plot`: To plot evaluation graphs.
-        - `sentiment-model evaluate get-metrics`: To get specific metric values.
-        """
-        # sentiment_parser: ArgumentParser = self._subparsers_action.add_parser(
-        #     "sentiment-model", help="Commands for the sentiment analysis model."
-        # )
-        # sentiment_subparsers: _SubParsersAction = sentiment_parser.add_subparsers(
-        #     dest="sentiment_subcommand", required=True, help="Available sentiment model commands."
-        # )
-        #
-        # sentiment_subparsers.add_parser(
-        #     'train', help='Train a sentiment analysis model.', parents=[self.__train_common_behavior_parser]
-        # ).set_defaults(func=self.__sentiment_model_handler.train)
-        #
-        # predict_parser: ArgumentParser = sentiment_subparsers.add_parser(
-        #     'predict', help="Test the sentiment model with a sentence.", parents=[self.__model_file_args_parser]
-        # )
-        # predict_parser.add_argument(
-        #     "--input-sentence", type=str, required=True, help="The sentence to analyze."
-        # )
-        # predict_parser.set_defaults(func=self.__sentiment_model_handler.predict)
-        #
-        # self.__add_evaluate_subcommands(
-        #     parent_subparsers=sentiment_subparsers,
-        #     handler=self.__sentiment_model_handler,
-        #     model_type_name="sentiment"
-        # )
-        pass
-        # TODO: implement code
 
     def __setup_prediction_model_subparser(self) -> None:
         """
@@ -451,7 +407,6 @@ class ArgumentParserBuilder:
             return self.parser
 
         self.__setup_dataset_subparser()
-        self.__setup_sentiment_model_subparser()
         self.__setup_prediction_model_subparser()
         self._built = True
         return self.parser
