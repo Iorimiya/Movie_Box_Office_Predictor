@@ -9,7 +9,7 @@ from typing import Final, Optional, TypeAlias, Iterator
 
 import requests
 from bs4 import BeautifulSoup
-from bs4.element import NavigableString
+from bs4.element import NavigableString, Tag
 from requests import Response
 from selenium.common.exceptions import StaleElementReferenceException
 from tqdm import tqdm
@@ -271,11 +271,14 @@ class ReviewCollector:
         content: Optional[str] = None
         replies: Optional[list[str]] = None
         posted_time: Optional[datetime] = None
+        positive_reactions: int = 0
+        negative_reactions: int = 0
         match self.__search_target:
             case TargetWebsite.PTT:
                 meta_element_selector: Final[Selector] = '.article-metaline'
                 meta_tag_selector: Final[Selector] = '.article-meta-tag'
                 meta_value_selector: Final[Selector] = '.article-meta-value'
+                push_selector:Final[Selector] = 'div.push'
                 time_format: Final[str] = '%a %b %d %H:%M:%S %Y'
                 key_words: Final[tuple[str, str]] = ('標題', '時間')
                 try:
@@ -295,7 +298,17 @@ class ReviewCollector:
                     content = ''.join(
                         [element for element in content_base_element if
                          isinstance(element, NavigableString)]).strip()
-                    replies = [reply.text for reply in content_base_element.select(selector='.push .push-content')]
+                    replies = []
+                    push_elements: list[Tag] = content_base_element.select(selector=push_selector)
+                    for push in push_elements:
+                        tag_element: Optional[Tag] = push.select_one('span.hl.push-tag')
+                        replies.append(push.select_one(selector='.push-content').text)
+                        if tag_element:
+                            tag_text: str = tag_element.text.strip()
+                            if tag_text == '推':
+                                positive_reactions += 1
+                            elif tag_text == '噓':
+                                negative_reactions += 1
                     if not (title and posted_time and content):
                         return None
                 except Exception as e:
@@ -337,7 +350,8 @@ class ReviewCollector:
         if title and content and posted_time:
             return PublicReview(url=url, title=title, content=content, date=posted_time.date(),
                                 reply_count=len(replies or []),
-                                sentiment_score=None)
+                                sentiment_score=None,
+                                positive_reaction_count=positive_reactions,negative_reaction_count=negative_reactions)
         return None
 
     def __get_reviews_by_keyword(self, search_key: str, browser: Optional[CaptchaBrowser]) -> list[PublicReview]:
