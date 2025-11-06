@@ -1,6 +1,5 @@
-title: '[情報] 魔鬼剋星：冰天凍地首支預告'
 url: https://www.ptt.cc/bbs/movie/M.1699460610.A.0D7.html
-date: 2023-11-09
+title: '[情報] 魔鬼剋星：冰天凍地首支預告'
 content: '【GHOSTBUSTERS：冰天凍地】首支預告 - 2024年春假連假 電影院大銀幕上映
 
 
@@ -12,12 +11,12 @@ content: '【GHOSTBUSTERS：冰天凍地】首支預告 - 2024年春假連假 �
 
 
   --'
+date: 2023-11-09
+sentiment_score: 1
 reply_count: 57
-sentiment_score: 0
 ---
-title: '[普雷]《魔鬼剋星：冰天凍地》抓鬼少女的牢騷'
 url: https://www.ptt.cc/bbs/movie/M.1711355206.A.DE5.html
-date: 2024-03-25
+title: '[普雷]《魔鬼剋星：冰天凍地》抓鬼少女的牢騷'
 content: '抓鬼雖必須，但少女纖細情感才是重點
 
 
@@ -250,12 +249,12 @@ content: '抓鬼雖必須，但少女纖細情感才是重點
 
 
   --'
-reply_count: 14
-sentiment_score: 0
----
-title: '[新聞] 魔鬼剋星：冰天凍地 遭負評轟炸！女主角'
-url: https://www.ptt.cc/bbs/movie/M.1711297463.A.79C.html
 date: 2024-03-25
+sentiment_score: 0
+reply_count: 14
+---
+url: https://www.ptt.cc/bbs/movie/M.1711297463.A.79C.html
+title: '[新聞] 魔鬼剋星：冰天凍地 遭負評轟炸！女主角'
 content: '《魔鬼剋星：冰天凍地》遭負評轟炸！女主角回應：別這麼嚴肅好嗎，你不想看當然不喜
 
   歡
@@ -318,12 +317,12 @@ content: '《魔鬼剋星：冰天凍地》遭負評轟炸！女主角回應：�
 
 
   --'
-reply_count: 102
+date: 2024-03-25
 sentiment_score: 0
+reply_count: 102
 ---
-title: '[普雷] 魔鬼剋星：冰天凍地'
 url: https://www.ptt.cc/bbs/movie/M.1711085405.A.430.html
-date: 2024-03-22
+title: '[普雷] 魔鬼剋星：冰天凍地'
 content: '整部片劇情延續上一集，不知道這次的錢是不是都花在請元老回來還有要延續新一代演員鋪
 
   成的關係，這次的動作場面非常少，連最後的大戰場面居然都只是在魔鬼剋星的總部大廳對
@@ -347,12 +346,12 @@ content: '整部片劇情延續上一集，不知道這次的錢是不是都花�
 
 
   --'
-reply_count: 11
+date: 2024-03-22
 sentiment_score: 0
+reply_count: 11
 ---
-title: '[情報] 《魔鬼剋星：冰天凍地》爛番茄開盤'
 url: https://www.ptt.cc/bbs/movie/M.1710952983.A.C08.html
-date: 2024-03-21
+title: '[情報] 《魔鬼剋星：冰天凍地》爛番茄開盤'
 content: '《魔鬼剋星：冰天凍地》爛番茄開盤
 
 
@@ -373,12 +372,12 @@ content: '《魔鬼剋星：冰天凍地》爛番茄開盤
 
 
   --'
-reply_count: 72
+date: 2024-03-21
 sentiment_score: 0
+reply_count: 72
 ---
-title: '[討論] 【魔鬼剋星：冰天凍地】正式預告'
 url: https://www.ptt.cc/bbs/movie/M.1706537963.A.587.html
-date: 2024-01-29
+title: '[討論] 【魔鬼剋星：冰天凍地】正式預告'
 content: '火力強大的幽靈軍團使紐約陷入冰河時期危機
 
   魔鬼剋星帶著升級裝備出動抓鬼、拯救世界！
@@ -391,5 +390,6 @@ content: '火力強大的幽靈軍團使紐約陷入冰河時期危機
 
 
   --'
-reply_count: 37
+date: 2024-01-29
 sentiment_score: 0
+reply_count: 37
