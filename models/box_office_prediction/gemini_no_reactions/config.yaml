@@ -1,0 +1,22 @@
+dataset_name: dataset_2024
+training_week_len: 8
+split_ratios:
+- 8
+- 1
+- 1
+lstm_units: 50
+dropout_rate: 0.2
+epochs: 10000
+batch_size: 32
+verbose: 1
+checkpoint_interval: 10
+early_stopping_patience: 100
+early_stopping_monitor: val_loss
+early_stopping_min_delta: 1.0e-05
+box_office_ranges:
+- 1000000
+- 10000000
+- 90000000
+f1_average_method: macro
+random_state: 4084318943
+model_id: gemini_no_reactions
