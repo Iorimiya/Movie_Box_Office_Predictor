@@ -116,6 +116,25 @@ class WeekData:
         """
         return sum(review.reply_count for review in self.public_reviews)
 
+    @property
+    def total_positive_reactions(self) -> int:
+        """
+        Total positive reaction count from all public reviews for the week.
+
+        :return: The sum of positive reaction counts from all public reviews.
+        """
+        return sum(review.positive_reaction_count for review in self.public_reviews)
+
+    @property
+    def total_negative_reactions(self) -> int:
+        """
+        Total negative reaction count from all public reviews for the week.
+
+        :return: The sum of negative reaction counts from all public reviews.
+        """
+        return sum(review.negative_reaction_count for review in self.public_reviews)
+
+
     def _update_specific_reviews_list(
         self,
         reviews_source: Path | YamlFile | list[ReviewRawData] | list[WeekDataReviewType],
