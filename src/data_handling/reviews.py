@@ -74,8 +74,12 @@ class PublicReviewRawData(ReviewRawData, total=False):
     Inherits fields from :class:`~ReviewRawData`.
 
     :ivar reply_count: The reply count.
+    :ivar positive_reaction_count: The number of positive reactions to this public review.
+    :ivar negative_reaction_count: The number of negative reactions to this public review.
     """
     reply_count: str | int
+    positive_reaction_count: str | int
+    negative_reaction_count: str | int
 
 
 class PublicReviewPreparedArgs(ReviewPreparedArgs):
@@ -85,8 +89,12 @@ class PublicReviewPreparedArgs(ReviewPreparedArgs):
     Inherits fields from :class:`~ReviewPreparedArgs`.
 
     :ivar reply_count: The reply count.
+    :ivar positive_reaction_count: The number of positive reactions to this public review.
+    :ivar negative_reaction_count: The number of negative reactions to this public review.
     """
     reply_count: int
+    positive_reaction_count: int
+    negative_reaction_count: int
 
 
 class PublicReviewSerializableData(ReviewSerializableData):
@@ -96,8 +104,12 @@ class PublicReviewSerializableData(ReviewSerializableData):
     Inherits fields from :class:`~ReviewSerializableData`.
 
     :ivar reply_count: The reply count.
+    :ivar positive_reaction_count: The number of positive reactions to this public review.
+    :ivar negative_reaction_count: The number of negative reactions to this public review.
     """
     reply_count: int
+    positive_reaction_count: int
+    negative_reaction_count: int
 
 
 class ExpertReviewRawData(ReviewRawData, total=False):
@@ -296,8 +308,12 @@ class PublicReview(Review):
 
     Inherits attributes from :class:`~Review`.
     :ivar reply_count: The number of replies to this public review.
+    :ivar positive_reaction_count: The number of positive reactions to this public review.
+    :ivar negative_reaction_count: The number of negative reactions to this public review.
     """
     reply_count: int
+    positive_reaction_count: int
+    negative_reaction_count: int
 
     def __str__(self) -> str:
         """
@@ -306,7 +322,7 @@ class PublicReview(Review):
         :return: A human-readable string representation of the public review, including the reply count.
         """
         base_str: str = super().__str__()
-        return f"{base_str}\n  Reply Count: {self.reply_count}"
+        return f"{base_str}\n  Reply Count: {self.reply_count}\n  Positive Reply:{self.positive_reaction_count}\n  Negative Reply:{self.negative_reaction_count}"
 
     @classmethod
     def _prepare_constructor_args(cls: Type[SelfReview], raw_data: PublicReviewRawData) -> PublicReviewPreparedArgs:
@@ -326,7 +342,11 @@ class PublicReview(Review):
         base_kwargs: ReviewPreparedArgs = super()._prepare_constructor_args(raw_data)
 
         raw_reply_count: Optional[int | str] = raw_data.get('reply_count')
+        raw_positive_reaction_count:Optional[int | str] = raw_data.get('positive_reaction_count')
+        raw_negative_reaction_count: Optional[int | str] = raw_data.get('negative_reaction_count')
         processed_reply_count: int
+        processed_positive_reaction_count: int
+        processed_negative_reaction_count: int
 
         if raw_reply_count is not None:
             try:
@@ -340,7 +360,36 @@ class PublicReview(Review):
             logger.error(msg)
             raise ValueError(msg)
 
-        return PublicReviewPreparedArgs(**{**base_kwargs, 'reply_count': processed_reply_count})
+        if raw_positive_reaction_count is not None:
+            try:
+                processed_positive_reaction_count = int(raw_positive_reaction_count)
+            except (ValueError, TypeError) as e:
+                msg = f"Invalid positive_reaction_count value '{raw_positive_reaction_count}' in PublicReview data: {raw_data}."
+                logger.error(msg)
+                raise ValueError(f"Invalid positive_reaction_count value: {raw_positive_reaction_count}") from e
+        else:
+            msg = f"Required field 'positive_reaction_count' missing in PublicReview data: {raw_data}"
+            logger.error(msg)
+            raise ValueError(msg)
+
+        if raw_negative_reaction_count is not None:
+            try:
+                processed_negative_reaction_count = int(raw_negative_reaction_count)
+            except (ValueError, TypeError) as e:
+                msg = f"Invalid negative_reaction_count value '{raw_negative_reaction_count}' in PublicReview data: {raw_data}."
+                logger.error(msg)
+                raise ValueError(f"Invalid negative_reaction_count value: {raw_negative_reaction_count}") from e
+        else:
+            msg = f"Required field 'negative_reaction_count' missing in PublicReview data: {raw_data}"
+            logger.error(msg)
+            raise ValueError(msg)
+
+        return PublicReviewPreparedArgs(**{
+            **base_kwargs,
+            'reply_count': processed_reply_count,
+            'positive_reaction_count':processed_positive_reaction_count,
+            'negative_reaction_count':processed_negative_reaction_count
+        })
 
     def as_serializable_dict(self) -> PublicReviewSerializableData:
         """
@@ -354,7 +403,9 @@ class PublicReview(Review):
             content=self.content,
             date=self.date,
             sentiment_score=self.sentiment_score,
-            reply_count=self.reply_count
+            reply_count=self.reply_count,
+            positive_reaction_count=self.positive_reaction_count,
+            negative_reaction_count=self.negative_reaction_count
         )
 
 

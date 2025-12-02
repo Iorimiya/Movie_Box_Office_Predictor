@@ -54,10 +54,14 @@ class PredictionFeature:
     :ivar box_office: The box office revenue for the week.
     :ivar avg_sentiment: The average sentiment score of reviews for the week.
     :ivar reply_count: The total number of replies to reviews for the week.
+    :ivar total_positive_reaction_count: The total number of positive reactions for the week.
+    :ivar total_negative_reaction_count: The total number of negative reactions for the week.
     """
     box_office: int | float
     avg_sentiment: float
     reply_count: int
+    total_positive_reaction_count: int
+    total_negative_reaction_count: int
 
     def as_numerical_list(self) -> list[int | float]:
         """
@@ -65,7 +69,13 @@ class PredictionFeature:
 
         :returns: A list of numerical features in a specific order.
         """
-        return [self.box_office, self.avg_sentiment, self.reply_count]
+        return [
+            self.box_office,
+            self.avg_sentiment,
+            self.reply_count,
+            self.total_positive_reaction_count,
+            self.total_negative_reaction_count
+        ]
 
 
 class PredictionDataProcessor(
@@ -323,7 +333,9 @@ class PredictionDataProcessor(
         return PredictionFeature(
             box_office=week.box_office_data.box_office,
             avg_sentiment=week.average_sentiment_score or 0.0,
-            reply_count=week.total_reply_count
+            reply_count=week.total_reply_count,
+            total_positive_reaction_count=week.total_positive_reactions,
+            total_negative_reaction_count=week.total_negative_reactions
         )
 
     @staticmethod
