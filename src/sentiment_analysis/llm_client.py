@@ -1,6 +1,4 @@
-# D:/Projects/Movie_Box_Office_Predictor/src/sentiment_analysis/llm_client.py
-
-from enum import Enum, auto
+from enum import auto, Enum
 from logging import Logger
 from os import environ
 from time import sleep
@@ -91,7 +89,8 @@ class LLMClient:
             raise ValueError("A 'local_llm_url' is required when using a local LLM provider (Gemma).")
 
         self._client = self.__create_client(llm_url=local_llm_url, api_key=api_key)
-        self._logger.info(f"LLMClient initialized for model '{self._target_model_id}' (Provider: {self._provider.name})")
+        self._logger.debug(
+            f"LLMClient initialized for model '{self._target_model_id}' (Provider: {self._provider.name})")
 
     def __create_client(self, llm_url: Optional[str] = None, api_key: Optional[str] = None) -> OpenAI:
         """
@@ -131,7 +130,9 @@ class LLMClient:
             raise ValueError(f"Required environment variable '{var_name}' not found.")
         return env_key
 
-    def __generate_prompt_message(self, prompt_texts: list[str], rule_message: Optional[str] = None) -> list[dict[str, str]]:
+    def __generate_prompt_message(
+        self, prompt_texts: list[str], rule_message: Optional[str] = None
+    ) -> list[dict[str, str]]:
         """
         Constructs the list of messages for the API chat completion request.
 
@@ -188,14 +189,21 @@ class LLMClient:
                     model=self._target_model_id,
                     messages=prompt_messages
                 )
+                try:
+                    content: Optional[str] = response.choices[0].message.content
+                    if not content:
+                        raise ValueError("API response content is empty.")
 
-                if response and response.choices and (content := response.choices[0].message.content):
-                    self._logger.info(f"Successfully received response from '{self._target_model_id}'.")
-                    return content.strip()
-                else:
-                    last_exception = ValueError("Received an invalid or empty response from the API.")
-                    self._logger.warning(f"{last_exception} (Attempt {attempt + 1})")
-                    sleep(2)  # Short sleep before retrying on invalid response
+                except (AttributeError, IndexError, TypeError, ValueError) as parse_error:
+                    last_exception = parse_error
+                    self._logger.warning(
+                        f"Failed to parse a valid response content (Attempt {attempt + 1}). "
+                        f"Error: {parse_error}. Raw response: {response}"
+                    )
+                    sleep(2)
+                    continue
+                self._logger.debug(f"Successfully received response from '{self._target_model_id}'.")
+                return content.strip()
 
             except RateLimitError as e:
                 last_exception = e
