@@ -352,7 +352,15 @@ class ArgumentParserBuilder:
         ).set_defaults(func=self.__dataset_handler.collect_dcard_review)
 
         # Command: dataset compute-sentiment
-        # TODO
+        compute_sentiment_parser: ArgumentParser = dataset_subparsers.add_parser(
+            "compute-sentiment",
+            help="Compute sentiment scores for reviews in a dataset using a model.",
+        )
+        compute_sentiment_parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
+        compute_sentiment_parser.add_argument(
+            "--structured-dataset-name", type=str, required=True, help="The dataset to process."
+        )
+        compute_sentiment_parser.set_defaults(func=self.__dataset_handler.compute_sentiment)
 
 
     def __setup_prediction_model_subparser(self) -> None:

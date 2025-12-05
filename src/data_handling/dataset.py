@@ -2,10 +2,13 @@ from dataclasses import dataclass, field, replace
 from functools import cached_property
 from logging import Logger
 from pathlib import Path
-from typing import cast, Literal, Optional
+from time import sleep
+from typing import cast, Literal, Optional, Final
+
+from tqdm import tqdm
 
 from src.core.logging_manager import LoggingManager
-from src.core.project_config import ProjectPaths, ProjectDatasetType, ProjectModelType
+from src.core.project_config import ProjectPaths, ProjectDatasetType
 from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
@@ -13,6 +16,7 @@ from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData, MovieSessionData
 from src.data_handling.movie_metadata import MovieMetadata, MovieMetadataRawData, MoviePathMetadata
 from src.data_handling.reviews import PublicReview, ExpertReview
+from src.sentiment_analysis.llm_client import LLMClient, DailyRateLimitExceededError
 
 
 @dataclass(kw_only=True)
@@ -416,8 +420,116 @@ class Dataset:
         """
         pass
 
-    def compute_sentiment(self) -> None:
+        # D:/Projects/Movie_Box_Office_Predictor/src/data_handling/dataset.py
+
+        # ... (imports and class definition remain the same) ...
+
+    def compute_sentiment(self, model_id: str) -> None:
         """
         Computes sentiment scores for all public reviews in the dataset and updates them.
+
+        This method using a specified large language model,
+        iterates through each movie's public reviews, calculates a sentiment score,
+        and then saves the updated reviews back to their respective files.
+
+        :param model_id: The ID of the sentiment analysis model to use.
         """
-        # TODO
+        self.__logger.info(f"Starting sentiment computation for dataset '{self.name}' using model '{model_id}'.")
+
+        try:
+            # Initialize the client once for the entire process
+            if "gemma" in model_id:
+                # Consider making this URL configurable via a config file or CLI argument
+                llm_client: LLMClient = LLMClient(
+                    target_model_id=model_id,
+                    local_llm_url='http://localhost:27041/engines/v1'
+                )
+            elif 'gpt' in model_id or 'gemini' in model_id:
+                llm_client: LLMClient = LLMClient(target_model_id=model_id)
+            else:
+                raise ValueError(f"Invalid or unsupported model_id for sentiment computation: '{model_id}'")
+        except (ValueError, FileNotFoundError) as e:
+            self.__logger.error(f"LLM Client Initialization failed: {e}")
+            return  # Exit if client can't be created
+
+        try:
+            rule_text: Final[str] = "請針對以下評論內容，判斷其為正面或負面之評論，若為正面請回覆1，若為負面請回覆0。僅回覆\"1\"或\"0\"即可，不須加上任何其他文字。"
+            total_review_count: int = sum(movie.public_review_count for movie in self.movie_data)
+            max_response_retries: Final[int] = 3
+
+            if total_review_count == 0:
+                self.__logger.info("No public reviews found in the dataset to process.")
+                return
+
+            with tqdm(total=total_review_count, desc="Computing Sentiments") as pbar:
+                for movie in self.movie_data:
+                    if not movie.public_reviews:
+                        continue
+
+                    self.__logger.info(
+                        f"Processing {len(movie.public_reviews)} reviews for movie ID {movie.id} ('{movie.name}')..."
+                    )
+
+                    updated_reviews: list[PublicReview] = []
+                    for review in movie.public_reviews:
+                        sentiment_score: Optional[int] = None
+                        last_response: str = ""
+
+                        for attempt in range(max_response_retries):
+                            self.__logger.debug(
+                                f"Attempt {attempt + 1}/{max_response_retries} for review: '{review.title}'")
+                            try:
+                                response_text: str = llm_client.generate_response(
+                                    prompt_texts=review.content,
+                                    rule_message=rule_text
+                                )
+                                last_response = response_text
+
+                                # Strict validation for the expected response
+                                if response_text in ('0', '1'):
+                                    sentiment_score = int(response_text)
+                                    self.__logger.debug(
+                                        f"Successfully validated response '{response_text}' for review '{review.title}'.")
+                                    break  # --- Exit the retry loop on success ---
+                                else:
+                                    self.__logger.warning(
+                                        f"Received invalid sentiment response: '{response_text}'. Expected '0' or '1'. Retrying..."
+                                    )
+
+                            except RuntimeError as e:
+                                # This is a non-daily-limit unrecoverable error from the client for this specific review
+                                self.__logger.error(
+                                    f"Unrecoverable error from LLM client for review '{review.title}': {e}")
+                                sentiment_score = None
+                                break  # --- Exit the retry loop immediately ---
+                            except Exception as e:
+                                self.__logger.error(
+                                    f"Unexpected error during sentiment generation for '{review.title}': {e}",
+                                    exc_info=True)
+
+                            # Wait a moment before the next retry if the response was invalid
+                            sleep(2)
+                        else:
+                            # This block executes ONLY if the for loop completes without a 'break'.
+                            self.__logger.critical(
+                                f"Failed to get a valid sentiment for review '{review.title}' after {max_response_retries} attempts. "
+                                f"Last invalid response was: '{last_response}'."
+                            )
+                            sentiment_score = None
+
+                        if sentiment_score is not None:
+                            updated_reviews.append(replace(review, sentiment_score=sentiment_score))
+                        else:
+                            updated_reviews.append(review)
+
+                        pbar.update(1)
+
+                    # Update the movie object and save the results to disk
+                    movie.public_reviews = updated_reviews
+                    movie.save_public_reviews(target_directory=self.public_review_folder_path)
+
+        except DailyRateLimitExceededError as e:
+            self.__logger.critical(f"Terminating sentiment computation due to daily rate limit: {e}")
+            # No further action needed, the function will now exit gracefully.
+
+        self.__logger.info(f"Sentiment computation for dataset '{self.name}' is complete.")
