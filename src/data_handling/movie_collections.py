@@ -5,7 +5,7 @@ from logging import Logger
 from pathlib import Path
 from typing import Final, Literal, Optional, Type, TypeAlias, TypeVar
 
-import numpy as np
+from numpy import mean
 
 from src.core.logging_manager import LoggingManager
 from src.data_handling.box_office import BoxOffice, BoxOfficeRawData, BoxOfficeSerializableData
@@ -93,7 +93,7 @@ class WeekData:
         # noinspection PyTypeChecker
         scores: list[float] = [review.sentiment_score for review in chain(self.public_reviews, self.expert_reviews) if
                                review.sentiment_score is not None]
-        return float(np.mean(scores)) if scores else None
+        return float(mean(scores)) if scores else None
 
     @property
     def average_expert_score(self) -> Optional[float]:
@@ -105,7 +105,7 @@ class WeekData:
         :return: The average expert score, or None if no expert reviews are available.
         """
         scores: list[float] = [review.expert_score for review in self.expert_reviews]
-        return float(np.mean(scores)) if scores else None
+        return float(mean(scores)) if scores else None
 
     @property
     def total_reply_count(self) -> int:

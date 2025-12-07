@@ -1,7 +1,7 @@
 from logging import Logger
 from typing import Generic, Optional, TypeVar
 
-import numpy as np
+from numpy import array, unique
 from numpy.typing import NDArray
 from sklearn.model_selection import train_test_split
 
@@ -162,7 +162,7 @@ class DatasetSplitter(Generic[X_Type, Y_Type]):
         :returns: True if the data can be stratified, False otherwise.
         """
         if y_data.ndim == 1:  # Typical for classification
-            _, counts = np.unique(y_data, return_counts=True)
+            _, counts = unique(y_data, return_counts=True)
             # Stratification requires at least 2 samples for each class present
             return all(count >= 2 for count in counts)
         return False  # Cannot stratify multidimensional or regression targets this way
@@ -182,6 +182,6 @@ class DatasetSplitter(Generic[X_Type, Y_Type]):
         """
         empty_x_shape = (0,) + x_ref.shape[1:] if x_ref.ndim > 1 else (0,)
         empty_y_shape = (0,) + y_ref.shape[1:] if y_ref.ndim > 1 else (0,)
-        empty_x = np.array([], dtype=x_ref.dtype).reshape(empty_x_shape)
-        empty_y = np.array([], dtype=y_ref.dtype).reshape(empty_y_shape)
+        empty_x = array([], dtype=x_ref.dtype).reshape(empty_x_shape)
+        empty_y = array([], dtype=y_ref.dtype).reshape(empty_y_shape)
         return empty_x, empty_y

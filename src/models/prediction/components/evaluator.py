@@ -2,23 +2,24 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-import numpy as np
+from numpy import array, float32, float64
 from numpy.typing import NDArray
 from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
-from src.core.project_config import ProjectPaths, ProjectModelType
-from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult, BaseEvaluationConfig
+from src.core.project_config import ProjectModelType, ProjectPaths
+from src.data_handling.movie_collections import MovieData
+from src.models.base.base_evaluator import BaseEvaluationConfig, BaseEvaluationResult, BaseEvaluator
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
+    PredictionDataConfig,
     PredictionDataProcessor,
     PredictionDataSource,
-    PredictionDataConfig,
     PredictionTrainingProcessedData,
 )
 from src.models.prediction.components.model_core import (
-    PredictionModelCore,
     PredictionEvaluateConfig,
+    PredictionModelCore,
     PredictionPredictConfig,
 )
 from src.utilities.metrics import RegressionToClassificationMetrics
@@ -69,7 +70,8 @@ class PredictionEvaluator(
 
     This evaluator loads a specific model checkpoint and its corresponding scaler,
     recreates the test dataset, and computes various performance metrics such as
-    MSE loss, trend accuracy, range accuracy, and F1-score.
+    MSE loss, trend accuracy, and delegates classification-based metrics to a
+    centralized framework.
     """
 
     @override
@@ -90,22 +92,22 @@ class PredictionEvaluator(
         :raises FileNotFoundError: If the scaler artifact cannot be found or loaded.
         """
         self.logger.info("Step 1: Loading model and data processor artifacts...")
-        artifacts_path = ProjectPaths.get_model_root_path(
+        artifacts_path: Path = ProjectPaths.get_model_root_path(
             model_id=model_id, model_type=ProjectModelType.PREDICTION
         )
-        model_file_path = artifacts_path / f"{model_id}_{model_epoch:04d}.keras"
+        model_file_path: Path = artifacts_path / f"{model_id}_{model_epoch:04d}.keras"
 
-        data_processor = PredictionDataProcessor(model_artifacts_path=artifacts_path)
+        data_processor: PredictionDataProcessor = PredictionDataProcessor(model_artifacts_path=artifacts_path)
         if not data_processor.scaler:
             raise FileNotFoundError(f"Could not load scaler artifact from: {artifacts_path}")
 
-        model_core = PredictionModelCore(model_path=model_file_path)
+        model_core: PredictionModelCore = PredictionModelCore(model_path=model_file_path)
         return data_processor, model_core, artifacts_path
 
     @override
     def _prepare_test_data(
         self, data_processor: PredictionDataProcessor, config: PredictionEvaluationConfig
-    ) -> tuple[NDArray[np.float32], NDArray[np.float64]]:
+    ) -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Loads and processes data to retrieve the evaluation set.
 
@@ -120,10 +122,10 @@ class PredictionEvaluator(
                             or `random_state` are not provided in the config.
         """
         self.logger.info("Step 3: Loading and processing evaluation dataset...")
-        data_source = PredictionDataSource(dataset_name=config.dataset_name)
-        raw_data = data_processor.load_raw_data(source=data_source)
+        data_source: PredictionDataSource = PredictionDataSource(dataset_name=config.dataset_name)
+        raw_data: list[MovieData] = data_processor.load_raw_data(source=data_source)
 
-        processing_config = PredictionDataConfig(
+        processing_config: PredictionDataConfig = PredictionDataConfig(
             training_week_len=config.training_week_len,
             split_ratios=config.split_ratios,
             random_state=config.random_state
@@ -154,16 +156,16 @@ class PredictionEvaluator(
         self,
         model_core: PredictionModelCore,
         data_processor: PredictionDataProcessor,
-        x_test: NDArray[np.float32],
-        y_test: NDArray[np.float64],
+        x_test: NDArray[float32],
+        y_test: NDArray[float64],
         config: PredictionEvaluationConfig
     ) -> dict[str, Optional[float]]:
         """
         Calculates various performance metrics based on the evaluation configuration.
 
-        This method orchestrates the calculation of different metrics such as
-        MSE loss, trend accuracy, range accuracy, and F1-score. It un-scales
-        predictions and actual values as needed for certain metrics.
+        This method orchestrates the calculation of MSE loss, trend accuracy,
+        and delegates classification-based metrics (range accuracy, F1-score)
+        to the centralized metrics framework.
 
         :param model_core: The trained model core to use for predictions.
         :param data_processor: The data processor containing the fitted scaler.
@@ -180,7 +182,7 @@ class PredictionEvaluator(
         }
 
         if config.calculate_loss:
-            metrics['test_loss'] = self._calculate_mse_loss(model_core, x_test, y_test)
+            metrics['test_loss'] = self._calculate_mse_loss(model_core=model_core, x_test=x_test, y_test=y_test)
 
         needs_unscaling: bool = any([
             config.calculate_trend_accuracy,
@@ -239,7 +241,7 @@ class PredictionEvaluator(
         )
 
     def _calculate_mse_loss(
-        self, model_core: PredictionModelCore, x_test: NDArray[np.float32], y_test: NDArray[np.float64]
+        self, model_core: PredictionModelCore, x_test: NDArray[float32], y_test: NDArray[float64]
     ) -> float:
         """
         Calculates the Mean Squared Error (MSE) loss on the test set.
@@ -250,14 +252,14 @@ class PredictionEvaluator(
         :returns: The MSE loss value.
         """
         self.logger.info("Step 4a: Calculating MSE loss on the test set...")
-        eval_config = PredictionEvaluateConfig(verbose=0)
+        eval_config: PredictionEvaluateConfig = PredictionEvaluateConfig(verbose=0)
         loss: float = model_core.evaluate(x_test=x_test, y_test=y_test, config=eval_config)
         self.logger.info(f"  - Test MSE Loss: {loss:.6f}")
         return loss
 
     def _get_unscaled_predictions(
         self, model_core: PredictionModelCore, scaler: MinMaxScaler,
-        x_test: NDArray[np.float32], y_test: NDArray[np.float64]
+        x_test: NDArray[float32], y_test: NDArray[float64]
     ) -> tuple[list[float], list[float], list[float]]:
         """
         Generates model predictions and inverse-transforms them to their original scale.
@@ -275,15 +277,15 @@ class PredictionEvaluator(
                   - A list of unscaled box office values from the last input week.
         """
         self.logger.info("Step 4b: Generating unscaled predictions for accuracy metrics...")
-        predict_config = PredictionPredictConfig(verbose=0)
-        y_pred_scaled = model_core.predict(data=x_test, config=predict_config)
+        predict_config: PredictionPredictConfig = PredictionPredictConfig(verbose=0)
+        y_pred_scaled: NDArray[any] = model_core.predict(data=x_test, config=predict_config)
 
-        unscaled_predictions = scaler.inverse_transform(y_pred_scaled).flatten().tolist()
-        unscaled_actual = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten().tolist()
+        unscaled_predictions: list[float] = scaler.inverse_transform(y_pred_scaled).flatten().tolist()
+        unscaled_actual: list[float] = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten().tolist()
 
         # Unscale the last box office value from each input sequence
-        last_week_input_scaled = x_test[:, -1, 0].reshape(-1, 1)
-        unscaled_last_week_inputs = scaler.inverse_transform(last_week_input_scaled).flatten().tolist()
+        last_week_input_scaled: NDArray[float32] = x_test[:, -1, 0].reshape(-1, 1)
+        unscaled_last_week_inputs: list[float] = scaler.inverse_transform(last_week_input_scaled).flatten().tolist()
 
         return unscaled_predictions, unscaled_actual, unscaled_last_week_inputs
 

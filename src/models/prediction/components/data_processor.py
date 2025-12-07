@@ -2,8 +2,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Final, Optional
 
-import numpy as np
-from numpy import float32, float64
+from numpy import array, expand_dims, float32, float64
 from numpy.typing import NDArray
 from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
@@ -213,8 +212,8 @@ class PredictionDataProcessor(
         if len(numerical_sequence) != training_week_len:
             raise ValueError("Failed to create a numerical sequence of the required length.")
 
-        unscaled_array: NDArray[float32] = np.expand_dims(
-            np.array(numerical_sequence, dtype=float32), axis=0
+        unscaled_array: NDArray[float32] = expand_dims(
+            array(numerical_sequence, dtype=float32), axis=0
         )
         scaled_array: NDArray[float32] = self._scale_feature_in_sequences(sequences=unscaled_array)
         return scaled_array
@@ -320,7 +319,7 @@ class PredictionDataProcessor(
                 x_list.append(seq_x)
                 y_list.append(seq_y)
 
-        return np.array(x_list, dtype=float32), np.array(y_list, dtype=float64)
+        return array(x_list, dtype=float32), array(y_list, dtype=float64)
 
     @staticmethod
     def _extract_features_from_week(week: WeekData) -> PredictionFeature:
@@ -395,9 +394,9 @@ class PredictionDataProcessor(
 
         # Initialize and fit the scaler ONLY on the training target data
         self.scaler = MinMaxScaler()
-        y_train_scaled = self.scaler.fit_transform(y_train.reshape(-1, 1)) if len(y_train) > 0 else np.array([])
-        y_val_scaled = self.scaler.transform(y_val.reshape(-1, 1)) if len(y_val) > 0 else np.array([])
-        y_test_scaled = self.scaler.transform(y_test.reshape(-1, 1)) if len(y_test) > 0 else np.array([])
+        y_train_scaled = self.scaler.fit_transform(y_train.reshape(-1, 1)) if len(y_train) > 0 else array([])
+        y_val_scaled = self.scaler.transform(y_val.reshape(-1, 1)) if len(y_val) > 0 else array([])
+        y_test_scaled = self.scaler.transform(y_test.reshape(-1, 1)) if len(y_test) > 0 else array([])
 
         # Scale the box office feature (index 0) in x sets
         x_train_scaled = self._scale_feature_in_sequences(sequences=x_train)
