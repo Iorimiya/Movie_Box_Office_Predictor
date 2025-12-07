@@ -27,7 +27,7 @@ dropout_rate: 0.2
 
 # --- Training Process ---
 # The total number of epochs to train the model.
-epochs: 100
+epochs: 1000
 
 # The number of samples per gradient update.
 batch_size: 32
@@ -38,3 +38,18 @@ verbose: 1
 # The interval in epochs at which to save model checkpoints.
 # Set to null or remove the line to disable periodic checkpointing and only save the final model.
 checkpoint_interval: 20
+
+# Early stopping settings
+early_stopping_patience: 100
+early_stopping_monitor: 'val_loss'
+early_stopping_min_delta: 0.00001
+
+
+# Defines the upper boundaries of box office ranges for classification-based metrics.
+# Example: [1_000_000, 10_000_000, 90_000_000] creates 4 classes.
+box_office_ranges: [1000000, 10000000, 90000000]
+
+# The averaging method for F1 score calculation (e.g., 'binary', 'macro', 'weighted').
+# 'macro' is recommended for multi-class problems to treat all classes equally.
+f1_average_method: 'macro'
+

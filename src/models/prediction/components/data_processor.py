@@ -409,3 +409,26 @@ class PredictionDataProcessor(
             x_val=x_val_scaled, y_val=y_val_scaled.flatten(),
             x_test=x_test_scaled, y_test=y_test_scaled.flatten()
         )
+
+    @staticmethod
+    def get_range_index(value: float, ranges: tuple[int, ...]) -> int:
+        """
+        Determines the index of the range a given value falls into.
+
+        This method is centralized here as it represents a form of data transformation
+        and is part of the public utility API of this class.
+
+        :param value: The box office value to classify.
+        :param ranges: A tuple of upper boundaries defining the ranges (e.g., (1M, 10M, 90M)).
+        :returns: The integer index of the corresponding range.
+        """
+        # Sort ranges to ensure correct interval checking
+        sorted_ranges: list[int] = sorted(list(ranges))
+
+        # Find the first range boundary that the value is less than
+        for i, boundary in enumerate(sorted_ranges):
+            if value < boundary:
+                return i
+
+        # If the value is greater than or equal to all boundaries, it belongs to the last range
+        return len(sorted_ranges)

@@ -2,10 +2,12 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
+from numpy.typing import NDArray
 from typing_extensions import override
 
 from src.core.project_config import ProjectPaths, ProjectModelType
 from src.models.base.base_pipeline import BaseTrainingPipeline
+from src.models.base.callbacks import F1ScoreHistory
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
     PredictionDataProcessor, PredictionDataSource, PredictionDataConfig, PredictionTrainingProcessedData
@@ -13,9 +15,11 @@ from src.models.prediction.components.data_processor import (
 from src.models.prediction.components.model_core import (
     PredictionBuildConfig, PredictionModelCore, PredictionTrainConfig
 )
+from src.utilities.metrics import RegressionToClassificationMetrics
 
 History = keras_base.callbacks.History
 ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
+EarlyStopping = keras_base.callbacks.EarlyStopping
 
 
 @dataclass(frozen=True)
@@ -38,6 +42,10 @@ class PredictionPipelineConfig:
     :ivar verbose: The verbosity mode for Keras training output.
     :ivar checkpoint_interval: The interval in epochs at which to save model checkpoints.
                                If None, only the final model is saved.
+    :ivar early_stopping_patience: Number of epochs with no improvement after which training will be stopped.
+                                  If None, early stopping is disabled.
+    :ivar early_stopping_monitor: Metric to be monitored by early stopping (e.g., 'val_loss', 'val_f1_score').
+    :ivar early_stopping_min_delta: Minimum change in the monitored quantity to qualify as an improvement.
     """
     model_id: str
     dataset_name: str
@@ -50,6 +58,11 @@ class PredictionPipelineConfig:
     random_state: int
     verbose: int | str = 1
     checkpoint_interval: int | None = None
+    early_stopping_patience: Optional[int] = None
+    early_stopping_monitor: str = 'val_loss'
+    early_stopping_min_delta: float = 0.001
+    box_office_ranges: Optional[tuple[int, ...]] = None
+    f1_average_method: str = 'macro'
 
 
 class PredictionTrainingPipeline(
@@ -122,21 +135,36 @@ class PredictionTrainingPipeline(
 
         # Model Training
         self.logger.info("Starting model training...")
-        callbacks_to_use: list[keras_base.callbacks.Callback] = []
+        monitoring_callbacks: list[keras_base.callbacks.Callback] = []
+
+        # Setup F1 History callback (if needed)
+        f1_history_callback: Optional[F1ScoreHistory] = self._setup_f1_score_callback(
+            config=config,
+            validation_data=(processed_data['x_val'], processed_data['y_val'])
+        )
+        if f1_history_callback:
+            monitoring_callbacks.append(f1_history_callback)
+
+        # Setup Early Stopping callback
+        early_stopping_callback: Optional[EarlyStopping] = self._setup_early_stopping_callback(config=config)
+        if early_stopping_callback:
+            monitoring_callbacks.append(early_stopping_callback)
+
+        # Setup Checkpoint callback
         checkpoint_callback: Optional[ModelCheckpoint] = self._setup_checkpoint_callback(
             config=config,
             num_train_samples=len(processed_data['x_train']),
             artifacts_folder=artifacts_folder
         )
         if checkpoint_callback:
-            callbacks_to_use.append(checkpoint_callback)
+            monitoring_callbacks.append(checkpoint_callback)
 
         train_config = PredictionTrainConfig(
             epochs=master_config.epochs,
             batch_size=master_config.batch_size,
             validation_data=(processed_data['x_val'], processed_data['y_val']),
             verbose=master_config.verbose,
-            callbacks=callbacks_to_use,
+            callbacks=monitoring_callbacks,
             initial_epoch=continue_from_epoch or 0
         )
         history: History = self.model_core.train(
@@ -150,9 +178,12 @@ class PredictionTrainingPipeline(
             config=master_config,
             history=history,
             artifacts_folder=artifacts_folder,
-            continue_from_epoch=continue_from_epoch
+            callbacks=monitoring_callbacks,
+            continue_from_epoch=continue_from_epoch,
+            f1_history_callback=f1_history_callback
         )
         self.logger.info("--- PREDICTION training pipeline finished successfully. ---")
+
 
     @override
     def _check_required_artifacts_for_continuation(self) -> None:
@@ -169,6 +200,7 @@ class PredictionTrainingPipeline(
                 f"Could not load scaler for continued training from {self.data_processor.model_artifacts_path}."
             )
 
+
     @override
     def _create_model_core(self, model_path: Path) -> PredictionModelCore:
         """
@@ -178,3 +210,50 @@ class PredictionTrainingPipeline(
         :returns: An instance of `PredictionModelCore` with the model loaded.
         """
         return PredictionModelCore(model_path=model_path)
+
+
+    def _setup_f1_score_callback(
+        self,
+        config: PredictionPipelineConfig,
+        validation_data: tuple[NDArray[any], NDArray[any]]
+    ) -> Optional[F1ScoreHistory]:
+        """
+        Sets up the F1ScoreHistory callback if F1 score is being monitored.
+
+        :param config: The master configuration object for this run.
+        :param validation_data: The validation data (x_val, y_val) required by F1ScoreHistory.
+        :returns: The F1ScoreHistory instance if needed, otherwise None.
+        """
+        # If we monitor F1 score, we must add the F1ScoreHistory callback.
+        if 'f1' not in config.early_stopping_monitor:
+            return None
+
+        self.logger.info("F1 score monitoring is enabled. Setting up F1ScoreHistory callback.")
+
+        if not self.data_processor.scaler or config.box_office_ranges is None:
+            self.logger.error(
+                "Cannot set up F1 score monitoring. "
+                "Ensure scaler is loaded and 'box_office_ranges' are configured."
+            )
+            return None
+
+        # Create the function to convert continuous values to labels.
+        scaler = self.data_processor.scaler
+        ranges = config.box_office_ranges
+
+        def value_to_label_fn(value: float) -> int:
+            unscaled_value: float = scaler.inverse_transform([[value]])[0][0]
+            return PredictionDataProcessor.get_range_index(value=unscaled_value, ranges=ranges)
+
+        # Create and configure the metrics calculator.
+        metrics_calculator = RegressionToClassificationMetrics(
+            value_to_label_fn=value_to_label_fn,
+            f1_average_method=config.f1_average_method
+        )
+
+        # Inject the calculator into the F1ScoreHistory callback.
+        f1_history_callback = F1ScoreHistory(
+            validation_data=validation_data,
+            metrics_calculator=metrics_calculator
+        )
+        return f1_history_callback

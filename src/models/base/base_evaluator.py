@@ -173,14 +173,25 @@ class BaseEvaluator(
         """
         Loads the training and validation loss history from a pickle file.
 
+        This method now correctly handles loading a dictionary that was saved
+        from a Keras History object's `.history` attribute.
+
         :param history_file_path: The path to the history file.
         :returns: A tuple containing the training loss list and validation loss list.
+        :raises FileNotFoundError: If the history file does not exist.
         """
         self.logger.info(f"Step 2: Loading training history from '{history_file_path}'...")
-        history: History = PickleFile(path=history_file_path).load()
-        training_loss: list[float] = history.history.get('loss', [])
-        validation_loss: list[float] = history.history.get('val_loss', [])
+        if not history_file_path.exists():
+            raise FileNotFoundError(f"Training history file not found at: {history_file_path}")
+
+        history_dict: dict[str, list[float]] = PickleFile(path=history_file_path).load()
+
+        # Directly access the keys from the loaded dictionary.
+        training_loss: list[float] = history_dict.get('loss', [])
+        validation_loss: list[float] = history_dict.get('val_loss', [])
+
         return training_loss, validation_loss
+
 
     def run(self, config: EvaluationConfigType) -> EvaluationResultType:
         """

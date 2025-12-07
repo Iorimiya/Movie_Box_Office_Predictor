@@ -7,10 +7,13 @@ from src.core.logging_manager import LoggingManager
 from src.data_handling.file_io import PickleFile
 from src.models.base.base_data_processor import BaseDataProcessor
 from src.models.base.base_model_core import BaseModelCore
+from src.models.base.callbacks import F1ScoreHistory
 from src.models.base.keras_setup import keras_base
 
 History = keras_base.callbacks.History
 ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
+EarlyStopping = keras_base.callbacks.EarlyStopping
+Callback = keras_base.callbacks.Callback
 
 DataProcessorType = TypeVar('DataProcessorType', bound=BaseDataProcessor)
 ModelCoreType = TypeVar('ModelCoreType', bound=BaseModelCore)
@@ -144,33 +147,46 @@ class BaseTrainingPipeline(
         history_save_path: Path,
         continue_from_epoch: Optional[int],
         **kwargs: any
-    ) -> History:
+    ) -> dict[str, any]:
         """
         Merges a new training history with an existing one if applicable.
 
-        This base implementation handles the standard merging logic. Subclasses
-        can override this to add specific metrics (like F1 scores).
+        This implementation is enhanced to handle custom callback data, such as
+        F1 scores from an F1ScoreHistory callback, passed via kwargs.
 
         :param new_history: The History object from the latest training run.
         :param history_save_path: The path to the history file.
         :param continue_from_epoch: The epoch number the training continued from.
-        :param kwargs: Catches extra arguments passed from subclasses.
-        :returns: The final, potentially merged, History object to be saved.
+        :param kwargs: Catches extra arguments passed from subclasses, like 'f1_history_callback'.
+        :returns: The final, potentially merged, history dictionary to be saved.
         """
+        history_to_save: dict[str, any]
+
+        # The new_history.history object might not contain val_f1_score if it was never triggered
+        # in the first epoch. We should get it from the callback directly.
+        f1_history_callback: Optional[F1ScoreHistory] = kwargs.get('f1_history_callback')
+        if f1_history_callback:
+            new_history.history['val_f1_score'] = f1_history_callback.f1_scores
+
         if continue_from_epoch and history_save_path.exists():
             self.logger.info(f"Loading existing history from {history_save_path} to append new results.")
-            old_history: History = PickleFile(path=history_save_path).load()
+            old_history_data: dict[str, any] = PickleFile(path=history_save_path).load()
             for key, value in new_history.history.items():
-                old_history.history.setdefault(key, []).extend(value)
-            return old_history
+                if key not in old_history_data:
+                    old_history_data[key] = []
+                old_history_data[key].extend(value)
+            history_to_save = old_history_data
         else:
-            return new_history
+            history_to_save = new_history.history
+
+        return history_to_save
 
     def _save_run_artifacts(
         self,
         config: PipelineConfigType,
         history: History,
         artifacts_folder: Path,
+        callbacks: list[Callback],
         continue_from_epoch: Optional[int],
         **kwargs: any
     ) -> None:
@@ -178,39 +194,67 @@ class BaseTrainingPipeline(
         Handles the common logic for saving all artifacts at the end of a run.
 
         This template method saves the training history, data processor artifacts,
-        and the final model state.
+        and the final model state. It intelligently determines the correct epoch
+        number for the saved model, especially when EarlyStopping is used.
 
         :param config: The master configuration object for the run.
         :param history: The History object from the completed training.
         :param artifacts_folder: The root directory for model artifacts.
+        :param callbacks: The list of Keras callbacks used during training.
         :param continue_from_epoch: The epoch number the training continued from, if any.
         :param kwargs: Extra arguments to be passed to helper methods like _merge_histories.
         """
         self.logger.info("Saving all run artifacts...")
 
-        # Save History (delegating merging logic)
+        # Determine the correct final epoch for saving
+        final_epoch: int
+        early_stopping_callback: Optional[EarlyStopping] = next(
+            (cb for cb in callbacks if isinstance(cb, EarlyStopping)),  # Search in the provided list
+            None
+        )
+
+        if early_stopping_callback and early_stopping_callback.stopped_epoch > 0:
+            # Early stopping was triggered. The model weights were restored to the best epoch.
+            # The 'best_epoch' attribute is 0-indexed, so we add 1 for the filename.
+            final_epoch = early_stopping_callback.best_epoch + 1
+            self.logger.info(
+                f"Early stopping was triggered. The best model was at epoch {final_epoch}. "
+                f"Saving model with this epoch number."
+            )
+        else:
+            # Training completed all epochs without early stopping.
+            # The number of epochs run is the length of the 'loss' history list.
+            epochs_run: int = len(history.history.get('loss', []))
+            final_epoch = epochs_run + (continue_from_epoch or 0)
+            self.logger.info(
+                f"Training completed all configured epochs. Saving final model for epoch {final_epoch}."
+            )
+
+        # Save Final Model State
+        # We save the model that is currently in memory. If early stopping with
+        # restore_best_weights=True was used, this is the best model.
+        # We assume the config object has 'model_id'
+        model_id: str = getattr(config, 'model_id', 'model')
+        final_model_save_path: Path = artifacts_folder / f"{model_id}_{final_epoch:04d}.keras"
+        self.model_core.save(file_path=final_model_save_path)
+        self.logger.info(f"Final model state saved to: {final_model_save_path}")
+
+        # --- Save History ---
         history_filename: str = self.get_history_filename()
         history_save_path: Path = artifacts_folder / history_filename
-        history_to_save: History = self._merge_histories(
+        history_to_save: dict[str, any] = self._merge_histories(
             new_history=history,
             history_save_path=history_save_path,
-            continue_from_epoch=continue_from_epoch
+            continue_from_epoch=continue_from_epoch,
+            **kwargs
         )
         PickleFile(path=history_save_path).save(data=history_to_save)
         self.logger.info(f"Training history saved to: {history_save_path}")
 
-        # Save Data Processor Artifacts (only on a new run)
+        # --- Save Data Processor Artifacts (only on a new run) ---
         if not continue_from_epoch:
             self.data_processor.save_artifacts()
             self.logger.info(f"Data processor artifacts saved in: {self.data_processor.model_artifacts_path}")
-
-        # Save Final Model State (if not already saved by a checkpoint)
-        # We need to access model_id and epochs from the config, which requires a bit of care
-        # since PipelineConfigType is a generic. We assume it has these attributes.
-        final_model_save_path: Path = artifacts_folder / f"{config.model_id}_{config.epochs:04d}.keras"
-        if not final_model_save_path.exists():
-            self.model_core.save(file_path=final_model_save_path)
-            self.logger.info(f"Final model state for epoch {config.epochs} saved to: {final_model_save_path}")
 
     def _setup_checkpoint_callback(
         self,
@@ -265,3 +309,35 @@ class BaseTrainingPipeline(
         )
         return model_checkpoint_callback
 
+    def _setup_early_stopping_callback(self, config: PipelineConfigType) -> Optional[EarlyStopping]:
+        """
+        Sets up the EarlyStopping callback based on the pipeline configuration.
+
+        This helper method centralizes the logic for creating an early stopping
+        callback if it is enabled in the configuration.
+
+        :param config: The master configuration object for the run, which must
+                       have `early_stopping_patience`, `early_stopping_monitor`,
+                       and `early_stopping_min_delta` attributes.
+        :returns: A configured `EarlyStopping` instance if enabled, otherwise `None`.
+        """
+        patience: Optional[int] = getattr(config, 'early_stopping_patience', None)
+        if patience is None:
+            return None
+
+        monitor: str = getattr(config, 'early_stopping_monitor', 'val_loss')
+        min_delta: float = getattr(config, 'early_stopping_min_delta', 0.0)
+        mode: str = 'max' if 'f1' in monitor or 'accuracy' in monitor else 'auto'
+
+        self.logger.info(
+            f"Early stopping enabled: monitoring '{monitor}' with patience={patience}."
+        )
+        early_stopping_callback: EarlyStopping = EarlyStopping(
+            monitor=monitor,
+            patience=patience,
+            min_delta=min_delta,
+            verbose=1,
+            mode=mode,
+            restore_best_weights=True  # Always restore best weights
+        )
+        return early_stopping_callback
