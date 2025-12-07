@@ -200,6 +200,40 @@ class ArgumentParserBuilder:
             '--checkpoint-interval', type=int, required=False, help='Override the model checkpoint interval.'
         )
 
+        params_override_group.add_argument(
+            '--early-stopping-patience',
+            type=int,
+            required=False,
+            help='Override the patience for early stopping.'
+        )
+        params_override_group.add_argument(
+            '--early-stopping-monitor',
+            type=str,
+            required=False,
+            help="Override the metric to monitor for early stopping (e.g., 'val_loss', 'val_f1_score')."
+        )
+        params_override_group.add_argument(
+            '--early-stopping-min-delta',
+            type=float,  # Explicitly define the type as float
+            required=False,
+            help='Override the minimum delta for early stopping (e.g., 1e-5).'
+        )
+        params_override_group.add_argument(
+            '--box-office-ranges',
+            type=int,
+            nargs='+',  # Allows multiple integer values
+            metavar='RANGE',
+            required=False,
+            help="Override the box office ranges for F1 score calculation (e.g., --box-office-ranges 1000000 10000000)."
+        )
+        params_override_group.add_argument(
+            '--f1-average-method',
+            type=str,
+            choices=['macro', 'micro', 'weighted', 'binary'],
+            required=False,
+            help="Override the averaging method for F1 score ('macro', 'micro', 'weighted', 'binary')."
+        )
+
         continue_group = parser.add_argument_group(
             'Continue Training (Optional)',
             description='Options to continue training from a previously saved checkpoint. '
