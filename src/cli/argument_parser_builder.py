@@ -272,6 +272,11 @@ class ArgumentParserBuilder:
         plot_options_group.add_argument('--test-loss', action='store_true',
                                         help='Evaluate or plot the test loss.')
         plot_options_group.add_argument('--f1-score', action='store_true', help='Evaluate or plot the F1-score.')
+        plot_options_group.add_argument(
+            '--classification-report',
+            action='store_true',
+            help='Display a full classification report, including precision, recall, F1-score, and the confusion matrix.'
+        )
         parser.add_argument('--dataset-name', type=str,
                             help=
                             'Optional. Specify a new dataset to evaluate on. '

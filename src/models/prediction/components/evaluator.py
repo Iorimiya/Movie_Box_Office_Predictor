@@ -1,28 +1,29 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
-from numpy import array, float32, float64
+from numpy import array, float32, float64, int_
 from numpy.typing import NDArray
 from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
-from src.core.project_config import ProjectModelType, ProjectPaths
+from src.core.project_config import ProjectPaths, ProjectModelType
 from src.data_handling.movie_collections import MovieData
-from src.models.base.base_evaluator import BaseEvaluationConfig, BaseEvaluationResult, BaseEvaluator
+from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult, BaseEvaluationConfig
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
-    PredictionDataConfig,
     PredictionDataProcessor,
     PredictionDataSource,
+    PredictionDataConfig,
     PredictionTrainingProcessedData,
 )
 from src.models.prediction.components.model_core import (
-    PredictionEvaluateConfig,
     PredictionModelCore,
+    PredictionEvaluateConfig,
     PredictionPredictConfig,
 )
-from src.utilities.metrics import RegressionToClassificationMetrics
+
+from src.utilities.metrics import PointwiseClassificationMetrics, PairwiseClassificationMetrics
 
 History = keras_base.callbacks.History
 
@@ -181,6 +182,11 @@ class PredictionEvaluator(
             'f1_score': None
         }
 
+        if config.calculate_f1_score and not (config.calculate_range_accuracy or config.calculate_trend_accuracy):
+            raise ValueError(
+                "The 'calculate_f1_score' flag cannot be used alone. "
+                "It must be combined with either 'calculate_range_accuracy' or 'calculate_trend_accuracy'."
+            )
         if config.calculate_loss:
             metrics['test_loss'] = self._calculate_mse_loss(model_core=model_core, x_test=x_test, y_test=y_test)
 
@@ -198,17 +204,28 @@ class PredictionEvaluator(
                 y_test=y_test
             )
             if config.calculate_trend_accuracy:
-                metrics['trend_accuracy'] = self._calculate_trend_accuracy(
-                    predictions=unscaled_pred, actual=unscaled_actual, last_inputs=unscaled_inputs
-                )
-
-            if config.calculate_range_accuracy or config.calculate_f1_score:
-                class_metrics: dict[str, float] = self._calculate_classification_metrics(
+                trend_metrics: dict[str, Optional[float]] = self._calculate_trend_metrics(
                     predictions=unscaled_pred,
                     actual=unscaled_actual,
-                    config=config
+                    last_inputs=unscaled_inputs,
+                    calculate_f1=config.calculate_f1_score  # Pass the f1 flag
                 )
-                metrics.update(class_metrics)
+                metrics['trend_accuracy'] = trend_metrics.get('accuracy')
+                # Only populate f1_score if it was requested for this method
+                if config.calculate_f1_score:
+                    metrics['f1_score'] = trend_metrics.get('f1_score')
+
+            if config.calculate_range_accuracy:
+                range_metrics: dict[str, Optional[float]] = self._calculate_range_metrics(
+                    predictions=unscaled_pred,
+                    actual=unscaled_actual,
+                    config=config,
+                    calculate_f1=config.calculate_f1_score  # Pass the f1 flag
+                )
+                metrics['test_accuracy'] = range_metrics.get('accuracy')
+                # Only populate f1_score if it was requested for this method
+                if config.calculate_f1_score:
+                    metrics['f1_score'] = range_metrics.get('f1_score')
 
         return metrics
 
@@ -278,7 +295,7 @@ class PredictionEvaluator(
         """
         self.logger.info("Step 4b: Generating unscaled predictions for accuracy metrics...")
         predict_config: PredictionPredictConfig = PredictionPredictConfig(verbose=0)
-        y_pred_scaled: NDArray[any] = model_core.predict(data=x_test, config=predict_config)
+        y_pred_scaled: NDArray[Any] = model_core.predict(data=x_test, config=predict_config)
 
         unscaled_predictions: list[float] = scaler.inverse_transform(y_pred_scaled).flatten().tolist()
         unscaled_actual: list[float] = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten().tolist()
@@ -289,69 +306,190 @@ class PredictionEvaluator(
 
         return unscaled_predictions, unscaled_actual, unscaled_last_week_inputs
 
-    def _calculate_classification_metrics(
+    def _calculate_range_metrics(
         self,
         predictions: list[float],
         actual: list[float],
-        config: PredictionEvaluationConfig
-    ) -> dict[str, float]:
+        config: PredictionEvaluationConfig,
+        calculate_f1: bool
+    ) -> dict[str, Optional[float]]:
         """
-        Calculates classification-based metrics using the metrics framework.
+        Calculates classification metrics based on predefined box office ranges.
+
+        This method uses the `PointwiseClassificationMetrics` framework to compute
+        accuracy and, optionally, the F1-score.
 
         :param predictions: A list of unscaled predicted box office values.
         :param actual: A list of unscaled actual box office values.
-        :param config: The evaluation configuration.
-        :returns: A dictionary with 'test_accuracy' and 'f1_score'.
+        :param config: The evaluation configuration containing box office ranges.
+        :param calculate_f1: A boolean flag indicating whether to compute the F1-score.
+        :returns: A dictionary with 'accuracy' and optional 'f1_score'.
         """
-        self.logger.info("Calculating classification-based metrics (Range Accuracy, F1-Score)...")
+        self.logger.info("Calculating pointwise metrics (Range Accuracy, F1-Score)...")
 
-        # 1. Define the value-to-label function.
         def value_to_label_fn(value: float) -> int:
-            # Use the centralized method from the data processor
             return PredictionDataProcessor.get_range_index(value=value, ranges=config.box_office_ranges)
 
-        # 2. Instantiate and configure the metrics calculator.
-        metrics_calculator: RegressionToClassificationMetrics = RegressionToClassificationMetrics(
+        range_labels: list[str] = self._generate_range_labels(ranges=config.box_office_ranges)
+        label_map: dict[int, str] = {i: label for i, label in enumerate(range_labels)}
+
+        metrics_calculator = PointwiseClassificationMetrics(
             value_to_label_fn=value_to_label_fn,
+            label_map=label_map,
             f1_average_method=config.f1_average_method
         )
 
-        # 3. Generate the report.
-        report: dict[str, any] = metrics_calculator.generate_report(
+        report: dict[str, Any] = metrics_calculator.generate_report(
             y_true=array(actual),
             y_pred=array(predictions)
         )
 
-        # 4. Log and return the results.
         accuracy: float = report.get('accuracy', 0.0)
-        f1: float = report.get('f1_score', 0.0)
-
         self.logger.info(f"  - Range Accuracy: {accuracy:.2%}")
-        self.logger.info(f"  - F1-Score (average='{config.f1_average_method}'): {f1:.4f}")
-        self.logger.debug(f"Full classification report:\n{report.get('report_string')}")
 
-        return {'test_accuracy': accuracy, 'f1_score': f1}
+        f1: Optional[float] = None
+        if calculate_f1:
+            f1 = report.get('f1_score', 0.0)
+            self.logger.info(f"  - F1-Score (Range, average='{config.f1_average_method}'): {f1:.4f}")
 
-    def _calculate_trend_accuracy(
-        self, predictions: list[float], actual: list[float], last_inputs: list[float]
-    ) -> float:
+        conf_matrix: Optional[NDArray[int_]] = report.get('confusion_matrix')
+        target_names: Optional[list[str]] = report.get('target_names')
+        if conf_matrix is not None and target_names:
+            matrix_str: str = self._format_confusion_matrix_string(matrix=conf_matrix, names=target_names)
+            self.logger.info(
+                f"Full range classification report:\n{report.get('report_string')}\n\nConfusion Matrix:\n{matrix_str}")
+        else:
+            self.logger.info(f"Full range classification report:\n{report.get('report_string')}")
+
+        return {'accuracy': accuracy, 'f1_score': f1}
+
+    def _calculate_trend_metrics(
+        self,
+        predictions: list[float],
+        actual: list[float],
+        last_inputs: list[float],
+        calculate_f1: bool
+    ) -> dict[str, Optional[float]]:
         """
-        Calculates the trend prediction accuracy.
+        Calculates classification metrics based on the trend (increase/decrease).
 
-        This metric measures how often the model correctly predicts whether the
-        box office will increase or decrease compared to the last known week.
+        This method uses the `PairwiseClassificationMetrics` framework to compute
+        accuracy and, optionally, the F1-score for trend prediction.
 
         :param predictions: A list of unscaled predicted box office values.
         :param actual: A list of unscaled actual box office values.
-        :param last_inputs: A list of unscaled box office values from the last input week.
-        :returns: The trend accuracy, a float between 0.0 and 1.0.
+        :param last_inputs: A list of reference values from the last input week.
+        :param calculate_f1: A boolean flag indicating whether to compute the F1-score.
+        :returns: A dictionary with 'accuracy' and optional 'f1_score'.
         """
-        correct_predictions: int = 0
-        for pred, act, last_input in zip(predictions, actual, last_inputs):
-            pred_trend: int = 1 if pred > last_input else 0
-            actual_trend: int = 1 if act > last_input else 0
-            if pred_trend == actual_trend:
-                correct_predictions += 1
-        accuracy: float = correct_predictions / len(predictions) if predictions else 0.0
+        self.logger.info("Calculating pairwise metrics (Trend Accuracy, F1-Score)...")
+
+        def trend_value_pair_to_label_fn(value: float, reference: float) -> int:
+            """Returns 1 if value > reference (increase), else 0."""
+            return 1 if value > reference else 0
+
+        trend_metrics_calculator = PairwiseClassificationMetrics(
+            value_pair_to_label_fn=trend_value_pair_to_label_fn,
+            reference_values=array(last_inputs),
+            label_map={0: 'Decrease/Stay', 1: 'Increase'},
+            f1_average_method='binary'
+        )
+
+        report: dict[str, Any] = trend_metrics_calculator.generate_report(
+            y_true=array(actual),
+            y_pred=array(predictions)
+        )
+
+        accuracy: float = report.get('accuracy', 0.0)
         self.logger.info(f"  - Trend Accuracy: {accuracy:.2%}")
-        return accuracy
+
+        f1: Optional[float] = None
+        if calculate_f1:
+            f1 = report.get('f1_score', 0.0)
+            self.logger.info(f"  - F1-Score (Trend, average='binary'): {f1:.4f}")
+
+        conf_matrix: Optional[NDArray[int_]] = report.get('confusion_matrix')
+        target_names: Optional[list[str]] = report.get('target_names')
+        if conf_matrix is not None and target_names:
+            matrix_str: str = self._format_confusion_matrix_string(matrix=conf_matrix, names=target_names)
+            self.logger.info(
+                f"Full trend classification report:\n{report.get('report_string')}\n\nConfusion Matrix:\n{matrix_str}")
+        else:
+            self.logger.info(f"Full trend classification report:\n{report.get('report_string')}")
+
+        return {'accuracy': accuracy, 'f1_score': f1}
+
+
+    @staticmethod
+    def _generate_range_labels(ranges: tuple[int, ...]) -> list[str]:
+        """
+        Generates human-readable labels from a tuple of box office range boundaries.
+
+        For example, an input of (1_000_000, 10_000_000) would produce:
+        ['< 1.0M', '1.0M - 10.0M', '>= 10.0M']
+
+        :param ranges: A sorted tuple of integer boundaries.
+        :return: A list of formatted string labels for each range.
+        """
+        if not ranges:
+            return []
+
+        sorted_ranges: list[int] = sorted(list(ranges))
+        labels: list[str] = []
+
+        def format_number(n: int) -> str:
+            if n >= 1_000_000_000:
+                return f"{n / 1_000_000_000:.1f}B"
+            if n >= 1_000_000:
+                return f"{n / 1_000_000:.1f}M"
+            if n >= 1_000:
+                return f"{n / 1_000:.1f}K"
+            return str(n)
+
+        labels.append(f"< {format_number(sorted_ranges[0])}")
+
+        for i in range(len(sorted_ranges) - 1):
+            lower_bound_str: str = format_number(sorted_ranges[i])
+            upper_bound_str: str = format_number(sorted_ranges[i + 1])
+            labels.append(f"{lower_bound_str} - {upper_bound_str}")
+
+        labels.append(f">= {format_number(sorted_ranges[-1])}")
+
+        return labels
+
+    @staticmethod
+    def _format_confusion_matrix_string(matrix: NDArray[int_], names: list[str]) -> str:
+        """
+        Formats a confusion matrix into a human-readable string for logging.
+
+        :param matrix: The confusion matrix as a NumPy array.
+        :param names: A list of string names for the classes, corresponding to the matrix axes.
+        :return: A formatted, multi-line string representation of the confusion matrix.
+        """
+        if matrix.size == 0 or not names:
+            return "  [Confusion Matrix is empty or has no labels]"
+
+        # Determine column widths for alignment
+        header_col_width: int = max(len(name) for name in names)
+        cell_width: int = max(
+            len(str(cell)) for cell in matrix.flatten()
+        )
+        # Ensure cell width is at least as wide as the longest name
+        cell_width = max(cell_width, max(len(name) for name in names)) + 2
+
+        # Header row
+        header: str = f"{'':<{header_col_width}} |" + "".join([f"{name:^{cell_width}}" for name in names])
+        separator: str = '-' * (header_col_width + 1) + '-' * (cell_width * len(names))
+
+        # Build the string
+        lines: list[str] = [
+            f"{'True / Pred':<{header_col_width}} | {'Predicted Labels':^{cell_width * len(names) - 1}}", header,
+            separator]
+        for i, name in enumerate(names):
+            row_str: str = f"{name:<{header_col_width}} |"
+            for j in range(len(names)):
+                row_str += f"{matrix[i, j]:^{cell_width}}"
+            lines.append(row_str)
+
+        # Indent all lines for better log readability
+        return "\n".join(["  " + line for line in lines])

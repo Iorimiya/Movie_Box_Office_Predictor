@@ -246,8 +246,8 @@ class PredictionModelHandler(BaseModelHandler):
         """
         # Map CLI flags to config flags
         calculate_loss = args.test_loss
-        calculate_f1 = args.f1_score
-
+        calculate_f1: bool = args.f1_score or args.classification_report
+        calculate_range_accuracy: bool = args.classification_report
         # In exploratory mode, we evaluate on a new dataset
         if args.dataset_name:
             self._logger.info(f"Building evaluation config for EXPLORATORY mode on dataset '{args.dataset_name}'.")
@@ -266,8 +266,8 @@ class PredictionModelHandler(BaseModelHandler):
                 calculate_f1_score=calculate_f1,
                 # The other accuracy metrics are not triggered by current CLI flags
                 calculate_trend_accuracy=False,
-                calculate_range_accuracy=False,
-                f1_average_method='macro'
+                calculate_range_accuracy=calculate_range_accuracy,
+                f1_average_method=original_config_data.get('f1_average_method', 'macro')
             )
         # In reproducibility mode, we recreate the original test set
         else:
@@ -287,8 +287,8 @@ class PredictionModelHandler(BaseModelHandler):
                 calculate_f1_score=calculate_f1,
                 # The other accuracy metrics are not triggered by current CLI flags
                 calculate_trend_accuracy=False,
-                calculate_range_accuracy=False,
-                f1_average_method='macro'
+                calculate_range_accuracy=calculate_range_accuracy, # <-- Pass the new flag
+                f1_average_method=original_config_data.get('f1_average_method', 'macro')
             )
 
     def _generate_random_movie_data(self, weeks: int) -> MovieData:

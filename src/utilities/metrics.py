@@ -3,7 +3,7 @@ from typing import Callable, Optional
 
 from numpy import floating, int_, issubdtype, vectorize
 from numpy.typing import NDArray
-from sklearn.metrics import accuracy_score, classification_report, f1_score
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
 from typing_extensions import override
 
 
@@ -17,26 +17,27 @@ class BaseClassificationMetrics(ABC):
     converts raw model outputs into discrete class labels suitable for
     metric calculation.
 
-    :ivar target_names: Optional list of display names for the target classes.
+    :ivar label_map: An optional dictionary mapping integer labels to human-readable string names.
     :ivar f1_average_method: The averaging method for F1 score calculation
                              (e.g., 'binary', 'macro', 'weighted').
     """
-    target_names: Optional[list[str]]
+    label_map: Optional[dict[int, str]]
     f1_average_method: str
 
     def __init__(
         self,
         *,
-        target_names: Optional[list[str]] = None,
+        label_map: Optional[dict[int, str]] = None,
         f1_average_method: str = 'macro'
     ) -> None:
         """
         Initializes the BaseClassificationMetrics.
 
-        :param target_names: Optional display names for the classes in the report.
+        :param label_map: An optional dictionary mapping integer labels (e.g., 0, 1)
+                          to their string representations (e.g., 'Cat', 'Dog').
         :param f1_average_method: The averaging strategy for the F1 score.
         """
-        self.target_names: Optional[list[str]] = target_names
+        self.label_map = label_map
         self.f1_average_method: str = f1_average_method
 
     @abstractmethod
@@ -45,7 +46,7 @@ class BaseClassificationMetrics(ABC):
         *,
         y_true: NDArray[any],
         y_pred: NDArray[any]
-    ) -> tuple[NDArray[int], NDArray[int]]:
+    ) -> tuple[NDArray[int_], NDArray[int_]]:
         """
         Transforms raw true values and predictions into discrete integer labels.
 
@@ -70,50 +71,78 @@ class BaseClassificationMetrics(ABC):
 
         This template method orchestrates the evaluation by first transforming
         the inputs to labels via `_transform_to_labels`, and then computes
-        various metrics like accuracy and a detailed classification report.
+        various metrics like accuracy, a confusion matrix, and a detailed
+        classification report. It internally derives the `labels` and
+        `target_names` for sklearn functions from the `label_map`.
 
         :param y_true: The ground-truth values.
         :param y_pred: The raw predicted values from a model.
         :return: A dictionary containing the calculated metrics, including overall
-                 accuracy, F1 score, a structured report dictionary, and a
-                 formatted report string.
+                 accuracy, F1 score, a confusion matrix, a structured report
+                 dictionary, and a formatted report string.
         """
         # Delegate the transformation step to the concrete subclass.
         true_labels: NDArray[int_]
         predicted_labels: NDArray[int_]
-        true_labels, predicted_labels = self._transform_to_labels(y_true=y_true, y_pred=y_pred)
+        true_labels, predicted_labels = self._transform_to_labels(
+            y_true=y_true,
+            y_pred=y_pred
+        )
+
+        possible_labels: Optional[list[int]] = None
+        target_names_for_report: Optional[list[str]] = None
+        if self.label_map:
+            sorted_items = sorted(self.label_map.items())
+            possible_labels = [item[0] for item in sorted_items]
+            target_names_for_report = [item[1] for item in sorted_items]
 
         # Calculate standard classification metrics using the transformed labels.
-        accuracy: float = accuracy_score(y_true=true_labels, y_pred=predicted_labels)
+        accuracy: float = accuracy_score(
+            y_true=true_labels,
+            y_pred=predicted_labels
+        )
 
-        # Calculate the overall F1 score based on the specified averaging method.
         overall_f1: float = f1_score(
-            y_true=true_labels, y_pred=predicted_labels, average=self.f1_average_method, zero_division=0
+            y_true=true_labels,
+            y_pred=predicted_labels,
+            average=self.f1_average_method,
+            zero_division=0,
+            labels=possible_labels
+        )
+
+        conf_matrix: NDArray[int_] = confusion_matrix(
+            y_true=true_labels,
+            y_pred=predicted_labels,
+            labels=possible_labels
         )
 
         # Generate both a dictionary and a string version of the detailed report.
         report_dict: dict[str, any] = classification_report(
             y_true=true_labels,
             y_pred=predicted_labels,
-            target_names=self.target_names,
+            target_names=target_names_for_report,
             output_dict=True,
-            zero_division=0
+            zero_division=0,
+            labels=possible_labels
         )
 
         report_string: str = classification_report(
             y_true=true_labels,
             y_pred=predicted_labels,
-            target_names=self.target_names,
+            target_names=target_names_for_report,
             output_dict=False,
-            zero_division=0
+            zero_division=0,
+            labels=possible_labels
         )
 
         # Compile and return all results in a structured dictionary.
         return {
             'accuracy': accuracy,
             'f1_score': overall_f1,
+            'confusion_matrix': conf_matrix,
             'report_dict': report_dict,
-            'report_string': report_string
+            'report_string': report_string,
+            'target_names': target_names_for_report
         }
 
 
@@ -134,21 +163,25 @@ class BinaryClassificationMetrics(BaseClassificationMetrics):
     def __init__(
         self,
         *,
-        target_names: Optional[list[str]] = None,
+        label_map: Optional[dict[int, str]] = None,
         f1_average_method: str = 'binary',
         threshold: float = 0.5
     ) -> None:
         """
         Initializes the BinaryClassificationMetrics.
 
-        :param target_names: Optional display names for the classes. Defaults to ['Negative', 'Positive'].
+        :param label_map: An optional dictionary mapping labels {0: 'Neg', 1: 'Pos'}.
         :param f1_average_method: The averaging strategy, defaulting to 'binary'.
         :param threshold: The cutoff for classifying probabilities as the positive class.
         """
-        # If no target names are provided, use a sensible default for binary classification.
-        final_target_names: Optional[list[str]] = target_names if target_names is not None else ['Negative', 'Positive']
+        # If no label map is provided, use a sensible default for binary classification.
+        final_label_map: Optional[dict[int, str]] = label_map if label_map is not None else {0: 'Negative',
+                                                                                             1: 'Positive'}
 
-        super().__init__(target_names=final_target_names, f1_average_method=f1_average_method)
+        super().__init__(
+            label_map=final_label_map,
+            f1_average_method=f1_average_method
+        )
         self.threshold: float = threshold
 
     @override
@@ -170,18 +203,15 @@ class BinaryClassificationMetrics(BaseClassificationMetrics):
         """
         true_labels: NDArray[int_] = y_true.astype(int_)
 
-        # Check if predictions are probabilities (float) or already labels (int).
         if issubdtype(y_pred.dtype, floating):
-            # If they are floats, apply the threshold to convert to binary labels.
             predicted_labels: NDArray[int_] = (y_pred > self.threshold).astype(int_)
         else:
-            # If they are already integers, use them directly.
             predicted_labels: NDArray[int_] = y_pred.astype(int_)
 
         return true_labels, predicted_labels
 
 
-class RegressionToClassificationMetrics(BaseClassificationMetrics):
+class PointwiseClassificationMetrics(BaseClassificationMetrics):
     """
     A concrete metrics calculator for evaluating a regression model on a
     classification basis.
@@ -200,7 +230,7 @@ class RegressionToClassificationMetrics(BaseClassificationMetrics):
         self,
         *,
         value_to_label_fn: Callable[[float], int],
-        target_names: Optional[list[str]] = None,
+        label_map: Optional[dict[int, str]] = None,
         f1_average_method: str = 'macro'
     ) -> None:
         """
@@ -208,10 +238,13 @@ class RegressionToClassificationMetrics(BaseClassificationMetrics):
 
         :param value_to_label_fn: A function that takes a continuous float value
                                   and returns a discrete integer label.
-        :param target_names: Optional display names for the classified ranges.
+        :param label_map: An optional dictionary mapping the integer labels to display names.
         :param f1_average_method: The averaging strategy, defaulting to 'macro' for multi-class.
         """
-        super().__init__(target_names=target_names, f1_average_method=f1_average_method)
+        super().__init__(
+            label_map=label_map,
+            f1_average_method=f1_average_method
+        )
         self.value_to_label_fn: Callable[[float], int] = value_to_label_fn
 
     @override
@@ -231,19 +264,88 @@ class RegressionToClassificationMetrics(BaseClassificationMetrics):
         :param y_pred: The predicted continuous values from the model.
         :return: A tuple of (true_labels, predicted_labels) as integer arrays.
         """
-        # Vectorize the provided Python function so it can be applied to NumPy arrays efficiently.
         vectorized_transform: Callable[[NDArray[any]], NDArray[int_]] = vectorize(self.value_to_label_fn)
 
-        # Apply the vectorized function to both true and predicted values.
         true_labels: NDArray[int_] = vectorized_transform(y_true)
         predicted_labels: NDArray[int_] = vectorized_transform(y_pred)
 
         return true_labels, predicted_labels
 
 
-def classification_report_to_string(true_labels: list[int], predicted_labels: list[int], target_names=None) -> None:
-    if target_names is None:
-        target_names = ['Negative (0)', 'Positive (1)']
-    accuracy = accuracy_score(true_labels, predicted_labels)
-    print(f"Overall Accuracy: {accuracy:.4f}\n")
-    print(classification_report(true_labels, predicted_labels, target_names=target_names))
+class PairwiseClassificationMetrics(BaseClassificationMetrics):
+    """
+    A metrics calculator for pairwise regression-to-classification evaluation.
+
+    This class is designed for scenarios where the classification label depends
+    on a pair of values: a primary value (from `y_true` or `y_pred`) and a
+    corresponding reference value. It is ideal for context-dependent tasks
+    like trend analysis.
+
+    :ivar value_pair_to_label_fn: A function that takes a value and its reference, returning a label.
+    :ivar reference_values: The array of reference values to compare against.
+    """
+    value_pair_to_label_fn: Callable[[float, float], int]
+    reference_values: NDArray[any]
+
+    @override
+    def __init__(
+        self,
+        *,
+        value_pair_to_label_fn: Callable[[float, float], int],
+        reference_values: NDArray[any],
+        label_map: Optional[dict[int, str]] = None,
+        f1_average_method: str = 'binary'
+    ) -> None:
+        """
+        Initializes the PairwiseClassificationMetrics.
+
+        :param value_pair_to_label_fn: A function that takes `(value, reference_value)`
+                                       and returns a discrete integer label.
+        :param reference_values: A NumPy array of reference values, which must have the
+                                 same length as the `y_true` and `y_pred` arrays that
+                                 will be passed to `generate_report`.
+        :param label_map: Optional display names for the classes (e.g., {0: 'Decrease', 1: 'Increase'}).
+        :param f1_average_method: The averaging strategy, defaulting to 'binary' for such tasks.
+        """
+        super().__init__(
+            label_map=label_map,
+            f1_average_method=f1_average_method
+        )
+        self.value_pair_to_label_fn: Callable[[float, float], int] = value_pair_to_label_fn
+        self.reference_values: NDArray[any] = reference_values
+
+    @override
+    def _transform_to_labels(
+        self,
+        *,
+        y_true: NDArray[any],
+        y_pred: NDArray[any]
+    ) -> tuple[NDArray[int_], NDArray[int_]]:
+        """
+        Overrides the base method to convert values to labels based on pairwise comparison.
+
+        It applies the `value_pair_to_label_fn` to each element pair from the
+        true/predicted value arrays and the `reference_values` array.
+
+        :param y_true: The ground-truth continuous values.
+        :param y_pred: The predicted continuous values from the model.
+        :return: A tuple of (true_labels, predicted_labels) as integer arrays.
+        :raises ValueError: If the length of `reference_values` does not match `y_true`.
+        """
+        if len(y_true) != len(self.reference_values):
+            raise ValueError(
+                f"Length of `y_true` ({len(y_true)}) must match the length of "
+                f"`reference_values` ({len(self.reference_values)}) provided during initialization."
+            )
+
+        # Vectorize the provided Python function so it can be applied to NumPy arrays efficiently.
+        # It now takes two arrays as input.
+        vectorized_transform: Callable[
+            [NDArray[any], NDArray[any]], NDArray[int_]
+        ] = vectorize(self.value_pair_to_label_fn)
+
+        # Apply the vectorized function to pairs of (value, reference_value).
+        true_labels: NDArray[int_] = vectorized_transform(y_true, self.reference_values)
+        predicted_labels: NDArray[int_] = vectorized_transform(y_pred, self.reference_values)
+
+        return true_labels, predicted_labels
