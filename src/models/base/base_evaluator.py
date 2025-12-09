@@ -173,14 +173,25 @@ class BaseEvaluator(
         """
         Loads the training and validation loss history from a pickle file.
 
+        This method now correctly handles loading a dictionary that was saved
+        from a Keras History object's `.history` attribute.
+
         :param history_file_path: The path to the history file.
         :returns: A tuple containing the training loss list and validation loss list.
+        :raises FileNotFoundError: If the history file does not exist.
         """
-        self.logger.info(f"Step 2: Loading training history from '{history_file_path}'...")
-        history: History = PickleFile(path=history_file_path).load()
-        training_loss: list[float] = history.history.get('loss', [])
-        validation_loss: list[float] = history.history.get('val_loss', [])
+        self.logger.info(f"Loading training history from '{history_file_path}'...")
+        if not history_file_path.exists():
+            raise FileNotFoundError(f"Training history file not found at: {history_file_path}")
+
+        history_dict: dict[str, list[float]] = PickleFile(path=history_file_path).load()
+
+        # Directly access the keys from the loaded dictionary.
+        training_loss: list[float] = history_dict.get('loss', [])
+        validation_loss: list[float] = history_dict.get('val_loss', [])
+
         return training_loss, validation_loss
+
 
     def run(self, config: EvaluationConfigType) -> EvaluationResultType:
         """
@@ -209,7 +220,7 @@ class BaseEvaluator(
         x_test, y_test = self._prepare_test_data(data_processor=data_processor, config=config)
 
         # Calculate all metrics (delegated to subclass)
-        self.logger.info("Step 4: Calculating requested metrics on the test set...")
+        self.logger.info("Calculating requested metrics on the test set...")
         calculated_metrics = self._calculate_metrics(
             model_core=model_core,
             data_processor=data_processor,
@@ -219,7 +230,7 @@ class BaseEvaluator(
         )
 
         # Compile final result (delegated to subclass)
-        self.logger.info("Step 5: Compiling final evaluation results...")
+        self.logger.info("Compiling final evaluation results...")
         final_result = self._compile_final_result(
             config=config,
             metrics=calculated_metrics,

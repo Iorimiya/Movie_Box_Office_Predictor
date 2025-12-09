@@ -2,8 +2,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Final, Optional
 
-import numpy as np
-from numpy import float32, float64
+from numpy import array, expand_dims, float32, float64
 from numpy.typing import NDArray
 from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
@@ -213,8 +212,8 @@ class PredictionDataProcessor(
         if len(numerical_sequence) != training_week_len:
             raise ValueError("Failed to create a numerical sequence of the required length.")
 
-        unscaled_array: NDArray[float32] = np.expand_dims(
-            np.array(numerical_sequence, dtype=float32), axis=0
+        unscaled_array: NDArray[float32] = expand_dims(
+            array(numerical_sequence, dtype=float32), axis=0
         )
         scaled_array: NDArray[float32] = self._scale_feature_in_sequences(sequences=unscaled_array)
         return scaled_array
@@ -320,7 +319,7 @@ class PredictionDataProcessor(
                 x_list.append(seq_x)
                 y_list.append(seq_y)
 
-        return np.array(x_list, dtype=float32), np.array(y_list, dtype=float64)
+        return array(x_list, dtype=float32), array(y_list, dtype=float64)
 
     @staticmethod
     def _extract_features_from_week(week: WeekData) -> PredictionFeature:
@@ -395,9 +394,9 @@ class PredictionDataProcessor(
 
         # Initialize and fit the scaler ONLY on the training target data
         self.scaler = MinMaxScaler()
-        y_train_scaled = self.scaler.fit_transform(y_train.reshape(-1, 1)) if len(y_train) > 0 else np.array([])
-        y_val_scaled = self.scaler.transform(y_val.reshape(-1, 1)) if len(y_val) > 0 else np.array([])
-        y_test_scaled = self.scaler.transform(y_test.reshape(-1, 1)) if len(y_test) > 0 else np.array([])
+        y_train_scaled = self.scaler.fit_transform(y_train.reshape(-1, 1)) if len(y_train) > 0 else array([])
+        y_val_scaled = self.scaler.transform(y_val.reshape(-1, 1)) if len(y_val) > 0 else array([])
+        y_test_scaled = self.scaler.transform(y_test.reshape(-1, 1)) if len(y_test) > 0 else array([])
 
         # Scale the box office feature (index 0) in x sets
         x_train_scaled = self._scale_feature_in_sequences(sequences=x_train)
@@ -409,3 +408,26 @@ class PredictionDataProcessor(
             x_val=x_val_scaled, y_val=y_val_scaled.flatten(),
             x_test=x_test_scaled, y_test=y_test_scaled.flatten()
         )
+
+    @staticmethod
+    def get_range_index(value: float, ranges: tuple[int, ...]) -> int:
+        """
+        Determines the index of the range a given value falls into.
+
+        This method is centralized here as it represents a form of data transformation
+        and is part of the public utility API of this class.
+
+        :param value: The box office value to classify.
+        :param ranges: A tuple of upper boundaries defining the ranges (e.g., (1M, 10M, 90M)).
+        :returns: The integer index of the corresponding range.
+        """
+        # Sort ranges to ensure correct interval checking
+        sorted_ranges: list[int] = sorted(list(ranges))
+
+        # Find the first range boundary that the value is less than
+        for i, boundary in enumerate(sorted_ranges):
+            if value < boundary:
+                return i
+
+        # If the value is greater than or equal to all boundaries, it belongs to the last range
+        return len(sorted_ranges)

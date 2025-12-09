@@ -2,26 +2,27 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-import numpy as np
+from numpy import array, float32, float64
 from numpy.typing import NDArray
-from sklearn.metrics import f1_score
 from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
-from src.core.project_config import ProjectPaths, ProjectModelType
-from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult, BaseEvaluationConfig
+from src.core.project_config import ProjectModelType, ProjectPaths
+from src.data_handling.movie_collections import MovieData
+from src.models.base.base_evaluator import BaseEvaluationConfig, BaseEvaluationResult, BaseEvaluator
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
+    PredictionDataConfig,
     PredictionDataProcessor,
     PredictionDataSource,
-    PredictionDataConfig,
     PredictionTrainingProcessedData,
 )
 from src.models.prediction.components.model_core import (
-    PredictionModelCore,
     PredictionEvaluateConfig,
+    PredictionModelCore,
     PredictionPredictConfig,
 )
+from src.utilities.metrics import RegressionToClassificationMetrics
 
 History = keras_base.callbacks.History
 
@@ -37,12 +38,14 @@ class PredictionEvaluationConfig(BaseEvaluationConfig):
     :ivar calculate_trend_accuracy: Flag to calculate trend prediction accuracy.
     :ivar calculate_range_accuracy: Flag to calculate range prediction accuracy.
     :ivar box_office_ranges: A tuple defining the upper boundaries of box office ranges.
+    :ivar f1_average_method: The averaging method for F1 score calculation.
     """
 
-    training_week_len: int
-    calculate_trend_accuracy: bool
-    calculate_range_accuracy: bool
+    training_week_len: int = 4
+    calculate_trend_accuracy: bool = False
+    calculate_range_accuracy: bool = False
     box_office_ranges: tuple[int, ...] = (1_000_000, 10_000_000, 90_000_000)
+    f1_average_method: str = 'macro'
 
 
 @dataclass(frozen=True)
@@ -67,7 +70,8 @@ class PredictionEvaluator(
 
     This evaluator loads a specific model checkpoint and its corresponding scaler,
     recreates the test dataset, and computes various performance metrics such as
-    MSE loss, trend accuracy, range accuracy, and F1-score.
+    MSE loss, trend accuracy, and delegates classification-based metrics to a
+    centralized framework.
     """
 
     @override
@@ -88,22 +92,22 @@ class PredictionEvaluator(
         :raises FileNotFoundError: If the scaler artifact cannot be found or loaded.
         """
         self.logger.info("Step 1: Loading model and data processor artifacts...")
-        artifacts_path = ProjectPaths.get_model_root_path(
+        artifacts_path: Path = ProjectPaths.get_model_root_path(
             model_id=model_id, model_type=ProjectModelType.PREDICTION
         )
-        model_file_path = artifacts_path / f"{model_id}_{model_epoch:04d}.keras"
+        model_file_path: Path = artifacts_path / f"{model_id}_{model_epoch:04d}.keras"
 
-        data_processor = PredictionDataProcessor(model_artifacts_path=artifacts_path)
+        data_processor: PredictionDataProcessor = PredictionDataProcessor(model_artifacts_path=artifacts_path)
         if not data_processor.scaler:
             raise FileNotFoundError(f"Could not load scaler artifact from: {artifacts_path}")
 
-        model_core = PredictionModelCore(model_path=model_file_path)
+        model_core: PredictionModelCore = PredictionModelCore(model_path=model_file_path)
         return data_processor, model_core, artifacts_path
 
     @override
     def _prepare_test_data(
         self, data_processor: PredictionDataProcessor, config: PredictionEvaluationConfig
-    ) -> tuple[NDArray[np.float32], NDArray[np.float64]]:
+    ) -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Loads and processes data to retrieve the evaluation set.
 
@@ -118,10 +122,10 @@ class PredictionEvaluator(
                             or `random_state` are not provided in the config.
         """
         self.logger.info("Step 3: Loading and processing evaluation dataset...")
-        data_source = PredictionDataSource(dataset_name=config.dataset_name)
-        raw_data = data_processor.load_raw_data(source=data_source)
+        data_source: PredictionDataSource = PredictionDataSource(dataset_name=config.dataset_name)
+        raw_data: list[MovieData] = data_processor.load_raw_data(source=data_source)
 
-        processing_config = PredictionDataConfig(
+        processing_config: PredictionDataConfig = PredictionDataConfig(
             training_week_len=config.training_week_len,
             split_ratios=config.split_ratios,
             random_state=config.random_state
@@ -152,16 +156,16 @@ class PredictionEvaluator(
         self,
         model_core: PredictionModelCore,
         data_processor: PredictionDataProcessor,
-        x_test: NDArray[np.float32],
-        y_test: NDArray[np.float64],
+        x_test: NDArray[float32],
+        y_test: NDArray[float64],
         config: PredictionEvaluationConfig
     ) -> dict[str, Optional[float]]:
         """
         Calculates various performance metrics based on the evaluation configuration.
 
-        This method orchestrates the calculation of different metrics such as
-        MSE loss, trend accuracy, range accuracy, and F1-score. It un-scales
-        predictions and actual values as needed for certain metrics.
+        This method orchestrates the calculation of MSE loss, trend accuracy,
+        and delegates classification-based metrics (range accuracy, F1-score)
+        to the centralized metrics framework.
 
         :param model_core: The trained model core to use for predictions.
         :param data_processor: The data processor containing the fitted scaler.
@@ -178,7 +182,7 @@ class PredictionEvaluator(
         }
 
         if config.calculate_loss:
-            metrics['test_loss'] = self._calculate_mse_loss(model_core, x_test, y_test)
+            metrics['test_loss'] = self._calculate_mse_loss(model_core=model_core, x_test=x_test, y_test=y_test)
 
         needs_unscaling: bool = any([
             config.calculate_trend_accuracy,
@@ -197,14 +201,15 @@ class PredictionEvaluator(
                 metrics['trend_accuracy'] = self._calculate_trend_accuracy(
                     predictions=unscaled_pred, actual=unscaled_actual, last_inputs=unscaled_inputs
                 )
-            if config.calculate_range_accuracy:
-                metrics['test_accuracy'] = self._calculate_range_accuracy(
-                    predictions=unscaled_pred, actual=unscaled_actual, ranges=config.box_office_ranges
+
+            if config.calculate_range_accuracy or config.calculate_f1_score:
+                class_metrics: dict[str, float] = self._calculate_classification_metrics(
+                    predictions=unscaled_pred,
+                    actual=unscaled_actual,
+                    config=config
                 )
-            if config.calculate_f1_score:
-                metrics['f1_score'] = self._calculate_f1_score(
-                    predictions=unscaled_pred, actual=unscaled_actual, config=config
-                )
+                metrics.update(class_metrics)
+
         return metrics
 
     @override
@@ -236,7 +241,7 @@ class PredictionEvaluator(
         )
 
     def _calculate_mse_loss(
-        self, model_core: PredictionModelCore, x_test: NDArray[np.float32], y_test: NDArray[np.float64]
+        self, model_core: PredictionModelCore, x_test: NDArray[float32], y_test: NDArray[float64]
     ) -> float:
         """
         Calculates the Mean Squared Error (MSE) loss on the test set.
@@ -247,14 +252,14 @@ class PredictionEvaluator(
         :returns: The MSE loss value.
         """
         self.logger.info("Step 4a: Calculating MSE loss on the test set...")
-        eval_config = PredictionEvaluateConfig(verbose=0)
+        eval_config: PredictionEvaluateConfig = PredictionEvaluateConfig(verbose=0)
         loss: float = model_core.evaluate(x_test=x_test, y_test=y_test, config=eval_config)
         self.logger.info(f"  - Test MSE Loss: {loss:.6f}")
         return loss
 
     def _get_unscaled_predictions(
         self, model_core: PredictionModelCore, scaler: MinMaxScaler,
-        x_test: NDArray[np.float32], y_test: NDArray[np.float64]
+        x_test: NDArray[float32], y_test: NDArray[float64]
     ) -> tuple[list[float], list[float], list[float]]:
         """
         Generates model predictions and inverse-transforms them to their original scale.
@@ -272,34 +277,60 @@ class PredictionEvaluator(
                   - A list of unscaled box office values from the last input week.
         """
         self.logger.info("Step 4b: Generating unscaled predictions for accuracy metrics...")
-        predict_config = PredictionPredictConfig(verbose=0)
-        y_pred_scaled = model_core.predict(data=x_test, config=predict_config)
+        predict_config: PredictionPredictConfig = PredictionPredictConfig(verbose=0)
+        y_pred_scaled: NDArray[any] = model_core.predict(data=x_test, config=predict_config)
 
-        unscaled_predictions = scaler.inverse_transform(y_pred_scaled).flatten().tolist()
-        unscaled_actual = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten().tolist()
+        unscaled_predictions: list[float] = scaler.inverse_transform(y_pred_scaled).flatten().tolist()
+        unscaled_actual: list[float] = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten().tolist()
 
         # Unscale the last box office value from each input sequence
-        last_week_input_scaled = x_test[:, -1, 0].reshape(-1, 1)
-        unscaled_last_week_inputs = scaler.inverse_transform(last_week_input_scaled).flatten().tolist()
+        last_week_input_scaled: NDArray[float32] = x_test[:, -1, 0].reshape(-1, 1)
+        unscaled_last_week_inputs: list[float] = scaler.inverse_transform(last_week_input_scaled).flatten().tolist()
 
         return unscaled_predictions, unscaled_actual, unscaled_last_week_inputs
 
-    @staticmethod
-    def _get_range_index(value: float, ranges: tuple[int, ...]) -> int:
+    def _calculate_classification_metrics(
+        self,
+        predictions: list[float],
+        actual: list[float],
+        config: PredictionEvaluationConfig
+    ) -> dict[str, float]:
         """
-        Determines the index of the range a given value falls into.
+        Calculates classification-based metrics using the metrics framework.
 
-        :param value: The box office value to classify.
-        :param ranges: A tuple of upper boundaries defining the ranges.
-        :returns: The integer index of the corresponding range.
+        :param predictions: A list of unscaled predicted box office values.
+        :param actual: A list of unscaled actual box office values.
+        :param config: The evaluation configuration.
+        :returns: A dictionary with 'test_accuracy' and 'f1_score'.
         """
-        # This logic is now centralized.
-        thresholds: list[float] = [-float('inf')] + sorted(list(ranges)) + [float('inf')]
-        for i in range(len(thresholds) - 1):
-            if thresholds[i] <= value < thresholds[i + 1]:
-                return i
-        # Handle edge case where value might be exactly the last boundary or infinity
-        return len(thresholds) - 2
+        self.logger.info("Calculating classification-based metrics (Range Accuracy, F1-Score)...")
+
+        # 1. Define the value-to-label function.
+        def value_to_label_fn(value: float) -> int:
+            # Use the centralized method from the data processor
+            return PredictionDataProcessor.get_range_index(value=value, ranges=config.box_office_ranges)
+
+        # 2. Instantiate and configure the metrics calculator.
+        metrics_calculator: RegressionToClassificationMetrics = RegressionToClassificationMetrics(
+            value_to_label_fn=value_to_label_fn,
+            f1_average_method=config.f1_average_method
+        )
+
+        # 3. Generate the report.
+        report: dict[str, any] = metrics_calculator.generate_report(
+            y_true=array(actual),
+            y_pred=array(predictions)
+        )
+
+        # 4. Log and return the results.
+        accuracy: float = report.get('accuracy', 0.0)
+        f1: float = report.get('f1_score', 0.0)
+
+        self.logger.info(f"  - Range Accuracy: {accuracy:.2%}")
+        self.logger.info(f"  - F1-Score (average='{config.f1_average_method}'): {f1:.4f}")
+        self.logger.debug(f"Full classification report:\n{report.get('report_string')}")
+
+        return {'test_accuracy': accuracy, 'f1_score': f1}
 
     def _calculate_trend_accuracy(
         self, predictions: list[float], actual: list[float], last_inputs: list[float]
@@ -315,56 +346,12 @@ class PredictionEvaluator(
         :param last_inputs: A list of unscaled box office values from the last input week.
         :returns: The trend accuracy, a float between 0.0 and 1.0.
         """
-        correct_predictions = 0
-        for pred, actual, last_input in zip(predictions, actual, last_inputs):
-            pred_trend = 1 if pred > last_input else 0
-            actual_trend = 1 if actual > last_input else 0
+        correct_predictions: int = 0
+        for pred, act, last_input in zip(predictions, actual, last_inputs):
+            pred_trend: int = 1 if pred > last_input else 0
+            actual_trend: int = 1 if act > last_input else 0
             if pred_trend == actual_trend:
                 correct_predictions += 1
-        accuracy = correct_predictions / len(predictions) if predictions else 0.0
+        accuracy: float = correct_predictions / len(predictions) if predictions else 0.0
         self.logger.info(f"  - Trend Accuracy: {accuracy:.2%}")
         return accuracy
-
-    def _calculate_range_accuracy(
-        self, predictions: list[float], actual: list[float], ranges: tuple[int, ...]
-    ) -> float:
-        """
-        Calculates the range prediction accuracy.
-
-        This metric measures how often the predicted box office value falls into
-        the same predefined revenue range as the actual value.
-
-        :param predictions: A list of unscaled predicted box office values.
-        :param actual: A list of unscaled actual box office values.
-        :param ranges: A tuple of upper boundaries defining the box office ranges.
-        :returns: The range accuracy, a float between 0.0 and 1.0.
-        """
-        correct_predictions: int = 0
-        for pred, actual in zip(predictions, actual):
-            if self._get_range_index(pred, ranges) == self._get_range_index(actual, ranges):
-                correct_predictions += 1
-        accuracy: float = correct_predictions / len(predictions) if predictions else 0.0
-        self.logger.info(f"  - Range Accuracy: {accuracy:.2%}")
-        return accuracy
-
-    def _calculate_f1_score(
-        self, predictions: list[float], actual: list[float], config: PredictionEvaluationConfig
-    ) -> float:
-        """
-        Calculates the F1-score for the range prediction task.
-
-        This treats the range prediction as a multi-class classification problem
-        and computes the F1-score based on the method specified in the config.
-
-        :param predictions: A list of unscaled predicted box office values.
-        :param actual: A list of unscaled actual box office values.
-        :param config: The evaluation configuration, used to access box office ranges
-                       and the F1 averaging method.
-        :returns: The calculated F1-score.
-        """
-        y_pred_labels: list[int] = [self._get_range_index(p, config.box_office_ranges) for p in predictions]
-        y_true_labels: list[int] = [self._get_range_index(a, config.box_office_ranges) for a in actual]
-
-        score: float = f1_score(y_true_labels, y_pred_labels, average=config.f1_average_method, zero_division=0)
-        self.logger.info(f"  - F1-Score (average='{config.f1_average_method}'): {score:.4f}")
-        return score
