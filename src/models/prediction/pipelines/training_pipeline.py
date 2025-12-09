@@ -15,7 +15,7 @@ from src.models.prediction.components.data_processor import (
 from src.models.prediction.components.model_core import (
     PredictionBuildConfig, PredictionModelCore, PredictionTrainConfig
 )
-from src.utilities.metrics import RegressionToClassificationMetrics
+from src.utilities.metrics import PointwiseClassificationMetrics
 
 History = keras_base.callbacks.History
 ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
@@ -246,7 +246,7 @@ class PredictionTrainingPipeline(
             return PredictionDataProcessor.get_range_index(value=unscaled_value, ranges=ranges)
 
         # Create and configure the metrics calculator.
-        metrics_calculator = RegressionToClassificationMetrics(
+        metrics_calculator = PointwiseClassificationMetrics(
             value_to_label_fn=value_to_label_fn,
             f1_average_method=config.f1_average_method
         )
