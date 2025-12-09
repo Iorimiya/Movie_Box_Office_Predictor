@@ -53,7 +53,7 @@ class ArgumentParserBuilder:
             title="Available command groups",
             description="Select a command group to see its specific commands."
         )
-        self._built = False
+        self._built: bool = False
 
         self._initialize_parent_parsers()
         self._initialize_handlers()
@@ -87,8 +87,8 @@ class ArgumentParserBuilder:
         Each handler is responsible for the logic associated with a specific command
         group (e.g., 'dataset', 'sentiment-model').
         """
-        self.__dataset_handler = DatasetHandler(self.parser)
-        self.__prediction_model_handler = PredictionModelHandler(self.parser)
+        self.__dataset_handler: DatasetHandler = DatasetHandler(self.parser)
+        self.__prediction_model_handler: PredictionModelHandler = PredictionModelHandler(self.parser)
 
     @staticmethod
     def __create_model_file_args_parser() -> ArgumentParser:
@@ -149,10 +149,10 @@ class ArgumentParserBuilder:
         """
         parser: ArgumentParser = ArgumentParser(add_help=False)
 
-        # --- Required Argument ---
+        # Required Argument
         parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
 
-        # --- Optional Override Method 1: File-based ---
+        # Optional Override Method 1: File-based
         file_override_group = parser.add_argument_group(
             'File-based Parameter Override (Optional)',
             description='Override default parameters using a configuration file. '
@@ -165,7 +165,7 @@ class ArgumentParserBuilder:
             help='Path to a YAML file with parameters to override the defaults.'
         )
 
-        # --- Optional Override Method 2: Individual Parameters ---
+        # Optional Override Method 2: Individual Parameters
         params_override_group = parser.add_argument_group(
             'Individual Parameter Overrides (Optional)',
             description='Override specific default parameters directly. '
@@ -255,34 +255,79 @@ class ArgumentParserBuilder:
         """
         Creates a parent parser for common arguments in model evaluation commands.
 
-        This parser provides boolean flags for selecting which metrics to evaluate
-        or plot, such as '--training-loss', '--validation-loss', '--test-loss' and '--f1-score'.
+        This parser provides flags for selecting which metrics to evaluate or plot.
+        It follows an "action-centric" design, where a main flag triggers a type
+        of evaluation, and other flags control what to display from the results.
 
-        :returns: An ArgumentParser configured with common evaluation metric-selection arguments.
+        :returns: An ArgumentParser configured with common evaluation arguments.
         """
         parser: ArgumentParser = ArgumentParser(add_help=False)
-        plot_options_group = parser.add_argument_group(
-            'Evaluation Options',
-            description='Select at least one metric. Multiple selections are allowed.'
+
+        # General Metrics
+        general_metrics_group = parser.add_argument_group(
+            'General Metrics',
+            description='Flags to display general metrics like loss values.'
         )
-        plot_options_group.add_argument('--training-loss', action='store_true',
-                                        help='Evaluate or plot the training loss.')
-        plot_options_group.add_argument('--validation-loss', action='store_true',
-                                        help='Evaluate or plot the validation loss.')
-        plot_options_group.add_argument('--test-loss', action='store_true',
-                                        help='Evaluate or plot the test loss.')
-        plot_options_group.add_argument('--f1-score', action='store_true', help='Evaluate or plot the F1-score.')
-        plot_options_group.add_argument(
+        general_metrics_group.add_argument(
+            '--training-loss', action='store_true', help='Display or plot the training loss from history.'
+        )
+        general_metrics_group.add_argument(
+            '--validation-loss', action='store_true', help='Display or plot the validation loss from history.'
+        )
+        general_metrics_group.add_argument(
+            '--test-loss', action='store_true', help='Calculate and display the loss on the test set.'
+        )
+
+        # Classification Evaluation (Action-Centric)
+        class_eval_group = parser.add_argument_group(
+            'Classification Evaluation',
+            description='Options to run a classification-based evaluation and display its results.'
+        )
+        class_eval_group.add_argument(
             '--classification-report',
-            action='store_true',
-            help='Display a full classification report, including precision, recall, F1-score, and the confusion matrix.'
+            type=str,
+            choices=['range', 'trend'],
+            required=False,
+            help="Trigger a classification evaluation. Choose 'range' for box-office ranges or 'trend' for up/down trend."
         )
-        parser.add_argument('--dataset-name', type=str,
-                            help=
-                            'Optional. Specify a new dataset to evaluate on. '
-                            'If provided, this triggers \'exploratory mode\' to test on the full, unsplit dataset. '
-                            'If omitted (default), the original training dataset is used to reproduce the exact test set.'
-                            )
+        class_eval_group.add_argument(
+            '--show-f1-score',
+            action='store_true',
+            help="Display the F1-score from the classification report. Requires --classification-report."
+        )
+        class_eval_group.add_argument(
+            '--show-confusion-matrix',
+            action='store_true',
+            help="Display the confusion matrix from the classification report. Requires --classification-report."
+        )
+        class_eval_group.add_argument(
+            '--f1-average-method',
+            type=str,
+            choices=['macro', 'micro', 'weighted', 'binary'],
+            required=False,
+            help="Override the averaging method for F1 score. Only used with --classification-report."
+        )
+        class_eval_group.add_argument(
+            '--box-office-ranges',
+            type=int,
+            nargs='+',
+            metavar='RANGE',
+            required=False,
+            help="Override box office ranges. Only used with --classification-report range."
+        )
+
+        # Evaluation Context
+        context_group = parser.add_argument_group(
+            'Evaluation Context',
+            description='Options to control the dataset used for evaluation.'
+        )
+        context_group.add_argument(
+            '--dataset-name',
+            type=str,
+            help='Optional. Specify a new dataset to evaluate on. '
+                 'If provided, this triggers \'exploratory mode\' to test on the full, unsplit dataset. '
+                 'If omitted (default), the original training dataset is used to reproduce the exact test set.'
+        )
         return parser
 
     def __create_plot_common_behavior_parser(self) -> ArgumentParser:
@@ -294,7 +339,7 @@ class ArgumentParserBuilder:
 
         :returns: An ArgumentParser configured for plotting commands.
         """
-        model_id_parser = ArgumentParser(add_help=False)
+        model_id_parser: ArgumentParser = ArgumentParser(add_help=False)
         model_id_parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
         return ArgumentParser(
             add_help=False, parents=[self.__evaluate_common_behavior_parser, model_id_parser]
@@ -400,7 +445,6 @@ class ArgumentParserBuilder:
             "--structured-dataset-name", type=str, required=True, help="The dataset to process."
         )
         compute_sentiment_parser.set_defaults(func=self.__dataset_handler.compute_sentiment)
-
 
     def __setup_prediction_model_subparser(self) -> None:
         """
