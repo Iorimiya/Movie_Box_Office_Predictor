@@ -186,21 +186,23 @@ class Browser(webdriver.Chrome):
         """
         Waits for a specific condition to be met using WebDriverWait.
 
-        If the condition is not met within the specified timeout (or ``defaults_timeout``
-        if ``method_setting.timeout`` is ``None``), a ``TimeoutException`` is caught,
-        and the ``error_message`` from ``method_setting`` is logged.
+        If the condition is not met within the specified timeout, a ``TimeoutException``
+        is caught, an error message is logged, and the exception is re-raised to
+        allow the caller to handle the failure.
 
         :param method_setting: An instance of ``WaitingCondition`` defining the condition,
                                timeout, and error message.
         :param defaults_timeout: The default timeout in seconds to use if ``method_setting.timeout``
                                  is not specified.
+        :raises TimeoutException: If the condition is not met within the timeout.
         """
         try:
             WebDriverWait(self, timeout=method_setting.timeout if method_setting.timeout else defaults_timeout).until(
                 method_setting.condition, message='')
-        except TimeoutException:
+        except TimeoutException as e:
             if method_setting.error_message:
                 self.__logger.warning(method_setting.error_message)
+            raise e
         return
 
     @override
@@ -209,17 +211,26 @@ class Browser(webdriver.Chrome):
         Navigates to a given URL and waits for the page to change.
 
         It logs the navigation attempt and success. If the page does not change
-        within the ``self.__page_loading_timeout``, an error message is logged.
+        within the ``self.__page_loading_timeout``, a TimeoutException will be raised.
 
         :param url: The URL to navigate to.
+        :raises TimeoutException: If the page navigation times out.
         """
-        old_url = self.current_url
+        old_url: str = self.current_url
         self.__logger.debug(f"Trying to navigate to \"{url}\".")
         super().get(url)
-        if self.wait(self.WaitingCondition(condition=self.PageChangeCondition(searching_url=old_url),
-                                           timeout=self.__page_loading_timeout,
-                                           error_message=f"Read Timeout Error on {url} caught.")):
+
+        try:
+            self.wait(self.WaitingCondition(
+                condition=self.PageChangeCondition(searching_url=old_url),
+                timeout=self.__page_loading_timeout,
+                error_message=f"Timeout error on navigating to {url}."
+            ))
             self.__logger.debug(f"Navigate to url \"{self.current_url}\" success.")
+        except TimeoutException:
+            # The wait method already logs the detailed error.
+            # We re-raise to let the caller know the navigation failed.
+            raise
         return
 
     def home(self) -> None:
