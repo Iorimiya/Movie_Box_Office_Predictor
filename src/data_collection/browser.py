@@ -110,7 +110,10 @@ class Browser(webdriver.Chrome):
         error_message: str
 
     @override
-    def __init__(self, download_path: Optional[Path] = None, page_loading_timeout: float = 120,
+    def __init__(self,
+                 headless:bool = True,
+                 download_path: Optional[Path] = None,
+                 page_loading_timeout: float = 120,
                  target_url: Optional[str] = None) -> None:
         """
         Initializes the Browser.
@@ -133,7 +136,8 @@ class Browser(webdriver.Chrome):
 
         # options
         self.__options: Options = Options()
-        self.__options.add_argument(argument="--headless")
+        if headless:
+            self.__options.add_argument(argument="--headless")
         self.__options.add_argument(argument="--no-sandbox")
         self.__options.add_argument(argument="--disable-dev-shm-usage")
         self.__options.add_argument(argument="--disable-gpu")
