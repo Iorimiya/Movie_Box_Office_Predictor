@@ -244,7 +244,8 @@ class BoxOfficeCollector:
 
     def __init__(self,
                  download_mode: Literal['WEEK', 'WEEKEND'] = 'WEEK',
-                 page_loading_timeout: float = 30) -> None:
+                 page_loading_timeout: float = 30,
+                 headless:bool = False) -> None:
         """
         Initializes the BoxOfficeCollector.
 
@@ -252,12 +253,15 @@ class BoxOfficeCollector:
                               weekly totals, 'WEEKEND' for weekend totals).
         :param page_loading_timeout: The maximum time in seconds to wait for web
                                      pages to load.
+        :param headless: If ``True`` (default), runs the underlying browser in
+                         headless mode. Set to ``False`` to run with a visible GUI.
         """
         self.__logger: Logger = LoggingManager().get_logger('root')
         self.__download_mode: Final[Literal['WEEK', 'WEEKEND']] = download_mode
         self.__logger.info(f"Using {self.__download_mode} mode to download data.")
         self.__scrap_file_extension: Final[str] = 'json'
         self.__page_loading_timeout: Final[float] = page_loading_timeout
+        self.__headless:Final[bool] = headless
 
         self.__browser: Optional[Browser] = None
         return
@@ -272,6 +276,7 @@ class BoxOfficeCollector:
         """
         self.__logger.debug("Entering context, initializing browser...")
         self.__browser = Browser(
+            headless=self.__headless,
             download_path=Path(tempfile.gettempdir()),
             page_loading_timeout=self.__page_loading_timeout
         )
