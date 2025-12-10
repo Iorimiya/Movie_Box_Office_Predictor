@@ -326,6 +326,34 @@ class BoxOfficeCollector:
         :returns: The final URL of the movie's page upon successful navigation,
                   or ``None`` if the page cannot be reached.
         """
+
+        def _ensure_search_results_visible() -> None:
+            """
+            A nested helper to wait for the search result dropdown or click the search button as a fallback.
+            It leverages the 'searching_url' and 'movie_name' from the parent scope.
+            """
+            try:
+                self.__browser.wait(method_setting=WaitingCondition(
+                    condition=visibility_of_element_located(
+                        locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
+                    timeout=5,
+                    error_message=f"Searching '{movie_name}' failed, no movie title drop-down list found."
+                ))
+            except TimeoutException:
+                # Fallback: try clicking the main search button
+                self.__logger.debug("Dropdown not visible, attempting to click main search button.")
+                search_button_xpath: Final[str] = "//section[@id='search-bar']//button[@type='submit']"
+                # This will raise TimeoutException on failure, which is caught by the outer try-except
+                self.__browser.click(
+                    button_locator=search_button_xpath,
+                    post_method=WaitingCondition(
+                        condition=visibility_of_element_located(
+                            locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
+                        error_message="Dropdown still not visible after clicking search button.",
+                        timeout=5
+                    )
+                )
+
         self._check_browser_active()
 
         movie_name_locator: tuple[str, str] = (By.CSS_SELECTOR, "#film-banner .name")
@@ -359,12 +387,7 @@ class BoxOfficeCollector:
         self.__logger.info(f"Performing search-and-click navigation for '{movie_name}' at '{searching_url}'.")
         try:
             self.__browser.get(url=searching_url)
-            self.__browser.wait(method_setting=WaitingCondition(
-                condition=visibility_of_element_located(
-                    locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
-                timeout=5,
-                error_message=f"Searching '{movie_name}' failed, no movie title drop-down list found."
-            ))
+            _ensure_search_results_visible()
         except TimeoutException as e:
             self.__logger.warning(f"Navigate to search url or find dropdown failed for '{movie_name}': {e}")
             return None
@@ -391,23 +414,16 @@ class BoxOfficeCollector:
         # Start iterating through candidates
         for i in range(num_candidates):
             self.__logger.info(f"Attempting to process candidate {i + 1}/{num_candidates} for '{movie_name}'.")
-
             # On subsequent attempts (i > 0), we must navigate back to the search page first.
             if i > 0:
                 self.__logger.info("Returning to search page to try the next candidate.")
                 try:
                     self.__browser.get(url=searching_url)
-                    # Wait for the dropdown to be ready again
-                    self.__browser.wait(method_setting=WaitingCondition(
-                        condition=visibility_of_element_located(
-                            locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
-                        timeout=5,
-                        error_message="Failed to reload search results page."
-                    ))
-                except TimeoutException as nav_e:
+                    _ensure_search_results_visible()
+                except TimeoutException as e:
                     self.__logger.error(
-                        f"Critical failure: Could not navigate back to search page. Aborting for '{movie_name}'. Error: {nav_e}")
-                    return None  # Cannot recover, abort for this movie
+                        f"Critical failure: Could not navigate back to search page. Aborting for '{movie_name}'. Error: {e}")
+                    return None
 
             try:
                 # Re-fetch the list of candidates to get fresh element references.
