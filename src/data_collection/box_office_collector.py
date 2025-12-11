@@ -527,14 +527,13 @@ class BoxOfficeCollector:
         self.__logger.info(f"Trying to search download button with {self.__scrap_file_extension} format.")
         download_button_selector: str = f"div#export-button-container button[data-ext='{self.__scrap_file_extension}']"
         try:
-            self.__browser.wait(method_setting=WaitingCondition(
-                condition=element_to_be_clickable((By.CSS_SELECTOR, download_button_selector)),
-                error_message="Download button not clickable.",
-                timeout=self.__page_loading_timeout
-            ))
-            button: WebElement = self.__browser.find_element(by=By.CSS_SELECTOR, value=download_button_selector)
             self.__browser.click(
-                button_locator=button,
+                button_locator=download_button_selector,
+                pre_method=WaitingCondition(
+                    condition=element_to_be_clickable((By.CSS_SELECTOR, download_button_selector)),
+                    error_message="Download button not clickable.",
+                    timeout=self.__page_loading_timeout
+                ),
                 post_method=WaitingCondition(
                     condition=DownloadFinishCondition(download_file_path=temp_download_path),
                     error_message="Download did not finish in time.",
