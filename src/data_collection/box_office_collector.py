@@ -514,12 +514,7 @@ class BoxOfficeCollector:
             self.__logger.info(f"With download mode is \"WEEK\" mode, trying to click \"本週\" button.")
             week_button_selector: str = "button#weeks-tab"
             try:
-                self.__browser.click(button_locator=week_button_selector,
-                                     pre_method=WaitingCondition(
-                                         condition=element_to_be_clickable(
-                                             (By.CSS_SELECTOR, week_button_selector)),
-                                         error_message="Week tab button not clickable.",
-                                         timeout=self.__page_loading_timeout))
+                self.__browser.click(button_locator=week_button_selector)
             except (NoSuchElementException, TimeoutException) as e:
                 self.__logger.warning(f"Clicking '本週' button failed: {e}")
                 raise
@@ -529,11 +524,6 @@ class BoxOfficeCollector:
         try:
             self.__browser.click(
                 button_locator=download_button_selector,
-                pre_method=WaitingCondition(
-                    condition=element_to_be_clickable((By.CSS_SELECTOR, download_button_selector)),
-                    error_message="Download button not clickable.",
-                    timeout=self.__page_loading_timeout
-                ),
                 post_method=WaitingCondition(
                     condition=DownloadFinishCondition(download_file_path=temp_download_path),
                     error_message="Download did not finish in time.",
