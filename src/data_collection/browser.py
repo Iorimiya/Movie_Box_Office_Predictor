@@ -16,6 +16,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.expected_conditions import element_to_be_clickable
 from selenium.webdriver.support.ui import WebDriverWait
 from seleniumbase import Driver
 from seleniumbase import undetected as sel_undef
@@ -41,7 +42,7 @@ class Browser(webdriver.Chrome):
     :ivar __options: The Selenium Chrome options for the browser instance.
     :ivar __logger: The logger instance for logging messages.
     """
-
+    _DEFAULT_PRE_CLICK_WAIT = object()
     class DownloadFinishCondition(object):
         """
         A condition class to check if a download is finished by verifying the existence of the target file.
@@ -186,21 +187,23 @@ class Browser(webdriver.Chrome):
         """
         Waits for a specific condition to be met using WebDriverWait.
 
-        If the condition is not met within the specified timeout (or ``defaults_timeout``
-        if ``method_setting.timeout`` is ``None``), a ``TimeoutException`` is caught,
-        and the ``error_message`` from ``method_setting`` is logged.
+        If the condition is not met within the specified timeout, a ``TimeoutException``
+        is caught, an error message is logged, and the exception is re-raised to
+        allow the caller to handle the failure.
 
         :param method_setting: An instance of ``WaitingCondition`` defining the condition,
                                timeout, and error message.
         :param defaults_timeout: The default timeout in seconds to use if ``method_setting.timeout``
                                  is not specified.
+        :raises TimeoutException: If the condition is not met within the timeout.
         """
         try:
-            WebDriverWait(self, timeout=method_setting.timeout if method_setting.timeout else defaults_timeout).until(
-                method_setting.condition, message='')
-        except TimeoutException:
+            timeout: float = method_setting.timeout or defaults_timeout
+            WebDriverWait(self, timeout=timeout).until(method_setting.condition)
+        except TimeoutException as e:
             if method_setting.error_message:
                 self.__logger.warning(method_setting.error_message)
+            raise e
         return
 
     @override
@@ -209,17 +212,26 @@ class Browser(webdriver.Chrome):
         Navigates to a given URL and waits for the page to change.
 
         It logs the navigation attempt and success. If the page does not change
-        within the ``self.__page_loading_timeout``, an error message is logged.
+        within the ``self.__page_loading_timeout``, a TimeoutException will be raised.
 
         :param url: The URL to navigate to.
+        :raises TimeoutException: If the page navigation times out.
         """
-        old_url = self.current_url
+        old_url: str = self.current_url
         self.__logger.debug(f"Trying to navigate to \"{url}\".")
         super().get(url)
-        if self.wait(self.WaitingCondition(condition=self.PageChangeCondition(searching_url=old_url),
-                                           timeout=self.__page_loading_timeout,
-                                           error_message=f"Read Timeout Error on {url} caught.")):
+
+        try:
+            self.wait(self.WaitingCondition(
+                condition=self.PageChangeCondition(searching_url=old_url),
+                timeout=self.__page_loading_timeout,
+                error_message=f"Timeout error on navigating to {url}."
+            ))
             self.__logger.debug(f"Navigate to url \"{self.current_url}\" success.")
+        except TimeoutException:
+            # The wait method already logs the detailed error.
+            # We re-raise to let the caller know the navigation failed.
+            raise
         return
 
     def home(self) -> None:
@@ -250,29 +262,23 @@ class Browser(webdriver.Chrome):
             return button_element
 
     def click(self, button_locator: WebElement | str,
-              pre_method: WaitingCondition | None = None,
+              pre_method: WaitingCondition | object | None = _DEFAULT_PRE_CLICK_WAIT, # <-- 修改預設值
               post_method: WaitingCondition | None = None) -> None:
         """
-        Clicks a button element, with optional waiting conditions before and after the click.
+        Clicks a button, with robust, configurable waiting conditions.
 
-        The button can be specified either as a ``WebElement`` object or by its CSS selector string.
-
-        :param button_locator: The ``WebElement`` to click, or a string representing the CSS selector
-                               for the button.
-        :param pre_method: An optional ``WaitingCondition`` to satisfy before attempting the click.
-        :param post_method: An optional ``WaitingCondition`` to satisfy after the click is performed.
-        :raises NoSuchElementException: If ``button_locator`` is a string and the button cannot be found,
-                                        or if the located button cannot be clicked (e.g., it's intercepted or gone).
-        :raises ValueError: If ``button_locator`` is not a ``WebElement`` or a string.
+        :param button_locator: The WebElement to click, or a CSS selector string.
+        :param pre_method: A WaitingCondition to satisfy before the click.
+                           - If set to Browser._DEFAULT_PRE_CLICK_WAIT (default), it waits for the
+                             element to be clickable.
+                           - If set to None, no pre-click wait is performed.
+                           - If a WaitingCondition object is provided, that custom wait is performed.
+        :param post_method: An optional WaitingCondition to satisfy after the click.
         """
 
         if isinstance(button_locator, str):
             self.__logger.debug("Found string parameter, use CSS selector to find button.")
-            try:
-                button = self.find_button(button_locator)
-            except NoSuchElementException:
-                self.__logger.debug(f"Cannot find button located on \"{button_locator}\".", exc_info=True)
-                raise
+            button = self.find_button(button_locator)
         elif isinstance(button_locator, WebElement):
             self.__logger.debug("Found Element parameter, set button variable to it.")
             button = button_locator
@@ -281,7 +287,16 @@ class Browser(webdriver.Chrome):
             raise ValueError
 
         if button:
-            if pre_method:
+            if pre_method is self._DEFAULT_PRE_CLICK_WAIT:
+                self.__logger.debug("Using default pre-click wait: element_to_be_clickable.")
+                default_wait_condition = self.WaitingCondition(
+                    condition=element_to_be_clickable(button),
+                    timeout=10,
+                    error_message=f"Element '{button.tag_name}' was not clickable within default timeout."
+                )
+                self.wait(default_wait_condition)
+            elif isinstance(pre_method, self.WaitingCondition):
+                self.__logger.debug("Using custom pre-click wait condition.")
                 self.wait(pre_method)
             try:
                 button.click()

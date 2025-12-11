@@ -326,6 +326,34 @@ class BoxOfficeCollector:
         :returns: The final URL of the movie's page upon successful navigation,
                   or ``None`` if the page cannot be reached.
         """
+
+        def _ensure_search_results_visible() -> None:
+            """
+            A nested helper to wait for the search result dropdown or click the search button as a fallback.
+            It leverages the 'searching_url' and 'movie_name' from the parent scope.
+            """
+            try:
+                self.__browser.wait(method_setting=WaitingCondition(
+                    condition=visibility_of_element_located(
+                        locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
+                    timeout=5,
+                    error_message=f"Searching '{movie_name}' failed, no movie title drop-down list found."
+                ))
+            except TimeoutException:
+                # Fallback: try clicking the main search button
+                self.__logger.debug("Dropdown not visible, attempting to click main search button.")
+                search_button_xpath: Final[str] = "//section[@id='search-bar']//button[@type='submit']"
+                # This will raise TimeoutException on failure, which is caught by the outer try-except
+                self.__browser.click(
+                    button_locator=search_button_xpath,
+                    post_method=WaitingCondition(
+                        condition=visibility_of_element_located(
+                            locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
+                        error_message="Dropdown still not visible after clicking search button.",
+                        timeout=5
+                    )
+                )
+
         self._check_browser_active()
 
         movie_name_locator: tuple[str, str] = (By.CSS_SELECTOR, "#film-banner .name")
@@ -359,12 +387,7 @@ class BoxOfficeCollector:
         self.__logger.info(f"Performing search-and-click navigation for '{movie_name}' at '{searching_url}'.")
         try:
             self.__browser.get(url=searching_url)
-            self.__browser.wait(method_setting=WaitingCondition(
-                condition=visibility_of_element_located(
-                    locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
-                timeout=5,
-                error_message=f"Searching '{movie_name}' failed, no movie title drop-down list found."
-            ))
+            _ensure_search_results_visible()
         except TimeoutException as e:
             self.__logger.warning(f"Navigate to search url or find dropdown failed for '{movie_name}': {e}")
             return None
@@ -373,73 +396,91 @@ class BoxOfficeCollector:
         # Get all candidate buttons using a single, efficient XPath query
         movie_button_xpath: str = f"//button[contains(@class, 'result-item')][.//span[@class='name' and text()='{movie_name}']]"
         try:
-            candidate_elements: list[WebElement] = self.__browser.find_elements(by=By.XPATH, value=movie_button_xpath)
+            initial_candidate_elements: list[WebElement] = \
+                self.__browser.find_elements(by=By.XPATH,value=movie_button_xpath)
+            num_candidates: int = len(initial_candidate_elements)
         except NoSuchElementException:
-            candidate_elements = []
+            num_candidates = 0
 
         # Check if any candidates were found
-        if not candidate_elements:
+        if num_candidates == 0:
             self.__logger.warning(
                 f"Searching '{movie_name}' failed, no matching movie title found in the drop-down list.")
             return None
 
         self.__logger.info(
-            f"Found {len(candidate_elements)} potential candidate(s) for '{movie_name}'. Iterating to find a valid page.")
+            f"Found {num_candidates} potential candidate(s) for '{movie_name}'. Iterating to find a valid page.")
 
         # Start iterating through candidates
-        for i, candidate_element in enumerate(candidate_elements):
-            self.__logger.info(f"Attempting to click candidate {i + 1}/{len(candidate_elements)} for '{movie_name}'.")
+        for i in range(num_candidates):
+            self.__logger.info(f"Attempting to process candidate {i + 1}/{num_candidates} for '{movie_name}'.")
+            # On subsequent attempts (i > 0), we must navigate back to the search page first.
+            if i > 0:
+                self.__logger.info("Returning to search page to try the next candidate.")
+                try:
+                    self.__browser.get(url=searching_url)
+                    _ensure_search_results_visible()
+                except TimeoutException as e:
+                    self.__logger.error(
+                        f"Critical failure: Could not navigate back to search page. Aborting for '{movie_name}'. Error: {e}")
+                    return None
+
             try:
-                # Click the candidate
+                # Re-fetch the list of candidates to get fresh element references.
+                # This is the crucial step to prevent StaleElementReferenceException.
+                current_candidate_elements: list[WebElement] = self.__browser.find_elements(by=By.XPATH,
+                                                                                            value=movie_button_xpath)
+
+                # Sanity check: ensure the element we want to click still exists.
+                if i >= len(current_candidate_elements):
+                    self.__logger.warning(f"Candidate {i + 1} is no longer present after page reload. Aborting.")
+                    break  # Exit the loop if the list of candidates has shrunk.
+
+                # Get the specific candidate for this iteration.
+                candidate_to_click: WebElement = current_candidate_elements[i]
+
+                # Click the candidate.
+                self.__logger.info(f"Clicking candidate {i + 1}...")
+
                 self.__browser.click(
-                    button_locator=candidate_element,
+                    button_locator=candidate_to_click,
+                    pre_method=WaitingCondition(
+                        condition=element_to_be_clickable(candidate_to_click),
+                        timeout=10,
+                        error_message=f"Candidate button {i + 1} for '{movie_name}' was not clickable."
+                    ),
                     post_method=WaitingCondition(
                         condition=PageChangeCondition(searching_url=searching_url),
                         error_message="Page did not change after clicking candidate.",
                         timeout=self.__page_loading_timeout
                     )
                 )
+
+                # Validate the new page.
                 self.__logger.info("Validating page for movie name and box office data...")
                 self.__browser.wait(method_setting=WaitingCondition(
                     condition=text_to_be_present_in_element(movie_name_locator, movie_name),
                     timeout=5,
                     error_message=f"Page after click does not display the expected movie name '{movie_name}'."
                 ))
-                # Validate the new page for actual data
-                self.__logger.info("Validating page for box office data rows...")
                 self.__browser.wait(method_setting=WaitingCondition(
                     condition=visibility_of_element_located(
                         locator=(By.CSS_SELECTOR, '#weekends-tab-panel > table > tbody > tr')),
-                    timeout=5,  # Use a shorter timeout for validation
+                    timeout=5,
                     error_message="Validation failed: Page does not contain any box office data rows (tr)."
                 ))
 
-                # If validation succeeds, we're done
+                # If all validations succeed, we're done.
                 current_url: str = self.__browser.current_url
                 self.__logger.info(f"Successfully navigated to a valid movie page for '{movie_name}' at: {current_url}")
                 return current_url
 
             except (NoSuchElementException, TimeoutException, InvalidSwitchToTargetException,
                     UnexpectedAlertPresentException) as e:
-                # 7. If validation fails, log it and prepare for the next iteration
-                self.__logger.warning(f"Candidate {i + 1} for '{movie_name}' led to an invalid page or failed: {e}")
+                self.__logger.warning(f"Processing candidate {i + 1} for '{movie_name}' failed: {e}")
+                # The loop will naturally proceed to the next iteration.
+                # The check for the last attempt is handled by the loop's boundary.
 
-                # If this is not the last candidate, go back to the search page to try again
-                if i + 1 < len(candidate_elements):
-                    self.__logger.info("Returning to search page to try the next candidate.")
-                    try:
-                        self.__browser.get(url=searching_url)
-                        # Wait for the dropdown to be ready again
-                        self.__browser.wait(method_setting=WaitingCondition(
-                            condition=visibility_of_element_located(
-                                locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
-                            timeout=5,
-                            error_message="Failed to reload search results page."
-                        ))
-                    except TimeoutException as nav_e:
-                        self.__logger.error(
-                            f"Critical failure: Could not navigate back to search page. Aborting for '{movie_name}'. Error: {nav_e}")
-                        return None  # Cannot recover, abort for this movie
             except Exception as e:
                 self.__logger.error(
                     f"An unexpected error occurred while processing candidate {i + 1} for '{movie_name}': {e}",
@@ -448,7 +489,7 @@ class BoxOfficeCollector:
 
         # If the loop finishes, no valid page was found
         self.__logger.error(
-            f"All {len(candidate_elements)} candidates for '{movie_name}' failed validation. No valid page found.")
+            f"All {num_candidates} candidates for '{movie_name}' failed validation. No valid page found.")
         return None
 
     def __click_download_button(self, temp_download_path: Path, trying_times: int) -> None:
@@ -473,12 +514,7 @@ class BoxOfficeCollector:
             self.__logger.info(f"With download mode is \"WEEK\" mode, trying to click \"本週\" button.")
             week_button_selector: str = "button#weeks-tab"
             try:
-                self.__browser.click(button_locator=week_button_selector,
-                                     pre_method=WaitingCondition(
-                                         condition=element_to_be_clickable(
-                                             (By.CSS_SELECTOR, week_button_selector)),
-                                         error_message="Week tab button not clickable.",
-                                         timeout=self.__page_loading_timeout))
+                self.__browser.click(button_locator=week_button_selector)
             except (NoSuchElementException, TimeoutException) as e:
                 self.__logger.warning(f"Clicking '本週' button failed: {e}")
                 raise
@@ -486,14 +522,8 @@ class BoxOfficeCollector:
         self.__logger.info(f"Trying to search download button with {self.__scrap_file_extension} format.")
         download_button_selector: str = f"div#export-button-container button[data-ext='{self.__scrap_file_extension}']"
         try:
-            self.__browser.wait(method_setting=WaitingCondition(
-                condition=element_to_be_clickable((By.CSS_SELECTOR, download_button_selector)),
-                error_message="Download button not clickable.",
-                timeout=self.__page_loading_timeout
-            ))
-            button: WebElement = self.__browser.find_element(by=By.CSS_SELECTOR, value=download_button_selector)
             self.__browser.click(
-                button_locator=button,
+                button_locator=download_button_selector,
                 post_method=WaitingCondition(
                     condition=DownloadFinishCondition(download_file_path=temp_download_path),
                     error_message="Download did not finish in time.",
