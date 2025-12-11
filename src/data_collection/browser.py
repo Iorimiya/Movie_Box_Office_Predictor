@@ -197,8 +197,8 @@ class Browser(webdriver.Chrome):
         :raises TimeoutException: If the condition is not met within the timeout.
         """
         try:
-            WebDriverWait(self, timeout=method_setting.timeout if method_setting.timeout else defaults_timeout).until(
-                method_setting.condition, message='')
+            timeout: float = method_setting.timeout or defaults_timeout
+            WebDriverWait(self, timeout=timeout).until(method_setting.condition)
         except TimeoutException as e:
             if method_setting.error_message:
                 self.__logger.warning(method_setting.error_message)
