@@ -441,8 +441,14 @@ class BoxOfficeCollector:
 
                 # Click the candidate.
                 self.__logger.info(f"Clicking candidate {i + 1}...")
+
                 self.__browser.click(
                     button_locator=candidate_to_click,
+                    pre_method=WaitingCondition(
+                        condition=element_to_be_clickable(candidate_to_click),
+                        timeout=10,
+                        error_message=f"Candidate button {i + 1} for '{movie_name}' was not clickable."
+                    ),
                     post_method=WaitingCondition(
                         condition=PageChangeCondition(searching_url=searching_url),
                         error_message="Page did not change after clicking candidate.",
