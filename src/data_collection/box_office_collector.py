@@ -568,22 +568,20 @@ class BoxOfficeCollector:
     def __search_and_fetch_box_office(self,
                                       movie_name: str,
                                       movie_id: Optional[int] = None,
-                                      progress_file: Optional[BoxOfficeProgressFile] = None,
+                                      known_url: Optional[str] = None,
                                       trying_times: int = 3) -> \
         Tuple[Optional[list[BoxOffice]], Optional[str]]:
         """
         Handles the complete workflow for fetching a single movie's box office data.
 
         This method orchestrates the process of navigating to the movie's page
-        (optimizing with a known URL from ``progress_file`` if available), clicking
-        the download button, and parsing the resulting file. It uses a temporary
-        directory for downloads and includes a retry mechanism to handle transient
-        network or browser issues.
+        (optimizing with a known URL if available), clicking the download button,
+        and parsing the resulting file. It uses a temporary directory for downloads
+        and includes a retry mechanism to handle transient network or browser issues.
 
         :param movie_name: The name of the movie to fetch.
-        :param movie_id: The unique ID of the movie, used for looking up the URL in
-                         the progress file.
-        :param progress_file: An optional progress file handler to read known URLs from.
+        :param movie_id: The unique ID of the movie, used for logging.
+        :param known_url: An optional, pre-existing URL for the movie's page to attempt direct navigation.
         :param trying_times: The maximum number of attempts for the entire fetch process.
         :returns: A tuple containing the list of ``BoxOffice`` data objects and the
                   movie's page URL. Both values are ``None`` if all attempts fail.
@@ -610,15 +608,6 @@ class BoxOfficeCollector:
                     self.__logger.info(f"Attempt {attempt + 1}/{trying_times} for '{movie_name}'.")
                     try:
                         self.__browser.home()
-
-                        # Determine if we have a known URL from progress file (only if progress_file and movie_id are provided)
-                        known_url: Optional[str] = None
-                        if progress_file and movie_id is not None:
-                            progress_entries: list[BoxOfficeProgressEntry] = progress_file.load()
-                            current_progress: Optional[BoxOfficeProgressEntry] = next(
-                                (p for p in progress_entries if p['id'] == movie_id), None)
-                            if current_progress and current_progress.get('url'):
-                                known_url = current_progress['url']
 
                         # Navigate using the potentially known URL
                         movie_url: Optional[str] = self.__navigate_to_movie_page(
@@ -661,7 +650,7 @@ class BoxOfficeCollector:
         self._check_browser_active()
 
         box_office_data, _ = self.__search_and_fetch_box_office(
-            movie_name=movie_name, movie_id=None, progress_file=None)
+            movie_name=movie_name, movie_id=None, known_url=None)
         if box_office_data is None:
             error_message: str = f"Failed to download box office data for movie '{movie_name}' after multiple attempts."
             self.__logger.error(error_message)
@@ -697,71 +686,63 @@ class BoxOfficeCollector:
                 movies_metadata=[MovieMetadata(id=md.id, name=md.name) for md in multiple_movie_data]
             )
 
-        with tqdm(
-            total=len(multiple_movie_data), bar_format=Constants.STATUS_BAR_FORMAT, desc="Collecting Box Office"
-        ) as pbar:
-            for movie in multiple_movie_data:
-                pbar.set_postfix_str(f"Movie: {movie.name[:30]}...", refresh=True)
+        self.__logger.info(f"Loading progress file '{progress_file.path}' into memory...")
+        all_progress_entries: list[BoxOfficeProgressEntry] = progress_file.load()
+        progress_map: dict[int, BoxOfficeProgressEntry] = {entry['id']: entry for entry in all_progress_entries}
+        self.__logger.info(f"Loaded {len(progress_map)} entries into progress map.")
+        try:
+            with tqdm(
+                total=len(multiple_movie_data), bar_format=Constants.STATUS_BAR_FORMAT, desc="Collecting Box Office"
+            ) as pbar:
+                for movie in multiple_movie_data:
+                    pbar.set_postfix_str(f"Movie: {movie.name[:30]}...", refresh=True)
 
-                # Check progress to see if we can skip based on file_path
-                progress_entries: list[BoxOfficeProgressEntry] = progress_file.load()
-                progress: Optional[BoxOfficeProgressEntry] = next(
-                    (p for p in progress_entries if p['id'] == movie.id), None)
-                if progress and progress.get('file_path') and Path(progress['file_path']).exists():
-                    self.__logger.info(f"Data for movie ID {movie.id} already exists. Skipping.")
-                    pbar.update(1)
-                    continue
+                    # Check progress to see if we can skip based on file_path
+                    progress: Optional[BoxOfficeProgressEntry] = progress_map.get(movie.id)
+                    if progress and progress.get('file_path') and Path(progress['file_path']).exists():
+                        self.__logger.info(f"Data for movie ID {movie.id} already exists. Skipping.")
+                        pbar.update(1)
+                        continue
 
-                # Fetch data, passing the progress_file for potential URL optimization
-                box_office_data, movie_url = self.__search_and_fetch_box_office(
-                    movie_name=movie.name, movie_id=movie.id, progress_file=progress_file)
+                    known_url: Optional[str] = progress.get('url') if progress else None
 
-                # Persist data and update progress if fetch was successful
-                if box_office_data and movie_url:
-                    movie.update_box_office(data=box_office_data, update_method='REPLACE')
-                    saved_path: Path = movie.save_box_office(target_directory=data_folder)
+                    # Fetch data, passing the progress_file for potential URL optimization
+                    box_office_data, movie_url = self.__search_and_fetch_box_office(
+                        movie_name=movie.name, movie_id=movie.id, known_url=known_url)
 
-                    # Update progress file
-                    try:
-                        progress_file.update_entry(movie_id=movie.id, update_field='url', new_value=movie_url)
-                        progress_file.update_entry(movie_id=movie.id, update_field='file_path',
-                                                   new_value=str(saved_path))
+                    # Persist data and update progress if fetch was successful
+                    if box_office_data and movie_url:
+                        movie.update_box_office(data=box_office_data, update_method='REPLACE')
+                        saved_path: Path = movie.save_box_office(target_directory=data_folder)
+                        # Update progress file
+                        if progress:
+                            progress['url'] = movie_url
+                            progress['file_path'] = str(saved_path)
                         self.__logger.info(f"Box office data for movie ID {movie.id} processed and saved.")
-                    except (ValueError, FileNotFoundError) as e:
-                        self.__logger.error(f"Failed to update progress for movie ID {movie.id}: {e}")
-                else:
-                    empty_file_path: Path = data_folder / f"{movie.id}.yaml"
-                    self.__logger.warning(
-                        f"No box office data found or URL not retrieved for movie ID {movie.id}. "
-                        f"Attempting to create empty file and update progress."
-                    )
-                    try:
-                        # Attempt 1: Create empty YAML file
-                        YamlFile(path=empty_file_path).save([])
-                        self.__logger.info(
-                            f"Created empty box office file for movie ID {movie.id} at '{empty_file_path}'.")
+                    else:
+                        # Handle failure by creating an empty file to prevent re-attempts
+                        empty_file_path: Path = data_folder / f"{movie.id}.yaml"
+                        self.__logger.warning(
+                            f"No box office data found for movie ID {movie.id}. Creating empty file."
+                        )
+                        try:
+                            YamlFile(path=empty_file_path).save([])
+                            # Update in-memory progress map
+                            if progress:
+                                progress['url'] = movie_url if movie_url else ''
+                                progress['file_path'] = str(empty_file_path)
+                        except (OSError, YAMLError) as e:
+                            self.__logger.error(
+                                f"Error creating empty file for movie ID {movie.id}: {e}", exc_info=True)
 
-                        # Attempt 2: Update progress file (only if file creation succeeded)
-                        progress_file.update_entry(movie_id=movie.id, update_field='url',
-                                                   new_value=movie_url if movie_url else '')
-                        progress_file.update_entry(movie_id=movie.id, update_field='file_path',
-                                                   new_value=str(empty_file_path))
-                        self.__logger.info(f"Progress file updated for movie ID {movie.id}.")
-
-                    except (OSError, YAMLError) as e:
-                        # Catches errors specifically from YamlFile operations (e.g., permissions, disk space)
-                        self.__logger.error(
-                            f"Error creating empty box office file for movie ID {movie.id} at '{empty_file_path}': {e}",
-                            exc_info=True)
-                    except (ValueError, FileNotFoundError) as e:
-                        # Catches errors specifically from progress_file.update_entry (e.g., movie ID not found in progress file)
-                        self.__logger.error(
-                            f"Failed to update progress for movie ID {movie.id} after creating empty file: {e}",
-                            exc_info=True)
-                    except Exception as e:
-                        # Catch any other unexpected errors during this block
-                        self.__logger.error(
-                            f"An unexpected error occurred for movie ID {movie.id} during empty file creation or progress update: {e}",
-                            exc_info=True)
-                pbar.update(1)
+                    pbar.update(1)
+        finally:
+            self.__logger.info("Collection loop finished. Saving all progress updates to disk...")
+            # Convert map back to list, preserving order if necessary (though order isn't critical here)
+            updated_progress_list: list[BoxOfficeProgressEntry] = list(progress_map.values())
+            try:
+                progress_file.save(data=updated_progress_list)
+            except Exception as e:
+                self.__logger.critical(
+                    f"Failed to save final progress to '{progress_file.path}': {e}", exc_info=True)
         return
