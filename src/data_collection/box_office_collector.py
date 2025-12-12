@@ -3,6 +3,7 @@ import tempfile
 from logging import Logger
 from pathlib import Path
 from typing import Callable, Final, Literal, Optional, TypeAlias, TypedDict, Tuple
+from urllib.parse import quote
 
 from selenium.common.exceptions import (
     InvalidSwitchToTargetException,
@@ -245,7 +246,7 @@ class BoxOfficeCollector:
     def __init__(self,
                  download_mode: Literal['WEEK', 'WEEKEND'] = 'WEEK',
                  page_loading_timeout: float = 30,
-                 headless:bool = False) -> None:
+                 headless: bool = False) -> None:
         """
         Initializes the BoxOfficeCollector.
 
@@ -261,7 +262,7 @@ class BoxOfficeCollector:
         self.__logger.info(f"Using {self.__download_mode} mode to download data.")
         self.__scrap_file_extension: Final[str] = 'json'
         self.__page_loading_timeout: Final[float] = page_loading_timeout
-        self.__headless:Final[bool] = headless
+        self.__headless: Final[bool] = headless
 
         self.__browser: Optional[Browser] = None
         return
@@ -326,6 +327,7 @@ class BoxOfficeCollector:
         :returns: The final URL of the movie's page upon successful navigation,
                   or ``None`` if the page cannot be reached.
         """
+
         def _get_safe_xpath_text_query(text_to_match: str) -> str:
             """
             Generates a safe XPath query string for matching text content.
@@ -375,7 +377,7 @@ class BoxOfficeCollector:
                 search_button_xpath: Final[str] = "//section[@id='search-bar']//button[@type='submit']"
                 # This will raise TimeoutException on failure, which is caught by the outer try-except
                 self.__browser.click(
-                    button_locator=ElementLocator(by=By.XPATH,value=search_button_xpath),
+                    button_locator=ElementLocator(by=By.XPATH, value=search_button_xpath),
                     post_method=WaitingCondition(
                         condition=visibility_of_element_located(
                             locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
@@ -413,7 +415,9 @@ class BoxOfficeCollector:
                 self.__logger.warning(f"Error during direct navigation to '{known_url}': {e}. Falling back to search.")
 
         # Fallback to search-and-click logic
-        searching_url: str = f"{self.__SEARCHING_URL}/{movie_name}"
+        # Encode the movie name to handle all special URL characters like '/', '?', '='.
+        encoded_movie_name: str = quote(movie_name)
+        searching_url: str = f"{self.__SEARCHING_URL}/{encoded_movie_name}"
         self.__logger.info(f"Performing search-and-click navigation for '{movie_name}' at '{searching_url}'.")
         try:
             self.__browser.get(url=searching_url)
@@ -428,7 +432,7 @@ class BoxOfficeCollector:
         movie_button_xpath: str = f"//button[contains(@class, 'result-item')][.//span[@class='name' and {safe_text_query}]]"
         try:
             initial_candidate_elements: list[WebElement] = \
-                self.__browser.find_elements(by=By.XPATH,value=movie_button_xpath)
+                self.__browser.find_elements(by=By.XPATH, value=movie_button_xpath)
             num_candidates: int = len(initial_candidate_elements)
         except NoSuchElementException:
             num_candidates = 0
@@ -544,7 +548,7 @@ class BoxOfficeCollector:
             self.__logger.info(f"With download mode is \"WEEK\" mode, trying to click \"本週\" button.")
             week_button_selector: str = "button#weeks-tab"
             try:
-                self.__browser.click(button_locator=ElementLocator(by=By.CSS_SELECTOR,value=week_button_selector))
+                self.__browser.click(button_locator=ElementLocator(by=By.CSS_SELECTOR, value=week_button_selector))
             except (NoSuchElementException, TimeoutException) as e:
                 self.__logger.warning(f"Clicking '本週' button failed: {e}")
                 raise
@@ -553,7 +557,7 @@ class BoxOfficeCollector:
         download_button_selector: str = f"div#export-button-container button[data-ext='{self.__scrap_file_extension}']"
         try:
             self.__browser.click(
-                button_locator=ElementLocator(by=By.CSS_SELECTOR,value=download_button_selector),
+                button_locator=ElementLocator(by=By.CSS_SELECTOR, value=download_button_selector),
                 post_method=WaitingCondition(
                     condition=DownloadFinishCondition(download_file_path=temp_download_path),
                     error_message="Download did not finish in time.",
