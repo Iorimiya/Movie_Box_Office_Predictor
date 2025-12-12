@@ -326,6 +326,36 @@ class BoxOfficeCollector:
         :returns: The final URL of the movie's page upon successful navigation,
                   or ``None`` if the page cannot be reached.
         """
+        def _get_safe_xpath_text_query(text_to_match: str) -> str:
+            """
+            Generates a safe XPath query string for matching text content.
+
+            This method handles cases where the text contains single quotes, double quotes,
+            or both, by constructing a robust `concat()` expression. This prevents
+            InvalidSelectorException when building dynamic XPaths.
+
+            :param text_to_match: The string to be safely embedded in an XPath text() query.
+            :returns: A safe XPath expression part, e.g., "text()=concat('a', \"'\", 'b')".
+            """
+            if "'" not in text_to_match:
+                # If no single quotes, we can safely use them to wrap the text.
+                return f"text()='{text_to_match}'"
+
+            if '"' not in text_to_match:
+                # If no double quotes, we can safely use them to wrap the text.
+                return f'text()="{text_to_match}"'
+
+            # If both single and double quotes are present, use concat().
+            # We split the string by single quotes and then join them back,
+            # inserting the single quote as a separate literal string "'".
+            parts: list[str] = text_to_match.split("'")
+
+            # The structure is concat('part1', "'", 'part2', "'", 'part3', ...)
+            # Each part is wrapped in single quotes. The single quote itself is a string literal: "'"
+            # which in Python needs to be escaped as "'\"'\"'"
+            concat_parts: str = ", \"'\", ".join([f"'{part}'" for part in parts])
+
+            return f"concat({concat_parts})"
 
         def _ensure_search_results_visible() -> None:
             """
@@ -394,7 +424,8 @@ class BoxOfficeCollector:
 
         self.__logger.info(f"Finding all candidate buttons for movie '{movie_name}' in the drop-down list.")
         # Get all candidate buttons using a single, efficient XPath query
-        movie_button_xpath: str = f"//button[contains(@class, 'result-item')][.//span[@class='name' and text()='{movie_name}']]"
+        safe_text_query: str = _get_safe_xpath_text_query(movie_name)
+        movie_button_xpath: str = f"//button[contains(@class, 'result-item')][.//span[@class='name' and {safe_text_query}]]"
         try:
             initial_candidate_elements: list[WebElement] = \
                 self.__browser.find_elements(by=By.XPATH,value=movie_button_xpath)
@@ -430,7 +461,6 @@ class BoxOfficeCollector:
                 # This is the crucial step to prevent StaleElementReferenceException.
                 current_candidate_elements: list[WebElement] = self.__browser.find_elements(by=By.XPATH,
                                                                                             value=movie_button_xpath)
-
                 # Sanity check: ensure the element we want to click still exists.
                 if i >= len(current_candidate_elements):
                     self.__logger.warning(f"Candidate {i + 1} is no longer present after page reload. Aborting.")
