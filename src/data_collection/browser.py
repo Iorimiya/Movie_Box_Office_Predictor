@@ -3,7 +3,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
-from typing import Callable, Final, Iterator, Optional, TypeAlias
+from typing import Callable, Final, Iterator, Optional, TypeAlias, TypedDict
 
 from selenium import webdriver
 from selenium.common.exceptions import (
@@ -14,7 +14,6 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.expected_conditions import element_to_be_clickable
 from selenium.webdriver.support.ui import WebDriverWait
@@ -26,7 +25,15 @@ from urllib3.exceptions import MaxRetryError
 from src.core.logging_manager import LoggingManager
 
 ChromeExperimentalOptions: TypeAlias = dict[str, str]
+class ElementLocator(TypedDict):
+    """
+    Represents a locator for finding a web element.
 
+    :ivar by: The mechanism to locate the element (e.g., By.CSS_SELECTOR, By.XPATH).
+    :ivar value: The value of the locator (the selector path).
+    """
+    by: str
+    value: str
 
 class Browser(webdriver.Chrome):
     """
@@ -241,33 +248,33 @@ class Browser(webdriver.Chrome):
         self.get(self.__home_url)
         return
 
-    def find_button(self, button_selector_path: str) -> WebElement:
+    def find_button(self, by: str, value: str) -> WebElement:
         """
-        Finds a button element on the page using a CSS selector.
+        Finds a button element on the page using a specified location strategy.
 
-        Logs the attempt and result of finding the button.
-
-        :param button_selector_path: The CSS selector path of the button element.
+        :param by: The mechanism to locate the element (e.g., By.CSS_SELECTOR, By.XPATH).
+        :param value: The value of the locator (the selector path).
         :returns: The found ``WebElement`` representing the button.
-        :raises NoSuchElementException: If no element is found matching the ``button_selector_path``.
+        :raises NoSuchElementException: If no element is found matching the path.
         """
+        self.__logger.info(f"Trying to find button with strategy '{by}' and value '{value}'.")
         try:
-            self.__logger.info(f"Trying to find button located on \"{button_selector_path}\".")
-            button_element: WebElement = self.find_element(by=By.CSS_SELECTOR, value=button_selector_path)
+            button_element: WebElement = self.find_element(by=by, value=value)
         except NoSuchElementException:
-            self.__logger.warning(f"Cannot find button located on \"{button_selector_path}\".", exc_info=True)
+            self.__logger.warning(f"Cannot find button using strategy '{by}' with value '{value}'.", exc_info=True)
             raise
         else:
-            self.__logger.info(f"Found button located on \"{button_selector_path}\".")
+            self.__logger.info(f"Found button using strategy '{by}' with value '{value}'.")
             return button_element
 
-    def click(self, button_locator: WebElement | str,
-              pre_method: WaitingCondition | object | None = _DEFAULT_PRE_CLICK_WAIT, # <-- 修改預設值
+    def click(self, button_locator: WebElement | ElementLocator,
+              pre_method: WaitingCondition | object | None = _DEFAULT_PRE_CLICK_WAIT,
               post_method: WaitingCondition | None = None) -> None:
         """
         Clicks a button, with robust, configurable waiting conditions.
 
-        :param button_locator: The WebElement to click, or a CSS selector string.
+        :param button_locator: The WebElement to click, or a tuple containing the
+                               location strategy and value (e.g., (By.XPATH, "//button")).
         :param pre_method: A WaitingCondition to satisfy before the click.
                            - If set to Browser._DEFAULT_PRE_CLICK_WAIT (default), it waits for the
                              element to be clickable.
@@ -276,15 +283,17 @@ class Browser(webdriver.Chrome):
         :param post_method: An optional WaitingCondition to satisfy after the click.
         """
 
-        if isinstance(button_locator, str):
-            self.__logger.debug("Found string parameter, use CSS selector to find button.")
-            button = self.find_button(button_locator)
+        if isinstance(button_locator, dict):
+            self.__logger.debug("Found locator dictionary, using find_button to locate element.")
+            button: WebElement = self.find_button(by=button_locator['by'], value=button_locator['value'])
         elif isinstance(button_locator, WebElement):
-            self.__logger.debug("Found Element parameter, set button variable to it.")
+            self.__logger.debug("Found WebElement parameter, setting button variable to it.")
             button = button_locator
         else:
-            self.__logger.error("Unknown parameter type.")
-            raise ValueError
+            err_msg: str = f"Unsupported 'button_locator' type: {type(button_locator)}. " \
+                           f"Expected WebElement or an ElementLocator TypedDict."
+            self.__logger.error(err_msg)
+            raise TypeError(err_msg)
 
         if button:
             if pre_method is self._DEFAULT_PRE_CLICK_WAIT:
