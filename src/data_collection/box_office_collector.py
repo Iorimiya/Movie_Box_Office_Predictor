@@ -23,7 +23,7 @@ from yaml import YAMLError
 
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
-from src.data_collection.browser import Browser
+from src.data_collection.browser import Browser, ElementLocator
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile, YamlFile
 from src.data_handling.movie_collections import MovieData
@@ -375,7 +375,7 @@ class BoxOfficeCollector:
                 search_button_xpath: Final[str] = "//section[@id='search-bar']//button[@type='submit']"
                 # This will raise TimeoutException on failure, which is caught by the outer try-except
                 self.__browser.click(
-                    button_locator=search_button_xpath,
+                    button_locator=ElementLocator(by=By.XPATH,value=search_button_xpath),
                     post_method=WaitingCondition(
                         condition=visibility_of_element_located(
                             locator=(By.CSS_SELECTOR, '#film-searcher button.result-item')),
@@ -544,7 +544,7 @@ class BoxOfficeCollector:
             self.__logger.info(f"With download mode is \"WEEK\" mode, trying to click \"本週\" button.")
             week_button_selector: str = "button#weeks-tab"
             try:
-                self.__browser.click(button_locator=week_button_selector)
+                self.__browser.click(button_locator=ElementLocator(by=By.CSS_SELECTOR,value=week_button_selector))
             except (NoSuchElementException, TimeoutException) as e:
                 self.__logger.warning(f"Clicking '本週' button failed: {e}")
                 raise
@@ -553,7 +553,7 @@ class BoxOfficeCollector:
         download_button_selector: str = f"div#export-button-container button[data-ext='{self.__scrap_file_extension}']"
         try:
             self.__browser.click(
-                button_locator=download_button_selector,
+                button_locator=ElementLocator(by=By.CSS_SELECTOR,value=download_button_selector),
                 post_method=WaitingCondition(
                     condition=DownloadFinishCondition(download_file_path=temp_download_path),
                     error_message="Download did not finish in time.",
