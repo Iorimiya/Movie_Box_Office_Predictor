@@ -1,11 +1,25 @@
 from abc import ABC, abstractmethod
 from typing import Callable, Optional, TypedDict
 
-
 from numpy import floating, int_, issubdtype, vectorize
 from numpy.typing import NDArray
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score, mean_squared_error, \
+    mean_absolute_error, r2_score
 from typing_extensions import override
+
+
+class RegressionReportDict(TypedDict):
+    """
+    A structured dictionary for the results of a single regression evaluation.
+
+    :ivar mse: The Mean Squared Error value.
+    :ivar mae: The Mean Absolute Error value.
+    :ivar r2_score: The R-squared score.
+    """
+    mse: float
+    mae: float
+    r2_score: float
+
 
 class ClassificationReportDict(TypedDict):
     """
@@ -26,6 +40,31 @@ class ClassificationReportDict(TypedDict):
     report_dict: dict[str, any]
     report_string: str
     target_names: Optional[list[str]]
+
+
+class RegressionMetricsCalculator:
+    """
+    A concrete metrics calculator for standard regression tasks.
+    """
+
+    @staticmethod
+    def generate_report(
+        *,
+        y_true: NDArray[any],
+        y_pred: NDArray[any]
+    ) -> RegressionReportDict:
+        """
+        Generates a standard regression metrics report.
+
+        :param y_true: The ground-truth target values.
+        :param y_pred: The estimated target values.
+        :return: A dictionary containing MSE, MAE, and R2 score.
+        """
+        mse_val: float = mean_squared_error(y_true=y_true, y_pred=y_pred)
+        mae_val: float = mean_absolute_error(y_true=y_true, y_pred=y_pred)
+        r2_val: float = r2_score(y_true=y_true, y_pred=y_pred)
+
+        return RegressionReportDict(mse=mse_val, mae=mae_val, r2_score=r2_val)
 
 
 class ClassificationMetricsCalculator(ABC):

@@ -5,7 +5,7 @@ from numpy.typing import NDArray
 from typing_extensions import override
 
 from src.models.base.keras_setup import keras_base
-from src.utilities.metrics import BaseClassificationMetrics
+from src.utilities.metrics import ClassificationMetricsCalculator, ClassificationReportDict
 
 Callback = keras_base.callbacks.Callback
 
@@ -26,7 +26,7 @@ class F1ScoreHistory(Callback):
     :ivar f1_scores: A list that stores the computed F1 score for each epoch.
     """
     validation_data: tuple[NDArray[any], NDArray[any]]
-    metrics_calculator: BaseClassificationMetrics
+    metrics_calculator: ClassificationMetricsCalculator
     f1_scores: list[float]
 
     @override
@@ -34,7 +34,7 @@ class F1ScoreHistory(Callback):
         self,
         *,
         validation_data: tuple[NDArray[any], NDArray[any]],
-        metrics_calculator: BaseClassificationMetrics
+        metrics_calculator: ClassificationMetricsCalculator
     ) -> None:
         """
         Initializes the F1ScoreHistory callback.
@@ -45,7 +45,7 @@ class F1ScoreHistory(Callback):
         """
         super().__init__()
         self.validation_data: tuple[NDArray[any], NDArray[any]] = validation_data
-        self.metrics_calculator: BaseClassificationMetrics = metrics_calculator
+        self.metrics_calculator: ClassificationMetricsCalculator = metrics_calculator
         self.f1_scores: list[float] = []
 
     @override
@@ -59,6 +59,8 @@ class F1ScoreHistory(Callback):
         :param epoch: The index of the current epoch.
         :param logs: Metric results for this training epoch, and for the validation epoch.
         """
+        x_val: NDArray[any]
+        y_val_scaled: NDArray[any]
         x_val, y_val_scaled = self.validation_data
         y_pred_scaled: NDArray[any] = self.model.predict(x=x_val, verbose=0)
 
@@ -67,10 +69,7 @@ class F1ScoreHistory(Callback):
         y_pred_np: NDArray[any] = array(y_pred_scaled)
 
         # Delegate the entire calculation process to the metrics calculator.
-        report: dict[str, any] = self.metrics_calculator.generate_report(
-            y_true=y_true_np,
-            y_pred=y_pred_np
-        )
+        report: ClassificationReportDict = self.metrics_calculator.generate_report(y_true=y_true_np, y_pred=y_pred_np)
 
         # Extract the F1 score and store it.
         score: float = report.get('f1_score', 0.0)

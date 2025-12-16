@@ -23,7 +23,7 @@ from src.models.prediction.components.model_core import (
     PredictionPredictConfig,
 )
 
-from src.utilities.metrics import PointwiseClassificationMetrics, PairwiseClassificationMetrics
+from src.utilities.metrics import PointwiseClassificationMetricsCalculator, PairwiseClassificationMetricsCalculator
 
 History = keras_base.callbacks.History
 
@@ -333,7 +333,7 @@ class PredictionEvaluator(
         range_labels: list[str] = self._generate_range_labels(ranges=config.box_office_ranges)
         label_map: dict[int, str] = {i: label for i, label in enumerate(range_labels)}
 
-        metrics_calculator = PointwiseClassificationMetrics(
+        metrics_calculator = PointwiseClassificationMetricsCalculator(
             value_to_label_fn=value_to_label_fn,
             label_map=label_map,
             f1_average_method=config.f1_average_method
@@ -388,7 +388,7 @@ class PredictionEvaluator(
             """Returns 1 if value > reference (increase), else 0."""
             return 1 if value > reference else 0
 
-        trend_metrics_calculator = PairwiseClassificationMetrics(
+        trend_metrics_calculator = PairwiseClassificationMetricsCalculator(
             value_pair_to_label_fn=trend_value_pair_to_label_fn,
             reference_values=array(last_inputs),
             label_map={0: 'Decrease/Stay', 1: 'Increase'},
