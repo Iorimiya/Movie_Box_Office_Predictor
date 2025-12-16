@@ -1,13 +1,34 @@
 from abc import ABC, abstractmethod
-from typing import Callable, Optional
+from typing import Callable, Optional, TypedDict
+
 
 from numpy import floating, int_, issubdtype, vectorize
 from numpy.typing import NDArray
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
 from typing_extensions import override
 
+class ClassificationReportDict(TypedDict):
+    """
+    A structured dictionary for the results of a single classification evaluation.
 
-class BaseClassificationMetrics(ABC):
+    This is the standard output contract for BaseClassificationMetricsCalculator.generate_report.
+
+    :ivar accuracy: The overall accuracy score.
+    :ivar f1_score: The overall F1-score, calculated using the specified average method.
+    :ivar confusion_matrix: The confusion matrix.
+    :ivar report_dict: A structured dictionary version of the classification report.
+    :ivar report_string: A formatted string version of the classification report.
+    :ivar target_names: A list of the class names used in the report.
+    """
+    accuracy: float
+    f1_score: float
+    confusion_matrix: NDArray[int_]
+    report_dict: dict[str, any]
+    report_string: str
+    target_names: Optional[list[str]]
+
+
+class ClassificationMetricsCalculator(ABC):
     """
     An abstract base class for calculating and reporting classification metrics.
 
@@ -18,8 +39,7 @@ class BaseClassificationMetrics(ABC):
     metric calculation.
 
     :ivar label_map: An optional dictionary mapping integer labels to human-readable string names.
-    :ivar f1_average_method: The averaging method for F1 score calculation
-                             (e.g., 'binary', 'macro', 'weighted').
+    :ivar f1_average_method: The averaging method for F1 score calculation.
     """
     label_map: Optional[dict[int, str]]
     f1_average_method: str
@@ -31,13 +51,12 @@ class BaseClassificationMetrics(ABC):
         f1_average_method: str = 'macro'
     ) -> None:
         """
-        Initializes the BaseClassificationMetrics.
+        Initializes the ClassificationMetricsCalculator.
 
-        :param label_map: An optional dictionary mapping integer labels (e.g., 0, 1)
-                          to their string representations (e.g., 'Cat', 'Dog').
+        :param label_map: An optional dictionary mapping integer labels to their string representations.
         :param f1_average_method: The averaging strategy for the F1 score.
         """
-        self.label_map = label_map
+        self.label_map: Optional[dict[int, str]] = label_map
         self.f1_average_method: str = f1_average_method
 
     @abstractmethod
@@ -56,7 +75,7 @@ class BaseClassificationMetrics(ABC):
 
         :param y_true: The ground-truth values.
         :param y_pred: The raw predicted values from a model.
-        :return: A tuple containing two NumPy arrays: (true_labels, predicted_labels).
+        :return: A tuple containing two arrays: (true_labels, predicted_labels).
         """
         pass
 
@@ -65,7 +84,7 @@ class BaseClassificationMetrics(ABC):
         *,
         y_true: NDArray[any],
         y_pred: NDArray[any]
-    ) -> dict[str, any]:
+    ) -> ClassificationReportDict:
         """
         Generates a comprehensive classification metrics report.
 
@@ -77,9 +96,8 @@ class BaseClassificationMetrics(ABC):
 
         :param y_true: The ground-truth values.
         :param y_pred: The raw predicted values from a model.
-        :return: A dictionary containing the calculated metrics, including overall
-                 accuracy, F1 score, a confusion matrix, a structured report
-                 dictionary, and a formatted report string.
+        :return: A dictionary containing the calculated metrics, conforming to the
+                 `ClassificationReportDict` structure.
         """
         # Delegate the transformation step to the concrete subclass.
         true_labels: NDArray[int_]
@@ -92,9 +110,9 @@ class BaseClassificationMetrics(ABC):
         possible_labels: Optional[list[int]] = None
         target_names_for_report: Optional[list[str]] = None
         if self.label_map:
-            sorted_items = sorted(self.label_map.items())
-            possible_labels = [item[0] for item in sorted_items]
-            target_names_for_report = [item[1] for item in sorted_items]
+            sorted_items: list[tuple[int, str]] = sorted(self.label_map.items())
+            possible_labels: list[int] = [item[0] for item in sorted_items]
+            target_names_for_report: list[str] = [item[1] for item in sorted_items]
 
         # Calculate standard classification metrics using the transformed labels.
         accuracy: float = accuracy_score(
@@ -136,17 +154,17 @@ class BaseClassificationMetrics(ABC):
         )
 
         # Compile and return all results in a structured dictionary.
-        return {
-            'accuracy': accuracy,
-            'f1_score': overall_f1,
-            'confusion_matrix': conf_matrix,
-            'report_dict': report_dict,
-            'report_string': report_string,
-            'target_names': target_names_for_report
-        }
+        return ClassificationReportDict(
+            accuracy=accuracy,
+            f1_score=overall_f1,
+            confusion_matrix=conf_matrix,
+            report_dict=report_dict,
+            report_string=report_string,
+            target_names=target_names_for_report
+        )
 
 
-class BinaryClassificationMetrics(BaseClassificationMetrics):
+class BinaryClassificationMetricsCalculator(ClassificationMetricsCalculator):
     """
     A concrete metrics calculator for standard binary classification tasks.
 
@@ -168,7 +186,7 @@ class BinaryClassificationMetrics(BaseClassificationMetrics):
         threshold: float = 0.5
     ) -> None:
         """
-        Initializes the BinaryClassificationMetrics.
+        Initializes the BinaryClassificationMetricsCalculator.
 
         :param label_map: An optional dictionary mapping labels {0: 'Neg', 1: 'Pos'}.
         :param f1_average_method: The averaging strategy, defaulting to 'binary'.
@@ -211,7 +229,7 @@ class BinaryClassificationMetrics(BaseClassificationMetrics):
         return true_labels, predicted_labels
 
 
-class PointwiseClassificationMetrics(BaseClassificationMetrics):
+class PointwiseClassificationMetricsCalculator(ClassificationMetricsCalculator):
     """
     A concrete metrics calculator for evaluating a regression model on a
     classification basis.
@@ -234,7 +252,7 @@ class PointwiseClassificationMetrics(BaseClassificationMetrics):
         f1_average_method: str = 'macro'
     ) -> None:
         """
-        Initializes the RegressionToClassificationMetrics.
+        Initializes the RegressionToClassificationMetricsCalculator.
 
         :param value_to_label_fn: A function that takes a continuous float value
                                   and returns a discrete integer label.
@@ -272,7 +290,7 @@ class PointwiseClassificationMetrics(BaseClassificationMetrics):
         return true_labels, predicted_labels
 
 
-class PairwiseClassificationMetrics(BaseClassificationMetrics):
+class PairwiseClassificationMetricsCalculator(ClassificationMetricsCalculator):
     """
     A metrics calculator for pairwise regression-to-classification evaluation.
 
@@ -297,7 +315,7 @@ class PairwiseClassificationMetrics(BaseClassificationMetrics):
         f1_average_method: str = 'binary'
     ) -> None:
         """
-        Initializes the PairwiseClassificationMetrics.
+        Initializes the PairwiseClassificationMetricsCalculator.
 
         :param value_pair_to_label_fn: A function that takes `(value, reference_value)`
                                        and returns a discrete integer label.
