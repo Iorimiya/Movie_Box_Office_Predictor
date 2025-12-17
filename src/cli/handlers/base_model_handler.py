@@ -8,7 +8,7 @@ from random import randint
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.file_io import YamlFile
-from src.models.base.base_evaluator import BaseEvaluationResult, BaseEvaluationConfig, BaseEvaluator
+from src.models.base.evaluation import BaseEvaluationResult, BaseEvaluationConfig, BaseEvaluator
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.utilities.plot import PlotDataset, plot_multi_line_graph
 
