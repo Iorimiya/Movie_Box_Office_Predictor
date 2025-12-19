@@ -1,38 +1,13 @@
 from abc import ABC, abstractmethod
 from argparse import ArgumentParser, Namespace
-from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
 from random import randint
 
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectModelType, ProjectPaths
-from src.data_handling.file_io import YamlFile
+from src.data_handling.file_io import YamlFile, PickleFile
 from src.models.base.evaluation import BaseEvaluationResult, BaseEvaluationConfig, BaseEvaluator
-from src.models.base.base_pipeline import BaseTrainingPipeline
-from src.utilities.plot import PlotDataset, plot_multi_line_graph
-
-
-@dataclass(frozen=True)
-class MultiEpochEvaluationResult:
-    """
-    Holds the aggregated results from evaluating multiple epochs of a single model series.
-
-    This class is used to gather all necessary data for plotting comparative graphs.
-
-    :ivar model_id: The unique identifier for the model series.
-    :ivar evaluated_epochs: A list of the epoch numbers that were actually evaluated.
-    :ivar test_f1_scores: A list of F1-scores from the test set, corresponding to each evaluated epoch.
-    :ivar test_losses: A list of loss values from the test set, corresponding to each evaluated epoch.
-    :ivar full_training_loss_history: The complete training loss history from the original run.
-    :ivar full_validation_loss_history: The complete validation loss history from the original run.
-    """
-    model_id: str
-    evaluated_epochs: list[int]
-    test_f1_scores: list[float]
-    test_losses: list[float]
-    full_training_loss_history: list[float]
-    full_validation_loss_history: list[float]
 
 
 class BaseModelHandler(ABC):
@@ -131,30 +106,31 @@ class BaseModelHandler(ABC):
         """
         Generates and saves evaluation graphs for a model series.
 
-        This template method orchestrates the plotting process by first fetching
-        all necessary evaluation data and then delegating the actual plotting
-        of specific graphs to subclass implementations.
+        Since all iterative models have metrics that change over epochs (Loss,
+        Accuracy, Reward, etc.), this method is mandatory. Subclasses should
+        use `_evaluate_all_epochs` to retrieve data and then implement their
+        specific plotting logic.
 
-        :param args: The namespace object from argparse, containing `model_id`
-                     and flags for which graphs to plot.
+        :param args: The namespace object from argparse.
         """
-        try:
-            eval_results: MultiEpochEvaluationResult = self._evaluate_all_epochs(
-                model_id=args.model_id, args=args
-            )
-        except (FileNotFoundError, ValueError) as e:
-            self._parser.error(str(e))
-
-        output_dir: Path = ProjectPaths.get_model_plots_path(
-            model_id=args.model_id, model_type=self._model_type
-        )
-        output_dir.mkdir(parents=True, exist_ok=True)
-
-        if args.training_loss or args.validation_loss or args.test_loss:
-            self._plot_loss_graph(eval_results=eval_results, output_dir=output_dir, args=args)
-
-        if args.f1_score:
-            self._plot_f1_score_graph(eval_results=eval_results, output_dir=output_dir)
+        pass
+    #     try:
+    #         eval_results: list[BaseEvaluationResult] = self._evaluate_all_epochs(
+    #             model_id=args.model_id, args=args
+    #         )
+    #     except (FileNotFoundError, ValueError) as e:
+    #         self._parser.error(str(e))
+    #
+    #     output_dir: Path = ProjectPaths.get_model_plots_path(
+    #         model_id=args.model_id, model_type=self._model_type
+    #     )
+    #     output_dir.mkdir(parents=True, exist_ok=True)
+    #
+    #     if args.training_loss or args.validation_loss or args.test_loss:
+    #         self._plot_loss_graph(eval_results=eval_results, output_dir=output_dir, args=args)
+    #
+    #     if args.f1_score:
+    #         self._plot_f1_score_graph(eval_results=eval_results, output_dir=output_dir)
 
     @abstractmethod
     def _get_default_config_filename(self) -> str:
@@ -320,45 +296,16 @@ class BaseModelHandler(ABC):
         """
         pass
 
-    @staticmethod
-    def _create_multi_epoch_evaluation_result(
-        model_id: str,
-        available_epochs: list[int],
-        collected_metrics: dict[str, list[float]],
-        training_history: list[float],
-        validation_history: list[float]
-    ) -> MultiEpochEvaluationResult:
-        """
-        Constructs the final aggregated multi-epoch result object.
-
-        :param model_id: The unique identifier for the model series.
-        :param available_epochs: A list of all epoch numbers that were evaluated.
-        :param collected_metrics: A dictionary where keys are metric names (e.g., 'loss', 'f1_score')
-                                  and values are lists of metric values for each epoch.
-        :param training_history: The full training loss history.
-        :param validation_history: The full validation loss history.
-        :returns: An instance of the `MultiEpochEvaluationResult` dataclass.
-        """
-        return MultiEpochEvaluationResult(
-            model_id=model_id,
-            evaluated_epochs=available_epochs,
-            test_losses=collected_metrics.get('loss', []),
-            test_f1_scores=collected_metrics.get('f1_score', []),
-            full_training_loss_history=training_history,
-            full_validation_loss_history=validation_history
-        )
-
-    def _evaluate_all_epochs(self, model_id: str, args: Namespace) -> MultiEpochEvaluationResult:
+    def _evaluate_all_epochs(self, model_id: str, args: Namespace) -> list[BaseEvaluationResult]:
         """
         Finds and evaluates all available checkpoints for a model.
 
         This template method uses a cache to avoid re-computation and returns
-        aggregated results. It provides a generic workflow that relies on abstract
-        methods implemented by subclasses for model-specific logic.
+        a list of full evaluation result objects.
 
         :param model_id: The unique identifier for the model series to evaluate.
         :param args: The namespace object from argparse, used to determine evaluation mode.
-        :returns: A `MultiEpochEvaluationResult` object containing aggregated results.
+        :returns: A list of `BaseEvaluationResult` objects, one for each successfully evaluated epoch.
         :raises FileNotFoundError: If the master config or history file for the model is not found.
         :raises ValueError: If evaluation fails for all available epochs.
         """
@@ -372,31 +319,32 @@ class BaseModelHandler(ABC):
 
         self._logger.info(f"Found {len(available_epochs)} checkpoints to evaluate: {available_epochs}")
 
-        cache_filename = self._get_evaluation_cache_filename()
+        cache_filename:str = self._get_evaluation_cache_filename()
         cache_path: Path = artifacts_folder / cache_filename
-        cache_handler = YamlFile(path=cache_path)
-        cached_results: dict[int, dict[str, float]] = {}
+        cache_handler:PickleFile = PickleFile(path=cache_path)
+        cached_results: list[BaseEvaluationResult] = []
         if cache_path.exists() and not args.dataset_name:
             try:
-                loaded_cache = cache_handler.load_single_document()
-                if isinstance(loaded_cache, dict):
-                    cached_results = {int(k): v for k, v in loaded_cache.items() if isinstance(v, dict)}
+                loaded_cache: list[BaseEvaluationResult] = cache_handler.load()
+                if isinstance(loaded_cache, list) and all(isinstance(e,BaseEvaluationResult)for e in loaded_cache):
+                    cached_results = loaded_cache
                     self._logger.info(f"Loaded {len(cached_results)} results from cache: {cache_path}")
             except Exception as e:
                 self._logger.warning(f"Could not load or parse cache file at {cache_path}. Re-evaluating. Error: {e}")
         elif args.dataset_name:
             self._logger.info(f"Ignoring cache because a new dataset '{args.dataset_name}' was specified.")
 
-        collected_metrics: dict[str, list[float]] = {}
-        first_eval_result: any = None
+        cached_results_map: dict[int, BaseEvaluationResult] = {
+            res.model_epoch: res for res in cached_results
+        }
+
+        collected_results: list[BaseEvaluationResult] = []
 
         for epoch in available_epochs:
-            if epoch in cached_results and not args.dataset_name:
+            if epoch in cached_results_map and not args.dataset_name:
                 self._logger.info(f"--- Using cached evaluation for epoch {epoch} ---")
-                for metric_name, value in cached_results[epoch].items():
-                    collected_metrics.setdefault(metric_name, []).append(value)
+                collected_results.append(cached_results_map[epoch])
                 continue
-
             self._logger.info(f"--- Evaluating epoch {epoch} for plotting ---")
             eval_config = self._build_evaluation_config(
                 args=args, original_config_data=original_config_data, epoch_to_evaluate=epoch
@@ -404,63 +352,23 @@ class BaseModelHandler(ABC):
 
             try:
                 result: BaseEvaluationResult = self._run_evaluation_for_epoch(eval_config=eval_config)
-                epoch_metrics = {'loss': result.test_loss, 'f1_score': result.f1_score}
-
-                for metric_name, value in epoch_metrics.items():
-                    collected_metrics.setdefault(metric_name, []).append(value)
+                collected_results.append(result)
 
                 if not args.dataset_name:
-                    cached_results[epoch] = epoch_metrics
+                    cached_results_map[epoch] = result
 
-                if first_eval_result is None:
-                    first_eval_result = result
             except Exception as e:
                 self._logger.error(f"Failed to evaluate epoch {epoch}: {e}. Skipping this epoch for plot.")
-                # Append NaN to all collected metric lists to maintain alignment
-                # Initialize keys if they don't exist yet
-                if not collected_metrics:
-                    collected_metrics['loss'] = []
-                    collected_metrics['f1_score'] = []
-                for metric_list in collected_metrics.values():
-                    metric_list.append(float('nan'))
 
-        if not args.dataset_name and cached_results:
+        if not args.dataset_name and collected_results:
             try:
-                cache_handler.save_single_document(data=cached_results)
+                valid_results = [r for r in collected_results if isinstance(r, BaseEvaluationResult)]
+                cache_handler.save(data=valid_results)
                 self._logger.info(f"Updated evaluation cache file at: {cache_path}")
             except Exception as e:
                 self._logger.error(f"Failed to save evaluation cache to {cache_path}: {e}")
 
-        # Check if any valid results were obtained
-        all_metric_values = [val for sublist in collected_metrics.values() for val in sublist]
-        if not any(v is not None and not (isinstance(v, float) and v != v) for v in all_metric_values):
-            raise ValueError("Evaluation failed for all epochs. Cannot generate plots.")
-
-        full_training_loss_history: list[float] = []
-        full_validation_loss_history: list[float] = []
-        if first_eval_result:
-            full_training_loss_history = first_eval_result.training_loss_history
-            full_validation_loss_history = first_eval_result.validation_loss_history
-        elif cached_results:
-            self._logger.info("All results were from cache. Loading training history manually.")
-            history_path: Path = artifacts_folder / BaseTrainingPipeline.HISTORY_FILE_NAME
-            if history_path.exists():
-                try:
-                    full_training_loss_history, full_validation_loss_history = self._evaluator.load_training_history(
-                        history_file_path=history_path
-                    )
-                except Exception as e:
-                    self._logger.error(f"Failed to load history file {history_path} even though cache exists: {e}")
-            else:
-                self._logger.warning(f"Evaluation cache exists, but history file {history_path} is missing.")
-
-        return self._create_multi_epoch_evaluation_result(
-            model_id=model_id,
-            available_epochs=available_epochs,
-            collected_metrics=collected_metrics,
-            training_history=full_training_loss_history,
-            validation_history=full_validation_loss_history
-        )
+        return collected_results
 
     @staticmethod
     def _find_available_epochs(model_id: str, model_type: ProjectModelType) -> list[int]:
@@ -579,87 +487,60 @@ class BaseModelHandler(ABC):
         :param result: The evaluation result object.
         :param args: The command-line arguments to check which metrics to display.
         """
-        self._logger.info(f"--- Metrics for {args.model_id} @ Epoch {args.epoch} ---")
-        if args.training_loss:
-            try:
-                train_loss: float = result.training_loss_history[args.epoch - 1]
-                self._logger.info(f"  - Training Loss:   {train_loss:.6f}")
-            except IndexError:
-                self._logger.warning(
-                    f"  - Training Loss:   Not available for epoch {args.epoch} (history length: {len(result.training_loss_history)}).")
+        pass
 
-        if args.validation_loss:
-            try:
-                val_loss: float = result.validation_loss_history[args.epoch - 1]
-                self._logger.info(f"  - Validation Loss: {val_loss:.6f}")
-            except IndexError:
-                self._logger.warning(
-                    f"  - Validation Loss: Not available for epoch {args.epoch} (history length: {len(result.validation_loss_history)}).")
+    # @staticmethod
+    # def _plot_loss_graph(
+    #     eval_results: list[BaseEvaluationResult], output_dir: Path, args: Namespace
+    # ) -> None:
+    #     """
+    #     Plots the loss curves for a model.
+    #
+    #     Includes training, validation, and test loss based on user flags.
+    #
+    #     :param eval_results: The aggregated evaluation results for the model.
+    #     :param output_dir: The directory to save the plot image.
+    #     :param args: The command-line arguments to check which losses to plot.
+    #     """
+    #     datasets_to_plot: list[PlotDataset] = []
+    #     history_epochs: list[int] = list(range(1, len(eval_results.full_training_loss_history) + 1))
+    #
+    #     if args.training_loss:
+    #         datasets_to_plot.append({"label": "Training Loss", "data": eval_results.full_training_loss_history})
+    #     if args.validation_loss:
+    #         datasets_to_plot.append({"label": "Validation Loss", "data": eval_results.full_validation_loss_history})
+    #     if args.test_loss:
+    #         # Align test loss data with the full epoch history
+    #         test_loss_aligned_data = [float('nan')] * len(history_epochs)
+    #         for i, epoch in enumerate(eval_results.evaluated_epochs):
+    #             if 1 <= epoch <= len(history_epochs):
+    #                 test_loss_aligned_data[epoch - 1] = eval_results.test_losses[i]
+    #         datasets_to_plot.append({"label": "Test Loss", "data": test_loss_aligned_data})
+    #
+    #     plot_multi_line_graph(
+    #         title=f"Loss Curves for {eval_results.model_id}",
+    #         save_path=output_dir / "loss_curves.png",
+    #         x_data=history_epochs,
+    #         y_datasets=datasets_to_plot,
+    #         x_label="Epoch",
+    #         y_label="Loss",
+    #         y_formatter='sci-notation'
+    #     )
 
-        # Test loss is a common metric
-        if args.test_loss:
-            self._logger.info(f"  - Test Loss:       {result.test_loss:.6f}")
-
-        # F1-score is a common metric
-        if args.f1_score:
-            self._logger.info(f"  - F1-Score (Test): {result.f1_score:.4f} ({result.f1_score:.2%})")
-
-        self._display_specific_metrics(result=result, args=args)
-
-        self._logger.info("-------------------------------------------------")
-
-    @staticmethod
-    def _plot_loss_graph(
-        eval_results: MultiEpochEvaluationResult, output_dir: Path, args: Namespace
-    ) -> None:
-        """
-        Plots the loss curves for a model.
-
-        Includes training, validation, and test loss based on user flags.
-
-        :param eval_results: The aggregated evaluation results for the model.
-        :param output_dir: The directory to save the plot image.
-        :param args: The command-line arguments to check which losses to plot.
-        """
-        datasets_to_plot: list[PlotDataset] = []
-        history_epochs: list[int] = list(range(1, len(eval_results.full_training_loss_history) + 1))
-
-        if args.training_loss:
-            datasets_to_plot.append({"label": "Training Loss", "data": eval_results.full_training_loss_history})
-        if args.validation_loss:
-            datasets_to_plot.append({"label": "Validation Loss", "data": eval_results.full_validation_loss_history})
-        if args.test_loss:
-            # Align test loss data with the full epoch history
-            test_loss_aligned_data = [float('nan')] * len(history_epochs)
-            for i, epoch in enumerate(eval_results.evaluated_epochs):
-                if 1 <= epoch <= len(history_epochs):
-                    test_loss_aligned_data[epoch - 1] = eval_results.test_losses[i]
-            datasets_to_plot.append({"label": "Test Loss", "data": test_loss_aligned_data})
-
-        plot_multi_line_graph(
-            title=f"Loss Curves for {eval_results.model_id}",
-            save_path=output_dir / "loss_curves.png",
-            x_data=history_epochs,
-            y_datasets=datasets_to_plot,
-            x_label="Epoch",
-            y_label="Loss",
-            y_formatter='sci-notation'
-        )
-
-    @staticmethod
-    def _plot_f1_score_graph(eval_results: MultiEpochEvaluationResult, output_dir: Path) -> None:
-        """
-        Plots the F1-score curve for the sentiment model.
-
-        :param eval_results: The aggregated evaluation results for the sentiment model.
-        :param output_dir: The directory to save the plot image.
-        """
-        plot_multi_line_graph(
-            title=f"F1-Score on Test Set for {eval_results.model_id}",
-            save_path=output_dir / "f1_score_curve.png",
-            x_data=eval_results.evaluated_epochs,
-            y_datasets=[{"label": "Test F1-Score", "data": eval_results.test_f1_scores}],
-            x_label="Epoch",
-            y_label="F1-Score",
-            y_formatter='percent'
-        )
+    # @staticmethod
+    # def _plot_f1_score_graph(eval_results: list[BaseEvaluationResult], output_dir: Path) -> None:
+    #     """
+    #     Plots the F1-score curve for the sentiment model.
+    #
+    #     :param eval_results: The aggregated evaluation results for the sentiment model.
+    #     :param output_dir: The directory to save the plot image.
+    #     """
+    #     plot_multi_line_graph(
+    #         title=f"F1-Score on Test Set for {eval_results.model_id}",
+    #         save_path=output_dir / "f1_score_curve.png",
+    #         x_data=eval_results.evaluated_epochs,
+    #         y_datasets=[{"label": "Test F1-Score", "data": eval_results.test_f1_scores}],
+    #         x_label="Epoch",
+    #         y_label="F1-Score",
+    #         y_formatter='percent'
+    #     )
