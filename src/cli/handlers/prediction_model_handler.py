@@ -1,6 +1,7 @@
 import random
 from argparse import ArgumentParser, Namespace
 from datetime import date, timedelta
+from logging import Logger
 from pathlib import Path
 from typing import Final
 
@@ -15,7 +16,7 @@ from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.movie_metadata import MovieMetadata
 from src.models.base.evaluation import BaseEvaluationResult
-from src.models.prediction.components.data_processor import PredictionDataProcessor, PredictionDataConfig
+from src.models.prediction.components.data_processor import PredictionDataConfig, PredictionDataProcessor
 from src.models.prediction.components.evaluator import (
     PredictionEvaluationConfig,
     PredictionEvaluationResult,
@@ -273,30 +274,32 @@ class PredictionModelHandler(RegressionModelHandler):
             )
 
     @override
-    def _display_specific_metrics(self, result: BaseEvaluationResult, args: Namespace) -> None:
+    def _display_specific_metrics(self, result: BaseEvaluationResult, args: Namespace, result_logger: Logger) -> None:
         """
         Displays metrics specific to the prediction model.
 
         This calls the parent method to display regression metrics (Test Loss) and
-        then adds logic to display classification metrics (F1-Score, Confusion Matrix).
+        then adds logic to display classification metrics (F1-Score, Confusion Matrix)
+        using the provided format-less logger.
 
         :param result: The evaluation result object.
         :param args: The command-line arguments.
+        :param result_logger: The logger instance configured for clean, format-less output.
         """
         # First, call the parent class (RegressionModelHandler) method to display Test Loss (MSE).
-        super()._display_specific_metrics(result=result, args=args)
+        super()._display_specific_metrics(result=result, args=args, result_logger=result_logger)
 
         # Then, implement the metric display logic specific to PredictionModel.
         if isinstance(result, PredictionEvaluationResult):
             if args.show_f1_score and result.range_classification_report:
-                self._logger.info(f"  - Range F1-Score: {result.range_classification_report['f1_score']:.4f}")
+                result_logger.info(f"  - Range F1-Score: {result.range_classification_report['f1_score']:.4f}")
 
             if args.show_confusion_matrix and result.range_classification_report:
-                matrix_str = result.format_confusion_matrix_string(
+                matrix_str: str = result.format_confusion_matrix_string(
                     matrix=result.range_classification_report['confusion_matrix'],
                     names=result.range_classification_report.get('target_names') or []
                 )
-                self._logger.info(f"  - Confusion Matrix (Range):\n{matrix_str}")
+                result_logger.info(f"  - Confusion Matrix (Range):\n{matrix_str}")
 
     @override
     def _build_evaluation_config(
@@ -330,11 +333,6 @@ class PredictionModelHandler(RegressionModelHandler):
         # classification metrics should be calculated.
         calculate_classification_metrics: bool = bool(
             args.classification_report) or args.show_f1_score or args.show_confusion_matrix
-
-        # Determine whether it is 'range' or 'trend' mode based on the value of classification_report.
-        is_range_mode: bool = args.classification_report == 'range' if args.classification_report else False
-        is_trend_mode: bool = args.classification_report == 'trend' if args.classification_report else False
-
         # In exploratory mode, we evaluate on a new dataset.
         if args.dataset_name:
             self._logger.info(f"Building evaluation config for EXPLORATORY mode on dataset '{args.dataset_name}'.")
@@ -347,14 +345,13 @@ class PredictionModelHandler(RegressionModelHandler):
                 split_ratios=None,
                 random_state=None,
                 calculate_loss=calculate_loss,
-                calculate_f1_score=calculate_classification_metrics,
-                calculate_range_accuracy=is_range_mode and calculate_classification_metrics,
-                calculate_trend_accuracy=is_trend_mode and calculate_classification_metrics,
+                calculate_classification_metrics=calculate_classification_metrics,
+                classification_method=args.classification_report,
                 f1_average_method=args.f1_average_method or original_config_data.get('f1_average_method', 'macro'),
                 box_office_ranges=tuple(args.box_office_ranges) if args.box_office_ranges else tuple(
                     original_config_data.get('box_office_ranges', ()))
             )
-        # In reproducibility mode, we recreate the original test set.
+            # In reproducibility mode, we recreate the original test set.
         else:
             self._logger.info("Building evaluation config for REPRODUCIBILITY mode.")
             return PredictionEvaluationConfig(
@@ -366,9 +363,8 @@ class PredictionModelHandler(RegressionModelHandler):
                 split_ratios=tuple(original_config_data['split_ratios']),
                 random_state=original_config_data['random_state'],
                 calculate_loss=calculate_loss,
-                calculate_f1_score=calculate_classification_metrics,
-                calculate_range_accuracy=is_range_mode and calculate_classification_metrics,
-                calculate_trend_accuracy=is_trend_mode and calculate_classification_metrics,
+                calculate_classification_metrics=calculate_classification_metrics,
+                classification_method=args.classification_report,
                 f1_average_method=args.f1_average_method or original_config_data.get('f1_average_method', 'macro'),
                 box_office_ranges=tuple(args.box_office_ranges) if args.box_office_ranges else tuple(
                     original_config_data.get('box_office_ranges', ()))

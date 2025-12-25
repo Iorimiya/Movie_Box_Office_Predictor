@@ -11,10 +11,10 @@ from typing_extensions import override
 from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.movie_collections import MovieData
 from src.models.base.evaluation import (
-    BaseEvaluator,
     BaseEvaluationConfig,
-    RegressionEvaluationResult,
+    BaseEvaluator,
     ClassificationSummaryMixin,
+    RegressionEvaluationResult,
 )
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
@@ -29,8 +29,8 @@ from src.models.prediction.components.model_core import (
 )
 from src.utilities.metrics import (
     ClassificationReportDict,
-    PairwiseClassificationMetricsCalculator,
     PointwiseClassificationMetricsCalculator,
+    PairwiseClassificationMetricsCalculator,
     RegressionMetricsCalculator,
     RegressionReportDict
 )
@@ -46,15 +46,16 @@ class PredictionEvaluationConfig(BaseEvaluationConfig):
     Inherits common evaluation parameters from BaseEvaluationConfig.
 
     :ivar training_week_len: The number of past weeks used for prediction.
-    :ivar calculate_trend_accuracy: Flag to calculate trend prediction accuracy.
-    :ivar calculate_range_accuracy: Flag to calculate range prediction accuracy.
+    :ivar calculate_loss: Flag to calculate loss (MSE) on the test set.
+    :ivar calculate_classification_metrics: Flag to enable classification-based metrics.
+    :ivar classification_method: The strategy for classification ('range' or 'trend').
     :ivar box_office_ranges: A tuple defining the upper boundaries of box office ranges.
     :ivar f1_average_method: The averaging method for F1 score calculation.
     """
-
     training_week_len: int = 4
-    calculate_trend_accuracy: bool = False
-    calculate_range_accuracy: bool = False
+    calculate_loss: bool = False
+    calculate_classification_metrics: bool = False
+    classification_method: Optional[str] = None
     box_office_ranges: tuple[int, ...] = (1_000_000, 10_000_000, 90_000_000)
     f1_average_method: str = 'macro'
 
@@ -128,11 +129,13 @@ class PredictionEvaluationResult(RegressionEvaluationResult, ClassificationSumma
             unscaled_pred, unscaled_actual, unscaled_inputs = cls._get_unscaled_predictions(
                 model_core=model_core, scaler=data_processor.scaler, x_test=x_test, y_test=y_test, logger=logger
             )
-            if config.calculate_range_accuracy:
+
+            # Dispatch based on the classification method strategy
+            if config.classification_method == 'range':
                 range_report = cls._calculate_range_report(
                     predictions=unscaled_pred, actual=unscaled_actual, config=config, logger=logger
                 )
-            if config.calculate_trend_accuracy:
+            elif config.classification_method == 'trend':
                 trend_report = cls._calculate_trend_report(
                     predictions=unscaled_pred, actual=unscaled_actual, last_inputs=unscaled_inputs, logger=logger
                 )
@@ -180,8 +183,8 @@ class PredictionEvaluationResult(RegressionEvaluationResult, ClassificationSumma
         """
         logger.info("Calculating regression metrics (MSE, MAE, R²)...")
         y_pred_scaled: NDArray[any] = model_core.predict(data=x_test, config=PredictionPredictConfig(verbose=0))
-        regression_calculator:RegressionMetricsCalculator = RegressionMetricsCalculator()
-        report:RegressionReportDict = regression_calculator.generate_report(y_true=y_test, y_pred=y_pred_scaled)
+        regression_calculator: RegressionMetricsCalculator = RegressionMetricsCalculator()
+        report: RegressionReportDict = regression_calculator.generate_report(y_true=y_test, y_pred=y_pred_scaled)
 
         logger.info(f"  - Test MSE Loss: {report['mse']:.6f}")
         logger.info(f"  - Test MAE: {report['mae']:.6f}")
@@ -234,17 +237,17 @@ class PredictionEvaluationResult(RegressionEvaluationResult, ClassificationSumma
         def value_to_label_fn(value: float) -> int:
             return PredictionDataProcessor.get_range_index(value=value, ranges=config.box_office_ranges)
 
-        range_labels:list[str] = PredictionEvaluationResult._generate_range_labels(ranges=config.box_office_ranges)
-        label_map:dict[int,str] = {i: label for i, label in enumerate(range_labels)}
-        metrics_calculator:PointwiseClassificationMetricsCalculator = PointwiseClassificationMetricsCalculator(
+        range_labels: list[str] = PredictionEvaluationResult._generate_range_labels(ranges=config.box_office_ranges)
+        label_map: dict[int, str] = {i: label for i, label in enumerate(range_labels)}
+        metrics_calculator: PointwiseClassificationMetricsCalculator = PointwiseClassificationMetricsCalculator(
             value_to_label_fn=value_to_label_fn, label_map=label_map, f1_average_method=config.f1_average_method
         )
-        report:ClassificationReportDict = \
+        report: ClassificationReportDict = \
             metrics_calculator.generate_report(y_true=array(actual), y_pred=array(predictions))
         logger.info(f"  - Range Accuracy: {report['accuracy']:.2%}")
         logger.info(f"  - F1-Score (Range, avg='{config.f1_average_method}'): {report['f1_score']:.4f}")
 
-        matrix_str:str = PredictionEvaluationResult.format_confusion_matrix_string(
+        matrix_str: str = PredictionEvaluationResult.format_confusion_matrix_string(
             matrix=report['confusion_matrix'],
             names=report.get('target_names') or []
         )
@@ -269,16 +272,16 @@ class PredictionEvaluationResult(RegressionEvaluationResult, ClassificationSumma
         def trend_fn(value: float, reference: float) -> int:
             return 1 if value > reference else 0
 
-        metrics_calculator:PairwiseClassificationMetricsCalculator = PairwiseClassificationMetricsCalculator(
+        metrics_calculator: PairwiseClassificationMetricsCalculator = PairwiseClassificationMetricsCalculator(
             value_pair_to_label_fn=trend_fn, reference_values=array(last_inputs),
             label_map={0: 'Decrease/Stay', 1: 'Increase'}, f1_average_method='binary'
         )
-        report:ClassificationReportDict = \
+        report: ClassificationReportDict = \
             metrics_calculator.generate_report(y_true=array(actual), y_pred=array(predictions))
         logger.info(f"  - Trend Accuracy: {report['accuracy']:.2%}")
         logger.info(f"  - F1-Score (Trend, avg='binary'): {report['f1_score']:.4f}")
 
-        matrix_str:str = PredictionEvaluationResult.format_confusion_matrix_string(
+        matrix_str: str = PredictionEvaluationResult.format_confusion_matrix_string(
             matrix=report['confusion_matrix'],
             names=report.get('target_names') or []
         )
@@ -295,7 +298,7 @@ class PredictionEvaluationResult(RegressionEvaluationResult, ClassificationSumma
         """
         if not ranges:
             return []
-        sorted_ranges:list[int] = sorted(list(ranges))
+        sorted_ranges: list[int] = sorted(list(ranges))
         labels: list[str] = []
 
         def fmt(n: int) -> str:
@@ -415,7 +418,7 @@ class PredictionEvaluator(
         :return: The fully populated evaluation result object.
         """
         # The Evaluator's only job is now to call the factory method.
-        final_result:PredictionEvaluationResult = PredictionEvaluationResult.create(
+        final_result: PredictionEvaluationResult = PredictionEvaluationResult.create(
             config=config,
             model_core=model_core,
             data_processor=data_processor,
