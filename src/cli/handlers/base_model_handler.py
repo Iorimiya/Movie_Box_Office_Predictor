@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 from argparse import ArgumentParser, Namespace
-from logging import Logger
+from logging import Formatter, Handler, Logger, StreamHandler
 from pathlib import Path
 from random import randint
 
-from src.core.logging_manager import LoggingManager
+from src.core.logging_manager import HandlerSettings, LoggingManager, LogLevel
 from src.core.project_config import ProjectModelType, ProjectPaths
-from src.data_handling.file_io import YamlFile, PickleFile
-from src.models.base.evaluation import BaseEvaluationResult, BaseEvaluationConfig, BaseEvaluator
+from src.data_handling.file_io import PickleFile, YamlFile
+from src.models.base.evaluation import BaseEvaluationConfig, BaseEvaluationResult, BaseEvaluator
 
 
 class BaseModelHandler(ABC):
@@ -81,12 +81,13 @@ class BaseModelHandler(ABC):
 
         :param args: The namespace object from argparse, containing evaluation parameters.
         """
-
-        metric_flags: list[str] = ['training_loss', 'validation_loss', 'f1_score', 'test_loss']
+        metric_flags: list[str] = [
+            'training_loss', 'validation_loss', 'test_loss',
+            'classification_report', 'show_f1_score', 'show_confusion_matrix'
+        ]
         original_config_data: dict[str, any] = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
 
         try:
-
             eval_config: any = self._build_evaluation_config(
                 args=args,
                 original_config_data=original_config_data,
@@ -102,6 +103,7 @@ class BaseModelHandler(ABC):
 
         self._display_metrics(result=result, args=args)
 
+    @abstractmethod
     def plot_graph(self, args: Namespace) -> None:
         """
         Generates and saves evaluation graphs for a model series.
@@ -114,23 +116,6 @@ class BaseModelHandler(ABC):
         :param args: The namespace object from argparse.
         """
         pass
-    #     try:
-    #         eval_results: list[BaseEvaluationResult] = self._evaluate_all_epochs(
-    #             model_id=args.model_id, args=args
-    #         )
-    #     except (FileNotFoundError, ValueError) as e:
-    #         self._parser.error(str(e))
-    #
-    #     output_dir: Path = ProjectPaths.get_model_plots_path(
-    #         model_id=args.model_id, model_type=self._model_type
-    #     )
-    #     output_dir.mkdir(parents=True, exist_ok=True)
-    #
-    #     if args.training_loss or args.validation_loss or args.test_loss:
-    #         self._plot_loss_graph(eval_results=eval_results, output_dir=output_dir, args=args)
-    #
-    #     if args.f1_score:
-    #         self._plot_f1_score_graph(eval_results=eval_results, output_dir=output_dir)
 
     @abstractmethod
     def _get_default_config_filename(self) -> str:
@@ -164,7 +149,7 @@ class BaseModelHandler(ABC):
         )
         final_config_path: Path = artifacts_folder / "config.yaml"
 
-        # --- Cache Invalidation ---
+        # Cache Invalidation
         # A new training run will invalidate any previous evaluation results.
         # This requires an abstract method to get the specific cache file name.
         cache_filename: str = self._get_evaluation_cache_filename()
@@ -173,9 +158,9 @@ class BaseModelHandler(ABC):
             self._logger.info(f"Invalidating evaluation cache at '{cache_path}' due to new training run.")
             cache_path.unlink()
 
-        # --- Main logic branch: New vs. Continue ---
+        # Main logic branch: New vs. Continue
         if args.continue_from_epoch:
-            # --- Mode: Continue Training ---
+            # Mode: Continue Training
             self._logger.info(
                 f"Executing: Continue training {self._model_type_name} model '{model_id}' "
                 f"from epoch {args.continue_from_epoch}."
@@ -200,15 +185,15 @@ class BaseModelHandler(ABC):
             return YamlFile(path=final_config_path).load_single_document()
 
         else:
-            # --- Mode: New Training ---
+            # Mode: New Training
             self._logger.info(f"Executing: Start new training for {self._model_type_name} model '{model_id}'.")
 
-            # --- Check for mutually exclusive arguments ---
+            # Check for mutually exclusive arguments
             individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=False)
             if args.config_override and individual_overrides:
                 self._parser.error("Argument --config-override cannot be used with individual parameter overrides.")
 
-            # --- Load default configuration using the abstract method ---
+            # Load default configuration using the abstract method
             default_config_filename: str = self._get_default_config_filename()
             default_config_path: Path = ProjectPaths.get_config_path(config_name=default_config_filename)
             try:
@@ -218,7 +203,7 @@ class BaseModelHandler(ABC):
                 self._parser.error(
                     f"Default configuration file '{default_config_filename}' not found at: {default_config_path}")
 
-            # --- Apply overrides ---
+            # Apply overrides
             effective_config: dict[str, any] = default_config.copy()
             if args.config_override:
                 try:
@@ -231,7 +216,7 @@ class BaseModelHandler(ABC):
                 self._logger.info(f"Applying individual overrides: {individual_overrides}")
                 effective_config.update(individual_overrides)
 
-            # --- Handle Random State ---
+            # Handle Random State
             if effective_config.get('random_state') is None:
                 new_random_state: int = randint(0, 2 ** 32 - 1)
                 effective_config['random_state'] = new_random_state
@@ -243,7 +228,7 @@ class BaseModelHandler(ABC):
                     "For full reproducibility, please add this 'random_state' to your configuration file for future runs."
                 )
 
-            # --- Create artifact directory and save the final configuration ---
+            # Create artifact directory and save the final configuration
             artifacts_folder.mkdir(parents=True, exist_ok=True)
             effective_config['model_id'] = model_id
             try:
@@ -309,8 +294,11 @@ class BaseModelHandler(ABC):
         :raises FileNotFoundError: If the master config or history file for the model is not found.
         :raises ValueError: If evaluation fails for all available epochs.
         """
-        metric_flags = ['training_loss', 'validation_loss', 'f1_score', 'test_loss']
-        original_config_data = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
+        metric_flags: list[str] = [
+            'training_loss', 'validation_loss', 'test_loss',
+            'classification_report', 'show_f1_score', 'show_confusion_matrix'
+        ]
+        original_config_data: dict[str, any] = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
 
         artifacts_folder: Path = ProjectPaths.get_model_root_path(model_id=model_id, model_type=self._model_type)
         available_epochs: list[int] = self._find_available_epochs(model_id=model_id, model_type=self._model_type)
@@ -319,14 +307,14 @@ class BaseModelHandler(ABC):
 
         self._logger.info(f"Found {len(available_epochs)} checkpoints to evaluate: {available_epochs}")
 
-        cache_filename:str = self._get_evaluation_cache_filename()
+        cache_filename: str = self._get_evaluation_cache_filename()
         cache_path: Path = artifacts_folder / cache_filename
-        cache_handler:PickleFile = PickleFile(path=cache_path)
+        cache_handler: PickleFile = PickleFile(path=cache_path)
         cached_results: list[BaseEvaluationResult] = []
         if cache_path.exists() and not args.dataset_name:
             try:
                 loaded_cache: list[BaseEvaluationResult] = cache_handler.load()
-                if isinstance(loaded_cache, list) and all(isinstance(e,BaseEvaluationResult)for e in loaded_cache):
+                if isinstance(loaded_cache, list) and all(isinstance(e, BaseEvaluationResult) for e in loaded_cache):
                     cached_results = loaded_cache
                     self._logger.info(f"Loaded {len(cached_results)} results from cache: {cache_path}")
             except Exception as e:
@@ -346,7 +334,7 @@ class BaseModelHandler(ABC):
                 collected_results.append(cached_results_map[epoch])
                 continue
             self._logger.info(f"--- Evaluating epoch {epoch} for plotting ---")
-            eval_config = self._build_evaluation_config(
+            eval_config: BaseEvaluationConfig = self._build_evaluation_config(
                 args=args, original_config_data=original_config_data, epoch_to_evaluate=epoch
             )
 
@@ -362,7 +350,9 @@ class BaseModelHandler(ABC):
 
         if not args.dataset_name and collected_results:
             try:
-                valid_results = [r for r in collected_results if isinstance(r, BaseEvaluationResult)]
+                valid_results: list[BaseEvaluationResult] = [
+                    r for r in collected_results if isinstance(r, BaseEvaluationResult)
+                ]
                 cache_handler.save(data=valid_results)
                 self._logger.info(f"Updated evaluation cache file at: {cache_path}")
             except Exception as e:
@@ -392,7 +382,7 @@ class BaseModelHandler(ABC):
         epochs: list[int] = []
         for f in model_artifacts_path.glob(f"{model_id}_*.keras"):
             try:
-                epoch_str = f.stem.split('_')[-1]
+                epoch_str: str = f.stem.split('_')[-1]
                 epochs.append(int(epoch_str))
             except (ValueError, IndexError):
                 continue
@@ -414,7 +404,7 @@ class BaseModelHandler(ABC):
         # The subcommand key can vary, so find it dynamically.
         subcommand_key: str | None = next((key for key in vars(args) if key.endswith('_subcommand')), None)
 
-        base_exclude_keys = {'command_group', 'func', 'model_id', 'config_override'}
+        base_exclude_keys: set[str] = {'command_group', 'func', 'model_id', 'config_override'}
         if subcommand_key:
             base_exclude_keys.add(subcommand_key)
 
@@ -445,7 +435,7 @@ class BaseModelHandler(ABC):
             )
 
         # Log initial messages
-        command_name = "Get evaluation metrics" if 'epoch' in args else "Plot evaluation graphs"
+        command_name: str = "Get evaluation metrics" if 'epoch' in args else "Plot evaluation graphs"
         self._logger.info(
             f"Executing: {command_name} for {self._model_type_name} model '{args.model_id}'."
         )
@@ -465,82 +455,83 @@ class BaseModelHandler(ABC):
             self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
 
     @abstractmethod
-    def _display_specific_metrics(self, result: BaseEvaluationResult, args: Namespace) -> None:
+    def _display_specific_metrics(self, result: BaseEvaluationResult, args: Namespace, result_logger: Logger) -> None:
         """
-        Displays model-specific metrics that are not common to all models.
+        Displays model-specific metrics using a format-less logger.
 
         Subclasses must implement this method to print any metrics unique to
-        their model type.
+        their model type using the provided `result_logger`. This logger is
+        configured to output messages without any standard log formatting
+        (like timestamps or log levels), making it suitable for clean final output.
 
         :param result: The evaluation result object containing the metrics.
-        :param args: The command-line arguments.
+        :param args: The command-line arguments, used to determine which metrics to display.
+        :param result_logger: The logger instance configured for clean, format-less output.
         """
         pass
 
     def _display_metrics(self, result: BaseEvaluationResult, args: Namespace) -> None:
         """
-        Displays evaluation metrics in a structured format.
+        Displays evaluation metrics in a structured, clean format.
 
-        This template method displays common metrics (e.g., loss, F1-score) and
-        then delegates to a subclass to display any model-specific metrics.
+        This template method sets up a temporary, format-less logger for clean
+        final output, prints a standard header and footer, and delegates the
+        display of all specific metrics to the `_display_specific_metrics` hook.
+        It ensures the temporary handler and logger are cleaned up afterwards,
+        even if errors occur.
 
         :param result: The evaluation result object.
         :param args: The command-line arguments to check which metrics to display.
         """
-        pass
+        manager: LoggingManager = LoggingManager()
+        # Define a unique name for our temporary handler and logger
+        result_handler_name: str = "temp_result_handler"
+        result_logger_name: str = "result_display"
 
-    # @staticmethod
-    # def _plot_loss_graph(
-    #     eval_results: list[BaseEvaluationResult], output_dir: Path, args: Namespace
-    # ) -> None:
-    #     """
-    #     Plots the loss curves for a model.
-    #
-    #     Includes training, validation, and test loss based on user flags.
-    #
-    #     :param eval_results: The aggregated evaluation results for the model.
-    #     :param output_dir: The directory to save the plot image.
-    #     :param args: The command-line arguments to check which losses to plot.
-    #     """
-    #     datasets_to_plot: list[PlotDataset] = []
-    #     history_epochs: list[int] = list(range(1, len(eval_results.full_training_loss_history) + 1))
-    #
-    #     if args.training_loss:
-    #         datasets_to_plot.append({"label": "Training Loss", "data": eval_results.full_training_loss_history})
-    #     if args.validation_loss:
-    #         datasets_to_plot.append({"label": "Validation Loss", "data": eval_results.full_validation_loss_history})
-    #     if args.test_loss:
-    #         # Align test loss data with the full epoch history
-    #         test_loss_aligned_data = [float('nan')] * len(history_epochs)
-    #         for i, epoch in enumerate(eval_results.evaluated_epochs):
-    #             if 1 <= epoch <= len(history_epochs):
-    #                 test_loss_aligned_data[epoch - 1] = eval_results.test_losses[i]
-    #         datasets_to_plot.append({"label": "Test Loss", "data": test_loss_aligned_data})
-    #
-    #     plot_multi_line_graph(
-    #         title=f"Loss Curves for {eval_results.model_id}",
-    #         save_path=output_dir / "loss_curves.png",
-    #         x_data=history_epochs,
-    #         y_datasets=datasets_to_plot,
-    #         x_label="Epoch",
-    #         y_label="Loss",
-    #         y_formatter='sci-notation'
-    #     )
+        try:
+            # --- Setup: Create and configure a temporary, format-less handler ---
+            # 1. Create a formatter that only outputs the message
+            result_formatter: Formatter = Formatter(fmt="%(message)s")
 
-    # @staticmethod
-    # def _plot_f1_score_graph(eval_results: list[BaseEvaluationResult], output_dir: Path) -> None:
-    #     """
-    #     Plots the F1-score curve for the sentiment model.
-    #
-    #     :param eval_results: The aggregated evaluation results for the sentiment model.
-    #     :param output_dir: The directory to save the plot image.
-    #     """
-    #     plot_multi_line_graph(
-    #         title=f"F1-Score on Test Set for {eval_results.model_id}",
-    #         save_path=output_dir / "f1_score_curve.png",
-    #         x_data=eval_results.evaluated_epochs,
-    #         y_datasets=[{"label": "Test F1-Score", "data": eval_results.test_f1_scores}],
-    #         x_label="Epoch",
-    #         y_label="F1-Score",
-    #         y_formatter='percent'
-    #     )
+            # 2. Safely get the stdout handler and its stream
+            stdout_handler: Handler | None = manager.get_handler('stdout')
+
+            # 2a. Check if the handler exists and is of the correct type
+            if not isinstance(stdout_handler, StreamHandler):
+                self._logger.error(
+                    "Critical: 'stdout' handler not found or is not a StreamHandler. Cannot produce clean output."
+                )
+                # Fallback to using the standard logger if setup fails
+                self._display_specific_metrics(result=result, args=args, result_logger=self._logger)
+                return
+
+            # 2b. Now it's safe to access .stream
+            result_handler_settings: HandlerSettings = HandlerSettings(
+                name=result_handler_name, level=LogLevel.INFO, output=stdout_handler.stream
+            )
+
+            # 3. Add the handler to the manager and set its custom formatter
+            result_handler = manager.add_handler(handler_settings=result_handler_settings)
+            result_handler.setFormatter(result_formatter)
+
+            # 4. Get a logger and link the new handler to it
+            result_logger: Logger = manager.get_logger(result_logger_name)
+            manager.link_handler_to_logger(logger_name=result_logger_name, handler_name=result_handler_name)
+            result_logger.propagate = False  # Prevent double-printing to the root logger
+
+            # --- Usage: Use the new logger for clean output ---
+            result_logger.info(f"--- Evaluation Metrics for Model '{result.model_id}' (Epoch {result.model_epoch}) ---")
+
+            # Delegate to subclass for specific metrics, passing the clean logger
+            self._display_specific_metrics(result=result, args=args, result_logger=result_logger)
+
+            result_logger.info("----------------------------------------------------")
+
+        finally:
+            # --- Teardown: Always clean up the temporary handler and logger ---
+            if manager.get_handler(result_handler_name):
+                self._logger.debug(f"Cleaning up temporary handler: {result_handler_name}")
+                manager.remove_handler(name=result_handler_name)
+            if manager.get_logger(result_logger_name):
+                self._logger.debug(f"Cleaning up temporary logger: {result_logger_name}")
+                manager.remove_logger(name=result_logger_name)
