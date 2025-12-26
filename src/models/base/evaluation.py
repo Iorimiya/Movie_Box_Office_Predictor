@@ -13,7 +13,7 @@ from src.models.base.base_model_core import BaseModelCore
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.models.base.display import ClassificationSummaryMixin
 from src.models.base.keras_setup import keras_base
-from src.utilities.metrics import RegressionReportDict, ClassificationReportDict
+from src.utilities.metrics import ClassificationReportDict, RegressionReportDict
 
 History = keras_base.callbacks.History
 
@@ -24,7 +24,7 @@ class BaseEvaluationConfig:
     A base dataclass for model evaluation configurations.
 
     Defines common attributes required for evaluating a model, such as the
-    model's identity, the dataset to use, and flags for which metrics to compute.
+    model's identity and the dataset to use.
 
     :ivar model_id: The unique identifier for the model series.
     :ivar model_epoch: The specific training epoch of the model to evaluate.
@@ -36,9 +36,6 @@ class BaseEvaluationConfig:
                         reproducibility mode.
     :ivar random_state: The random seed for data splitting. Required only for
                         reproducibility mode.
-    :ivar calculate_loss: Flag to calculate loss on the test set.
-    :ivar calculate_f1_score: Flag to calculate F1-score on the test set.
-    :ivar f1_average_method: The averaging method for F1 score calculation.
     """
     model_id: str
     model_epoch: int
@@ -46,9 +43,6 @@ class BaseEvaluationConfig:
     evaluate_on_full_dataset: bool
     split_ratios: Optional[tuple[int, int, int]]
     random_state: Optional[int]
-    calculate_loss: bool
-    calculate_f1_score: bool
-    f1_average_method: str
 
 
 @dataclass(frozen=True)
@@ -121,7 +115,7 @@ class ClassificationEvaluationResult(GradientBasedEvaluationResult, Classificati
             lines.append(f"  - F1-Score: {self.classification_report['f1_score']:.4f}")
             lines.append("\n" + self.classification_report['report_string'])
 
-            matrix_str:str = self.format_confusion_matrix_string(
+            matrix_str: str = self.format_confusion_matrix_string(
                 matrix=self.classification_report['confusion_matrix'],
                 names=self.classification_report['target_names'] or []
             )
@@ -162,7 +156,7 @@ class BaseEvaluator(
 
     @abstractmethod
     def _setup_components(
-            self, model_id: str, model_epoch: int
+        self, model_id: str, model_epoch: int
     ) -> tuple[DataProcessorType, ModelCoreType, Path]:
         """
         Sets up and loads the necessary data processor and model core.
@@ -176,7 +170,7 @@ class BaseEvaluator(
 
     @abstractmethod
     def _prepare_test_data(
-            self, data_processor: DataProcessorType, config: EvaluationConfigType
+        self, data_processor: DataProcessorType, config: EvaluationConfigType
     ) -> tuple[NDArray[any], NDArray[any]]:
         """
         Loads and processes data to retrieve the test set for evaluation.
@@ -189,15 +183,15 @@ class BaseEvaluator(
 
     @abstractmethod
     def _create_evaluation_result(
-            self,
-            *,
-            config: EvaluationConfigType,
-            model_core: ModelCoreType,
-            data_processor: DataProcessorType,
-            x_test: NDArray[any],
-            y_test: NDArray[any],
-            training_history: list[float],
-            validation_history: list[float]
+        self,
+        *,
+        config: EvaluationConfigType,
+        model_core: ModelCoreType,
+        data_processor: DataProcessorType,
+        x_test: NDArray[any],
+        y_test: NDArray[any],
+        training_history: list[float],
+        validation_history: list[float]
     ) -> EvaluationResultType:
         """
         Creates the final, structured result object for the evaluation.
@@ -257,17 +251,17 @@ class BaseEvaluator(
         )
 
         data_processor: DataProcessorType
-        model_core:ModelCoreType
-        artifacts_path:Path
+        model_core: ModelCoreType
+        artifacts_path: Path
         # Setup components (delegated to subclass)
         data_processor, model_core, artifacts_path = self._setup_components(
             model_id=config.model_id, model_epoch=config.model_epoch
         )
 
         # Load history (common logic)
-        history_path:Path = artifacts_path / BaseTrainingPipeline.HISTORY_FILE_NAME
-        training_loss:list[float]
-        validation_loss:list[float]
+        history_path: Path = artifacts_path / BaseTrainingPipeline.HISTORY_FILE_NAME
+        training_loss: list[float]
+        validation_loss: list[float]
         training_loss, validation_loss = self.load_training_history(history_file_path=history_path)
 
         # Prepare test data (delegated to subclass)
@@ -277,7 +271,7 @@ class BaseEvaluator(
 
         # Delegate the entire evaluation and compilation to the subclass
         self.logger.info("Creating final evaluation result...")
-        final_result:EvaluationResultType = self._create_evaluation_result(
+        final_result: EvaluationResultType = self._create_evaluation_result(
             config=config,
             model_core=model_core,
             data_processor=data_processor,
