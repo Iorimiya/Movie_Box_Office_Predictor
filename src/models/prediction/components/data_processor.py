@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Final, Optional
+from typing import Final, Optional, TypedDict
 
 from numpy import array, expand_dims, float32, float64
 from numpy.typing import NDArray
@@ -10,10 +10,35 @@ from typing_extensions import override
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import PickleFile
-from src.data_handling.movie_collections import MovieData, WeekData, MovieSessionData
-from src.models.base.base_data_processor import BaseDataConfig
+from src.data_handling.movie_collections import MovieData, MovieSessionData, WeekData
 from src.models.base.data_splitter import SplitDataset
-from src.models.base.evaluable_data_processor import EvaluableDataProcessor
+from src.models.base.gradient_data_processor import GradientDataProcessor, GradientDataConfig
+
+
+class PredictionConfigDict(TypedDict, total=False):
+    """
+    Type definition for the prediction model's configuration dictionary (loaded from YAML).
+
+    This ensures type safety when handling the raw configuration dictionary before it is converted into specific dataclasses. It includes Optional fields to allow for partial configurations or fields that are not required in all modes (e.g., inference).
+    """
+    model_id: str
+    dataset_name: str
+    training_week_len: int
+    # Made Optional to align with PredictionDataConfig's flexibility for inference mode
+    split_ratios: Optional[tuple[int, int, int]]
+    lstm_units: int
+    dropout_rate: float
+    epochs: int
+    batch_size: int
+    verbose: int
+    checkpoint_interval: int
+    early_stopping_patience: int
+    early_stopping_monitor: str
+    early_stopping_min_delta: float
+    box_office_ranges: list[int]
+    f1_average_method: str
+    # Made Optional as it might not be present in partial configs or inference
+    random_state: Optional[int]
 
 
 @dataclass(frozen=True)
@@ -32,17 +57,36 @@ PredictionPredictionRawData: type = MovieData
 PredictionPredictionProcessedData: type = NDArray[float32]
 
 
-@dataclass(frozen=True)
-class PredictionDataConfig(BaseDataConfig):  # <-- Inherit from BaseDataConfig
+class PredictionDataConfig(GradientDataConfig):
     """
-    Configuration for processing data for prediction model training.
+    Configuration for the prediction model's data processing.
 
-    Inherits common splitting parameters from BaseDataConfig.
+    Inherits splitting capabilities from GradientDataConfig and adds prediction-specific parameters.
 
-    :ivar training_week_len: The number of past weeks to use as input for prediction.
+    :ivar _training_week_len: The length of the training week window.
     """
-    # The common fields are now inherited. We only need to define the unique ones.
-    training_week_len: int
+    _training_week_len: int
+
+    def __init__(self, *,
+                 training_week_len: int,
+                 split_ratios: Optional[tuple[int, int, int]] = None,
+                 random_state: Optional[int] = None,
+                 **kwargs: any):
+        """
+        Initializes the PredictionDataConfig.
+
+        :param training_week_len: The number of weeks of data to use for training.
+        :param split_ratios: The ratio for splitting data (train, val, test).
+        :param random_state: The seed for the random number generator.
+        :param kwargs: Additional keyword arguments passed to the base class.
+        """
+        super().__init__(split_ratios=split_ratios, random_state=random_state, **kwargs)
+
+        self._training_week_len = training_week_len
+
+    @property
+    def training_week_len(self) -> int:
+        return self._training_week_len
 
 
 @dataclass(frozen=True)
@@ -66,7 +110,7 @@ class PredictionFeature:
         """
         Converts the structured features into a numerical list for model input.
 
-        :returns: A list of numerical features in a specific order.
+        :return: A list of numerical features in a specific order.
         """
         return [
             self.box_office,
@@ -78,7 +122,7 @@ class PredictionFeature:
 
 
 class PredictionDataProcessor(
-    EvaluableDataProcessor[
+    GradientDataProcessor[
         PredictionDataSource,
         PredictionTrainingRawData,
         PredictionTrainingProcessedData,
@@ -130,7 +174,6 @@ class PredictionDataProcessor(
         self.model_artifacts_path.mkdir(parents=True, exist_ok=True)
         artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
         self.logger.info(f"Saving scaler and settings artifact to: {artifact_path}")
-
         PickleFile(path=artifact_path).save(data=self.scaler)
 
     @override
@@ -163,7 +206,7 @@ class PredictionDataProcessor(
         :returns: A list of MovieData objects.
         """
         self.logger.info(f"Loading raw prediction data from dataset: '{source.dataset_name}'")
-        dataset = Dataset(name=source.dataset_name)
+        dataset: Dataset = Dataset(name=source.dataset_name)
         movie_data_list: list[MovieData] = dataset.load_movie_data(mode='ALL')
 
         if not movie_data_list:
@@ -172,8 +215,9 @@ class PredictionDataProcessor(
         return movie_data_list
 
     @override
-    def process_for_prediction(self, single_input: PredictionPredictionRawData,
-                               config: Optional[PredictionDataConfig] = None) -> PredictionPredictionProcessedData:
+    def process_for_prediction(
+        self, single_input: PredictionPredictionRawData, config: Optional[PredictionDataConfig] = None
+    ) -> PredictionPredictionProcessedData:
         """
         Processes a single movie's data for prediction.
 
@@ -260,8 +304,9 @@ class PredictionDataProcessor(
         return x_scaled, y_scaled
 
     @override
-    def _prepare_for_split(self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig) -> tuple[
-        NDArray[float32], NDArray[float64]]:
+    def _prepare_for_split(
+        self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig
+    ) -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Creates time-series sequences (x and y) from raw movie data.
 
@@ -280,8 +325,9 @@ class PredictionDataProcessor(
         return x, y
 
     @override
-    def _post_process_splits(self, split_data: SplitDataset[NDArray[float32], NDArray[float64]],
-                             config: PredictionDataConfig) -> PredictionTrainingProcessedData:
+    def _post_process_splits(
+        self, split_data: SplitDataset[NDArray[float32], NDArray[float64]], config: PredictionDataConfig
+    ) -> PredictionTrainingProcessedData:
         """
         Fits the scaler on the training data and applies it to all data splits.
 
@@ -292,8 +338,9 @@ class PredictionDataProcessor(
         return self._scale_data(unscaled_data=split_data)
 
     @staticmethod
-    def _create_xy_from_sessions(sessions: list[MovieSessionData], week_limit: int) \
-        -> tuple[NDArray[float32], NDArray[float64]]:
+    def _create_xy_from_sessions(
+        sessions: list[MovieSessionData], week_limit: int
+    ) -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Creates input sequences (x) and target values (y) from a list of MovieSessionData.
 
@@ -350,7 +397,8 @@ class PredictionDataProcessor(
         """
 
         return list(
-            map(lambda week: PredictionDataProcessor._extract_features_from_week(week=week).as_numerical_list(), weeks))
+            map(lambda week: PredictionDataProcessor._extract_features_from_week(week=week).as_numerical_list(), weeks)
+        )
 
     def _scale_feature_in_sequences(self, sequences: NDArray[float32]) -> NDArray[float32]:
         """
@@ -379,8 +427,9 @@ class PredictionDataProcessor(
 
         return scaled_sequences
 
-    def _scale_data(self, unscaled_data: SplitDataset[NDArray[float32], NDArray[float64]]) \
-        -> PredictionTrainingProcessedData:
+    def _scale_data(
+        self, unscaled_data: SplitDataset[NDArray[float32], NDArray[float64]]
+    ) -> PredictionTrainingProcessedData:
         """
         Fits a scaler on the training data and applies it to all data splits.
 
