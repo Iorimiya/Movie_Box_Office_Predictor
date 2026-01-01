@@ -1,0 +1,46 @@
+FROM continuumio/anaconda3
+
+LABEL maintainer="Iorimiya <iorimiya.vina@gmail.com>"
+LABEL version="1.0.0"
+LABEL description="Movie Box Office Predictor Compute Node (GPU version)"
+
+RUN apt-get update && apt-get install -y \
+    libglib2.0-0 \
+    libnss3 \
+    libnspr4 \
+    libfontconfig1 \
+    libcups2 \
+    libxdamage1 \
+    libxcomposite1 \
+    libxrandr2 \
+    libasound2 \
+    libatk1.0-0 \
+    libgtk-3-0 \
+    libgdk-pixbuf2.0-0 \
+    libxkbcommon0 \
+    libxss1 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Path is relative to the build context (project root)
+COPY environments/compute-gpu/requirements.yaml /tmp/requirements.yaml
+
+ENV CONDA_OVERRIDE_CUDA="11.7"
+
+RUN conda config --set remote_read_timeout_secs 600.0 && \
+    conda config --set remote_connect_timeout_secs 60.0 && \
+    conda config --set remote_max_retries 5
+
+RUN conda env create -n compute_env -f /tmp/requirements.yaml && \
+    conda clean -afy
+
+ENV PATH /opt/conda/envs/compute_env/bin:$PATH
+
+ENV SHELL /bin/bash
+
+# Use 'conda run' and point to the script in the mounted src folder
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "compute_env", "python", "src/main.py"]
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
+
+

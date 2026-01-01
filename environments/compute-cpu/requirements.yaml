@@ -2,13 +2,10 @@
 # conda environment
 # using LLM to analyse sentiment
 
-name: movie_box_office_predictor-GPU
+name: movie_box_office_predictor-CPU
 channels:
   - defaults
   - conda-forge
-  - https://repo.anaconda.com/pkgs/main
-  - https://repo.anaconda.com/pkgs/r
-  - https://repo.anaconda.com/pkgs/msys2
 dependencies:
 # python
   - defaults::python=3.10
@@ -23,7 +20,7 @@ dependencies:
 # tensorflow
   - conda-forge::cudatoolkit=11.7
   - conda-forge::cudnn=8.4
-  - conda-forge::tensorflow=2.9.1=cuda*
+  - conda-forge::tensorflow=2.9.1=cpu*
   - defaults::scikit-learn=1.6
   - conda-forge::keras-preprocessing=1.1
 # others
@@ -32,9 +29,6 @@ dependencies:
   - defaults::openpyxl=3.1
   - defaults::pyyaml=6.0.2
   - conda-forge::openai
+  - defaults::flask=3.1.2
   - pip:
     - "seleniumbase==4.34.16"
-
-# sudo apt-get update
-# Selenium required
-# sudo apt-get install -y libglib2.0-0t64 libnss3 libnspr4 libfontconfig1 libcups2t64 libxdamage1 libxcomposite1 libxrandr2 libasound2t64 libatk1.0-0t64 libgtk-3-0t64 libgdk-pixbuf2.0-0 libxkbcommon0 libxss1
