@@ -16,7 +16,11 @@ from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.movie_metadata import MovieMetadata
 from src.models.base.evaluation import BaseEvaluationResult
-from src.models.prediction.components.data_processor import PredictionDataConfig, PredictionDataProcessor
+from src.models.prediction.components.data_processor import (
+    PredictionConfigDict,
+    PredictionDataConfig,
+    PredictionDataProcessor
+)
 from src.models.prediction.components.evaluator import (
     PredictionEvaluationConfig,
     PredictionEvaluationResult,
@@ -27,7 +31,7 @@ from src.models.prediction.pipelines.training_pipeline import PredictionPipeline
 from src.utilities.plot import plot_multi_line_graph
 
 
-class PredictionModelHandler(RegressionModelHandler):
+class PredictionModelHandler(RegressionModelHandler[PredictionConfigDict]):
     """
     Handles CLI commands related to the box office prediction model.
 
@@ -65,7 +69,7 @@ class PredictionModelHandler(RegressionModelHandler):
                      other training-related parameters.
         :raises SystemExit: If there is a configuration error or the pipeline fails.
         """
-        effective_config: dict[str, any] = self._prepare_training_config(args=args)
+        effective_config: PredictionConfigDict = self._prepare_training_config(args=args)
 
         try:
             artifacts_folder: Path = ProjectPaths.get_model_root_path(
@@ -303,7 +307,7 @@ class PredictionModelHandler(RegressionModelHandler):
 
     @override
     def _build_evaluation_config(
-        self, args: Namespace, original_config_data: dict[str, any], epoch_to_evaluate: int
+        self, args: Namespace, original_config_data:PredictionConfigDict, epoch_to_evaluate: int
     ) -> PredictionEvaluationConfig:
         """
         Builds the evaluation configuration object for a single epoch.

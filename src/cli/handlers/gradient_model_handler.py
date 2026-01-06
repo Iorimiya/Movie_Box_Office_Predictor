@@ -5,7 +5,7 @@ from pathlib import Path
 
 from typing_extensions import override
 
-from src.cli.handlers.base_model_handler import BaseModelHandler
+from src.cli.handlers.base_model_handler import BaseModelHandler, ConfigDictType
 from src.core.project_config import ProjectPaths
 from src.models.base.evaluation import (
     BaseEvaluationResult,
@@ -16,7 +16,7 @@ from src.models.base.evaluation import (
 from src.utilities.plot import PlotDataset, plot_multi_line_graph
 
 
-class GradientModelHandler(BaseModelHandler, ABC):
+class GradientModelHandler(BaseModelHandler[ConfigDictType], ABC):
     """
     An abstract handler for models trained with gradient descent.
 
@@ -27,10 +27,10 @@ class GradientModelHandler(BaseModelHandler, ABC):
 
     @abstractmethod
     def _plot_specific_graphs(
-            self,
-            eval_results: list[BaseEvaluationResult],
-            output_dir: Path,
-            args: Namespace
+        self,
+        eval_results: list[BaseEvaluationResult],
+        output_dir: Path,
+        args: Namespace
     ) -> None:
         """
         Plots graphs for metrics specific to the concrete model type.
@@ -80,7 +80,7 @@ class GradientModelHandler(BaseModelHandler, ABC):
         self._plot_specific_graphs(eval_results=eval_results, output_dir=output_dir, args=args)
 
     def _plot_loss_graph(
-            self, eval_results: list[BaseEvaluationResult], output_dir: Path, args: Namespace
+        self, eval_results: list[BaseEvaluationResult], output_dir: Path, args: Namespace
     ) -> None:
         """
         Plots the common loss curves for a model (Training and Validation).
@@ -125,7 +125,7 @@ class GradientModelHandler(BaseModelHandler, ABC):
         )
 
 
-class RegressionModelHandler(GradientModelHandler, ABC):
+class RegressionModelHandler(GradientModelHandler[ConfigDictType], ABC):
     """
     An abstract handler for regression models trained with gradient descent.
 
@@ -136,10 +136,10 @@ class RegressionModelHandler(GradientModelHandler, ABC):
 
     @override
     def _plot_specific_graphs(
-            self,
-            eval_results: list[BaseEvaluationResult],
-            output_dir: Path,
-            args: Namespace
+        self,
+        eval_results: list[BaseEvaluationResult],
+        output_dir: Path,
+        args: Namespace
     ) -> None:
         """
         Plots graphs specific to regression models, primarily the test loss curve.
@@ -198,7 +198,7 @@ class RegressionModelHandler(GradientModelHandler, ABC):
             result_logger.info(f"  - Test Loss (MSE): {result.regression_report['mse']:.6f}")
 
 
-class ClassificationModelHandler(GradientModelHandler, ABC):
+class ClassificationModelHandler(GradientModelHandler[ConfigDictType], ABC):
     """
     An abstract handler for classification models trained with gradient descent.
 
@@ -209,10 +209,10 @@ class ClassificationModelHandler(GradientModelHandler, ABC):
 
     @override
     def _plot_specific_graphs(
-            self,
-            eval_results: list[BaseEvaluationResult],
-            output_dir: Path,
-            args: Namespace
+        self,
+        eval_results: list[BaseEvaluationResult],
+        output_dir: Path,
+        args: Namespace
     ) -> None:
         """
         Plots graphs specific to classification models, such as the F1-score curve.

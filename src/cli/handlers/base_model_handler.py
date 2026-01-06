@@ -3,14 +3,17 @@ from argparse import ArgumentParser, Namespace
 from logging import Formatter, Handler, Logger, StreamHandler
 from pathlib import Path
 from random import randint
+from typing import cast, Generic, TypeVar
 
 from src.core.logging_manager import HandlerSettings, LoggingManager, LogLevel
 from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.file_io import PickleFile, YamlFile
 from src.models.base.evaluation import BaseEvaluationConfig, BaseEvaluationResult, BaseEvaluator
 
+ConfigDictType = TypeVar('ConfigDictType', bound=dict)
 
-class BaseModelHandler(ABC):
+
+class BaseModelHandler(Generic[ConfigDictType], ABC):
     """
     An abstract base class for model handlers to reduce code duplication.
 
@@ -85,10 +88,10 @@ class BaseModelHandler(ABC):
             'training_loss', 'validation_loss', 'test_loss',
             'classification_report', 'show_f1_score', 'show_confusion_matrix'
         ]
-        original_config_data: dict[str, any] = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
+        original_config_data: ConfigDictType = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
 
         try:
-            eval_config: any = self._build_evaluation_config(
+            eval_config: BaseEvaluationConfig = self._build_evaluation_config(
                 args=args,
                 original_config_data=original_config_data,
                 epoch_to_evaluate=args.epoch
@@ -129,7 +132,7 @@ class BaseModelHandler(ABC):
         """
         pass
 
-    def _prepare_training_config(self, args: Namespace) -> dict[str, any]:
+    def _prepare_training_config(self, args: Namespace) -> ConfigDictType:
         """
         A template method to prepare the final configuration for a training run.
 
@@ -170,7 +173,7 @@ class BaseModelHandler(ABC):
             if args.config_override:
                 self._parser.error("Argument --config-override cannot be used with --continue-from-epoch.")
 
-            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=True)
+            individual_overrides: ConfigDictType = self._get_individual_overrides(args=args, is_continue_mode=True)
             if individual_overrides:
                 self._parser.error(
                     f"Individual overrides like --{next(iter(individual_overrides))} cannot be used with --continue-from-epoch.")
@@ -182,29 +185,35 @@ class BaseModelHandler(ABC):
                 )
 
             self._logger.info(f"Using existing configuration file: {final_config_path}")
-            return YamlFile(path=final_config_path).load_single_document()
+            loaded_config: ConfigDictType = cast(
+                ConfigDictType, YamlFile(path=final_config_path).load_single_document()
+            )
+            return loaded_config
 
         else:
             # Mode: New Training
             self._logger.info(f"Executing: Start new training for {self._model_type_name} model '{model_id}'.")
 
             # Check for mutually exclusive arguments
-            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=False)
+            individual_overrides: ConfigDictType = self._get_individual_overrides(args=args, is_continue_mode=False)
             if args.config_override and individual_overrides:
                 self._parser.error("Argument --config-override cannot be used with individual parameter overrides.")
 
             # Load default configuration using the abstract method
             default_config_filename: str = self._get_default_config_filename()
             default_config_path: Path = ProjectPaths.get_config_path(config_name=default_config_filename)
+
             try:
-                default_config: dict[str, any] = YamlFile(path=default_config_path).load_single_document()
+                loaded_default_data: dict[str, any] = YamlFile(path=default_config_path).load_single_document()
+                default_config: ConfigDictType = loaded_default_data
                 self._logger.info(f"Loaded default configuration from: {default_config_path}")
             except FileNotFoundError:
                 self._parser.error(
                     f"Default configuration file '{default_config_filename}' not found at: {default_config_path}")
 
             # Apply overrides
-            effective_config: dict[str, any] = default_config.copy()
+            # noinspection PyTypeChecker
+            effective_config: ConfigDictType = default_config.copy()
             if args.config_override:
                 try:
                     self._logger.info(f"Applying overrides from file: {args.config_override}")
@@ -237,7 +246,7 @@ class BaseModelHandler(ABC):
             except Exception as e:
                 self._parser.error(f"Failed to save final configuration file: {e}")
 
-            return effective_config
+            return cast(ConfigDictType, effective_config)
 
     @abstractmethod
     def _get_evaluation_cache_filename(self) -> str:
@@ -253,7 +262,7 @@ class BaseModelHandler(ABC):
 
     @abstractmethod
     def _build_evaluation_config(
-        self, args: Namespace, original_config_data: dict[str, any], epoch_to_evaluate: int
+        self, args: Namespace, original_config_data: ConfigDictType, epoch_to_evaluate: int
     ) -> BaseEvaluationConfig:
         """
         Builds the appropriate evaluation configuration object for a single epoch.
@@ -298,7 +307,7 @@ class BaseModelHandler(ABC):
             'training_loss', 'validation_loss', 'test_loss',
             'classification_report', 'show_f1_score', 'show_confusion_matrix'
         ]
-        original_config_data: dict[str, any] = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
+        original_config_data: ConfigDictType = self._prepare_evaluation_context(args=args, required_flags=metric_flags)
 
         artifacts_folder: Path = ProjectPaths.get_model_root_path(model_id=model_id, model_type=self._model_type)
         available_epochs: list[int] = self._find_available_epochs(model_id=model_id, model_type=self._model_type)
@@ -389,16 +398,18 @@ class BaseModelHandler(ABC):
         return sorted(epochs)
 
     @staticmethod
-    def _get_individual_overrides(args: Namespace, is_continue_mode: bool = False) -> dict[str, any]:
+    def _get_individual_overrides(args: Namespace, is_continue_mode: bool = False) -> ConfigDictType:
         """
         Extracts individual parameter overrides from the argparse Namespace.
 
         This helper method filters out arguments that are not considered
-        overridable parameters.
+        overridable parameters and casts the result to the generic ConfigDictType.
+        This explicitly indicates that the returned dictionary represents a
+        partial configuration.
 
         :param args: The namespace object from argparse.
         :param is_continue_mode: A flag to adjust the keys to exclude for continuation mode.
-        :returns: A dictionary of individual override parameters.
+        :returns: A dictionary of individual override parameters, typed as ConfigDictType.
         """
         # Keys that are part of the CLI mechanism, not overridable config values
         # The subcommand key can vary, so find it dynamically.
@@ -411,12 +422,12 @@ class BaseModelHandler(ABC):
         if is_continue_mode:
             base_exclude_keys.add('continue_from_epoch')
 
-        return {
+        return cast(ConfigDictType, {
             key: value for key, value in vars(args).items()
             if key not in base_exclude_keys and value is not None
-        }
+        })
 
-    def _prepare_evaluation_context(self, args: Namespace, required_flags: list[str]) -> dict[str, any]:
+    def _prepare_evaluation_context(self, args: Namespace, required_flags: list[str]) -> ConfigDictType:
         """
         Performs common setup tasks for evaluation commands.
 
@@ -450,7 +461,7 @@ class BaseModelHandler(ABC):
             self._parser.error(f"Master config file 'config.yaml' not found for model_id '{args.model_id}'.")
 
         try:
-            return YamlFile(path=config_path).load_single_document()
+            return cast(ConfigDictType, YamlFile(path=config_path).load_single_document())
         except Exception as e:
             self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
 
