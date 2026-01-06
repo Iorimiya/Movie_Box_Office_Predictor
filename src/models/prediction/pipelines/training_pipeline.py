@@ -3,19 +3,21 @@ from pathlib import Path
 from typing import Optional
 
 from numpy.typing import NDArray
+from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
-from src.core.project_config import ProjectPaths, ProjectModelType
+from src.core.project_config import ProjectModelType, ProjectPaths
+from src.data_handling.movie_collections import MovieData
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.models.base.callbacks import F1ScoreHistory
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
-    PredictionDataProcessor, PredictionDataSource, PredictionDataConfig, PredictionTrainingProcessedData
+    PredictionDataConfig, PredictionDataProcessor, PredictionDataSource, PredictionTrainingProcessedData
 )
 from src.models.prediction.components.model_core import (
     PredictionBuildConfig, PredictionModelCore, PredictionTrainConfig
 )
-from src.utilities.metrics import PointwiseClassificationMetrics
+from src.utilities.metrics import PointwiseClassificationMetricsCalculator
 
 History = keras_base.callbacks.History
 ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
@@ -89,7 +91,7 @@ class PredictionTrainingPipeline(
         self.logger.info(f"--- Starting PREDICTION training pipeline for model: {config.model_id} ---")
         self.logger.info(f"Pipeline configured with: {config}")
 
-        master_config = config
+        master_config: PredictionPipelineConfig = config
 
         artifacts_folder: Path = ProjectPaths.get_model_root_path(
             model_id=master_config.model_id, model_type=ProjectModelType.PREDICTION
@@ -109,10 +111,10 @@ class PredictionTrainingPipeline(
 
         # Data Loading and Processing
         self.logger.info("Step 3: Loading and processing data...")
-        data_source = PredictionDataSource(dataset_name=master_config.dataset_name)
-        raw_data = self.data_processor.load_raw_data(source=data_source)
+        data_source: PredictionDataSource = PredictionDataSource(dataset_name=master_config.dataset_name)
+        raw_data: list[MovieData] = self.data_processor.load_raw_data(source=data_source)
 
-        processing_config = PredictionDataConfig(
+        processing_config: PredictionDataConfig = PredictionDataConfig(
             training_week_len=master_config.training_week_len,
             split_ratios=master_config.split_ratios,
             random_state=master_config.random_state
@@ -124,8 +126,8 @@ class PredictionTrainingPipeline(
 
         # Build Model (if new run)
         if not continue_from_epoch:
-            num_features = processed_data['x_train'].shape[2]
-            build_config = PredictionBuildConfig(
+            num_features: int = processed_data['x_train'].shape[2]
+            build_config: PredictionBuildConfig = PredictionBuildConfig(
                 input_shape=(master_config.training_week_len, num_features),
                 lstm_units=master_config.lstm_units,
                 dropout_rate=master_config.dropout_rate
@@ -159,7 +161,7 @@ class PredictionTrainingPipeline(
         if checkpoint_callback:
             monitoring_callbacks.append(checkpoint_callback)
 
-        train_config = PredictionTrainConfig(
+        train_config: PredictionTrainConfig = PredictionTrainConfig(
             epochs=master_config.epochs,
             batch_size=master_config.batch_size,
             validation_data=(processed_data['x_val'], processed_data['y_val']),
@@ -184,7 +186,6 @@ class PredictionTrainingPipeline(
         )
         self.logger.info("--- PREDICTION training pipeline finished successfully. ---")
 
-
     @override
     def _check_required_artifacts_for_continuation(self) -> None:
         """
@@ -200,7 +201,6 @@ class PredictionTrainingPipeline(
                 f"Could not load scaler for continued training from {self.data_processor.model_artifacts_path}."
             )
 
-
     @override
     def _create_model_core(self, model_path: Path) -> PredictionModelCore:
         """
@@ -210,7 +210,6 @@ class PredictionTrainingPipeline(
         :returns: An instance of `PredictionModelCore` with the model loaded.
         """
         return PredictionModelCore(model_path=model_path)
-
 
     def _setup_f1_score_callback(
         self,
@@ -238,15 +237,15 @@ class PredictionTrainingPipeline(
             return None
 
         # Create the function to convert continuous values to labels.
-        scaler = self.data_processor.scaler
-        ranges = config.box_office_ranges
+        scaler: MinMaxScaler = self.data_processor.scaler
+        ranges: tuple[int, ...] = config.box_office_ranges
 
         def value_to_label_fn(value: float) -> int:
             unscaled_value: float = scaler.inverse_transform([[value]])[0][0]
             return PredictionDataProcessor.get_range_index(value=unscaled_value, ranges=ranges)
 
         # Create and configure the metrics calculator.
-        metrics_calculator = PointwiseClassificationMetrics(
+        metrics_calculator = PointwiseClassificationMetricsCalculator(
             value_to_label_fn=value_to_label_fn,
             f1_average_method=config.f1_average_method
         )

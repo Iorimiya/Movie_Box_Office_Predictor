@@ -1,29 +1,39 @@
 from dataclasses import dataclass
+from logging import Logger
 from pathlib import Path
-from typing import Optional, Any
+from typing import Optional
 
-from numpy import array, float32, float64, int_
+from numpy import array, float32, float64
 from numpy.typing import NDArray
 from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
-from src.core.project_config import ProjectPaths, ProjectModelType
+from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.movie_collections import MovieData
-from src.models.base.base_evaluator import BaseEvaluator, BaseEvaluationResult, BaseEvaluationConfig
+from src.models.base.evaluation import (
+    BaseEvaluationConfig,
+    BaseEvaluator,
+    ClassificationSummaryMixin,
+    RegressionEvaluationResult,
+)
 from src.models.base.keras_setup import keras_base
 from src.models.prediction.components.data_processor import (
+    PredictionDataConfig,
     PredictionDataProcessor,
     PredictionDataSource,
-    PredictionDataConfig,
     PredictionTrainingProcessedData,
 )
 from src.models.prediction.components.model_core import (
     PredictionModelCore,
-    PredictionEvaluateConfig,
     PredictionPredictConfig,
 )
-
-from src.utilities.metrics import PointwiseClassificationMetrics, PairwiseClassificationMetrics
+from src.utilities.metrics import (
+    ClassificationReportDict,
+    PointwiseClassificationMetricsCalculator,
+    PairwiseClassificationMetricsCalculator,
+    RegressionMetricsCalculator,
+    RegressionReportDict
+)
 
 History = keras_base.callbacks.History
 
@@ -36,31 +46,272 @@ class PredictionEvaluationConfig(BaseEvaluationConfig):
     Inherits common evaluation parameters from BaseEvaluationConfig.
 
     :ivar training_week_len: The number of past weeks used for prediction.
-    :ivar calculate_trend_accuracy: Flag to calculate trend prediction accuracy.
-    :ivar calculate_range_accuracy: Flag to calculate range prediction accuracy.
+    :ivar calculate_loss: Flag to calculate loss (MSE) on the test set.
+    :ivar calculate_classification_metrics: Flag to enable classification-based metrics.
+    :ivar classification_method: The strategy for classification ('range' or 'trend').
     :ivar box_office_ranges: A tuple defining the upper boundaries of box office ranges.
     :ivar f1_average_method: The averaging method for F1 score calculation.
     """
-
     training_week_len: int = 4
-    calculate_trend_accuracy: bool = False
-    calculate_range_accuracy: bool = False
+    calculate_loss: bool = False
+    calculate_classification_metrics: bool = False
+    classification_method: Optional[str] = None
     box_office_ranges: tuple[int, ...] = (1_000_000, 10_000_000, 90_000_000)
     f1_average_method: str = 'macro'
 
 
 @dataclass(frozen=True)
-class PredictionEvaluationResult(BaseEvaluationResult):
+class PredictionEvaluationResult(RegressionEvaluationResult, ClassificationSummaryMixin):
     """
-    A structured result of a prediction model evaluation run.
+    The specific evaluation result for the Prediction model.
 
-    Inherits common fields from BaseEvaluationResult.
+    This class represents the most detailed evaluation result. It 'is-a'
+    RegressionEvaluationResult and also 'mixes-in' the
+    ClassificationSummaryMixin to gain summary generation capabilities.
+    It holds multiple reports and provides behaviors for its own creation
+    and presentation.
 
-    :ivar trend_accuracy: The trend prediction accuracy on the test set.
-    :ivar test_accuracy: The range prediction accuracy on the test set.
+    :ivar range_classification_report: A report for the pointwise classification
+                                       task (e.g., box office ranges).
+    :ivar trend_classification_report: A report for the pairwise classification
+                                       task (e.g., box office trend).
     """
-    trend_accuracy: Optional[float]
-    test_accuracy: Optional[float]
+    range_classification_report: Optional[ClassificationReportDict]
+    trend_classification_report: Optional[ClassificationReportDict]
+
+    @classmethod
+    def create(
+        cls,
+        *,
+        config: "PredictionEvaluationConfig",
+        model_core: "PredictionModelCore",
+        data_processor: "PredictionDataProcessor",
+        x_test: NDArray[any],
+        y_test: NDArray[any],
+        training_history: list[float],
+        validation_history: list[float],
+        logger: Logger
+    ) -> "PredictionEvaluationResult":
+        """
+        Factory method to create a complete evaluation result.
+
+        This method orchestrates all metric calculations by delegating to the
+        appropriate calculators and composes the final result object.
+
+        :param config: The evaluation configuration.
+        :param model_core: The trained model core.
+        :param data_processor: The data processor used for scaling/unscaling.
+        :param x_test: The test features.
+        :param y_test: The test labels.
+        :param training_history: The training loss history.
+        :param validation_history: The validation loss history.
+        :param logger: The logger instance.
+        :return: A fully populated PredictionEvaluationResult instance.
+        """
+        logger.info("Calculating requested metrics on the test set...")
+
+        # Regression Metrics
+        regression_report: Optional[RegressionReportDict] = None
+        if config.calculate_loss:
+            regression_report = cls._calculate_regression_report(
+                model_core=model_core, x_test=x_test, y_test=y_test, logger=logger
+            )
+
+        # Classification Metrics (requires unscaling)
+        range_report: Optional[ClassificationReportDict] = None
+        trend_report: Optional[ClassificationReportDict] = None
+
+        # Use the explicit flag to determine if unscaling is needed
+        if config.calculate_classification_metrics:
+            unscaled_pred: list[float]
+            unscaled_actual: list[float]
+            unscaled_inputs: list[float]
+            unscaled_pred, unscaled_actual, unscaled_inputs = cls._get_unscaled_predictions(
+                model_core=model_core, scaler=data_processor.scaler, x_test=x_test, y_test=y_test, logger=logger
+            )
+
+            # Dispatch based on the classification method strategy
+            if config.classification_method == 'range':
+                range_report = cls._calculate_range_report(
+                    predictions=unscaled_pred, actual=unscaled_actual, config=config, logger=logger
+                )
+            elif config.classification_method == 'trend':
+                trend_report = cls._calculate_trend_report(
+                    predictions=unscaled_pred, actual=unscaled_actual, last_inputs=unscaled_inputs, logger=logger
+                )
+
+        return cls(
+            model_id=config.model_id,
+            model_epoch=config.model_epoch,
+            training_loss_history=training_history,
+            validation_loss_history=validation_history,
+            regression_report=regression_report,
+            range_classification_report=range_report,
+            trend_classification_report=trend_report
+        )
+
+    @property
+    def summary_string(self) -> str:
+        """
+        Returns a formatted, multi-line summary string of all key metrics.
+        """
+        lines: list[str] = [f"Evaluation Summary for Model '{self.model_id}' (Epoch {self.model_epoch}):"]
+        if self.regression_report:
+            lines.append(f"  - MSE Loss: {self.regression_report['mse']:.6f}")
+            lines.append(f"  - MAE:      {self.regression_report['mae']:.6f}")
+            lines.append(f"  - R² Score: {self.regression_report['r2_score']:.4f}")
+        if self.range_classification_report:
+            lines.append(f"  - Range Accuracy: {self.range_classification_report['accuracy']:.2%}")
+            lines.append(f"  - Range F1-Score: {self.range_classification_report['f1_score']:.4f}")
+        if self.trend_classification_report:
+            lines.append(f"  - Trend Accuracy: {self.trend_classification_report['accuracy']:.2%}")
+            lines.append(f"  - Trend F1-Score: {self.trend_classification_report['f1_score']:.4f}")
+        return "\n".join(lines)
+
+    @staticmethod
+    def _calculate_regression_report(
+        model_core: "PredictionModelCore", x_test: NDArray[any], y_test: NDArray[any], logger: Logger
+    ) -> RegressionReportDict:
+        """
+        Calculates standard regression metrics.
+
+        :param model_core: The model core to use for prediction.
+        :param x_test: The test features.
+        :param y_test: The test labels.
+        :param logger: The logger instance.
+        :return: A dictionary containing MSE, MAE, and R2 score.
+        """
+        logger.info("Calculating regression metrics (MSE, MAE, R²)...")
+        y_pred_scaled: NDArray[any] = model_core.predict(data=x_test, config=PredictionPredictConfig(verbose=0))
+        regression_calculator: RegressionMetricsCalculator = RegressionMetricsCalculator()
+        report: RegressionReportDict = regression_calculator.generate_report(y_true=y_test, y_pred=y_pred_scaled)
+
+        logger.info(f"  - Test MSE Loss: {report['mse']:.6f}")
+        logger.info(f"  - Test MAE: {report['mae']:.6f}")
+        logger.info(f"  - Test R² Score: {report['r2_score']:.4f}")
+        return report
+
+    @staticmethod
+    def _get_unscaled_predictions(
+        model_core: PredictionModelCore, scaler: MinMaxScaler, x_test: NDArray[float32], y_test: NDArray[float64],
+        logger: Logger
+    ) -> tuple[list[float], list[float], list[float]]:
+        """
+        Generates model predictions and inverse-transforms them to their original scale.
+
+        This method also un-scales the actual labels and the last box office value
+        from each input sequence, which is needed for trend accuracy calculation.
+
+        :param model_core: The trained model core for generating predictions.
+        :param scaler: The `MinMaxScaler` instance used for scaling.
+        :param x_test: The scaled input test data.
+        :param y_test: The scaled target test data.
+        :returns: A tuple containing:
+                  - A list of unscaled predicted box office values.
+                  - A list of unscaled actual box office values.
+                  - A list of unscaled box office values from the last input week.
+        """
+        logger.info("Generating unscaled predictions for classification metrics...")
+        y_pred_scaled: NDArray[any] = model_core.predict(data=x_test, config=PredictionPredictConfig(verbose=0))
+        unscaled_predictions: list[float] = scaler.inverse_transform(y_pred_scaled).flatten().tolist()
+        unscaled_actual: list[float] = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten().tolist()
+        last_week_input_scaled: NDArray[float32] = x_test[:, -1, 0].reshape(-1, 1)
+        unscaled_last_week_inputs: list[float] = scaler.inverse_transform(last_week_input_scaled).flatten().tolist()
+        return unscaled_predictions, unscaled_actual, unscaled_last_week_inputs
+
+    @staticmethod
+    def _calculate_range_report(
+        predictions: list[float], actual: list[float], config: "PredictionEvaluationConfig", logger: Logger
+    ) -> ClassificationReportDict:
+        """
+        Calculates classification metrics based on box office revenue ranges.
+
+        :param predictions: The unscaled predicted values.
+        :param actual: The unscaled actual values.
+        :param config: The evaluation configuration containing range definitions.
+        :param logger: The logger instance.
+        :return: A dictionary containing classification metrics for ranges.
+        """
+        logger.info("Calculating pointwise metrics (Range Accuracy, F1-Score)...")
+
+        def value_to_label_fn(value: float) -> int:
+            return PredictionDataProcessor.get_range_index(value=value, ranges=config.box_office_ranges)
+
+        range_labels: list[str] = PredictionEvaluationResult._generate_range_labels(ranges=config.box_office_ranges)
+        label_map: dict[int, str] = {i: label for i, label in enumerate(range_labels)}
+        metrics_calculator: PointwiseClassificationMetricsCalculator = PointwiseClassificationMetricsCalculator(
+            value_to_label_fn=value_to_label_fn, label_map=label_map, f1_average_method=config.f1_average_method
+        )
+        report: ClassificationReportDict = \
+            metrics_calculator.generate_report(y_true=array(actual), y_pred=array(predictions))
+        logger.info(f"  - Range Accuracy: {report['accuracy']:.2%}")
+        logger.info(f"  - F1-Score (Range, avg='{config.f1_average_method}'): {report['f1_score']:.4f}")
+
+        matrix_str: str = PredictionEvaluationResult.format_confusion_matrix_string(
+            matrix=report['confusion_matrix'],
+            names=report.get('target_names') or []
+        )
+        logger.info(f"Full range classification report:\n{report['report_string']}\n\nConfusion Matrix:\n{matrix_str}")
+        return report
+
+    @staticmethod
+    def _calculate_trend_report(
+        predictions: list[float], actual: list[float], last_inputs: list[float], logger: Logger
+    ) -> ClassificationReportDict:
+        """
+        Calculates classification metrics based on the trend (increase/decrease).
+
+        :param predictions: The unscaled predicted values.
+        :param actual: The unscaled actual values.
+        :param last_inputs: The unscaled values from the previous time step.
+        :param logger: The logger instance.
+        :return: A dictionary containing classification metrics for trends.
+        """
+        logger.info("Calculating pairwise metrics (Trend Accuracy, F1-Score)...")
+
+        def trend_fn(value: float, reference: float) -> int:
+            return 1 if value > reference else 0
+
+        metrics_calculator: PairwiseClassificationMetricsCalculator = PairwiseClassificationMetricsCalculator(
+            value_pair_to_label_fn=trend_fn, reference_values=array(last_inputs),
+            label_map={0: 'Decrease/Stay', 1: 'Increase'}, f1_average_method='binary'
+        )
+        report: ClassificationReportDict = \
+            metrics_calculator.generate_report(y_true=array(actual), y_pred=array(predictions))
+        logger.info(f"  - Trend Accuracy: {report['accuracy']:.2%}")
+        logger.info(f"  - F1-Score (Trend, avg='binary'): {report['f1_score']:.4f}")
+
+        matrix_str: str = PredictionEvaluationResult.format_confusion_matrix_string(
+            matrix=report['confusion_matrix'],
+            names=report.get('target_names') or []
+        )
+        logger.info(f"Full trend classification report:\n{report['report_string']}\n\nConfusion Matrix:\n{matrix_str}")
+        return report
+
+    @staticmethod
+    def _generate_range_labels(ranges: tuple[int, ...]) -> list[str]:
+        """
+        Generates human-readable string labels for the defined box office ranges.
+
+        :param ranges: A tuple of integer boundaries for the ranges.
+        :return: A list of string labels (e.g., "< 1.0M", "1.0M - 10.0M").
+        """
+        if not ranges:
+            return []
+        sorted_ranges: list[int] = sorted(list(ranges))
+        labels: list[str] = []
+
+        def fmt(n: int) -> str:
+            if n >= 1_000_000_000: return f"{n / 1_000_000_000:.1f}B"
+            if n >= 1_000_000: return f"{n / 1_000_000:.1f}M"
+            if n >= 1_000: return f"{n / 1_000:.1f}K"
+            return str(n)
+
+        labels.append(f"< {fmt(sorted_ranges[0])}")
+        for i in range(len(sorted_ranges) - 1):
+            labels.append(f"{fmt(sorted_ranges[i])} - {fmt(sorted_ranges[i + 1])}")
+        labels.append(f">= {fmt(sorted_ranges[-1])}")
+        return labels
 
 
 class PredictionEvaluator(
@@ -69,10 +320,9 @@ class PredictionEvaluator(
     """
     Evaluates a trained box office prediction model.
 
-    This evaluator loads a specific model checkpoint and its corresponding scaler,
-    recreates the test dataset, and computes various performance metrics such as
-    MSE loss, trend accuracy, and delegates classification-based metrics to a
-    centralized framework.
+    This evaluator is now a lightweight coordinator. It sets up components,
+    prepares data, and then delegates the entire metric calculation and result
+    compilation process to the `PredictionEvaluationResult.create` factory method.
     """
 
     @override
@@ -82,17 +332,13 @@ class PredictionEvaluator(
         """
         Sets up and loads the necessary data processor and model core for evaluation.
 
-        This method constructs the paths to the model and its artifacts, then
-        initializes the data processor and the model core by loading them from
-        the specified files.
-
-        :param model_id: The unique identifier of the model to be loaded.
-        :param model_epoch: The specific epoch of the model to load.
-        :returns: A tuple containing the initialized data processor, the loaded model core,
-                  and the path to the model's artifacts directory.
-        :raises FileNotFoundError: If the scaler artifact cannot be found or loaded.
+        :param model_id: The unique identifier for the model series.
+        :param model_epoch: The specific training epoch of the model to load.
+        :return: A tuple containing the initialized data processor, model core,
+                 and the path to the model artifacts directory.
+        :raises FileNotFoundError: If the scaler artifact cannot be found.
         """
-        self.logger.info("Step 1: Loading model and data processor artifacts...")
+        self.logger.info("Loading model and data processor artifacts...")
         artifacts_path: Path = ProjectPaths.get_model_root_path(
             model_id=model_id, model_type=ProjectModelType.PREDICTION
         )
@@ -112,17 +358,12 @@ class PredictionEvaluator(
         """
         Loads and processes data to retrieve the evaluation set.
 
-        This method supports two modes based on `config.evaluate_on_full_dataset`:
-        - If `False` (default), it reproduces the original test split from the dataset.
-        - If `True`, it processes the entire dataset as a single evaluation set.
-
-        :param data_processor: The initialized data processor with its scaler loaded.
+        :param data_processor: The initialized data processor.
         :param config: The configuration object for the evaluation run.
-        :returns: A tuple containing the evaluation features (x_eval) and labels (y_eval).
-        :raises ValueError: If `evaluate_on_full_dataset` is `False` but `split_ratios`
-                            or `random_state` are not provided in the config.
+        :return: A tuple containing the evaluation features (x_eval) and labels (y_eval).
+        :raises ValueError: If reproducibility mode is selected but split parameters are missing.
         """
-        self.logger.info("Step 3: Loading and processing evaluation dataset...")
+        self.logger.info("Loading and processing evaluation dataset...")
         data_source: PredictionDataSource = PredictionDataSource(dataset_name=config.dataset_name)
         raw_data: list[MovieData] = data_processor.load_raw_data(source=data_source)
 
@@ -153,343 +394,40 @@ class PredictionEvaluator(
             return processed_data['x_test'], processed_data['y_test']
 
     @override
-    def _calculate_metrics(
+    def _create_evaluation_result(
         self,
+        *,
+        config: PredictionEvaluationConfig,
         model_core: PredictionModelCore,
         data_processor: PredictionDataProcessor,
-        x_test: NDArray[float32],
-        y_test: NDArray[float64],
-        config: PredictionEvaluationConfig
-    ) -> dict[str, Optional[float]]:
-        """
-        Calculates various performance metrics based on the evaluation configuration.
-
-        This method orchestrates the calculation of MSE loss, trend accuracy,
-        and delegates classification-based metrics (range accuracy, F1-score)
-        to the centralized metrics framework.
-
-        :param model_core: The trained model core to use for predictions.
-        :param data_processor: The data processor containing the fitted scaler.
-        :param x_test: The test features.
-        :param y_test: The test labels (scaled).
-        :param config: The configuration directing which metrics to calculate.
-        :returns: A dictionary mapping metric names to their calculated values.
-        """
-        metrics: dict[str, Optional[float]] = {
-            'test_loss': None,
-            'trend_accuracy': None,
-            'test_accuracy': None,
-            'f1_score': None
-        }
-
-        if config.calculate_f1_score and not (config.calculate_range_accuracy or config.calculate_trend_accuracy):
-            raise ValueError(
-                "The 'calculate_f1_score' flag cannot be used alone. "
-                "It must be combined with either 'calculate_range_accuracy' or 'calculate_trend_accuracy'."
-            )
-        if config.calculate_loss:
-            metrics['test_loss'] = self._calculate_mse_loss(model_core=model_core, x_test=x_test, y_test=y_test)
-
-        needs_unscaling: bool = any([
-            config.calculate_trend_accuracy,
-            config.calculate_range_accuracy,
-            config.calculate_f1_score
-        ])
-
-        if needs_unscaling:
-            unscaled_pred, unscaled_actual, unscaled_inputs = self._get_unscaled_predictions(
-                model_core=model_core,
-                scaler=data_processor.scaler,
-                x_test=x_test,
-                y_test=y_test
-            )
-            if config.calculate_trend_accuracy:
-                trend_metrics: dict[str, Optional[float]] = self._calculate_trend_metrics(
-                    predictions=unscaled_pred,
-                    actual=unscaled_actual,
-                    last_inputs=unscaled_inputs,
-                    calculate_f1=config.calculate_f1_score  # Pass the f1 flag
-                )
-                metrics['trend_accuracy'] = trend_metrics.get('accuracy')
-                # Only populate f1_score if it was requested for this method
-                if config.calculate_f1_score:
-                    metrics['f1_score'] = trend_metrics.get('f1_score')
-
-            if config.calculate_range_accuracy:
-                range_metrics: dict[str, Optional[float]] = self._calculate_range_metrics(
-                    predictions=unscaled_pred,
-                    actual=unscaled_actual,
-                    config=config,
-                    calculate_f1=config.calculate_f1_score  # Pass the f1 flag
-                )
-                metrics['test_accuracy'] = range_metrics.get('accuracy')
-                # Only populate f1_score if it was requested for this method
-                if config.calculate_f1_score:
-                    metrics['f1_score'] = range_metrics.get('f1_score')
-
-        return metrics
-
-    @override
-    def _compile_final_result(
-        self,
-        config: PredictionEvaluationConfig,
-        metrics: dict[str, Optional[float]],
+        x_test: NDArray[any],
+        y_test: NDArray[any],
         training_history: list[float],
         validation_history: list[float]
     ) -> PredictionEvaluationResult:
         """
-        Compiles the final result object from the calculated metrics and history.
+        Creates the final PredictionEvaluationResult by calling its factory method.
 
-        :param config: The original evaluation configuration.
-        :param metrics: A dictionary of calculated performance metrics.
-        :param training_history: A list of training loss values from the model's history.
-        :param validation_history: A list of validation loss values from the model's history.
-        :returns: A populated `PredictionEvaluationResult` object.
-        """
-        return PredictionEvaluationResult(
-            model_id=config.model_id,
-            model_epoch=config.model_epoch,
-            test_loss=metrics.get('test_loss'),
-            trend_accuracy=metrics.get('trend_accuracy'),
-            test_accuracy=metrics.get('test_accuracy'),
-            f1_score=metrics.get('f1_score'),
-            training_loss_history=training_history,
-            validation_loss_history=validation_history
-        )
-
-    def _calculate_mse_loss(
-        self, model_core: PredictionModelCore, x_test: NDArray[float32], y_test: NDArray[float64]
-    ) -> float:
-        """
-        Calculates the Mean Squared Error (MSE) loss on the test set.
-
-        :param model_core: The model to evaluate.
+        :param config: The evaluation configuration.
+        :param model_core: The trained model core.
+        :param data_processor: The data processor used for scaling/unscaling.
         :param x_test: The test features.
         :param y_test: The test labels.
-        :returns: The MSE loss value.
+        :param training_history: The training loss history.
+        :param validation_history: The validation loss history.
+        :return: The fully populated evaluation result object.
         """
-        self.logger.info("Step 4a: Calculating MSE loss on the test set...")
-        eval_config: PredictionEvaluateConfig = PredictionEvaluateConfig(verbose=0)
-        loss: float = model_core.evaluate(x_test=x_test, y_test=y_test, config=eval_config)
-        self.logger.info(f"  - Test MSE Loss: {loss:.6f}")
-        return loss
-
-    def _get_unscaled_predictions(
-        self, model_core: PredictionModelCore, scaler: MinMaxScaler,
-        x_test: NDArray[float32], y_test: NDArray[float64]
-    ) -> tuple[list[float], list[float], list[float]]:
-        """
-        Generates model predictions and inverse-transforms them to their original scale.
-
-        This method also un-scales the actual labels and the last box office value
-        from each input sequence, which is needed for trend accuracy calculation.
-
-        :param model_core: The trained model core for generating predictions.
-        :param scaler: The `MinMaxScaler` instance used for scaling.
-        :param x_test: The scaled input test data.
-        :param y_test: The scaled target test data.
-        :returns: A tuple containing:
-                  - A list of unscaled predicted box office values.
-                  - A list of unscaled actual box office values.
-                  - A list of unscaled box office values from the last input week.
-        """
-        self.logger.info("Step 4b: Generating unscaled predictions for accuracy metrics...")
-        predict_config: PredictionPredictConfig = PredictionPredictConfig(verbose=0)
-        y_pred_scaled: NDArray[Any] = model_core.predict(data=x_test, config=predict_config)
-
-        unscaled_predictions: list[float] = scaler.inverse_transform(y_pred_scaled).flatten().tolist()
-        unscaled_actual: list[float] = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten().tolist()
-
-        # Unscale the last box office value from each input sequence
-        last_week_input_scaled: NDArray[float32] = x_test[:, -1, 0].reshape(-1, 1)
-        unscaled_last_week_inputs: list[float] = scaler.inverse_transform(last_week_input_scaled).flatten().tolist()
-
-        return unscaled_predictions, unscaled_actual, unscaled_last_week_inputs
-
-    def _calculate_range_metrics(
-        self,
-        predictions: list[float],
-        actual: list[float],
-        config: PredictionEvaluationConfig,
-        calculate_f1: bool
-    ) -> dict[str, Optional[float]]:
-        """
-        Calculates classification metrics based on predefined box office ranges.
-
-        This method uses the `PointwiseClassificationMetrics` framework to compute
-        accuracy and, optionally, the F1-score.
-
-        :param predictions: A list of unscaled predicted box office values.
-        :param actual: A list of unscaled actual box office values.
-        :param config: The evaluation configuration containing box office ranges.
-        :param calculate_f1: A boolean flag indicating whether to compute the F1-score.
-        :returns: A dictionary with 'accuracy' and optional 'f1_score'.
-        """
-        self.logger.info("Calculating pointwise metrics (Range Accuracy, F1-Score)...")
-
-        def value_to_label_fn(value: float) -> int:
-            return PredictionDataProcessor.get_range_index(value=value, ranges=config.box_office_ranges)
-
-        range_labels: list[str] = self._generate_range_labels(ranges=config.box_office_ranges)
-        label_map: dict[int, str] = {i: label for i, label in enumerate(range_labels)}
-
-        metrics_calculator = PointwiseClassificationMetrics(
-            value_to_label_fn=value_to_label_fn,
-            label_map=label_map,
-            f1_average_method=config.f1_average_method
+        # The Evaluator's only job is now to call the factory method.
+        final_result: PredictionEvaluationResult = PredictionEvaluationResult.create(
+            config=config,
+            model_core=model_core,
+            data_processor=data_processor,
+            x_test=x_test,
+            y_test=y_test,
+            training_history=training_history,
+            validation_history=validation_history,
+            logger=self.logger
         )
-
-        report: dict[str, Any] = metrics_calculator.generate_report(
-            y_true=array(actual),
-            y_pred=array(predictions)
-        )
-
-        accuracy: float = report.get('accuracy', 0.0)
-        self.logger.info(f"  - Range Accuracy: {accuracy:.2%}")
-
-        f1: Optional[float] = None
-        if calculate_f1:
-            f1 = report.get('f1_score', 0.0)
-            self.logger.info(f"  - F1-Score (Range, average='{config.f1_average_method}'): {f1:.4f}")
-
-        conf_matrix: Optional[NDArray[int_]] = report.get('confusion_matrix')
-        target_names: Optional[list[str]] = report.get('target_names')
-        if conf_matrix is not None and target_names:
-            matrix_str: str = self._format_confusion_matrix_string(matrix=conf_matrix, names=target_names)
-            self.logger.info(
-                f"Full range classification report:\n{report.get('report_string')}\n\nConfusion Matrix:\n{matrix_str}")
-        else:
-            self.logger.info(f"Full range classification report:\n{report.get('report_string')}")
-
-        return {'accuracy': accuracy, 'f1_score': f1}
-
-    def _calculate_trend_metrics(
-        self,
-        predictions: list[float],
-        actual: list[float],
-        last_inputs: list[float],
-        calculate_f1: bool
-    ) -> dict[str, Optional[float]]:
-        """
-        Calculates classification metrics based on the trend (increase/decrease).
-
-        This method uses the `PairwiseClassificationMetrics` framework to compute
-        accuracy and, optionally, the F1-score for trend prediction.
-
-        :param predictions: A list of unscaled predicted box office values.
-        :param actual: A list of unscaled actual box office values.
-        :param last_inputs: A list of reference values from the last input week.
-        :param calculate_f1: A boolean flag indicating whether to compute the F1-score.
-        :returns: A dictionary with 'accuracy' and optional 'f1_score'.
-        """
-        self.logger.info("Calculating pairwise metrics (Trend Accuracy, F1-Score)...")
-
-        def trend_value_pair_to_label_fn(value: float, reference: float) -> int:
-            """Returns 1 if value > reference (increase), else 0."""
-            return 1 if value > reference else 0
-
-        trend_metrics_calculator = PairwiseClassificationMetrics(
-            value_pair_to_label_fn=trend_value_pair_to_label_fn,
-            reference_values=array(last_inputs),
-            label_map={0: 'Decrease/Stay', 1: 'Increase'},
-            f1_average_method='binary'
-        )
-
-        report: dict[str, Any] = trend_metrics_calculator.generate_report(
-            y_true=array(actual),
-            y_pred=array(predictions)
-        )
-
-        accuracy: float = report.get('accuracy', 0.0)
-        self.logger.info(f"  - Trend Accuracy: {accuracy:.2%}")
-
-        f1: Optional[float] = None
-        if calculate_f1:
-            f1 = report.get('f1_score', 0.0)
-            self.logger.info(f"  - F1-Score (Trend, average='binary'): {f1:.4f}")
-
-        conf_matrix: Optional[NDArray[int_]] = report.get('confusion_matrix')
-        target_names: Optional[list[str]] = report.get('target_names')
-        if conf_matrix is not None and target_names:
-            matrix_str: str = self._format_confusion_matrix_string(matrix=conf_matrix, names=target_names)
-            self.logger.info(
-                f"Full trend classification report:\n{report.get('report_string')}\n\nConfusion Matrix:\n{matrix_str}")
-        else:
-            self.logger.info(f"Full trend classification report:\n{report.get('report_string')}")
-
-        return {'accuracy': accuracy, 'f1_score': f1}
-
-
-    @staticmethod
-    def _generate_range_labels(ranges: tuple[int, ...]) -> list[str]:
-        """
-        Generates human-readable labels from a tuple of box office range boundaries.
-
-        For example, an input of (1_000_000, 10_000_000) would produce:
-        ['< 1.0M', '1.0M - 10.0M', '>= 10.0M']
-
-        :param ranges: A sorted tuple of integer boundaries.
-        :return: A list of formatted string labels for each range.
-        """
-        if not ranges:
-            return []
-
-        sorted_ranges: list[int] = sorted(list(ranges))
-        labels: list[str] = []
-
-        def format_number(n: int) -> str:
-            if n >= 1_000_000_000:
-                return f"{n / 1_000_000_000:.1f}B"
-            if n >= 1_000_000:
-                return f"{n / 1_000_000:.1f}M"
-            if n >= 1_000:
-                return f"{n / 1_000:.1f}K"
-            return str(n)
-
-        labels.append(f"< {format_number(sorted_ranges[0])}")
-
-        for i in range(len(sorted_ranges) - 1):
-            lower_bound_str: str = format_number(sorted_ranges[i])
-            upper_bound_str: str = format_number(sorted_ranges[i + 1])
-            labels.append(f"{lower_bound_str} - {upper_bound_str}")
-
-        labels.append(f">= {format_number(sorted_ranges[-1])}")
-
-        return labels
-
-    @staticmethod
-    def _format_confusion_matrix_string(matrix: NDArray[int_], names: list[str]) -> str:
-        """
-        Formats a confusion matrix into a human-readable string for logging.
-
-        :param matrix: The confusion matrix as a NumPy array.
-        :param names: A list of string names for the classes, corresponding to the matrix axes.
-        :return: A formatted, multi-line string representation of the confusion matrix.
-        """
-        if matrix.size == 0 or not names:
-            return "  [Confusion Matrix is empty or has no labels]"
-
-        # Determine column widths for alignment
-        header_col_width: int = max(len(name) for name in names)
-        cell_width: int = max(
-            len(str(cell)) for cell in matrix.flatten()
-        )
-        # Ensure cell width is at least as wide as the longest name
-        cell_width = max(cell_width, max(len(name) for name in names)) + 2
-
-        # Header row
-        header: str = f"{'':<{header_col_width}} |" + "".join([f"{name:^{cell_width}}" for name in names])
-        separator: str = '-' * (header_col_width + 1) + '-' * (cell_width * len(names))
-
-        # Build the string
-        lines: list[str] = [
-            f"{'True / Pred':<{header_col_width}} | {'Predicted Labels':^{cell_width * len(names) - 1}}", header,
-            separator]
-        for i, name in enumerate(names):
-            row_str: str = f"{name:<{header_col_width}} |"
-            for j in range(len(names)):
-                row_str += f"{matrix[i, j]:^{cell_width}}"
-            lines.append(row_str)
-
-        # Indent all lines for better log readability
-        return "\n".join(["  " + line for line in lines])
+        # We can log the summary here, after the result is created.
+        self.logger.info(final_result.summary_string)
+        return final_result

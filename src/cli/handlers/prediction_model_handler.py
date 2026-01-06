@@ -1,32 +1,39 @@
 import random
 from argparse import ArgumentParser, Namespace
 from datetime import date, timedelta
+from logging import Logger
 from pathlib import Path
 from typing import Final
 
 from numpy.typing import NDArray
 from typing_extensions import override
 
-from src.cli.handlers.base_model_handler import BaseModelHandler
+from src.cli.handlers.gradient_model_handler import RegressionModelHandler
 from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.movie_metadata import MovieMetadata
-from src.models.prediction.components.data_processor import PredictionDataProcessor, PredictionDataConfig
-from src.models.prediction.components.evaluator import PredictionEvaluationResult, PredictionEvaluationConfig, \
+from src.models.base.evaluation import BaseEvaluationResult
+from src.models.prediction.components.data_processor import PredictionDataConfig, PredictionDataProcessor
+from src.models.prediction.components.evaluator import (
+    PredictionEvaluationConfig,
+    PredictionEvaluationResult,
     PredictionEvaluator
+)
 from src.models.prediction.components.model_core import PredictionModelCore, PredictionPredictConfig
 from src.models.prediction.pipelines.training_pipeline import PredictionPipelineConfig, PredictionTrainingPipeline
+from src.utilities.plot import plot_multi_line_graph
 
 
-class PredictionModelHandler(BaseModelHandler):
+class PredictionModelHandler(RegressionModelHandler):
     """
     Handles CLI commands related to the box office prediction model.
 
-    This class extends `BaseModelHandler` to provide specific implementations
+    This class extends `RegressionModelHandler` to provide specific implementations
     for training, predicting with, and evaluating the box office prediction model.
+    It manages the complete lifecycle for this specific model type.
 
     :cvar _EVALUATION_CACHE_FILE_NAME: The filename for the prediction model's evaluation cache.
     """
@@ -49,13 +56,10 @@ class PredictionModelHandler(BaseModelHandler):
     @override
     def train(self, args: Namespace) -> None:
         """
-        Orchestrates the box office prediction model training process, handling both new
-        and continued training runs.
+        Orchestrates the box office prediction model training process.
 
-        If continuing a training run (using `--continue-from-epoch`), this method
-        enforces the use of the original model's configuration. For a new training run,
-        it implements a 'default + override' configuration logic, creating and saving
-        a new master configuration file before launching the training pipeline.
+        This method handles both new and continued training runs by preparing the
+        configuration and launching the training pipeline.
 
         :param args: The namespace object from argparse, containing `model_id` and
                      other training-related parameters.
@@ -92,13 +96,9 @@ class PredictionModelHandler(BaseModelHandler):
         """
         Makes a prediction using a trained model on a specific movie or random data.
 
-        This method orchestrates the prediction process by:
-        1. Loading the specified model, its configuration, and the data processor artifacts (e.g., scaler).
-        2. Fetching input data, either for a specified movie from its original dataset or by
-           generating a random `MovieData` object for demonstration.
-        3. Processing the input data into the format required by the model.
-        4. Running the prediction and inverse-transforming the output to its original scale.
-        5. Logging the final predicted box office revenue.
+        This method orchestrates the prediction process by loading the model and
+        its artifacts, preparing the input data, running the prediction, and
+        logging the final result.
 
         :param args: The namespace object containing command-line arguments,
                      expected to have 'model_id', 'epoch', and either 'movie_name' or 'random'.
@@ -225,6 +225,83 @@ class PredictionModelHandler(BaseModelHandler):
         """
         return self._evaluator.run(config=eval_config)
 
+    @override
+    def _plot_specific_graphs(
+        self, eval_results: list[BaseEvaluationResult], output_dir: Path, args: Namespace
+    ) -> None:
+        """
+        Plots graphs specific to the prediction model.
+
+        This calls the parent method to plot regression metrics (Test Loss) and then
+        adds logic to plot classification metrics (Range F1-Score).
+        """
+        # First, call the parent class (RegressionModelHandler) method to plot Test Loss (MSE).
+        super()._plot_specific_graphs(eval_results=eval_results, output_dir=output_dir, args=args)
+
+        # Then, implement the F1-Score plotting logic specific to PredictionModel.
+        if args.show_f1_score:
+            self._logger.info("Plotting prediction-specific metric: Range F1-Score.")
+
+            prediction_results: list[PredictionEvaluationResult] = [
+                res for res in eval_results if isinstance(res, PredictionEvaluationResult)
+            ]
+
+            if not prediction_results:
+                self._logger.warning("No prediction evaluation results found. Cannot plot F1-score.")
+                return
+
+            f1_scores_by_epoch: dict[int, float] = {
+                res.model_epoch: res.range_classification_report['f1_score']
+                for res in prediction_results
+                if res.range_classification_report
+            }
+
+            if not f1_scores_by_epoch:
+                self._logger.info("No Range F1-score data available to plot.")
+                return
+
+            epochs: list[int] = sorted(f1_scores_by_epoch.keys())
+            f1_data: list[float] = [f1_scores_by_epoch[epoch] for epoch in epochs]
+
+            plot_multi_line_graph(
+                title=f"Range F1-Score on Test Set for {prediction_results[0].model_id}",
+                save_path=output_dir / "range_f1_score_curve.png",
+                x_data=epochs,
+                y_datasets=[{"label": "Range F1-Score", "data": f1_data}],
+                x_label="Epoch",
+                y_label="F1-Score",
+                y_formatter=None
+            )
+
+    @override
+    def _display_specific_metrics(self, result: BaseEvaluationResult, args: Namespace, result_logger: Logger) -> None:
+        """
+        Displays metrics specific to the prediction model.
+
+        This calls the parent method to display regression metrics (Test Loss) and
+        then adds logic to display classification metrics (F1-Score, Confusion Matrix)
+        using the provided format-less logger.
+
+        :param result: The evaluation result object.
+        :param args: The command-line arguments.
+        :param result_logger: The logger instance configured for clean, format-less output.
+        """
+        # First, call the parent class (RegressionModelHandler) method to display Test Loss (MSE).
+        super()._display_specific_metrics(result=result, args=args, result_logger=result_logger)
+
+        # Then, implement the metric display logic specific to PredictionModel.
+        if isinstance(result, PredictionEvaluationResult):
+            if args.show_f1_score and result.range_classification_report:
+                result_logger.info(f"  - Range F1-Score: {result.range_classification_report['f1_score']:.4f}")
+
+            if args.show_confusion_matrix and result.range_classification_report:
+                matrix_str: str = result.format_confusion_matrix_string(
+                    matrix=result.range_classification_report['confusion_matrix'],
+                    names=result.range_classification_report.get('target_names') or []
+                )
+                result_logger.info(f"  - Confusion Matrix (Range):\n{matrix_str}")
+
+    @override
     def _build_evaluation_config(
         self, args: Namespace, original_config_data: dict[str, any], epoch_to_evaluate: int
     ) -> PredictionEvaluationConfig:
@@ -244,11 +321,19 @@ class PredictionModelHandler(BaseModelHandler):
         :param epoch_to_evaluate: The specific epoch to be evaluated.
         :returns: A `PredictionEvaluationConfig` object tailored for the evaluation run.
         """
-        # Map CLI flags to config flags
-        calculate_loss = args.test_loss
-        calculate_f1: bool = args.f1_score or args.classification_report
-        calculate_range_accuracy: bool = args.classification_report
-        # In exploratory mode, we evaluate on a new dataset
+
+        if (args.show_f1_score or args.show_confusion_matrix) and not args.classification_report:
+            self._parser.error(
+                "Arguments --show-f1-score and --show-confusion-matrix require "
+                "--classification-report {range,trend} to be specified."
+            )
+        # Determine whether to perform calculations based on the new CLI parameter design.
+        calculate_loss: bool = args.test_loss
+        # As long as the user requests the report, F1 score, or confusion matrix,
+        # classification metrics should be calculated.
+        calculate_classification_metrics: bool = bool(
+            args.classification_report) or args.show_f1_score or args.show_confusion_matrix
+        # In exploratory mode, we evaluate on a new dataset.
         if args.dataset_name:
             self._logger.info(f"Building evaluation config for EXPLORATORY mode on dataset '{args.dataset_name}'.")
             return PredictionEvaluationConfig(
@@ -256,39 +341,33 @@ class PredictionModelHandler(BaseModelHandler):
                 model_epoch=epoch_to_evaluate,
                 dataset_name=args.dataset_name,
                 evaluate_on_full_dataset=True,
-                # These are needed by the config but not used for splitting in this mode.
-                # They are used to create sequences.
                 training_week_len=original_config_data['training_week_len'],
                 split_ratios=None,
                 random_state=None,
-                # Set calculation flags
                 calculate_loss=calculate_loss,
-                calculate_f1_score=calculate_f1,
-                # The other accuracy metrics are not triggered by current CLI flags
-                calculate_trend_accuracy=False,
-                calculate_range_accuracy=calculate_range_accuracy,
-                f1_average_method=original_config_data.get('f1_average_method', 'macro')
+                calculate_classification_metrics=calculate_classification_metrics,
+                classification_method=args.classification_report,
+                f1_average_method=args.f1_average_method or original_config_data.get('f1_average_method', 'macro'),
+                box_office_ranges=tuple(args.box_office_ranges) if args.box_office_ranges else tuple(
+                    original_config_data.get('box_office_ranges', ()))
             )
-        # In reproducibility mode, we recreate the original test set
+            # In reproducibility mode, we recreate the original test set.
         else:
             self._logger.info("Building evaluation config for REPRODUCIBILITY mode.")
-            # noinspection PyTypeChecker
             return PredictionEvaluationConfig(
                 model_id=args.model_id,
                 model_epoch=epoch_to_evaluate,
                 dataset_name=original_config_data['dataset_name'],
                 evaluate_on_full_dataset=False,
-                # Load all necessary parameters from the original config
                 training_week_len=original_config_data['training_week_len'],
                 split_ratios=tuple(original_config_data['split_ratios']),
                 random_state=original_config_data['random_state'],
-                # Set calculation flags based on CLI input
                 calculate_loss=calculate_loss,
-                calculate_f1_score=calculate_f1,
-                # The other accuracy metrics are not triggered by current CLI flags
-                calculate_trend_accuracy=False,
-                calculate_range_accuracy=calculate_range_accuracy, # <-- Pass the new flag
-                f1_average_method=original_config_data.get('f1_average_method', 'macro')
+                calculate_classification_metrics=calculate_classification_metrics,
+                classification_method=args.classification_report,
+                f1_average_method=args.f1_average_method or original_config_data.get('f1_average_method', 'macro'),
+                box_office_ranges=tuple(args.box_office_ranges) if args.box_office_ranges else tuple(
+                    original_config_data.get('box_office_ranges', ()))
             )
 
     def _generate_random_movie_data(self, weeks: int) -> MovieData:
@@ -326,14 +405,3 @@ class PredictionModelHandler(BaseModelHandler):
             public_reviews=[],  # No need to generate random reviews
             expert_reviews=[]
         )
-
-    @override
-    def _display_specific_metrics(self, result: PredictionEvaluationResult, args: Namespace) -> None:
-        # Prediction model has trend_accuracy and range_accuracy (test_accuracy)
-        # These are not currently triggered by CLI flags, but if they were, the logic would go here.
-        # For example:
-        # if args.trend_accuracy:
-        #     self._logger.info(f"  - Trend Accuracy:  {result.trend_accuracy:.2%}")
-        # if args.range_accuracy: # Assuming a new CLI flag
-        #     self._logger.info(f"  - Range Accuracy:  {result.test_accuracy:.2%}")
-        pass  # No specific metrics are displayed by default for now
