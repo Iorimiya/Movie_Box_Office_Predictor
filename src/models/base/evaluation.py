@@ -13,13 +13,14 @@ from src.models.base.base_model_core import BaseModelCore
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.models.base.display import ClassificationSummaryMixin
 from src.models.base.keras_setup import keras_base
+from src.utilities.decorators import frozen_after_init
 from src.utilities.metrics import ClassificationReportDict, RegressionReportDict
 
 # noinspection PyUnresolvedReferences
 History: TypeAlias = keras_base.callbacks.History
 
 
-@dataclass(frozen=True)
+@frozen_after_init
 class BaseEvaluationConfig:
     """
     A base dataclass for model evaluation configurations.
@@ -27,23 +28,111 @@ class BaseEvaluationConfig:
     Defines common attributes required for evaluating a model, such as the
     model's identity and the dataset to use.
 
+    Implements a manual 'frozen' mechanism to ensure immutability after initialization.
+
     :ivar model_id: The unique identifier for the model series.
     :ivar model_epoch: The specific training epoch of the model to evaluate.
     :ivar dataset_name: The name of the dataset file to use for evaluation.
     :ivar evaluate_on_full_dataset: If True, evaluates on the entire dataset
                                     without splitting. If False, reproduces
                                     the original test split.
-    :ivar split_ratios: The train/val/test split ratios. Required only for
-                        reproducibility mode.
-    :ivar random_state: The random seed for data splitting. Required only for
-                        reproducibility mode.
+    :ivar _locked: Internal flag to indicate if the instance is locked.
     """
-    model_id: str
-    model_epoch: int
-    dataset_name: str
-    evaluate_on_full_dataset: bool
-    split_ratios: Optional[tuple[int, int, int]]
-    random_state: Optional[int]
+    _locked: bool = False
+
+    def __init__(
+        self,
+        *,
+        model_id: str,
+        model_epoch: int,
+        dataset_name: str,
+        evaluate_on_full_dataset: bool,
+        **kwargs: Any
+    ):
+        """
+        Initializes the BaseEvaluationConfig.
+
+        :param model_id: The unique identifier for the model series.
+        :param model_epoch: The specific training epoch of the model to evaluate.
+        :param dataset_name: The name of the dataset file to use for evaluation.
+        :param evaluate_on_full_dataset: If True, evaluates on the entire dataset without splitting.
+        :param kwargs: Arbitrary keyword arguments passed to subclasses.
+        """
+        self.model_id = model_id
+        self.model_epoch = model_epoch
+        self.dataset_name = dataset_name
+        self.evaluate_on_full_dataset = evaluate_on_full_dataset
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        """
+        Sets an attribute on the instance, enforcing immutability if locked.
+
+        :param name: The name of the attribute.
+        :param value: The value to assign.
+        :raises AttributeError: If the instance is locked.
+        """
+        if self._locked:
+            raise AttributeError(f"Cannot assign to attribute '{name}'. Instance is immutable.")
+
+        super().__setattr__(name, value)
+
+    def _lock(self) -> None:
+        """
+        Locks the instance, making it immutable.
+        """
+        object.__setattr__(self, '_locked', True)
+
+
+class GradientEvaluationConfig(BaseEvaluationConfig):
+    """
+    Configuration for evaluating models trained via gradient descent (requiring data splits).
+
+    :ivar split_ratios: The train/val/test split ratios. Required only for reproducibility mode.
+    :ivar random_state: The random seed for data splitting. Required only for reproducibility mode.
+    """
+
+    def __init__(
+        self,
+        *,
+        split_ratios: Optional[tuple[int, int, int]] = None,
+        random_state: Optional[int] = None,
+        **kwargs: Any
+    ):
+        super().__init__(**kwargs)
+        self.split_ratios = split_ratios
+        self.random_state = random_state
+
+
+class RegressionEvaluationConfig(GradientEvaluationConfig):
+    """
+    Configuration for evaluating regression models.
+
+    :ivar calculate_loss: Flag to calculate loss (e.g., MSE) on the test set.
+    """
+
+    def __init__(self, *, calculate_loss: bool, **kwargs: Any):
+        super().__init__(**kwargs)
+        self.calculate_loss = calculate_loss
+
+
+class ClassificationEvaluationConfig(GradientEvaluationConfig):
+    """
+    Configuration for evaluating classification models.
+
+    :ivar calculate_classification_metrics: Flag to enable classification-based metrics.
+    :ivar f1_average_method: The averaging method for F1 score calculation.
+    """
+
+    def __init__(
+        self,
+        *,
+        calculate_classification_metrics: bool,
+        f1_average_method: str = 'macro',
+        **kwargs: Any
+    ):
+        super().__init__(**kwargs)
+        self.calculate_classification_metrics = calculate_classification_metrics
+        self.f1_average_method = f1_average_method
 
 
 @dataclass(frozen=True)

@@ -11,9 +11,9 @@ from typing_extensions import override
 from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.movie_collections import MovieData
 from src.models.base.evaluation import (
-    BaseEvaluationConfig,
     BaseEvaluator,
     ClassificationSummaryMixin,
+    RegressionEvaluationConfig,
     RegressionEvaluationResult,
 )
 from src.models.base.keras_setup import keras_base
@@ -39,26 +39,45 @@ from src.utilities.metrics import (
 History: TypeAlias = keras_base.callbacks.History
 
 
-@dataclass(frozen=True)
-class BoxOfficeRegressionEvaluationConfig(BaseEvaluationConfig):
+class BoxOfficeRegressionEvaluationConfig(RegressionEvaluationConfig):
     """
     Configuration for running a Box Office Regression Model evaluation.
 
-    Inherits common evaluation parameters from BaseEvaluationConfig.
+    Inherits common evaluation parameters from RegressionEvaluationConfig.
 
     :ivar training_week_len: The number of past weeks used for Box Office Regression Model.
-    :ivar calculate_loss: Flag to calculate loss (MSE) on the test set.
     :ivar calculate_classification_metrics: Flag to enable classification-based metrics.
     :ivar classification_method: The strategy for classification ('range' or 'trend').
     :ivar box_office_ranges: A tuple defining the upper boundaries of box office ranges.
     :ivar f1_average_method: The averaging method for F1 score calculation.
     """
-    training_week_len: int = 4
-    calculate_loss: bool = False
-    calculate_classification_metrics: bool = False
-    classification_method: Optional[str] = None
-    box_office_ranges: tuple[int, ...] = (1_000_000, 10_000_000, 90_000_000)
-    f1_average_method: str = 'macro'
+
+    def __init__(
+        self,
+        *,
+        training_week_len: int,
+        calculate_classification_metrics: bool,
+        classification_method: Optional[str] = None,
+        box_office_ranges: tuple[int, ...] = (1_000_000, 10_000_000, 90_000_000),
+        f1_average_method: str = 'macro',
+        **kwargs: Any
+    ):
+        """
+        Initializes the BoxOfficeRegressionEvaluationConfig.
+
+        :param training_week_len: The number of past weeks used for prediction. This is a required field.
+        :param calculate_classification_metrics: Flag to enable classification-based metrics.
+        :param classification_method: The strategy for classification ('range' or 'trend').
+        :param box_office_ranges: A tuple defining the upper boundaries of box office ranges.
+        :param f1_average_method: The averaging method for F1 score calculation.
+        :param kwargs: Additional keyword arguments passed to the base class.
+        """
+        super().__init__(**kwargs)
+        self.training_week_len = training_week_len
+        self.calculate_classification_metrics = calculate_classification_metrics
+        self.classification_method = classification_method
+        self.box_office_ranges = box_office_ranges
+        self.f1_average_method = f1_average_method
 
 
 @dataclass(frozen=True)

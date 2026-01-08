@@ -354,8 +354,6 @@ class BoxOfficeRegressionModelHandler(RegressionModelHandler[BoxOfficeRegression
                 dataset_name=args.dataset_name,
                 evaluate_on_full_dataset=True,
                 training_week_len=original_config_data['training_week_len'],
-                split_ratios=None,
-                random_state=None,
                 calculate_loss=calculate_loss,
                 calculate_classification_metrics=calculate_classification_metrics,
                 classification_method=args.classification_report,
