@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Any
 
 from numpy.typing import NDArray
 from typing_extensions import override
@@ -6,21 +7,29 @@ from typing_extensions import override
 from src.models.base.base_model_core import BaseModelCore, BaseTrainConfig, BasePredictConfig, BaseEvaluateConfig
 from src.models.base.keras_setup import keras_base
 
+# noinspection PyUnresolvedReferences
 History = keras_base.callbacks.History
 Sequential = keras_base.models.Sequential
+# noinspection PyUnresolvedReferences
 Dense = keras_base.layers.Dense
+# noinspection PyUnresolvedReferences
 Dropout = keras_base.layers.Dropout
+# noinspection PyUnresolvedReferences
 Input = keras_base.layers.Input
+# noinspection PyUnresolvedReferences
 LSTM = keras_base.layers.LSTM
+# noinspection PyUnresolvedReferences
 Masking = keras_base.layers.Masking
+# noinspection PyUnresolvedReferences
 Adam = keras_base.optimizers.Adam
+# noinspection PyUnresolvedReferences
 ExponentialDecay = keras_base.optimizers.schedules.ExponentialDecay
 
 
 @dataclass(frozen=True)
-class PredictionBuildConfig:
+class BoxOfficeRegressionBuildConfig:
     """
-    Configuration for building the PredictionModelCore.
+    Configuration for building the BoxOfficeRegressionModelCore.
 
     :ivar input_shape: The shape of the input data, e.g., (sequence_length, num_features).
     :ivar lstm_units: The number of units in the LSTM layer.
@@ -32,44 +41,49 @@ class PredictionBuildConfig:
 
 
 @dataclass(frozen=True)
-class PredictionTrainConfig(BaseTrainConfig):
+class BoxOfficeRegressionTrainConfig(BaseTrainConfig):
     """
-    Configuration for training the prediction model.
+    Configuration for training the Box Office Regression Model.
     Inherits all common training parameters from BaseTrainConfig.
     """
     pass
 
 
 @dataclass(frozen=True)
-class PredictionPredictConfig(BasePredictConfig):
+class BoxOfficeRegressionPredictConfig(BasePredictConfig):
     """
-    Configuration for predicting with the prediction model.
-    Inherits all common prediction parameters from BasePredictConfig.
+    Configuration for predicting with the Box Office Regression Model.
+    Inherits all common box_office_regression parameters from BasePredictConfig.
     """
     pass
 
 
 @dataclass(frozen=True)
-class PredictionEvaluateConfig(BaseEvaluateConfig):
+class BoxOfficeRegressionEvaluateConfig(BaseEvaluateConfig):
     """
-    Configuration for evaluating the prediction model.
+    Configuration for evaluating the Box Office Regression Model.
     Inherits all common evaluation parameters from BaseEvaluateConfig.
     """
     pass
 
 
-class PredictionModelCore(
-    BaseModelCore[PredictionBuildConfig, PredictionTrainConfig, PredictionPredictConfig, PredictionEvaluateConfig]
+class BoxOfficeRegressionModelCore(
+    BaseModelCore[
+        BoxOfficeRegressionBuildConfig,
+        BoxOfficeRegressionTrainConfig,
+        BoxOfficeRegressionPredictConfig,
+        BoxOfficeRegressionEvaluateConfig
+    ]
 ):
     """
-    Defines the core architecture of the LSTM-based box office prediction model.
+    Defines the core architecture of the LSTM-based Box Office Regression Model.
 
     This class implements the `build` method required by `BaseModelCore` to
     construct a specific LSTM network for time-series regression.
     """
 
     @override
-    def build(self, config: PredictionBuildConfig) -> None:
+    def build(self, config: BoxOfficeRegressionBuildConfig) -> None:
         """
         Builds and compiles a new Keras Sequential model for box office prediction.
 
@@ -89,9 +103,9 @@ class PredictionModelCore(
         self._compile_model()
 
     @override
-    def train(self, x_train: NDArray[any], y_train: NDArray[any], config: PredictionTrainConfig) -> History:
+    def train(self, x_train: NDArray[Any], y_train: NDArray[Any], config: BoxOfficeRegressionTrainConfig) -> History:
         """
-        Trains the box office prediction model using parameters from the config object.
+        Trains the Box Office Regression Model using parameters from the config object.
 
         :param x_train: The training data (features).
         :param y_train: The training data (labels).
@@ -114,12 +128,12 @@ class PredictionModelCore(
         )
 
     @override
-    def predict(self, data: NDArray[any], config: PredictionPredictConfig) -> NDArray[any]:
+    def predict(self, data: NDArray[Any], config: BoxOfficeRegressionPredictConfig) -> NDArray[Any]:
         """
         Generates box office predictions using parameters from the config object.
 
         :param data: The input data for which to make predictions.
-        :param config: A configuration object containing prediction parameters.
+        :param config: A configuration object containing parameters of Box Office Regression Model.
         :returns: A NumPy array of predictions.
         :raises ValueError: If the model is not built or loaded before prediction.
         """
@@ -129,9 +143,9 @@ class PredictionModelCore(
         return self._model.predict(x=data, batch_size=config.batch_size, verbose=config.verbose)
 
     @override
-    def evaluate(self, x_test: NDArray[any], y_test: NDArray[any], config: PredictionEvaluateConfig) -> any:
+    def evaluate(self, x_test: NDArray[Any], y_test: NDArray[Any], config: BoxOfficeRegressionEvaluateConfig) -> Any:
         """
-        Evaluates the box office prediction model using parameters from the config object.
+        Evaluates the Box Office Regression Model using parameters from the config object.
 
         :param x_test: The test data (features).
         :param y_test: The test data (labels).
@@ -146,11 +160,9 @@ class PredictionModelCore(
 
     def _compile_model(self) -> None:
         """
-        Compiles the Keras model with a specific optimizer and loss function
-        for regression.
+        Compiles the Keras model with a specific optimizer and loss function for regression.
 
-        This uses an Adam optimizer with an exponential learning rate decay
-        and gradient clipping.
+        This uses an Adam optimizer with an exponential learning rate decay and gradient clipping.
 
         :raises ValueError: If the model has not been created by calling `build` first.
         """

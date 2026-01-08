@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Final, Optional, TypedDict
+from typing import Any, Final, Optional, TypeAlias, TypedDict
 
 from numpy import array, expand_dims, float32, float64
 from numpy.typing import NDArray
@@ -15,17 +15,15 @@ from src.models.base.data_splitter import SplitDataset
 from src.models.base.gradient_data_processor import GradientDataProcessor, GradientDataConfig
 
 
-class PredictionConfigDict(TypedDict, total=False):
+class BoxOfficeRegressionConfigDict(TypedDict, total=False):
     """
-    Type definition for the prediction model's configuration dictionary (loaded from YAML).
+    Type definition for the Box Office Regression Model's configuration dictionary (loaded from YAML).
 
     This ensures type safety when handling the raw configuration dictionary before it is converted into specific dataclasses. It includes Optional fields to allow for partial configurations or fields that are not required in all modes (e.g., inference).
     """
     model_id: str
     dataset_name: str
     training_week_len: int
-    # Made Optional to align with PredictionDataConfig's flexibility for inference mode
-    split_ratios: Optional[tuple[int, int, int]]
     lstm_units: int
     dropout_rate: float
     epochs: int
@@ -37,31 +35,33 @@ class PredictionConfigDict(TypedDict, total=False):
     early_stopping_min_delta: float
     box_office_ranges: list[int]
     f1_average_method: str
+    # Made Optional to align with BoxOfficeRegressionDataConfig's flexibility for inference mode
+    split_ratios: Optional[tuple[int, int, int]]
     # Made Optional as it might not be present in partial configs or inference
     random_state: Optional[int]
 
 
 @dataclass(frozen=True)
-class PredictionDataSource:
+class BoxOfficeRegressionDataSource:
     """
-    A data source configuration for the prediction model.
+    A data source configuration for the Box Office Regression Model.
 
     :ivar dataset_name: The name of the structured dataset to load movie data from.
     """
     dataset_name: str
 
 
-PredictionTrainingRawData: type = list[MovieData]
-PredictionTrainingProcessedData: type = SplitDataset[NDArray[float32], NDArray[float64]]
-PredictionPredictionRawData: type = MovieData
-PredictionPredictionProcessedData: type = NDArray[float32]
+BoxOfficeRegressionTrainingRawData: TypeAlias = list[MovieData]
+BoxOfficeRegressionTrainingProcessedData: TypeAlias = SplitDataset[NDArray[float32], NDArray[float64]]
+BoxOfficeRegressionPredictionRawData: TypeAlias = MovieData
+BoxOfficeRegressionPredictionProcessedData: TypeAlias = NDArray[float32]
 
 
-class PredictionDataConfig(GradientDataConfig):
+class BoxOfficeRegressionDataConfig(GradientDataConfig):
     """
-    Configuration for the prediction model's data processing.
+    Configuration for the Box Office Regression Model's data processing.
 
-    Inherits splitting capabilities from GradientDataConfig and adds prediction-specific parameters.
+    Inherits splitting capabilities from GradientDataConfig and adds specific parameters of Box Office Regression Model.
 
     :ivar _training_week_len: The length of the training week window.
     """
@@ -71,9 +71,9 @@ class PredictionDataConfig(GradientDataConfig):
                  training_week_len: int,
                  split_ratios: Optional[tuple[int, int, int]] = None,
                  random_state: Optional[int] = None,
-                 **kwargs: any):
+                 **kwargs: Any):
         """
-        Initializes the PredictionDataConfig.
+        Initializes the BoxOfficeRegressionDataConfig.
 
         :param training_week_len: The number of weeks of data to use for training.
         :param split_ratios: The ratio for splitting data (train, val, test).
@@ -90,9 +90,9 @@ class PredictionDataConfig(GradientDataConfig):
 
 
 @dataclass(frozen=True)
-class PredictionFeature:
+class BoxOfficeRegressionFeature:
     """
-    A structured container for the features of a single week used in the prediction model.
+    A structured container for the features of a single week used in the Box Office Regression Model.
 
     :ivar box_office: The box office revenue for the week.
     :ivar avg_sentiment: The average sentiment score of reviews for the week.
@@ -121,20 +121,20 @@ class PredictionFeature:
         ]
 
 
-class PredictionDataProcessor(
+class BoxOfficeRegressionDataProcessor(
     GradientDataProcessor[
-        PredictionDataSource,
-        PredictionTrainingRawData,
-        PredictionTrainingProcessedData,
-        PredictionPredictionRawData,
-        PredictionPredictionProcessedData,
-        PredictionDataConfig,
+        BoxOfficeRegressionDataSource,
+        BoxOfficeRegressionTrainingRawData,
+        BoxOfficeRegressionTrainingProcessedData,
+        BoxOfficeRegressionPredictionRawData,
+        BoxOfficeRegressionPredictionProcessedData,
+        BoxOfficeRegressionDataConfig,
         NDArray[float32],
         NDArray[float64]
     ]
 ):
     """
-    Handles all data-related tasks for the box office prediction model.
+    Handles all data-related tasks for the Box Office Regression Model.
 
     This processor loads movie data, transforms it into weekly features,
     creates sequences, scales the data using a MinMaxScaler, and splits it
@@ -151,7 +151,7 @@ class PredictionDataProcessor(
     @override
     def __init__(self, model_artifacts_path: Optional[Path] = None):
         """
-        Initializes the PredictionDataProcessor.
+        Initializes the BoxOfficeRegressionDataProcessor.
 
         :param model_artifacts_path: Path to the directory for model artifacts.
         """
@@ -173,7 +173,7 @@ class PredictionDataProcessor(
 
         self.model_artifacts_path.mkdir(parents=True, exist_ok=True)
         artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
-        self.logger.info(f"Saving scaler and settings artifact to: {artifact_path}")
+        self.logger.debug(f"Saving scaler and settings artifact to: {artifact_path}")
         PickleFile(path=artifact_path).save(data=self.scaler)
 
     @override
@@ -186,16 +186,16 @@ class PredictionDataProcessor(
 
         artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
         if artifact_path.exists():
-            self.logger.info(f"Loading scaler artifact from: {artifact_path}")
+            self.logger.debug(f"Loading scaler artifact from: {artifact_path}")
             try:
                 self.scaler = PickleFile(path=artifact_path).load()
-                self.logger.info("Scaler artifact loaded successfully.")
+                self.logger.debug("Scaler artifact loaded successfully.")
             except (TypeError, ValueError) as e:
                 self.logger.error(f"Failed to load scaler artifact from {artifact_path}: {e}", exc_info=True)
                 self.scaler = None
 
     @override
-    def load_raw_data(self, source: PredictionDataSource) -> PredictionTrainingRawData:
+    def load_raw_data(self, source: BoxOfficeRegressionDataSource) -> BoxOfficeRegressionTrainingRawData:
         """
         Loads raw movie data from a structured dataset.
 
@@ -205,7 +205,7 @@ class PredictionDataProcessor(
         :param source: The data source object containing the dataset name.
         :returns: A list of MovieData objects.
         """
-        self.logger.info(f"Loading raw prediction data from dataset: '{source.dataset_name}'")
+        self.logger.debug(f"Loading raw box office regression data from dataset: '{source.dataset_name}'")
         dataset: Dataset = Dataset(name=source.dataset_name)
         movie_data_list: list[MovieData] = dataset.load_movie_data(mode='ALL')
 
@@ -216,10 +216,10 @@ class PredictionDataProcessor(
 
     @override
     def process_for_prediction(
-        self, single_input: PredictionPredictionRawData, config: Optional[PredictionDataConfig] = None
-    ) -> PredictionPredictionProcessedData:
+        self, single_input: BoxOfficeRegressionPredictionRawData, config: Optional[BoxOfficeRegressionDataConfig] = None
+    ) -> BoxOfficeRegressionPredictionProcessedData:
         """
-        Processes a single movie's data for prediction.
+        Processes a single movie's data for box_office_regression.
 
         :param single_input: A `MovieData` object for a single movie.
         :param config: A configuration object containing necessary parameters like `training_week_len`.
@@ -229,7 +229,7 @@ class PredictionDataProcessor(
 
         if config is None:
             raise ValueError(
-                "PredictionDataConfig is required for processing prediction data."
+                "BoxOfficeRegressionDataConfig is required for processing box office regression data."
             )
 
         if not self.scaler:
@@ -251,7 +251,7 @@ class PredictionDataProcessor(
             expert_reviews_master_source=single_input.expert_reviews
         )
         numerical_sequence: list[list[int | float]] = \
-            PredictionDataProcessor._convert_weeks_to_numerical_sequence(weeks=latest_weeks_data)
+            BoxOfficeRegressionDataProcessor._convert_weeks_to_numerical_sequence(weeks=latest_weeks_data)
 
         if len(numerical_sequence) != training_week_len:
             raise ValueError("Failed to create a numerical sequence of the required length.")
@@ -263,7 +263,7 @@ class PredictionDataProcessor(
         return scaled_array
 
     def process_for_evaluation(
-        self, raw_data: PredictionTrainingRawData, config: Optional[PredictionDataConfig] = None
+        self, raw_data: BoxOfficeRegressionTrainingRawData, config: Optional[BoxOfficeRegressionDataConfig] = None
     ) -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Processes a full raw dataset for evaluation without splitting it.
@@ -281,10 +281,10 @@ class PredictionDataProcessor(
 
         if config is None:
             raise ValueError(
-                "PredictionDataConfig is required for processing prediction data."
+                "BoxOfficeRegressionDataConfig is required for processing box office regression data."
             )
 
-        self.logger.info("Processing full dataset for evaluation (no splitting).")
+        self.logger.debug("Processing full dataset for evaluation (no splitting).")
         sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
             movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1
         )
@@ -294,7 +294,7 @@ class PredictionDataProcessor(
 
         x, y = self._create_xy_from_sessions(sessions=sessions, week_limit=config.training_week_len)
 
-        # Scale the entire dataset using the pre-loaded scaler
+        # Scale the entire dataset using the preloaded scaler
         if not self.scaler:
             raise ValueError("Scaler must be loaded to process data for evaluation.")
 
@@ -305,7 +305,7 @@ class PredictionDataProcessor(
 
     @override
     def _prepare_for_split(
-        self, raw_data: PredictionTrainingRawData, config: PredictionDataConfig
+        self, raw_data: BoxOfficeRegressionTrainingRawData, config: BoxOfficeRegressionDataConfig
     ) -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Creates time-series sequences (x and y) from raw movie data.
@@ -321,13 +321,14 @@ class PredictionDataProcessor(
         if not sessions:
             raise ValueError("No sessions data available.")
 
-        x, y = PredictionDataProcessor._create_xy_from_sessions(sessions=sessions, week_limit=config.training_week_len)
+        x, y = BoxOfficeRegressionDataProcessor._create_xy_from_sessions(sessions=sessions,
+                                                                         week_limit=config.training_week_len)
         return x, y
 
     @override
     def _post_process_splits(
-        self, split_data: SplitDataset[NDArray[float32], NDArray[float64]], config: PredictionDataConfig
-    ) -> PredictionTrainingProcessedData:
+        self, split_data: SplitDataset[NDArray[float32], NDArray[float64]], config: BoxOfficeRegressionDataConfig
+    ) -> BoxOfficeRegressionTrainingProcessedData:
         """
         Fits the scaler on the training data and applies it to all data splits.
 
@@ -357,7 +358,7 @@ class PredictionDataProcessor(
 
         for session in sessions:
             numerical_movie: list[list[int | float]] = (
-                PredictionDataProcessor._convert_weeks_to_numerical_sequence(weeks=session.weeks_data))
+                BoxOfficeRegressionDataProcessor._convert_weeks_to_numerical_sequence(weeks=session.weeks_data))
 
             # Each session should have exactly `week_limit + 1` weeks.
             if len(numerical_movie) == week_limit + 1:
@@ -369,14 +370,14 @@ class PredictionDataProcessor(
         return array(x_list, dtype=float32), array(y_list, dtype=float64)
 
     @staticmethod
-    def _extract_features_from_week(week: WeekData) -> PredictionFeature:
+    def _extract_features_from_week(week: WeekData) -> BoxOfficeRegressionFeature:
         """
-        Extracts raw features from a WeekData object and populates a PredictionFeature container.
+        Extracts raw features from a WeekData object and populates a BoxOfficeRegressionFeature container.
 
         :param week: The WeekData object to extract features from.
-        :returns: A PredictionFeature object containing the extracted features.
+        :returns: A BoxOfficeRegressionFeature object containing the extracted features.
         """
-        return PredictionFeature(
+        return BoxOfficeRegressionFeature(
             box_office=week.box_office_data.box_office,
             avg_sentiment=week.average_sentiment_score or 0.0,
             reply_count=week.total_reply_count,
@@ -397,7 +398,8 @@ class PredictionDataProcessor(
         """
 
         return list(
-            map(lambda week: PredictionDataProcessor._extract_features_from_week(week=week).as_numerical_list(), weeks)
+            map(lambda week: BoxOfficeRegressionDataProcessor._extract_features_from_week(
+                week=week).as_numerical_list(), weeks)
         )
 
     def _scale_feature_in_sequences(self, sequences: NDArray[float32]) -> NDArray[float32]:
@@ -429,14 +431,14 @@ class PredictionDataProcessor(
 
     def _scale_data(
         self, unscaled_data: SplitDataset[NDArray[float32], NDArray[float64]]
-    ) -> PredictionTrainingProcessedData:
+    ) -> BoxOfficeRegressionTrainingProcessedData:
         """
         Fits a scaler on the training data and applies it to all data splits.
 
         :param unscaled_data: A TypedDict containing the unscaled train, validation, and test sets.
         :returns: A TypedDict containing the scaled data splits.
         """
-        self.logger.info("Scaling data splits.")
+        self.logger.debug("Scaling data splits.")
         x_train, y_train = unscaled_data['x_train'], unscaled_data['y_train']
         x_val, y_val = unscaled_data['x_val'], unscaled_data['y_val']
         x_test, y_test = unscaled_data['x_test'], unscaled_data['y_test']
@@ -452,7 +454,7 @@ class PredictionDataProcessor(
         x_val_scaled = self._scale_feature_in_sequences(sequences=x_val)
         x_test_scaled = self._scale_feature_in_sequences(sequences=x_test)
 
-        return PredictionTrainingProcessedData(
+        return BoxOfficeRegressionTrainingProcessedData(
             x_train=x_train_scaled, y_train=y_train_scaled.flatten(),
             x_val=x_val_scaled, y_val=y_val_scaled.flatten(),
             x_test=x_test_scaled, y_test=y_test_scaled.flatten()

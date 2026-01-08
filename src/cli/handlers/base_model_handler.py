@@ -3,7 +3,7 @@ from argparse import ArgumentParser, Namespace
 from logging import Formatter, Handler, Logger, StreamHandler
 from pathlib import Path
 from random import randint
-from typing import Any, Generic, TypeVar
+from typing import Any, cast, Generic, TypeVar
 
 from src.core.logging_manager import HandlerSettings, LoggingManager, LogLevel
 from src.core.project_config import ProjectModelType, ProjectPaths
@@ -23,7 +23,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
 
     :ivar _logger: The shared logger instance for all model handlers.
     :ivar _parser: The argument parser instance for the specific command.
-    :ivar _model_type_name: The display name of the model type (e.g., "Box Office Prediction").
+    :ivar _model_type_name: The display name of the model type (e.g., "Box Office Regression").
     :ivar _model_type: The enum member for the model type.
     :ivar _evaluator: An instance of a class that inherits from BaseEvaluator.
     """
@@ -126,7 +126,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         Gets the filename for the model's default configuration.
 
         Subclasses must implement this to return their specific default
-        config file name (e.g., "prediction_defaults.yaml").
+        config file name (e.g., "box_office_regression_defaults.yaml").
 
         :returns: The name of the default configuration file.
         """
@@ -153,7 +153,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         final_config_path: Path = artifacts_folder / "config.yaml"
 
         # Cache Invalidation
-        # A new training run will invalidate any previous evaluation results.
+        # A new training run will invalidate Any previous evaluation results.
         # This requires an abstract method to get the specific cache file name.
         cache_filename: str = self._get_evaluation_cache_filename()
         cache_path: Path = artifacts_folder / cache_filename
@@ -382,7 +382,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         the epoch numbers.
 
         :param model_id: The unique identifier for the model series.
-        :param model_type: The type of the model (e.g., PREDICTION).
+        :param model_type: The type of the model (e.g., BOX_OFFICE_REGRESSION).
         :returns: A sorted list of available epoch numbers.
         """
         model_artifacts_path: Path = ProjectPaths.get_model_root_path(
@@ -443,7 +443,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         :raises SystemExit: If validation fails or the config file cannot be loaded.
         """
         # Validate that at least one metric flag is present
-        if not any(getattr(args, flag, False) for flag in required_flags):
+        if not Any(getattr(args, flag, False) for flag in required_flags):
             self._parser.error(
                 f"At least one flag from --{', --'.join(flag.replace('_', '-') for flag in required_flags)} must be selected."
             )
@@ -473,9 +473,9 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         """
         Displays model-specific metrics using a format-less logger.
 
-        Subclasses must implement this method to print any metrics unique to
+        Subclasses must implement this method to print Any metrics unique to
         their model type using the provided `result_logger`. This logger is
-        configured to output messages without any standard log formatting
+        configured to output messages without Any standard log formatting
         (like timestamps or log levels), making it suitable for clean final output.
 
         :param result: The evaluation result object containing the metrics.

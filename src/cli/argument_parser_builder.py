@@ -4,8 +4,8 @@ from pathlib import Path
 from typing import Optional
 
 from src.cli.handlers.base_model_handler import BaseModelHandler
+from src.cli.handlers.box_office_regression_model_handler import BoxOfficeRegressionModelHandler
 from src.cli.handlers.dataset_handler import DatasetHandler
-from src.cli.handlers.prediction_model_handler import PredictionModelHandler
 
 
 class ArgumentParserBuilder:
@@ -28,7 +28,7 @@ class ArgumentParserBuilder:
     :ivar __plot_common_behavior_parser: A parent parser for plotting evaluation graphs.
     :ivar __get_metrics_common_behavior_parser: A parent parser for fetching evaluation metrics.
     :ivar __dataset_handler: The handler for 'dataset' command logic.
-    :ivar __prediction_model_handler: The handler for 'prediction-model' command logic.
+    :ivar __box_office_regression_model_handler: The handler for 'box-office-regression-model' command logic.
     """
     _MODEL_ID_KWARGS: dict[str, type | bool | str] = {
         "type": str,
@@ -45,7 +45,7 @@ class ArgumentParserBuilder:
         """
         self.parser: ArgumentParser = ArgumentParser(
             prog="movie_predictor",
-            description="A command-line tool for movie box office prediction and analysis."
+            description="A command-line tool for movie box office box_office_regression and analysis."
         )
         self._subparsers_action: _SubParsersAction = self.parser.add_subparsers(
             dest="command_group",
@@ -88,7 +88,8 @@ class ArgumentParserBuilder:
         group (e.g., 'dataset', 'sentiment-model').
         """
         self.__dataset_handler: DatasetHandler = DatasetHandler(self.parser)
-        self.__prediction_model_handler: PredictionModelHandler = PredictionModelHandler(self.parser)
+        self.__box_office_regression_model_handler: BoxOfficeRegressionModelHandler = BoxOfficeRegressionModelHandler(
+            self.parser)
 
     @staticmethod
     def __create_model_file_args_parser() -> ArgumentParser:
@@ -446,43 +447,44 @@ class ArgumentParserBuilder:
         )
         compute_sentiment_parser.set_defaults(func=self.__dataset_handler.compute_sentiment)
 
-    def __setup_prediction_model_subparser(self) -> None:
+    def __setup_box_office_regression_model_subparser(self) -> None:
         """
-        Sets up the 'prediction-model' command group and its sub-commands.
+        Sets up the 'box-office-regression-model' command group and its sub-commands.
 
         This defines the following command structure:
-        - `prediction-model train`: To train a new model.
-        - `prediction-model predict`: To test the model.
-        - `prediction-model evaluate plot`: To plot evaluation graphs.
-        - `prediction-model evaluate get-metrics`: To get specific metric values.
+        - `box-office-regression-model train`: To train a new model.
+        - `box-office-regression-model predict`: To test the model.
+        - `box-office-regression-model evaluate plot`: To plot evaluation graphs.
+        - `box-office-regression-model evaluate get-metrics`: To get specific metric values.
         """
-        prediction_parser: ArgumentParser = self._subparsers_action.add_parser(
-            "prediction-model", help="Commands for the box office prediction model."
+        box_office_regression_parser: ArgumentParser = self._subparsers_action.add_parser(
+            "box-office-regression-model", help="Commands for the Box Office Regression Model."
         )
-        prediction_subparsers: _SubParsersAction = prediction_parser.add_subparsers(
-            dest="prediction_subcommand", required=True, help="Available prediction model commands."
+        box_office_regression_subparsers: _SubParsersAction = box_office_regression_parser.add_subparsers(
+            dest="box_office_regression_subcommand", required=True,
+            help="Available Box Office Regression Model commands."
         )
 
-        prediction_subparsers.add_parser(
-            'train', help='Train a box office prediction model.', parents=[self.__train_common_behavior_parser]
-        ).set_defaults(func=self.__prediction_model_handler.train)
+        box_office_regression_subparsers.add_parser(
+            'train', help='Train a Box Office Regression Model.', parents=[self.__train_common_behavior_parser]
+        ).set_defaults(func=self.__box_office_regression_model_handler.train)
 
-        predict_parser: ArgumentParser = prediction_subparsers.add_parser(
-            'predict', help="Test the prediction model.", parents=[self.__model_file_args_parser]
+        predict_parser: ArgumentParser = box_office_regression_subparsers.add_parser(
+            'predict', help="Test the Box Office Regression Model.", parents=[self.__model_file_args_parser]
         )
         source_group = predict_parser.add_mutually_exclusive_group(required=True)
         source_group.add_argument(
-            '--movie-name', type=str, help='The name of the movie to predict a prediction on.'
+            '--movie-name', type=str, help='The name of the movie using for prediction.'
         )
         source_group.add_argument(
-            '--random', action='store_true', help='Use random data for the prediction predict.'
+            '--random', action='store_true', help='Use random data for the model prediction.'
         )
-        predict_parser.set_defaults(func=self.__prediction_model_handler.predict)
+        predict_parser.set_defaults(func=self.__box_office_regression_model_handler.predict)
 
         self.__add_evaluate_subcommands(
-            parent_subparsers=prediction_subparsers,
-            handler=self.__prediction_model_handler,
-            model_type_name="prediction"
+            parent_subparsers=box_office_regression_subparsers,
+            handler=self.__box_office_regression_model_handler,
+            model_type_name="Box Office Regression"
         )
 
     def build(self) -> ArgumentParser:
@@ -498,7 +500,7 @@ class ArgumentParserBuilder:
             return self.parser
 
         self.__setup_dataset_subparser()
-        self.__setup_prediction_model_subparser()
+        self.__setup_box_office_regression_model_subparser()
         self._built = True
         return self.parser
 

@@ -9,9 +9,9 @@ class ProjectModelType(Enum):
     categories, ensuring consistency when creating paths, loading configurations,
     or routing logic.
 
-    :ivar PREDICTION: Corresponds to models focused on box office revenue prediction.
+    :ivar BOX_OFFICE_REGRESSION: Corresponds to models focused on box office prediction using regression method.
     """
-    PREDICTION = "box_office_prediction"
+    BOX_OFFICE_REGRESSION = "box_office_regression"
 
 
 class ProjectDatasetType(Enum):
