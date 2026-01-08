@@ -1,29 +1,29 @@
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, TypeAlias
 
 from numpy.typing import NDArray
 from typing_extensions import override
 
-from src.models.base.base_model_core import BaseModelCore, BaseTrainConfig, BasePredictConfig, BaseEvaluateConfig
+from src.models.base.base_model_core import BaseModelCore, KerasEvaluateParams, KerasFitParams, KerasPredictParams
 from src.models.base.keras_setup import keras_base
 
 # noinspection PyUnresolvedReferences
-History = keras_base.callbacks.History
-Sequential = keras_base.models.Sequential
+History: TypeAlias = keras_base.callbacks.History
+Sequential: TypeAlias = keras_base.models.Sequential
 # noinspection PyUnresolvedReferences
-Dense = keras_base.layers.Dense
+Dense: TypeAlias = keras_base.layers.Dense
 # noinspection PyUnresolvedReferences
-Dropout = keras_base.layers.Dropout
+Dropout: TypeAlias = keras_base.layers.Dropout
 # noinspection PyUnresolvedReferences
-Input = keras_base.layers.Input
+Input: TypeAlias = keras_base.layers.Input
 # noinspection PyUnresolvedReferences
-LSTM = keras_base.layers.LSTM
+LSTM: TypeAlias = keras_base.layers.LSTM
 # noinspection PyUnresolvedReferences
-Masking = keras_base.layers.Masking
+Masking: TypeAlias = keras_base.layers.Masking
 # noinspection PyUnresolvedReferences
-Adam = keras_base.optimizers.Adam
+Adam: TypeAlias = keras_base.optimizers.Adam
 # noinspection PyUnresolvedReferences
-ExponentialDecay = keras_base.optimizers.schedules.ExponentialDecay
+ExponentialDecay: TypeAlias = keras_base.optimizers.schedules.ExponentialDecay
 
 
 @dataclass(frozen=True)
@@ -41,28 +41,28 @@ class BoxOfficeRegressionBuildConfig:
 
 
 @dataclass(frozen=True)
-class BoxOfficeRegressionTrainConfig(BaseTrainConfig):
+class BoxOfficeRegressionFitParams(KerasFitParams):
     """
     Configuration for training the Box Office Regression Model.
-    Inherits all common training parameters from BaseTrainConfig.
+    Inherits all common training parameters from KerasFitParams.
     """
     pass
 
 
 @dataclass(frozen=True)
-class BoxOfficeRegressionPredictConfig(BasePredictConfig):
+class BoxOfficeRegressionPredictParams(KerasPredictParams):
     """
     Configuration for predicting with the Box Office Regression Model.
-    Inherits all common box_office_regression parameters from BasePredictConfig.
+    Inherits all common box_office_regression parameters from KerasPredictParams.
     """
     pass
 
 
 @dataclass(frozen=True)
-class BoxOfficeRegressionEvaluateConfig(BaseEvaluateConfig):
+class BoxOfficeRegressionEvaluateParams(KerasEvaluateParams):
     """
     Configuration for evaluating the Box Office Regression Model.
-    Inherits all common evaluation parameters from BaseEvaluateConfig.
+    Inherits all common evaluation parameters from KerasEvaluateParams.
     """
     pass
 
@@ -70,9 +70,9 @@ class BoxOfficeRegressionEvaluateConfig(BaseEvaluateConfig):
 class BoxOfficeRegressionModelCore(
     BaseModelCore[
         BoxOfficeRegressionBuildConfig,
-        BoxOfficeRegressionTrainConfig,
-        BoxOfficeRegressionPredictConfig,
-        BoxOfficeRegressionEvaluateConfig
+        BoxOfficeRegressionFitParams,
+        BoxOfficeRegressionPredictParams,
+        BoxOfficeRegressionEvaluateParams
     ]
 ):
     """
@@ -103,13 +103,13 @@ class BoxOfficeRegressionModelCore(
         self._compile_model()
 
     @override
-    def train(self, x_train: NDArray[Any], y_train: NDArray[Any], config: BoxOfficeRegressionTrainConfig) -> History:
+    def train(self, x_train: NDArray[Any], y_train: NDArray[Any], params: BoxOfficeRegressionFitParams) -> History:
         """
-        Trains the Box Office Regression Model using parameters from the config object.
+        Trains the Box Office Regression Model using parameters from the params object.
 
         :param x_train: The training data (features).
         :param y_train: The training data (labels).
-        :param config: A configuration object containing training parameters.
+        :param params: A configuration object containing training parameters.
         :returns: A Keras `History` object containing a record of training loss values.
         :raises ValueError: If the model is not built or loaded before training.
         """
@@ -119,44 +119,44 @@ class BoxOfficeRegressionModelCore(
         return self._model.fit(
             x=x_train,
             y=y_train,
-            epochs=config.epochs,
-            batch_size=config.batch_size,
-            validation_data=config.validation_data,
-            callbacks=config.callbacks,
-            verbose=config.verbose,
-            initial_epoch=config.initial_epoch
+            epochs=params.epochs,
+            batch_size=params.batch_size,
+            validation_data=params.validation_data,
+            callbacks=params.callbacks,
+            verbose=params.verbose,
+            initial_epoch=params.initial_epoch
         )
 
     @override
-    def predict(self, data: NDArray[Any], config: BoxOfficeRegressionPredictConfig) -> NDArray[Any]:
+    def predict(self, data: NDArray[Any], params: BoxOfficeRegressionPredictParams) -> NDArray[Any]:
         """
-        Generates box office predictions using parameters from the config object.
+        Generates box office predictions using parameters from the params object.
 
         :param data: The input data for which to make predictions.
-        :param config: A configuration object containing parameters of Box Office Regression Model.
+        :param params: A configuration object containing parameters of Box Office Regression Model.
         :returns: A NumPy array of predictions.
         :raises ValueError: If the model is not built or loaded before prediction.
         """
         if not self._model:
             raise ValueError("Model is not built or loaded. Cannot make predictions.")
 
-        return self._model.predict(x=data, batch_size=config.batch_size, verbose=config.verbose)
+        return self._model.predict(x=data, batch_size=params.batch_size, verbose=params.verbose)
 
     @override
-    def evaluate(self, x_test: NDArray[Any], y_test: NDArray[Any], config: BoxOfficeRegressionEvaluateConfig) -> Any:
+    def evaluate(self, x_test: NDArray[Any], y_test: NDArray[Any], params: BoxOfficeRegressionEvaluateParams) -> Any:
         """
-        Evaluates the Box Office Regression Model using parameters from the config object.
+        Evaluates the Box Office Regression Model using parameters from the params object.
 
         :param x_test: The test data (features).
         :param y_test: The test data (labels).
-        :param config: A configuration object containing evaluation parameters.
+        :param params: A configuration object containing evaluation parameters.
         :returns: A scalar loss value (Mean Squared Error).
         :raises ValueError: If the model is not built or loaded before evaluation.
         """
         if not self._model:
             raise ValueError("Model is not built or loaded. Cannot evaluate.")
 
-        return self._model.evaluate(x=x_test, y=y_test, batch_size=config.batch_size, verbose=config.verbose)
+        return self._model.evaluate(x=x_test, y=y_test, batch_size=params.batch_size, verbose=params.verbose)
 
     def _compile_model(self) -> None:
         """

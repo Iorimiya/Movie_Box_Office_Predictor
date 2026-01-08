@@ -19,8 +19,8 @@ from src.models.box_office_regression.components.data_processor import (
 )
 from src.models.box_office_regression.components.model_core import (
     BoxOfficeRegressionBuildConfig,
-    BoxOfficeRegressionModelCore,
-    BoxOfficeRegressionTrainConfig
+    BoxOfficeRegressionFitParams,
+    BoxOfficeRegressionModelCore
 )
 from src.utilities.metrics import PointwiseClassificationMetricsCalculator
 
@@ -175,7 +175,7 @@ class BoxOfficeRegressionTrainingPipeline(
         if checkpoint_callback:
             monitoring_callbacks.append(checkpoint_callback)
 
-        train_config: BoxOfficeRegressionTrainConfig = BoxOfficeRegressionTrainConfig(
+        fit_params: BoxOfficeRegressionFitParams = BoxOfficeRegressionFitParams(
             epochs=master_config.epochs,
             batch_size=master_config.batch_size,
             validation_data=(processed_data['x_val'], processed_data['y_val']),
@@ -186,7 +186,7 @@ class BoxOfficeRegressionTrainingPipeline(
         history: History = self.model_core.train(
             x_train=processed_data['x_train'],
             y_train=processed_data['y_train'],
-            config=train_config
+            params=fit_params
         )
         self.logger.debug("Model training complete.")
 

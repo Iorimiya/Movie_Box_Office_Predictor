@@ -1,21 +1,23 @@
 from abc import ABC, abstractmethod
-from dataclasses import field, dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Generic, Optional, TypeVar
+from typing import Any, Callable, Generic, Optional, TypeAlias, TypeVar
 
 from numpy.typing import NDArray
 
 from src.models.base.keras_setup import keras_base
 from src.utilities.filesystem_utils import is_existing_path
 
-Model = keras_base.Model
-Callback = keras_base.callbacks.Callback
-History = keras_base.callbacks.History
-load_model = keras_base.models.load_model
+Model: TypeAlias = keras_base.Model
+# noinspection PyUnresolvedReferences
+Callback: TypeAlias = keras_base.callbacks.Callback
+# noinspection PyUnresolvedReferences
+History: TypeAlias = keras_base.callbacks.History
+load_model: Callable = keras_base.models.load_model
 
 
 @dataclass(frozen=True)
-class BaseTrainConfig:
+class KerasFitParams:
     """
     A base configuration for training a Keras model.
 
@@ -30,14 +32,15 @@ class BaseTrainConfig:
     """
     epochs: int
     batch_size: int
-    validation_data: tuple[NDArray[any], NDArray[any]]
+    validation_data: tuple[NDArray[Any], NDArray[Any]]
     verbose: int | str = 1
+    # noinspection PyTypeHints
     callbacks: list[Callback] = field(default_factory=list)
     initial_epoch: int = 0
 
 
 @dataclass(frozen=True)
-class BasePredictConfig:
+class KerasPredictParams:
     """
     A base configuration for predicting with a Keras model.
 
@@ -51,7 +54,7 @@ class BasePredictConfig:
 
 
 @dataclass(frozen=True)
-class BaseEvaluateConfig:
+class KerasEvaluateParams:
     """
     A base configuration for evaluating a Keras model.
 
@@ -65,13 +68,13 @@ class BaseEvaluateConfig:
 
 
 ModelBuildConfigType = TypeVar('ModelBuildConfigType')
-TrainConfigType = TypeVar('TrainConfigType', bound=BaseTrainConfig)
-PredictConfigType = TypeVar('PredictConfigType', bound=BasePredictConfig)
-EvaluateConfigType = TypeVar('EvaluateConfigType', bound=BaseEvaluateConfig)
+TrainParamsType = TypeVar('TrainParamsType', bound=KerasFitParams)
+PredictParamsType = TypeVar('PredictParamsType', bound=KerasPredictParams)
+EvaluateParamsType = TypeVar('EvaluateParamsType', bound=KerasEvaluateParams)
 
 
 class BaseModelCore(
-    Generic[ModelBuildConfigType, TrainConfigType, PredictConfigType, EvaluateConfigType],
+    Generic[ModelBuildConfigType, TrainParamsType, PredictParamsType, EvaluateParamsType],
     ABC
 ):
     """
@@ -109,40 +112,40 @@ class BaseModelCore(
         pass
 
     @abstractmethod
-    def train(self, x_train: NDArray[any], y_train: NDArray[any], config: TrainConfigType) -> History:
+    def train(self, x_train: NDArray[Any], y_train: NDArray[Any], params: TrainParamsType) -> History:
         """
         Trains the model on the provided data based on a configuration object.
 
-        Subclasses MUST implement this method to unpack the `config` object
+        Subclasses MUST implement this method to unpack the `params` object
         and pass the appropriate arguments to the underlying Keras `fit` method.
 
         :param x_train: Training data (features).
         :param y_train: Training data (labels).
-        :param config: A structured configuration object containing all necessary
+        :param params: A structured configuration object containing all necessary
                        parameters for training (e.g., epochs, batch_size, validation_data).
         :returns: A Keras History object containing training history.
         """
         pass
 
     @abstractmethod
-    def predict(self, data: NDArray[any], config: PredictConfigType) -> NDArray[any]:
+    def predict(self, data: NDArray[Any], params: PredictParamsType) -> NDArray[Any]:
         """
         Generates predictions for the given input data based on a configuration object.
 
-        :param data: Input data for prediction.
-        :param config: A structured configuration object for prediction.
+        :param data: Input data for box_office_regression.
+        :param params: A structured configuration object for box_office_regression.
         :returns: A NumPy array containing the predictions.
         """
         pass
 
     @abstractmethod
-    def evaluate(self, x_test: NDArray[any], y_test: NDArray[any], config: EvaluateConfigType) -> any:
+    def evaluate(self, x_test: NDArray[Any], y_test: NDArray[Any], params: EvaluateParamsType) -> Any:
         """
         Evaluates the model on the test data based on a configuration object.
 
         :param x_test: Test data (features).
         :param y_test: Test data (labels).
-        :param config: A structured configuration object for evaluation.
+        :param params: A structured configuration object for evaluation.
         :returns: A scalar loss value, or a list of scalars (loss and metrics) for the model.
         """
         pass

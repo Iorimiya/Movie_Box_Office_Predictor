@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Optional, TypeAlias
 
 from numpy import array, float32, float64
 from numpy.typing import NDArray
@@ -25,7 +25,7 @@ from src.models.box_office_regression.components.data_processor import (
 )
 from src.models.box_office_regression.components.model_core import (
     BoxOfficeRegressionModelCore,
-    BoxOfficeRegressionPredictConfig,
+    BoxOfficeRegressionPredictParams,
 )
 from src.utilities.metrics import (
     ClassificationReportDict,
@@ -36,7 +36,7 @@ from src.utilities.metrics import (
 )
 
 # noinspection PyUnresolvedReferences
-History = keras_base.callbacks.History
+History: TypeAlias = keras_base.callbacks.History
 
 
 @dataclass(frozen=True)
@@ -183,8 +183,8 @@ class BoxOfficeRegressionEvaluationResult(RegressionEvaluationResult, Classifica
         :return: A dictionary containing MSE, MAE, and R2 score.
         """
         logger.debug("Calculating regression metrics (MSE, MAE, R²)...")
-        y_pred_scaled: NDArray[Any] = model_core.predict(data=x_test,
-                                                         config=BoxOfficeRegressionPredictConfig(verbose=0))
+        predict_params: BoxOfficeRegressionPredictParams = BoxOfficeRegressionPredictParams(verbose=0)
+        y_pred_scaled: NDArray[Any] = model_core.predict(data=x_test, params=predict_params)
         regression_calculator: RegressionMetricsCalculator = RegressionMetricsCalculator()
         report: RegressionReportDict = regression_calculator.generate_report(y_true=y_test, y_pred=y_pred_scaled)
 
@@ -215,8 +215,8 @@ class BoxOfficeRegressionEvaluationResult(RegressionEvaluationResult, Classifica
                   - A list of unscaled box office values from the last input week.
         """
         logger.debug("Generating unscaled predictions for classification metrics...")
-        y_pred_scaled: NDArray[Any] = model_core.predict(data=x_test,
-                                                         config=BoxOfficeRegressionPredictConfig(verbose=0))
+        predict_params: BoxOfficeRegressionPredictParams = BoxOfficeRegressionPredictParams(verbose=0)
+        y_pred_scaled: NDArray[Any] = model_core.predict(data=x_test, params=predict_params)
         unscaled_predictions: list[float] = scaler.inverse_transform(y_pred_scaled).flatten().tolist()
         unscaled_actual: list[float] = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten().tolist()
         last_week_input_scaled: NDArray[float32] = x_test[:, -1, 0].reshape(-1, 1)
