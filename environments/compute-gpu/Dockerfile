@@ -1,7 +1,7 @@
 FROM continuumio/anaconda3
 
 LABEL maintainer="Iorimiya <iorimiya.vina@gmail.com>"
-LABEL version="1.0.0"
+LABEL version="1.1.0"
 LABEL description="Movie Box Office Predictor Compute Node (GPU version)"
 
 RUN apt-get update && apt-get install -y \
@@ -21,6 +21,22 @@ RUN apt-get update && apt-get install -y \
     libxss1 \
     && rm -rf /var/lib/apt/lists/*
 
+ARG USERNAME=user
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && apt-get update \
+    && apt-get install -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && chown -R $USERNAME:$USER_GID /opt/conda
+
+RUN mkdir -p /app && chown $USERNAME:$USER_GID /app
+
+USER $USERNAME
+
 WORKDIR /app
 
 # Path is relative to the build context (project root)
@@ -35,12 +51,10 @@ RUN conda config --set remote_read_timeout_secs 600.0 && \
 RUN conda env create -n compute_env -f /tmp/requirements.yaml && \
     conda clean -afy
 
-ENV PATH /opt/conda/envs/compute_env/bin:$PATH
+ENV PATH="/opt/conda/envs/compute_env/bin:$PATH"
 
-ENV SHELL /bin/bash
+ENV SHELL="/bin/bash"
 
-# Use 'conda run' and point to the script in the mounted src folder
 ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "compute_env", "python", "src/main.py"]
-# ENTRYPOINT ["tail", "-f", "/dev/null"]
-
+# ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "compute_env", "gunicorn", "-w", "1", "-b", "0.0.0.0:11100", "-t", "600", "src.web_api:app"]
 

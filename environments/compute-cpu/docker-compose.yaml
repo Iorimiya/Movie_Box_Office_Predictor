@@ -2,13 +2,13 @@
 # Project Name: Web Service Configuration of Movie Box Office Predictor
 # Description: Compute Node, CPU version
 # Author: Iorimiya
-# Date: 2025-12-30
-# Version: 1.0.0
+# Date: 2026-01-11
+# Version: 1.1.0
 # ==============================================================================
-name:  mbop-compute-cpu
+name: mbop-compute-cpu
 services:
   mbop-compute-node:
-    image: iorimiya/mbop-compute:${APP_VERSION:-v1.0}-cpu
+    image: iorimiya/mbop-compute:${APP_VERSION:-v1.1}-cpu
     build:
       context: ../../
       dockerfile: environments/compute-cpu/Dockerfile
@@ -38,9 +38,9 @@ services:
         protocol: tcp
         published: ${host_port}
         target: ${container_port}
-    entrypoint: ["tail", "-f", "/dev/null"]
+    entrypoint: [ "tail", "-f", "/dev/null" ]
     healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "11100"]
+      test: [ "CMD", "nc", "-z", "localhost", "11100" ]
       interval: 30s
       timeout: 10s
       retries: 3

@@ -2,13 +2,13 @@
 # Project Name: Web Service Configuration of Movie Box Office Predictor
 # Description: Compute Node, GPU version
 # Author: Iorimiya
-# Date: 2025-12-30
-# Version: 1.0.0
+# Date: 2026-01-11
+# Version: 1.1.0
 # ==============================================================================
-name:  mbop-compute-gpu
+name: mbop-compute-gpu
 services:
   mbop-compute-node:
-    image: iorimiya/mbop-compute:${APP_VERSION:-v1.0}-gpu
+    image: iorimiya/mbop-compute:${APP_VERSION:-v1.1}-gpu
     build:
       context: ../../
       dockerfile: environments/compute-gpu/Dockerfile
@@ -44,10 +44,10 @@ services:
           devices:
             - driver: nvidia
               count: 1
-              capabilities: [gpu]
-    entrypoint: ["tail", "-f", "/dev/null"]
+              capabilities: [ gpu ]
+    entrypoint: [ "tail", "-f", "/dev/null" ]
     healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "11100"]
+      test: [ "CMD", "nc", "-z", "localhost", "11100" ]
       interval: 30s
       timeout: 10s
       retries: 3
