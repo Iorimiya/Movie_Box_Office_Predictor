@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "mbop-compute-gpu",
+	"dockerComposeFile": [
+        "../../environments/compute-gpu/docker-compose.yaml"
+    ],
+
+  "service": "mbop-compute-node",
+  "workspaceFolder": "/app",
+  "remoteUser": "user",
+	// Configure tool-specific properties.
+  "customizations" : {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "vscjava.vscode-docker",
+        "ms-azuretools.vscode-docker"
+      ]
+    },
+    "jetbrains" : {
+      "backend" : "PyCharm"
+    }
+  },
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

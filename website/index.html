@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>電影票房預測</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="wrap">
+    <div class="card">
+        <div class="cardHeader">
+            <h2>🎬 電影票房預測</h2>
+            <p class="cardSubTitle">看看你的電影落點吧</p>
+        </div>
+
+        <div class="content">
+            <!-- Left -->
+            <div class="panel">
+                <label>請您輸入電影</label>
+                <div class="inputGroup">
+                    <input id="movieQuote" placeholder="例如：動物方城市"/>
+                    <button>送出</button>
+                </div>
+
+                <div class="note">
+                    <span class="badge">i</span>
+                    pr0-50：一星<br/>
+                    pr50-80：二星<br/>
+                    pr80-99：三星
+
+                    <div id="traceBox">尚未執行</div>
+                </div>
+            </div>
+
+            <!-- Right -->
+            <div class="result">
+                <div class="resultHeader">
+                    <b>呈現結果</b>
+                    <div class="status">等待輸入…</div>
+                </div>
+                <div class="imageFrame">
+                    結果圖片 / 區塊顯示位置
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
