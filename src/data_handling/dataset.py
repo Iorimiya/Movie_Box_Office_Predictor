@@ -3,20 +3,20 @@ from functools import cached_property
 from logging import Logger
 from pathlib import Path
 from time import sleep
-from typing import cast, Literal, Optional, Final
+from typing import cast, Final, Literal, Optional
 
 from tqdm import tqdm
 
 from src.core.logging_manager import LoggingManager
-from src.core.project_config import ProjectPaths, ProjectDatasetType
+from src.core.project_config import ProjectDatasetType, ProjectPaths
 from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData, MovieSessionData
 from src.data_handling.movie_metadata import MovieMetadata, MovieMetadataRawData, MoviePathMetadata
-from src.data_handling.reviews import PublicReview, ExpertReview
-from src.sentiment_analysis.llm_client import LLMClient, DailyRateLimitExceededError
+from src.data_handling.reviews import ExpertReview, PublicReview
+from src.sentiment_analysis.llm_client import DailyRateLimitExceededError, LLMClient, LLMProvider
 
 
 @dataclass(kw_only=True)
@@ -100,7 +100,7 @@ class Dataset:
 
         :returns: A list of MovieMetadata objects.
         """
-        self.__logger.info(
+        self.__logger.debug(
             f"Attempting to create MovieSourceInfo objects for dataset '{self.name}' from index file: '{self.index_file_path}'.")
 
         raw_movie_data_from_csv: list[dict[str, str]]
@@ -112,7 +112,7 @@ class Dataset:
             raw_movie_data_from_csv = self.index_file.load()
 
             if not raw_movie_data_from_csv:
-                self.__logger.info(
+                self.__logger.debug(
                     f"No movie data found or index file is empty: '{self.index_file_path}' for dataset '{self.name}'.")
                 return []
         except FileNotFoundError:
@@ -124,7 +124,7 @@ class Dataset:
         return [
             movie_metadata for raw_movie_data in raw_movie_data_from_csv
             if (movie_metadata := MovieMetadata.from_csv_raw_data(
-                source=cast(MovieMetadataRawData, raw_movie_data)
+                source=cast(MovieMetadataRawData, cast(object, raw_movie_data))
             )) is not None
         ]
 
@@ -142,9 +142,9 @@ class Dataset:
         :returns: A list of MovieData objects.
         """
         if self.__movies_data_cache is None:
-            self.__logger.info(f"Cache miss for 'movie_data' in dataset '{self.name}'. Loading all movie data.")
+            self.__logger.debug(f"Cache miss for 'movie_data' in dataset '{self.name}'. Loading all movie data.")
             self.__movies_data_cache = self.load_movie_data(mode='ALL')
-            self.__logger.info(
+            self.__logger.debug(
                 f"Populated 'movie_data' cache for dataset '{self.name}' with {len(self.__movies_data_cache)} items.")
         else:
             self.__logger.debug(
@@ -218,7 +218,7 @@ class Dataset:
         self.__logger.debug(f"Loading movie source info (paths) for dataset '{self.name}'.")
         current_movies_metadata: list[MovieMetadata] = self.movies_metadata
         if not current_movies_metadata:
-            self.__logger.info(f"No base movie metadata found for dataset '{self.name}'. Cannot load source info.")
+            self.__logger.debug(f"No base movie metadata found for dataset '{self.name}'. Cannot load source info.")
             return []
 
         path_metadata_list: list[MoviePathMetadata] = [
@@ -243,13 +243,13 @@ class Dataset:
         :raises ValueError: If an invalid mode is provided.
         """
 
-        self.__logger.info(f"Loading all movie data for dataset '{self.name}' in mode '{mode}'.")
+        self.__logger.debug(f"Loading all movie data for dataset '{self.name}' in mode '{mode}'.")
 
         match mode:
             case 'ALL':
                 source_infos: list[MoviePathMetadata] = self.load_movie_source_info()
                 if not source_infos:
-                    self.__logger.info(
+                    self.__logger.debug(
                         f"No processable movie metadata after initial validation from '{self.index_file_path}'."
                     )
                     return []
@@ -262,14 +262,14 @@ class Dataset:
                         expert_reviews=ExpertReview.create_multiple(source=movie_meta_info.expert_reviews_file_path)
                     ) for movie_meta_info in source_infos
                 ]
-                self.__logger.info(
+                self.__logger.debug(
                     f"Loaded {len(loaded_data)} full MovieData objects for dataset '{self.name}' in 'ALL' mode."
                 )
                 return loaded_data
             case 'META':
                 movies_meta: list[MovieMetadata] = self.movies_metadata
                 if not movies_meta:
-                    self.__logger.info(
+                    self.__logger.debug(
                         f"No processable movie metadata after initial validation from '{self.index_file_path}'."
                     )
                     return []
@@ -280,14 +280,10 @@ class Dataset:
                     )
                     for movie_meta in movies_meta
                 ]
-                self.__logger.info(
+                self.__logger.debug(
                     f"Loaded {len(meta_data_list)} MovieData objects (metadata only) for dataset '{self.name}' in 'META' mode."
                 )
                 return meta_data_list
-            case _:
-                err_msg: str = f"Invalid mode '{mode}' specified for load_all_movie_data. Must be 'ALL' or 'META'."
-                self.__logger.error(err_msg)
-                raise ValueError(err_msg)
 
     def load_movie_sessions(self, number_of_weeks: int) -> list[MovieSessionData]:
         """
@@ -301,7 +297,7 @@ class Dataset:
         :param number_of_weeks: The number of weeks each movie session should span.
         :returns: A flattened list of all `MovieSessionData` objects created from the dataset.
         """
-        self.__logger.info(f"Creating {number_of_weeks}-week sessions for all movies in dataset '{self.name}'.")
+        self.__logger.debug(f"Creating {number_of_weeks}-week sessions for all movies in dataset '{self.name}'.")
 
         # Use the existing property to get all fully-loaded MovieData objects
         all_movie_data: list[MovieData] = self.movie_data
@@ -370,7 +366,7 @@ class Dataset:
         :param target_website: The name of the website from which to collect reviews ("PTT" or "DCARD").
         """
         try:
-            target_website_enum: TargetWebsite = cast(TargetWebsite, TargetWebsite[target_website.upper()])
+            target_website_enum: TargetWebsite = TargetWebsite[target_website.upper()]
         except KeyError:
             self.__logger.error(
                 f"Invalid target_website_str: '{target_website}'. Available: {[e.name for e in TargetWebsite]}")
@@ -415,14 +411,9 @@ class Dataset:
         """
         Collects expert review data for all movies in this dataset.
 
-        .. note::
-           This method is not yet implemented.
+        This method is not yet implemented.
         """
         pass
-
-        # D:/Projects/Movie_Box_Office_Predictor/src/data_handling/dataset.py
-
-        # ... (imports and class definition remain the same) ...
 
     def compute_sentiment(self, model_id: str) -> None:
         """
@@ -438,22 +429,61 @@ class Dataset:
 
         try:
             # Initialize the client once for the entire process
-            if "gemma" in model_id:
-                # Consider making this URL configurable via a config file or CLI argument
+            if LLMProvider.is_local_from_string(model_id=model_id):
+                # For local models, provide connection details. These should be configurable in the future.
                 llm_client: LLMClient = LLMClient(
-                    target_model_id=model_id,
-                    local_llm_url='http://localhost:27041/engines/v1'
+                    target_model_id=model_id, # 'ollama/gemma3'
+                    local_host='llm-service',
+                    local_port=11434
                 )
-            elif 'gpt' in model_id or 'gemini' in model_id:
-                llm_client: LLMClient = LLMClient(target_model_id=model_id)
             else:
-                raise ValueError(f"Invalid or unsupported model_id for sentiment computation: '{model_id}'")
+                # For remote models, the client will handle API key retrieval from environment variables.
+                llm_client: LLMClient = LLMClient(target_model_id=model_id)
         except (ValueError, FileNotFoundError) as e:
             self.__logger.error(f"LLM Client Initialization failed: {e}")
             return  # Exit if client can't be created
 
         try:
-            rule_text: Final[str] = "請針對以下評論內容，判斷其為正面或負面之評論，若為正面請回覆1，若為負面請回覆0。僅回覆\"1\"或\"0\"即可，不須加上任何其他文字。"
+            rule_text: Final[str] = """
+            你是一個專業的影評情感分析引擎。你的任務是根據使用者提供的**單一電影評論**，判斷其整體情感傾向及強度。
+
+            請遵循以下評分規則，給出一個 1 到 5 之間的整數：
+
+            - **5 (極度正面)**：強烈推薦、神作、完美、非常感動、無可挑剔。評論者表現出極大的熱情或喜愛。
+            - **4 (正面)**：好看、值得一看、優點多於缺點、滿意。評論者整體持肯定態度，但可能有些許小遺憾。
+            - **3 (中性/普通)**：普通、還行、無感、平庸、殺時間可看。或者評論包含等量的優缺點，難以區分好壞。也包括純粹的劇情討論或提問，沒有明顯情感傾向。
+            - **2 (負面)**：不好看、失望、不如預期、缺點多於優點。評論者整體持否定態度，但還沒到憤怒的程度。
+            - **1 (極度負面)**：爛片、浪費時間、憤怒、一無是處、極度反推。評論者表現出強烈的厭惡或不滿。
+
+            **重要約束：**
+            1. 你將會收到一個完整的電影評論，該評論可能包含多個段落。請你**綜合考量評論的全部內容**，給出一個最終的判斷。
+            2. 你的回覆**只能**包含一個數字（"1", "2", "3", "4", 或 "5"），絕對不能包含任何其他文字、符號、解釋，或多個數字。
+
+            ---
+
+            範例 1：
+            評論：這部片絕對是年度最佳，看完直接二刷！劇情緊湊，演員表現也都很到位，非常值得一看。
+            你的回覆：5
+
+            範例 2：
+            評論：特效做得不錯，畫面很美。但劇情有點老套，中間一度想睡覺，整體來說算是一部合格的爆米花電影。
+            你的回覆：3
+
+            範例 3：
+            評論：劇情真的不行，浪費了這麼好的演員陣容。雖然畫面還不錯，但整體來說還是很失望。
+            你的回覆：2
+
+            範例 4：
+            評論：請問這部片有彩蛋嗎？我打算週末去看，聽說評價兩極。
+            你的回覆：3
+
+            範例 5：
+            評論：真的是爛到笑，完全不知道在演什麼，千萬不要浪費錢進戲院！
+            你的回覆：1
+            ---
+
+            現在，請針對以下評論內容進行判斷：
+            """
             total_review_count: int = sum(movie.public_review_count for movie in self.movie_data)
             max_response_retries: Final[int] = 3
 
@@ -472,25 +502,28 @@ class Dataset:
 
                     updated_reviews: list[PublicReview] = []
                     for review in movie.public_reviews:
-                        sentiment_score: Optional[int] = None
                         last_response: str = ""
-
                         for attempt in range(max_response_retries):
                             self.__logger.debug(
                                 f"Attempt {attempt + 1}/{max_response_retries} for review: '{review.title}'")
+                            current_temperature: float = 0.1 + (attempt * 0.4)
                             try:
                                 response_text: str = llm_client.generate_response(
                                     prompt_texts=review.content,
-                                    rule_message=rule_text
+                                    rule_message=rule_text,
+                                    temperature=current_temperature
                                 )
                                 last_response = response_text
 
                                 # Strict validation for the expected response
-                                if response_text in ('0', '1'):
-                                    sentiment_score = int(response_text)
+                                if response_text in ('1', '2', '3', '4', '5'):
+                                    score_val: int = int(response_text)
+
+                                    sentiment_score: Optional[float] = (score_val - 1) / 4.0
                                     self.__logger.debug(
-                                        f"Successfully validated response '{response_text}' for review '{review.title}'.")
-                                    break  # --- Exit the retry loop on success ---
+                                        f"Validated response '{response_text}' for review '{review.title}', "
+                                        "mapped to sentiment score: {sentiment_score:.2f}")
+                                    break  # Exit the retry loop on success
                                 else:
                                     self.__logger.warning(
                                         f"Received invalid sentiment response: '{response_text}'. Expected '0' or '1'. Retrying..."
@@ -500,8 +533,8 @@ class Dataset:
                                 # This is a non-daily-limit unrecoverable error from the client for this specific review
                                 self.__logger.error(
                                     f"Unrecoverable error from LLM client for review '{review.title}': {e}")
-                                sentiment_score = None
-                                break  # --- Exit the retry loop immediately ---
+                                sentiment_score: Optional[float] = None
+                                break  # Exit the retry loop immediately
                             except Exception as e:
                                 self.__logger.error(
                                     f"Unexpected error during sentiment generation for '{review.title}': {e}",
@@ -515,7 +548,7 @@ class Dataset:
                                 f"Failed to get a valid sentiment for review '{review.title}' after {max_response_retries} attempts. "
                                 f"Last invalid response was: '{last_response}'."
                             )
-                            sentiment_score = None
+                            sentiment_score: Optional[float] = None
 
                         if sentiment_score is not None:
                             updated_reviews.append(replace(review, sentiment_score=sentiment_score))
