@@ -1,0 +1,33 @@
+FROM ollama/ollama:latest
+
+LABEL maintainer="Iorimiya <iorimiya.vina@gmail.com>"
+LABEL version="1.1.0"
+LABEL description="Movie Box Office Predictor Review Classifier"
+
+ARG USERNAME=ubuntu
+
+RUN apt-get update && apt-get install -y sudo curl \
+    && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && mkdir -p /home/$USERNAME/.ollama \
+    && chown -R $USERNAME:$USERNAME /home/$USERNAME/.ollama
+
+COPY environments/compute-cpu/Modelfile /home/$USERNAME/Modelfile
+RUN chown $USERNAME:$USERNAME /home/$USERNAME/Modelfile
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
+
+ENV OLLAMA_HOST=0.0.0.0
+
+RUN ollama serve & \
+    pid=$! && \
+    sleep 5 && \
+    echo "Waiting for Ollama service..." && \
+    while ! curl -s http://localhost:11434 > /dev/null; do sleep 1; done && \
+    echo "Ollama service is ready. Creating model..." && \
+    ollama create gemma3 -f ./Modelfile && \
+    echo "Model created successfully." && \
+    kill $pid
+
+ENTRYPOINT ["ollama", "serve"]

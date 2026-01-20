@@ -1,43 +1,44 @@
+#file: noinspection ComposeUnknownValues
 # ==============================================================================
 # Project Name: Web Service Configuration of Movie Box Office Predictor
 # Description: Compute Node, GPU version
 # Author: Iorimiya
-# Date: 2026-01-11
-# Version: 1.1.0
+# Date: 2026-01-21
+# Version: 1.1.1
 # ==============================================================================
-name: mbop-compute-gpu
+name: mbop
+
 services:
-  mbop-compute-node:
-    image: iorimiya/mbop-compute:${APP_VERSION:-v1.1}-gpu
+  compute-node:
+    image: iorimiya/mbop-compute:${APP_VERSION:-v1.0.0}-gpu
     build:
       context: ../../
-      dockerfile: environments/compute-gpu/Dockerfile
-    container_name: mbop-compute-gpu
+      dockerfile: ./environments/compute-gpu/Dockerfile.compute
+    ports:
+      - mode: host
+        host_ip: ${HOST_IP:-0.0.0.0}
+        protocol: tcp
+        published: ${COMPUTE_HOST_PORT}
+        target: ${COMPUTE_CONTAINER_PORT:-11100}
     volumes:
       - type: bind
-        source: ${src_host_path}
+        source: ${SRC_HOST_PATH}
         target: /app/src
       - type: bind
-        source: ${dataset_host_path}
+        source: ${DATASET_HOST_PATH}
         target: /app/datasets
       - type: bind
-        source: ${log_host_path}
+        source: ${LOG_HOST_PATH}
         target: /app/logs
       - type: bind
-        source: ${model_host_path}
+        source: ${MODEL_HOST_PATH}
         target: /app/models
       - type: bind
-        source: ${config_host_path}
+        source: ${CONFIG_HOST_PATH}
         target: /app/configs
       - type: bind
-        source: ${input_host_path}
+        source: ${INPUT_HOST_PATH}
         target: /app/inputs
-    ports:
-      - host_ip: ${host_ip}
-        mode: host
-        protocol: tcp
-        published: ${host_port}
-        target: ${container_port}
     deploy:
       resources:
         reservations:
@@ -45,7 +46,8 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [ gpu ]
-    entrypoint: [ "tail", "-f", "/dev/null" ]
+#    command: ["gunicorn", "-w", "1", "-b", "0.0.0.0:11100", "-t", "600", "src.web_api:app"]
+    command: ["sleep", "infinity"]
     healthcheck:
       test: [ "CMD", "nc", "-z", "localhost", "11100" ]
       interval: 30s
@@ -53,3 +55,23 @@ services:
       retries: 3
       start_period: 60s
     restart: always
+
+  llm-service:
+    image: iorimiya/mbop-llm-service:${APP_VERSION:-v1.0.0}-gpu
+    build:
+      context: ../../
+      dockerfile: ./environments/compute-gpu/Dockerfile.llm
+#    ports:
+#      - mode: host
+#        host_ip: ${HOST_IP:-0.0.0.0}
+#        protocol: tcp
+#        published: ${LLM_HOST_PORT}
+#        target: ${LLM_CONTAINER_PORT:-11434}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    restart: unless-stopped

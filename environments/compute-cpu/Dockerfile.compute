@@ -53,6 +53,6 @@ ENV PATH="/opt/conda/envs/compute_env/bin:$PATH"
 
 ENV SHELL="/bin/bash"
 
-ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "compute_env", "python", "src/main.py"]
-# ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "compute_env", "gunicorn", "-w", "1", "-b", "0.0.0.0:11100", "-t", "600", "src.web_api:app"]
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "compute_env"]
+CMD ["python", "src/web_api/app.py"]
 
