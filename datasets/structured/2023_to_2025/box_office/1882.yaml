@@ -1,0 +1,19 @@
+start_date: 2023-01-02
+end_date: 2023-01-08
+box_office: 39530
+---
+start_date: 2023-01-09
+end_date: 2023-01-15
+box_office: 40530
+---
+start_date: 2023-01-16
+end_date: 2023-01-22
+box_office: 11795
+---
+start_date: 2023-01-23
+end_date: 2023-01-29
+box_office: 0
+---
+start_date: 2023-01-30
+end_date: 2023-02-05
+box_office: 510

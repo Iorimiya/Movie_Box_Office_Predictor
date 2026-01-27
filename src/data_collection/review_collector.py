@@ -5,7 +5,7 @@ from datetime import datetime
 from enum import Enum
 from logging import Logger
 from pathlib import Path
-from typing import Final, Optional, TypeAlias, Iterator
+from typing import cast, Final, get_args, Iterator, Optional, TypeAlias
 
 import requests
 from bs4 import BeautifulSoup
@@ -20,6 +20,7 @@ from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import CaptchaBrowser
 from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
+from src.data_handling.reply import Reply, ReplyRating
 from src.data_handling.reviews import PublicReview
 from src.utilities.collection_utils import delete_duplicate
 
@@ -83,7 +84,7 @@ class ReviewCollector:
         """
         self.__logger: Logger = LoggingManager().get_logger('root')
         self.__search_target: TargetWebsite = target_website
-        self.__logger.info(f"ReviewCollector initialized for target: {self.__search_target.name}")
+        self.__logger.debug(f"ReviewCollector initialized for target: {self.__search_target.name}")
 
     @staticmethod
     def get_movie_search_keys(movie_name: str) -> list[str]:
@@ -98,7 +99,9 @@ class ReviewCollector:
         :param movie_name: The original name of the movie.
         :returns: A list of unique, high-quality search key strings.
         """
-        LoggingManager().get_logger('root').info(f"Creating search keys for '{movie_name}'.")
+
+        logger: Logger = LoggingManager().get_logger('root')
+        logger.debug(f"Creating search keys for '{movie_name}'.")
 
         # Constants and Patterns
         space: Final[RegularExpressionPattern] = " "
@@ -143,7 +146,7 @@ class ReviewCollector:
         MIN_KEY_LENGTH: Final[int] = 3
         BLACKLIST: Final[list[str]] = ['re']
 
-        LoggingManager().get_logger('root').info(
+        logger.debug(
             f"Generated {len(derived_keys)} derived keys. Applying filters..."
         )
 
@@ -156,7 +159,7 @@ class ReviewCollector:
         final_keys: list[str] = [primary_key] + filtered_derived_keys
         final_unique_keys: list[str] = delete_duplicate(items=final_keys)
 
-        LoggingManager().get_logger('root').info(
+        logger.debug(
             f"Finished creating {len(final_unique_keys)} unique search keys after filtering."
         )
         return final_unique_keys
@@ -182,12 +185,18 @@ class ReviewCollector:
         :raises requests.exceptions.RequestException: For issues during the HTTP request (e.g., network problems, invalid URL).
         """
         # Some boards on PTT require the over18=1 cookie.
+        response:Optional[Response] = None
         match self.__search_target:
             case TargetWebsite.PTT:
-                response: Response = requests.get(url=url, cookies={'over18': '1'})
+                response = requests.get(url=url, cookies={'over18': '1'})
             case _:
-                response: Response = requests.get(url=url)
-        response.encoding = response.apparent_encoding
+                response = requests.get(url=url)
+        if response is not None:
+            response.encoding = response.apparent_encoding
+        else:
+            msg: str = f"Failed to obtain a valid HTTP response from URL: '{url}'."
+            self.__logger.error(msg)
+            raise ValueError(msg)
         return BeautifulSoup(response.text, features='html.parser')
 
     def __get_largest_result_page_number(self, bs_root_element: BeautifulSoup) -> int:
@@ -231,17 +240,18 @@ class ReviewCollector:
         :raises RuntimeError: If Dcard collection is attempted without a browser instance.
         """
         search_url: Url = self.__get_search_page_url(search_key=search_key)
+        urls: list[str] = []
         match self.__search_target:
             case TargetWebsite.PTT:
                 try:
                     max_page_number: int = self.__get_largest_result_page_number(self.__get_bs_element(url=search_url))
                 except IndexError:
                     return list()
-                self.__logger.info(f"Found {max_page_number} pages of results for '{search_key}'.")
+                self.__logger.debug(f"Found {max_page_number} pages of results for '{search_key}'.")
                 domain_pattern: Final[RegularExpressionPattern] = '^[^:\/]+:\/\/[^\/]+'
                 base_url: str = re.search(pattern=domain_pattern, string=self.__search_target.value.base_url).group(0)
                 selector: Selector = "#main-container div.r-list-container div.title a"
-                urls: list[str] = [base_url + review['href']
+                urls = [base_url + review['href']
                                    for current_page_number in range(1, max_page_number + 1)
                                    for review in
                                    self.__get_bs_element(url=f"{search_url}&page={current_page_number}").select(
@@ -253,10 +263,9 @@ class ReviewCollector:
                 browser.get(url=search_url, captcha=True)
                 selector: Selector = "div#__next div[role='main'] div[data-key] article[role='article'] h2 a[href]"
                 scroll_height: int = int(browser.find_element(selector="body").get_attribute("scrollHeight"))
-                urls = list()
                 for current_height in range(0, scroll_height, 150):
                     browser.execute_script(f"window.scrollTo(0,{current_height})")
-                    new_urls = list()
+                    new_urls:list[str] = []
                     for element in browser.find_elements(selector=selector):
                         try:
                             href: str = element.get_attribute("href")
@@ -271,8 +280,34 @@ class ReviewCollector:
 
             case _:
                 raise ValueError(f"Unsupported target website: {self.__search_target.name}")
-        self.__logger.info(f"Found {len(urls)} review URLs for '{search_key}'.")
+        self.__logger.debug(f"Found {len(urls)} review URLs for '{search_key}'.")
         return urls
+
+    def _parse_ptt_reply_time(self, reply_time_str: str, article_time: datetime) -> datetime:
+        """
+        Parses a PTT reply timestamp string into a datetime object.
+
+        This method handles PTT's "MM/DD HH:MM" format and includes a heuristic
+        to correct the year for replies made at the turn of the year.
+
+        :param reply_time_str: The raw time string from the reply (e.g., " 01/14 09:19").
+        :param article_time: The datetime object of the parent article, used to infer the year.
+        :return: A datetime object for the reply.
+        """
+        reply_time_str = reply_time_str.strip()
+        try:
+            # Create a datetime object assuming the reply is in the same year as the article.
+            reply_dt: datetime = datetime.strptime(f"{article_time.year} {reply_time_str}", "%Y %m/%d %H:%M")
+
+            # Heuristic for year-end crossover: if the article is in December and the
+            # reply is in January, assume the reply is from the following year.
+            if article_time.month == 12 and reply_dt.month == 1:
+                reply_dt = reply_dt.replace(year=article_time.year + 1)
+
+            return reply_dt
+        except ValueError:
+            self.__logger.warning(f"Could not parse reply time '{reply_time_str}'. Using article time as fallback.")
+            return article_time
 
     def __get_review_information(self, url: str, browser: Optional[CaptchaBrowser]) -> Optional[PublicReview]:
         """
@@ -287,19 +322,21 @@ class ReviewCollector:
                   or ``None`` if essential information cannot be found or an error occurs during parsing.
         :raises RuntimeError: If Dcard collection is attempted without a browser instance.
         """
-        self.__logger.info(f"Fetching review information from: \"{url}\".")
+        self.__logger.debug(f"Fetching review information from: \"{url}\".")
         title: Optional[str] = None
         content: Optional[str] = None
-        replies: Optional[list[str]] = None
         posted_time: Optional[datetime] = None
-        positive_reactions: int = 0
-        negative_reactions: int = 0
+        processed_replies: list[Reply] = []
+
         match self.__search_target:
             case TargetWebsite.PTT:
                 meta_element_selector: Final[Selector] = '.article-metaline'
                 meta_tag_selector: Final[Selector] = '.article-meta-tag'
                 meta_value_selector: Final[Selector] = '.article-meta-value'
-                push_selector:Final[Selector] = 'div.push'
+                push_selector: Final[Selector] = 'div.push'
+                push_tag_selector: Final[Selector] = 'span.push-tag'
+                push_content_selector: Final[Selector] = '.push-content'
+                push_time_selector: Final[Selector] = '.push-ipdatetime'
                 time_format: Final[str] = '%a %b %d %H:%M:%S %Y'
                 key_words: Final[tuple[str, str]] = ('標題', '時間')
                 try:
@@ -316,21 +353,42 @@ class ReviewCollector:
                             posted_time = datetime.strptime(
                                 article_meta_element.select_one(selector=meta_value_selector).text,
                                 time_format)
+
+                    if not posted_time:
+                        self.__logger.warning(
+                            f"Could not parse article post time from URL: \"{url}\". Cannot process replies.")
+                        return None
+
                     content = ''.join(
                         [element for element in content_base_element if
                          isinstance(element, NavigableString)]).strip()
-                    replies = []
+
                     push_elements: list[Tag] = content_base_element.select(selector=push_selector)
                     for push in push_elements:
-                        tag_element: Optional[Tag] = push.select_one('span.hl.push-tag')
-                        replies.append(push.select_one(selector='.push-content').text)
+                        tag_element: Optional[Tag] = push.select_one(selector=push_tag_selector)
+                        content_element: Optional[Tag] = push.select_one(selector=push_content_selector)
+                        time_element: Optional[Tag] = push.select_one(selector=push_time_selector)
+
+                        if not (content_element and time_element):
+                            self.__logger.warning(f"Skipping incomplete reply in URL '{url}': {push.text.strip()}")
+                            continue
+
+                        rating: ReplyRating
                         if tag_element:
                             tag_text: str = tag_element.text.strip()
-                            if tag_text == '推':
-                                positive_reactions += 1
-                            elif tag_text == '噓':
-                                negative_reactions += 1
-                    if not (title and posted_time and content):
+                            if tag_text in get_args(ReplyRating):
+                                rating = cast(ReplyRating,tag_text)
+                            else:
+                                rating = "→"
+                        else:
+                            rating = "→"
+
+                        reply_content: str = content_element.text.strip(': ')
+                        reply_time_str: str = time_element.text.strip()
+                        reply_time: datetime = self._parse_ptt_reply_time(reply_time_str, posted_time)
+
+                        processed_replies.append(Reply(rating=rating, content=reply_content, time=reply_time))
+                    if not (title and content):
                         return None
                 except Exception as e:
                     self.__logger.warning(f"Cannot parse element in URL: \"{url}\".")
@@ -343,7 +401,6 @@ class ReviewCollector:
                 selector_title: Final[Selector] = selector_base + " article h1"
                 selector_time: Final[Selector] = selector_base + " article time"
                 selector_content: Final[Selector] = selector_base + " article span"
-                selector_reply: Final[Selector] = selector_base + " section div[data-key^='comment'] span:not([class])"
                 time_format: Final[str] = '%Y 年 %m 月 %d 日 %H:%M'
 
                 browser.home()
@@ -355,24 +412,21 @@ class ReviewCollector:
                         browser.find_element(selector=selector_time).text,
                         time_format)
                     content = browser.find_element(selector=selector_content).text
-                    scroll_height: int = int(browser.find_element(selector="body").get_attribute("scrollHeight"))
-                    replies_list = list()
-                    for current_height in range(0, scroll_height, 150):
-                        browser.execute_script(f"window.scrollTo(0,{current_height})")
-                        replies = [reply_element.text for reply_element in
-                                   browser.find_elements(selector=selector_reply)]
-                        replies_list.extend(replies)
-                    replies = replies_list
+
+                    # For now, we are not collecting Dcard replies as they don't fit
+                    # the '推'/'噓'/'→' rating model. An empty list will be used.
+                    processed_replies = []
+
                 except Exception as e:
                     self.__logger.warning(f"Cannot find element in URL: \"{url}\".")
                     self.__logger.error(f"Error message: {e}", exc_info=True)
                     return None
 
         if title and content and posted_time:
-            return PublicReview(url=url, title=title, content=content, date=posted_time.date(),
-                                reply_count=len(replies or []),
-                                sentiment_score=None,
-                                positive_reaction_count=positive_reactions,negative_reaction_count=negative_reactions)
+            return PublicReview(
+                url=url, title=title, content=content, date=posted_time.date(),
+                replies=processed_replies, sentiment_score=None
+            )
         return None
 
     def __get_reviews_by_keyword(self, search_key: str, browser: Optional[CaptchaBrowser]) -> list[PublicReview]:
@@ -389,7 +443,7 @@ class ReviewCollector:
         :raises ValueError: If the ``self.__search_target`` is not ``TargetWebsite.PTT`` or ``TargetWebsite.DCARD``
                             (propagated from ``__get_review_urls``).
         """
-        self.__logger.info(f"Searching reviews with keyword: \"{search_key}\".")
+        self.__logger.debug(f"Searching reviews with keyword: \"{search_key}\".")
         urls: list[str] = self.__get_review_urls(search_key=search_key, browser=browser)
         return list(filter(None, [self.__get_review_information(url=url, browser=browser) for url in
                                   tqdm(urls, desc=f'Fetching reviews for "{search_key}"',
@@ -410,9 +464,9 @@ class ReviewCollector:
         search_keys: list[str] = self.get_movie_search_keys(movie_name=movie_name)
         reviews: list[PublicReview] = [review for search_key in search_keys for review in
                                        self.__get_reviews_by_keyword(search_key=search_key, browser=browser)]
-        self.__logger.info(f"Found {len(reviews)} raw reviews for '{movie_name}'. De-duplicating...")
+        self.__logger.debug(f"Found {len(reviews)} raw reviews for '{movie_name}'. De-duplicating...")
         reviews = delete_duplicate(items=reviews)
-        self.__logger.info(f"Finished with {len(reviews)} unique reviews for '{movie_name}'.")
+        self.__logger.debug(f"Finished with {len(reviews)} unique reviews for '{movie_name}'.")
         return reviews
 
     @contextmanager
@@ -446,10 +500,11 @@ class ReviewCollector:
         :returns: A list of PublicReview objects. Returns an empty list if no reviews are found.
         :raises Exception: Propagates any exceptions encountered during the review collection process.
         """
-        self.__logger.info(f"Starting single collection for movie: '{movie_name}'.")
+        self.__logger.debug(f"Starting single collection for movie: '{movie_name}'.")
+        # noinspection PyArgumentList
         with self._managed_browser_session() as browser:
             reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_name, browser=browser)
-        self.__logger.info(f"Finished collecting {len(reviews)} reviews for '{movie_name}'.")
+        self.__logger.debug(f"Finished collecting {len(reviews)} reviews for '{movie_name}'.")
         return reviews
 
     def collect_reviews_for_movies(self, movie_list: list[MovieData], data_folder: Path) -> None:
@@ -464,9 +519,10 @@ class ReviewCollector:
         :param movie_list: A list of MovieData objects for which to collect reviews.
         :param data_folder: The directory where the final data will be saved.
         """
-        self.__logger.info(f"Starting batch review collection for {len(movie_list)} movies.")
+        self.__logger.debug(f"Starting batch review collection for {len(movie_list)} movies.")
         data_folder.mkdir(parents=True, exist_ok=True)
 
+        # noinspection PyArgumentList
         with self._managed_browser_session() as browser:
             for movie in tqdm(movie_list, desc='Collecting Reviews', bar_format=Constants.STATUS_BAR_FORMAT):
                 self.__logger.debug(f"Processing reviews for movie ID {movie.id} ('{movie.name}').")
@@ -479,10 +535,10 @@ class ReviewCollector:
                     saved_path: Path = movie.save_public_reviews(target_directory=data_folder)
 
                     if not newly_fetched_reviews:
-                        self.__logger.info(
+                        self.__logger.debug(
                             f"No new reviews found for movie ID {movie.id}. Empty file created at '{saved_path}'.")
                     else:
-                        self.__logger.info(
+                        self.__logger.debug(
                             f"Successfully collected and saved {len(newly_fetched_reviews)} reviews for movie ID {movie.id} to '{saved_path}'.")
 
                 except Exception as e:
@@ -493,7 +549,7 @@ class ReviewCollector:
                     empty_file_path: Path = data_folder / f"{movie.id}.yaml"
                     try:
                         YamlFile(path=empty_file_path).save(data=[])
-                        self.__logger.info(
+                        self.__logger.debug(
                             f"Created empty review file for failed movie ID {movie.id} at '{empty_file_path}'.")
                     except (OSError, YAMLError) as file_e:
                         self.__logger.error(

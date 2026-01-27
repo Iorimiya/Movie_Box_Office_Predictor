@@ -1,0 +1,51 @@
+start_date: 2025-09-01
+end_date: 2025-09-07
+box_office: 730
+---
+start_date: 2025-09-08
+end_date: 2025-09-14
+box_office: 705572
+---
+start_date: 2025-09-15
+end_date: 2025-09-21
+box_office: 708575
+---
+start_date: 2025-09-22
+end_date: 2025-09-28
+box_office: 297981
+---
+start_date: 2025-09-29
+end_date: 2025-10-05
+box_office: 134295
+---
+start_date: 2025-10-06
+end_date: 2025-10-12
+box_office: 88759
+---
+start_date: 2025-10-13
+end_date: 2025-10-19
+box_office: 51024
+---
+start_date: 2025-10-20
+end_date: 2025-10-26
+box_office: 69923
+---
+start_date: 2025-10-27
+end_date: 2025-11-02
+box_office: 25939
+---
+start_date: 2025-11-03
+end_date: 2025-11-09
+box_office: 23395
+---
+start_date: 2025-11-10
+end_date: 2025-11-16
+box_office: 20274
+---
+start_date: 2025-11-17
+end_date: 2025-11-23
+box_office: 28343
+---
+start_date: 2025-11-24
+end_date: 2025-11-30
+box_office: 23312

@@ -1,9 +1,10 @@
 from dataclasses import dataclass, field
 from datetime import date
+from functools import cached_property
 from itertools import chain
 from logging import Logger
 from pathlib import Path
-from typing import Final, Literal, Optional, Type, TypeAlias, TypeVar
+from typing import Any, cast, Final, Iterator, Literal, Optional, Type, TypeAlias, TypeVar
 
 from numpy import mean
 
@@ -11,10 +12,11 @@ from src.core.logging_manager import LoggingManager
 from src.data_handling.box_office import BoxOffice, BoxOfficeRawData, BoxOfficeSerializableData
 from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_metadata import MovieMetadata, MoviePathMetadata
+from src.data_handling.reply import Reply
 from src.data_handling.reviews import (
-    ReviewRawData,
+    ExpertReview, ExpertReviewRawData, ExpertReviewSerializableData,
     PublicReview, PublicReviewRawData, PublicReviewSerializableData,
-    ExpertReview, ExpertReviewRawData, ExpertReviewSerializableData
+    ReviewRawData
 )
 from src.utilities.collection_utils import delete_duplicate
 
@@ -51,6 +53,29 @@ class WeekData:
     box_office_data: BoxOffice
     public_reviews: list[PublicReview] = field(default_factory=list)
     expert_reviews: list[ExpertReview] = field(default_factory=list)
+
+    @property
+    def start_date(self) -> date:
+        """
+        The start date of the week.
+
+        This is a convenient proxy for `self.box_office_data.start_date`.
+        """
+        return self.box_office_data.start_date
+
+    @property
+    def end_date(self) -> date:
+        """
+        The end date of the week.
+
+        This is a convenient proxy for `self.box_office_data.end_date`.
+        """
+        return self.box_office_data.end_date
+
+    @property
+    def box_office(self) -> int:
+        """The box office revenue for the week."""
+        return self.box_office_data.box_office
 
     @property
     def public_review_count(self) -> int:
@@ -91,8 +116,10 @@ class WeekData:
         """
 
         # noinspection PyTypeChecker
-        scores: list[float] = [review.sentiment_score for review in chain(self.public_reviews, self.expert_reviews) if
-                               review.sentiment_score is not None]
+        scores: list[float] = [
+            review.sentiment_score for review in chain(self.public_reviews, self.expert_reviews) if
+                               review.sentiment_score is not None
+        ]
         return float(mean(scores)) if scores else None
 
     @property
@@ -134,6 +161,50 @@ class WeekData:
         """
         return sum(review.negative_reaction_count for review in self.public_reviews)
 
+    @cached_property
+    def replies_in_week(self) -> list['Reply']:
+        """
+        A private helper property to get all replies posted within the week's date range.
+
+        This is for internal calculation to avoid redundant filtering.
+        The result is cached after the first access.
+        """
+
+        # Flatten the list of all replies from all public reviews
+        all_replies_on_reviews: Iterator[Reply] = chain.from_iterable(review.replies for review in self.public_reviews)
+
+        # Filter these replies by their own post date
+        return [reply for reply in all_replies_on_reviews if self.start_date <= reply.time.date() <= self.end_date]
+
+    @property
+    def weekly_total_reply_count(self) -> int:
+        """
+        Calculates the total number of replies **posted** within this specific week's timeframe.
+
+        This differs from `total_reply_count`, which counts all replies on reviews
+        posted this week, regardless of when the reply was made.
+
+        :return: The total count of replies posted during the week.
+        """
+        return len(self.replies_in_week)
+
+    @property
+    def weekly_positive_reply_count(self) -> int:
+        """
+        Calculates the total number of positive replies ('推') **posted** within this specific week's timeframe.
+
+        :return: The total count of positive replies posted during the week.
+        """
+        return sum(1 for reply in self.replies_in_week if reply.rating == '推')
+
+    @property
+    def weekly_negative_reply_count(self) -> int:
+        """
+        Calculates the total number of negative replies ('噓') **posted** within this specific week's timeframe.
+
+        :return: The total count of negative replies posted during the week.
+        """
+        return sum(1 for reply in self.replies_in_week if reply.rating == '噓')
 
     def _update_specific_reviews_list(
         self,
@@ -227,13 +298,12 @@ class WeekData:
         return self
 
     @classmethod
-    def create_multiple_week_data(cls,
-                                  weeks_data_source: Path | YamlFile | list[BoxOfficeRawData] | list[BoxOffice],
-                                  public_reviews_master_source: \
-                                      Optional[PublicReviewLoadableSource | list[PublicReview]] = None,
-                                  expert_reviews_master_source: \
-                                      Optional[ExpertReviewLoadableSource | list[ExpertReview]] = None
-                                  ) -> list['WeekData']:
+    def create_multiple_week_data(
+        cls,
+        weeks_data_source: Path | YamlFile | list[BoxOfficeRawData] | list[BoxOffice],
+        public_reviews_master_source: Optional[PublicReviewLoadableSource | list[PublicReview]] = None,
+        expert_reviews_master_source: Optional[ExpertReviewLoadableSource | list[ExpertReview]] = None
+    ) -> list['WeekData']:
         """
         Creates a list of WeekData objects from various sources.
 
@@ -252,7 +322,7 @@ class WeekData:
         all_box_office_instances: list[BoxOffice] = BoxOffice.create_multiple(source=weeks_data_source)
 
         if not all_box_office_instances:
-            logger.info(
+            logger.warning(
                 f"No valid BoxOffice instances could be created from weeks_data_source. Cannot create WeekData.")
             return []
 
@@ -323,10 +393,7 @@ class MovieSessionData:
         return self.metadata.name
 
     @staticmethod
-    def _create_sliding_window_batches(
-        items: list[BoxOffice],
-        window_size: int
-    ) -> list[list[BoxOffice]]:
+    def _create_sliding_window_batches(items: list[BoxOffice], window_size: int) -> list[list[BoxOffice]]:
         """
         Creates sliding window batches from a list of items.
 
@@ -351,9 +418,7 @@ class MovieSessionData:
 
     @classmethod
     def create_sessions_from_single_movie_data(
-        cls,
-        movie_data: 'MovieData',
-        number_of_weeks: int
+        cls, movie_data: 'MovieData', number_of_weeks: int
     ) -> list['MovieSessionData']:
         """
         Creates a list of MovieSessionData objects from a single MovieData instance.
@@ -378,7 +443,7 @@ class MovieSessionData:
         valid_batches: list[list[BoxOffice]] = cls._filter_valid_batches(batches=all_batches)
 
         if not valid_batches:
-            logger.info(
+            logger.debug(
                 f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_data.id}."
             )
             return []
@@ -397,9 +462,7 @@ class MovieSessionData:
 
     @classmethod
     def create_sessions_from_movie_data_list(
-        cls,
-        movie_data_list: list['MovieData'],
-        number_of_weeks: int
+        cls, movie_data_list: list['MovieData'], number_of_weeks: int
     ) -> list['MovieSessionData']:
         """
         Creates MovieSessionData objects from a list of in-memory MovieData objects.
@@ -419,15 +482,15 @@ class MovieSessionData:
             )
             for movie_data in movie_data_list
         ))
-        logger.info(
+        logger.debug(
             f"Created a total of {len(all_sessions)} sessions from {len(movie_data_list)} movies."
         )
         return all_sessions
 
     @classmethod
-    def _create_sessions_for_single_movie(cls,
-                                          movie_meta_item: MoviePathMetadata,
-                                          number_of_weeks: int) -> list['MovieSessionData']:
+    def _create_sessions_for_single_movie(
+        cls, movie_meta_item: MoviePathMetadata, number_of_weeks: int
+    ) -> list['MovieSessionData']:
         """
         Creates all weekly sessions for a single movie based on its metadata.
 
@@ -456,14 +519,14 @@ class MovieSessionData:
         if public_reviews_file_path and public_reviews_file_path.exists():
             loaded_public_reviews = PublicReview.create_multiple(source=public_reviews_file_path)
         else:
-            logger.info(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
+            logger.warning(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
                         f"Proceeding without reviews for this movie.")
 
         loaded_expert_reviews: list[ExpertReview] = []
         if expert_reviews_file_path and expert_reviews_file_path.exists():
             loaded_expert_reviews = ExpertReview.create_multiple(source=expert_reviews_file_path)
         else:
-            logger.info(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
+            logger.warning(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
                         f"Proceeding without reviews for this movie.")
 
         movie_data = MovieData(
@@ -532,8 +595,9 @@ class MovieData:
         """
         return len(self.public_reviews) if self.public_reviews else 0
 
-    def __save_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
-                         target_directory: Path) -> Path:
+    def __save_component(
+        self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'], target_directory: Path
+    ) -> Path:
         """
         Saves a specific component to a YAML file.
 
@@ -549,17 +613,17 @@ class MovieData:
         component_name: str = component_type.replace('_', ' ')
         output_file_path: Path = target_directory / f"{self.id}.yaml"
 
-        logger.info(
+        logger.debug(
             f"Attempting to save {component_name} for movie ID {self.id} to '{output_file_path}'."
         )
         component_data: MovieComponentSerializableData = [component.as_serializable_dict() for component in
                                                           getattr(self, component_type, [])]
         try:
-            YamlFile(path=output_file_path).save(component_data)
+            YamlFile(path=output_file_path).save(cast(list[dict[Any, Any]], cast(object, component_data)))
         except Exception as e:
             logger.error(f"Error saving {component_name} data for movie ID {self.id} to '{output_file_path}': {e}")
             raise
-        logger.info(
+        logger.debug(
             f"Successfully saved {len(component_data)} {component_name} items "
             f"for movie ID {self.id} to '{output_file_path}'."
         )
@@ -592,8 +656,9 @@ class MovieData:
         """
         return self.__save_component(component_type='expert_reviews', target_directory=target_directory)
 
-    def __load_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
-                         target_directory: Path) -> None:
+    def __load_component(
+        self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'], target_directory: Path
+    ) -> None:
         """
         Internal helper to load a specific component's data from a YAML file.
 
@@ -610,7 +675,7 @@ class MovieData:
         component_name_for_log: str = component_type.replace('_', ' ')
         source_file_path: Path = target_directory / f"{self.id}.yaml"
 
-        logger.info(
+        logger.debug(
             f"Attempting to load {component_name_for_log} for movie ID {self.id} from '{source_file_path}'."
         )
 
@@ -675,9 +740,12 @@ class MovieData:
         """
         self.__load_component(component_type='expert_reviews', target_directory=target_directory)
 
-    def __update_component(self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
-                           update_method: Literal['REPLACE', 'EXTEND'],
-                           data: MovieComponent) -> None:
+    def __update_component(
+        self,
+        component_type: Literal['box_office', 'public_reviews', 'expert_reviews'],
+        update_method: Literal['REPLACE', 'EXTEND'],
+        data: MovieComponent
+    ) -> None:
         """
         Internal helper to update a specific component's data list (box office, public reviews, or expert reviews).
 
@@ -693,7 +761,7 @@ class MovieData:
         component_name_for_log: str = component_type.replace('_', ' ')
         incoming_data_count: int = len(data)
 
-        logger.info(
+        logger.debug(
             f"Attempting to update {component_name_for_log} for movie ID {self.id} "
             f"using method '{update_method}' with {incoming_data_count} new items."
         )
@@ -706,12 +774,12 @@ class MovieData:
                 deduplicated_new_data: MovieComponent = delete_duplicate(data)
                 setattr(self, component_type, deduplicated_new_data)
                 new_count: int = len(deduplicated_new_data)
-                logger.info(
+                logger.debug(
                     f"Replaced {component_name_for_log} for movie ID {self.id}. "
                     f"Previous count: {original_data_count}, New count: {new_count}."
                 )
             case 'EXTEND':
-                logger.info(
+                logger.debug(
                     f"Extending {component_name_for_log} for movie ID {self.id}. "
                     f"Original count: {original_data_count}, Items to add: {incoming_data_count}."
                 )
@@ -720,14 +788,10 @@ class MovieData:
                 deduplicated_new_data: MovieComponent = delete_duplicate(combined_data)
                 setattr(self, component_type, deduplicated_new_data)
                 final_count: int = len(deduplicated_new_data)
-                logger.info(
+                logger.debug(
                     f"Extended and deduplicated {component_name_for_log} for movie ID {self.id}. "
                     f"Final count: {final_count} (was {original_data_count}, added {incoming_data_count} before deduplication)."
                 )
-            case _:
-                msg: str = f"Invalid update_method \"{update_method}\" for component '{component_type}' on movie ID {self.id}."
-                logger.error(msg)
-                raise ValueError(msg)
 
     def update_box_office(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[BoxOffice]) -> None:
         """
