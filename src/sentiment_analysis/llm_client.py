@@ -1,12 +1,12 @@
-# D:/Projects/Movie_Box_Office_Predictor/src/sentiment_analysis/llm_client.py
-
-from enum import Enum, auto
+from dataclasses import dataclass
+from enum import Enum
 from logging import Logger
 from os import environ
 from time import sleep
-from typing import Final, Optional
+from typing import cast, Final, Optional
 
 from openai import OpenAI, RateLimitError
+from openai.types.chat import ChatCompletionUserMessageParam
 
 from src.core.logging_manager import LoggingManager
 
@@ -21,33 +21,95 @@ class DailyRateLimitExceededError(Exception):
     pass
 
 
+@dataclass(frozen=True)
+class _ProviderConfig:
+    """
+    Stores configuration for a specific LLM provider.
+
+    :ivar base_url: The fixed base URL for the provider's API, if any.
+    :ivar api_key_env_var: The name of the environment variable for the API key.
+    :ivar api_path_suffix: The API path suffix for local backends.
+    :ivar keywords: A tuple of keywords to identify this provider from a model ID string.
+    :ivar is_local: A boolean indicating if the provider is locally hosted.
+    """
+    base_url: Optional[str] = None
+    api_key_env_var: Optional[str] = None
+    api_path_suffix: Optional[str] = None
+    keywords: tuple[str, ...] = ()
+    is_local: bool = False
+
+
 class LLMProvider(Enum):
     """
-    Enumeration for different LLM providers.
-
-    This provides a type-safe way to identify and manage different LLM services.
+    Enum for different LLM providers, holding their specific configuration.
     """
-    GEMINI = auto()
-    GPT = auto()
-    GEMMA = auto()
+    GPT = _ProviderConfig(
+        api_key_env_var='GPT_API_KEY',
+        keywords=('gpt',)
+    )
+    GEMINI = _ProviderConfig(
+        base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+        api_key_env_var='GEMINI_API_KEY',
+        keywords=('gemini',)
+    )
+    DOCKER_DMR = _ProviderConfig(
+        api_path_suffix="engines/v1",
+        keywords=('dmr',),
+        is_local=True,
+    )
+    OLLAMA = _ProviderConfig(
+        api_path_suffix="v1",
+        keywords=('ollama',),
+        is_local=True,
+    )
+    LM_STUDIO = _ProviderConfig(
+        api_path_suffix="v1",
+        keywords=('lm-studio',),
+        is_local=True,
+    )
 
     @classmethod
-    def from_string(cls, model_id: str) -> 'LLMProvider':
+    def from_string(cls, model_id: str) -> tuple['LLMProvider', str]:
         """
-        Determines the provider from a model identifier string.
+        Determines the provider and actual model name from a model identifier string.
 
-        :param model_id: The string identifier for the model (e.g., 'gpt-4o-mini', 'gemma2:latest').
-        :returns: The corresponding LLMProvider enum member.
-        :raises ValueError: If the model_id does not match any known provider.
+        The format can be '<provider>/<model_name>' (e.g., 'ollama/gemma2') or
+        a model name that implies the provider (e.g., 'gpt-4o').
+
+        :param model_id: The user-provided model identifier string.
+        :returns: A tuple containing the determined LLMProvider and the actual model name for the API.
+        :raises ValueError: If the provider cannot be determined.
         """
         model_id_lower: str = model_id.lower()
-        if 'gemini' in model_id_lower:
-            return cls.GEMINI
-        if 'gpt' in model_id_lower:
-            return cls.GPT
-        if 'gemma' in model_id_lower:
-            return cls.GEMMA
-        raise ValueError(f"Unsupported or unrecognized model provider for id: '{model_id}'")
+
+        # Strategy 1: Check for explicit provider prefix like 'ollama/gemma2'
+        if '/' in model_id:
+            provider_str, actual_model_name = model_id.split('/', 1)
+            provider_str_lower: str = provider_str.lower()
+            for provider in cls:
+                if provider_str_lower in provider.value.keywords:
+                    return provider, actual_model_name
+
+        # Strategy 2: Fallback for implicit providers like 'gpt-4o'
+        for provider in cls:
+            if any(model_id_lower.startswith(keyword) for keyword in provider.value.keywords):
+                return provider, model_id  # The full string is the model name
+
+        raise ValueError(f"Could not determine a valid provider from model ID: '{model_id}'")
+
+    @classmethod
+    def is_local_from_string(cls, model_id: str) -> bool:
+        """
+        Checks if a model ID string implies a local provider.
+
+        :param model_id: The user-provided model identifier string.
+        :returns: True if the determined provider is local, False otherwise.
+        """
+        try:
+            provider, _ = cls.from_string(model_id)
+            return provider.value.is_local
+        except ValueError:
+            return False
 
 
 class LLMClient:
@@ -72,66 +134,86 @@ class LLMClient:
     _MAX_RESPONSE_RETRIES: Final[int] = 3
     _RATE_LIMIT_WAIT_SECONDS: Final[int] = 61
 
-    def __init__(self, target_model_id: str, local_llm_url: Optional[str] = None) -> None:
+    def __init__(
+        self,
+        target_model_id: str,
+        local_host: Optional[str] = None,
+        local_port: Optional[int] = None
+    ) -> None:
         """
         Initializes the LLMClient.
 
-        :param target_model_id: The specific model identifier (e.g., 'gpt-4o-mini', 'gemma2:latest').
-        :param local_llm_url: The base URL for a locally hosted LLM. Required if the provider is local (Gemma).
+        :param target_model_id: The user-provided model identifier string (e.g., 'gpt-4o-mini', 'ollama/gemma:latest').
+        :param local_host: The hostname or IP address for a local provider.
+        :param local_port: The port number for a local provider.
         :raises ValueError: If configuration is invalid (e.g., missing API key or local URL).
         """
-        self._target_model_id = target_model_id
         self._logger = LoggingManager().get_logger('root')
-        self._provider = LLMProvider.from_string(model_id=target_model_id)
+
+        # Deconstruct the provider and the actual model name from the target ID
+        self._provider, self._target_model_id = LLMProvider.from_string(model_id=target_model_id)
 
         api_key: Optional[str] = None
-        if self._provider in (LLMProvider.GPT, LLMProvider.GEMINI):
-            api_key = self.__get_api_key()
-        elif self._provider is LLMProvider.GEMMA and not local_llm_url:
-            raise ValueError("A 'local_llm_url' is required when using a local LLM provider (Gemma).")
 
-        self._client = self.__create_client(llm_url=local_llm_url, api_key=api_key)
-        self._logger.info(f"LLMClient initialized for model '{self._target_model_id}' (Provider: {self._provider.name})")
+        if self.config.is_local:
+            if not all([local_host, local_port]):
+                raise ValueError(
+                    f"Arguments 'local_host' and 'local_port' are required for the local provider '{self._provider.name}'."
+                )
+            if not self.config.api_path_suffix:
+                # This is a safeguard, should not happen with current enums
+                raise ValueError(
+                    f"Provider '{self._provider.name}' is local but has no api_path_suffix self.configured.")
+            # noinspection HttpUrlsUsage
+            base_url = f"http://{local_host}:{local_port}/{self.config.api_path_suffix}"
+            api_key = 'ignored'
+        else:  # Remote provider
+            if self.config.api_key_env_var:
+                api_key = self.__get_api_key(env_var_name=self.config.api_key_env_var)
+            base_url = self.config.base_url  # Can be None, client will use default
 
-    def __create_client(self, llm_url: Optional[str] = None, api_key: Optional[str] = None) -> OpenAI:
+        self._client = self.__create_client(base_url=base_url, api_key=api_key)
+        self._logger.debug(
+            f"LLMClient initialized for model '{self._target_model_id}' (Provider: {self._provider.name})")
+
+    @property
+    def config(self) -> _ProviderConfig:
+        """
+        Returns the configuration object for the current provider.
+
+        :return: The _ProviderConfig dataclass instance associated with the client's provider.
+        """
+        return self._provider.value
+
+    def __create_client(self, base_url: Optional[str] = None, api_key: Optional[str] = None) -> OpenAI:
         """
         Creates and configures the OpenAI client based on the provider.
 
-        :param llm_url: The URL for a local LLM.
+        :param base_url: The base URL for the API. If None, the default OpenAI URL is used.
         :param api_key: The API key for an online LLM.
         :returns: An initialized OpenAI client instance.
         """
-        match self._provider:
-            case LLMProvider.GPT:
-                return OpenAI(api_key=api_key)
-            case LLMProvider.GEMINI:
-                base_url: Final[str] = "https://generativelanguage.googleapis.com/v1beta/openai/"
-                return OpenAI(base_url=base_url, api_key=api_key)
-            case LLMProvider.GEMMA:
-                return OpenAI(base_url=llm_url, api_key='ignored', timeout=1200.0)
+        # Local models might have long-running inference, so a longer timeout is beneficial.
+        timeout: float = 1200.0 if self._provider.value.is_local else 600.0
+        return OpenAI(base_url=base_url, api_key=api_key, timeout=timeout)
 
-    def __get_api_key(self) -> str:
+    @staticmethod
+    def __get_api_key(env_var_name: str) -> str:
         """
-        Retrieves the API key from environment variables based on the provider.
+        Retrieves an API key from an environment variable.
 
+        :param env_var_name: The name of the environment variable.
         :returns: The API key string.
         :raises ValueError: If the required environment variable is not found.
         """
-        var_name_map: dict[LLMProvider, str] = {
-            LLMProvider.GPT: 'GPT_API_KEY',
-            LLMProvider.GEMINI: 'GEMINI_API_KEY',
-        }
-        var_name: Optional[str] = var_name_map.get(self._provider)
-        if not var_name:
-            # This should not be reached due to the logic in __init__
-            raise ValueError(f"API key configuration not defined for provider: {self._provider.name}")
-
-        env_key: Optional[str] = environ.get(var_name)
+        env_key: Optional[str] = environ.get(env_var_name)
         if not env_key:
-            raise ValueError(f"Required environment variable '{var_name}' not found.")
+            raise ValueError(f"Required environment variable '{env_var_name}' not found.")
         return env_key
 
-    def __generate_prompt_message(self, prompt_texts: list[str], rule_message: Optional[str] = None) -> list[dict[str, str]]:
+    def __generate_prompt_message(
+        self, prompt_texts: list[str], rule_message: Optional[str] = None
+    ) -> list[dict[str, str]]:
         """
         Constructs the list of messages for the API chat completion request.
 
@@ -142,14 +224,16 @@ class LLMClient:
         messages: list[dict[str, str]] = []
         if rule_message:
             # Local models often prefer 'system' role for instructions.
-            role: str = "system" if self._provider is LLMProvider.GEMMA else "assistant"
+            role: str = "system" if self._provider.value.is_local else "assistant"
             messages.append({"role": role, "content": rule_message})
 
         for single_prompt in prompt_texts:
             messages.append({"role": "user", "content": single_prompt})
         return messages
 
-    def generate_response(self, prompt_texts: list[str] | str, rule_message: Optional[str] = None) -> str:
+    def generate_response(
+        self, prompt_texts: list[str] | str, rule_message: Optional[str] = None, temperature: float = 0.1
+    ) -> str:
         """
         Generates a response from the LLM with robust retry and error handling.
 
@@ -161,6 +245,8 @@ class LLMClient:
 
         :param prompt_texts: A single prompt string or a list of strings for a multi-turn conversation.
         :param rule_message: An optional instruction message for the model.
+        :param temperature: Sampling temperature. Higher values (e.g., 0.8) make output more random,
+                            lower values (e.g., 0.1) make it more deterministic.
         :returns: The content of the model's response as a string.
         :raises DailyRateLimitExceededError: If the daily rate limit (RPD) is hit.
         :raises RuntimeError: If a valid response cannot be obtained after all retries.
@@ -186,16 +272,24 @@ class LLMClient:
                     f"Attempt {attempt + 1}/{self._MAX_RESPONSE_RETRIES} to generate response from '{self._target_model_id}'.")
                 response = self._client.chat.completions.create(
                     model=self._target_model_id,
-                    messages=prompt_messages
+                    messages=cast(list[ChatCompletionUserMessageParam], cast(object, prompt_messages)),
+                    temperature=temperature
                 )
+                try:
+                    content: Optional[str] = response.choices[0].message.content
+                    if not content:
+                        raise ValueError("API response content is empty.")
 
-                if response and response.choices and (content := response.choices[0].message.content):
-                    self._logger.info(f"Successfully received response from '{self._target_model_id}'.")
-                    return content.strip()
-                else:
-                    last_exception = ValueError("Received an invalid or empty response from the API.")
-                    self._logger.warning(f"{last_exception} (Attempt {attempt + 1})")
-                    sleep(2)  # Short sleep before retrying on invalid response
+                except (AttributeError, IndexError, TypeError, ValueError) as parse_error:
+                    last_exception = parse_error
+                    self._logger.warning(
+                        f"Failed to parse a valid response content (Attempt {attempt + 1}). "
+                        f"Error: {parse_error}. Raw response: {response}"
+                    )
+                    sleep(2)
+                    continue
+                self._logger.debug(f"Successfully received response from '{self._target_model_id}'.")
+                return content.strip()
 
             except RateLimitError as e:
                 last_exception = e
@@ -208,6 +302,7 @@ class LLMClient:
                             violations = error_details[0].get('violations', [])
                             if isinstance(violations, list) and violations:
                                 quota_id = violations[0].get('quotaId', '')
+                                # noinspection SpellCheckingInspection
                                 if 'perday' in quota_id.lower():
                                     is_daily_limit = True
                 except (AttributeError, IndexError, KeyError, TypeError):
