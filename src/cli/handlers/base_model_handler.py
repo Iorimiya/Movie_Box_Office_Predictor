@@ -3,7 +3,7 @@ from argparse import ArgumentParser, Namespace
 from logging import Formatter, Handler, Logger, StreamHandler
 from pathlib import Path
 from random import randint
-from typing import cast, Generic, TypeVar
+from typing import Any, cast, Generic, TypeVar
 
 from src.core.logging_manager import HandlerSettings, LoggingManager, LogLevel
 from src.core.project_config import ProjectModelType, ProjectPaths
@@ -23,7 +23,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
 
     :ivar _logger: The shared logger instance for all model handlers.
     :ivar _parser: The argument parser instance for the specific command.
-    :ivar _model_type_name: The display name of the model type (e.g., "Sentiment").
+    :ivar _model_type_name: The display name of the model type (e.g., "Box Office Prediction").
     :ivar _model_type: The enum member for the model type.
     :ivar _evaluator: An instance of a class that inherits from BaseEvaluator.
     """
@@ -126,7 +126,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         Gets the filename for the model's default configuration.
 
         Subclasses must implement this to return their specific default
-        config file name (e.g., "sentiment_defaults.yaml").
+        config file name (e.g., "prediction_defaults.yaml").
 
         :returns: The name of the default configuration file.
         """
@@ -204,7 +204,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
             default_config_path: Path = ProjectPaths.get_config_path(config_name=default_config_filename)
 
             try:
-                loaded_default_data: dict[str, any] = YamlFile(path=default_config_path).load_single_document()
+                loaded_default_data: dict[str, Any] = YamlFile(path=default_config_path).load_single_document()
                 default_config: ConfigDictType = loaded_default_data
                 self._logger.info(f"Loaded default configuration from: {default_config_path}")
             except FileNotFoundError:
@@ -217,7 +217,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
             if args.config_override:
                 try:
                     self._logger.info(f"Applying overrides from file: {args.config_override}")
-                    override_config: dict[str, any] = YamlFile(path=args.config_override).load_single_document()
+                    override_config: dict[str, Any] = YamlFile(path=args.config_override).load_single_document()
                     effective_config.update(override_config)
                 except FileNotFoundError:
                     self._parser.error(f"Override configuration file not found: {args.config_override}")
@@ -379,7 +379,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         the epoch numbers.
 
         :param model_id: The unique identifier for the model series.
-        :param model_type: The type of the model (e.g., SENTIMENT, PREDICTION).
+        :param model_type: The type of the model (e.g., PREDICTION).
         :returns: A sorted list of available epoch numbers.
         """
         model_artifacts_path: Path = ProjectPaths.get_model_root_path(
