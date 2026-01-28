@@ -3,7 +3,7 @@ from argparse import ArgumentParser, Namespace
 from logging import Formatter, Handler, Logger, StreamHandler
 from pathlib import Path
 from random import randint
-from typing import Any, cast, Generic, TypeVar
+from typing import Any, Generic, TypeVar
 
 from src.core.logging_manager import HandlerSettings, LoggingManager, LogLevel
 from src.core.project_config import ProjectModelType, ProjectPaths
@@ -168,16 +168,23 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
                 f"Executing: Continue training {self._model_type_name} model '{model_id}' "
                 f"from epoch {args.continue_from_epoch}."
             )
+            individual_overrides: dict[str, Any] = self._get_individual_overrides(args=args, is_continue_mode=True)
+            if args.config_override or individual_overrides:
+                # Log a general warning first.
+                self._logger.warning(
+                    "--continue-from-epoch does not support any type of configuration override, including file or CLI overrides."
+                )
 
-            # Rule: No new overrides are allowed when continuing training
-            if args.config_override:
-                self._parser.error("Argument --config-override cannot be used with --continue-from-epoch.")
+                # provide a specific error message and exit.
+                if args.config_override:
+                    self._parser.error("Disallowed file-based override detected. Halting execution.")
 
-            individual_overrides: ConfigDictType = self._get_individual_overrides(args=args, is_continue_mode=True)
-            if individual_overrides:
-                self._parser.error(
-                    f"Individual overrides like --{next(iter(individual_overrides))} cannot be used with --continue-from-epoch.")
-
+                if individual_overrides:
+                    # Get the first override key for a more informative message
+                    first_override_key = next(iter(individual_overrides))
+                    self._parser.error(
+                        f"Disallowed CLI override ('--{first_override_key}') detected. Halting execution."
+                    )
             # Rule: The original config.yaml must be found
             if not final_config_path.exists():
                 self._parser.error(
@@ -185,9 +192,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
                 )
 
             self._logger.info(f"Using existing configuration file: {final_config_path}")
-            loaded_config: ConfigDictType = cast(
-                ConfigDictType, YamlFile(path=final_config_path).load_single_document()
-            )
+            loaded_config: ConfigDictType = YamlFile(path=final_config_path).load_single_document()
             return loaded_config
 
         else:
@@ -246,7 +251,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
             except Exception as e:
                 self._parser.error(f"Failed to save final configuration file: {e}")
 
-            return cast(ConfigDictType, effective_config)
+            return effective_config
 
     @abstractmethod
     def _get_evaluation_cache_filename(self) -> str:
@@ -331,9 +336,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         elif args.dataset_name:
             self._logger.info(f"Ignoring cache because a new dataset '{args.dataset_name}' was specified.")
 
-        cached_results_map: dict[int, BaseEvaluationResult] = {
-            res.model_epoch: res for res in cached_results
-        }
+        cached_results_map: dict[int, BaseEvaluationResult] = {res.model_epoch: res for res in cached_results}
 
         collected_results: list[BaseEvaluationResult] = []
 
@@ -422,10 +425,10 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         if is_continue_mode:
             base_exclude_keys.add('continue_from_epoch')
 
-        return cast(ConfigDictType, {
+        return {
             key: value for key, value in vars(args).items()
             if key not in base_exclude_keys and value is not None
-        })
+        }
 
     def _prepare_evaluation_context(self, args: Namespace, required_flags: list[str]) -> ConfigDictType:
         """
@@ -461,7 +464,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
             self._parser.error(f"Master config file 'config.yaml' not found for model_id '{args.model_id}'.")
 
         try:
-            return cast(ConfigDictType, YamlFile(path=config_path).load_single_document())
+            return YamlFile(path=config_path).load_single_document()
         except Exception as e:
             self._parser.error(f"Failed to load or parse config file at '{config_path}': {e}")
 
@@ -500,14 +503,14 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
         result_logger_name: str = "result_display"
 
         try:
-            # --- Setup: Create and configure a temporary, format-less handler ---
-            # 1. Create a formatter that only outputs the message
+            # Create and configure a temporary, format-less handler
+            # Create a formatter that only outputs the message
             result_formatter: Formatter = Formatter(fmt="%(message)s")
 
-            # 2. Safely get the stdout handler and its stream
+            # Safely get the stdout handler and its stream
             stdout_handler: Handler | None = manager.get_handler('stdout')
 
-            # 2a. Check if the handler exists and is of the correct type
+            #  Check if the handler exists and is of the correct type
             if not isinstance(stdout_handler, StreamHandler):
                 self._logger.error(
                     "Critical: 'stdout' handler not found or is not a StreamHandler. Cannot produce clean output."
@@ -516,21 +519,21 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
                 self._display_specific_metrics(result=result, args=args, result_logger=self._logger)
                 return
 
-            # 2b. Now it's safe to access .stream
+            # Now it's safe to access .stream
             result_handler_settings: HandlerSettings = HandlerSettings(
                 name=result_handler_name, level=LogLevel.INFO, output=stdout_handler.stream
             )
 
-            # 3. Add the handler to the manager and set its custom formatter
+            # Add the handler to the manager and set its custom formatter
             result_handler = manager.add_handler(handler_settings=result_handler_settings)
             result_handler.setFormatter(result_formatter)
 
-            # 4. Get a logger and link the new handler to it
+            # Get a logger and link the new handler to it
             result_logger: Logger = manager.get_logger(result_logger_name)
             manager.link_handler_to_logger(logger_name=result_logger_name, handler_name=result_handler_name)
             result_logger.propagate = False  # Prevent double-printing to the root logger
 
-            # --- Usage: Use the new logger for clean output ---
+            # Usage: Use the new logger for clean output
             result_logger.info(f"--- Evaluation Metrics for Model '{result.model_id}' (Epoch {result.model_epoch}) ---")
 
             # Delegate to subclass for specific metrics, passing the clean logger
@@ -539,7 +542,7 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
             result_logger.info("----------------------------------------------------")
 
         finally:
-            # --- Teardown: Always clean up the temporary handler and logger ---
+            # Teardown: Always clean up the temporary handler and logger
             if manager.get_handler(result_handler_name):
                 self._logger.debug(f"Cleaning up temporary handler: {result_handler_name}")
                 manager.remove_handler(name=result_handler_name)
