@@ -10,10 +10,8 @@ class ProjectModelType(Enum):
     or routing logic.
 
     :ivar PREDICTION: Corresponds to models focused on box office revenue prediction.
-    :ivar SENTIMENT: Corresponds to models focused on sentiment analysis of movie reviews.
     """
     PREDICTION = "box_office_prediction"
-    SENTIMENT = "review_sentiment_analysis"
 
 
 class ProjectDatasetType(Enum):

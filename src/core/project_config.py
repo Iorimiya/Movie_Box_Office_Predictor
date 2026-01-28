@@ -22,11 +22,9 @@ class ProjectPaths:
     :ivar temp_dir: The directory for temporary files.
     :ivar configs_dir: The directory for configuration files.
     :ivar raw_index_sources_dir: The directory for raw CSV files used to create dataset indexes.
-    :ivar sentiment_analysis_resources_dir: The directory for resources specific to sentiment analysis.
     :ivar structured_datasets_dir: The directory for structured datasets, organized by name.
     :ivar feature_datasets_dir: The directory for feature-engineered datasets.
     :ivar box_office_prediction_models_root: The root directory for box office prediction models.
-    :ivar review_sentiment_analysis_models_root: The root directory for sentiment analysis models.
     :ivar BOX_OFFICE_SUBFOLDER_NAME: The standard subfolder name for box office data.
     :ivar PUBLIC_REVIEWS_SUBFOLDER_NAME: The standard subfolder name for public review data.
     :ivar EXPERT_REVIEWS_SUBFOLDER_NAME: The standard subfolder name for expert review data.
@@ -72,13 +70,11 @@ class ProjectPaths:
     configs_dir: Final[Path] = project_root / "configs"
 
     raw_index_sources_dir: Final[Path] = input_dir / "raw_index_sources"
-    sentiment_analysis_resources_dir: Final[Path] = input_dir / "sentiment_analysis_resources"
 
     structured_datasets_dir: Final[Path] = datasets_dir / "structured"
     feature_datasets_dir: Final[Path] = datasets_dir / "feature"
 
     box_office_prediction_models_root: Final[Path] = models_dir / ProjectModelType.PREDICTION.value
-    review_sentiment_analysis_models_root: Final[Path] = models_dir / ProjectModelType.SENTIMENT.value
 
     BOX_OFFICE_SUBFOLDER_NAME: Final[str] = "box_office"
     PUBLIC_REVIEWS_SUBFOLDER_NAME: Final[str] = "public_reviews"
@@ -96,9 +92,10 @@ class ProjectPaths:
             dir_path.mkdir(parents=True, exist_ok=True)
 
         for dir_path in [
-            cls.raw_index_sources_dir, cls.sentiment_analysis_resources_dir,
-            cls.structured_datasets_dir, cls.feature_datasets_dir,
-            cls.box_office_prediction_models_root, cls.review_sentiment_analysis_models_root
+            cls.raw_index_sources_dir,
+            cls.structured_datasets_dir,
+            cls.feature_datasets_dir,
+            cls.box_office_prediction_models_root
         ]:
             dir_path.mkdir(parents=False, exist_ok=True)
 
@@ -130,15 +127,13 @@ class ProjectPaths:
         are stored within this directory.
 
         :param model_id: The unique identifier for the model.
-        :param model_type: The type of the model (e.g., PREDICTION, SENTIMENT).
+        :param model_type: The type of the model (e.g., PREDICTION).
         :raises ValueError: If an unknown `model_type` is provided.
         :return: The full path to the specified model's root directory.
         """
         match model_type:
             case ProjectModelType.PREDICTION:
                 return cls.box_office_prediction_models_root / model_id
-            case ProjectModelType.SENTIMENT:
-                return cls.review_sentiment_analysis_models_root / model_id
             case _:
                 raise ValueError(f"Unknown model_type: '{model_type}'. Must be a member of ProjectModelType.")
 
@@ -147,7 +142,7 @@ class ProjectPaths:
         """
         Constructs the full path for a given configuration file.
 
-        :param config_name: The name of the configuration file (e.g., "sentiment_defaults.yaml").
+        :param config_name: The name of the configuration file (e.g., "prediction_defaults.yaml").
         :return: The full path to the configuration file within the project's config directory.
         """
         return cls.configs_dir / config_name
@@ -161,7 +156,7 @@ class ProjectPaths:
         ensuring that all outputs for a model run are co-located.
 
         :param model_id: The unique identifier of the model.
-        :param model_type: The type of the model (e.g., SENTIMENT, PREDICTION).
+        :param model_type: The type of the model (e.g., PREDICTION).
         :raises ValueError: If an unknown `model_type` is provided.
         :return: The full path to the evaluation plots directory for the model.
         """
