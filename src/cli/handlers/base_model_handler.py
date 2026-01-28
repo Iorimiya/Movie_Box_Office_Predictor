@@ -168,16 +168,23 @@ class BaseModelHandler(Generic[ConfigDictType], ABC):
                 f"Executing: Continue training {self._model_type_name} model '{model_id}' "
                 f"from epoch {args.continue_from_epoch}."
             )
+            individual_overrides: dict[str, any] = self._get_individual_overrides(args=args, is_continue_mode=True)
+            if args.config_override or individual_overrides:
+                # Log a general warning first.
+                self._logger.warning(
+                    "--continue-from-epoch does not support any type of configuration override, including file or CLI overrides."
+                )
 
-            # Rule: No new overrides are allowed when continuing training
-            if args.config_override:
-                self._parser.error("Argument --config-override cannot be used with --continue-from-epoch.")
+                # provide a specific error message and exit.
+                if args.config_override:
+                    self._parser.error("Disallowed file-based override detected. Halting execution.")
 
-            individual_overrides: ConfigDictType = self._get_individual_overrides(args=args, is_continue_mode=True)
-            if individual_overrides:
-                self._parser.error(
-                    f"Individual overrides like --{next(iter(individual_overrides))} cannot be used with --continue-from-epoch.")
-
+                if individual_overrides:
+                    # Get the first override key for a more informative message
+                    first_override_key = next(iter(individual_overrides))
+                    self._parser.error(
+                        f"Disallowed CLI override ('--{first_override_key}') detected. Halting execution."
+                    )
             # Rule: The original config.yaml must be found
             if not final_config_path.exists():
                 self._parser.error(
