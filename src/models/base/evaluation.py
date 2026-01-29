@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
-from typing import Generic, Optional, TypeVar
+from typing import Any, Generic, Optional, TypeAlias, TypeVar
 
 from numpy.typing import NDArray
 
@@ -15,7 +15,8 @@ from src.models.base.display import ClassificationSummaryMixin
 from src.models.base.keras_setup import keras_base
 from src.utilities.metrics import ClassificationReportDict, RegressionReportDict
 
-History = keras_base.callbacks.History
+# noinspection PyUnresolvedReferences
+History: TypeAlias = keras_base.callbacks.History
 
 
 @dataclass(frozen=True)
@@ -48,10 +49,10 @@ class BaseEvaluationConfig:
 @dataclass(frozen=True)
 class BaseEvaluationResult:
     """
-    A universal base dataclass for any model evaluation result.
+    A universal base dataclass for Any model evaluation result.
 
     This class is purified to only contain attributes that are guaranteed
-    to exist for any model evaluation, regardless of the model type or task.
+    to exist for Any model evaluation, regardless of the model type or task.
 
     :ivar model_id: The unique identifier for the model series.
     :ivar model_epoch: The specific training epoch of the model evaluated.
@@ -164,14 +165,14 @@ class BaseEvaluator(
         :param model_id: The unique identifier for the model series.
         :param model_epoch: The specific training epoch of the model to load.
         :returns: A tuple containing the initialized data processor, model core,
-                  and the path to the model artifacts directory.
+                  and the path to the model artifacts' directory.
         """
         pass
 
     @abstractmethod
     def _prepare_test_data(
         self, data_processor: DataProcessorType, config: EvaluationConfigType
-    ) -> tuple[NDArray[any], NDArray[any]]:
+    ) -> tuple[NDArray[Any], NDArray[Any]]:
         """
         Loads and processes data to retrieve the test set for evaluation.
 
@@ -188,8 +189,8 @@ class BaseEvaluator(
         config: EvaluationConfigType,
         model_core: ModelCoreType,
         data_processor: DataProcessorType,
-        x_test: NDArray[any],
-        y_test: NDArray[any],
+        x_test: NDArray[Any],
+        y_test: NDArray[Any],
         training_history: list[float],
         validation_history: list[float]
     ) -> EvaluationResultType:
@@ -265,8 +266,8 @@ class BaseEvaluator(
         training_loss, validation_loss = self.load_training_history(history_file_path=history_path)
 
         # Prepare test data (delegated to subclass)
-        x_test: NDArray[any]
-        y_test: NDArray[any]
+        x_test: NDArray[Any]
+        y_test: NDArray[Any]
         x_test, y_test = self._prepare_test_data(data_processor=data_processor, config=config)
 
         # Delegate the entire evaluation and compilation to the subclass

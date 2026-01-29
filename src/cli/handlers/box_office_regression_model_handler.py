@@ -28,7 +28,7 @@ from src.models.box_office_regression.components.evaluator import (
 )
 from src.models.box_office_regression.components.model_core import (
     BoxOfficeRegressionModelCore,
-    BoxOfficeRegressionPredictConfig
+    BoxOfficeRegressionPredictParams
 )
 from src.models.box_office_regression.pipelines.training_pipeline import (
     BoxOfficeRegressionPipelineConfig,
@@ -188,8 +188,8 @@ class BoxOfficeRegressionModelHandler(RegressionModelHandler[BoxOfficeRegression
                 single_input=input_data, config=processing_config
             )
 
-            pred_config: BoxOfficeRegressionPredictConfig = BoxOfficeRegressionPredictConfig(verbose=0)
-            scaled_prediction: NDArray[Any] = model_core.predict(data=processed_input, config=pred_config)
+            pred_config: BoxOfficeRegressionPredictParams = BoxOfficeRegressionPredictParams(verbose=0)
+            scaled_prediction: NDArray[Any] = model_core.predict(data=processed_input, params=pred_config)
 
             # Inverse transform the prediction
             unscaled_prediction: float = data_processor.scaler.inverse_transform(scaled_prediction)[0][0]

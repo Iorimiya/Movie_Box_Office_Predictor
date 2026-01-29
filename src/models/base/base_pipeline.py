@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from logging import Logger
 from pathlib import Path
-from typing import Generic, TypeVar, Optional, Final
+from typing import Any, Final, Generic, Optional, TypeAlias, TypeVar
 
 from src.core.logging_manager import LoggingManager
 from src.data_handling.file_io import PickleFile
@@ -10,10 +10,14 @@ from src.models.base.base_model_core import BaseModelCore
 from src.models.base.callbacks import F1ScoreHistory
 from src.models.base.keras_setup import keras_base
 
-History = keras_base.callbacks.History
-ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
-EarlyStopping = keras_base.callbacks.EarlyStopping
-Callback = keras_base.callbacks.Callback
+# noinspection PyUnresolvedReferences
+History: TypeAlias = keras_base.callbacks.History
+# noinspection PyUnresolvedReferences
+ModelCheckpoint: TypeAlias = keras_base.callbacks.ModelCheckpoint
+# noinspection PyUnresolvedReferences
+EarlyStopping: TypeAlias = keras_base.callbacks.EarlyStopping
+# noinspection PyUnresolvedReferences
+Callback: TypeAlias = keras_base.callbacks.Callback
 
 DataProcessorType = TypeVar('DataProcessorType', bound=BaseDataProcessor)
 ModelCoreType = TypeVar('ModelCoreType', bound=BaseModelCore)
@@ -146,8 +150,8 @@ class BaseTrainingPipeline(
         new_history: History,
         history_save_path: Path,
         continue_from_epoch: Optional[int],
-        **kwargs: any
-    ) -> dict[str, any]:
+        **kwargs: Any
+    ) -> dict[str, Any]:
         """
         Merges a new training history with an existing one if applicable.
 
@@ -160,7 +164,7 @@ class BaseTrainingPipeline(
         :param kwargs: Catches extra arguments passed from subclasses, like 'f1_history_callback'.
         :returns: The final, potentially merged, history dictionary to be saved.
         """
-        history_to_save: dict[str, any]
+        history_to_save: dict[str, Any]
 
         # The new_history.history object might not contain val_f1_score if it was never triggered
         # in the first epoch. We should get it from the callback directly.
@@ -170,7 +174,7 @@ class BaseTrainingPipeline(
 
         if continue_from_epoch and history_save_path.exists():
             self.logger.info(f"Loading existing history from {history_save_path} to append new results.")
-            old_history_data: dict[str, any] = PickleFile(path=history_save_path).load()
+            old_history_data: dict[str, Any] = PickleFile(path=history_save_path).load()
             for key, value in new_history.history.items():
                 if key not in old_history_data:
                     old_history_data[key] = []
@@ -181,6 +185,7 @@ class BaseTrainingPipeline(
 
         return history_to_save
 
+    # noinspection PyTypeHints
     def _save_run_artifacts(
         self,
         config: PipelineConfigType,
@@ -188,7 +193,7 @@ class BaseTrainingPipeline(
         artifacts_folder: Path,
         callbacks: list[Callback],
         continue_from_epoch: Optional[int],
-        **kwargs: any
+        **kwargs: Any
     ) -> None:
         """
         Handles the common logic for saving all artifacts at the end of a run.
@@ -201,7 +206,7 @@ class BaseTrainingPipeline(
         :param history: The History object from the completed training.
         :param artifacts_folder: The root directory for model artifacts.
         :param callbacks: The list of Keras callbacks used during training.
-        :param continue_from_epoch: The epoch number the training continued from, if any.
+        :param continue_from_epoch: The epoch number the training continued from, if Any.
         :param kwargs: Extra arguments to be passed to helper methods like _merge_histories.
         """
         self.logger.info("Saving all run artifacts...")
@@ -242,7 +247,7 @@ class BaseTrainingPipeline(
         # --- Save History ---
         history_filename: str = self.get_history_filename()
         history_save_path: Path = artifacts_folder / history_filename
-        history_to_save: dict[str, any] = self._merge_histories(
+        history_to_save: dict[str, Any] = self._merge_histories(
             new_history=history,
             history_save_path=history_save_path,
             continue_from_epoch=continue_from_epoch,

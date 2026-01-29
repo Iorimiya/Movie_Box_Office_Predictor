@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Any, Optional, TypeAlias
 
 from numpy import array
 from numpy.typing import NDArray
@@ -7,7 +7,8 @@ from typing_extensions import override
 from src.models.base.keras_setup import keras_base
 from src.utilities.metrics import ClassificationMetricsCalculator, ClassificationReportDict
 
-Callback = keras_base.callbacks.Callback
+# noinspection PyUnresolvedReferences
+Callback: TypeAlias = keras_base.callbacks.Callback
 
 
 # noinspection PyOverrides
@@ -25,7 +26,7 @@ class F1ScoreHistory(Callback):
                               metric calculations.
     :ivar f1_scores: A list that stores the computed F1 score for each epoch.
     """
-    validation_data: tuple[NDArray[any], NDArray[any]]
+    validation_data: tuple[NDArray[Any], NDArray[Any]]
     metrics_calculator: ClassificationMetricsCalculator
     f1_scores: list[float]
 
@@ -33,7 +34,7 @@ class F1ScoreHistory(Callback):
     def __init__(
         self,
         *,
-        validation_data: tuple[NDArray[any], NDArray[any]],
+        validation_data: tuple[NDArray[Any], NDArray[Any]],
         metrics_calculator: ClassificationMetricsCalculator
     ) -> None:
         """
@@ -44,12 +45,12 @@ class F1ScoreHistory(Callback):
                                    calculator (e.g., RegressionToClassificationMetrics).
         """
         super().__init__()
-        self.validation_data: tuple[NDArray[any], NDArray[any]] = validation_data
+        self.validation_data: tuple[NDArray[Any], NDArray[Any]] = validation_data
         self.metrics_calculator: ClassificationMetricsCalculator = metrics_calculator
         self.f1_scores: list[float] = []
 
     @override
-    def on_epoch_end(self, epoch: int, logs: Optional[dict[str, any]] = None) -> None:
+    def on_epoch_end(self, epoch: int, logs: Optional[dict[str, Any]] = None) -> None:
         """
         Called at the end of an epoch to compute and store the F1 score.
 
@@ -59,14 +60,14 @@ class F1ScoreHistory(Callback):
         :param epoch: The index of the current epoch.
         :param logs: Metric results for this training epoch, and for the validation epoch.
         """
-        x_val: NDArray[any]
-        y_val_scaled: NDArray[any]
+        x_val: NDArray[Any]
+        y_val_scaled: NDArray[Any]
         x_val, y_val_scaled = self.validation_data
-        y_pred_scaled: NDArray[any] = self.model.predict(x=x_val, verbose=0)
+        y_pred_scaled: NDArray[Any] = self.model.predict(x=x_val, verbose=0)
 
         # The metrics framework expects NumPy arrays.
-        y_true_np: NDArray[any] = array(y_val_scaled)
-        y_pred_np: NDArray[any] = array(y_pred_scaled)
+        y_true_np: NDArray[Any] = array(y_val_scaled)
+        y_pred_np: NDArray[Any] = array(y_pred_scaled)
 
         # Delegate the entire calculation process to the metrics calculator.
         report: ClassificationReportDict = self.metrics_calculator.generate_report(y_true=y_true_np, y_pred=y_pred_np)
