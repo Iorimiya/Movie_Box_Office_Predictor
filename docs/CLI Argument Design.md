@@ -19,8 +19,8 @@
   - dataset compute-sentiment
     - --model-id: `str` (Required)
     - --structured-dataset-name: `str` (Required)
-- prediction-model
-  - prediction-model train
+- box-office-regression-model
+  - box-office-regression-model train
     - --model-id: `str` (Required)
     - --config-override `Path`
     - --dataset-name: `str`
@@ -36,14 +36,14 @@
     - --vocabulary-size: `int`
     - --embedding-dim: `int`
     - --verbose: `int`
-  - prediction-model predict
+  - box-office-regression-model predict
     - --model-id: `str` (Required) 
     - --epoch: `int` (Required)
     - *mutually_exclusive* (Required)
       - --movie-name: `str`
       - --random: `flag`
-  - prediction-model evaluate
-    - prediction-model evaluate plot
+  - box-office-regression-model evaluate
+    - box-office-regression-model evaluate plot
       - --model-id: `str` (Required)
       - --training-loss: `flag`
       - --validation-loss: `flag`
@@ -54,7 +54,7 @@
       - --show-confusion-matrix `flag`
       - --box-office-ranges: `list[int]`
       - --dataset-name `str`
-    - prediction-model evaluate get-metrics
+    - box-office-regression-model evaluate get-metrics
       - --model-id: `str` (Required) 
       - --epoch: `int` (Required)
       - --training-loss: `flag`

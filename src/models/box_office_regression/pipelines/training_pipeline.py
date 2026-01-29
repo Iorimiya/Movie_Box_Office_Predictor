@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Any, Optional
 
 from numpy.typing import NDArray
 from sklearn.preprocessing import MinMaxScaler
@@ -11,30 +11,38 @@ from src.data_handling.movie_collections import MovieData
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.models.base.callbacks import F1ScoreHistory
 from src.models.base.keras_setup import keras_base
-from src.models.prediction.components.data_processor import (
-    PredictionDataConfig, PredictionDataProcessor, PredictionDataSource, PredictionTrainingProcessedData
+from src.models.box_office_regression.components.data_processor import (
+    BoxOfficeRegressionDataConfig,
+    BoxOfficeRegressionDataProcessor,
+    BoxOfficeRegressionDataSource,
+    BoxOfficeRegressionTrainingProcessedData
 )
-from src.models.prediction.components.model_core import (
-    PredictionBuildConfig, PredictionModelCore, PredictionTrainConfig
+from src.models.box_office_regression.components.model_core import (
+    BoxOfficeRegressionBuildConfig,
+    BoxOfficeRegressionFitParams,
+    BoxOfficeRegressionModelCore
 )
 from src.utilities.metrics import PointwiseClassificationMetricsCalculator
 
+# noinspection PyUnresolvedReferences
 History = keras_base.callbacks.History
+# noinspection PyUnresolvedReferences
 ModelCheckpoint = keras_base.callbacks.ModelCheckpoint
+# noinspection PyUnresolvedReferences
 EarlyStopping = keras_base.callbacks.EarlyStopping
 
 
 @dataclass(frozen=True)
-class PredictionPipelineConfig:
+class BoxOfficeRegressionPipelineConfig:
     """
-    Represents the master configuration for a prediction model training run.
+    Represents the master configuration for a Box Office Regression Model training run.
 
     This object is typically loaded from an external YAML file and contains all
     necessary parameters to orchestrate the entire training pipeline.
 
     :ivar model_id: The unique identifier for this model series.
     :ivar dataset_name: The name of the source structured dataset for training data.
-    :ivar training_week_len: The number of past weeks to use as input for prediction.
+    :ivar training_week_len: The number of past weeks to use as input for box_office_regression.
     :ivar split_ratios: A tuple representing the train, validation, and test split ratios.
     :ivar lstm_units: The number of units in the LSTM layer.
     :ivar dropout_rate: The dropout rate to apply after the LSTM layer.
@@ -67,11 +75,15 @@ class PredictionPipelineConfig:
     f1_average_method: str = 'macro'
 
 
-class PredictionTrainingPipeline(
-    BaseTrainingPipeline[PredictionDataProcessor, PredictionModelCore, PredictionPipelineConfig]
+class BoxOfficeRegressionTrainingPipeline(
+    BaseTrainingPipeline[
+        BoxOfficeRegressionDataProcessor,
+        BoxOfficeRegressionModelCore,
+        BoxOfficeRegressionPipelineConfig
+    ]
 ):
     """
-    Orchestrates the end-to-end training process for the box office prediction model.
+    Orchestrates the end-to-end training process for the Box Office Regression Model.
 
     This pipeline coordinates the DataProcessor and ModelCore to execute a
     full training run based on a master configuration file. It handles data
@@ -79,64 +91,66 @@ class PredictionTrainingPipeline(
     """
 
     @override
-    def run(self, config: PredictionPipelineConfig, continue_from_epoch: Optional[int] = None) -> None:
+    def run(self, config: BoxOfficeRegressionPipelineConfig, continue_from_epoch: Optional[int] = None) -> None:
         """
-        Executes the prediction model training pipeline from a configuration file.
+        Executes the Box Office Regression Model training pipeline from a configuration file.
 
         :param config: The master configuration object for this run.
         :param continue_from_epoch: If provided, loads the model from this epoch and continues training.
         :raises FileNotFoundError: If the configuration or required artifacts are not found.
         :raises ValueError: If the configuration file is empty or invalid.
         """
-        self.logger.info(f"--- Starting PREDICTION training pipeline for model: {config.model_id} ---")
-        self.logger.info(f"Pipeline configured with: {config}")
+        self.logger.debug(f"Starting BOX OFFICE REGRESSION training pipeline for model: {config.model_id}")
+        self.logger.debug(f"Pipeline configured with: {config}")
 
-        master_config: PredictionPipelineConfig = config
+        master_config: BoxOfficeRegressionPipelineConfig = config
 
         artifacts_folder: Path = ProjectPaths.get_model_root_path(
-            model_id=master_config.model_id, model_type=ProjectModelType.PREDICTION
+            model_id=master_config.model_id, model_type=ProjectModelType.BOX_OFFICE_REGRESSION
         )
         artifacts_folder.mkdir(parents=True, exist_ok=True)
 
         # Model Building or Loading
         if continue_from_epoch:
-            self.logger.info(f"Step 2 (Continue): Setting up for continued training...")
+            self.logger.debug(f"Setting up for continued training...")
             self.model_core = self._setup_for_continuation(
                 artifacts_folder=artifacts_folder,
                 model_id=master_config.model_id,
                 continue_from_epoch=continue_from_epoch
             )
         else:
-            self.logger.info("Step 2 (New): This is a new training run.")
+            self.logger.debug("This is a new training run.")
 
         # Data Loading and Processing
-        self.logger.info("Step 3: Loading and processing data...")
-        data_source: PredictionDataSource = PredictionDataSource(dataset_name=master_config.dataset_name)
+        self.logger.debug("Loading and processing data...")
+        data_source: BoxOfficeRegressionDataSource = BoxOfficeRegressionDataSource(
+            dataset_name=master_config.dataset_name)
         raw_data: list[MovieData] = self.data_processor.load_raw_data(source=data_source)
 
-        processing_config: PredictionDataConfig = PredictionDataConfig(
+        processing_config: BoxOfficeRegressionDataConfig = BoxOfficeRegressionDataConfig(
             training_week_len=master_config.training_week_len,
             split_ratios=master_config.split_ratios,
             random_state=master_config.random_state
         )
-        processed_data: PredictionTrainingProcessedData = self.data_processor.process_for_training(
+        processed_data: BoxOfficeRegressionTrainingProcessedData = self.data_processor.process_for_training(
             raw_data=raw_data, config=processing_config
         )
-        self.logger.info("Data processing complete.")
+        self.logger.debug("Data processing complete.")
 
         # Build Model (if new run)
         if not continue_from_epoch:
             num_features: int = processed_data['x_train'].shape[2]
-            build_config: PredictionBuildConfig = PredictionBuildConfig(
+            build_config: BoxOfficeRegressionBuildConfig = BoxOfficeRegressionBuildConfig(
                 input_shape=(master_config.training_week_len, num_features),
                 lstm_units=master_config.lstm_units,
                 dropout_rate=master_config.dropout_rate
             )
             self.model_core.build(config=build_config)
-            self.logger.info("Model building complete.")
+            self.logger.debug("Model building complete.")
 
         # Model Training
-        self.logger.info("Starting model training...")
+        self.logger.debug("Starting model training...")
+        # noinspection PyUnresolvedReferences
         monitoring_callbacks: list[keras_base.callbacks.Callback] = []
 
         # Setup F1 History callback (if needed)
@@ -161,7 +175,7 @@ class PredictionTrainingPipeline(
         if checkpoint_callback:
             monitoring_callbacks.append(checkpoint_callback)
 
-        train_config: PredictionTrainConfig = PredictionTrainConfig(
+        fit_params: BoxOfficeRegressionFitParams = BoxOfficeRegressionFitParams(
             epochs=master_config.epochs,
             batch_size=master_config.batch_size,
             validation_data=(processed_data['x_val'], processed_data['y_val']),
@@ -172,9 +186,9 @@ class PredictionTrainingPipeline(
         history: History = self.model_core.train(
             x_train=processed_data['x_train'],
             y_train=processed_data['y_train'],
-            config=train_config
+            params=fit_params
         )
-        self.logger.info("Model training complete.")
+        self.logger.debug("Model training complete.")
 
         self._save_run_artifacts(
             config=master_config,
@@ -184,14 +198,14 @@ class PredictionTrainingPipeline(
             continue_from_epoch=continue_from_epoch,
             f1_history_callback=f1_history_callback
         )
-        self.logger.info("--- PREDICTION training pipeline finished successfully. ---")
+        self.logger.debug("BOX OFFICE REGRESSION training pipeline finished successfully.")
 
     @override
     def _check_required_artifacts_for_continuation(self) -> None:
         """
         Checks if the required artifacts for continuing training are available.
 
-        For the prediction model, this specifically verifies that the scaler
+        For the Box Office Regression Model, this specifically verifies that the scaler
         has been loaded into the data processor.
 
         :raises FileNotFoundError: If the scaler artifact is not loaded.
@@ -202,19 +216,19 @@ class PredictionTrainingPipeline(
             )
 
     @override
-    def _create_model_core(self, model_path: Path) -> PredictionModelCore:
+    def _create_model_core(self, model_path: Path) -> BoxOfficeRegressionModelCore:
         """
-        Creates a PredictionModelCore instance from a saved model file.
+        Creates a BoxOfficeRegressionModelCore instance from a saved model file.
 
         :param model_path: The path to the saved Keras model file.
         :returns: An instance of `PredictionModelCore` with the model loaded.
         """
-        return PredictionModelCore(model_path=model_path)
+        return BoxOfficeRegressionModelCore(model_path=model_path)
 
     def _setup_f1_score_callback(
         self,
-        config: PredictionPipelineConfig,
-        validation_data: tuple[NDArray[any], NDArray[any]]
+        config: BoxOfficeRegressionPipelineConfig,
+        validation_data: tuple[NDArray[Any], NDArray[Any]]
     ) -> Optional[F1ScoreHistory]:
         """
         Sets up the F1ScoreHistory callback if F1 score is being monitored.
@@ -227,7 +241,7 @@ class PredictionTrainingPipeline(
         if 'f1' not in config.early_stopping_monitor:
             return None
 
-        self.logger.info("F1 score monitoring is enabled. Setting up F1ScoreHistory callback.")
+        self.logger.debug("F1 score monitoring is enabled. Setting up F1ScoreHistory callback.")
 
         if not self.data_processor.scaler or config.box_office_ranges is None:
             self.logger.error(
@@ -242,7 +256,7 @@ class PredictionTrainingPipeline(
 
         def value_to_label_fn(value: float) -> int:
             unscaled_value: float = scaler.inverse_transform([[value]])[0][0]
-            return PredictionDataProcessor.get_range_index(value=unscaled_value, ranges=ranges)
+            return BoxOfficeRegressionDataProcessor.get_range_index(value=unscaled_value, ranges=ranges)
 
         # Create and configure the metrics calculator.
         metrics_calculator = PointwiseClassificationMetricsCalculator(

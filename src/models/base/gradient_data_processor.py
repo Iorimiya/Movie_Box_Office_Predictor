@@ -2,7 +2,7 @@ from abc import abstractmethod
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
-from typing import Generic, Optional, TypeVar
+from typing import Any, Generic, Optional, TypeVar
 
 from numpy.typing import NDArray
 from typing_extensions import override
@@ -26,7 +26,7 @@ class SplittingConfig:
     A mixin dataclass for configurations that involve data splitting.
 
     Provides common attributes for splitting data into train, validation, and test sets.
-    These fields are optional as not all modes (e.g., prediction) require them.
+    These fields are optional as not all modes (e.g., Box Office Regression) require them.
 
     :ivar split_ratios: The ratio for splitting data.
     :ivar random_state: The seed for the random number generator.
@@ -48,7 +48,7 @@ class GradientDataConfig(BaseDataConfig):
     def __init__(self, *,
                  split_ratios: Optional[tuple[int, int, int]] = None,
                  random_state: Optional[int] = None,
-                 **kwargs: any):
+                 **kwargs: Any):
         """
         Initializes the GradientDataConfig.
 
@@ -180,7 +180,7 @@ class GradientDataProcessor(
         :returns: The processed data, ready to be fed into a model.
         :raises ValueError: If `split_ratios` in the config is not provided.
         """
-        self.logger.info("--- Starting data processing for training ---")
+        self.logger.debug("Starting data processing for training.")
 
         if config.split_ratios is None:
             raise ValueError(
@@ -188,11 +188,11 @@ class GradientDataProcessor(
             )
 
         # Delegate pre-split processing to subclass
-        self.logger.info("Preparing data for splitting...")
+        self.logger.debug("Preparing data for splitting...")
         x_to_split, y_to_split = self._prepare_for_split(raw_data=raw_data, config=config)
 
         # Perform the split (common logic)
-        self.logger.info("Splitting data into train, validation, and test sets...")
+        self.logger.debug("Splitting data into train, validation, and test sets...")
         # noinspection PyTypeChecker
         split_data: SplitDataset[X_Type, Y_Type] = self.splitter.split(
             x_data=x_to_split,
@@ -203,10 +203,10 @@ class GradientDataProcessor(
         )
 
         # Delegate post-split processing to subclass
-        self.logger.info("Performing post-split processing (scaling/tokenizing)...")
+        self.logger.debug("Performing post-split processing (scaling/tokenizing)...")
         processed_data: ProcessedTrainingDataType = self._post_process_splits(split_data=split_data, config=config)
 
-        self.logger.info("Data processing for training finished")
+        self.logger.debug("Data processing for training finished.")
         return processed_data
 
     # noinspection PyTypeHints

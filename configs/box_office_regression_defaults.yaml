@@ -1,4 +1,4 @@
-# Default configuration parameters for the box office prediction model training pipeline.
+# Default configuration parameters for the Box Office Regression Model training pipeline.
 # These values are used when a training run is initiated without specific overrides.
 # The 'model_id' must be provided by the user for each run and is not included here.
 

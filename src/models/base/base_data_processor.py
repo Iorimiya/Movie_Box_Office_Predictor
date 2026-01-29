@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import Generic, Optional, TypeVar
+from typing import Any, Generic, Optional, TypeVar
 
 from src.utilities.decorators import frozen_after_init
 
@@ -16,7 +16,7 @@ class BaseDataConfig:
     """
     _locked: bool = False
 
-    def __init__(self, **kwargs: any):
+    def __init__(self, **kwargs: Any):
         """
         Initializes the BaseDataConfig instance.
 
@@ -26,7 +26,7 @@ class BaseDataConfig:
         """
         pass
 
-    def __setattr__(self, name: str, value: any) -> None:
+    def __setattr__(self, name: str, value: Any) -> None:
         """
         Sets an attribute on the instance, enforcing immutability if locked.
 
