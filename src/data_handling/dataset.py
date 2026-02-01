@@ -259,7 +259,7 @@ class Dataset:
                         metadata=movie_meta_info,
                         box_office=BoxOffice.create_multiple(source=movie_meta_info.box_office_file_path),
                         public_reviews=PublicReview.create_multiple(source=movie_meta_info.public_reviews_file_path),
-                        expert_reviews=ExpertReview.create_multiple(source=movie_meta_info.expert_reviews_file_path)
+                        expert_reviews=[]
                     ) for movie_meta_info in source_infos
                 ]
                 self.__logger.debug(
