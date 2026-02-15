@@ -387,7 +387,7 @@ class ReviewCollector:
                         reply_time_str: str = time_element.text.strip()
                         reply_time: datetime = self._parse_ptt_reply_time(reply_time_str, posted_time)
 
-                        processed_replies.append(Reply(rating=rating, content=reply_content, time=reply_time))
+                        processed_replies.append(Reply(rating=rating, content=reply_content, created_at=reply_time))
                     if not (title and content):
                         return None
                 except Exception as e:
@@ -424,7 +424,7 @@ class ReviewCollector:
 
         if title and content and posted_time:
             return PublicReview(
-                url=url, title=title, content=content, date=posted_time.date(),
+                url=url, title=title, content=content, created_at=posted_time.date(),
                 replies=processed_replies, sentiment_score=None
             )
         return None
