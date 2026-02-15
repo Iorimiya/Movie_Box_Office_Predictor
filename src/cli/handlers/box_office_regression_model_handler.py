@@ -401,7 +401,7 @@ class BoxOfficeRegressionModelHandler(RegressionModelHandler[BoxOfficeRegression
             box_office_entry: BoxOffice = BoxOffice(
                 start_date=start_date,
                 end_date=current_end_date,
-                box_office=random_revenue
+                amount=random_revenue
             )
             box_office_history.append(box_office_entry)
             current_end_date = start_date - timedelta(days=1)
