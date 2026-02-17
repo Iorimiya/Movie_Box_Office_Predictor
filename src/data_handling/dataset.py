@@ -1,9 +1,8 @@
 from dataclasses import dataclass, field, replace
-from functools import cached_property
 from logging import Logger
 from pathlib import Path
 from time import sleep
-from typing import cast, Final, Literal, Optional
+from typing import Final, Literal, Optional
 
 from tqdm import tqdm
 
@@ -11,11 +10,11 @@ from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectDatasetType, ProjectPaths
 from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
-from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData, MovieSessionData
-from src.data_handling.movie_metadata import MovieMetadata, MovieMetadataRawData, MoviePathMetadata
-from src.data_handling.reviews import ExpertReview, PublicReview
+from data_handling.repositories.repository import MovieRepository
+from src.data_handling.reviews import PublicReview
+from data_handling.repositories.yaml_repository import YamlMovieRepository
 from src.sentiment_analysis.llm_client import DailyRateLimitExceededError, LLMClient, LLMProvider
 
 
@@ -25,27 +24,30 @@ class Dataset:
     Manages a collection of movie data, including metadata, box office figures, and reviews.
 
     Provides methods to load, initialize, and collect data for a named dataset.
-    It handles file paths and interactions with data collectors.
+    It handles interactions with data collectors and the underlying repository.
 
     :ivar name: The unique name of the dataset.
+    :ivar repository: The repository used for data access.
     :ivar __movies_data_cache: An internal cache for the fully loaded list of MovieData objects.
                               It is initialized to None and populated on first access to `movie_data` property.
                               The cache is invalidated when data collection methods are called.
     :ivar __logger: A logger instance for logging messages.
     """
     name: str
+    repository: MovieRepository = field(init=False)
     __movies_data_cache: Optional[list[MovieData]] = field(default=None, init=False, repr=False)
     __logger: Logger = field(init=False, repr=False)
 
     def __post_init__(self) -> None:
         """
-        Performs post-initialization setup, primarily for acquiring the logger.
+        Performs post-initialization setup.
 
-        This ensures the logger is acquired only when a `Dataset` object is
-        instantiated, preventing premature initialization of the LoggingManager
-        during module import.
+        Initializes the logger and sets up the default YamlMovieRepository.
         """
         self.__logger = LoggingManager().get_logger('root')
+        # Default to YAML repository for backward compatibility and file-based operations
+        dataset_path = ProjectPaths.get_dataset_path(dataset_name=self.name, dataset_type=ProjectDatasetType.STRUCTURED)
+        self.repository = YamlMovieRepository(dataset_root_path=dataset_path)
 
     @property
     def dataset_path(self) -> Path:
@@ -89,45 +91,6 @@ class Dataset:
         """
         return CsvFile(path=self.index_file_path)
 
-    @cached_property
-    def movies_metadata(self) -> list[MovieMetadata]:
-        """
-        A cached list of MovieMetadata objects loaded from the dataset's index file.
-
-        The list is generated once upon first access and then cached.
-        If the index file is not found, empty, or an error occurs during loading,
-        an empty list is returned and a log message is generated.
-
-        :returns: A list of MovieMetadata objects.
-        """
-        self.__logger.debug(
-            f"Attempting to create MovieSourceInfo objects for dataset '{self.name}' from index file: '{self.index_file_path}'.")
-
-        raw_movie_data_from_csv: list[dict[str, str]]
-        try:
-            if not self.index_file_path.exists():
-                self.__logger.error(f"Index file not found: '{self.index_file_path}' for dataset '{self.name}'.")
-                return []
-
-            raw_movie_data_from_csv = self.index_file.load()
-
-            if not raw_movie_data_from_csv:
-                self.__logger.debug(
-                    f"No movie data found or index file is empty: '{self.index_file_path}' for dataset '{self.name}'.")
-                return []
-        except FileNotFoundError:
-            return []
-        except Exception as e:
-            self.__logger.error(f"Error loading index file '{self.index_file_path}' for dataset '{self.name}': {e}")
-            return []
-
-        return [
-            movie_metadata for raw_movie_data in raw_movie_data_from_csv
-            if (movie_metadata := MovieMetadata.from_csv_raw_data(
-                source=cast(MovieMetadataRawData, cast(object, raw_movie_data))
-            )) is not None
-        ]
-
     @property
     def movie_data(self) -> list[MovieData]:
         """
@@ -135,15 +98,15 @@ class Dataset:
 
         This property uses an internal cache (`_movies_data_cache`).
         On first access, it loads all movie data (metadata, box office, reviews)
-        using `load_all_movie_data(mode='ALL')` and caches the result.
+        using the repository and caches the result.
         Subsequent accesses return the cached list.
-        The cache is invalidated by data collection methods like `collect_box_office`.
+        The cache is invalidated by data collection methods.
 
         :returns: A list of MovieData objects.
         """
         if self.__movies_data_cache is None:
             self.__logger.debug(f"Cache miss for 'movie_data' in dataset '{self.name}'. Loading all movie data.")
-            self.__movies_data_cache = self.load_movie_data(mode='ALL')
+            self.__movies_data_cache = self.repository.fetch_movies(detail_level='ALL')
             self.__logger.debug(
                 f"Populated 'movie_data' cache for dataset '{self.name}' with {len(self.__movies_data_cache)} items.")
         else:
@@ -201,89 +164,15 @@ class Dataset:
             raise
         return
 
-    def load_movie_source_info(self) -> list[MoviePathMetadata]:
-        """
-        Loads movie metadata and constructs paths to their associated data files.
-
-        This method leverages the `movies_metadata` cached property to get basic
-        movie metadata (ID, name) and then, for each movie, creates a
-        `MoviePathMetadata` object. This object includes the original metadata
-        plus fully resolved paths to where that movie's box office, public review,
-        and expert review data files are expected to be located within the dataset's
-        directory structure.
-
-        :returns: A list of `MoviePathMetadata` objects. If no base metadata is found,
-                  an empty list is returned.
-        """
-        self.__logger.debug(f"Loading movie source info (paths) for dataset '{self.name}'.")
-        current_movies_metadata: list[MovieMetadata] = self.movies_metadata
-        if not current_movies_metadata:
-            self.__logger.debug(f"No base movie metadata found for dataset '{self.name}'. Cannot load source info.")
-            return []
-
-        path_metadata_list: list[MoviePathMetadata] = [
-            MoviePathMetadata.from_metadata(source=movie_metadata, dataset_root_path=self.dataset_path)
-            for movie_metadata in current_movies_metadata
-        ]
-        self.__logger.debug(f"Generated {len(path_metadata_list)} MoviePathMetadata objects for dataset '{self.name}'.")
-        return path_metadata_list
-
     def load_movie_data(self, mode: Literal['ALL', 'META']) -> list[MovieData]:
         """
-        Loads MovieData objects based on the specified mode.
-
-        'ALL': Loads complete MovieData objects, including metadata, box office data,
-               public reviews, and expert reviews by reading from their respective files.
-        'META': Loads MovieData objects with only metadata (ID, name). Box office
-                and review lists will be empty. This mode is typically used to prepare
-                a list of movies for data collection processes.
+        Loads MovieData objects based on the specified mode using the repository.
 
         :param mode: The loading mode, either 'ALL' or 'META'.
         :returns: A list of MovieData objects.
-        :raises ValueError: If an invalid mode is provided.
         """
-
         self.__logger.debug(f"Loading all movie data for dataset '{self.name}' in mode '{mode}'.")
-
-        match mode:
-            case 'ALL':
-                source_infos: list[MoviePathMetadata] = self.load_movie_source_info()
-                if not source_infos:
-                    self.__logger.debug(
-                        f"No processable movie metadata after initial validation from '{self.index_file_path}'."
-                    )
-                    return []
-
-                loaded_data: list[MovieData] = [
-                    MovieData(
-                        metadata=movie_meta_info,
-                        box_office=BoxOffice.create_multiple(source=movie_meta_info.box_office_file_path),
-                        public_reviews=PublicReview.create_multiple(source=movie_meta_info.public_reviews_file_path),
-                        expert_reviews=[]
-                    ) for movie_meta_info in source_infos
-                ]
-                self.__logger.debug(
-                    f"Loaded {len(loaded_data)} full MovieData objects for dataset '{self.name}' in 'ALL' mode."
-                )
-                return loaded_data
-            case 'META':
-                movies_meta: list[MovieMetadata] = self.movies_metadata
-                if not movies_meta:
-                    self.__logger.debug(
-                        f"No processable movie metadata after initial validation from '{self.index_file_path}'."
-                    )
-                    return []
-
-                meta_data_list: list[MovieData] = [
-                    MovieData(
-                        metadata=movie_meta, box_office=[], public_reviews=[], expert_reviews=[]
-                    )
-                    for movie_meta in movies_meta
-                ]
-                self.__logger.debug(
-                    f"Loaded {len(meta_data_list)} MovieData objects (metadata only) for dataset '{self.name}' in 'META' mode."
-                )
-                return meta_data_list
+        return self.repository.fetch_movies(detail_level=mode)
 
     def load_movie_sessions(self, number_of_weeks: int) -> list[MovieSessionData]:
         """
@@ -343,6 +232,9 @@ class Dataset:
         try:
 
             with BoxOfficeCollector(download_mode='WEEK') as collector:
+                # Note: Collector still expects MovieData objects, but now they are simpler.
+                # The collector might need to know WHERE to save.
+                # Currently, collector takes 'data_folder'.
                 collector.download_box_office_data_for_movies(multiple_movie_data=movies_to_collect_for,
                                                               data_folder=self.box_office_folder_path)
 
@@ -559,7 +451,7 @@ class Dataset:
 
                     # Update the movie object and save the results to disk
                     movie.public_reviews = updated_reviews
-                    movie.save_public_reviews(target_directory=self.public_review_folder_path)
+                    self.repository.save_movie(movie)
 
         except DailyRateLimitExceededError as e:
             self.__logger.critical(f"Terminating sentiment computation due to daily rate limit: {e}")
