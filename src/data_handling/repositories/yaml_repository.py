@@ -8,7 +8,7 @@ from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectPaths
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile, YamlFile
-from src.data_handling.movie_collections import MovieData
+from src.data_handling.movie_collections import MovieData, WeekData
 from src.data_handling.reviews import ExpertReview, PublicReview, Review
 
 
@@ -278,3 +278,28 @@ class YamlMovieRepository(MovieRepository):
             review_folder=self.expert_reviews_folder_path,
             save_movie_id=movie_id,
             review_type_string='expert reviews')
+
+    def fetch_week_data(self, movie_id: Optional[int] = None) -> Iterator[WeekData]:
+        """
+        Fetches aggregated weekly data for analysis.
+        For YAML, this involves loading full movie data and computing in memory.
+        """
+        # Reuse fetch_movies(ALL) to get full data, then compute WeekData
+        filters = {'id': movie_id} if movie_id is not None else None
+
+        # Note: fetch_movies filters by 'name', not 'id'. We need to adapt or filter manually.
+        # Since fetch_movies iterates all for ALL mode anyway, we can filter the iterator.
+
+        movies_iter = self.fetch_movies(filters=filters, detail_level='ALL')
+
+        for movie in movies_iter:
+            if movie_id is not None and movie.id != movie_id:
+                continue
+
+            # Compute WeekData in memory
+            week_data_list = WeekData.create_multiple_from_source_variable(
+                movie_id=movie.id,
+                weeks_data_source=movie.box_office,
+                public_reviews_master_source=movie.public_reviews
+            )
+            yield from week_data_list

@@ -3,7 +3,7 @@ from typing import Iterator, Literal, Optional
 
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile
-from src.data_handling.movie_collections import MovieData
+from src.data_handling.movie_collections import MovieData, WeekData
 from src.data_handling.reviews import Review
 
 
@@ -109,5 +109,15 @@ class MovieRepository(ABC):
 
         :param movie_id: The ID of the movie.
         :param data: A list of Review objects to save.
+    """
+        pass
+
+    @abstractmethod
+    def fetch_week_data(self, movie_id: Optional[int] = None) -> Iterator[WeekData]:
+        """
+        Fetches aggregated weekly data for analysis.
+
+        :param movie_id: The ID of the movie. If None, fetches data for ALL movies.
+        :return: An iterator of WeekData objects.
         """
         pass

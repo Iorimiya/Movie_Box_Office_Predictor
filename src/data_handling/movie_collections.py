@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import date, timedelta
+from datetime import date
 from itertools import chain
 from logging import Logger
-from typing import Final, Literal, Optional, Type, TypeAlias, TypeVar
+from typing import Any, Final, Literal, Optional, Type, TypeAlias, TypeVar
 
 from numpy import mean
 
@@ -39,23 +39,21 @@ class WeekData:
     total_title_length: int
 
     box_office: int
-    box_office_last_week: int
-    box_office_previous_week: int
-
-    weekly_difference: int  # box office amount (current week - last week)
-    previous_weekly_difference: int  # currently not used
-    percentage_change_last_week: float  # currently not used
-    weekly_box_office_trend: int  # currently not used
+    # box_office_last_week: int
+    # box_office_previous_week: int
+    #
+    # weekly_difference: int  # box office amount (current week - last week)
+    # previous_weekly_difference: int  # currently not used
+    # percentage_change_last_week: float  # currently not used
+    # weekly_box_office_trend: int  # currently not used
 
     average_sentiment_score: float
-
     total_public_review_count: int  # currently_not_used
-
     total_reply_count: int
-    weekly_reply_count: int
     total_positive_reply_count: int
-    weekly_positive_reply_count: int
     total_negative_reply_count: int
+    weekly_reply_count: int
+    weekly_positive_reply_count: int
     weekly_negative_reply_count: int
 
     @staticmethod
@@ -128,8 +126,6 @@ class WeekData:
                      source=public_reviews_master_source, schema_type='NESTED'
                  )
 
-        box_office_map:dict[date, int] = {bo.start_date: bo.amount for bo in all_box_office_instances}
-
         return [cls(
             movie_id=movie_id,
             start_date=current_box_office_data.start_date,
@@ -143,17 +139,7 @@ class WeekData:
             ),
             total_content_length=sum(len(pr.content) for pr in assembled_public_reviews),
             total_title_length=sum(len(pr.title) for pr in assembled_public_reviews),
-            box_office=(bo_now := current_box_office_data.amount),
-            box_office_last_week=(
-                bo_last := box_office_map.get(current_box_office_data.start_date - timedelta(days=7), 0)
-            ),
-            box_office_previous_week=(
-                bo_prev := box_office_map.get(current_box_office_data.start_date - timedelta(days=14), 0)
-            ),
-            weekly_difference=(weekly_diff := bo_now - bo_last),
-            previous_weekly_difference=bo_last - bo_prev,
-            percentage_change_last_week=weekly_diff / bo_last if bo_last != 0 else 0,
-            weekly_box_office_trend=1 if bo_now > bo_last else -1 if bo_now < bo_last else 0,
+            box_office=current_box_office_data.amount,
 
             average_sentiment_score=float(mean([
                 pr.sentiment_score for pr in assembled_public_reviews
@@ -170,6 +156,52 @@ class WeekData:
             total_negative_reply_count=sum([pr.negative_reply_count for pr in assembled_public_reviews]),
             weekly_negative_reply_count=len([reply for reply in weekly_reply if reply.type == "push"]),
         ) for current_box_office_data in all_box_office_instances]
+
+    @classmethod
+    def create_multiple_from_db_rows(cls, rows: list[dict[str, Any]]) -> list['WeekData']:
+        """
+        Creates a list of WeekData objects from database rows (e.g., from week_data_view).
+
+        This method handles the mapping of DB columns to WeekData attributes.
+
+        :param rows: A list of dictionaries representing rows from the database view.
+        :return: A list of WeekData objects.
+        """
+        if not rows:
+            return []
+
+        week_data_list: list['WeekData'] = []
+
+        for row in rows:
+            # Parse dates
+            start_date = row['start_date']
+            if isinstance(start_date, str):
+                start_date = date.fromisoformat(start_date)
+
+            end_date = row['end_date']
+            if isinstance(end_date, str):
+                end_date = date.fromisoformat(end_date)
+
+            # Map DB columns to WeekData fields directly
+            week_data = cls(
+                movie_id=row.get('movie_id'),
+                start_date=start_date,
+                end_date=end_date,
+                total_content_length=int(row.get('total_content_length', 0)),
+                total_title_length=int(row.get('total_title_length', 0)),
+                box_office=int(row.get('box_office', 0)),
+                average_sentiment_score=float(row.get('average_sentiment_score') or 0.0),
+                total_public_review_count=int(row.get('public_review_count', 0)),
+                total_reply_count=int(row.get('total_reply_count', 0)),
+                weekly_reply_count=int(row.get('weekly_reply_count', 0)),
+                total_positive_reply_count=int(row.get('total_positive_reply_count', 0)),
+                weekly_positive_reply_count=int(row.get('weekly_positive_reply_count', 0)),
+                total_negative_reply_count=int(row.get('total_negative_reply_count', 0)),
+                weekly_negative_reply_count=int(row.get('weekly_negative_reply_count', 0)),
+            )
+            week_data_list.append(week_data)
+
+        return week_data_list
 
 
 @dataclass(kw_only=True)

@@ -1,10 +1,10 @@
-from typing import Iterator, Literal, Optional
 from random import sample
+from typing import Iterator, Literal, Optional
 
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.database_client import DatabaseClient, DatabaseConfig
 from src.data_handling.file_io import CsvFile
-from src.data_handling.movie_collections import MovieData
+from src.data_handling.movie_collections import MovieData, WeekData
 from src.data_handling.repositories.repository import MovieRepository
 from src.data_handling.reviews import PublicReview, ExpertReview, Review
 
@@ -154,7 +154,7 @@ class DbMovieRepository(MovieRepository):
                 mid = row['movie_id']
                 if mid not in box_office_by_movie_id:
                     box_office_by_movie_id[mid] = []
-                # Convert date objects to string if needed, or keep as it depends on BoxOffice class
+                # Convert date objects to string if needed, or keep as is depending on BoxOffice class
                 box_office_by_movie_id[mid].append(row)
 
             # --- Assemble everything ---
@@ -437,3 +437,17 @@ class DbMovieRepository(MovieRepository):
                 reply_insert_query = \
                     "INSERT IGNORE INTO replies (review_id, type, content, created_at) VALUES (%s, %s, %s, %s)"
                 db.execute_many(reply_insert_query, reply_values)
+
+    def fetch_week_data(self, movie_id: Optional[int] = None) -> Iterator[WeekData]:
+        """
+        Fetches aggregated weekly data for analysis using the weekly_feature_data view.
+        """
+        self.__client.database_name = self.database_name
+        with self.__client as db:
+            filters = {'movie_id': movie_id} if movie_id is not None else None
+            rows = db.select(
+                table_name="weekly_feature_data",
+                filters=filters,
+                allowed_columns={'movie_id'}  # Add more if needed
+            )
+            yield from WeekData.create_multiple_from_db_rows(rows)
