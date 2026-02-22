@@ -1,9 +1,13 @@
+from pathlib import Path
 from random import sample
 from typing import Iterator, Literal, Optional
 
+from typing_extensions import override
+from mysql.connector.errorcode import ER_BAD_DB_ERROR
+from mysql.connector import Error as DBError
+
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.database_client import DatabaseClient, DatabaseConfig
-from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData, WeekData
 from src.data_handling.repositories.repository import MovieRepository
 from src.data_handling.reviews import PublicReview, ExpertReview, Review
@@ -35,38 +39,55 @@ class DbMovieRepository(MovieRepository):
             password=user_password
         ))
 
-    def initialize_storage(self, source_csv: CsvFile) -> None:
+    @override
+    def setup_storage(self) -> None:
         """
-        Initializes the database with movies from a source CSV.
+        Initializes the database schema from docs/movie_data.sql.
         """
         self.__client.database_name = self.database_name
         with self.__client as db:
-            try:
-                source_data: list[dict[str, str]] = source_csv.load()
-                if not source_data:
-                    return
+            # Assuming docs/movie_data.sql is relative to the project root.
+            schema_path = Path("docs/movie_data.sql")
+            if not schema_path.exists():
+                # Fallback: try to find it relative to src
+                schema_path = Path("../docs/movie_data.sql")
 
-                movie_values = []
-                for index, movie_row in enumerate(source_data):
-                    movie_name = movie_row.get('movie_name')
-                    if movie_name:
-                        # Assuming ID is auto-increment in DB, but we might want to respect CSV index if needed.
-                        # For now, let's insert name and let DB handle ID, or insert both if we want to sync IDs.
-                        # Given the YAML implementation uses index as ID, we should probably try to sync.
-                        movie_values.append((index, movie_name))
+            if schema_path.exists():
+                print(f"Initializing schema from {schema_path}...")
+                db.execute_script_from_file(schema_path)
+            else:
+                print(f"Warning: Schema file not found at {schema_path}. Database might not be initialized correctly.")
 
-                if movie_values:
-                    insert_query = """
-                        INSERT INTO movies (id, name) VALUES (%s, %s)
-                        ON DUPLICATE KEY UPDATE name = VALUES(name)
-                    """
-                    db.execute_many(insert_query, movie_values)
+    @override
+    def is_storage_occupied(self) -> bool:
+        """
+        Checks if the 'movies' table exists.
+        """
+        try:
+            with self.__client as db:
+                # Check if table exists
+                result = db.execute_statement("SHOW TABLES LIKE 'movies'")
+                return bool(result)
+        except Exception as e:
+                # If it's another error (e.g. auth), we should probably re-raise or log.
+                # But the contract is "is occupied?". If we can't access, we can't say.
+                # However, for the purpose of "can I create it?", if it doesn't exist, answer is False.
 
-            except Exception as e:
-                # Log error but maybe re-raise depending on policy
-                print(f"Error initializing DB storage: {e}")
-                raise
+                # Let's try to be specific if possible, otherwise, log and return False might be risky
+                # if it's just a network blip.
 
+                # Given DatabaseClient prints "Database does not exist" for ER_BAD_DB_ERROR,
+                # we can rely on the exception being raised.
+
+                # Let's import DBError and ER_BAD_DB_ERROR to be precise.
+
+            if isinstance(e, DBError) and e.errno == ER_BAD_DB_ERROR:
+                return False
+
+            # For other errors, re-raise because we don't know the state.
+            raise e
+
+    @override
     def fetch_movies(
         self,
         filters: Optional[dict] = None,
@@ -102,10 +123,10 @@ class DbMovieRepository(MovieRepository):
             # We fetch all public reviews for these movies
 
             public_review_rows = db.select(
-                "movie_reviews_view", filters={'movie_id': ('IN', movie_ids), 'type': 'public'}
+                "movie_reviews", filters={'movie_id': ('IN', movie_ids), 'type': 'public'}
             )
             expert_review_rows = db.select(
-                "movie_reviews_view", filters={'movie_id': ('IN', movie_ids), 'type': 'expert'}
+                "movie_reviews", filters={'movie_id': ('IN', movie_ids), 'type': 'expert'}
             )
 
             # Fetch Replies for these reviews
@@ -147,7 +168,7 @@ class DbMovieRepository(MovieRepository):
 
             # --- Fetch Box Office ---
 
-            box_office_rows = db.select("movie_box_office_view", filters={'movie_id': ('IN', movie_ids)})
+            box_office_rows = db.select("movie_box_office", filters={'movie_id': ('IN', movie_ids)})
 
             box_office_by_movie_id = {}
             for row in box_office_rows:
@@ -173,42 +194,49 @@ class DbMovieRepository(MovieRepository):
 
                 yield movie
 
-    def save_movie(self, movie: MovieData) -> None:
+    @override
+    def save_movies(self, movies: list[MovieData]) -> None:
         self.__client.database_name = self.database_name
         with self.__client as db:
             # 1. Batch Save Movie Metadata
             if not movies:
                 return
 
-            # Use the specialized methods for components
-            # Note: We need to call them on 'self' but inside the 'with' block context?
-            # Actually, the specialized methods also open a context.
-            # Nested contexts on the same client might be tricky if not handled.
-            # But DatabaseClient handles re-entry, or we can just call the logic directly.
-            # For simplicity and safety, let's call them sequentially outside this block
-            # or implement them to reuse the connection if passed.
-            # Given DatabaseClient design, it's safer to call them sequentially.
-            pass
+            movie_values = [(m.id, m.name) for m in movies]
 
-        # Call specialized save methods (each will open its own connection/transaction)
-        if movie.box_office:
-            self.save_box_office(movie.id, movie.box_office)
+            # Insert or Update movies
+            insert_query = """
+                           INSERT INTO movies (id, name)
+                           VALUES (%s, %s) ON DUPLICATE KEY
+                           UPDATE name =
+                           VALUES (name) \
+                           """
+            db.execute_many(insert_query, movie_values)
 
-        all_reviews = []
-        if movie.public_reviews:
-            all_reviews.extend(movie.public_reviews)
-        if movie.expert_reviews:
-            all_reviews.extend(movie.expert_reviews)
+        # 2. Save components for each movie
+        # Note: Component saving is still per-movie based on current helper methods,
+        # but could be further optimized in the future.
+        for movie in movies:
+            if movie.box_office:
+                self.save_box_office(movie.id, movie.box_office)
 
-        if all_reviews:
-            self.save_reviews(movie.id, all_reviews)
+            all_reviews = []
+            if movie.public_reviews:
+                all_reviews.extend(movie.public_reviews)
+            if movie.expert_reviews:
+                all_reviews.extend(movie.expert_reviews)
 
+            if all_reviews:
+                self.save_reviews(movie.id, all_reviews)
+
+    @override
     def fetch_movie_name_to_id_map(self) -> dict[str, int]:
         self.__client.database_name = self.database_name
         with self.__client as db:
             rows = db.select(table_name="movies", columns="id, name")
             return {row['name']: row['id'] for row in rows}
 
+    @override
     def fetch_box_office(
         self, movie_id: Optional[int] = None, week_number: Optional[int] = None
     ) -> Iterator[BoxOffice]:
@@ -233,7 +261,7 @@ class DbMovieRepository(MovieRepository):
                 filters['movie_id'] = movie_id
 
             # Base query
-            query = "SELECT movie_id, start_date, end_date, amount FROM movie_box_office_view"
+            query = "SELECT movie_id, start_date, end_date, amount FROM movie_box_office"
             where_clause, params = DatabaseClient.build_where_clause(filters, allowed_columns={'movie_id'})
 
             if where_clause:
@@ -253,6 +281,7 @@ class DbMovieRepository(MovieRepository):
 
             yield from BoxOffice.create_multiple(source=rows, schema_type='FLAT')
 
+    @override
     def save_box_office(self, movie_id: int, data: list[BoxOffice]) -> None:
         self.__client.database_name = self.database_name
         with self.__client as db:
@@ -306,6 +335,7 @@ class DbMovieRepository(MovieRepository):
                 """
                 db.execute_many(bo_insert_query, bo_values)
 
+    @override
     def fetch_reviews(self, movie_id: Optional[int] = None) -> Iterator[Review]:
         self.__client.database_name = self.database_name
         with self.__client as db:
@@ -352,6 +382,7 @@ class DbMovieRepository(MovieRepository):
                 # noinspection PyTypeChecker
                 yield from ExpertReview.create_multiple(source=expert_rows, schema_type='FLAT')
 
+    @override
     def save_reviews(
         self,
         movie_id: int,
@@ -438,6 +469,7 @@ class DbMovieRepository(MovieRepository):
                     "INSERT IGNORE INTO replies (review_id, type, content, created_at) VALUES (%s, %s, %s, %s)"
                 db.execute_many(reply_insert_query, reply_values)
 
+    @override
     def fetch_week_data(self, movie_id: Optional[int] = None) -> Iterator[WeekData]:
         """
         Fetches aggregated weekly data for analysis using the weekly_feature_data view.

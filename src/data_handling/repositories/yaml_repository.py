@@ -2,6 +2,8 @@ from logging import Logger
 from pathlib import Path
 from typing import cast, Iterator, Literal, Optional, Type
 
+from typing_extensions import override
+
 from data_handling.repositories.repository import MovieRepository
 from data_handling.reviews import ReviewSerializableData
 from src.core.logging_manager import LoggingManager
@@ -45,38 +47,38 @@ class YamlMovieRepository(MovieRepository):
     def expert_reviews_folder_path(self) -> Path:
         return self.dataset_root_path / ProjectPaths.EXPERT_REVIEWS_SUBFOLDER_NAME
 
-    def initialize_storage(self, source_csv: CsvFile) -> None:
+    @override
+    def setup_storage(self) -> None:
         """
-        Initializes the index.csv file from a source CSV.
+        Creates necessary directories and empty index files.
         """
-        self.logger.info(
-            f"Initializing index file '{self.index_file_path}' from source '{source_csv.path}'.")
+        self.logger.info(f"Setting up YAML storage at '{self.dataset_root_path}'.")
+
+        # Create directories
+        self.dataset_root_path.mkdir(parents=True, exist_ok=True)
+        self.box_office_folder_path.mkdir(parents=True, exist_ok=True)
+        self.public_reviews_folder_path.mkdir(parents=True, exist_ok=True)
+        self.expert_reviews_folder_path.mkdir(parents=True, exist_ok=True)
+
+        # Create empty index file if not exists
+        if not self.index_file_path.exists():
+            self.logger.info(f"Creating empty index file at '{self.index_file_path}'.")
+            CsvFile(path=self.index_file_path).save(data=[])
+
+    @override
+    def is_storage_occupied(self) -> bool:
+        """
+        Checks if the index file exists and is not empty.
+        """
+        if not self.index_file_path.exists():
+            return False
+
         try:
-            source_data: list[dict[str, str]] = source_csv.load()
-            if not source_data:
-                self.logger.warning(
-                    f"Source CSV file '{source_csv.path}' is empty. Index file will not be initialized with data.")
-                CsvFile(path=self.index_file_path).save(data=[])
-                return
-
-            index_data: list[dict[str, str]] = []
-            for index, movie_row in enumerate(source_data):
-                movie_name: Optional[str] = movie_row.get('movie_name')
-                if movie_name is None:
-                    self.logger.warning(
-                        f"Row {index + 1} in source CSV '{source_csv.path}' is missing 'movie_name'. Skipping.")
-                    continue
-                index_data.append({'id': str(index), 'name': movie_name})
-
-            CsvFile(path=self.index_file_path).save(data=index_data)
-            self.logger.info(
-                f"Successfully initialized index file '{self.index_file_path}' with {len(index_data)} entries.")
-        except Exception as e:
-            self.logger.error(
-                f"An error occurred during index initialization: {e}",
-                exc_info=True
-            )
-            raise
+            data = CsvFile(path=self.index_file_path).load()
+            return len(data) > 0
+        except Exception:
+            # If file exists but can't be read, assume occupied/corrupted
+            return True
 
     def _load_metadata_from_index(self) -> list[MovieData]:
         """Loads movie metadata from the index CSV file and returns basic MovieData objects."""
@@ -133,20 +135,31 @@ class YamlMovieRepository(MovieRepository):
 
             yield movie
 
-    def save_movie(self, movie: MovieData) -> None:
-        """Saves a movie's data to YAML files."""
-        if movie.box_office:
-            self.save_box_office(movie.id, movie.box_office)
+    @override
+    def save_movies(self, movies: list[MovieData]) -> None:
+        """Saves a list of movies' data to YAML files."""
+        # Update index file
+        # Note: This overwrites the index with the provided movies.
+        # If appending is needed, logic should be different.
+        # But for initialization/cloning, overwriting is expected.
+        index_data = [{'id': str(m.id), 'name': m.name} for m in movies]
+        CsvFile(path=self.index_file_path).save(data=index_data)
 
-        all_reviews = movie.public_reviews + movie.expert_reviews
-        if all_reviews:
-            self.save_reviews(movie.id, all_reviews)
+        for movie in movies:
+            if movie.box_office:
+                self.save_box_office(movie.id, movie.box_office)
 
+            all_reviews = movie.public_reviews + movie.expert_reviews
+            if all_reviews:
+                self.save_reviews(movie.id, all_reviews)
+
+    @override
     def fetch_movie_name_to_id_map(self) -> dict[str, int]:
         """Fetches a mapping of movie names to IDs from the index file."""
         movies = self._load_metadata_from_index()
         return {m.name: m.id for m in movies}
 
+    @override
     def fetch_box_office(
         self, movie_id: Optional[int] = None, week_number: Optional[int] = None
     ) -> Iterator[BoxOffice]:
@@ -202,6 +215,7 @@ class YamlMovieRepository(MovieRepository):
                 except Exception as e:
                     self.logger.error(f"Error loading box office from {path}: {e}")
 
+    @override
     def save_box_office(self, movie_id: int, data: list[BoxOffice]) -> None:
         self.box_office_folder_path.mkdir(parents=True, exist_ok=True)
         path = self.box_office_folder_path / f"{movie_id}.yaml"
@@ -212,6 +226,7 @@ class YamlMovieRepository(MovieRepository):
         except Exception as e:
             self.logger.error(f"Error saving box office for movie {movie_id}: {e}")
 
+    @override
     def fetch_reviews(self, movie_id: Optional[int] = None) -> Iterator[Review]:
         def fetch_all_reviews_from_folder(folder_path: Path, review_class: Type[Review]) -> Iterator[Review]:
             if folder_path.exists():
@@ -249,6 +264,7 @@ class YamlMovieRepository(MovieRepository):
             except Exception as e:
                 self.logger.error(f"Error loading expert reviews for movie {movie_id}: {e}")
 
+    @override
     def save_reviews(self, movie_id: int, data: list[Review]) -> None:
         self.public_reviews_folder_path.mkdir(parents=True, exist_ok=True)
         self.expert_reviews_folder_path.mkdir(parents=True, exist_ok=True)
@@ -279,6 +295,7 @@ class YamlMovieRepository(MovieRepository):
             save_movie_id=movie_id,
             review_type_string='expert reviews')
 
+    @override
     def fetch_week_data(self, movie_id: Optional[int] = None) -> Iterator[WeekData]:
         """
         Fetches aggregated weekly data for analysis.
