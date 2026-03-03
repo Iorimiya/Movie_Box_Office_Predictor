@@ -7,11 +7,16 @@ from mysql.connector.errorcode import ER_ACCESS_DENIED_ERROR, ER_BAD_DB_ERROR
 
 
 
-class DatabaseConfig(TypedDict):
+class DatabaseConfig(TypedDict, total=False):
+    """
+    Represents the configuration for a database connection.
+    All fields are optional to allow for partial overrides.
+    """
     address: str
     port: str
     user: str
     password: str
+
 
 
 class DatabaseClient:

@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Iterator, Literal, Optional
 
 from src.data_handling.box_office import BoxOffice
+from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import Review
 
@@ -15,21 +16,14 @@ class MovieRepository(ABC):
     """
 
     @abstractmethod
-    def setup_storage(self) -> None:
+    def initialize_storage(self, source_csv: CsvFile) -> None:
         """
-        Prepares the storage backend for use.
+        Initializes the storage backend with a list of movies from a CSV file.
 
-        For YAML: Creates necessary directories and empty index files.
-        For DB: Creates the database schema (tables, views, etc.) if not exists.
-        """
-        pass
+        For YAML: Creates the index.csv file.
+        For DB: Inserts movies into the movies table.
 
-    @abstractmethod
-    def is_storage_occupied(self) -> bool:
-        """
-        Checks if the storage backend already contains data or structure.
-
-        :return: True if storage is occupied/initialized, False otherwise.
+        :param source_csv: A CsvFile instance containing the initial movie list.
         """
         pass
 

@@ -1,8 +1,9 @@
-from random import sample
 from typing import Iterator, Literal, Optional
+from random import sample
 
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.database_client import DatabaseClient, DatabaseConfig
+from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData
 from src.data_handling.repositories.repository import MovieRepository
 from src.data_handling.reviews import PublicReview, ExpertReview, Review
@@ -34,61 +35,44 @@ class DbMovieRepository(MovieRepository):
             password=user_password
         ))
 
-    @override
-    def setup_storage(self) -> None:
+    def initialize_storage(self, source_csv: CsvFile) -> None:
         """
-        Initializes the database schema from docs/movie_data.sql.
+        Initializes the database with movies from a source CSV.
         """
         self.__client.database_name = self.database_name
         with self.__client as db:
-            # Assuming docs/movie_data.sql is relative to the project root.
-            schema_path = Path("docs/movie_data.sql")
-            if not schema_path.exists():
-                # Fallback: try to find it relative to src
-                schema_path = Path("../docs/movie_data.sql")
+            try:
+                source_data: list[dict[str, str]] = source_csv.load()
+                if not source_data:
+                    return
 
-            if schema_path.exists():
-                print(f"Initializing schema from {schema_path}...")
-                db.execute_script_from_file(schema_path)
-            else:
-                print(f"Warning: Schema file not found at {schema_path}. Database might not be initialized correctly.")
+                movie_values = []
+                for index, movie_row in enumerate(source_data):
+                    movie_name = movie_row.get('movie_name')
+                    if movie_name:
+                        # Assuming ID is auto-increment in DB, but we might want to respect CSV index if needed.
+                        # For now, let's insert name and let DB handle ID, or insert both if we want to sync IDs.
+                        # Given the YAML implementation uses index as ID, we should probably try to sync.
+                        movie_values.append((index, movie_name))
 
-    @override
-    def is_storage_occupied(self) -> bool:
-        """
-        Checks if the 'movies' table exists.
-        """
-        try:
-            with self.__client as db:
-                # Check if table exists
-                result = db.execute_statement("SHOW TABLES LIKE 'movies'")
-                return bool(result)
-        except Exception as e:
-                # If it's another error (e.g. auth), we should probably re-raise or log.
-                # But the contract is "is occupied?". If we can't access, we can't say.
-                # However, for the purpose of "can I create it?", if it doesn't exist, answer is False.
+                if movie_values:
+                    insert_query = """
+                        INSERT INTO movies (id, name) VALUES (%s, %s)
+                        ON DUPLICATE KEY UPDATE name = VALUES(name)
+                    """
+                    db.execute_many(insert_query, movie_values)
 
-                # Let's try to be specific if possible, otherwise, log and return False might be risky
-                # if it's just a network blip.
+            except Exception as e:
+                # Log error but maybe re-raise depending on policy
+                print(f"Error initializing DB storage: {e}")
+                raise
 
-                # Given DatabaseClient prints "Database does not exist" for ER_BAD_DB_ERROR,
-                # we can rely on the exception being raised.
-
-                # Let's import DBError and ER_BAD_DB_ERROR to be precise.
-
-            if isinstance(e, DBError) and e.errno == ER_BAD_DB_ERROR:
-                return False
-
-            # For other errors, re-raise because we don't know the state.
-            raise e
-
-    @override
     def fetch_movies(
         self,
         filters: Optional[dict] = None,
         detail_level: Literal['META', 'ALL'] = 'META'
     ) -> Iterator[MovieData]:
-        self.__client.database_name = self.dataset_name
+        self.__client.database_name = self.database_name
         with self.__client as db:
             # 1. Fetch basic movie data (META)
             movie_rows = db.select(
@@ -170,7 +154,7 @@ class DbMovieRepository(MovieRepository):
                 mid = row['movie_id']
                 if mid not in box_office_by_movie_id:
                     box_office_by_movie_id[mid] = []
-                # Convert date objects to string if needed, or keep as is depending on BoxOffice class
+                # Convert date objects to string if needed, or keep as it depends on BoxOffice class
                 box_office_by_movie_id[mid].append(row)
 
             # --- Assemble everything ---
@@ -189,8 +173,7 @@ class DbMovieRepository(MovieRepository):
 
                 yield movie
 
-    @override
-    def save_movies(self, movies: list[MovieData]) -> None:
+    def save_movie(self, movie: MovieData) -> None:
         self.__client.database_name = self.database_name
         with self.__client as db:
             # 1. Batch Save Movie Metadata
@@ -201,7 +184,7 @@ class DbMovieRepository(MovieRepository):
             # Note: We need to call them on 'self' but inside the 'with' block context?
             # Actually, the specialized methods also open a context.
             # Nested contexts on the same client might be tricky if not handled.
-            # But DatabaseClient handles re-entry or we can just call the logic directly.
+            # But DatabaseClient handles re-entry, or we can just call the logic directly.
             # For simplicity and safety, let's call them sequentially outside this block
             # or implement them to reuse the connection if passed.
             # Given DatabaseClient design, it's safer to call them sequentially.
@@ -243,7 +226,7 @@ class DbMovieRepository(MovieRepository):
             if movie_id is None:
                 raise ValueError("movie_id must be provided when querying for a specific week_number.")
 
-        self.__client.database_name = self.dataset_name
+        self.__client.database_name = self.database_name
         with self.__client as db:
             filters = {}
             if movie_id is not None:
@@ -271,7 +254,7 @@ class DbMovieRepository(MovieRepository):
             yield from BoxOffice.create_multiple(source=rows, schema_type='FLAT')
 
     def save_box_office(self, movie_id: int, data: list[BoxOffice]) -> None:
-        self.__client.database_name = self.dataset_name
+        self.__client.database_name = self.database_name
         with self.__client as db:
             if not data:
                 return
@@ -285,13 +268,9 @@ class DbMovieRepository(MovieRepository):
 
             # 2. Batch Insert Weeks (INSERT IGNORE)
             week_insert_query = """
-                                INSERT
-                                IGNORE INTO on_air_weeks (movie_id, start_date)
-                VALUES (
-                                %s,
-                                %s
-                                ) \
-                                """
+                INSERT IGNORE INTO on_air_weeks (movie_id, start_date)
+                VALUES (%s, %s)
+            """
             db.execute_many(week_insert_query, week_values)
 
             # 3. Fetch Week IDs
@@ -321,15 +300,14 @@ class DbMovieRepository(MovieRepository):
             # 5. Batch Insert Box Office
             if bo_values:
                 bo_insert_query = """
-                                  INSERT INTO box_office (on_air_week_id, amount)
-                                  VALUES (%s, %s) ON DUPLICATE KEY
-                                  UPDATE amount =
-                                  VALUES (amount) \
-                                  """
+                    INSERT INTO box_office (on_air_week_id, amount)
+                    VALUES (%s, %s)
+                    ON DUPLICATE KEY UPDATE amount = VALUES(amount)
+                """
                 db.execute_many(bo_insert_query, bo_values)
 
     def fetch_reviews(self, movie_id: Optional[int] = None) -> Iterator[Review]:
-        self.__client.database_name = self.dataset_name
+        self.__client.database_name = self.database_name
         with self.__client as db:
             # Fetch Reviews
             filters = {'movie_id': movie_id} if movie_id is not None else None
@@ -379,7 +357,7 @@ class DbMovieRepository(MovieRepository):
         movie_id: int,
         data: list[Review],
     ) -> None:
-        self.__client.database_name = self.dataset_name
+        self.__client.database_name = self.database_name
         with self.__client as db:
             if not data:
                 return

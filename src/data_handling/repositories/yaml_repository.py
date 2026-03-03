@@ -45,38 +45,38 @@ class YamlMovieRepository(MovieRepository):
     def expert_reviews_folder_path(self) -> Path:
         return self.dataset_root_path / ProjectPaths.EXPERT_REVIEWS_SUBFOLDER_NAME
 
-    @override
-    def setup_storage(self) -> None:
+    def initialize_storage(self, source_csv: CsvFile) -> None:
         """
-        Creates necessary directories and empty index files.
+        Initializes the index.csv file from a source CSV.
         """
-        self.logger.info(f"Setting up YAML storage at '{self.dataset_root_path}'.")
-
-        # Create directories
-        self.dataset_root_path.mkdir(parents=True, exist_ok=True)
-        self.box_office_folder_path.mkdir(parents=True, exist_ok=True)
-        self.public_reviews_folder_path.mkdir(parents=True, exist_ok=True)
-        self.expert_reviews_folder_path.mkdir(parents=True, exist_ok=True)
-
-        # Create empty index file if not exists
-        if not self.index_file_path.exists():
-            self.logger.info(f"Creating empty index file at '{self.index_file_path}'.")
-            CsvFile(path=self.index_file_path).save(data=[])
-
-    @override
-    def is_storage_occupied(self) -> bool:
-        """
-        Checks if the index file exists and is not empty.
-        """
-        if not self.index_file_path.exists():
-            return False
-
+        self.logger.info(
+            f"Initializing index file '{self.index_file_path}' from source '{source_csv.path}'.")
         try:
-            data = CsvFile(path=self.index_file_path).load()
-            return len(data) > 0
-        except Exception:
-            # If file exists but can't be read, assume occupied/corrupted
-            return True
+            source_data: list[dict[str, str]] = source_csv.load()
+            if not source_data:
+                self.logger.warning(
+                    f"Source CSV file '{source_csv.path}' is empty. Index file will not be initialized with data.")
+                CsvFile(path=self.index_file_path).save(data=[])
+                return
+
+            index_data: list[dict[str, str]] = []
+            for index, movie_row in enumerate(source_data):
+                movie_name: Optional[str] = movie_row.get('movie_name')
+                if movie_name is None:
+                    self.logger.warning(
+                        f"Row {index + 1} in source CSV '{source_csv.path}' is missing 'movie_name'. Skipping.")
+                    continue
+                index_data.append({'id': str(index), 'name': movie_name})
+
+            CsvFile(path=self.index_file_path).save(data=index_data)
+            self.logger.info(
+                f"Successfully initialized index file '{self.index_file_path}' with {len(index_data)} entries.")
+        except Exception as e:
+            self.logger.error(
+                f"An error occurred during index initialization: {e}",
+                exc_info=True
+            )
+            raise
 
     def _load_metadata_from_index(self) -> list[MovieData]:
         """Loads movie metadata from the index CSV file and returns basic MovieData objects."""
@@ -256,8 +256,9 @@ class YamlMovieRepository(MovieRepository):
         public_reviews = [r for r in data if isinstance(r, PublicReview)]
         expert_reviews = [r for r in data if isinstance(r, ExpertReview)]
 
-        def save_review_to_file(reviews: list[Review], review_folder: Path, save_movie_id: int,
-                                review_type_string: str) -> None:
+        def save_review_to_file(
+            reviews: list[Review], review_folder: Path, save_movie_id: int, review_type_string: str
+        ) -> None:
             if reviews:
                 path = review_folder / f"{save_movie_id}.yaml"
                 serializable: list[ReviewSerializableData] = [r.as_serializable_dict() for r in reviews]

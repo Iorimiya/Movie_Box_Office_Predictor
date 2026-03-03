@@ -1,7 +1,23 @@
+import os
 from pathlib import Path
 from typing import Final
 
+from data_handling.database_client import DatabaseConfig
 from src.core.types import ProjectDatasetType, ProjectModelType
+
+
+class ProjectConfig:
+    """
+    Provides centralized, static access to project-wide configurations.
+    """
+    # Database Configuration
+    # Reads from environment variables, with sensible defaults for local development.
+    DEFAULT_DATABASE_CONFIG: Final[DatabaseConfig] = {
+        'address': os.environ.get('DB_ADDRESS', 'db-service'),
+        'port': os.environ.get('DB_PORT', '3306'),
+        'user': os.environ.get('DB_USER', 'user'),
+        'password': os.environ.get('DB_PASSWORD', 'password')
+    }
 
 
 class ProjectPaths:

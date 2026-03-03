@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field, replace, InitVar
 from logging import Logger
 from pathlib import Path
 from time import sleep
@@ -6,15 +6,17 @@ from typing import Final, Literal, Optional
 
 from tqdm import tqdm
 
+from data_handling.database_client import DatabaseClient
 from src.core.logging_manager import LoggingManager
-from src.core.project_config import ProjectDatasetType, ProjectPaths
+from src.core.project_config import DatabaseConfig, ProjectConfig, ProjectDatasetType, ProjectPaths
 from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.file_io import CsvFile
 from src.data_handling.movie_collections import MovieData, MovieSessionData
-from data_handling.repositories.repository import MovieRepository
+from src.data_handling.repositories.db_repository import DbMovieRepository
+from src.data_handling.repositories.repository import MovieRepository
+from src.data_handling.repositories.yaml_repository import YamlMovieRepository
 from src.data_handling.reviews import PublicReview
-from data_handling.repositories.yaml_repository import YamlMovieRepository
 from src.sentiment_analysis.llm_client import DailyRateLimitExceededError, LLMClient, LLMProvider
 
 
@@ -34,20 +36,44 @@ class Dataset:
     :ivar __logger: A logger instance for logging messages.
     """
     name: str
-    repository: MovieRepository = field(init=False)
+    mode: Literal['DATABASE', 'YAML_FILE'] = 'YAML_FILE'
+    override_database_config: InitVar[Optional[DatabaseConfig]] = None
+
+    repository: MovieRepository = field(init=False, repr=False)
+    _database_config: Optional[DatabaseConfig] = field(default=None, init=False, repr=False)
     __movies_data_cache: Optional[list[MovieData]] = field(default=None, init=False, repr=False)
     __logger: Logger = field(init=False, repr=False)
 
-    def __post_init__(self) -> None:
+    def __post_init__(self, override_database_config: Optional[DatabaseConfig]) -> None:
         """
         Performs post-initialization setup.
 
-        Initializes the logger and sets up the default YamlMovieRepository.
+        Initializes the logger and sets up the repository based on the specified mode.
         """
         self.__logger = LoggingManager().get_logger('root')
-        # Default to YAML repository for backward compatibility and file-based operations
-        dataset_path = ProjectPaths.get_dataset_path(dataset_name=self.name, dataset_type=ProjectDatasetType.STRUCTURED)
-        self.repository = YamlMovieRepository(dataset_root_path=dataset_path)
+
+        if self.mode == 'YAML_FILE':
+            if override_database_config is not None:
+                self.__logger.warning(
+                    "`override_database_config` is provided but mode is 'YAML_FILE'. The config will be ignored.")
+            dataset_path = ProjectPaths.get_dataset_path(dataset_name=self.name,
+                                                         dataset_type=ProjectDatasetType.STRUCTURED)
+            self.repository = YamlMovieRepository(dataset_root_path=dataset_path)
+
+        elif self.mode == 'DATABASE':
+            self._database_config = ProjectConfig.DEFAULT_DATABASE_CONFIG.copy()
+            if override_database_config:
+                self._database_config.update(override_database_config)
+
+            self.repository = DbMovieRepository(
+                server_address=self._database_config['address'],
+                server_port=self._database_config['port'],
+                user_name=self._database_config['user'],
+                user_password=self._database_config['password'],
+                database_name=self.name
+            )
+        else:
+            raise ValueError(f"Invalid mode specified: {self.mode}")
 
     @property
     def dataset_path(self) -> Path:
@@ -115,127 +141,24 @@ class Dataset:
                 f"Returning cached 'movie_data' for dataset '{self.name}' with {len(self.__movies_data_cache)} items.")
         return self.__movies_data_cache
 
-    def initialize_index_file(self, source_csv: CsvFile) -> None:
+    def initialize_dataset(self, source_csv: CsvFile, root_config: DatabaseConfig) -> None:
         """
-        Initializes or overwrites the dataset's index file from a source CSV file.
+        Initializes the dataset storage from a source CSV file.
 
-        This method orchestrates the initialization process:
-        1. Checks if storage is already occupied.
-        2. Sets up the storage structure (folders or DB schema).
-        3. Loads and prepares the initial movie list from CSV.
-        4. Saves the initial movie data to the repository.
+        Delegates to the repository's initialize_storage method.
 
-        :param root_config: Database configuration for admin tasks (creating DB).
+        :param root_config:
         :param source_csv: A CsvFile instance representing the source CSV file
                            containing at least a 'movie_name' column.
-        :raises (FileNotFoundError, PermissionError, IOError): If an I/O error occurs
-                                                                during file operations.
-        :raises Exception: For any other unexpected errors during initialization.
         """
-        self.__logger.info(
-            f"Initializing index file '{self.index_file_path}' for dataset '{self.name}' from source '{source_csv.path}'.")
-        try:
-            source_data: list[dict[str, str]] = source_csv.load()
-            if not source_data:
-                self.__logger.warning(
-                    f"Source CSV file '{source_csv.path}' is empty. Index file will not be initialized with data.")
-                self.index_file.save(data=[])
-                return
+        self.__logger.info(f"Initializing dataset '{self.name}' from source '{source_csv.path}'.")
 
-        # 1. Check if occupied
-        if self.repository.is_storage_occupied():
-            self.__logger.warning(f"Storage for dataset '{self.name}' is already occupied. Skipping initialization.")
-            return
-
-        # 2. Setup Storage Infrastructure
         if self.mode == 'DATABASE' and root_config:
-            # Create Database and Grant Permissions (Admin Task)
             admin_client = DatabaseClient(config=root_config)
             with admin_client as db:
                 db.execute_statement(f"CREATE DATABASE IF NOT EXISTS {self.name}")
                 db.execute_statement(f"GRANT ALL ON {self.name}.* TO '{self._database_config['user']}'@'%'")
-
-        # Delegate schema/folder creation to repository
-        self.repository.setup_storage()
-
-        # 3. Load and Prepare Data
-        try:
-            source_data: list[dict[str, str]] = source_csv.load()
-            if not source_data:
-                self.__logger.warning(f"Source CSV file '{source_csv.path}' is empty.")
-                return
-
-            movies: list[MovieData] = []
-            for index, movie_row in enumerate(source_data):
-                movie_name: Optional[str] = movie_row.get('movie_name')
-                if movie_name:
-                    movies.append(MovieData(id=index, name=movie_name))
-
-            # 4. Save Data
-            if movies:
-                self.repository.save_movies(movies)
-                self.__logger.info(f"Successfully initialized dataset '{self.name}' with {len(movies)} movies.")
-
-        except Exception as e:
-            self.__logger.error(f"Failed to initialize dataset '{self.name}': {e}", exc_info=True)
-            raise
-
-    @classmethod
-    def create_from_data(
-        cls,
-        new_dataset_name: str,
-        movies: list[MovieData],
-        mode: Literal['DATABASE', 'YAML_FILE'] = 'YAML_FILE',
-        override_database_config: Optional[DatabaseConfig] = None
-    ) -> 'Dataset':
-        """
-        Creates a new dataset from a list of MovieData objects.
-
-        This method handles the entire process of creating a new dataset instance,
-        setting up its storage infrastructure, and populating it with the provided data.
-
-        :param new_dataset_name: The name for the new dataset.
-        :param movies: A list of MovieData objects to populate the dataset with.
-        :param mode: The storage mode for the new dataset.
-        :param override_database_config: Optional database configuration.
-        :return: The newly created Dataset instance.
-        """
-        logger = LoggingManager().get_logger('root')
-        logger.info(f"Creating new dataset '{new_dataset_name}' with {len(movies)} movies in mode '{mode}'.")
-
-        # 1. Create Dataset Instance
-        new_dataset = cls(
-            name=new_dataset_name,
-            mode=mode,
-            override_database_config=override_database_config
-        )
-
-        # 2. Check if occupied
-        if new_dataset.repository.is_storage_occupied():
-            raise ValueError(f"Storage for dataset '{new_dataset_name}' is already occupied.")
-
-        try:
-            # 3. Setup Storage Infrastructure
-            if mode == 'DATABASE':
-                # Ensure DB exists (Admin Task)
-                # Use root config from ProjectConfig (assuming it's set correctly for admin tasks)
-                admin_client = DatabaseClient(config=ProjectConfig.DEFAULT_DATABASE_CONFIG)
-                with admin_client as db:
-                    db.execute_statement(f"CREATE DATABASE IF NOT EXISTS {new_dataset_name}")
-                    target_user = new_dataset._database_config['user']
-                    db.execute_statement(f"GRANT ALL ON {new_dataset_name}.* TO '{target_user}'@'%'")
-
-            new_dataset.repository.setup_storage()
-
-            # 4. Save Data
-            new_dataset.repository.save_movies(movies)
-            logger.info(f"Successfully created and populated dataset '{new_dataset_name}'.")
-
-        except Exception as e:
-            logger.error(f"Failed to create dataset '{new_dataset_name}': {e}", exc_info=True)
-            raise
-
-        return new_dataset
+        self.repository.initialize_storage(source_csv)
 
     def load_movie_data(self, mode: Literal['ALL', 'META']) -> list[MovieData]:
         """
@@ -450,85 +373,60 @@ class Dataset:
 
             現在，請針對以下評論內容進行判斷：
             """
-            total_review_count: int = sum(movie.public_review_count for movie in self.movie_data)
-            max_response_retries: Final[int] = 3
 
-            if total_review_count == 0:
-                self.__logger.info("No public reviews found in the dataset to process.")
-                return
+            # Unified Strategy: Iterate movies -> Process reviews -> Save
+            # This works for both YAML (file by file) and DB (batch by batch per movie)
+            # It avoids loading ALL data into memory.
 
-            with tqdm(total=total_review_count, desc="Computing Sentiments") as pbar:
-                for movie in self.movie_data:
-                    if not movie.public_reviews:
+            movies = self.load_movie_data(mode='META')
+
+            with tqdm(total=len(movies), desc="Computing Sentiments") as pbar:
+                for movie in movies:
+                    # Fetch only reviews for this movie (Iterator)
+                    reviews_iter = self.repository.fetch_reviews(movie.id)
+
+                    # Filter for PublicReview and materialize to list for processing
+                    public_reviews = [r for r in reviews_iter if isinstance(r, PublicReview)]
+
+                    if not public_reviews:
+                        pbar.update(1)
                         continue
 
-                    self.__logger.info(
-                        f"Processing {len(movie.public_reviews)} reviews for movie ID {movie.id} ('{movie.name}')..."
-                    )
+                    updated_reviews = []
+                    # Process reviews (could be parallelized here)
+                    for review in public_reviews:
+                        updated_review = self._process_single_review_sentiment(llm_client, review, rule_text)
+                        updated_reviews.append(updated_review)
 
-                    updated_reviews: list[PublicReview] = []
-                    for review in movie.public_reviews:
-                        last_response: str = ""
-                        for attempt in range(max_response_retries):
-                            self.__logger.debug(
-                                f"Attempt {attempt + 1}/{max_response_retries} for review: '{review.title}'")
-                            current_temperature: float = 0.1 + (attempt * 0.4)
-                            try:
-                                response_text: str = llm_client.generate_response(
-                                    prompt_texts=review.content,
-                                    rule_message=rule_text,
-                                    temperature=current_temperature
-                                )
-                                last_response = response_text
-
-                                # Strict validation for the expected response
-                                if response_text in ('1', '2', '3', '4', '5'):
-                                    score_val: int = int(response_text)
-
-                                    sentiment_score: Optional[float] = (score_val - 1) / 4.0
-                                    self.__logger.debug(
-                                        f"Validated response '{response_text}' for review '{review.title}', "
-                                        "mapped to sentiment score: {sentiment_score:.2f}")
-                                    break  # Exit the retry loop on success
-                                else:
-                                    self.__logger.warning(
-                                        f"Received invalid sentiment response: '{response_text}'. Expected '0' or '1'. Retrying..."
-                                    )
-
-                            except RuntimeError as e:
-                                # This is a non-daily-limit unrecoverable error from the client for this specific review
-                                self.__logger.error(
-                                    f"Unrecoverable error from LLM client for review '{review.title}': {e}")
-                                sentiment_score: Optional[float] = None
-                                break  # Exit the retry loop immediately
-                            except Exception as e:
-                                self.__logger.error(
-                                    f"Unexpected error during sentiment generation for '{review.title}': {e}",
-                                    exc_info=True)
-
-                            # Wait a moment before the next retry if the response was invalid
-                            sleep(2)
-                        else:
-                            # This block executes ONLY if the for loop completes without a 'break'.
-                            self.__logger.critical(
-                                f"Failed to get a valid sentiment for review '{review.title}' after {max_response_retries} attempts. "
-                                f"Last invalid response was: '{last_response}'."
-                            )
-                            sentiment_score: Optional[float] = None
-
-                        if sentiment_score is not None:
-                            updated_reviews.append(replace(review, sentiment_score=sentiment_score))
-                        else:
-                            updated_reviews.append(review)
-
-                        pbar.update(1)
-
-                    # Update the movie object and save the results to disk
-                    movie.public_reviews = updated_reviews
-                    self.repository.save_movie(movie)
+                    # Save back (Batch update for this movie)
+                    self.repository.save_reviews(movie.id, updated_reviews)
+                    pbar.update(1)
 
         except DailyRateLimitExceededError as e:
             self.__logger.critical(f"Terminating sentiment computation due to daily rate limit: {e}")
-            # No further action needed, the function will now exit gracefully.
 
         self.__logger.info(f"Sentiment computation for dataset '{self.name}' is complete.")
+
+    @staticmethod
+    def _process_single_review_sentiment(client: LLMClient, review: PublicReview, rule_text: str) -> PublicReview:
+        max_response_retries = 3
+        sentiment_score: Optional[float] = None
+
+        for attempt in range(max_response_retries):
+            current_temperature = 0.1 + (attempt * 0.4)
+            try:
+                response_text = client.generate_response(
+                    prompt_texts=review.content,
+                    rule_message=rule_text,
+                    temperature=current_temperature
+                )
+                if response_text in ('1', '2', '3', '4', '5'):
+                    score_val = int(response_text)
+                    sentiment_score = (score_val - 1) / 4.0
+                    break
+            except Exception:
+                sleep(2)
+
+        if sentiment_score is not None:
+            return replace(review, sentiment_score=sentiment_score)
+        return review
