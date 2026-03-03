@@ -106,7 +106,8 @@ class Dataset:
         """
         if self.__movies_data_cache is None:
             self.__logger.debug(f"Cache miss for 'movie_data' in dataset '{self.name}'. Loading all movie data.")
-            self.__movies_data_cache = self.repository.fetch_movies(detail_level='ALL')
+            # Convert Iterator to list for caching
+            self.__movies_data_cache = list(self.repository.fetch_movies(detail_level='ALL'))
             self.__logger.debug(
                 f"Populated 'movie_data' cache for dataset '{self.name}' with {len(self.__movies_data_cache)} items.")
         else:
@@ -244,7 +245,8 @@ class Dataset:
         :returns: A list of MovieData objects.
         """
         self.__logger.debug(f"Loading all movie data for dataset '{self.name}' in mode '{mode}'.")
-        return self.repository.fetch_movies(detail_level=mode)
+        # Convert Iterator to list for backward compatibility with callers expecting a list
+        return list(self.repository.fetch_movies(detail_level=mode))
 
     def load_movie_sessions(self, number_of_weeks: int) -> list[MovieSessionData]:
         """
