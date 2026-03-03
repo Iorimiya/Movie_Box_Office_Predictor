@@ -3,14 +3,14 @@
 # Project Name: Web Service Configuration of Movie Box Office Predictor
 # Description: Compute Node, CPU version
 # Author: Iorimiya
-# Date: 2026-01-21
-# Version: 1.1.1
+# Date: 2026-01-30
+# Version: 1.2.0
 # ==============================================================================
 name: mbop
 
 services:
   compute-node:
-    image: iorimiya/mbop-compute:${APP_VERSION:-v1.0.0}-cpu
+    image: iorimiya/mbop-compute:1.2.0-cpu
     build:
       context: ../../
       dockerfile: ./environments/compute-cpu/Dockerfile.compute
@@ -39,6 +39,8 @@ services:
       - type: bind
         source: ${INPUT_HOST_PATH}
         target: /app/inputs
+    environment:
+      TZ: Asia/Taipei
 #    command: ["gunicorn", "-w", "1", "-b", "0.0.0.0:11100", "-t", "600", "src.web_api:app"]
     command: ["sleep", "infinity"]
     healthcheck:
@@ -50,10 +52,12 @@ services:
     restart: always
 
   llm-service:
-    image: iorimiya/mbop-llm-service:${APP_VERSION:-v1.0.0}-cpu
+    image: iorimiya/mbop-llm-service:1.1.0-cpu
     build:
       context: ../../
       dockerfile: ./environments/compute-cpu/Dockerfile.llm
+    environment:
+      TZ: Asia/Taipei
 #    ports:
 #      - mode: host
 #        host_ip: ${HOST_IP:-0.0.0.0}
@@ -61,3 +65,34 @@ services:
 #        published: ${LLM_HOST_PORT}
 #        target: ${LLM_CONTAINER_PORT:-11434}
     restart: unless-stopped
+
+  db-service:
+    image: mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+      MARIADB_DATABASE: ${DB_NAME:-movie_data}
+      MARIADB_USER: ${DB_USER:-mbop_user}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-mbop_pass}
+      TZ: Asia/Taipei
+    ports:
+      - mode: host
+        host_ip: ${HOST_IP:-0.0.0.0}
+        protocol: tcp
+        published: ${DB_HOST_PORT}
+        target: ${DB_CONTAINER_PORT:-3306}
+    volumes:
+      - type: bind
+        source: ${DB_DATA_HOST_PATH}
+        target: /var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --wait_timeout=86400
+      - --max_allowed_packet=1G
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: always

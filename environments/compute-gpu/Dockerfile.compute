@@ -1,7 +1,7 @@
 FROM continuumio/anaconda3
 
 LABEL maintainer="Iorimiya <iorimiya.vina@gmail.com>"
-LABEL version="1.1.0"
+LABEL version="1.2.0"
 LABEL description="Movie Box Office Predictor Compute Node (GPU version)"
 
 RUN apt-get update && apt-get install -y \

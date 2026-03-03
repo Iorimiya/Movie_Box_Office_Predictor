@@ -20,7 +20,9 @@
       },
       "extensions": [
         "vscjava.vscode-docker",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "google.geminicodeassist",
+        "ms-vsliveshare.vsliveshare"
       ]
     }
   }

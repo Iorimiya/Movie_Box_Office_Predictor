@@ -17,21 +17,28 @@ dependencies:
 # compute
   - defaults::numpy=1.26
   - defaults::pandas=2.2
+  - conda-forge::pandas-stubs=2.3.3
 # tensorflow
   - conda-forge::cudatoolkit=11.7
   - conda-forge::cudnn=8.4
   - conda-forge::tensorflow=2.9.1=cuda*
   - defaults::scikit-learn=1.6
   - conda-forge::keras-preprocessing=1.1
+# database
+  - defaults::mysql-connector-python=8.4.0
+# web interface
+  - defaults::flask=3.1.2
+# LLM
+  - conda-forge::openai=2.21.0
+  - conda-forge::google-genai
+# file format support
+  - defaults::pyyaml=6.0.2 # .yaml
+  - defaults::openpyxl=3.1 # .xlax .xls
 # others
   - defaults::matplotlib=3.10.0
   - defaults::tqdm=4.66
-  - defaults::openpyxl=3.1
-  - defaults::pyyaml=6.0.2
-  - conda-forge::openai
-  - defaults::flask=3.1.2
+
   - pip:
     - "seleniumbase==4.34.16"
     - "gunicorn==23.0.0"
     - "flask-cors==5.0.0"
-  
