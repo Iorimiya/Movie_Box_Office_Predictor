@@ -131,6 +131,10 @@ dmypy.json
 .idea/
 logs/*.log
 
+# Database
+database_data/
+
 # local develop pipeline files
 docs/TODO.md
 docs/Discussion Note.md
+docs/ask_llm.md
