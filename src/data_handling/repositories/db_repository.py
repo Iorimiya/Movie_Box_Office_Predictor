@@ -1,15 +1,10 @@
-from pathlib import Path
-from random import sample
-from typing import Iterator, Literal, Optional
+import random
+from typing import Literal, Optional
 
-from typing_extensions import override
-from mysql.connector.errorcode import ER_BAD_DB_ERROR
-from mysql.connector import Error as DBError
-
+from data_handling.repositories.repository import MovieRepository
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.database_client import DatabaseClient, DatabaseConfig
-from src.data_handling.movie_collections import MovieData, WeekData
-from src.data_handling.repositories.repository import MovieRepository
+from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import PublicReview, ExpertReview, Review
 
 
@@ -122,12 +117,10 @@ class DbMovieRepository(MovieRepository):
             # --- Fetch Public Reviews ---
             # We fetch all public reviews for these movies
 
-            public_review_rows = db.select(
-                "movie_reviews", filters={'movie_id': ('IN', movie_ids), 'type': 'public'}
-            )
-            expert_review_rows = db.select(
-                "movie_reviews", filters={'movie_id': ('IN', movie_ids), 'type': 'expert'}
-            )
+            public_review_rows = db.select("movie_reviews_view",
+                                           filters={'movie_id': ('IN', movie_ids), 'type': 'public'})
+            expert_review_rows = db.select("movie_reviews_view",
+                                           filters={'movie_id': ('IN', movie_ids), 'type': 'expert'})
 
             # Fetch Replies for these reviews
             if public_review_rows:
@@ -168,7 +161,7 @@ class DbMovieRepository(MovieRepository):
 
             # --- Fetch Box Office ---
 
-            box_office_rows = db.select("movie_box_office", filters={'movie_id': ('IN', movie_ids)})
+            box_office_rows = db.select("movie_box_office_view", filters={'movie_id': ('IN', movie_ids)})
 
             box_office_by_movie_id = {}
             for row in box_office_rows:
@@ -202,88 +195,47 @@ class DbMovieRepository(MovieRepository):
             if not movies:
                 return
 
-            movie_values = [(m.id, m.name) for m in movies]
+            # Use the specialized methods for components
+            # Note: We need to call them on 'self' but inside the 'with' block context?
+            # Actually, the specialized methods also open a context.
+            # Nested contexts on the same client might be tricky if not handled.
+            # But DatabaseClient handles re-entry or we can just call the logic directly.
+            # For simplicity and safety, let's call them sequentially outside this block
+            # or implement them to reuse the connection if passed.
+            # Given DatabaseClient design, it's safer to call them sequentially.
+            pass
 
-            # Insert or Update movies
-            insert_query = """
-                           INSERT INTO movies (id, name)
-                           VALUES (%s, %s) ON DUPLICATE KEY
-                           UPDATE name =
-                           VALUES (name) \
-                           """
-            db.execute_many(insert_query, movie_values)
+        # Call specialized save methods (each will open its own connection/transaction)
+        if movie.box_office:
+            self.save_box_office(movie.id, movie.box_office)
 
-        # 2. Save components for each movie
-        # Note: Component saving is still per-movie based on current helper methods,
-        # but could be further optimized in the future.
-        for movie in movies:
-            if movie.box_office:
-                self.save_box_office(movie.id, movie.box_office)
+        all_reviews = []
+        if movie.public_reviews:
+            all_reviews.extend(movie.public_reviews)
+        if movie.expert_reviews:
+            all_reviews.extend(movie.expert_reviews)
 
-            all_reviews = []
-            if movie.public_reviews:
-                all_reviews.extend(movie.public_reviews)
-            if movie.expert_reviews:
-                all_reviews.extend(movie.expert_reviews)
+        if all_reviews:
+            self.save_reviews(movie.id, all_reviews)
 
-            if all_reviews:
-                self.save_reviews(movie.id, all_reviews)
-
-    @override
     def fetch_movie_name_to_id_map(self) -> dict[str, int]:
         self.__client.database_name = self.database_name
         with self.__client as db:
             rows = db.select(table_name="movies", columns="id, name")
             return {row['name']: row['id'] for row in rows}
 
-    @override
-    def fetch_box_office(
-        self, movie_id: Optional[int] = None, week_number: Optional[int] = None
-    ) -> Iterator[BoxOffice]:
-        """
-        Fetches box office data.
-
-        :param movie_id: The ID of the movie. If None, fetches box office data for ALL movies.
-        :param week_number: The specific week number to fetch (1-based).
-                            If provided, movie_id must also be provided.
-        :raises ValueError: If week_number is <= 0 or if movie_id is None when week_number is provided.
-        """
-        if week_number is not None:
-            if week_number <= 0:
-                raise ValueError("week_number must be greater than 0.")
-            if movie_id is None:
-                raise ValueError("movie_id must be provided when querying for a specific week_number.")
-
-        self.__client.database_name = self.database_name
+    def fetch_box_office(self, movie_id: int) -> list[BoxOffice]:
+        self.__client.database_name = self.dataset_name
         with self.__client as db:
-            filters = {}
-            if movie_id is not None:
-                filters['movie_id'] = movie_id
+            rows = db.select(
+                table_name="movie_box_office_view",
+                filters={'movie_id': movie_id},
+                allowed_columns={'movie_id', 'start_date', 'end_date', 'amount'}
+            )
+            return BoxOffice.create_multiple(source=rows, schema_type='FLAT')
 
-            # Base query
-            query = "SELECT movie_id, start_date, end_date, amount FROM movie_box_office"
-            where_clause, params = DatabaseClient.build_where_clause(filters, allowed_columns={'movie_id'})
-
-            if where_clause:
-                query += f" WHERE {where_clause}"
-
-            query += " ORDER BY start_date"
-
-            if week_number is not None:
-                # Use LIMIT/OFFSET for specific week
-                offset = week_number - 1
-                query += f" LIMIT 1 OFFSET {offset}"
-
-            rows = db.execute_statement(query, params) or []
-
-            if week_number is not None and not rows:
-                raise ValueError(f"No box office data found for movie {movie_id} at week {week_number}.")
-
-            yield from BoxOffice.create_multiple(source=rows, schema_type='FLAT')
-
-    @override
     def save_box_office(self, movie_id: int, data: list[BoxOffice]) -> None:
-        self.__client.database_name = self.database_name
+        self.__client.database_name = self.dataset_name
         with self.__client as db:
             if not data:
                 return
@@ -297,9 +249,13 @@ class DbMovieRepository(MovieRepository):
 
             # 2. Batch Insert Weeks (INSERT IGNORE)
             week_insert_query = """
-                INSERT IGNORE INTO on_air_weeks (movie_id, start_date)
-                VALUES (%s, %s)
-            """
+                                INSERT
+                                IGNORE INTO on_air_weeks (movie_id, start_date)
+                VALUES (
+                                %s,
+                                %s
+                                ) \
+                                """
             db.execute_many(week_insert_query, week_values)
 
             # 3. Fetch Week IDs
@@ -329,26 +285,25 @@ class DbMovieRepository(MovieRepository):
             # 5. Batch Insert Box Office
             if bo_values:
                 bo_insert_query = """
-                    INSERT INTO box_office (on_air_week_id, amount)
-                    VALUES (%s, %s)
-                    ON DUPLICATE KEY UPDATE amount = VALUES(amount)
-                """
+                                  INSERT INTO box_office (on_air_week_id, amount)
+                                  VALUES (%s, %s) ON DUPLICATE KEY
+                                  UPDATE amount =
+                                  VALUES (amount) \
+                                  """
                 db.execute_many(bo_insert_query, bo_values)
 
-    @override
-    def fetch_reviews(self, movie_id: Optional[int] = None) -> Iterator[Review]:
-        self.__client.database_name = self.database_name
+    def fetch_reviews(self, movie_id: int) -> list[Review]:
+        self.__client.database_name = self.dataset_name
         with self.__client as db:
             # Fetch Reviews
-            filters = {'movie_id': movie_id} if movie_id is not None else None
             review_rows = db.select(
                 table_name="reviews",
-                filters=filters,
+                filters={'movie_id': movie_id},
                 allowed_columns=self.ALLOWED_REVIEW_FILTER_COLUMNS
             )
 
             if not review_rows:
-                return
+                return []
 
             # Fetch Replies for Public Reviews
             public_review_ids = [r['id'] for r in review_rows if r['type'] == 'public']
@@ -372,28 +327,21 @@ class DbMovieRepository(MovieRepository):
                     review['replies'] = replies_by_review_id.get(review['id'], [])
 
             # Create Objects
-            public_rows: list[dict] = [r for r in review_rows if r['type'] == 'public']
-            expert_rows: list[dict] = [r for r in review_rows if r['type'] == 'expert']
+            # We need to separate public and expert to use correct classes
+            public_rows = [r for r in review_rows if r['type'] == 'public']
+            expert_rows = [r for r in review_rows if r['type'] == 'expert']
 
+            results = []
             if public_rows:
-                # noinspection PyTypeChecker
-                yield from PublicReview.create_multiple(source=public_rows, schema_type='FLAT')
+                results.extend(PublicReview.create_multiple(source=public_rows, schema_type='FLAT'))
             if expert_rows:
-                # noinspection PyTypeChecker
-                yield from ExpertReview.create_multiple(source=expert_rows, schema_type='FLAT')
+                results.extend(ExpertReview.create_multiple(source=expert_rows, schema_type='FLAT'))
 
-    @override
-    def save_reviews(
-        self,
-        movie_id: int,
-        data: list[Review],
-    ) -> None:
-        self.__client.database_name = self.database_name
+            return results
+
+    def save_reviews(self, movie_id: int, data: list[Review]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ) -> None:
+        self.__client.database_name = self.dataset_name
         with self.__client as db:
-            if not data:
-                return
-
-            # 1. Prepare Review Data
             review_values = []
             urls = []
             for review in data:
@@ -405,7 +353,7 @@ class DbMovieRepository(MovieRepository):
                 ))
                 urls.append(review.url)
 
-            # 2. Batch Insert Reviews
+            # Batch Insert Reviews
             insert_query = """
                            INSERT INTO reviews (movie_id, url, title, content, created_at, type, sentiment_score, \
                                                 expert_score)
@@ -419,7 +367,7 @@ class DbMovieRepository(MovieRepository):
                            """
             db.execute_many(insert_query, review_values)
 
-            # 3. Validation: Fetch inserted reviews
+            # Validation: Fetch inserted reviews
             if not urls:
                 return
 
@@ -429,15 +377,16 @@ class DbMovieRepository(MovieRepository):
                 allowed_columns={'url', 'id', 'title'}  # Add other columns if needed for validation
             )
 
-            # 3.1 Check Count
+            # Check Count
             if len(inserted_rows) < len(data):
                 raise RuntimeError(
                     f"Batch insert validation failed: Expected {len(data)} reviews, found {len(inserted_rows)}.")
 
-            # 3.2 Check Content (Sampling)
+            # Check Content (Sampling)
             url_to_row_map = {row['url']: row for row in inserted_rows}
 
-            items_to_validate = data if len(data) <= 5 else sample(data, 5)
+            items_to_validate = data if len(data) <= 5 else random.sample(data, 5)
+            random.randint()
 
             for item in items_to_validate:
                 row = url_to_row_map.get(item.url)
@@ -452,7 +401,7 @@ class DbMovieRepository(MovieRepository):
                     # For now, let's be strict but allow for potential DB-side modifications if needed.
                     pass
 
-            # 4. Prepare Reply Data
+            # Prepare Reply Data
             url_to_id = {row['url']: row['id'] for row in inserted_rows}
 
             reply_values = []
@@ -463,23 +412,8 @@ class DbMovieRepository(MovieRepository):
                         for reply in review.replies:
                             reply_values.append((review_id, reply.type, reply.content, reply.created_at))
 
-            # 5. Batch Insert Replies
+            # Batch Insert Replies
             if reply_values:
                 reply_insert_query = \
                     "INSERT IGNORE INTO replies (review_id, type, content, created_at) VALUES (%s, %s, %s, %s)"
                 db.execute_many(reply_insert_query, reply_values)
-
-    @override
-    def fetch_week_data(self, movie_id: Optional[int] = None) -> Iterator[WeekData]:
-        """
-        Fetches aggregated weekly data for analysis using the weekly_feature_data view.
-        """
-        self.__client.database_name = self.database_name
-        with self.__client as db:
-            filters = {'movie_id': movie_id} if movie_id is not None else None
-            rows = db.select(
-                table_name="weekly_feature_data",
-                filters=filters,
-                allowed_columns={'movie_id'}  # Add more if needed
-            )
-            yield from WeekData.create_multiple_from_db_rows(rows)

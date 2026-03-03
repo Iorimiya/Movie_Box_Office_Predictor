@@ -10,7 +10,8 @@ from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectPaths
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile, YamlFile
-from src.data_handling.movie_collections import MovieData, WeekData
+from src.data_handling.movie_collections import MovieData
+from data_handling.repositories.repository import MovieRepository
 from src.data_handling.reviews import ExpertReview, PublicReview, Review
 
 
@@ -127,144 +128,75 @@ class YamlMovieRepository(MovieRepository):
 
         # Load detailed data
         for movie in movies:
-            movie.box_office = list(self.fetch_box_office(movie.id))
+            movie.box_office = self.fetch_box_office(movie.id)
 
-            reviews = list(self.fetch_reviews(movie.id))
+            reviews = self.fetch_reviews(movie.id)
             movie.public_reviews = [r for r in reviews if isinstance(r, PublicReview)]
             movie.expert_reviews = [r for r in reviews if isinstance(r, ExpertReview)]
 
-            yield movie
+        return movies
 
-    @override
-    def save_movies(self, movies: list[MovieData]) -> None:
-        """Saves a list of movies' data to YAML files."""
-        # Update index file
-        # Note: This overwrites the index with the provided movies.
-        # If appending is needed, logic should be different.
-        # But for initialization/cloning, overwriting is expected.
-        index_data = [{'id': str(m.id), 'name': m.name} for m in movies]
-        CsvFile(path=self.index_file_path).save(data=index_data)
+    def save_movie(self, movie: MovieData) -> None:
+        """Saves a movie's data to YAML files."""
+        if movie.box_office:
+            self.save_box_office(movie.id, movie.box_office)
 
-        for movie in movies:
-            if movie.box_office:
-                self.save_box_office(movie.id, movie.box_office)
+        all_reviews = []
+        if movie.public_reviews:
+            all_reviews.extend(movie.public_reviews)
+        if movie.expert_reviews:
+            all_reviews.extend(movie.expert_reviews)
 
-            all_reviews = movie.public_reviews + movie.expert_reviews
-            if all_reviews:
-                self.save_reviews(movie.id, all_reviews)
+        if all_reviews:
+            self.save_reviews(movie.id, all_reviews)
 
-    @override
     def fetch_movie_name_to_id_map(self) -> dict[str, int]:
         """Fetches a mapping of movie names to IDs from the index file."""
         movies = self._load_metadata_from_index()
         return {m.name: m.id for m in movies}
 
-    @override
-    def fetch_box_office(
-        self, movie_id: Optional[int] = None, week_number: Optional[int] = None
-    ) -> Iterator[BoxOffice]:
-        """
-        Fetches box office data.
+    def fetch_box_office(self, movie_id: int) -> list[BoxOffice]:
+        path = self.box_office_folder_path / f"{movie_id}.yaml"
+        if not path.exists():
+            return []
+        try:
+            data = YamlFile(path=path).load() or []
+            return BoxOffice.create_multiple(source=data, schema_type='NESTED')
+        except Exception as e:
+            self.logger.error(f"Error loading box office for movie {movie_id}: {e}")
+            return []
 
-        :param movie_id: The ID of the movie. If None, fetches box office data for ALL movies.
-        :param week_number: The specific week number to fetch (1-based).
-                            If provided, movie_id must also be provided.
-        :raises ValueError: If week_number is <= 0 or if movie_id is None when week_number is provided.
-        """
-        if week_number is not None:
-            if week_number <= 0:
-                raise ValueError("week_number must be greater than 0.")
-            if movie_id is None:
-                raise ValueError("movie_id must be provided when querying for a specific week_number.")
-
-        if movie_id is not None:
-            # Single movie fetch
-            path = self.box_office_folder_path / f"{movie_id}.yaml"
-            if not path.exists():
-                if week_number is not None:
-                    raise ValueError(f"No box office data found for movie {movie_id} (file missing).")
-                return
-            try:
-                data = YamlFile(path=path).load() or []
-                box_office_list = BoxOffice.create_multiple(source=data, schema_type='NESTED')
-
-                if week_number is not None:
-                    # Sort by start_date to ensure consistent ordering
-                    box_office_list.sort(key=lambda x: x.start_date)
-                    if week_number > len(box_office_list):
-                        raise ValueError(
-                            f"Week number {week_number} out of range for movie {movie_id} (total {len(box_office_list)} weeks).")
-                    yield box_office_list[week_number - 1]
-                else:
-                    yield from box_office_list
-
-            except ValueError as ve:
-                raise ve  # Re-raise validation errors
-            except Exception as e:
-                self.logger.error(f"Error loading box office for movie {movie_id}: {e}")
-                if week_number is not None:
-                    raise ValueError(f"Error loading data for movie {movie_id}: {e}")
-        else:
-            # Fetch all (iterate over all files in the folder)
-            if not self.box_office_folder_path.exists():
-                return
-            for path in self.box_office_folder_path.glob("*.yaml"):
-                try:
-                    data = YamlFile(path=path).load() or []
-                    yield from BoxOffice.create_multiple(source=data, schema_type='NESTED')
-                except Exception as e:
-                    self.logger.error(f"Error loading box office from {path}: {e}")
-
-    @override
     def save_box_office(self, movie_id: int, data: list[BoxOffice]) -> None:
         self.box_office_folder_path.mkdir(parents=True, exist_ok=True)
         path = self.box_office_folder_path / f"{movie_id}.yaml"
         serializable_data = [item.as_serializable_dict() for item in data]
         try:
-            # noinspection PyTypeChecker
             YamlFile(path=path).save(data=serializable_data)
         except Exception as e:
             self.logger.error(f"Error saving box office for movie {movie_id}: {e}")
 
-    @override
-    def fetch_reviews(self, movie_id: Optional[int] = None) -> Iterator[Review]:
-        def fetch_all_reviews_from_folder(folder_path: Path, review_class: Type[Review]) -> Iterator[Review]:
-            if folder_path.exists():
-                for path in folder_path.glob("*.yaml"):
-                    try:
-                        data = YamlFile(path=path).load() or []
-                        # noinspection PyTypeChecker
-                        yield from review_class.create_multiple(source=data, schema_type='NESTED')
-                    except Exception as e:
-                        self.logger.error(f"Error loading reviews from {path}: {e}")
-
-        if movie_id is not None:
-            # Single movie fetch
-            yield from self._fetch_reviews_for_single_movie(movie_id)
-        else:
-            # Fetch all
-            yield from fetch_all_reviews_from_folder(self.public_reviews_folder_path, PublicReview)
-            yield from fetch_all_reviews_from_folder(self.expert_reviews_folder_path, ExpertReview)
-
-    def _fetch_reviews_for_single_movie(self, movie_id: int) -> Iterator[Review]:
+    def fetch_reviews(self, movie_id: int) -> list[Review]:
         public_path = self.public_reviews_folder_path / f"{movie_id}.yaml"
         expert_path = self.expert_reviews_folder_path / f"{movie_id}.yaml"
+
+        reviews: list[Review] = []
 
         if public_path.exists():
             try:
                 data = YamlFile(path=public_path).load() or []
-                yield from PublicReview.create_multiple(source=data, schema_type='NESTED')
+                reviews.extend(PublicReview.create_multiple(source=data, schema_type='NESTED'))
             except Exception as e:
                 self.logger.error(f"Error loading public reviews for movie {movie_id}: {e}")
 
         if expert_path.exists():
             try:
                 data = YamlFile(path=expert_path).load() or []
-                yield from ExpertReview.create_multiple(source=data, schema_type='NESTED')
+                reviews.extend(ExpertReview.create_multiple(source=data, schema_type='NESTED'))
             except Exception as e:
                 self.logger.error(f"Error loading expert reviews for movie {movie_id}: {e}")
 
-    @override
+        return reviews
+
     def save_reviews(self, movie_id: int, data: list[Review]) -> None:
         self.public_reviews_folder_path.mkdir(parents=True, exist_ok=True)
         self.expert_reviews_folder_path.mkdir(parents=True, exist_ok=True)
@@ -272,51 +204,18 @@ class YamlMovieRepository(MovieRepository):
         public_reviews = [r for r in data if isinstance(r, PublicReview)]
         expert_reviews = [r for r in data if isinstance(r, ExpertReview)]
 
-        def save_review_to_file(
-            reviews: list[Review], review_folder: Path, save_movie_id: int, review_type_string: str
-        ) -> None:
-            if reviews:
-                path = review_folder / f"{save_movie_id}.yaml"
-                serializable: list[ReviewSerializableData] = [r.as_serializable_dict() for r in reviews]
-                try:
-                    YamlFile(path=path).save(data=cast(list[dict], cast(object, serializable)))
-                except Exception as e:
-                    self.logger.error(f"Error saving {review_type_string} for movie {save_movie_id}: {e}")
+        if public_reviews:
+            path = self.public_reviews_folder_path / f"{movie_id}.yaml"
+            serializable = [r.as_serializable_dict() for r in public_reviews]
+            try:
+                YamlFile(path=path).save(data=serializable)
+            except Exception as e:
+                self.logger.error(f"Error saving public reviews for movie {movie_id}: {e}")
 
-        save_review_to_file(
-            reviews=public_reviews,
-            review_folder=self.public_reviews_folder_path,
-            save_movie_id=movie_id,
-            review_type_string='public reviews'
-        )
-        save_review_to_file(
-            reviews=expert_reviews,
-            review_folder=self.expert_reviews_folder_path,
-            save_movie_id=movie_id,
-            review_type_string='expert reviews')
-
-    @override
-    def fetch_week_data(self, movie_id: Optional[int] = None) -> Iterator[WeekData]:
-        """
-        Fetches aggregated weekly data for analysis.
-        For YAML, this involves loading full movie data and computing in memory.
-        """
-        # Reuse fetch_movies(ALL) to get full data, then compute WeekData
-        filters = {'id': movie_id} if movie_id is not None else None
-
-        # Note: fetch_movies filters by 'name', not 'id'. We need to adapt or filter manually.
-        # Since fetch_movies iterates all for ALL mode anyway, we can filter the iterator.
-
-        movies_iter = self.fetch_movies(filters=filters, detail_level='ALL')
-
-        for movie in movies_iter:
-            if movie_id is not None and movie.id != movie_id:
-                continue
-
-            # Compute WeekData in memory
-            week_data_list = WeekData.create_multiple_from_source_variable(
-                movie_id=movie.id,
-                weeks_data_source=movie.box_office,
-                public_reviews_master_source=movie.public_reviews
-            )
-            yield from week_data_list
+        if expert_reviews:
+            path = self.expert_reviews_folder_path / f"{movie_id}.yaml"
+            serializable = [r.as_serializable_dict() for r in expert_reviews]
+            try:
+                YamlFile(path=path).save(data=serializable)
+            except Exception as e:
+                self.logger.error(f"Error saving expert reviews for movie {movie_id}: {e}")

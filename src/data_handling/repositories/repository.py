@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Iterator, Literal, Optional
 
 from src.data_handling.box_office import BoxOffice
-from src.data_handling.movie_collections import MovieData, WeekData
+from src.data_handling.movie_collections import MovieData
 from src.data_handling.reviews import Review
 
 
@@ -74,17 +74,12 @@ class MovieRepository(ABC):
         pass
 
     @abstractmethod
-    def fetch_box_office(
-        self, movie_id: Optional[int] = None, week_number: Optional[int] = None
-    ) -> Iterator[BoxOffice]:
+    def fetch_box_office(self, movie_id: int) -> list[BoxOffice]:
         """
-        Fetches box office data.
+        Fetches only box office data for a specific movie.
 
-        :param movie_id: The ID of the movie. If None, fetches box office data for ALL movies.
-        :param week_number: The specific week number to fetch (1-based).
-                            If provided, movie_id must also be provided.
-        :return: An iterator of BoxOffice objects.
-        :raises ValueError: If week_number is <= 0 or if movie_id is None when week_number is provided.
+        :param movie_id: The ID of the movie.
+        :return: A list of BoxOffice objects.
         """
         pass
 
@@ -99,12 +94,12 @@ class MovieRepository(ABC):
         pass
 
     @abstractmethod
-    def fetch_reviews(self, movie_id: Optional[int] = None) -> Iterator[Review]:
+    def fetch_reviews(self, movie_id: int) -> list[Review]:
         """
-        Fetches reviews (including replies for public reviews).
+        Fetches only reviews (including replies for public reviews) for a specific movie.
 
-        :param movie_id: The ID of the movie. If None, fetches reviews for ALL movies.
-        :return: An iterator of Review objects (PublicReview and ExpertReview).
+        :param movie_id: The ID of the movie.
+        :return: A list of Review objects (PublicReview and ExpertReview).
         """
         pass
 
@@ -115,15 +110,5 @@ class MovieRepository(ABC):
 
         :param movie_id: The ID of the movie.
         :param data: A list of Review objects to save.
-    """
-        pass
-
-    @abstractmethod
-    def fetch_week_data(self, movie_id: Optional[int] = None) -> Iterator[WeekData]:
-        """
-        Fetches aggregated weekly data for analysis.
-
-        :param movie_id: The ID of the movie. If None, fetches data for ALL movies.
-        :return: An iterator of WeekData objects.
         """
         pass
