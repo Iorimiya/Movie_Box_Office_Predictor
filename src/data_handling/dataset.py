@@ -118,10 +118,13 @@ class Dataset:
         """
         Initializes or overwrites the dataset's index file from a source CSV file.
 
-        It reads movie names from the 'movie_name' column of the source CSV,
-        assigns a sequential ID (starting from 0), and saves this new
-        index data (id, name) to the dataset's `index.csv` file.
+        This method orchestrates the initialization process:
+        1. Checks if storage is already occupied.
+        2. Sets up the storage structure (folders or DB schema).
+        3. Loads and prepares the initial movie list from CSV.
+        4. Saves the initial movie data to the repository.
 
+        :param root_config: Database configuration for admin tasks (creating DB).
         :param source_csv: A CsvFile instance representing the source CSV file
                            containing at least a 'movie_name' column.
         :raises (FileNotFoundError, PermissionError, IOError): If an I/O error occurs
@@ -138,31 +141,100 @@ class Dataset:
                 self.index_file.save(data=[])
                 return
 
-            index_data: list[dict[str, str]] = []
+        # 1. Check if occupied
+        if self.repository.is_storage_occupied():
+            self.__logger.warning(f"Storage for dataset '{self.name}' is already occupied. Skipping initialization.")
+            return
+
+        # 2. Setup Storage Infrastructure
+        if self.mode == 'DATABASE' and root_config:
+            # Create Database and Grant Permissions (Admin Task)
+            admin_client = DatabaseClient(config=root_config)
+            with admin_client as db:
+                db.execute_statement(f"CREATE DATABASE IF NOT EXISTS {self.name}")
+                db.execute_statement(f"GRANT ALL ON {self.name}.* TO '{self._database_config['user']}'@'%'")
+
+        # Delegate schema/folder creation to repository
+        self.repository.setup_storage()
+
+        # 3. Load and Prepare Data
+        try:
+            source_data: list[dict[str, str]] = source_csv.load()
+            if not source_data:
+                self.__logger.warning(f"Source CSV file '{source_csv.path}' is empty.")
+                return
+
+            movies: list[MovieData] = []
             for index, movie_row in enumerate(source_data):
                 movie_name: Optional[str] = movie_row.get('movie_name')
-                if movie_name is None:
-                    self.__logger.warning(
-                        f"Row {index + 1} in source CSV '{source_csv.path}' is missing 'movie_name'. Skipping.")
-                    continue
-                index_data.append({'id': str(index), 'name': movie_name})
+                if movie_name:
+                    movies.append(MovieData(id=index, name=movie_name))
 
-            self.index_file.save(data=index_data)
-            self.__logger.info(
-                f"Successfully initialized index file '{self.index_file_path}' with {len(index_data)} entries for dataset '{self.name}'.")
-        except (FileNotFoundError, PermissionError, IOError) as e:
-            self.__logger.error(
-                f"An I/O error occurred during index initialization for dataset '{self.name}' from '{source_csv.path}': {e}",
-                exc_info=True
-            )
-            raise
+            # 4. Save Data
+            if movies:
+                self.repository.save_movies(movies)
+                self.__logger.info(f"Successfully initialized dataset '{self.name}' with {len(movies)} movies.")
+
         except Exception as e:
-            self.__logger.error(
-                f"An unexpected error occurred during index initialization for dataset '{self.name}': {e}",
-                exc_info=True
-            )
+            self.__logger.error(f"Failed to initialize dataset '{self.name}': {e}", exc_info=True)
             raise
-        return
+
+    @classmethod
+    def create_from_data(
+        cls,
+        new_dataset_name: str,
+        movies: list[MovieData],
+        mode: Literal['DATABASE', 'YAML_FILE'] = 'YAML_FILE',
+        override_database_config: Optional[DatabaseConfig] = None
+    ) -> 'Dataset':
+        """
+        Creates a new dataset from a list of MovieData objects.
+
+        This method handles the entire process of creating a new dataset instance,
+        setting up its storage infrastructure, and populating it with the provided data.
+
+        :param new_dataset_name: The name for the new dataset.
+        :param movies: A list of MovieData objects to populate the dataset with.
+        :param mode: The storage mode for the new dataset.
+        :param override_database_config: Optional database configuration.
+        :return: The newly created Dataset instance.
+        """
+        logger = LoggingManager().get_logger('root')
+        logger.info(f"Creating new dataset '{new_dataset_name}' with {len(movies)} movies in mode '{mode}'.")
+
+        # 1. Create Dataset Instance
+        new_dataset = cls(
+            name=new_dataset_name,
+            mode=mode,
+            override_database_config=override_database_config
+        )
+
+        # 2. Check if occupied
+        if new_dataset.repository.is_storage_occupied():
+            raise ValueError(f"Storage for dataset '{new_dataset_name}' is already occupied.")
+
+        try:
+            # 3. Setup Storage Infrastructure
+            if mode == 'DATABASE':
+                # Ensure DB exists (Admin Task)
+                # Use root config from ProjectConfig (assuming it's set correctly for admin tasks)
+                admin_client = DatabaseClient(config=ProjectConfig.DEFAULT_DATABASE_CONFIG)
+                with admin_client as db:
+                    db.execute_statement(f"CREATE DATABASE IF NOT EXISTS {new_dataset_name}")
+                    target_user = new_dataset._database_config['user']
+                    db.execute_statement(f"GRANT ALL ON {new_dataset_name}.* TO '{target_user}'@'%'")
+
+            new_dataset.repository.setup_storage()
+
+            # 4. Save Data
+            new_dataset.repository.save_movies(movies)
+            logger.info(f"Successfully created and populated dataset '{new_dataset_name}'.")
+
+        except Exception as e:
+            logger.error(f"Failed to create dataset '{new_dataset_name}': {e}", exc_info=True)
+            raise
+
+        return new_dataset
 
     def load_movie_data(self, mode: Literal['ALL', 'META']) -> list[MovieData]:
         """
