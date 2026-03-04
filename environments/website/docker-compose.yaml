@@ -2,24 +2,27 @@
 # Project Name: Web Service Configuration of Movie Box Office Predictor
 # Description: Website Node
 # Author: Iorimiya
-# Date: 2026-01-11
-# Version: 1.1.0
+# Date: 2026-01-21
+# Version: 1.1.1
 # ==============================================================================
-name:  mbop-website
+name:  mbop
+
 services:
-  frontend:
-    build: .
+  website:
+    build:
+      context: ../../
+      dockerfile: environments/website/Dockerfile
     image: iorimiya/mbop-website:${APP_VERSION:-v1.0}
-    container_name: mbop-frontend
     ports:
-      - host_ip: ${host_ip}
-        mode: host
+      - mode: host
+        host_ip: ${HOST_IP:-0.0.0.0}
         protocol: tcp
-        published: 80
+        # noinspection ComposeUnknownValues
+        published: ${HOST_PORT:-80}
         target: 80
     volumes:
       - type: bind
-        source: ${website_host_path}
+        source: ${WEBSITE_HOST_PATH}
         target: /usr/share/nginx/html/
         read_only: true
     environment:

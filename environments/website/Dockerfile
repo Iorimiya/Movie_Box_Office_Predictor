@@ -27,7 +27,7 @@ RUN touch /var/run/nginx.pid \
     && chown -R $USERNAME:$USER_GID /var/cache/nginx /var/log/nginx /etc/nginx /usr/share/nginx/html /var/run/nginx.pid
 
 RUN rm /etc/nginx/conf.d/default.conf
-COPY --chown=$USERNAME:$USER_GID ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --chown=$USERNAME:$USER_GID ./environments/website/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # 切換身分
 USER $USERNAME
