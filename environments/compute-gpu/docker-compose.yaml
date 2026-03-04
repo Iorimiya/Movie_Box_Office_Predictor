@@ -48,8 +48,8 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [ gpu ]
-#    command: ["gunicorn", "-w", "1", "-b", "0.0.0.0:11100", "-t", "600", "src.web_api:app"]
-    command: ["sleep", "infinity"]
+    command: ["gunicorn", "-w", "1", "-b", "0.0.0.0:11100", "-t", "600", "src.web_api.app:app"]
+#    command: ["sleep", "infinity"]
     healthcheck:
       test: [ "CMD", "nc", "-z", "localhost", "11100" ]
       interval: 30s

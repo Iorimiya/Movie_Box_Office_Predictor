@@ -41,7 +41,7 @@ services:
         target: /app/inputs
     environment:
       TZ: Asia/Taipei
-#    command: ["gunicorn", "-w", "1", "-b", "0.0.0.0:11100", "-t", "600", "src.web_api:app"]
+#    command: ["gunicorn", "-w", "1", "-b", "0.0.0.0:11100", "-t", "600", "src.web_api.app:app"]
     command: ["sleep", "infinity"]
     healthcheck:
       test: [ "CMD", "nc", "-z", "localhost", "11100" ]
