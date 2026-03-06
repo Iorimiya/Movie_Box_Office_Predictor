@@ -51,6 +51,18 @@ class MovieRepository(ABC):
         pass
 
     @abstractmethod
+    def fetch_movies_without_box_office(self) -> list[MovieData]:
+        """
+        Fetches all movies that do not have any associated box office data.
+
+        This is useful for identifying which movies need to have their box office
+        data collected.
+
+        :return: A list of MovieData objects, each containing at least the id and name.
+        """
+        pass
+
+    @abstractmethod
     def save_movies(self, movies: list[MovieData]) -> None:
         """
         Saves a list of movies' data to the storage backend.

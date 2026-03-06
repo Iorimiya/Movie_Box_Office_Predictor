@@ -136,6 +136,19 @@ class YamlMovieRepository(MovieRepository):
             yield movie
 
     @override
+    def fetch_movies_without_box_office(self) -> list[MovieData]:
+        """
+        Fetches all movies that do not have a corresponding non-empty box office file.
+        """
+        all_movies = self._load_metadata_from_index()
+        movies_to_process = []
+        for movie in all_movies:
+            box_office_file = self.box_office_folder_path / f"{movie.id}.yaml"
+            if not box_office_file.exists() or box_office_file.stat().st_size == 0:
+                movies_to_process.append(movie)
+        return movies_to_process
+
+    @override
     def save_movies(self, movies: list[MovieData]) -> None:
         """Saves a list of movies' data to YAML files."""
         # Update index file

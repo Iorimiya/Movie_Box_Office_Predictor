@@ -174,6 +174,22 @@ class DbMovieRepository(MovieRepository):
                 yield movie
 
     @override
+    def fetch_movies_without_box_office(self) -> list[MovieData]:
+        """
+        Fetches all movies from the 'movies' table that do not have a corresponding
+        entry in the 'on_air_weeks' table, which is the prerequisite for box office data.
+        """
+        with self.__client.connection(database_name=self.database_name) as db:
+            query = """
+                    SELECT m.id, m.name
+                    FROM movies m
+                             LEFT JOIN on_air_weeks oaw ON m.id = oaw.movie_id
+                    WHERE oaw.id IS NULL; \
+                    """
+            results = db.execute_statement(query)
+            return [MovieData(id=row['id'], name=row['name']) for row in results]
+
+    @override
     def save_movies(self, movies: list[MovieData]) -> None:
         with self.__client.connection(database_name=self.database_name) as db:
             # 1. Batch Save Movie Metadata
