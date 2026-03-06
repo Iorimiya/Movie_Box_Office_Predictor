@@ -28,7 +28,6 @@ from src.data_collection.browser import Browser, ElementLocator
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile, YamlFile
 from src.data_handling.movie_collections import MovieData
-from src.data_handling.movie_metadata import MovieMetadata
 
 DownloadFinishCondition: TypeAlias = Browser.DownloadFinishCondition
 PageChangeCondition: TypeAlias = Browser.PageChangeCondition
@@ -152,19 +151,18 @@ class BoxOfficeProgressFile(CsvFile):
 
         return BoxOfficeProgressEntry(id=movie_id, url=url_str, file_path=file_path_str)
 
-    def initialize_from_movie_metadata(self, movies_metadata: list[MovieMetadata]) -> None:
+    def initialize_from_movies(self, movies: list[MovieData]) -> None:
         """
-        Creates and initializes the progress file from a list of movie metadata.
+        Creates and initializes the progress file from a list of movies.
 
         This method generates an initial progress entry for each movie, setting the
-        'id' from the metadata and leaving 'url' and 'file_path' empty.
+        'id' from the movie data and leaving 'url' and 'file_path' empty.
         It will overwrite the progress file if it already exists.
 
-        :param movies_metadata: A list of ``MovieMetadata`` objects to use for
-                                initialization.
+        :param movies: A list of ``MovieData`` objects to use for initialization.
         """
         initial_data: list[BoxOfficeProgressEntry] = [
-            BoxOfficeProgressEntry(id=movie.id, url='', file_path='') for movie in movies_metadata
+            BoxOfficeProgressEntry(id=movie.id, url='', file_path='') for movie in movies
         ]
         self.save(data=initial_data)
         self.__logger.info(f"Initialized progress file '{self.path}' with {len(initial_data)} entries.")
@@ -686,9 +684,7 @@ class BoxOfficeCollector:
 
         if not progress_file.exists:
             self.__logger.info(f"Progress file '{progress_file.path}' not found. Initializing.")
-            progress_file.initialize_from_movie_metadata(
-                movies_metadata=[MovieMetadata(id=md.id, name=md.name) for md in multiple_movie_data]
-            )
+            progress_file.initialize_from_movies(movies=multiple_movie_data)
 
         self.__logger.info(f"Loading progress file '{progress_file.path}' into memory...")
         all_progress_entries: list[BoxOfficeProgressEntry] = progress_file.load()

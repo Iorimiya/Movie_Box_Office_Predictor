@@ -14,7 +14,6 @@ from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import Dataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
-from src.data_handling.movie_metadata import MovieMetadata
 from src.models.base.evaluation import BaseEvaluationResult
 from src.models.box_office_regression.components.data_processor import (
     BoxOfficeRegressionConfigDict,
@@ -389,9 +388,6 @@ class BoxOfficeRegressionModelHandler(RegressionModelHandler[BoxOfficeRegression
         """
         self._logger.info(f"Generating random movie data with {weeks} weeks of history.")
 
-        # Create a dummy metadata object
-        random_metadata: MovieMetadata = MovieMetadata(id=-1, name="Randomly Generated Movie")
-
         # Generate a list of weekly box office data
         box_office_history: list[BoxOffice] = []
         current_end_date: date = date.today()
@@ -410,7 +406,8 @@ class BoxOfficeRegressionModelHandler(RegressionModelHandler[BoxOfficeRegression
         box_office_history.reverse()
 
         return MovieData(
-            metadata=random_metadata,
+            id=-1,
+            name="Randomly Generated Movie",
             box_office=box_office_history,
             public_reviews=[],  # No need to generate random reviews
             expert_reviews=[]
