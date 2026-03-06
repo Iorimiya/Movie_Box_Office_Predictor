@@ -1,11 +1,9 @@
-from pathlib import Path
 from random import sample
 from typing import Iterator, Literal, Optional
 
-from typing_extensions import override
-from mysql.connector.errorcode import ER_BAD_DB_ERROR
 from mysql.connector import Error as DBError
-
+from mysql.connector.errorcode import ER_BAD_DB_ERROR
+from typing_extensions import override
 
 from src.core.project_config import ProjectPaths
 from src.data_handling.box_office import BoxOffice
@@ -46,19 +44,13 @@ class DbMovieRepository(MovieRepository):
         """
         Initializes the database schema from docs/movie_data.sql.
         """
-        self.__client.database_name = self.database_name
-        with self.__client as db:
-            # Assuming docs/movie_data.sql is relative to the project root.
+        with self.__client.connection(database_name=self.database_name) as db:
             schema_path = ProjectPaths.get_db_initial_schema_path()
             if not schema_path.exists():
-                # Fallback: try to find it relative to src
-                raise FileNotFoundError("Initial schema not found.")
+                raise FileNotFoundError(f"Initial schema not found at {schema_path}")
 
-            if schema_path.exists():
-                print(f"Initializing schema from {schema_path}...")
-                db.execute_script_from_file(schema_path)
-            else:
-                print(f"Warning: Schema file not found at {schema_path}. Database might not be initialized correctly.")
+            print(f"Initializing schema from {schema_path}...")
+            db.execute_script_from_file(schema_path)
 
     @override
     def is_storage_occupied(self) -> bool:
@@ -66,28 +58,14 @@ class DbMovieRepository(MovieRepository):
         Checks if the 'movies' table exists.
         """
         try:
-            with self.__client as db:
+            with self.__client.connection(database_name=self.database_name) as db:
                 # Check if table exists
                 result = db.execute_statement("SHOW TABLES LIKE 'movies'")
                 return bool(result)
-        except Exception as e:
-                # If it's another error (e.g. auth), we should probably re-raise or log.
-                # But the contract is "is occupied?". If we can't access, we can't say.
-                # However, for the purpose of "can I create it?", if it doesn't exist, answer is False.
-
-                # Let's try to be specific if possible, otherwise, log and return False might be risky
-                # if it's just a network blip.
-
-                # Given DatabaseClient prints "Database does not exist" for ER_BAD_DB_ERROR,
-                # we can rely on the exception being raised.
-
-                # Let's import DBError and ER_BAD_DB_ERROR to be precise.
-
-            if isinstance(e, DBError) and e.errno == ER_BAD_DB_ERROR:
-                return False
-
-            # For other errors, re-raise because we don't know the state.
-            raise e
+        except DBError as e:
+            if e.errno == ER_BAD_DB_ERROR:
+                return False  # Database does not exist, so it's not occupied.
+            raise  # Re-raise other connection errors (auth, network, etc.)
 
     @override
     def fetch_movies(
@@ -95,8 +73,7 @@ class DbMovieRepository(MovieRepository):
         filters: Optional[dict] = None,
         detail_level: Literal['META', 'ALL'] = 'META'
     ) -> Iterator[MovieData]:
-        self.__client.database_name = self.database_name
-        with self.__client as db:
+        with self.__client.connection(database_name=self.database_name) as db:
             # 1. Fetch basic movie data (META)
             movie_rows = db.select(
                 table_name="movies",
@@ -198,8 +175,7 @@ class DbMovieRepository(MovieRepository):
 
     @override
     def save_movies(self, movies: list[MovieData]) -> None:
-        self.__client.database_name = self.database_name
-        with self.__client as db:
+        with self.__client.connection(database_name=self.database_name) as db:
             # 1. Batch Save Movie Metadata
             if not movies:
                 return
@@ -233,8 +209,7 @@ class DbMovieRepository(MovieRepository):
 
     @override
     def fetch_movie_name_to_id_map(self) -> dict[str, int]:
-        self.__client.database_name = self.database_name
-        with self.__client as db:
+        with self.__client.connection(database_name=self.database_name) as db:
             rows = db.select(table_name="movies", columns="id, name")
             return {row['name']: row['id'] for row in rows}
 
@@ -256,8 +231,7 @@ class DbMovieRepository(MovieRepository):
             if movie_id is None:
                 raise ValueError("movie_id must be provided when querying for a specific week_number.")
 
-        self.__client.database_name = self.database_name
-        with self.__client as db:
+        with self.__client.connection(database_name=self.database_name) as db:
             filters = {}
             if movie_id is not None:
                 filters['movie_id'] = movie_id
@@ -285,8 +259,7 @@ class DbMovieRepository(MovieRepository):
 
     @override
     def save_box_office(self, movie_id: int, data: list[BoxOffice]) -> None:
-        self.__client.database_name = self.database_name
-        with self.__client as db:
+        with self.__client.connection(database_name=self.database_name) as db:
             if not data:
                 return
 
@@ -339,8 +312,7 @@ class DbMovieRepository(MovieRepository):
 
     @override
     def fetch_reviews(self, movie_id: Optional[int] = None) -> Iterator[Review]:
-        self.__client.database_name = self.database_name
-        with self.__client as db:
+        with self.__client.connection(database_name=self.database_name) as db:
             # Fetch Reviews
             filters = {'movie_id': movie_id} if movie_id is not None else None
             review_rows = db.select(
@@ -390,8 +362,7 @@ class DbMovieRepository(MovieRepository):
         movie_id: int,
         data: list[Review],
     ) -> None:
-        self.__client.database_name = self.database_name
-        with self.__client as db:
+        with self.__client.connection(database_name=self.database_name) as db:
             if not data:
                 return
 
@@ -476,8 +447,7 @@ class DbMovieRepository(MovieRepository):
         """
         Fetches aggregated weekly data for analysis using the weekly_feature_data view.
         """
-        self.__client.database_name = self.database_name
-        with self.__client as db:
+        with self.__client.connection(database_name=self.database_name) as db:
             filters = {'movie_id': movie_id} if movie_id is not None else None
             rows = db.select(
                 table_name="weekly_feature_data",

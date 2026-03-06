@@ -166,7 +166,7 @@ class Dataset:
         if self.mode == 'DATABASE' and root_config:
             # Create Database and Grant Permissions (Admin Task)
             admin_client = DatabaseClient(config=root_config)
-            with admin_client as db:
+            with admin_client.connection() as db:
                 db.execute_statement(f"CREATE DATABASE IF NOT EXISTS {self.name}")
                 db.execute_statement(f"GRANT ALL ON {self.name}.* TO '{self._database_config['user']}'@'%'")
 
@@ -235,7 +235,7 @@ class Dataset:
                 # Ensure DB exists (Admin Task)
                 # Use root config from ProjectConfig (assuming it's set correctly for admin tasks)
                 admin_client = DatabaseClient(config=ProjectConfig.DEFAULT_DATABASE_CONFIG)
-                with admin_client as db:
+                with admin_client.connection() as db:
                     db.execute_statement(f"CREATE DATABASE IF NOT EXISTS {new_dataset_name}")
                     target_user = new_dataset._database_config['user']
                     db.execute_statement(f"GRANT ALL ON {new_dataset_name}.* TO '{target_user}'@'%'")

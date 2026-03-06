@@ -1,10 +1,10 @@
+from contextlib import contextmanager
 from pathlib import Path
-from typing import cast, Optional, TypedDict, Type
+from typing import cast, Iterator, Optional, TypedDict, Type
 
 from mysql.connector import connect, Error as DBError, MySQLConnection
 from mysql.connector.cursor import MySQLCursor
 from mysql.connector.errorcode import ER_ACCESS_DENIED_ERROR, ER_BAD_DB_ERROR
-
 
 
 class DatabaseConfig(TypedDict, total=False):
@@ -16,7 +16,6 @@ class DatabaseConfig(TypedDict, total=False):
     port: str
     user: str
     password: str
-
 
 
 class DatabaseClient:
@@ -31,29 +30,22 @@ class DatabaseClient:
         Does not establish a connection immediately.
 
         :param config: A dictionary containing database connection details
-                       (address, port, user, password, database_name).
+                       (address, port, user, password).
         """
         self.__config = config
         self.__connection: Optional[MySQLConnection] = None
         self.__cursor: Optional[MySQLCursor] = None
-        self.__database_name: Optional[str] = None
 
-    @property
-    def database_name(self) -> Optional[str]:
-        """Gets the current database name."""
-        return self.__database_name
-
-    @database_name.setter
-    def database_name(self, value: Optional[str]) -> None:
-        """Sets the database name to be used for the connection."""
-        self.__database_name = value
-
-    def __enter__(self):
+    @contextmanager
+    def connection(self, database_name: Optional[str] = None) -> Iterator['DatabaseClient']:
         """
-        Establishes a database connection and creates a cursor.
-        This is called when entering a 'with' statement.
+        A context manager that provides a database connection.
 
-        :return: The DatabaseClient instance itself.
+        Establishes a connection upon entering the 'with' block and automatically
+        handles commit, rollback, and closing of the connection.
+
+        :param database_name: The name of the database to connect to.
+        :yields: The DatabaseClient instance itself, ready for operations.
         :raises DBError: If the connection to the database fails.
         """
         try:
@@ -62,32 +54,24 @@ class DatabaseClient:
                 password=self.__config["password"],
                 host=self.__config["address"],
                 port=self.__config["port"],
-                database=self.__database_name
+                database=database_name
             ))
             self.__cursor = self.__connection.cursor(dictionary=True)
-            return self
+            yield self
+            self.__connection.commit()
         except DBError as err:
+            if self.__connection:
+                self.__connection.rollback()
+
             if err.errno == ER_ACCESS_DENIED_ERROR:
                 print("Something is wrong with your user name or password")
             elif err.errno == ER_BAD_DB_ERROR:
-                print("Database does not exist")
+                print(f"Database '{database_name}' does not exist")
             else:
                 print(f"Error connecting to MySQL/MariaDB: {err}")
             raise
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        """
-        Closes the cursor and connection, committing or rolling back the transaction.
-        This is called when exiting a 'with' statement.
-        """
-        if self.__connection:
-            try:
-                if exc_type:
-                    print(f"An exception occurred. Rolling back transaction.")
-                    self.__connection.rollback()
-                else:
-                    self.__connection.commit()
-            finally:
+        finally:
+            if self.__connection:
                 if self.__cursor:
                     self.__cursor.close()
                 self.__connection.close()
@@ -231,267 +215,3 @@ class DatabaseClient:
             query += f" WHERE {where_clause}"
 
         return self.execute_statement(query, parameters) or []
-
-
-# # TODO: 將結果化為物件改為create_multiple
-#
-# class BoxOfficeRepository:
-#     ALLOWED_REVIEW_FILTER_COLUMNS = {'created_at', 'type', 'movie_id'}
-#     ALLOWED_MOVIE_FILTER_COLUMNS = {'name'}
-#     ALLOWED_REPLY_FILTER_COLUMNS = {'id', 'type', 'created_at', 'review_id'}
-#
-#     #     ALLOWED_WEEK_FILTER_COLUMNS = {'week_number', 'amount'}
-#
-#     def __init__(
-#         self,
-#         server_address: str,
-#         server_port: str,
-#         user_name: str,
-#         user_password: str,
-#         root_name: Optional[str],
-#         root_password: Optional[str]
-#     ) -> None:
-#         self.__user_client: DatabaseClient = DatabaseClient(config=DatabaseConfig(
-#             address=server_address,
-#             port=server_port,
-#             user=user_name,
-#             password=user_password
-#         ))
-#         self.__root_client: Optional[DatabaseClient] = None
-#         if root_name and root_password:
-#             self.__root_client = DatabaseClient(config=DatabaseConfig(
-#                 address=server_address,
-#                 port=server_port,
-#                 user=root_name,
-#                 password=root_password
-#             ))
-#
-#     def have_root_privilege(self) -> bool:
-#         return self.__root_client is not None
-#
-#     def fetch_replies(self, dataset_name: str, filters: Optional[dict] = None) -> list[Reply]:
-#         self.__user_client.database_name = dataset_name
-#         with self.__user_client as db:
-#             results = db.select(
-#                 table_name="replies",
-#                 filters=filters,
-#                 allowed_columns=self.ALLOWED_REPLY_FILTER_COLUMNS
-#             )
-#             # noinspection PyTypeChecker
-#             return Reply.create_multiple(source=results, schema_type='FLAT')
-#
-#     def fetch_reply(self, dataset_name: str, reply_id: int) -> Optional[Reply]:
-#         replies: list[Reply] = self.fetch_replies(dataset_name=dataset_name, filters={'id': reply_id})
-#         return replies[0] if replies else None
-#
-#     def fetch_replies_by_review_id(
-#         self, dataset_name: str, review_id: int, filters: Optional[dict] = None
-#     ) -> list[Reply]:
-#         return self.fetch_replies(
-#             dataset_name=dataset_name, filters={**(filters or {}), 'review_id': review_id}
-#         )
-#
-#     def fetch_replies_by_movie_id(
-#         self, dataset_name: str, movie_id: int, filters: Optional[dict] = None
-#     ) -> list[Reply]:
-#
-#
-#         self.__user_client.database_name = dataset_name
-#         with self.__user_client as db:
-#
-#             results = db.select(
-#                 table_name="movie_replies_view",
-#                 filters={**(filters or{}), 'movie_id':movie_id},
-#                 allowed_columns=self.ALLOWED_REPLY_FILTER_COLUMNS
-#             )
-#             # noinspection PyTypeChecker
-#             return Reply.create_multiple(source=results, schema_type='FLAT')
-#
-#     def fetch_replies_by_movie_name(self, dataset_name: str, movie_name: str, filters: Optional[dict] = None) -> list[
-#         Reply]:
-#         movies = self.fetch_movie_id_name_map(dataset_name, filters={'name': movie_name})
-#         if not movies:
-#             return []
-#         movie_id = movies[0]['id']
-#         return self.fetch_replies_by_movie_id(dataset_name=dataset_name, movie_id=movie_id, filters=filters)
-#
-#     #     def save_replies(self, dataset_name: str, review_id: int, replies: list[Reply]) -> bool:
-#     #         self.__user_client.database_name = dataset_name
-#     #         with self.__user_client as db:
-#     #             query = "INSERT INTO replies (review_id, author, content) VALUES (%s, %s, %s)"
-#     #             params = [(review_id, r.author, r.content) for r in replies]
-#     #             try:
-#     #                 db.execute_many(statement=query, parameters=params)
-#     #                 return True
-#     #             except DBError as e:
-#     #                 print(f"Failed to save replies for review {review_id}: {e}")
-#     #                 return False
-#
-#     def fetch_public_reviews(
-#         self, dataset_name: str, filters: Optional[dict] = None, detail_mode:Literal['META', 'ALL']='ALL'
-#     ) -> list[PublicReview]:
-#         self.__user_client.database_name = dataset_name
-#         filters = filters or {}
-#         with self.__user_client as db:
-#             public_reviews_results = db.select(
-#                 table_name="reviews",
-#                 filters={**filters, "type": "public"},
-#                 allowed_columns=self.ALLOWED_REVIEW_FILTER_COLUMNS
-#             )
-#
-#             if not public_reviews_results:
-#                 return []
-#             if detail_mode == 'ALL':
-#                 review_ids = [row['id'] for row in public_reviews_results]
-#
-#                 replies_results = []
-#                 if review_ids:
-#                     replies_results = db.select(
-#                         table_name="replies",
-#                         filters={'review_id': ('IN', review_ids)},
-#                         allowed_columns=self.ALLOWED_REPLY_FILTER_COLUMNS
-#                     )
-#
-#                 replies_by_review_id: dict[int, list[dict]] = {rid: [] for rid in review_ids}
-#                 for reply_row in replies_results:
-#                     r_id = reply_row['review_id']
-#                     if r_id in replies_by_review_id:
-#                         replies_by_review_id[r_id].append(reply_row)
-#
-#                 for review_row in public_reviews_results:
-#                     review_row['replies'] = replies_by_review_id.get(review_row['id'], [])
-#
-#             # noinspection PyTypeChecker
-#             return PublicReview.create_multiple(source=public_reviews_results, schema_type='FLAT')
-#
-#     def fetch_public_reviews_by_movie_id(
-#         self,
-#         dataset_name: str,
-#         movie_id: int,
-#         filters: Optional[dict] = None,
-#         detail_mode:Literal['META', 'ALL']='ALL'
-#     ) -> list[PublicReview]:
-#         return self.fetch_public_reviews(
-#             dataset_name=dataset_name,
-#             filters={**(filters or {}), 'movie_id': movie_id},
-#             detail_mode=detail_mode
-#         )
-#
-#     def fetch_public_reviews_by_movie_name(
-#         self,
-#         dataset_name: str,
-#         movie_name: str,
-#         filters: Optional[dict] = None,
-#         detail_mode:Literal['META', 'ALL']='ALL'
-#     ) -> list[PublicReview]:
-#         movies = self.fetch_movie_id_name_map(dataset_name, filters={'movie_title': movie_name})
-#         if not movies:
-#             return []
-#         movie_id = movies[movie_name]
-#         return self.fetch_public_reviews_by_movie_id(
-#             dataset_name=dataset_name,
-#             movie_id=movie_id,
-#             filters=filters,
-#             detail_mode=detail_mode
-#         )
-#
-#     def fetch_movie_id_name_map(self, dataset_name: str, filters: Optional[dict] = None) -> dict[str,int]:
-#         self.__user_client.database_name = dataset_name
-#         with self.__user_client as db:
-#             result = db.select(
-#                 table_name="movies",
-#                 filters=filters,
-#                 allowed_columns=self.ALLOWED_MOVIE_FILTER_COLUMNS
-#             )
-#
-#             return  {row['name']: row['id'] for row in result}
-#
-# #     def save_reviews(self, dataset_name: str, movie_id: int, reviews: list[Review]) -> bool:
-# #         self.__user_client.database_name = dataset_name
-# #         with self.__user_client as db:
-# #             for review in reviews:
-# #                 review_query = "INSERT INTO reviews (movie_id, author, content, rating) VALUES (%s, %s, %s, %s)"
-# #                 review_params = (movie_id, review.author, review.content, review.rating)
-# #                 review_id = db.execute_statement(review_query, review_params, get_last_id=True)
-# #                 if not review_id:
-# #                     print(f"Failed to save review by {review.author}. Rolling back.")
-# #                     return False
-# #                 if review.replies:
-# #                     if not self.save_replies(dataset_name, review_id, review.replies):
-# #                         print(f"Failed to save replies for review {review_id}. Rolling back.")
-# #                         return False
-# #         return True
-# #
-# #     def fetch_movie(self, dataset_name: str, movie_id: int) -> Optional[MovieData]:
-# #         self.__user_client.database_name = dataset_name
-# #         with self.__user_client as db:
-# #             query = "SELECT * FROM movies WHERE id = %s"
-# #             results = db.execute_statement(query, (movie_id,))
-# #             if not results:
-# #                 return None
-# #             return MovieData(**results[0])
-#     # TODO: 處利玩meta模式，處理Box office在來處理ALL
-#
-#
-#     # def fetch_movies_by_dataset_name(
-#     #     self,
-#     #     dataset_name: str,
-#     #     filters: Optional[dict] = None,
-#     #     detail_mode:Literal['META', 'ALL']='ALL'
-#     # ) -> list[MovieData]:
-#     #     self.__user_client.database_name = dataset_name
-#     #     with self.__user_client as db:
-#     #         result = db.select(
-#     #             table_name="movies",
-#     #             filters=filters,
-#     #             allowed_columns=self.ALLOWED_MOVIE_FILTER_COLUMNS
-#     #         )
-#     #         if detail_mode == 'ALL':
-#     #             pass
-#     #
-#     #     return
-# #
-# #     def save_movies(self, dataset_name: str, movies: list[MovieData]) -> bool:
-# #         self.__user_client.database_name = dataset_name
-# #         with self.__user_client as db:
-# #             query = "INSERT INTO movies (movie_title, year, genre, box_office) VALUES (%s, %s, %s, %s)"
-# #             params = [(m.movie_title, m.year, m.genre, m.box_office) for m in movies]
-# #             try:
-# #
-# #                 db.execute_many(statement=query, parameters=params)
-# #                 return True
-# #             except DBError as e:
-# #                 print(f"Failed to save movies: {e}")
-# #                 return False
-# #
-# #     def fetch_week_data_by_dataset_name(self, dataset_name: str, filters: Optional[dict] = None) -> list[WeekData]:
-# #         self.__user_client.database_name = dataset_name
-# #         weeks = []
-# #         with self.__user_client as db:
-# #             where_clause, parameters = self.__build_where_clause(filters or {}, self.ALLOWED_WEEK_FILTER_COLUMNS)
-# #             query = "SELECT * FROM on_air_weeks"
-# #             if where_clause:
-# #                 query += f" WHERE {where_clause}"
-# #             results = db.execute_statement(query, parameters)
-# #             if results and isinstance(results, list):
-# #                 for row in results:
-# #                     weeks.append(WeekData(**row))
-# #         return weeks
-# #
-# #     def fetch_week_data_by_movie_id(self, dataset_name: str, movie_id: int) -> list[WeekData]:
-# #         self.__user_client.database_name = dataset_name
-# #         weeks = []
-# #         with self.__user_client as db:
-# #             query = "SELECT * FROM on_air_weeks WHERE movie_id = %s"
-# #             results = db.execute_statement(query, (movie_id,))
-# #             if results and isinstance(results, list):
-# #                 for row in results:
-# #                     weeks.append(WeekData(**row))
-# #         return weeks
-# #
-# #     def fetch_week_data_by_movie_name(self, dataset_name: str, movie_name: str) -> list[WeekData]:
-# #         movies = self.fetch_movies_by_dataset_name(dataset_name, filters={'movie_title': movie_name})
-# #         if not movies:
-# #             return []
-# #         movie_id = movies[0].id
-# #         return self.fetch_week_data_by_movie_id(dataset_name, movie_id)
