@@ -6,6 +6,8 @@ from typing_extensions import override
 from mysql.connector.errorcode import ER_BAD_DB_ERROR
 from mysql.connector import Error as DBError
 
+
+from src.core.project_config import ProjectPaths
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.database_client import DatabaseClient, DatabaseConfig
 from src.data_handling.movie_collections import MovieData, WeekData
@@ -47,10 +49,10 @@ class DbMovieRepository(MovieRepository):
         self.__client.database_name = self.database_name
         with self.__client as db:
             # Assuming docs/movie_data.sql is relative to the project root.
-            schema_path = Path("docs/movie_data.sql")
+            schema_path = ProjectPaths.get_db_initial_schema_path()
             if not schema_path.exists():
                 # Fallback: try to find it relative to src
-                schema_path = Path("../docs/movie_data.sql")
+                raise FileNotFoundError("Initial schema not found.")
 
             if schema_path.exists():
                 print(f"Initializing schema from {schema_path}...")

@@ -178,3 +178,7 @@ class ProjectPaths:
         """
         model_root: Path = cls.get_model_root_path(model_id=model_id, model_type=model_type)
         return model_root / "evaluation_plots"
+
+    @classmethod
+    def get_db_initial_schema_path(cls) -> Path:
+        return cls.project_root / 'src' / 'data_handling' / 'sql' / 'init_schema.sql'
