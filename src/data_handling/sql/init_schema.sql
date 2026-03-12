@@ -95,12 +95,6 @@ CREATE TABLE `reviews`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_uca1400_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- View structure for counts
--- ----------------------------
-DROP VIEW IF EXISTS `counts`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `counts` AS with review_count_2023_2025 as (select count(0) AS `review_count_2023_2025` from (`movie_id_2023_2025` `mi` join `movie_reviews` `mrv` on(`mrv`.`movie_id` = `mi`.`movie_id`))), review_count as (select count(0) AS `review_count` from `movie_reviews`)select `review_count_2023_2025`.`review_count_2023_2025` AS `review_count_2023_2025`,`review_count`.`review_count` AS `review_count` from (`review_count_2023_2025` join `review_count`);
-
--- ----------------------------
 -- View structure for movie_box_office
 -- ----------------------------
 DROP VIEW IF EXISTS `movie_box_office`;
@@ -111,18 +105,6 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `movie_box_office` AS sel
 -- ----------------------------
 DROP VIEW IF EXISTS `movie_id_2023_2025`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `movie_id_2023_2025` AS select `oaw`.`movie_id` AS `movie_id` from `on_air_weeks` `oaw` group by `oaw`.`movie_id` having min(`oaw`.`start_date`) between '2023-01-01' and '2025-12-31';
-
--- ----------------------------
--- View structure for movie_list_2023_2025
--- ----------------------------
-DROP VIEW IF EXISTS `movie_list_2023_2025`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `movie_list_2023_2025` AS select `mi`.`movie_id` AS `id`,`m`.`name` AS `name` from (`movies` `m` join `movie_id_2023_2025` `mi` on(`m`.`id` = `mi`.`movie_id`));
-
--- ----------------------------
--- View structure for movie_replies
--- ----------------------------
-DROP VIEW IF EXISTS `movie_replies`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `movie_replies` AS select `mrv`.`movie_id` AS `movie_id`,`mrv`.`review_id` AS `review_id`,`rep`.`id` AS `reply_id`,`rep`.`type` AS `type`,`rep`.`content` AS `content`,`rep`.`created_at` AS `created_at` from (`movie_reviews` `mrv` join `replies` `rep` on(`rep`.`review_id` = `mrv`.`review_id`));
 
 -- ----------------------------
 -- View structure for movie_reviews
@@ -137,16 +119,34 @@ DROP VIEW IF EXISTS `on_air_weeks_detail_view`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `on_air_weeks_detail_view` AS select `on_air_weeks`.`id` AS `on_air_weeks_id`,`on_air_weeks`.`movie_id` AS `movie_id`,`on_air_weeks`.`start_date` AS `start_date`,`on_air_weeks`.`start_date` + interval 6 day AS `end_date` from `on_air_weeks` order by `on_air_weeks`.`start_date` desc;
 
 -- ----------------------------
--- View structure for weekly_feature_data
--- ----------------------------
-DROP VIEW IF EXISTS `weekly_feature_data`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `weekly_feature_data` AS with review_stats as (select `weekly_reviews`.`on_air_week_id` AS `week_id`,sum(case when `weekly_reviews`.`review_type` = 'public' then 1 else 0 end) AS `public_review_count`,sum(case when `weekly_reviews`.`review_type` = 'public' then `weekly_reviews`.`content_length` else 0 end) AS `total_content_length`,sum(case when `weekly_reviews`.`review_type` = 'public' then `weekly_reviews`.`title_length` else 0 end) AS `total_title_length`,sum(case when `weekly_reviews`.`review_type` = 'expert' then 1 else 0 end) AS `expert_review_count`,avg(case when `weekly_reviews`.`review_type` = 'expert' then `weekly_reviews`.`expert_score` end) AS `average_expert_score`,sum(`weekly_reviews`.`sentiment_score`) AS `total_sentiment_score`,count(`weekly_reviews`.`sentiment_score`) AS `count_sentiment_score` from `weekly_reviews` group by `weekly_reviews`.`on_air_week_id`), reply_stats as (select `wr`.`on_air_week_id` AS `week_id`,count(`rp`.`id`) AS `total_reply_count`,sum(case when `rp`.`type` = 'push' then 1 else 0 end) AS `total_positive_reactions`,sum(case when `rp`.`type` = 'boo' then 1 else 0 end) AS `total_negative_reactions`,sum(case when `rp`.`created_at` >= `wr`.`week_start_date` and `rp`.`created_at` < `wr`.`week_start_date` + interval 7 day then 1 else 0 end) AS `weekly_total_reply_count`,sum(case when `rp`.`type` = 'push' and `rp`.`created_at` >= `wr`.`week_start_date` and `rp`.`created_at` < `wr`.`week_start_date` + interval 7 day then 1 else 0 end) AS `weekly_positive_reply_count`,sum(case when `rp`.`type` = 'boo' and `rp`.`created_at` >= `wr`.`week_start_date` and `rp`.`created_at` < `wr`.`week_start_date` + interval 7 day then 1 else 0 end) AS `weekly_negative_reply_count` from (`weekly_reviews` `wr` join `replies` `rp` on(`rp`.`review_id` = `wr`.`review_id`)) where `wr`.`review_type` = 'public' group by `wr`.`on_air_week_id`)select `oaw`.`id` AS `on_air_weeks_id`,`oaw`.`movie_id` AS `movie_id`,`m`.`name` AS `movie_name`,`oaw`.`start_date` AS `start_date`,`oaw`.`start_date` + interval 6 day AS `end_date`,coalesce(`rs`.`total_content_length`,0) AS `total_content_length`,coalesce(`rs`.`total_title_length`,0) AS `total_title_length`,`bo`.`amount` AS `box_office`,`rs`.`total_sentiment_score` / nullif(`rs`.`count_sentiment_score`,0) AS `average_sentiment_score`,`rs`.`average_expert_score` AS `average_expert_score`,coalesce(`rs`.`public_review_count`,0) + coalesce(`rs`.`expert_review_count`,0) AS `review_count`,coalesce(`rs`.`public_review_count`,0) AS `public_review_count`,coalesce(`rs`.`expert_review_count`,0) AS `expert_review_count`,coalesce(`rps`.`total_reply_count`,0) AS `total_reply_count`,coalesce(`rps`.`total_positive_reactions`,0) AS `total_positive_reply_count`,coalesce(`rps`.`total_negative_reactions`,0) AS `total_negative_reply_count`,coalesce(`rps`.`weekly_total_reply_count`,0) AS `weekly_reply_count`,coalesce(`rps`.`weekly_positive_reply_count`,0) AS `weekly_positive_reply_count`,coalesce(`rps`.`weekly_negative_reply_count`,0) AS `weekly_negative_reply_count` from ((((`on_air_weeks` `oaw` join `movies` `m` on(`oaw`.`movie_id` = `m`.`id`)) left join `box_office` `bo` on(`oaw`.`id` = `bo`.`on_air_week_id`)) left join `review_stats` `rs` on(`oaw`.`id` = `rs`.`week_id`)) left join `reply_stats` `rps` on(`oaw`.`id` = `rps`.`week_id`));
-
--- ----------------------------
 -- View structure for weekly_reviews
 -- ----------------------------
 DROP VIEW IF EXISTS `weekly_reviews`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `weekly_reviews` AS select `oaw`.`id` AS `on_air_week_id`,`oaw`.`movie_id` AS `movie_id`,`oaw`.`start_date` AS `week_start_date`,`r`.`id` AS `review_id`,`r`.`type` AS `review_type`,`r`.`sentiment_score` AS `sentiment_score`,`r`.`expert_score` AS `expert_score`,char_length(`r`.`content`) AS `content_length`,char_length(`r`.`title`) AS `title_length`,`r`.`created_at` AS `review_created_at` from (`on_air_weeks` `oaw` join `reviews` `r` on(`r`.`movie_id` = `oaw`.`movie_id` and `r`.`created_at` >= `oaw`.`start_date` and `r`.`created_at` < `oaw`.`start_date` + interval 7 day));
+
+-- ----------------------------
+-- View structure for counts
+-- ----------------------------
+DROP VIEW IF EXISTS `counts`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `counts` AS with review_count_2023_2025 as (select count(0) AS `review_count_2023_2025` from (`movie_id_2023_2025` `mi` join `movie_reviews` `mrv` on(`mrv`.`movie_id` = `mi`.`movie_id`))), review_count as (select count(0) AS `review_count` from `movie_reviews`)select `review_count_2023_2025`.`review_count_2023_2025` AS `review_count_2023_2025`,`review_count`.`review_count` AS `review_count` from (`review_count_2023_2025` join `review_count`);
+
+-- ----------------------------
+-- View structure for movie_list_2023_2025
+-- ----------------------------
+DROP VIEW IF EXISTS `movie_list_2023_2025`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `movie_list_2023_2025` AS select `mi`.`movie_id` AS `id`,`m`.`name` AS `name` from (`movies` `m` join `movie_id_2023_2025` `mi` on(`m`.`id` = `mi`.`movie_id`));
+
+-- ----------------------------
+-- View structure for movie_replies
+-- ----------------------------
+DROP VIEW IF EXISTS `movie_replies`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `movie_replies` AS select `mrv`.`movie_id` AS `movie_id`,`mrv`.`review_id` AS `review_id`,`rep`.`id` AS `reply_id`,`rep`.`type` AS `type`,`rep`.`content` AS `content`,`rep`.`created_at` AS `created_at` from (`movie_reviews` `mrv` join `replies` `rep` on(`rep`.`review_id` = `mrv`.`review_id`));
+
+-- ----------------------------
+-- View structure for weekly_feature_data
+-- ----------------------------
+DROP VIEW IF EXISTS `weekly_feature_data`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `weekly_feature_data` AS with review_stats as (select `weekly_reviews`.`on_air_week_id` AS `week_id`,sum(case when `weekly_reviews`.`review_type` = 'public' then 1 else 0 end) AS `public_review_count`,sum(case when `weekly_reviews`.`review_type` = 'public' then `weekly_reviews`.`content_length` else 0 end) AS `total_content_length`,sum(case when `weekly_reviews`.`review_type` = 'public' then `weekly_reviews`.`title_length` else 0 end) AS `total_title_length`,sum(case when `weekly_reviews`.`review_type` = 'expert' then 1 else 0 end) AS `expert_review_count`,avg(case when `weekly_reviews`.`review_type` = 'expert' then `weekly_reviews`.`expert_score` end) AS `average_expert_score`,sum(`weekly_reviews`.`sentiment_score`) AS `total_sentiment_score`,count(`weekly_reviews`.`sentiment_score`) AS `count_sentiment_score` from `weekly_reviews` group by `weekly_reviews`.`on_air_week_id`), reply_stats as (select `wr`.`on_air_week_id` AS `week_id`,count(`rp`.`id`) AS `total_reply_count`,sum(case when `rp`.`type` = 'push' then 1 else 0 end) AS `total_positive_reactions`,sum(case when `rp`.`type` = 'boo' then 1 else 0 end) AS `total_negative_reactions`,sum(case when `rp`.`created_at` >= `wr`.`week_start_date` and `rp`.`created_at` < `wr`.`week_start_date` + interval 7 day then 1 else 0 end) AS `weekly_total_reply_count`,sum(case when `rp`.`type` = 'push' and `rp`.`created_at` >= `wr`.`week_start_date` and `rp`.`created_at` < `wr`.`week_start_date` + interval 7 day then 1 else 0 end) AS `weekly_positive_reply_count`,sum(case when `rp`.`type` = 'boo' and `rp`.`created_at` >= `wr`.`week_start_date` and `rp`.`created_at` < `wr`.`week_start_date` + interval 7 day then 1 else 0 end) AS `weekly_negative_reply_count` from (`weekly_reviews` `wr` join `replies` `rp` on(`rp`.`review_id` = `wr`.`review_id`)) where `wr`.`review_type` = 'public' group by `wr`.`on_air_week_id`)select `oaw`.`id` AS `on_air_weeks_id`,`oaw`.`movie_id` AS `movie_id`,`m`.`name` AS `movie_name`,`oaw`.`start_date` AS `start_date`,`oaw`.`start_date` + interval 6 day AS `end_date`,coalesce(`rs`.`total_content_length`,0) AS `total_content_length`,coalesce(`rs`.`total_title_length`,0) AS `total_title_length`,`bo`.`amount` AS `box_office`,`rs`.`total_sentiment_score` / nullif(`rs`.`count_sentiment_score`,0) AS `average_sentiment_score`,`rs`.`average_expert_score` AS `average_expert_score`,coalesce(`rs`.`public_review_count`,0) + coalesce(`rs`.`expert_review_count`,0) AS `review_count`,coalesce(`rs`.`public_review_count`,0) AS `public_review_count`,coalesce(`rs`.`expert_review_count`,0) AS `expert_review_count`,coalesce(`rps`.`total_reply_count`,0) AS `total_reply_count`,coalesce(`rps`.`total_positive_reactions`,0) AS `total_positive_reply_count`,coalesce(`rps`.`total_negative_reactions`,0) AS `total_negative_reply_count`,coalesce(`rps`.`weekly_total_reply_count`,0) AS `weekly_reply_count`,coalesce(`rps`.`weekly_positive_reply_count`,0) AS `weekly_positive_reply_count`,coalesce(`rps`.`weekly_negative_reply_count`,0) AS `weekly_negative_reply_count` from ((((`on_air_weeks` `oaw` join `movies` `m` on(`oaw`.`movie_id` = `m`.`id`)) left join `box_office` `bo` on(`oaw`.`id` = `bo`.`on_air_week_id`)) left join `review_stats` `rs` on(`oaw`.`id` = `rs`.`week_id`)) left join `reply_stats` `rps` on(`oaw`.`id` = `rps`.`week_id`));
 
 -- ----------------------------
 -- View structure for zc_input_23_to_25_all_rp
@@ -172,28 +172,5 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `zc_input_all_all_rp` AS 
 DROP VIEW IF EXISTS `zc_input_all_filtered_rp`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `zc_input_all_filtered_rp` AS select `r`.`id` AS `review_id`,`r`.`movie_id` AS `movie_id`,`m`.`name` AS `movie_name`,`r`.`title` AS `review_title`,`r`.`url` AS `review_url`,`r`.`content` AS `review_content`,`r`.`created_at` AS `review_date`,`oaw_w0`.`start_date` AS `week_start_date`,`oaw_w0`.`start_date` + interval 6 day AS `week_end_date`,`bo_w0`.`amount` AS `box_office`,`bo_w1`.`amount` AS `box_office_last_week`,`bo_w2`.`amount` AS `box_office_prev_week`,cast(`bo_w0`.`amount` as signed) - cast(`bo_w1`.`amount` as signed) AS `weekly_difference`,cast(`bo_w1`.`amount` as signed) - cast(`bo_w2`.`amount` as signed) AS `prev_weekly_difference`,case when `bo_w1`.`amount` is null or `bo_w1`.`amount` = 0 then NULL else (cast(`bo_w0`.`amount` as double) - `bo_w1`.`amount`) / `bo_w1`.`amount` end AS `percentage_change_last_week`,case when cast(`bo_w0`.`amount` as signed) - cast(`bo_w1`.`amount` as signed) > 0 then 1 when cast(`bo_w0`.`amount` as signed) - cast(`bo_w1`.`amount` as signed) < 0 then 0 when cast(`bo_w0`.`amount` as signed) - cast(`bo_w1`.`amount` as signed) = 0 then -1 else NULL end AS `weekly_box_office_trend`,`r`.`sentiment_score` AS `sentiment_score`,case when `r`.`sentiment_score` > 0.5 then 1 else 0 end AS `sentiment_score_bool`,count(`rp`.`id`) AS `reply_count`,sum(case when `rp`.`type` = 'push' then 1 else 0 end) AS `positive_reply_count`,sum(case when `rp`.`type` = 'boo' then 1 else 0 end) AS `negative_reply_count` from ((((((((`reviews` `r` join `movies` `m` on(`r`.`movie_id` = `m`.`id`)) left join `on_air_weeks` `oaw_w0` on(`r`.`movie_id` = `oaw_w0`.`movie_id` and `r`.`created_at` >= `oaw_w0`.`start_date` and `r`.`created_at` < `oaw_w0`.`start_date` + interval 7 day)) join `box_office` `bo_w0` on(`oaw_w0`.`id` = `bo_w0`.`on_air_week_id` and `bo_w0`.`amount` > 0)) left join `on_air_weeks` `oaw_w1` on(`r`.`movie_id` = `oaw_w1`.`movie_id` and `oaw_w1`.`start_date` = `oaw_w0`.`start_date` - interval 7 day)) left join `box_office` `bo_w1` on(`oaw_w1`.`id` = `bo_w1`.`on_air_week_id`)) left join `on_air_weeks` `oaw_w2` on(`r`.`movie_id` = `oaw_w2`.`movie_id` and `oaw_w2`.`start_date` = `oaw_w0`.`start_date` - interval 14 day)) left join `box_office` `bo_w2` on(`oaw_w2`.`id` = `bo_w2`.`on_air_week_id`)) left join `replies` `rp` on(`r`.`id` = `rp`.`review_id` and `oaw_w0`.`id` is not null and `rp`.`created_at` >= `oaw_w0`.`start_date` and `rp`.`created_at` < `oaw_w0`.`start_date` + interval 7 day)) group by `r`.`id`;
 
--- ----------------------------
--- Procedure structure for select_23_to_25_all
--- ----------------------------
-DROP PROCEDURE IF EXISTS `select_23_to_25_all`;
-delimiter ;;
-CREATE PROCEDURE `select_23_to_25_all`()
-BEGIN
-SELECT * FROM `movie_data_all`.`zc_input_23_to_25_all_rp`;
-END
-;;
-delimiter ;
-
--- ----------------------------
--- Procedure structure for select_23_to_25_filtered
--- ----------------------------
-DROP PROCEDURE IF EXISTS `select_23_to_25_filtered`;
-delimiter ;;
-CREATE PROCEDURE `select_23_to_25_filtered`()
-BEGIN
-SELECT * FROM zc_input_23_to_25_filtered_rp;
-END
-;;
-delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

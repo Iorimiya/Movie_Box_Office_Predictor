@@ -146,7 +146,7 @@ class DatabaseClient:
             return True
         except (DBError, IOError) as e:
             print(f"Error executing script from {path}: {e}")
-            return False
+            raise
 
     def execute_statement(
         self,
@@ -156,10 +156,14 @@ class DatabaseClient:
     ) -> Optional[list[dict] | bool | int]:
         if not self.__connection or not self.__cursor:
             raise RuntimeError("Database operations must be performed within a 'with' block.")
-        is_select_query = statement.strip().upper().startswith("SELECT")
+
+        statement_upper = statement.strip().upper()
+        # Support SELECT, SHOW, DESCRIBE, EXPLAIN as queries that return rows
+        is_result_query = statement_upper.startswith(("SELECT", "SHOW", "DESCRIBE", "EXPLAIN"))
+
         try:
             self.__cursor.execute(statement, parameters)
-            if is_select_query:
+            if is_result_query:
                 return self.__cursor.fetchall()
             elif get_last_id:
                 return self.__cursor.lastrowid
@@ -167,7 +171,7 @@ class DatabaseClient:
                 return True
         except DBError as e:
             print(f"Error executing statement: {e}")
-            return None if is_select_query else False
+            return None if is_result_query else False
 
     def execute_many(
         self,
