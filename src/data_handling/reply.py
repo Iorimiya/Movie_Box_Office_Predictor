@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 from logging import Logger
-from typing import ClassVar, get_args, Literal, Optional, Type, TypeAlias, TypedDict, TypeVar
+from typing import ClassVar, get_args, Literal, Optional, Type, TypeAlias, TypedDict, TypeVar, cast
 
 from src.core.logging_manager import LoggingManager
 from src.data_handling.loader_mixin import MovieAuxiliaryDataMixin, RawDataSchema
@@ -19,7 +19,7 @@ class ReplyRawData(TypedDict, total=False):
     :ivar content: The main textual content of the reply.
     :ivar created_at: The original publication time of the reply as a string or datetime object.
     """
-    type: ReplyRating
+    type: ReplyRating | str
     content: str
     created_at: str | datetime
 
@@ -102,9 +102,18 @@ class Reply(
         """
         logger: Logger = LoggingManager().get_logger('root')
 
-        review_type: Optional[ReplyRating] = raw_data.get('type')
+        raw_type:Optional[ReplyRating | str] = raw_data.get('type')
         content: Optional[str] = raw_data.get('content')
         raw_time: Optional[str | datetime] = raw_data.get('created_at')
+
+        # Map display string back to internal type if necessary
+        reverse_display_map = {v: k for k, v in cls.__DISPLAY_MAP.items()}
+
+        review_type: Optional[ReplyRating]
+        if raw_type in reverse_display_map:
+            review_type = cast(ReplyRating, reverse_display_map[raw_type])
+        else:
+            review_type = cast(Optional[ReplyRating], raw_type)
 
         # Ensure all required fields are present before proceeding.
         if review_type is None or content is None or raw_time is None:

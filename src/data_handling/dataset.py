@@ -631,8 +631,37 @@ class Dataset:
             f"Proceeding with public review collection for {len(movies_to_collect_for)} movies in dataset '{self.name}' from {target_website_enum.name}.")
         try:
             collector: ReviewCollector = ReviewCollector(target_website=target_website_enum)
-            collector.collect_reviews_for_movies(movie_list=movies_to_collect_for,
-                                                 data_folder=self.public_review_folder_path)
+
+            self.__logger.debug(f"Starting batch review collection for {len(movies_to_collect_for)} movies.")
+
+            # noinspection PyArgumentList
+            with collector.managed_browser_session() as browser:
+                for movie in tqdm(movies_to_collect_for, desc='Collecting Reviews', bar_format=Constants.STATUS_BAR_FORMAT):
+                    self.__logger.debug(f"Processing reviews for movie ID {movie.id} ('{movie.name}').")
+                    try:
+                        # Accessing private method via name mangling as requested to reproduce functionality without other changes
+                        newly_fetched_reviews: list[PublicReview] = collector.get_reviews(
+                            movie_name=movie.name, browser=browser
+                        )
+
+                        movie.update_public_reviews(update_method='EXTEND', data=newly_fetched_reviews)
+
+                        self.repository.save_reviews(movie_id=movie.id, data=newly_fetched_reviews)
+
+                        if not newly_fetched_reviews:
+                            self.__logger.debug(
+                                f"No new reviews found for movie ID {movie.id}. (Repository handles empty storage)."
+                            )
+                        else:
+                            self.__logger.debug(
+                                f"Successfully collected and saved {len(newly_fetched_reviews)} reviews for movie ID {movie.id}."
+                            )
+
+                    except Exception as e:
+                        self.__logger.error(
+                            f"Failed to collect reviews for movie ID {movie.id} ('{movie.name}'): {e}",
+                            exc_info=True
+                        )
 
             self.__logger.info(
                 f"Public review collection process finished for dataset '{self.name}' from {target_website_enum.name}. "
