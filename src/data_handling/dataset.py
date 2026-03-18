@@ -242,8 +242,8 @@ class Dataset:
             if override_database_config is not None:
                 self.__logger.warning(
                     "`override_database_config` is provided but mode is 'YAML_FILE'. The config will be ignored.")
-            dataset_path = ProjectPaths.get_dataset_path(dataset_name=self.name,
-                                                         dataset_type=ProjectDatasetType.STRUCTURED)
+            dataset_path = ProjectPaths.get_yaml_dataset_path(dataset_name=self.name,
+                                                              dataset_type=ProjectDatasetType.STRUCTURED)
             self.repository = YamlMovieRepository(dataset_root_path=dataset_path)
 
         elif self.mode == 'DATABASE':
@@ -266,7 +266,7 @@ class Dataset:
         """
         The root path for this dataset's files.
         """
-        return ProjectPaths.get_dataset_path(dataset_name=self.name, dataset_type=ProjectDatasetType.STRUCTURED)
+        return ProjectPaths.get_yaml_dataset_path(dataset_name=self.name, dataset_type=ProjectDatasetType.STRUCTURED)
 
     @property
     def index_file_path(self) -> Path:

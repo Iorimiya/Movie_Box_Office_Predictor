@@ -1,23 +1,11 @@
-import os
 from pathlib import Path
 from typing import Final
 
-from data_handling.database_client import DatabaseConfig
+from yaml import YAMLError
+
 from src.core.types import ProjectDatasetType, ProjectModelType
-
-
-class ProjectConfig:
-    """
-    Provides centralized, static access to project-wide configurations.
-    """
-    # Database Configuration
-    # Reads from environment variables, with sensible defaults for local development.
-    DEFAULT_DATABASE_CONFIG: Final[DatabaseConfig] = {
-        'address': os.environ.get('DB_ADDRESS', 'db-service'),
-        'port': os.environ.get('DB_PORT', '3306'),
-        'user': os.environ.get('DB_USER', 'user'),
-        'password': os.environ.get('DB_PASSWORD', 'password')
-    }
+from src.data_handling.database_client import DatabaseConfig
+from src.data_handling.file_io import YamlFile
 
 
 class ProjectPaths:
@@ -109,14 +97,12 @@ class ProjectPaths:
 
         for dir_path in [
             cls.raw_index_sources_dir,
-            cls.structured_datasets_dir,
-            cls.feature_datasets_dir,
             cls.box_office_regression_models_root
         ]:
             dir_path.mkdir(parents=False, exist_ok=True)
 
     @classmethod
-    def get_dataset_path(cls, dataset_name: str, dataset_type: ProjectDatasetType) -> Path:
+    def get_yaml_dataset_path(cls, dataset_name: str, dataset_type: ProjectDatasetType) -> Path:
         """
         Constructs the full path for a given dataset directory.
 
@@ -182,3 +168,58 @@ class ProjectPaths:
     @classmethod
     def get_db_initial_schema_path(cls) -> Path:
         return cls.project_root / 'src' / 'data_handling' / 'sql' / 'init_schema.sql'
+
+
+def _load_database_config(user_type: str = 'user') -> DatabaseConfig:
+    """
+    Loads the database configuration from the YAML file.
+
+    :param user_type: The type of user to load credentials for ('user' or 'admin').
+    :return: A dictionary containing database connection details.
+    :raises FileNotFoundError: If the 'database_defaults.yaml' file cannot be found.
+    :raises TypeError: If the root of the YAML file is not a dictionary.
+    :raises yaml.YAMLError: If the YAML file is malformed.
+    """
+    config_path = ProjectPaths.get_config_path('database_defaults.yaml')
+
+    if not config_path.exists():
+        raise FileNotFoundError(
+            f"Database configuration file not found at: {config_path}"
+        )
+
+    try:
+        yaml_file = YamlFile(path=config_path)
+        config_data = yaml_file.load_single_document()
+
+        if not isinstance(config_data, dict):
+            raise TypeError(
+                f"Expected database configuration to be a dictionary, "
+                f"but got {type(config_data).__name__} in {config_path}"
+            )
+
+        server_config = config_data.get('server', {})
+        user_config = config_data.get(user_type, {})
+
+        # 這裡可以加入更嚴格的檢查，例如確認 'name' 和 'password' 是否存在
+        if 'name' not in user_config or 'password' not in user_config:
+            raise KeyError(f"Missing 'name' or 'password' for user type '{user_type}' in {config_path}")
+
+        return {
+            'address': server_config.get('address', 'localhost'),
+            'port': str(server_config.get('port', 3306)),
+            'user': user_config['name'],
+            'password': user_config['password']
+        }
+    except (YAMLError, TypeError, KeyError) as e:
+        # 重新拋出錯誤，並附加上下文
+        raise type(e)(f"Failed to load database configuration from {config_path}: {e}") from e
+
+
+class ProjectConfig:
+    """
+    Provides centralized, static access to project-wide configurations.
+    """
+    # Database Configuration
+    # Reads from configs/database_defaults.yaml
+    DEFAULT_DATABASE_CONFIG: Final[DatabaseConfig] = _load_database_config(user_type='user')
+    ROOT_DATABASE_CONFIG: Final[DatabaseConfig] = _load_database_config(user_type='admin')
