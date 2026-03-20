@@ -11,7 +11,7 @@ from typing_extensions import override
 from src.cli.handlers.gradient_model_handler import RegressionModelHandler
 from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.box_office import BoxOffice
-from src.data_handling.dataset import Dataset
+from src.data_handling.dataset import BaseDataset, DatabaseDataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
 from src.models.base.evaluation import BaseEvaluationResult
@@ -156,7 +156,7 @@ class BoxOfficeRegressionModelHandler(RegressionModelHandler[BoxOfficeRegression
                 if not dataset_name:
                     self._parser.error(f"Config for model '{args.model_id}' is missing 'dataset_name'.")
 
-                dataset: Dataset = Dataset(name=dataset_name)
+                dataset: BaseDataset = DatabaseDataset(name=dataset_name)
                 target_movie_data: MovieData | None = next(
                     (m for m in dataset.movie_data if m.name == args.movie_name), None
                 )

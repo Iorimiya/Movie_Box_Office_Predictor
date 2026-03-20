@@ -3,11 +3,11 @@ from logging import Logger
 from pathlib import Path
 
 from src.core.logging_manager import LoggingManager
-from src.core.project_config import ProjectDatasetType, ProjectPaths
+from src.core.project_config import ProjectConfig, ProjectDatasetType, ProjectPaths
 from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
-from src.data_handling.dataset import Dataset
+from src.data_handling.dataset import DatabaseDataset
 from src.data_handling.file_io import CsvFile
 from src.data_handling.reviews import PublicReview
 
@@ -46,8 +46,10 @@ class DatasetHandler:
         if not source_path.exists():
             raise FileNotFoundError(f"Source file not found at: {source_path}")
 
-        Dataset(name=args.structured_dataset_name).initialize_index_file(
-            source_csv=CsvFile(path=source_path)
+        DatabaseDataset(name=args.structured_dataset_name).initialize_from_csv(
+            source_csv=CsvFile(path=source_path),
+            root_user_name=ProjectConfig.ROOT_DATABASE_CONFIG['user'],
+            root_password=ProjectConfig.ROOT_DATABASE_CONFIG['password']
         )
 
     @staticmethod
@@ -59,7 +61,7 @@ class DatasetHandler:
         :returns: The validated path to the dataset.
         :raises FileNotFoundError: If the dataset path does not exist.
         """
-        dataset_path: Path = ProjectPaths.get_dataset_path(
+        dataset_path: Path = ProjectPaths.get_yaml_dataset_path(
             dataset_name=dataset_name,
             dataset_type=ProjectDatasetType.STRUCTURED
         )
@@ -111,17 +113,15 @@ class DatasetHandler:
             dataset_name: str = args.structured_dataset_name
             self._logger.info(f"Executing: Collect box office data for dataset '{dataset_name}'.")
             self._validate_dataset_path(dataset_name=dataset_name)
-            Dataset(name=dataset_name).collect_box_office()
+            DatabaseDataset(name=dataset_name).collect_box_office()
         elif args.movie_name:
             movie_name: str = args.movie_name
             self._logger.info(f"Executing: Collect box office data for movie '{movie_name}'.")
 
             try:
                 with BoxOfficeCollector(download_mode='WEEK') as collector:
-                    box_office_data: list[BoxOffice] = collector.download_box_office_data_for_movie(
-                        movie_name=movie_name
-                    )
-
+                    box_office_data: list[BoxOffice]
+                    box_office_data, _ = collector.fetch_single_movie_data(movie_name=movie_name)
                     if box_office_data:
                         self._logger.info(f"Successfully retrieved box office data for '{movie_name}'.")
                         self._log_box_office_data(
@@ -157,7 +157,7 @@ class DatasetHandler:
             self._logger.info(f"Executing: Collect {website_display_name} reviews for dataset '{dataset_name}'.")
             self._validate_dataset_path(dataset_name=dataset_name)
             # noinspection PyTypeChecker
-            Dataset(name=dataset_name).collect_public_review(target_website=target_website.name)
+            DatabaseDataset(name=dataset_name).collect_public_review(target_website=target_website.name)
         elif args.movie_name:
             movie_name: str = args.movie_name
             self._logger.info(f"Executing: Collect {website_display_name} reviews for movie '{movie_name}'.")
@@ -227,6 +227,4 @@ class DatasetHandler:
         dataset_name: str = args.structured_dataset_name
         self._validate_dataset_path(dataset_name=dataset_name)
 
-        Dataset(name=dataset_name).compute_sentiment(
-            model_id=args.model_id
-        )
+        DatabaseDataset(name=dataset_name).compute_sentiment(model_id=args.model_id)

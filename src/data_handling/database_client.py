@@ -16,6 +16,8 @@ class DatabaseConfig(TypedDict, total=False):
     port: str
     user: str
     password: str
+    database: str
+
 
 
 class DatabaseClient:
@@ -118,7 +120,8 @@ class DatabaseClient:
             raise RuntimeError("Database operations must be performed within a 'with' block.")
         try:
             self.__cursor.execute("SHOW GRANTS FOR CURRENT_USER()")
-            grants = self.__cursor.fetchall()
+            grants: list[dict] | bool | int = \
+                cast(Optional[list[dict] | bool | int], cast(object, self.__cursor.fetchall()))
             has_create_db = False
             has_grant_option = False
             for grant_row in grants:
@@ -164,7 +167,7 @@ class DatabaseClient:
         try:
             self.__cursor.execute(statement, parameters)
             if is_result_query:
-                return self.__cursor.fetchall()
+                return cast(Optional[list[dict] | bool | int], cast(object, self.__cursor.fetchall()))
             elif get_last_id:
                 return self.__cursor.lastrowid
             else:

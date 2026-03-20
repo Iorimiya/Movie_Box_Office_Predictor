@@ -8,7 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
 from src.data_handling.box_office import BoxOffice
-from src.data_handling.dataset import Dataset
+from src.data_handling.dataset import BaseDataset, DatabaseDataset
 from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieData, MovieSessionData, WeekData
 from src.models.base.data_splitter import SplitDataset
@@ -206,8 +206,8 @@ class BoxOfficeRegressionDataProcessor(
         :returns: A list of MovieData objects.
         """
         self.logger.debug(f"Loading raw box office regression data from dataset: '{source.dataset_name}'")
-        dataset: Dataset = Dataset(name=source.dataset_name)
-        movie_data_list: list[MovieData] = dataset.load_movie_data(mode='ALL')
+        dataset: BaseDataset = DatabaseDataset(name=source.dataset_name)
+        movie_data_list: list[MovieData] = dataset.movie_data
 
         if not movie_data_list:
             self.logger.warning(f"No movie data loaded from dataset: {source.dataset_name}")

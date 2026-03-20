@@ -3,7 +3,7 @@ from argparse import ArgumentParser, Namespace
 from logging import Formatter, Handler, Logger, StreamHandler
 from pathlib import Path
 from random import randint
-from typing import Any, cast, Generic, TypeVar
+from typing import Any, Generic, TypeVar
 
 from src.core.logging_manager import HandlerSettings, LoggingManager, LogLevel
 from src.core.project_config import ProjectModelType, ProjectPaths
