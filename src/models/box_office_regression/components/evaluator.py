@@ -9,7 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
 from src.core.project_config import ProjectModelType, ProjectPaths
-from src.data_handling.movie_collections import MovieData
+from src.data_handling.movie_collections import MovieSessionData
 from src.models.base.evaluation import (
     BaseEvaluator,
     ClassificationSummaryMixin,
@@ -391,13 +391,14 @@ class BoxOfficeRegressionEvaluator(
         """
         self.logger.debug("Loading and processing evaluation dataset...")
         data_source: BoxOfficeRegressionDataSource = BoxOfficeRegressionDataSource(dataset_name=config.dataset_name)
-        raw_data: list[MovieData] = data_processor.load_raw_data(source=data_source)
 
         processing_config: BoxOfficeRegressionDataConfig = BoxOfficeRegressionDataConfig(
             training_week_len=config.training_week_len,
             split_ratios=config.split_ratios,
             random_state=config.random_state
         )
+
+        raw_data: list[MovieSessionData] = data_processor.load_raw_data(source=data_source, config=processing_config)
 
         if config.evaluate_on_full_dataset:
             self.logger.debug("Evaluation mode: Processing the full dataset as the test set.")

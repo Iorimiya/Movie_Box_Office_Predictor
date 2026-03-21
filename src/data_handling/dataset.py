@@ -16,7 +16,7 @@ from src.data_collection.box_office_collector import BoxOfficeCollector
 from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.database_client import DatabaseClient, DatabaseConfig
 from src.data_handling.file_io import CsvFile
-from src.data_handling.movie_collections import MovieData, MovieSessionData
+from src.data_handling.movie_collections import MovieData, MovieSessionData, WeekData
 from src.data_handling.repositories.db_repository import DbMovieRepository
 from src.data_handling.repositories.repository import MovieRepository
 from src.data_handling.repositories.yaml_repository import YamlMovieRepository
@@ -247,6 +247,26 @@ class BaseDataset(ABC):
         # Convert Iterator to list for backward compatibility with callers expecting a list
         return list(self._repository.fetch_movies(detail_level='META'))
 
+    @property
+    def movie_week_data(self) -> list[WeekData]:
+        """
+        Retrieves a comprehensive list of weekly data for all movies in the dataset.
+
+        This property acts as a direct interface to the underlying repository's
+        `fetch_week_data` method. It returns a flat list of `WeekData` objects,
+        representing the performance and reviews of movies on a weekly basis.
+        This is particularly optimized for database-backed datasets where it leverages
+        pre-aggregated views.
+
+        :returns: A list of `WeekData` objects. Returns an empty list if no data is found.
+        """
+        week_data_list = list(self._repository.fetch_week_data())
+
+        if not week_data_list:
+            self._logger.warning(f"No week data found for dataset '{self.name}'.")
+            return []
+        return week_data_list
+
     def initialize_from_csv(self, source_csv: CsvFile, **kwargs) -> None:
         if not source_csv.exists:
             raise FileNotFoundError("Source csv file not found.")
@@ -307,33 +327,31 @@ class BaseDataset(ABC):
         new_dataset.initialize_from_memory(movies=self.movie_data, root_config=root_config)
         return new_dataset
 
-    def load_movie_sessions(self, number_of_weeks: int) -> list[MovieSessionData]:
+    def get_movie_sessions(self, number_of_weeks: int) -> list[MovieSessionData]:
         """
         Creates fixed-length movie session data from all movies in the dataset.
-
-        This method leverages the `movie_data` property to get a list of all
-        fully-loaded `MovieData` objects. It then delegates to
-        `MovieSessionData.create_sessions_from_movie_data_list` to segment
-        the data into sessions of the specified length.
+        This method uses a unified strategy by calling `fetch_week_data` on the
+        repository, which provides an optimized implementation based on its
+        underlying storage (DB view vs. in-memory computation).
 
         :param number_of_weeks: The number of weeks each movie session should span.
         :returns: A flattened list of all `MovieSessionData` objects created from the dataset.
         """
-        self._logger.debug(f"Creating {number_of_weeks}-week sessions for all movies in dataset '{self.name}'.")
+        self._logger.info(f"Creating {number_of_weeks}-week sessions for all movies in dataset '{self.name}'.")
+        self._logger.info("Using unified session creation via repository's `fetch_week_data`.")
 
-        # Use the existing property to get all fully-loaded MovieData objects
-        all_movie_data: list[MovieData] = self.movie_data
+        try:
+            # Unified call to the repository's interface
+            week_data_list = self.movie_week_data
 
-        if not all_movie_data:
-            self._logger.warning(f"No movie data available in dataset '{self.name}' to create sessions from.")
+            # The session creation logic is now the same regardless of the source
+            return MovieSessionData.create_sessions_from_week_data_list(
+                week_data_list=week_data_list,
+                number_of_weeks=number_of_weeks
+            )
+        except Exception as e:
+            self._logger.error(f"Failed to load movie sessions for dataset '{self.name}': {e}", exc_info=True)
             return []
-
-        # Delegate to the existing class method in MovieSessionData that works on an in-memory list
-        all_sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
-            movie_data_list=all_movie_data,
-            number_of_weeks=number_of_weeks
-        )
-        return all_sessions
 
 
     def collect_box_office(self) -> None:
@@ -516,7 +534,9 @@ class BaseDataset(ABC):
         """
         pass
 
-    def compute_sentiment(self, model_id: str) -> None:
+    def compute_sentiment(
+        self, model_id: str, llm_address: str = 'llm-service', llm_port: int = 11434
+    ) -> None:
         """
         Computes sentiment scores for all public reviews in the dataset and updates them.
 
@@ -525,6 +545,9 @@ class BaseDataset(ABC):
         and then saves the updated reviews back to their respective files.
 
         :param model_id: The ID of the sentiment analysis model to use.
+        :param llm_address: The address (host) of the local LLM service (e.g., 'localhost' or 'llm-service').
+                            Defaults to 'llm-service'.
+        :param llm_port: The port number of the local LLM service. Defaults to 11434.
         """
         self._logger.info(f"Starting sentiment computation for dataset '{self.name}' using model '{model_id}'.")
 
@@ -534,8 +557,8 @@ class BaseDataset(ABC):
                 # For local models, provide connection details. These should be configurable in the future.
                 llm_client: LLMClient = LLMClient(
                     target_model_id=model_id, # 'ollama/gemma3'
-                    local_host='llm-service',
-                    local_port=11434
+                    local_host=llm_address,
+                    local_port=llm_port
                 )
             else:
                 # For remote models, the client will handle API key retrieval from environment variables.

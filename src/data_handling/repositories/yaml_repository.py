@@ -4,8 +4,8 @@ from typing import cast, Iterator, Literal, Optional, Type
 
 from typing_extensions import override
 
-from data_handling.repositories.repository import MovieRepository
-from data_handling.reviews import ReviewSerializableData
+from src.data_handling.repositories.repository import MovieRepository
+from src.data_handling.reviews import ReviewSerializableData
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectPaths
 from src.data_handling.box_office import BoxOffice

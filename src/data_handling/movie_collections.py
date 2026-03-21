@@ -7,10 +7,9 @@ from typing import Any, Final, Literal, Optional, Type, TypeAlias, TypeVar
 from numpy import mean
 
 from src.core.logging_manager import LoggingManager
-from src.data_handling.box_office import BoxOffice, BoxOfficeRawData, BoxOfficeSerializableData
+from src.data_handling.box_office import BoxOffice, BoxOfficeSerializableData
 from src.data_handling.reviews import (
-    ExpertReview, ExpertReviewSerializableData,
-    PublicReview, PublicReviewRawData, PublicReviewSerializableData
+    ExpertReview, ExpertReviewSerializableData, PublicReview, PublicReviewSerializableData
 )
 from src.utilities.collection_utils import delete_duplicate
 
@@ -33,28 +32,26 @@ COMPONENT_CLASS_MAP: Final[ComponentClassMapType] = {
 @dataclass(kw_only=True)
 class WeekData:
     movie_id: Optional[int]  # for recognize
+    movie_name: Optional[str] = None  # Added to support direct creation from DB views
     start_date: date  # for recognize
     end_date: date  # for recognize
     total_content_length: int
     total_title_length: int
 
     box_office: int
-    # box_office_last_week: int
-    # box_office_previous_week: int
-    #
-    # weekly_difference: int  # box office amount (current week - last week)
-    # previous_weekly_difference: int  # currently not used
-    # percentage_change_last_week: float  # currently not used
-    # weekly_box_office_trend: int  # currently not used
 
     average_sentiment_score: float
-    total_public_review_count: int  # currently_not_used
+    total_public_review_count: int
     total_reply_count: int
     total_positive_reply_count: int
     total_negative_reply_count: int
     weekly_reply_count: int
     weekly_positive_reply_count: int
     weekly_negative_reply_count: int
+
+    # Expert Review fields
+    expert_review_count: int = 0
+    average_expert_score: float = 0.0
 
     @staticmethod
     def _filter_review_by_week(
@@ -81,8 +78,8 @@ class WeekData:
     @classmethod
     def create_multiple_from_source_variable(
         cls,
-        weeks_data_source: list[BoxOfficeRawData] | list[BoxOffice],
-        public_reviews_master_source: Optional[list[PublicReviewRawData] | list[PublicReview]] = None,
+        weeks_data_source:  list[BoxOffice],
+        public_reviews_master_source: Optional[list[PublicReview]] = None,
         movie_id: Optional[int] = None
     ) -> list['WeekData']:
         """
@@ -100,14 +97,7 @@ class WeekData:
         """
         logger: Logger = LoggingManager().get_logger('root')
 
-        # Ensure weeks_data_source is a list of BoxOffice objects
-        all_box_office_instances: list[BoxOffice]
-        if weeks_data_source and isinstance(weeks_data_source[0], BoxOffice):
-             # noinspection PyTypeChecker
-             all_box_office_instances = weeks_data_source
-        else:
-             # noinspection PyTypeChecker
-             all_box_office_instances = BoxOffice.create_multiple(source=weeks_data_source, schema_type='NESTED')
+        all_box_office_instances: list[BoxOffice] = weeks_data_source
 
         if not all_box_office_instances:
             logger.warning(
@@ -115,16 +105,7 @@ class WeekData:
             return []
 
         # Ensure public_reviews_master_source is a list of PublicReview objects
-        all_public_reviews: list[PublicReview] = []
-        if public_reviews_master_source:
-            if isinstance(public_reviews_master_source[0], PublicReview):
-                 # noinspection PyTypeChecker
-                 all_public_reviews = public_reviews_master_source
-            else:
-                 # noinspection PyTypeChecker
-                 all_public_reviews = PublicReview.create_multiple(
-                     source=public_reviews_master_source, schema_type='NESTED'
-                 )
+        all_public_reviews: list[PublicReview] = public_reviews_master_source if public_reviews_master_source else []
 
         return [cls(
             movie_id=movie_id,
@@ -155,6 +136,9 @@ class WeekData:
             weekly_positive_reply_count=len([reply for reply in weekly_reply if reply.type == "boo"]),
             total_negative_reply_count=sum([pr.negative_reply_count for pr in assembled_public_reviews]),
             weekly_negative_reply_count=len([reply for reply in weekly_reply if reply.type == "push"]),
+            # Note: Expert reviews are not yet processed in this memory-based flow, default to 0
+            expert_review_count=0,
+            average_expert_score=0.0
         ) for current_box_office_data in all_box_office_instances]
 
     @classmethod
@@ -185,6 +169,7 @@ class WeekData:
             # Map DB columns to WeekData fields directly
             week_data = cls(
                 movie_id=row.get('movie_id'),
+                movie_name=row.get('movie_name'),
                 start_date=start_date,
                 end_date=end_date,
                 total_content_length=int(row.get('total_content_length', 0)),
@@ -198,6 +183,8 @@ class WeekData:
                 weekly_positive_reply_count=int(row.get('weekly_positive_reply_count', 0)),
                 total_negative_reply_count=int(row.get('total_negative_reply_count', 0)),
                 weekly_negative_reply_count=int(row.get('weekly_negative_reply_count', 0)),
+                expert_review_count=int(row.get('expert_review_count', 0)),
+                average_expert_score=float(row.get('average_expert_score') or 0.0)
             )
             week_data_list.append(week_data)
 
@@ -359,7 +346,7 @@ class MovieSessionData:
     weeks_data: list[WeekData]
 
     @staticmethod
-    def _create_sliding_window_batches(items: list[BoxOffice], window_size: int) -> list[list[BoxOffice]]:
+    def _create_sliding_window_batches(items: list[Any], window_size: int) -> list[list[Any]]:
         """
         Creates sliding window batches from a list of items.
 
@@ -373,14 +360,22 @@ class MovieSessionData:
         return [items[i: i + window_size] for i in range(len(items) - window_size + 1)]
 
     @staticmethod
-    def _filter_valid_batches(batches: list[list[BoxOffice]]) -> list[list[BoxOffice]]:
+    def _filter_valid_batches(batches: list[list[BoxOffice | WeekData]]) -> list[list[BoxOffice | WeekData]]:
         """
         Filters a list of batches to keep only those where all weeks have non-zero box office.
+        Supports both BoxOffice objects and WeekData objects (which have a 'box_office' attribute).
 
-        :param batches: A list of batches, where each batch is a list of BoxOffice objects.
+        :param batches: A list of batches.
         :return: A new list containing only the valid batches.
         """
-        return [batch for batch in batches if all(map(lambda week: week.amount != 0, batch))]
+        def has_box_office(item: BoxOffice | WeekData) -> bool:
+            if isinstance(item, BoxOffice):
+                return item.amount != 0
+            if isinstance(item, WeekData):
+                return item.box_office != 0
+            return False
+
+        return [batch for batch in batches if all(map(has_box_office, batch))]
 
     @classmethod
     def create_sessions_from_single_movie_data(
@@ -451,5 +446,65 @@ class MovieSessionData:
         ))
         logger.debug(
             f"Created a total of {len(all_sessions)} sessions from {len(movie_data_list)} movies."
+        )
+        return all_sessions
+
+    @classmethod
+    def create_sessions_from_week_data_list(
+        cls, week_data_list: list['WeekData'], number_of_weeks: int
+    ) -> list['MovieSessionData']:
+        """
+        Creates MovieSessionData objects from a flat list of WeekData objects.
+        This is typically used when data is fetched from a pre-calculated database view.
+
+        :param week_data_list: A list of WeekData objects (potentially containing data for multiple movies).
+        :param number_of_weeks: The number of weeks each movie session should span.
+        :return: A list of valid MovieSessionData objects.
+        """
+        logger: Logger = LoggingManager().get_logger("root")
+        if not week_data_list:
+            return []
+
+        # 1. Group WeekData by movie_id
+        week_data_by_movie: dict[int, list[WeekData]] = {}
+        for wd in week_data_list:
+            if wd.movie_id is None:
+                continue
+            if wd.movie_id not in week_data_by_movie:
+                week_data_by_movie[wd.movie_id] = []
+            week_data_by_movie[wd.movie_id].append(wd)
+
+        all_sessions: list[MovieSessionData] = []
+
+        # 2. Process each movie
+        for movie_id, weeks in week_data_by_movie.items():
+            if len(weeks) < number_of_weeks:
+                continue
+
+            # Ensure weeks are sorted by date
+            weeks.sort(key=lambda w: w.start_date)
+
+            # Get movie name from the first record (assuming it's consistent)
+            movie_name = weeks[0].movie_name or f"Unknown Movie {movie_id}"
+
+            # 3. Create sliding window batches of WeekData
+            all_batches: list[list[WeekData]] = cls._create_sliding_window_batches(
+                items=weeks,
+                window_size=number_of_weeks
+            )
+
+            # 4. Filter valid batches (box office != 0)
+            valid_batches: list[list[WeekData]] = cls._filter_valid_batches(batches=all_batches)
+
+            # 5. Create Session Objects
+            for batch in valid_batches:
+                all_sessions.append(cls(
+                    id=movie_id,
+                    name=movie_name,
+                    weeks_data=batch
+                ))
+
+        logger.debug(
+            f"Created a total of {len(all_sessions)} sessions from {len(week_data_by_movie)} movies (DB source)."
         )
         return all_sessions

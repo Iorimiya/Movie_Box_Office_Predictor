@@ -12,7 +12,7 @@ from src.data_handling.dataset import BaseDataset, DatabaseDataset
 from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieData, MovieSessionData, WeekData
 from src.models.base.data_splitter import SplitDataset
-from src.models.base.gradient_data_processor import GradientDataProcessor, GradientDataConfig
+from src.models.base.gradient_data_processor import GradientDataConfig, GradientDataProcessor
 
 
 class BoxOfficeRegressionConfigDict(TypedDict, total=False):
@@ -51,7 +51,7 @@ class BoxOfficeRegressionDataSource:
     dataset_name: str
 
 
-BoxOfficeRegressionTrainingRawData: TypeAlias = list[MovieData]
+BoxOfficeRegressionTrainingRawData: TypeAlias = list[MovieSessionData]
 BoxOfficeRegressionTrainingProcessedData: TypeAlias = SplitDataset[NDArray[float32], NDArray[float64]]
 BoxOfficeRegressionPredictionRawData: TypeAlias = MovieData
 BoxOfficeRegressionPredictionProcessedData: TypeAlias = NDArray[float32]
@@ -195,28 +195,37 @@ class BoxOfficeRegressionDataProcessor(
                 self.scaler = None
 
     @override
-    def load_raw_data(self, source: BoxOfficeRegressionDataSource) -> BoxOfficeRegressionTrainingRawData:
+    def load_raw_data(
+        self, source: BoxOfficeRegressionDataSource, config: Optional[BoxOfficeRegressionDataConfig] = None
+    ) -> BoxOfficeRegressionTrainingRawData:
         """
-        Loads raw movie data from a structured dataset.
+        Loads and processes raw movie data into fixed-length sessions.
 
-        This method purely loads the data without any transformation, adhering
-        to the semantic meaning of its name.
+        This method leverages the dataset's `load_movie_sessions` method, which
+        efficiently loads and processes data based on the underlying storage.
 
         :param source: The data source object containing the dataset name.
-        :returns: A list of MovieData objects.
+        :param config: The data configuration, used to determine the session length.
+        :returns: A list of MovieSessionData objects.
         """
-        self.logger.debug(f"Loading raw box office regression data from dataset: '{source.dataset_name}'")
+        if config is None:
+            raise ValueError("BoxOfficeRegressionDataConfig is required to determine session length.")
+
+        self.logger.debug(f"Loading movie sessions from dataset: '{source.dataset_name}'")
         dataset: BaseDataset = DatabaseDataset(name=source.dataset_name)
-        movie_data_list: list[MovieData] = dataset.movie_data
 
-        if not movie_data_list:
-            self.logger.warning(f"No movie data loaded from dataset: {source.dataset_name}")
+        # The number of weeks needed is the training length + 1 for the target week
+        number_of_weeks = config.training_week_len + 1
+        sessions: list[MovieSessionData] = dataset.get_movie_sessions(number_of_weeks=number_of_weeks)
 
-        return movie_data_list
+        if not sessions:
+            self.logger.warning(f"No movie sessions loaded from dataset: {source.dataset_name}")
+
+        return sessions
 
     @override
     def process_for_prediction(
-        self, single_input: BoxOfficeRegressionPredictionRawData, config: Optional[BoxOfficeRegressionDataConfig] = None
+        self, single_input: BoxOfficeRegressionPredictionRawData, config: BoxOfficeRegressionDataConfig
     ) -> BoxOfficeRegressionPredictionProcessedData:
         """
         Processes a single movie's data for box_office_regression.
@@ -247,7 +256,8 @@ class BoxOfficeRegressionDataProcessor(
         # Convert this slice into WeekData objects to get reviews
         latest_weeks_data: list[WeekData] = WeekData.create_multiple_from_source_variable(
             weeks_data_source=latest_box_office_weeks,
-            public_reviews_master_source=single_input.public_reviews
+            public_reviews_master_source=single_input.public_reviews,
+            movie_id=single_input.id
         )
         numerical_sequence: list[list[int | float]] = \
             BoxOfficeRegressionDataProcessor._convert_weeks_to_numerical_sequence(weeks=latest_weeks_data)
@@ -262,7 +272,7 @@ class BoxOfficeRegressionDataProcessor(
         return scaled_array
 
     def process_for_evaluation(
-        self, raw_data: BoxOfficeRegressionTrainingRawData, config: Optional[BoxOfficeRegressionDataConfig] = None
+        self, raw_data: BoxOfficeRegressionTrainingRawData, config: BoxOfficeRegressionDataConfig
     ) -> tuple[NDArray[float32], NDArray[float64]]:
         """
         Processes a full raw dataset for evaluation without splitting it.
@@ -272,7 +282,7 @@ class BoxOfficeRegressionDataProcessor(
         performs all processing steps (sequencing, feature extraction, scaling)
         except for the train/val/test split.
 
-        :param raw_data: The raw list of `MovieData` objects.
+        :param raw_data: The raw list of `MovieSessionData` objects.
         :param config: A configuration object, primarily used for `training_week_len`.
         :returns: A tuple containing the full processed features (x) and labels (y).
         :raises ValueError: If the scaler is not loaded or no data sessions can be created.
@@ -284,9 +294,7 @@ class BoxOfficeRegressionDataProcessor(
             )
 
         self.logger.debug("Processing full dataset for evaluation (no splitting).")
-        sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
-            movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1
-        )
+        sessions: list[MovieSessionData] = raw_data
 
         if not sessions:
             raise ValueError("No sessions data available for evaluation.")
@@ -309,13 +317,12 @@ class BoxOfficeRegressionDataProcessor(
         """
         Creates time-series sequences (x and y) from raw movie data.
 
-        :param raw_data: The raw list of ``MovieData`` objects.
+        :param raw_data: The raw list of ``MovieSessionData`` objects.
         :param config: The data processing configuration.
         :returns: A tuple containing the feature sequences (x) and target values (y).
         :raises ValueError: If no session data can be created from the raw data.
         """
-        sessions: list[MovieSessionData] = MovieSessionData.create_sessions_from_movie_data_list(
-            movie_data_list=raw_data, number_of_weeks=config.training_week_len + 1)
+        sessions: list[MovieSessionData] = raw_data
 
         if not sessions:
             raise ValueError("No sessions data available.")
