@@ -1,13 +1,13 @@
-import json
-import re
 from dataclasses import dataclass
 from datetime import date
+from json import JSONDecodeError, load
 from logging import Logger
 from pathlib import Path
+from re import split
 from typing import Final, Optional, Type, TypedDict
 
 from src.core.logging_manager import LoggingManager
-from src.data_handling.loader_mixin import MovieAuxiliaryDataMixin
+from src.data_handling.loader_mixin import MovieAuxiliaryDataMixin, RawDataSchema
 
 
 class BoxOfficeRawData(TypedDict, total=False):
@@ -19,11 +19,11 @@ class BoxOfficeRawData(TypedDict, total=False):
 
     :ivar start_date: The start date of the box office period.
     :ivar end_date: The end date of the box office period.
-    :ivar box_office: The box office revenue.
+    :ivar amount: The box office revenue.
     """
     start_date: str | date
     end_date: str | date
-    box_office: str | int
+    amount: str | int
 
 
 class BoxOfficePreparedArgs(TypedDict):
@@ -32,11 +32,11 @@ class BoxOfficePreparedArgs(TypedDict):
 
     :ivar start_date: The start date of the box office period.
     :ivar end_date: The end date of the box office period.
-    :ivar box_office: The box office revenue.
+    :ivar amount: The box office revenue.
     """
     start_date: date
     end_date: date
-    box_office: int
+    amount: int
 
 
 class BoxOfficeSerializableData(TypedDict):
@@ -45,37 +45,38 @@ class BoxOfficeSerializableData(TypedDict):
 
     :ivar start_date: The start date of the box office period.
     :ivar end_date: The end date of the box office period.
-    :ivar box_office: The box office revenue.
+    :ivar amount: The box office revenue.
     """
     start_date: date
     end_date: date
-    box_office: int
+    amount: int
 
 
 @dataclass(kw_only=True, frozen=True)
-class BoxOffice(MovieAuxiliaryDataMixin
-                ["BoxOffice", BoxOfficeRawData, BoxOfficePreparedArgs, BoxOfficeSerializableData]):
+class BoxOffice(
+    MovieAuxiliaryDataMixin["BoxOffice", BoxOfficeRawData, BoxOfficePreparedArgs, BoxOfficeSerializableData]
+):
     """
     Represents box office data for a specific period.
 
     :ivar start_date: The start date of the box office period.
     :ivar end_date: The end date of the box office period.
-    :ivar box_office: The box office revenue for the period.
+    :ivar amount: The box office revenue for the period.
     """
     start_date: date
     end_date: date
-    box_office: int
+    amount: int
 
     def __str__(self) -> str:
         """
         Returns a string representation of the BoxOffice object for display.
         """
-        return (
-            f"  Start date: {self.start_date}, End date: {self.end_date}, Box office: {self.box_office}"
-        )
+        return f"  Start date: {self.start_date}, End date: {self.end_date}, Box office: {self.amount}"
 
     @classmethod
-    def _prepare_constructor_args(cls: Type["BoxOffice"], raw_data: BoxOfficeRawData) -> BoxOfficePreparedArgs:
+    def _prepare_constructor_args(
+        cls: Type["BoxOffice"], raw_data: BoxOfficeRawData, schema_type: RawDataSchema
+    ) -> BoxOfficePreparedArgs:
         """
         Prepares the raw box office data for the BoxOffice constructor.
 
@@ -83,6 +84,7 @@ class BoxOffice(MovieAuxiliaryDataMixin
 
         :param cls: The class itself.
         :param raw_data: The raw box office data dictionary.
+        :param schema_type: Specifies the schema of the input dictionaries when 'source' contains raw data.
         :return: A dictionary containing the prepared arguments for the constructor.
         :raises ValueError: If required fields are missing or data types are incorrect.
         """
@@ -91,7 +93,7 @@ class BoxOffice(MovieAuxiliaryDataMixin
 
         raw_start_date: Optional[str | date] = raw_data.get('start_date')
         raw_end_date: Optional[str | date] = raw_data.get('end_date')
-        raw_box_office: Optional[str | int] = raw_data.get('box_office')
+        raw_box_office: Optional[str | int] = raw_data.get('amount')
 
         if not isinstance(raw_start_date, str) and not isinstance(raw_start_date, date):
             msg: str = f"Required field 'start_date' is missing or not a string or date object in BoxOffice data: {raw_data}"
@@ -102,7 +104,7 @@ class BoxOffice(MovieAuxiliaryDataMixin
             logger.error(msg)
             raise ValueError(msg)
         if raw_box_office is None:
-            msg: str = f"Required field 'box_office' is missing in BoxOffice data: {raw_data}"
+            msg: str = f"Required field 'amount' is missing in BoxOffice data: {raw_data}"
             logger.error(msg)
             raise ValueError(msg)
 
@@ -118,7 +120,7 @@ class BoxOffice(MovieAuxiliaryDataMixin
             raise ValueError(msg) from e
 
         return BoxOfficePreparedArgs(
-            start_date=processed_start_date, end_date=processed_end_date, box_office=processed_box_office
+            start_date=processed_start_date, end_date=processed_end_date, amount=processed_box_office
         )
 
     def as_serializable_dict(self) -> BoxOfficeSerializableData:
@@ -132,7 +134,7 @@ class BoxOffice(MovieAuxiliaryDataMixin
         return BoxOfficeSerializableData(
             start_date=self.start_date,
             end_date=self.end_date,
-            box_office=self.box_office
+            amount=self.amount
         )
 
     @classmethod
@@ -160,8 +162,8 @@ class BoxOffice(MovieAuxiliaryDataMixin
 
         try:
             with open(file=file_path, mode='r', encoding=encoding) as f:
-                json_data: dict = json.load(fp=f)
-        except json.JSONDecodeError as e:
+                json_data: dict = load(fp=f)
+        except JSONDecodeError as e:
             logger.error(f"Failed to decode JSON from {file_path}: {e}")
             raise
 
@@ -184,26 +186,26 @@ class BoxOffice(MovieAuxiliaryDataMixin
                 continue
 
             try:
-                start_date_str, end_date_str = map(str.strip, re.split(date_split_pattern, date_str))
+                start_date_str, end_date_str = map(str.strip, split(date_split_pattern, date_str))
             except ValueError:
                 logger.warning(
                     f"Could not split 'Date' string '{date_str}' in {week_data_item} from file {file_path}. Skipping item."
                 )
                 continue
 
-            box_office_for_raw: str | int
+            amount_for_raw: str | int
             if amount_val is None:
-                box_office_for_raw = "0"
+                amount_for_raw = "0"
             elif isinstance(amount_val, float):
-                box_office_for_raw = int(amount_val)
+                amount_for_raw = int(amount_val)
             elif isinstance(amount_val, int):
-                box_office_for_raw = amount_val
+                amount_for_raw = amount_val
             else:
-                box_office_for_raw = str(amount_val)
+                amount_for_raw = str(amount_val)
 
-            prepared_raw_data_list.append(BoxOfficeRawData(
-                start_date=start_date_str, end_date=end_date_str, box_office=box_office_for_raw
-            ))
+            prepared_raw_data_list.append(
+                BoxOfficeRawData(start_date=start_date_str, end_date=end_date_str, amount=amount_for_raw)
+            )
 
         if not prepared_raw_data_list:
             msg = f"All items in 'Rows' from {file_path} were malformed or lacked necessary data. No data prepared."
@@ -212,7 +214,9 @@ class BoxOffice(MovieAuxiliaryDataMixin
 
         try:
             # noinspection PyTypeChecker
-            weekly_box_office_data: list["BoxOffice"] = cls.create_multiple(source=prepared_raw_data_list)
+            weekly_box_office_data: list["BoxOffice"] = cls.create_multiple(
+                source=prepared_raw_data_list, schema_type='NESTED'
+            )
         except ValueError as e:  # Catch errors from _prepare_constructor_args if they propagate
             logger.error(
                 f"Error creating BoxOffice instances from prepared data from {file_path}: {e}",
@@ -221,7 +225,7 @@ class BoxOffice(MovieAuxiliaryDataMixin
             raise  # Re-raise the ValueError from _prepare_constructor_args
 
         if not weekly_box_office_data:  # If create_multiple returned empty list (all items failed validation)
-            msg = f"Failed to create any valid BoxOffice objects from the prepared data in {file_path}."
+            msg: str = f"Failed to create any valid BoxOffice objects from the prepared data in {file_path}."
             logger.error(msg)
             raise ValueError(msg)
 

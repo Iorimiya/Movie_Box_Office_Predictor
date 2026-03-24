@@ -1,0 +1,14 @@
+# Default database connection settings
+server:
+  address: "localhost"
+  port: 3306
+
+# Default application user credentials
+user:
+  name: "mbop_user"
+  password: "mbop_pass"
+
+# Default admin/root user credentials
+admin:
+  name: "root"
+  password: "root"

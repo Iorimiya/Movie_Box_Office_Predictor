@@ -1,10 +1,10 @@
-import pickle
 from abc import ABC, abstractmethod
 from csv import DictReader, DictWriter
 from pathlib import Path
-from typing import Callable, Final, Optional
+from pickle import dump as pickle_dump, HIGHEST_PROTOCOL, load as pickle_load
+from typing import Any, Callable, Final, Optional
 
-import yaml
+from yaml import dump as yaml_dump, Dumper, dump_all, load_all, SafeLoader, safe_load, YAMLError
 
 from src.core.constants import Constants
 
@@ -58,7 +58,7 @@ class File(ABC):
         return self.path.unlink(missing_ok=missing_ok)
 
     @abstractmethod
-    def save(self, data: list[dict[any, any]] | dict[any, any]) -> None:
+    def save(self, data: Any) -> None:
         """
         Saves data to the file.
         This method must be implemented by subclasses.
@@ -68,7 +68,7 @@ class File(ABC):
         pass
 
     @abstractmethod
-    def load(self) -> list[dict[any, any]] | dict[any, any]:
+    def load(self) -> Any:
         """
         Loads data from the file.
         This method must be implemented by subclasses.
@@ -86,8 +86,9 @@ class CsvFile(File):
     and load data from a CSV file into a list of dictionaries.
     """
 
-    def __init__(self, path: Path, encoding: str = Constants.DEFAULT_ENCODING,
-                 header: Optional[tuple[str, ...]] = None):
+    def __init__(
+        self, path: Path, encoding: str = Constants.DEFAULT_ENCODING, header: Optional[tuple[str, ...]] = None
+    ):
         """
         Initializes the CsvFile object.
 
@@ -98,7 +99,7 @@ class CsvFile(File):
         super().__init__(path=path, encoding=encoding)
         self.header: Final[Optional[tuple[str, ...]]] = header
 
-    def save(self, data: list[dict[any, any]]) -> None:
+    def save(self, data: list[dict[Any, Any]]) -> None:
         """
         Saves a list of dictionaries to the CSV file.
 
@@ -112,7 +113,7 @@ class CsvFile(File):
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
 
-        field_names: Optional[list[str]]
+        field_names: Optional[list[str]] = None
 
         if self.header is not None:
             field_names = list(self.header)
@@ -138,7 +139,7 @@ class CsvFile(File):
                 writer.writerows(rowdicts=data)
         return
 
-    def load(self, row_factory: Optional[Callable[[dict[str, str]], any]] = None) -> list[any]:
+    def load(self, row_factory: Optional[Callable[[dict[str, str]], Any]] = None) -> list[Any]:
         """
         Loads data from the CSV file.
 
@@ -169,7 +170,7 @@ class YamlFile(File):
     YAML formats.
     """
 
-    def save_single_document(self, data: list[dict[any, any]] | dict[any, any]) -> None:
+    def save_single_document(self, data: Any) -> None:
         """
         Saves data (a list of dictionaries or a single dictionary) as a single YAML document.
 
@@ -180,12 +181,17 @@ class YamlFile(File):
         """
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
-        yaml.Dumper.ignore_aliases = lambda _, __: True
+        # Safe dump doesn't support ignore_aliases directly in all versions/wrappers,
+        # but standard dump does. Using standard dump for compatibility with overrides.
+        # To avoid aliases, we can use a custom dumper or just rely on default behavior
+        # which usually doesn't alias simple dicts unless recursive.
+        # Here we follow the user's previous pattern.
+        Dumper.ignore_aliases = lambda _, __: True
         with open(file=self.path, mode='w', encoding=self.encoding) as file:
-            yaml.dump(data=data, stream=file, allow_unicode=True, sort_keys=False)
+            yaml_dump(data=data, stream=file, allow_unicode=True, sort_keys=False)
         return
 
-    def load_single_document(self) -> Optional[list[dict[any, any]] | dict[any, any]]:
+    def load_single_document(self) -> Any:
         """
         Loads data from a YAML file expected to contain a single document.
 
@@ -200,15 +206,12 @@ class YamlFile(File):
             raise FileNotFoundError(f"File {self.path} does not exist")
         with open(file=self.path, mode='r', encoding=self.encoding) as file:
             try:
-                content: str = file.read()
-                if not content.strip():
-                    return None
-                loaded_data: any = yaml.safe_load(stream=content)
-                return loaded_data
-            except yaml.YAMLError as e:
-                raise yaml.YAMLError(f"Error parsing YAML file {self.path}: {e}")
+                # Use safe_load directly on the file stream
+                return safe_load(file)
+            except YAMLError as e:
+                raise YAMLError(f"Error parsing YAML file {self.path}: {e}")
 
-    def save_multi_document(self, data: list[dict[any, any]]) -> None:
+    def save_multi_document(self, data: list[dict[Any, Any]]) -> None:
         """
         Saves a list of dictionaries as multiple YAML documents in a single file.
 
@@ -220,12 +223,12 @@ class YamlFile(File):
         """
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
-        yaml.Dumper.ignore_aliases = lambda _, __: True
+        Dumper.ignore_aliases = lambda _, __: True
         with open(file=self.path, mode='w', encoding=self.encoding) as file:
-            yaml.dump_all(documents=data, stream=file, allow_unicode=True, sort_keys=False)
+            dump_all(documents=data, stream=file, allow_unicode=True, sort_keys=False)
         return
 
-    def load_multi_document(self) -> list[dict[any, any]]:
+    def load_multi_document(self) -> list[dict[Any, Any]]:
         """
         Loads data from a YAML file that may contain multiple documents
         separated by '---'.
@@ -240,14 +243,14 @@ class YamlFile(File):
         """
         if not self.path.exists():
             raise FileNotFoundError(f"File {self.path} does not exist")
-        loaded_data: list[dict] = []
+        loaded_data: list[dict[Any, Any]] = []
         with open(file=self.path, mode='r', encoding=self.encoding) as file:
-            for doc in yaml.load_all(stream=file, Loader=yaml.SafeLoader):
+            for doc in load_all(stream=file, Loader=SafeLoader):
                 if isinstance(doc, dict) and doc is not None:
                     loaded_data.append(doc)
         return loaded_data
 
-    def save(self, data: list[dict[any, any]] | dict[any, any]) -> None:
+    def save(self, data: Any) -> None:
         """
         Default save method for ``YamlFile``. Saves data as multiple YAML documents.
 
@@ -258,11 +261,11 @@ class YamlFile(File):
 
         :param data: The data to be saved. Can be a single dictionary or a list of dictionaries.
         """
-        data_to_save: list[dict[any, any]] = [data] if isinstance(data, dict) else data
+        data_to_save: list[dict[Any, Any]] = [data] if isinstance(data, dict) else data
         self.save_multi_document(data=data_to_save)
         return
 
-    def load(self) -> Optional[list[dict[any, any]] | dict[any, any]]:
+    def load(self) -> Any:
         """
         Default load method for ``YamlFile``. Loads data as multiple YAML documents.
 
@@ -283,7 +286,7 @@ class PickleFile(File):
     binary file and load it back.
     """
 
-    def save(self, data: any) -> None:
+    def save(self, data: Any) -> None:
         """
         Serializes and saves a Python object to the file.
 
@@ -296,9 +299,9 @@ class PickleFile(File):
 
         with open(file=self.path, mode='wb') as handle:
             # noinspection PyTypeChecker
-            pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+            pickle_dump(data, handle, protocol=HIGHEST_PROTOCOL)
 
-    def load(self) -> any:
+    def load(self) -> Any:
         """
         Loads and deserializes a Python object from the file.
 
@@ -310,4 +313,4 @@ class PickleFile(File):
             raise FileNotFoundError(f"Pickle file not found: {self.path}")
 
         with open(file=self.path, mode='rb') as handle:
-            return pickle.load(handle)
+            return pickle_load(handle)

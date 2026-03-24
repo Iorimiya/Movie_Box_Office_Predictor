@@ -4,8 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from logging import Logger
-from pathlib import Path
-from typing import cast, Final, get_args, Iterator, Optional, TypeAlias
+from typing import Final, Iterator, Optional, TypeAlias
 
 import requests
 from bs4 import BeautifulSoup
@@ -13,14 +12,11 @@ from bs4.element import NavigableString, Tag
 from requests import Response
 from selenium.common.exceptions import StaleElementReferenceException
 from tqdm import tqdm
-from yaml import YAMLError
 
 from src.core.constants import Constants
 from src.core.logging_manager import LoggingManager
 from src.data_collection.browser import CaptchaBrowser
-from src.data_handling.file_io import YamlFile
-from src.data_handling.movie_collections import MovieData
-from src.data_handling.reply import Reply, ReplyRating
+from src.data_handling.reply import Reply, ReplyRawData
 from src.data_handling.reviews import PublicReview
 from src.utilities.collection_utils import delete_duplicate
 
@@ -373,21 +369,23 @@ class ReviewCollector:
                             self.__logger.warning(f"Skipping incomplete reply in URL '{url}': {push.text.strip()}")
                             continue
 
-                        rating: ReplyRating
+                        rating_str: str
                         if tag_element:
-                            tag_text: str = tag_element.text.strip()
-                            if tag_text in get_args(ReplyRating):
-                                rating = cast(ReplyRating,tag_text)
-                            else:
-                                rating = "→"
+                            rating_str = tag_element.text.strip()
                         else:
-                            rating = "→"
+                            rating_str = "→"
 
                         reply_content: str = content_element.text.strip(': ')
                         reply_time_str: str = time_element.text.strip()
                         reply_time: datetime = self._parse_ptt_reply_time(reply_time_str, posted_time)
 
-                        processed_replies.append(Reply(rating=rating, content=reply_content, time=reply_time))
+                        # noinspection PyTypeChecker
+                        processed_replies.append(
+                            Reply.create_single(
+                                raw_data=ReplyRawData(type=rating_str, content=reply_content, created_at=reply_time),
+                                schema_type='FLAT'
+                            )
+                        )
                     if not (title and content):
                         return None
                 except Exception as e:
@@ -424,7 +422,7 @@ class ReviewCollector:
 
         if title and content and posted_time:
             return PublicReview(
-                url=url, title=title, content=content, date=posted_time.date(),
+                url=url, title=title, content=content, created_at=posted_time.date(),
                 replies=processed_replies, sentiment_score=None
             )
         return None
@@ -449,7 +447,7 @@ class ReviewCollector:
                                   tqdm(urls, desc=f'Fetching reviews for "{search_key}"',
                                        bar_format=Constants.STATUS_BAR_FORMAT)]))
 
-    def __get_reviews_by_name(self, movie_name: str, browser: Optional[CaptchaBrowser]) -> list[PublicReview]:
+    def get_reviews(self, movie_name: str, browser: Optional[CaptchaBrowser]) -> list[PublicReview]:
         """
         Gets all unique public reviews for a given movie name.
 
@@ -470,7 +468,7 @@ class ReviewCollector:
         return reviews
 
     @contextmanager
-    def _managed_browser_session(self) -> Iterator[Optional[CaptchaBrowser]]:
+    def managed_browser_session(self) -> Iterator[Optional[CaptchaBrowser]]:
         """
         A context manager that provides a CaptchaBrowser session only if the target is DCARD.
 
@@ -502,56 +500,7 @@ class ReviewCollector:
         """
         self.__logger.debug(f"Starting single collection for movie: '{movie_name}'.")
         # noinspection PyArgumentList
-        with self._managed_browser_session() as browser:
-            reviews: list[PublicReview] = self.__get_reviews_by_name(movie_name=movie_name, browser=browser)
+        with self.managed_browser_session() as browser:
+            reviews: list[PublicReview] = self.get_reviews(movie_name=movie_name, browser=browser)
         self.__logger.debug(f"Finished collecting {len(reviews)} reviews for '{movie_name}'.")
         return reviews
-
-    def collect_reviews_for_movies(self, movie_list: list[MovieData], data_folder: Path) -> None:
-        """
-        Collects public reviews for a list of movies and saves them to files.
-
-        For each movie, it fetches reviews. If no reviews are found, an empty YAML file
-        is created. If an error occurs during collection for a movie, it is logged,
-        and the process continues to the next movie. CaptchaBrowser is instantiated
-        only once for Dcard collection across all movies.
-
-        :param movie_list: A list of MovieData objects for which to collect reviews.
-        :param data_folder: The directory where the final data will be saved.
-        """
-        self.__logger.debug(f"Starting batch review collection for {len(movie_list)} movies.")
-        data_folder.mkdir(parents=True, exist_ok=True)
-
-        # noinspection PyArgumentList
-        with self._managed_browser_session() as browser:
-            for movie in tqdm(movie_list, desc='Collecting Reviews', bar_format=Constants.STATUS_BAR_FORMAT):
-                self.__logger.debug(f"Processing reviews for movie ID {movie.id} ('{movie.name}').")
-                try:
-                    newly_fetched_reviews: list[PublicReview] = self.__get_reviews_by_name(
-                        movie_name=movie.name, browser=browser
-                    )
-
-                    movie.update_public_reviews(update_method='EXTEND', data=newly_fetched_reviews)
-                    saved_path: Path = movie.save_public_reviews(target_directory=data_folder)
-
-                    if not newly_fetched_reviews:
-                        self.__logger.debug(
-                            f"No new reviews found for movie ID {movie.id}. Empty file created at '{saved_path}'.")
-                    else:
-                        self.__logger.debug(
-                            f"Successfully collected and saved {len(newly_fetched_reviews)} reviews for movie ID {movie.id} to '{saved_path}'.")
-
-                except Exception as e:
-                    self.__logger.error(
-                        f"Failed to collect reviews for movie ID {movie.id} ('{movie.name}'): {e}",
-                        exc_info=True
-                    )
-                    empty_file_path: Path = data_folder / f"{movie.id}.yaml"
-                    try:
-                        YamlFile(path=empty_file_path).save(data=[])
-                        self.__logger.debug(
-                            f"Created empty review file for failed movie ID {movie.id} at '{empty_file_path}'.")
-                    except (OSError, YAMLError) as file_e:
-                        self.__logger.error(
-                            f"Failed to create empty review file for movie ID {movie.id}: {file_e}",
-                            exc_info=True)

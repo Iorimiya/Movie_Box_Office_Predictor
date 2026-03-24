@@ -6,19 +6,24 @@
         "../../environments/compute-cpu/docker-compose.yaml"
     ],
 
-  "service": "mbop-compute-node",
+  "service": "compute-node",
   "workspaceFolder": "/app",
   "remoteUser": "user",
 	// Configure tool-specific properties.
   "customizations" : {
     "vscode": {
       "settings": {
+        "terminal.integrated.env.linux": {
+                "PYTHONPATH": "${containerEnv:PYTHONPATH}:${containerWorkspaceFolder}"
+            },
         "terminal.integrated.shell.linux": "/bin/bash"
       },
       "extensions": [
         "ms-python.python",
         "vscjava.vscode-docker",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "google.geminicodeassist",
+        "ms-vsliveshare.vsliveshare"
       ]
     },
     "jetbrains" : {

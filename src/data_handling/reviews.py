@@ -6,7 +6,7 @@ from typing import Optional, Type, TypedDict, TypeVar
 from typing_extensions import override
 
 from src.core.logging_manager import LoggingManager
-from src.data_handling.loader_mixin import MovieAuxiliaryDataMixin
+from src.data_handling.loader_mixin import MovieAuxiliaryDataMixin, RawDataSchema
 from src.data_handling.reply import Reply, ReplyRawData, ReplySerializableData
 
 SelfReview = TypeVar('SelfReview', bound='Review')
@@ -22,7 +22,7 @@ class ReviewRawData(TypedDict, total=False):
     :ivar url: The URL source from which the review was obtained.
     :ivar title: The title of the review, if one exists.
     :ivar content: The main textual content of the review.
-    :ivar date: The original publication date of the review. This can be
+    :ivar created_at: The original publication date of the review. This can be
                 an ISO format string or a date object.
     :ivar sentiment_score: An unprocessed sentiment score associated with the
                            review. Its type can vary (e.g., string, number)
@@ -31,7 +31,7 @@ class ReviewRawData(TypedDict, total=False):
     url: str
     title: str
     content: str
-    date: str | date
+    created_at: str | date
     sentiment_score: Optional[str | float | int]
 
 
@@ -43,12 +43,12 @@ class ReviewPreparedArgs(TypedDict):
     :ivar title: The title of the review.
     :ivar content: The content of the review.
     :ivar sentiment_score: The sentiment score of the review. Optional.
-    :ivar date: The date of the review.
+    :ivar created_at: The date of the review.
     """
     url: str
     title: str
     content: str
-    date: date
+    created_at: date
     sentiment_score: Optional[float]
 
 
@@ -60,12 +60,12 @@ class ReviewSerializableData(TypedDict):
     :ivar title: The title of the review.
     :ivar content: The content of the review.
     :ivar sentiment_score: The sentiment score of the review. Optional.
-    :ivar date: The date of the review.
+    :ivar created_at: The date of the review.
     """
     url: str
     title: str
     content: str
-    date: date
+    created_at: date
     sentiment_score: Optional[float]
 
 
@@ -101,13 +101,13 @@ class PublicReviewSerializableData(ReviewSerializableData):
     Even though the counts are now computed properties, we still define them
     in the serializable format for saving to YAML for convenience.
     :ivar reply_count: The reply count.
-    :ivar positive_reaction_count: The number of positive reactions to this public review.
-    :ivar negative_reaction_count: The number of negative reactions to this public review.
+    :ivar positive_reply_count: The number of positive reactions to this public review.
+    :ivar negative_reply_count: The number of negative reactions to this public review.
     :ivar replies: A list of serializable reply dictionaries.
     """
     reply_count: int
-    positive_reaction_count: int
-    negative_reaction_count: int
+    positive_reply_count: int
+    negative_reply_count: int
     replies: list[ReplySerializableData]
 
 
@@ -153,13 +153,13 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
     :ivar url: The URL of the review.
     :ivar title: The title of the review.
     :ivar content: The content of the review.
-    :ivar date: The date of the review.
+    :ivar created_at: The date of the review.
     :ivar sentiment_score: The sentiment score of the review, if available.
     """
     url: str
     title: str
     content: str
-    date: date
+    created_at: date
     sentiment_score: Optional[float] = None
 
     def _key(self) -> str:
@@ -210,7 +210,7 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
         content_truncated: str = f"{self.content[:200]}..." if self.content else 'N/A'
         return (
             f"  Title: {self.title}\n"
-            f"  Date: {self.date}\n"
+            f"  Date: {self.created_at}\n"
             f"  Sentiment Score: {sentiment_display}\n"
             f"  URL: {self.url}\n"
             f"  Content: {content_truncated}"
@@ -228,10 +228,13 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
             return True if self.sentiment_score > 0.5 else False
         else:
             raise ValueError(
-                "Cannot access boolean sentiment score: sentiment_score has not been analyzed yet and is None.")
+                "Cannot access boolean sentiment score: sentiment_score has not been analyzed yet and is None."
+            )
 
     @classmethod
-    def _prepare_constructor_args(cls: Type[SelfReview], raw_data: ReviewRawData) -> ReviewPreparedArgs:
+    def _prepare_constructor_args(
+        cls: Type[SelfReview], raw_data: ReviewRawData, schema_type: RawDataSchema
+    ) -> ReviewPreparedArgs:
         """
         Prepares keyword arguments for the class constructor from a raw data dictionary.
 
@@ -242,6 +245,7 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
 
         :param cls: The class itself.
         :param raw_data: The raw dictionary containing data for a review.
+        :param schema_type: Specifies the schema of the input dictionaries when 'source' contains raw data.
         :return: A dictionary of keyword arguments suitable for instantiating the class.
         :raises ValueError: If required fields are missing, have incorrect types,
                             or if date parsing fails.
@@ -257,16 +261,16 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
                 raise ValueError(f"Field '{_field_name}' must be a string and present in data.")
             processed_text_fields[_field_name] = raw_value
 
-        raw_date: Optional[str | date] = raw_data.get('date')
+        raw_date: Optional[str | date] = raw_data.get('created_at')
         processed_date: date
-        if isinstance(raw_date, str):
+        if isinstance(raw_date, date):
+            processed_date = raw_date
+        elif isinstance(raw_date, str):
             try:
                 processed_date = date.fromisoformat(raw_date)
             except ValueError:
                 logger.error(f"Invalid date format '{raw_date}' in data: {raw_data}.")
                 raise ValueError(f"Invalid date format: {raw_date}")
-        elif isinstance(raw_date, date):
-            processed_date = raw_date
         else:
             logger.error(f"Required field 'date' is missing or has invalid type in data: {raw_data}")
             raise ValueError(f"Missing or invalid type for 'date' in data: {raw_data}")
@@ -279,13 +283,14 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
                 processed_sentiment_score = float(raw_sentiment_score)
             except (ValueError, TypeError):
                 logger.warning(
-                    f"Could not convert sentiment_score '{raw_sentiment_score}' to float in data: {raw_data}. Setting to None.")
+                    f"Could not convert sentiment_score '{raw_sentiment_score}' to float in data: {raw_data}. "
+                    f"Setting to None.")
 
         return ReviewPreparedArgs(
             url=processed_text_fields['url'],
             title=processed_text_fields['title'],
             content=processed_text_fields['content'],
-            date=processed_date,
+            created_at=processed_date,
             sentiment_score=processed_sentiment_score
         )
 
@@ -296,7 +301,11 @@ class Review(MovieAuxiliaryDataMixin[SelfReview, ReviewRawData, ReviewPreparedAr
         :return: A dictionary containing the serializable data of the review.
         """
         return ReviewSerializableData(
-            url=self.url, title=self.title, content=self.content, date=self.date, sentiment_score=self.sentiment_score
+            url=self.url,
+            title=self.title,
+            content=self.content,
+            created_at=self.created_at,
+            sentiment_score=self.sentiment_score
         )
 
 
@@ -316,14 +325,14 @@ class PublicReview(Review):
         return len(self.replies)
 
     @property
-    def positive_reaction_count(self) -> int:
-        """Computes the total number of positive reactions (e.g., '推')."""
-        return sum(1 for r in self.replies if r.rating == '推')
+    def positive_reply_count(self) -> int:
+        """Computes the total number of positive reactions (e.g., "push")."""
+        return sum(1 for r in self.replies if r.type == "push")
 
     @property
-    def negative_reaction_count(self) -> int:
-        """Computes the total number of negative reactions (e.g., '噓')."""
-        return sum(1 for r in self.replies if r.rating == '噓')
+    def negative_reply_count(self) -> int:
+        """Computes the total number of negative reactions (e.g.,  "boo")."""
+        return sum(1 for r in self.replies if r.type == "boo")
 
     def __str__(self) -> str:
         """
@@ -344,8 +353,8 @@ class PublicReview(Review):
 
         return (f"{base_str}\n"
                 f"  Reply Count: {self.reply_count}\n"
-                f"  Positive Reply: {self.positive_reaction_count}\n"
-                f"  Negative Reply: {self.negative_reaction_count}\n"
+                f"  Positive Reply: {self.positive_reply_count}\n"
+                f"  Negative Reply: {self.negative_reply_count}\n"
                 f"{replies_details}")
 
     @override
@@ -358,7 +367,8 @@ class PublicReview(Review):
         return super().__hash__()
 
     @classmethod
-    def _prepare_constructor_args(cls: Type[SelfReview], raw_data: PublicReviewRawData) -> PublicReviewPreparedArgs:
+    def _prepare_constructor_args(cls: Type[SelfReview], raw_data: PublicReviewRawData,
+                                  schema_type: RawDataSchema) -> PublicReviewPreparedArgs:
         """
         Prepares keyword arguments for the PublicReview constructor.
 
@@ -366,22 +376,22 @@ class PublicReview(Review):
 
         :param cls: The class itself.
         :param raw_data: The raw dictionary containing data for a public review.
+        :param schema_type: Specifies the schema of the input dictionaries when 'source' contains raw data.
         :return: A dictionary of keyword arguments suitable for instantiating PublicReview.
         :raises ValueError: If 'reply_count' is missing, has an invalid format, or
                             if errors occur during base argument preparation.
         """
         # noinspection PyTypeChecker
-        base_kwargs: ReviewPreparedArgs = super()._prepare_constructor_args(raw_data)
+        base_kwargs: ReviewPreparedArgs = super()._prepare_constructor_args(raw_data, schema_type=schema_type)
 
         raw_replies: Optional[list[ReplyRawData]] = raw_data.get('replies', [])
 
         # noinspection PyTypeChecker
-        processed_replies: list[Reply] = Reply.create_multiple(source=raw_replies)
+        processed_replies: list[Reply] = Reply.create_multiple(source=raw_replies, schema_type=schema_type)
 
-        return PublicReviewPreparedArgs(**{
-            **base_kwargs,
-            'replies': processed_replies
-        })
+        return PublicReviewPreparedArgs(
+            **{**base_kwargs, 'replies': processed_replies}
+        )
 
     def as_serializable_dict(self) -> PublicReviewSerializableData:
         """
@@ -395,11 +405,11 @@ class PublicReview(Review):
             url=self.url,
             title=self.title,
             content=self.content,
-            date=self.date,
+            created_at=self.created_at,
             sentiment_score=self.sentiment_score,
             reply_count=self.reply_count,
-            positive_reaction_count=self.positive_reaction_count,
-            negative_reaction_count=self.negative_reaction_count,
+            positive_reply_count=self.positive_reply_count,
+            negative_reply_count=self.negative_reply_count,
             replies=serializable_replies
         )
 
@@ -433,12 +443,15 @@ class ExpertReview(Review):
         return super().__hash__()
 
     @classmethod
-    def _prepare_constructor_args(cls: Type[SelfReview], raw_data: ExpertReviewRawData) -> ExpertReviewPreparedArgs:
+    def _prepare_constructor_args(
+        cls: Type[SelfReview], raw_data: ExpertReviewRawData, schema_type: RawDataSchema
+    ) -> ExpertReviewPreparedArgs:
         """
         Prepares keyword arguments for the ExpertReview constructor, including expert_score.
 
         :param cls: The class itself.
         :param raw_data: The raw dictionary containing data for an expert review.
+        :param schema_type: Specifies the schema of the input dictionaries when 'source' contains raw data.
         :return: A dictionary of keyword arguments suitable for instantiating ExpertReview.
         :raises ValueError: If 'expert_score' is missing, has an invalid format, or
                             if errors occur during base argument preparation.
@@ -446,7 +459,7 @@ class ExpertReview(Review):
         logger: Logger = LoggingManager().get_logger('root')
 
         # noinspection PyTypeChecker
-        base_kwargs: ReviewPreparedArgs = super()._prepare_constructor_args(raw_data)
+        base_kwargs: ReviewPreparedArgs = super()._prepare_constructor_args(raw_data, schema_type=schema_type)
 
         raw_expert_score: Optional[str | float | int] = raw_data.get('expert_score')
         processed_expert_score: float
@@ -455,11 +468,11 @@ class ExpertReview(Review):
             try:
                 processed_expert_score = float(raw_expert_score)
             except (ValueError, TypeError) as e:
-                msg = f"Invalid expert_score value '{raw_expert_score}' in ExpertReview data: {raw_data}."
+                msg: str = f"Invalid expert_score value '{raw_expert_score}' in ExpertReview data: {raw_data}."
                 logger.error(msg)
                 raise ValueError(f"Invalid expert_score value: {raw_expert_score}") from e
         else:
-            msg = f"Required field 'expert_score' missing in ExpertReview data: {raw_data}"
+            msg: str = f"Required field 'expert_score' missing in ExpertReview data: {raw_data}"
             logger.error(msg)
             raise ValueError(msg)
 
@@ -475,7 +488,7 @@ class ExpertReview(Review):
             url=self.url,
             title=self.title,
             content=self.content,
-            date=self.date,
+            created_at=self.created_at,
             sentiment_score=self.sentiment_score,
             expert_score=self.expert_score
         )

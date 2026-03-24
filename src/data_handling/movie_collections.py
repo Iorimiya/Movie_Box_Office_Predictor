@@ -1,28 +1,19 @@
 from dataclasses import dataclass, field
 from datetime import date
-from functools import cached_property
 from itertools import chain
 from logging import Logger
-from pathlib import Path
-from typing import Any, cast, Final, Iterator, Literal, Optional, Type, TypeAlias, TypeVar
+from typing import Any, Final, Literal, Optional, Type, TypeAlias, TypeVar
 
 from numpy import mean
 
 from src.core.logging_manager import LoggingManager
-from src.data_handling.box_office import BoxOffice, BoxOfficeRawData, BoxOfficeSerializableData
-from src.data_handling.file_io import YamlFile
-from src.data_handling.movie_metadata import MovieMetadata, MoviePathMetadata
-from src.data_handling.reply import Reply
+from src.data_handling.box_office import BoxOffice, BoxOfficeSerializableData
 from src.data_handling.reviews import (
-    ExpertReview, ExpertReviewRawData, ExpertReviewSerializableData,
-    PublicReview, PublicReviewRawData, PublicReviewSerializableData,
-    ReviewRawData
+    ExpertReview, ExpertReviewSerializableData, PublicReview, PublicReviewSerializableData
 )
 from src.utilities.collection_utils import delete_duplicate
 
 WeekDataReviewType = TypeVar('WeekDataReviewType', PublicReview, ExpertReview)
-PublicReviewLoadableSource: TypeAlias = Path | YamlFile | list[PublicReviewRawData]
-ExpertReviewLoadableSource: TypeAlias = Path | YamlFile | list[ExpertReviewRawData]
 
 MovieComponentSerializableData: TypeAlias = \
     list[BoxOfficeSerializableData] | list[PublicReviewSerializableData] | list[ExpertReviewSerializableData]
@@ -40,315 +31,32 @@ COMPONENT_CLASS_MAP: Final[ComponentClassMapType] = {
 
 @dataclass(kw_only=True)
 class WeekData:
-    """
-    Represents aggregated data for a single week of a movie's run.
+    movie_id: Optional[int]  # for recognize
+    movie_name: Optional[str] = None  # Added to support direct creation from DB views
+    start_date: date  # for recognize
+    end_date: date  # for recognize
+    total_content_length: int
+    total_title_length: int
 
-    This includes box office figures and collections of public and expert reviews
-    pertaining to that specific week.
+    box_office: int
 
-    :ivar box_office_data: Box office information for the week.
-    :ivar public_reviews: A list of public reviews published during the week.
-    :ivar expert_reviews: A list of expert reviews published during the week.
-    """
-    box_office_data: BoxOffice
-    public_reviews: list[PublicReview] = field(default_factory=list)
-    expert_reviews: list[ExpertReview] = field(default_factory=list)
+    average_sentiment_score: float
+    total_public_review_count: int
+    total_reply_count: int
+    total_positive_reply_count: int
+    total_negative_reply_count: int
+    weekly_reply_count: int
+    weekly_positive_reply_count: int
+    weekly_negative_reply_count: int
 
-    @property
-    def start_date(self) -> date:
-        """
-        The start date of the week.
-
-        This is a convenient proxy for `self.box_office_data.start_date`.
-        """
-        return self.box_office_data.start_date
-
-    @property
-    def end_date(self) -> date:
-        """
-        The end date of the week.
-
-        This is a convenient proxy for `self.box_office_data.end_date`.
-        """
-        return self.box_office_data.end_date
-
-    @property
-    def box_office(self) -> int:
-        """The box office revenue for the week."""
-        return self.box_office_data.box_office
-
-    @property
-    def public_review_count(self) -> int:
-        """
-        Number of public reviews for the week.
-
-        :return: The count of public reviews.
-        """
-        return len(self.public_reviews)
-
-    @property
-    def expert_review_count(self) -> int:
-        """
-        Number of expert reviews for the week.
-
-        :return: The count of expert reviews.
-        """
-        return len(self.expert_reviews)
-
-    @property
-    def review_count(self) -> int:
-        """
-        Total number of public and expert reviews for the week.
-
-        :return: The combined count of public and expert reviews.
-        """
-        return self.public_review_count + self.expert_review_count
-
-    @property
-    def average_sentiment_score(self) -> Optional[float]:
-        """
-        Average sentiment score of both public and expert reviews for the week.
-
-        Calculates the mean of `sentiment_score` from all reviews
-        where the score is not None.
-
-        :return: The average sentiment score, or None if no scores are available.
-        """
-
-        # noinspection PyTypeChecker
-        scores: list[float] = [
-            review.sentiment_score for review in chain(self.public_reviews, self.expert_reviews) if
-                               review.sentiment_score is not None
-        ]
-        return float(mean(scores)) if scores else None
-
-    @property
-    def average_expert_score(self) -> Optional[float]:
-        """
-        Average expert score from expert reviews for the week.
-
-        Calculates the mean of `expert_score` from all expert reviews.
-
-        :return: The average expert score, or None if no expert reviews are available.
-        """
-        scores: list[float] = [review.expert_score for review in self.expert_reviews]
-        return float(mean(scores)) if scores else None
-
-    @property
-    def total_reply_count(self) -> int:
-        """
-        Total reply count from all public reviews for the week.
-
-        :return: The sum of reply counts from all public reviews.
-        """
-        return sum(review.reply_count for review in self.public_reviews)
-
-    @property
-    def total_positive_reactions(self) -> int:
-        """
-        Total positive reaction count from all public reviews for the week.
-
-        :return: The sum of positive reaction counts from all public reviews.
-        """
-        return sum(review.positive_reaction_count for review in self.public_reviews)
-
-    @property
-    def total_negative_reactions(self) -> int:
-        """
-        Total negative reaction count from all public reviews for the week.
-
-        :return: The sum of negative reaction counts from all public reviews.
-        """
-        return sum(review.negative_reaction_count for review in self.public_reviews)
-
-    @cached_property
-    def replies_in_week(self) -> list['Reply']:
-        """
-        A private helper property to get all replies posted within the week's date range.
-
-        This is for internal calculation to avoid redundant filtering.
-        The result is cached after the first access.
-        """
-
-        # Flatten the list of all replies from all public reviews
-        all_replies_on_reviews: Iterator[Reply] = chain.from_iterable(review.replies for review in self.public_reviews)
-
-        # Filter these replies by their own post date
-        return [reply for reply in all_replies_on_reviews if self.start_date <= reply.time.date() <= self.end_date]
-
-    @property
-    def weekly_total_reply_count(self) -> int:
-        """
-        Calculates the total number of replies **posted** within this specific week's timeframe.
-
-        This differs from `total_reply_count`, which counts all replies on reviews
-        posted this week, regardless of when the reply was made.
-
-        :return: The total count of replies posted during the week.
-        """
-        return len(self.replies_in_week)
-
-    @property
-    def weekly_positive_reply_count(self) -> int:
-        """
-        Calculates the total number of positive replies ('推') **posted** within this specific week's timeframe.
-
-        :return: The total count of positive replies posted during the week.
-        """
-        return sum(1 for reply in self.replies_in_week if reply.rating == '推')
-
-    @property
-    def weekly_negative_reply_count(self) -> int:
-        """
-        Calculates the total number of negative replies ('噓') **posted** within this specific week's timeframe.
-
-        :return: The total count of negative replies posted during the week.
-        """
-        return sum(1 for reply in self.replies_in_week if reply.rating == '噓')
-
-    def _update_specific_reviews_list(
-        self,
-        reviews_source: Path | YamlFile | list[ReviewRawData] | list[WeekDataReviewType],
-        review_class: Type[WeekDataReviewType]
-    ) -> None:
-        """
-        Internal helper to update a specific list of reviews (public or expert) for the week.
-
-        Loads reviews from the given source, creates instances of the specified `review_class`,
-        filters them to include only those within the week's date range, and updates
-        the target attribute (either 'public_reviews' or 'expert_reviews') on the instance.
-
-        :param reviews_source: The source of review data.
-        :param review_class: The specific Review subclass (e.g., PublicReview, ExpertReview) to create.
-        :raises TypeError: If `review_class` is the base `Review` class, or if `reviews_source`
-                           is a list containing mixed or invalid types.
-        :raises ValueError: If `review_class` is not PublicReview or ExpertReview.
-        """
-
-        if review_class is PublicReview:
-            target_attribute_name: str = 'public_reviews'
-        elif review_class is ExpertReview:
-            target_attribute_name: str = 'expert_reviews'
-        else:
-
-            raise ValueError(
-                f"Unsupported review_class: {review_class.__name__}. "
-                "Expected PublicReview or ExpertReview."
-            )
-
-        all_reviews: list[WeekDataReviewType] = review_class.create_multiple(source=reviews_source)
-
-        filtered_reviews: list[WeekDataReviewType] = self._filter_review_by_week(
-            reviews=all_reviews,
-            start_date=self.box_office_data.start_date,
-            end_date=self.box_office_data.end_date
-        )
-
-        setattr(self, target_attribute_name, filtered_reviews)
-        return
-
-    def update_public_reviews(
-        self,
-        reviews_source: PublicReviewLoadableSource | list[PublicReview]) -> None:
-        """
-        Updates the public reviews for this WeekData instance.
-
-        Reviews are loaded from the source, filtered by the week's date range,
-        and stored in the `public_reviews` attribute.
-
-        :param reviews_source: The source of public review data.
-        """
-        self._update_specific_reviews_list(reviews_source=reviews_source, review_class=PublicReview)
-
-    def update_expert_reviews(
-        self,
-        reviews_source: ExpertReviewLoadableSource | list[ExpertReview]) -> None:
-        """
-        Updates the expert reviews for this WeekData instance.
-
-        Reviews are loaded from the source, filtered by the week's date range,
-        and stored in the `expert_reviews` attribute.
-
-        :param reviews_source: The source of expert review data.
-        """
-        self._update_specific_reviews_list(reviews_source=reviews_source, review_class=ExpertReview)
-
-    def with_public_reviews(
-        self,
-        reviews_source: PublicReviewLoadableSource | list[PublicReview]) -> 'WeekData':
-        """
-        Updates public reviews and returns the WeekData instance for chaining.
-
-        :param reviews_source: The source of public review data.
-        :return: The WeekData instance itself.
-        """
-        self.update_public_reviews(reviews_source=reviews_source)
-        return self
-
-    def with_expert_reviews(
-        self,
-        reviews_source: ExpertReviewLoadableSource | list[ExpertReview]) -> 'WeekData':
-        """
-        Updates expert reviews and returns the WeekData instance for chaining.
-
-        :param reviews_source: The source of expert review data.
-        :return: The WeekData instance itself.
-        """
-        self.update_expert_reviews(reviews_source=reviews_source)
-        return self
-
-    @classmethod
-    def create_multiple_week_data(
-        cls,
-        weeks_data_source: Path | YamlFile | list[BoxOfficeRawData] | list[BoxOffice],
-        public_reviews_master_source: Optional[PublicReviewLoadableSource | list[PublicReview]] = None,
-        expert_reviews_master_source: Optional[ExpertReviewLoadableSource | list[ExpertReview]] = None
-    ) -> list['WeekData']:
-        """
-        Creates a list of WeekData objects from various sources.
-
-        Each WeekData object represents a week's box office data and associated reviews.
-        Reviews are filtered from the master sources to match each week's date range.
-
-        :param weeks_data_source: The source of week data (box office, start/end dates).
-        :param public_reviews_master_source: An optional master source for all public reviews.
-                                             If provided, reviews will be filtered and assigned to relevant weeks.
-        :param expert_reviews_master_source: An optional master source for all expert reviews.
-                                             If provided, reviews will be filtered and assigned to relevant weeks.
-        :return: A list of created WeekData objects.
-        :raises ValueError: If `weeks_data_source` is of an invalid type (propagated from underlying calls).
-        """
-        logger: Logger = LoggingManager().get_logger('root')
-        all_box_office_instances: list[BoxOffice] = BoxOffice.create_multiple(source=weeks_data_source)
-
-        if not all_box_office_instances:
-            logger.warning(
-                f"No valid BoxOffice instances could be created from weeks_data_source. Cannot create WeekData.")
-            return []
-
-        all_public_reviews: list[PublicReview] = PublicReview.create_multiple(source=public_reviews_master_source) \
-            if public_reviews_master_source is not None else []
-        all_expert_reviews: list[ExpertReview] = ExpertReview.create_multiple(source=expert_reviews_master_source) \
-            if expert_reviews_master_source is not None else []
-
-        assembled_weekly_data_list: list[tuple[BoxOffice, list[PublicReview], list[ExpertReview]]] = \
-            [(current_box_office_data,
-              cls._filter_review_by_week(
-                  reviews=all_public_reviews,
-                  start_date=current_box_office_data.start_date,
-                  end_date=current_box_office_data.end_date),
-              cls._filter_review_by_week(
-                  reviews=all_expert_reviews,
-                  start_date=current_box_office_data.start_date,
-                  end_date=current_box_office_data.end_date))
-             for current_box_office_data in all_box_office_instances]
-
-        return [cls(box_office_data=box_office, public_reviews=public_reviews, expert_reviews=expert_reviews)
-                for box_office, public_reviews, expert_reviews in assembled_weekly_data_list]
+    # Expert Review fields
+    expert_review_count: int = 0
+    average_expert_score: float = 0.0
 
     @staticmethod
-    def _filter_review_by_week(reviews: list[WeekDataReviewType], start_date: date, end_date: date) \
-        -> list[WeekDataReviewType]:
+    def _filter_review_by_week(
+        reviews: list[WeekDataReviewType], start_date: date, end_date: date
+    ) -> list[WeekDataReviewType]:
         """
         Filters a list of reviews to include only those within a specific date range.
 
@@ -360,183 +68,127 @@ class WeekData:
         logger: Logger = LoggingManager().get_logger('root')
         filtered_review: list[WeekDataReviewType] = []
         try:
-            filtered_review = \
-                [review for review in reviews if start_date <= review.date <= end_date]
+            filtered_review = [review for review in reviews if start_date <= review.created_at <= end_date]
         except Exception as e:
             logger.error(
-                f"Error filtering reviews for week {start_date}-{end_date}: {e}")
+                f"Error filtering reviews for week {start_date}-{end_date}: {e}"
+            )
         return filtered_review
 
-
-@dataclass(kw_only=True)
-class MovieSessionData:
-    """
-    Represents session data for a movie over several weeks.
-
-    This includes the movie's ID, name, and a list of WeekData objects
-    representing its performance and reviews over consecutive weeks.
-
-    :ivar metadata: The immutable metadata for the movie.
-    :ivar weeks_data: A list of WeekData objects for the movie session.
-    """
-    metadata: MovieMetadata = field(repr=False)
-    weeks_data: list[WeekData]
-
-    @property
-    def id(self) -> int:
-        """The unique integer identifier of the movie."""
-        return self.metadata.id
-
-    @property
-    def name(self) -> str:
-        """The name of the movie."""
-        return self.metadata.name
-
-    @staticmethod
-    def _create_sliding_window_batches(items: list[BoxOffice], window_size: int) -> list[list[BoxOffice]]:
-        """
-        Creates sliding window batches from a list of items.
-
-        :param items: The list of items to create batches from.
-        :param window_size: The size of each batch (window).
-        :return: A list of batches.
-        """
-        if not items or len(items) < window_size:
-            return []
-
-        return [items[i: i + window_size] for i in range(len(items) - window_size + 1)]
-
-    @staticmethod
-    def _filter_valid_batches(batches: list[list[BoxOffice]]) -> list[list[BoxOffice]]:
-        """
-        Filters a list of batches to keep only those where all weeks have non-zero box office.
-
-        :param batches: A list of batches, where each batch is a list of BoxOffice objects.
-        :return: A new list containing only the valid batches.
-        """
-        return [batch for batch in batches if all(map(lambda week: week.box_office != 0, batch))]
-
     @classmethod
-    def create_sessions_from_single_movie_data(
-        cls, movie_data: 'MovieData', number_of_weeks: int
-    ) -> list['MovieSessionData']:
+    def create_multiple_from_source_variable(
+        cls,
+        weeks_data_source:  list[BoxOffice],
+        public_reviews_master_source: Optional[list[PublicReview]] = None,
+        movie_id: Optional[int] = None
+    ) -> list['WeekData']:
         """
-        Creates a list of MovieSessionData objects from a single MovieData instance.
+        Creates a list of WeekData objects from various sources.
 
-        This is the core logic for segmenting a movie's full history into valid,
-        fixed-length sessions.
+        Each WeekData object represents a week's box office data and associated reviews.
+        Reviews are filtered from the master sources to match each week's date range.
 
-        :param movie_data: A complete MovieData object for a single movie.
-        :param number_of_weeks: The number of weeks each movie session should span.
-        :return: A list of all valid MovieSessionData objects for the given movie.
+        :param movie_id: The source movie id, None if used in prediction.
+        :param weeks_data_source: The source of week data (box office, start/end dates).
+        :param public_reviews_master_source: An optional master source for all public reviews.
+                                             If provided, reviews will be filtered and assigned to relevant weeks.
+        :return: A list of created WeekData objects.
+        :raises ValueError: If `weeks_data_source` is of an invalid type (propagated from underlying calls).
         """
-        logger: Logger = LoggingManager().get_logger("root")
-        box_office_history: list[BoxOffice] = movie_data.box_office
-        if len(box_office_history) < number_of_weeks:
-            return []
-
-        all_batches: list[list[BoxOffice]] = cls._create_sliding_window_batches(
-            items=box_office_history,
-            window_size=number_of_weeks
-        )
-
-        valid_batches: list[list[BoxOffice]] = cls._filter_valid_batches(batches=all_batches)
-
-        if not valid_batches:
-            logger.debug(
-                f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_data.id}."
-            )
-            return []
-
-        return [
-            cls(
-                metadata=movie_data.metadata,
-                weeks_data=WeekData.create_multiple_week_data(
-                    weeks_data_source=single_batch,
-                    public_reviews_master_source=movie_data.public_reviews,
-                    expert_reviews_master_source=movie_data.expert_reviews
-                )
-            )
-            for single_batch in valid_batches
-        ]
-
-    @classmethod
-    def create_sessions_from_movie_data_list(
-        cls, movie_data_list: list['MovieData'], number_of_weeks: int
-    ) -> list['MovieSessionData']:
-        """
-        Creates MovieSessionData objects from a list of in-memory MovieData objects.
-
-        This method iterates through each MovieData object and delegates the session
-        creation to `create_sessions_from_single_movie_data`.
-
-        :param movie_data_list: A list of MovieData objects to process.
-        :param number_of_weeks: The number of weeks each movie session should span.
-        :return: A flattened list of all valid MovieSessionData objects created.
-        """
-        logger: Logger = LoggingManager().get_logger("root")
-        all_sessions: list['MovieSessionData'] = list(chain.from_iterable(
-            cls.create_sessions_from_single_movie_data(
-                movie_data=movie_data,
-                number_of_weeks=number_of_weeks
-            )
-            for movie_data in movie_data_list
-        ))
-        logger.debug(
-            f"Created a total of {len(all_sessions)} sessions from {len(movie_data_list)} movies."
-        )
-        return all_sessions
-
-    @classmethod
-    def _create_sessions_for_single_movie(
-        cls, movie_meta_item: MoviePathMetadata, number_of_weeks: int
-    ) -> list['MovieSessionData']:
-        """
-        Creates all weekly sessions for a single movie based on its metadata.
-
-        This helper method loads box office and review data for a movie, then segments
-        the box office data into batches of `number_of_weeks`. For each valid batch,
-        a `MovieSessionData` instance is created with corresponding `WeekData`.
-
-        :param movie_meta_item: Metadata for the movie, including its ID, name,
-                                and paths to its data files.
-        :param number_of_weeks: The number of weeks each movie session should span.
-        :return: A list of `MovieSessionData` objects for the given movie,
-                 or an empty list if processing fails or no valid sessions are found.
-        """
-        box_office_file_path: Path = movie_meta_item.box_office_file_path
-        public_reviews_file_path: Path = movie_meta_item.public_reviews_file_path
-        expert_reviews_file_path: Path = movie_meta_item.expert_reviews_file_path
-
         logger: Logger = LoggingManager().get_logger('root')
 
-        if not box_office_file_path or not box_office_file_path.exists():
+        all_box_office_instances: list[BoxOffice] = weeks_data_source
+
+        if not all_box_office_instances:
             logger.warning(
-                f"Box office file not found for movie ID {movie_meta_item.id}. Skipping movie '{movie_meta_item.name}'.")
+                f"No valid BoxOffice instances could be created from weeks_data_source. Cannot create WeekData.")
             return []
 
-        loaded_public_reviews: list[PublicReview] = []
-        if public_reviews_file_path and public_reviews_file_path.exists():
-            loaded_public_reviews = PublicReview.create_multiple(source=public_reviews_file_path)
-        else:
-            logger.warning(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
-                        f"Proceeding without reviews for this movie.")
+        # Ensure public_reviews_master_source is a list of PublicReview objects
+        all_public_reviews: list[PublicReview] = public_reviews_master_source if public_reviews_master_source else []
 
-        loaded_expert_reviews: list[ExpertReview] = []
-        if expert_reviews_file_path and expert_reviews_file_path.exists():
-            loaded_expert_reviews = ExpertReview.create_multiple(source=expert_reviews_file_path)
-        else:
-            logger.warning(f"Review file not found for movie ID {movie_meta_item.id} ('{movie_meta_item.name}')."
-                        f"Proceeding without reviews for this movie.")
+        return [cls(
+            movie_id=movie_id,
+            start_date=current_box_office_data.start_date,
+            end_date=current_box_office_data.end_date,
+            total_public_review_count=len(
+                assembled_public_reviews := cls._filter_review_by_week(
+                    reviews=all_public_reviews,
+                    start_date=current_box_office_data.start_date,
+                    end_date=current_box_office_data.end_date
+                )
+            ),
+            total_content_length=sum(len(pr.content) for pr in assembled_public_reviews),
+            total_title_length=sum(len(pr.title) for pr in assembled_public_reviews),
+            box_office=current_box_office_data.amount,
 
-        movie_data = MovieData(
-            metadata=movie_meta_item,
-            box_office=BoxOffice.create_multiple(source=movie_meta_item.box_office_file_path),
-            public_reviews=loaded_public_reviews,
-            expert_reviews=loaded_expert_reviews
-        )
+            average_sentiment_score=float(mean([
+                pr.sentiment_score for pr in assembled_public_reviews
+            ])) if assembled_public_reviews else 0.0,
+            total_reply_count=sum([pr.reply_count for pr in assembled_public_reviews]),
+            weekly_reply_count=len(
+                weekly_reply := [
+                    pr for rp in assembled_public_reviews for pr in rp.replies
+                    if current_box_office_data.start_date <= pr.created_at <= current_box_office_data.end_date
+                ]
+            ),
+            total_positive_reply_count=sum([pr.positive_reply_count for pr in assembled_public_reviews]),
+            weekly_positive_reply_count=len([reply for reply in weekly_reply if reply.type == "boo"]),
+            total_negative_reply_count=sum([pr.negative_reply_count for pr in assembled_public_reviews]),
+            weekly_negative_reply_count=len([reply for reply in weekly_reply if reply.type == "push"]),
+            # Note: Expert reviews are not yet processed in this memory-based flow, default to 0
+            expert_review_count=0,
+            average_expert_score=0.0
+        ) for current_box_office_data in all_box_office_instances]
 
-        return cls.create_sessions_from_single_movie_data(movie_data=movie_data, number_of_weeks=number_of_weeks)
+    @classmethod
+    def create_multiple_from_db_rows(cls, rows: list[dict[str, Any]]) -> list['WeekData']:
+        """
+        Creates a list of WeekData objects from database rows (e.g., from week_data_view).
+
+        This method handles the mapping of DB columns to WeekData attributes.
+
+        :param rows: A list of dictionaries representing rows from the database view.
+        :return: A list of WeekData objects.
+        """
+        if not rows:
+            return []
+
+        week_data_list: list['WeekData'] = []
+
+        for row in rows:
+            # Parse dates
+            start_date = row['start_date']
+            if isinstance(start_date, str):
+                start_date = date.fromisoformat(start_date)
+
+            end_date = row['end_date']
+            if isinstance(end_date, str):
+                end_date = date.fromisoformat(end_date)
+
+            # Map DB columns to WeekData fields directly
+            week_data = cls(
+                movie_id=row.get('movie_id'),
+                movie_name=row.get('movie_name'),
+                start_date=start_date,
+                end_date=end_date,
+                total_content_length=int(row.get('total_content_length', 0)),
+                total_title_length=int(row.get('total_title_length', 0)),
+                box_office=int(row.get('box_office', 0)),
+                average_sentiment_score=float(row.get('average_sentiment_score') or 0.0),
+                total_public_review_count=int(row.get('public_review_count', 0)),
+                total_reply_count=int(row.get('total_reply_count', 0)),
+                weekly_reply_count=int(row.get('weekly_reply_count', 0)),
+                total_positive_reply_count=int(row.get('total_positive_reply_count', 0)),
+                weekly_positive_reply_count=int(row.get('weekly_positive_reply_count', 0)),
+                total_negative_reply_count=int(row.get('total_negative_reply_count', 0)),
+                weekly_negative_reply_count=int(row.get('weekly_negative_reply_count', 0)),
+                expert_review_count=int(row.get('expert_review_count', 0)),
+                average_expert_score=float(row.get('average_expert_score') or 0.0)
+            )
+            week_data_list.append(week_data)
+
+        return week_data_list
 
 
 @dataclass(kw_only=True)
@@ -547,25 +199,17 @@ class MovieData:
     This includes its metadata (ID, name), and lists of all its
     box office records, public reviews, and expert reviews.
 
-    :ivar metadata: The immutable metadata for the movie.
+    :ivar id: The unique integer identifier of the movie.
+    :ivar name: The name of the movie.
     :ivar box_office: A list of all box office records for the movie.
     :ivar public_reviews: A list of all public reviews for the movie.
     :ivar expert_reviews: A list of all expert reviews for the movie.
     """
-    metadata: MovieMetadata = field(repr=False)
+    id: int
+    name: str
     box_office: list[BoxOffice] = field(default_factory=list)
     public_reviews: list[PublicReview] = field(default_factory=list)
     expert_reviews: list[ExpertReview] = field(default_factory=list)
-
-    @property
-    def id(self) -> int:
-        """The unique integer identifier of the movie."""
-        return self.metadata.id
-
-    @property
-    def name(self) -> str:
-        """The name of the movie."""
-        return self.metadata.name
 
     @property
     def box_office_week_lens(self) -> int:
@@ -595,150 +239,41 @@ class MovieData:
         """
         return len(self.public_reviews) if self.public_reviews else 0
 
-    def __save_component(
-        self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'], target_directory: Path
-    ) -> Path:
+    def update_box_office(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[BoxOffice]) -> None:
         """
-        Saves a specific component to a YAML file.
+        Updates the movie's box office data.
 
-        This internal helper serializes the data for the specified component and saves
-        it to a file named after the movie's ID within the target directory.
+        The existing box office data can be replaced or extended with the provided data.
+        Duplicates are handled.
 
-        :param component_type: The type of component to save.
-        :param target_directory: The directory where the component's YAML file will be saved.
-        :return: The path to the saved YAML file.
-        :raises Exception: Propagates exceptions from `YamlFile.save()`.
+        :param update_method: How to update ('replace' or 'extend').
+        :param data: A list of new BoxOffice instances.
         """
-        logger: Logger = LoggingManager().get_logger("root")
-        component_name: str = component_type.replace('_', ' ')
-        output_file_path: Path = target_directory / f"{self.id}.yaml"
+        self.__update_component(component_type='box_office', update_method=update_method, data=data)
 
-        logger.debug(
-            f"Attempting to save {component_name} for movie ID {self.id} to '{output_file_path}'."
-        )
-        component_data: MovieComponentSerializableData = [component.as_serializable_dict() for component in
-                                                          getattr(self, component_type, [])]
-        try:
-            YamlFile(path=output_file_path).save(cast(list[dict[Any, Any]], cast(object, component_data)))
-        except Exception as e:
-            logger.error(f"Error saving {component_name} data for movie ID {self.id} to '{output_file_path}': {e}")
-            raise
-        logger.debug(
-            f"Successfully saved {len(component_data)} {component_name} items "
-            f"for movie ID {self.id} to '{output_file_path}'."
-        )
-        return output_file_path
-
-    def save_box_office(self, target_directory: Path) -> Path:
+    def update_public_reviews(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[PublicReview]) -> None:
         """
-        Saves the movie's box office data to a YAML file.
+        Updates the movie's public reviews data.
 
-        :param target_directory: The directory where the box office data file will be saved.
-        :return: The path to the saved YAML file.
+        The existing public reviews can be replaced or extended with the provided data.
+        Duplicates are handled.
+
+        :param update_method: How to update ('replace' or 'extend').
+        :param data: A list of new PublicReview instances.
         """
-        return self.__save_component(component_type='box_office', target_directory=target_directory)
+        self.__update_component(component_type='public_reviews', update_method=update_method, data=data)
 
-    def save_public_reviews(self, target_directory: Path) -> Path:
+    def update_expert_reviews(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[ExpertReview]) -> None:
         """
-        Saves the movie's public reviews data to a YAML file.
+        Updates the movie's expert reviews data.
 
-        :param target_directory: The directory where the public reviews data file will be saved.
-        :return: The path to the saved YAML file.
+        The existing expert reviews can be replaced or extended with the provided data.
+        Duplicates are handled.
+
+        :param update_method: How to update ('replace' or 'extend').
+        :param data: A list of new ExpertReview instances.
         """
-        return self.__save_component(component_type='public_reviews', target_directory=target_directory)
-
-    def save_expert_reviews(self, target_directory: Path) -> Path:
-        """
-        Saves the movie's expert reviews data to a YAML file.
-
-        :param target_directory: The directory where the expert reviews data file will be saved.
-        :return: The path to the saved YAML file.
-        """
-        return self.__save_component(component_type='expert_reviews', target_directory=target_directory)
-
-    def __load_component(
-        self, component_type: Literal['box_office', 'public_reviews', 'expert_reviews'], target_directory: Path
-    ) -> None:
-        """
-        Internal helper to load a specific component's data from a YAML file.
-
-        If the file exists, data is loaded, and instances of the appropriate
-        class (BoxOffice, PublicReview, or ExpertReview) are created and
-        assigned to the corresponding attribute of this MovieData instance.
-        If the file doesn't exist or an error occurs, the attribute is set to an empty list.
-
-        :param component_type: The type of component to load.
-        :param target_directory: The directory from which to load the component's YAML file.
-        :raises ValueError: If an internal error occurs due to a missing class mapping for `component_type`.
-        """
-        logger: Logger = LoggingManager().get_logger("root")
-        component_name_for_log: str = component_type.replace('_', ' ')
-        source_file_path: Path = target_directory / f"{self.id}.yaml"
-
-        logger.debug(
-            f"Attempting to load {component_name_for_log} for movie ID {self.id} from '{source_file_path}'."
-        )
-
-        if not source_file_path.exists():
-            logger.warning(
-                f"Data file not found for {component_name_for_log} for movie ID {self.id} at '{source_file_path}'. "
-                f"The '{component_type}' list in MovieData instance will be empty."
-            )
-            setattr(self, component_type, [])
-            return
-
-        try:
-
-            target_class: Optional[Type[BoxOffice] | Type[PublicReview] | Type[ExpertReview]] = \
-                COMPONENT_CLASS_MAP.get(component_type)
-
-            if target_class is None:
-                msg = (f"Internal error: No class mapping found for component type '{component_type}' "
-                       f"for movie ID {self.id}")
-                logger.critical(msg)
-                raise ValueError(msg)
-
-            loaded_items_list: MovieComponent = target_class.create_multiple(source=source_file_path)
-
-            setattr(self, component_type, loaded_items_list)
-
-
-        except Exception as e:
-            logger.error(
-                f"Unexpected error during the loading process of {component_name_for_log} data "
-                f"for movie ID {self.id} from '{source_file_path}': {e}"
-            )
-            setattr(self, component_type, [])
-
-    def load_box_office(self, target_directory: Path) -> None:
-        """
-        Loads the movie's box office data from a YAML file in the specified directory.
-
-        Updates the `box_office` attribute of this instance.
-
-        :param target_directory: The directory from which to load the box office data file.
-        """
-        self.__load_component(component_type='box_office', target_directory=target_directory)
-
-    def load_public_reviews(self, target_directory: Path) -> None:
-        """
-        Loads the movie's public reviews data from a YAML file in the specified directory.
-
-        Updates the `public_reviews` attribute of this instance.
-
-        :param target_directory: The directory from which to load the public reviews data file.
-        """
-        self.__load_component(component_type='public_reviews', target_directory=target_directory)
-
-    def load_expert_reviews(self, target_directory: Path) -> None:
-        """
-        Loads the movie's expert reviews data from a YAML file in the specified directory.
-
-        Updates the `expert_reviews` attribute of this instance.
-
-        :param target_directory: The directory from which to load the expert reviews data file.
-        """
-        self.__load_component(component_type='expert_reviews', target_directory=target_directory)
+        self.__update_component(component_type='expert_reviews', update_method=update_method, data=data)
 
     def __update_component(
         self,
@@ -793,38 +328,183 @@ class MovieData:
                     f"Final count: {final_count} (was {original_data_count}, added {incoming_data_count} before deduplication)."
                 )
 
-    def update_box_office(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[BoxOffice]) -> None:
+
+@dataclass(kw_only=True)
+class MovieSessionData:
+    """
+    Represents session data for a movie over several weeks.
+
+    This includes the movie's ID, name, and a list of WeekData objects
+    representing its performance and reviews over consecutive weeks.
+
+    :ivar id: The unique integer identifier of the movie.
+    :ivar name: The name of the movie.
+    :ivar weeks_data: A list of WeekData objects for the movie session.
+    """
+    id: int
+    name: str
+    weeks_data: list[WeekData]
+
+    @staticmethod
+    def _create_sliding_window_batches(items: list[Any], window_size: int) -> list[list[Any]]:
         """
-        Updates the movie's box office data.
+        Creates sliding window batches from a list of items.
 
-        The existing box office data can be replaced or extended with the provided data.
-        Duplicates are handled.
-
-        :param update_method: How to update ('replace' or 'extend').
-        :param data: A list of new BoxOffice instances.
+        :param items: The list of items to create batches from.
+        :param window_size: The size of each batch (window).
+        :return: A list of batches.
         """
-        self.__update_component(component_type='box_office', update_method=update_method, data=data)
+        if not items or len(items) < window_size:
+            return []
 
-    def update_public_reviews(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[PublicReview]) -> None:
+        return [items[i: i + window_size] for i in range(len(items) - window_size + 1)]
+
+    @staticmethod
+    def _filter_valid_batches(batches: list[list[BoxOffice | WeekData]]) -> list[list[BoxOffice | WeekData]]:
         """
-        Updates the movie's public reviews data.
+        Filters a list of batches to keep only those where all weeks have non-zero box office.
+        Supports both BoxOffice objects and WeekData objects (which have a 'box_office' attribute).
 
-        The existing public reviews can be replaced or extended with the provided data.
-        Duplicates are handled.
-
-        :param update_method: How to update ('replace' or 'extend').
-        :param data: A list of new PublicReview instances.
+        :param batches: A list of batches.
+        :return: A new list containing only the valid batches.
         """
-        self.__update_component(component_type='public_reviews', update_method=update_method, data=data)
+        def has_box_office(item: BoxOffice | WeekData) -> bool:
+            if isinstance(item, BoxOffice):
+                return item.amount != 0
+            if isinstance(item, WeekData):
+                return item.box_office != 0
+            return False
 
-    def update_expert_reviews(self, update_method: Literal['REPLACE', 'EXTEND'], data: list[ExpertReview]) -> None:
+        return [batch for batch in batches if all(map(has_box_office, batch))]
+
+    @classmethod
+    def create_sessions_from_single_movie_data(
+        cls, movie_data: 'MovieData', number_of_weeks: int
+    ) -> list['MovieSessionData']:
         """
-        Updates the movie's expert reviews data.
+        Creates a list of MovieSessionData objects from a single MovieData instance.
 
-        The existing expert reviews can be replaced or extended with the provided data.
-        Duplicates are handled.
+        This is the core logic for segmenting a movie's full history into valid,
+        fixed-length sessions.
 
-        :param update_method: How to update ('replace' or 'extend').
-        :param data: A list of new ExpertReview instances.
+        :param movie_data: A complete MovieData object for a single movie.
+        :param number_of_weeks: The number of weeks each movie session should span.
+        :return: A list of all valid MovieSessionData objects for the given movie.
         """
-        self.__update_component(component_type='expert_reviews', update_method=update_method, data=data)
+        logger: Logger = LoggingManager().get_logger("root")
+        box_office_history: list[BoxOffice] = movie_data.box_office
+        if len(box_office_history) < number_of_weeks:
+            return []
+
+        all_batches: list[list[BoxOffice]] = cls._create_sliding_window_batches(
+            items=box_office_history,
+            window_size=number_of_weeks
+        )
+
+        valid_batches: list[list[BoxOffice]] = cls._filter_valid_batches(batches=all_batches)
+
+        if not valid_batches:
+            logger.debug(
+                f"No valid {number_of_weeks}-week sessions found after filtering for movie ID {movie_data.id}."
+            )
+            return []
+
+        return [
+            cls(
+                id=movie_data.id,
+                name=movie_data.name,
+                weeks_data=WeekData.create_multiple_from_source_variable(
+                    movie_id=movie_data.id,
+                    weeks_data_source=single_batch,
+                    public_reviews_master_source=movie_data.public_reviews
+                )
+            )
+            for single_batch in valid_batches
+        ]
+
+    @classmethod
+    def create_sessions_from_movie_data_list(
+        cls, movie_data_list: list['MovieData'], number_of_weeks: int
+    ) -> list['MovieSessionData']:
+        """
+        Creates MovieSessionData objects from a list of in-memory MovieData objects.
+
+        This method iterates through each MovieData object and delegates the session
+        creation to `create_sessions_from_single_movie_data`.
+
+        :param movie_data_list: A list of MovieData objects to process.
+        :param number_of_weeks: The number of weeks each movie session should span.
+        :return: A flattened list of all valid MovieSessionData objects created.
+        """
+        logger: Logger = LoggingManager().get_logger("root")
+        all_sessions: list['MovieSessionData'] = list(chain.from_iterable(
+            cls.create_sessions_from_single_movie_data(
+                movie_data=movie_data,
+                number_of_weeks=number_of_weeks
+            )
+            for movie_data in movie_data_list
+        ))
+        logger.debug(
+            f"Created a total of {len(all_sessions)} sessions from {len(movie_data_list)} movies."
+        )
+        return all_sessions
+
+    @classmethod
+    def create_sessions_from_week_data_list(
+        cls, week_data_list: list['WeekData'], number_of_weeks: int
+    ) -> list['MovieSessionData']:
+        """
+        Creates MovieSessionData objects from a flat list of WeekData objects.
+        This is typically used when data is fetched from a pre-calculated database view.
+
+        :param week_data_list: A list of WeekData objects (potentially containing data for multiple movies).
+        :param number_of_weeks: The number of weeks each movie session should span.
+        :return: A list of valid MovieSessionData objects.
+        """
+        logger: Logger = LoggingManager().get_logger("root")
+        if not week_data_list:
+            return []
+
+        # 1. Group WeekData by movie_id
+        week_data_by_movie: dict[int, list[WeekData]] = {}
+        for wd in week_data_list:
+            if wd.movie_id is None:
+                continue
+            if wd.movie_id not in week_data_by_movie:
+                week_data_by_movie[wd.movie_id] = []
+            week_data_by_movie[wd.movie_id].append(wd)
+
+        all_sessions: list[MovieSessionData] = []
+
+        # 2. Process each movie
+        for movie_id, weeks in week_data_by_movie.items():
+            if len(weeks) < number_of_weeks:
+                continue
+
+            # Ensure weeks are sorted by date
+            weeks.sort(key=lambda w: w.start_date)
+
+            # Get movie name from the first record (assuming it's consistent)
+            movie_name = weeks[0].movie_name or f"Unknown Movie {movie_id}"
+
+            # 3. Create sliding window batches of WeekData
+            all_batches: list[list[WeekData]] = cls._create_sliding_window_batches(
+                items=weeks,
+                window_size=number_of_weeks
+            )
+
+            # 4. Filter valid batches (box office != 0)
+            valid_batches: list[list[WeekData]] = cls._filter_valid_batches(batches=all_batches)
+
+            # 5. Create Session Objects
+            for batch in valid_batches:
+                all_sessions.append(cls(
+                    id=movie_id,
+                    name=movie_name,
+                    weeks_data=batch
+                ))
+
+        logger.debug(
+            f"Created a total of {len(all_sessions)} sessions from {len(week_data_by_movie)} movies (DB source)."
+        )
+        return all_sessions
