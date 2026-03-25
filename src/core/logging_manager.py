@@ -6,7 +6,7 @@ from enum import Enum
 from io import TextIOBase
 from logging import FileHandler, Formatter, getLevelName, Handler, Logger, StreamHandler
 from pathlib import Path
-from typing import Literal, Optional, overload, TypeAlias
+from typing import Any, Literal, Optional, overload, TypeAlias
 
 from colorama.ansitowin32 import StreamWrapper
 
@@ -24,12 +24,12 @@ class LogLevel(Enum):
     :ivar ERROR: Corresponds to logging.ERROR (40).
     :ivar CRITICAL: Corresponds to logging.CRITICAL (50).
     """
-    NOTSET: int = logging.NOTSET
-    DEBUG: int = logging.DEBUG
-    INFO: int = logging.INFO
-    WARNING: int = logging.WARNING
-    ERROR: int = logging.ERROR
-    CRITICAL: int = logging.CRITICAL
+    NOTSET = logging.NOTSET
+    DEBUG = logging.DEBUG
+    INFO = logging.INFO
+    WARNING = logging.WARNING
+    ERROR = logging.ERROR
+    CRITICAL = logging.CRITICAL
 
 
 @dataclass
@@ -89,7 +89,7 @@ class LoggingManager:
         LoggerSettings(name='root', level=LogLevel.DEBUG, linked_handlers=['stdout'])
     ]
 
-    def __new__(cls, *args: any, **kwargs: any) -> 'LoggingManager':
+    def __new__(cls, *args: Any, **kwargs: Any) -> 'LoggingManager':
         """
         Ensures that only one instance of LoggingManager is created (Singleton pattern).
 
@@ -505,7 +505,7 @@ class LoggingManager:
 
     def remove_unused_handler(self, handler_name: str) -> None:
         """
-        Removes a handler from the manager if it is no longer linked to any managed logger.
+        Removes a handler from the manager if it is no longer linked to Any managed logger.
         This function will call remove_handler if the handler is determined to be unused.
 
         :param handler_name: The name of the handler to check and potentially remove.
@@ -516,7 +516,7 @@ class LoggingManager:
             raise ValueError(f"Handler with name '{handler_name}' not found in the manager.")
 
         if not self._is_handler_in_use(handler_name=handler_name, handler_instance=handler_instance):
-            print(f"Handler '{handler_name}' is not attached to any active logger. Proceeding to remove.")
+            print(f"Handler '{handler_name}' is not attached to Any active logger. Proceeding to remove.")
             self.remove_handler(handler_name)
         else:
             print(
@@ -533,7 +533,7 @@ class LoggingManager:
         :param components: A list of settings to be processed.
                            This list may be default or user-provided.
         :raises ValueError: If a user-defined 'stdout' handler does not target
-                            sys.stdout, or if any component settings are invalid
+                            sys.stdout, or if Any component settings are invalid
                             (e.g., name conflict, non-existent handler link).
         :raises TypeError: If an unsupported handler output type is specified.
         """
@@ -668,20 +668,20 @@ class LoggingManager:
 
     def _is_handler_in_use(self, handler_name: str, handler_instance: Handler) -> bool:
         """
-        Checks if a handler is in use by any managed logger or in the global registry.
+        Checks if a handler is in use by Any managed logger or in the global registry.
 
         :param handler_name: The name of the handler.
         :param handler_instance: The handler object to check.
         :return: True if the handler is in use, False otherwise.
         """
-        is_linked_by_manager: bool = any(
+        is_linked_by_manager: bool = Any(
             handler_name in connections for connections in self._logger_handler_connections.values()
         )
 
         if is_linked_by_manager:
             return True
 
-        is_attached_to_managed_logger: bool = any(
+        is_attached_to_managed_logger: bool = Any(
             handler_instance in logger_obj.handlers for logger_obj in self._loggers
         )
         if is_attached_to_managed_logger:

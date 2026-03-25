@@ -61,7 +61,6 @@ class GradientModelHandler(BaseModelHandler[ConfigDictType], ABC):
             )
         except (FileNotFoundError, ValueError) as e:
             self._parser.error(str(e))
-            return
 
         if not eval_results:
             self._logger.warning("No evaluation results were generated. Cannot create any plots.")

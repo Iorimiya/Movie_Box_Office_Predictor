@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Callable, Optional, TypedDict
+from typing import Any, Callable, Optional, TypedDict
 
 from numpy import floating, int_, issubdtype, vectorize
 from numpy.typing import NDArray
@@ -44,7 +44,7 @@ class ClassificationReportDict(TypedDict):
     accuracy: float
     f1_score: float
     confusion_matrix: NDArray[int_]
-    report_dict: dict[str, any]
+    report_dict: dict[str, Any]
     report_string: str
     target_names: Optional[list[str]]
 
@@ -57,8 +57,8 @@ class RegressionMetricsCalculator:
     @staticmethod
     def generate_report(
         *,
-        y_true: NDArray[any],
-        y_pred: NDArray[any]
+        y_true: NDArray[Any],
+        y_pred: NDArray[Any]
     ) -> RegressionReportDict:
         """
         Generates a standard regression metrics report.
@@ -109,8 +109,8 @@ class ClassificationMetricsCalculator(ABC):
     def _transform_to_labels(
         self,
         *,
-        y_true: NDArray[any],
-        y_pred: NDArray[any]
+        y_true: NDArray[Any],
+        y_pred: NDArray[Any]
     ) -> tuple[NDArray[int_], NDArray[int_]]:
         """
         Transforms raw true values and predictions into discrete integer labels.
@@ -128,8 +128,8 @@ class ClassificationMetricsCalculator(ABC):
     def generate_report(
         self,
         *,
-        y_true: NDArray[any],
-        y_pred: NDArray[any]
+        y_true: NDArray[Any],
+        y_pred: NDArray[Any]
     ) -> ClassificationReportDict:
         """
         Generates a comprehensive classification metrics report.
@@ -181,7 +181,7 @@ class ClassificationMetricsCalculator(ABC):
         )
 
         # Generate both a dictionary and a string version of the detailed report.
-        report_dict: dict[str, any] = classification_report(
+        report_dict: dict[str, Any] = classification_report(
             y_true=true_labels,
             y_pred=predicted_labels,
             target_names=target_names_for_report,
@@ -252,8 +252,8 @@ class BinaryClassificationMetricsCalculator(ClassificationMetricsCalculator):
     def _transform_to_labels(
         self,
         *,
-        y_true: NDArray[any],
-        y_pred: NDArray[any]
+        y_true: NDArray[Any],
+        y_pred: NDArray[Any]
     ) -> tuple[NDArray[int_], NDArray[int_]]:
         """
         Overrides the base method to convert probability predictions to binary labels.
@@ -315,8 +315,8 @@ class PointwiseClassificationMetricsCalculator(ClassificationMetricsCalculator):
     def _transform_to_labels(
         self,
         *,
-        y_true: NDArray[any],
-        y_pred: NDArray[any]
+        y_true: NDArray[Any],
+        y_pred: NDArray[Any]
     ) -> tuple[NDArray[int_], NDArray[int_]]:
         """
         Overrides the base method to convert continuous regression values to class labels.
@@ -328,7 +328,7 @@ class PointwiseClassificationMetricsCalculator(ClassificationMetricsCalculator):
         :param y_pred: The predicted continuous values from the model.
         :return: A tuple of (true_labels, predicted_labels) as integer arrays.
         """
-        vectorized_transform: Callable[[NDArray[any]], NDArray[int_]] = vectorize(self.value_to_label_fn)
+        vectorized_transform: Callable[[NDArray[Any]], NDArray[int_]] = vectorize(self.value_to_label_fn)
 
         true_labels: NDArray[int_] = vectorized_transform(y_true)
         predicted_labels: NDArray[int_] = vectorized_transform(y_pred)
@@ -349,14 +349,14 @@ class PairwiseClassificationMetricsCalculator(ClassificationMetricsCalculator):
     :ivar reference_values: The array of reference values to compare against.
     """
     value_pair_to_label_fn: Callable[[float, float], int]
-    reference_values: NDArray[any]
+    reference_values: NDArray[Any]
 
     @override
     def __init__(
         self,
         *,
         value_pair_to_label_fn: Callable[[float, float], int],
-        reference_values: NDArray[any],
+        reference_values: NDArray[Any],
         label_map: Optional[dict[int, str]] = None,
         f1_average_method: str = 'binary'
     ) -> None:
@@ -376,14 +376,14 @@ class PairwiseClassificationMetricsCalculator(ClassificationMetricsCalculator):
             f1_average_method=f1_average_method
         )
         self.value_pair_to_label_fn: Callable[[float, float], int] = value_pair_to_label_fn
-        self.reference_values: NDArray[any] = reference_values
+        self.reference_values: NDArray[Any] = reference_values
 
     @override
     def _transform_to_labels(
         self,
         *,
-        y_true: NDArray[any],
-        y_pred: NDArray[any]
+        y_true: NDArray[Any],
+        y_pred: NDArray[Any]
     ) -> tuple[NDArray[int_], NDArray[int_]]:
         """
         Overrides the base method to convert values to labels based on pairwise comparison.
@@ -405,7 +405,7 @@ class PairwiseClassificationMetricsCalculator(ClassificationMetricsCalculator):
         # Vectorize the provided Python function so it can be applied to NumPy arrays efficiently.
         # It now takes two arrays as input.
         vectorized_transform: Callable[
-            [NDArray[any], NDArray[any]], NDArray[int_]
+            [NDArray[Any], NDArray[Any]], NDArray[int_]
         ] = vectorize(self.value_pair_to_label_fn)
 
         # Apply the vectorized function to pairs of (value, reference_value).

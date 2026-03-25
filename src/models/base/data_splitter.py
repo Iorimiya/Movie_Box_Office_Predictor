@@ -1,5 +1,5 @@
 from logging import Logger
-from typing import Generic, Optional, TypeVar
+from typing import Any, Generic, Optional, TypeVar
 
 from numpy import array, unique
 from numpy.typing import NDArray
@@ -8,8 +8,8 @@ from sklearn.model_selection import train_test_split
 from src.core.compat import TypedDict
 from src.core.logging_manager import LoggingManager
 
-X_Type = TypeVar('X_Type', bound=NDArray[any])
-Y_Type = TypeVar('Y_Type', bound=NDArray[any])
+X_Type = TypeVar('X_Type', bound=NDArray[Any])
+Y_Type = TypeVar('Y_Type', bound=NDArray[Any])
 
 
 class SplitDataset(TypedDict, Generic[X_Type, Y_Type]):
@@ -167,7 +167,7 @@ class DatasetSplitter(Generic[X_Type, Y_Type]):
             return all(count >= 2 for count in counts)
         return False  # Cannot stratify multidimensional or regression targets this way
 
-    # noinspection PyTypeChecker
+    # noinspection PyTypeChecker,PyUnresolvedReferences
     @staticmethod
     def _create_empty_arrays(x_ref: X_Type, y_ref: Y_Type) -> tuple[X_Type, Y_Type]:
         """

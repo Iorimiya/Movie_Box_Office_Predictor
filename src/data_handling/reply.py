@@ -111,7 +111,7 @@ class Reply(
 
         review_type: Optional[ReplyRating]
         if raw_type in reverse_display_map:
-            review_type = cast(ReplyRating, reverse_display_map[raw_type])
+            review_type = cast(ReplyRating, reverse_display_map[cast(str, raw_type)])
         else:
             review_type = cast(Optional[ReplyRating], raw_type)
 

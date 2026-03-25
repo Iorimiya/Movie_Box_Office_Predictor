@@ -59,10 +59,6 @@ def plot_multi_line_graph(
             case 'sci-notation':
                 logger.debug("Applying 'sci-notation' formatting to y-axis.")
                 plt.gca().ticklabel_format(style='sci', scilimits=(-2, 3), axis='y')
-            case _:
-                # This case should ideally not be hit if types are checked, but as a safeguard.
-                logger.warning(f"Unknown y_formatter '{y_formatter}'. No formatting applied.")
-
     plt.legend()
     plt.tight_layout()
 

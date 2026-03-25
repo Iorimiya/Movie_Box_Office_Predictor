@@ -113,8 +113,6 @@ class CsvFile(File):
         if not self.path.parent.exists():
             self.path.parent.mkdir(parents=True, exist_ok=True)
 
-        field_names: Optional[list[str]] = None
-
         if self.header is not None:
             field_names = list(self.header)
         elif data:  # data is not empty, and no header was provided, so infer from data

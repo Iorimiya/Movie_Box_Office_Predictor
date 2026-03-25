@@ -3,7 +3,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
-from typing import Callable, Final, Iterator, Optional, TypeAlias, TypedDict
+from typing import Any, Callable, Final, Iterator, Optional, TypeAlias, TypedDict
 
 from selenium import webdriver
 from selenium.common.exceptions import (
@@ -113,7 +113,7 @@ class Browser(webdriver.Chrome):
                        If ``None``, a default timeout will be used by the ``wait`` method.
         :ivar error_message: A message to log if the waiting condition times out.
         """
-        condition: Callable[[any], bool | WebElement]
+        condition: Callable[[Any], bool | WebElement]
         timeout: Optional[float]
         error_message: str
 
@@ -166,7 +166,7 @@ class Browser(webdriver.Chrome):
             self.get(url=target_url)
 
     @override
-    def __enter__(self) -> any:
+    def __enter__(self) -> Any:
         """
         Enters the runtime context related to this object.
 
@@ -177,16 +177,16 @@ class Browser(webdriver.Chrome):
         return super().__enter__()
 
     @override
-    def __exit__(self, exc_type, exc_val, exc_tb) -> any:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> Any:
         """
         Exits the runtime context related to this object, ensuring the browser is properly closed.
 
         Calls the ``__exit__`` method of the parent ``webdriver.Chrome`` class.
 
-        :param exc_type: The type of the exception that caused the context to be exited, if any.
-        :param exc_val: The exception instance that caused the context to be exited, if any.
+        :param exc_type: The type of the exception that caused the context to be exited, if Any.
+        :param exc_val: The exception instance that caused the context to be exited, if Any.
         :param exc_tb: A traceback object encapsulating the call stack at the point
-                       where the exception was raised, if any.
+                       where the exception was raised, if Any.
         """
         super().__exit__(exc_type, exc_val, exc_tb)
 
@@ -373,7 +373,7 @@ class Browser(webdriver.Chrome):
 
     def _handle_alert(self) -> None:
         """
-        Checks for and dismisses any open JavaScript alert.
+        Checks for and dismisses Any open JavaScript alert.
 
         This method attempts to switch to an alert, logs its text,
         and then accepts it to allow the browser to continue.
@@ -388,18 +388,18 @@ class Browser(webdriver.Chrome):
             # This is the expected case when no alert is present.
             pass
         except Exception as e:
-            # Catch any other potential errors during alert handling.
+            # Catch Any other potential errors during alert handling.
             self.__logger.error(f"An unexpected error occurred while handling an alert: {e}", exc_info=True)
 
 
 class CaptchaBrowser:
     """
-    A browser class designed to interact with web pages that may present captchas,
+    A browser class designed to interact with web pages that may present captcha,
     using SeleniumBase's undetected ChromeDriver.
 
     This class provides a context manager for browser session management and methods
     for navigation, element finding, and script execution, with specific handling
-    for captchas using SeleniumBase's UC mode features.
+    for captcha using SeleniumBase's UC mode features.
     """
 
     def __init__(self, no_sandbox: bool = True, incognito: bool = True, size: tuple[int, int] = (1600, 900)) -> None:
@@ -421,7 +421,7 @@ class CaptchaBrowser:
         self.__size: Final[tuple[int, int]] = size
         self.__home_url: Final[str] = "chrome://newtab"
 
-    def __enter__(self) -> any:
+    def __enter__(self) -> Any:
         """
         Initializes and returns the SeleniumBase undetected ChromeDriver instance.
 
@@ -435,14 +435,14 @@ class CaptchaBrowser:
         self.__driver.set_window_size(self.__size[0], self.__size[1])
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> any:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> Any:
         """
         Quits the SeleniumBase driver, closing all browser windows and ending the session.
 
-        :param exc_type: The type of the exception that caused the context to be exited, if any.
-        :param exc_val: The exception instance that caused the context to be exited, if any.
+        :param exc_type: The type of the exception that caused the context to be exited, if Any.
+        :param exc_val: The exception instance that caused the context to be exited, if Any.
         :param exc_tb: A traceback object encapsulating the call stack at the point
-                       where the exception was raised, if any.
+                       where the exception was raised, if Any.
         """
         self.__driver.quit()
         return
@@ -460,7 +460,7 @@ class CaptchaBrowser:
 
     def get(self, url: str, captcha: bool) -> None:
         """
-        Navigates to a URL, with an option to handle potential captchas using SeleniumBase's UC mode.
+        Navigates to a URL, with an option to handle potential captcha using SeleniumBase's UC mode.
 
         If ``captcha`` is ``True``, it activates CDP mode, waits, attempts to click the captcha GUI element,
         and then connects.
