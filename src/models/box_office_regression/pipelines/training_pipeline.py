@@ -49,7 +49,6 @@ class BoxOfficeRegressionPipelineConfig:
     :ivar epochs: The number of epochs for training.
     :ivar batch_size: The batch size for training.
     :ivar random_state: The seed for the random number generator.
-    :ivar verbose: The verbosity mode for Keras training output.
     :ivar checkpoint_interval: The interval in epochs at which to save model checkpoints.
                                If None, only the final model is saved.
     :ivar early_stopping_patience: Number of epochs with no improvement after which training will be stopped.
@@ -66,7 +65,6 @@ class BoxOfficeRegressionPipelineConfig:
     epochs: int
     batch_size: int
     random_state: int
-    verbose: int | str = 1
     checkpoint_interval: int | None = None
     early_stopping_patience: Optional[int] = None
     early_stopping_monitor: str = 'val_loss'
@@ -184,7 +182,6 @@ class BoxOfficeRegressionTrainingPipeline(
             epochs=master_config.epochs,
             batch_size=master_config.batch_size,
             validation_data=(processed_data['x_val'], processed_data['y_val']),
-            verbose=master_config.verbose,
             callbacks=monitoring_callbacks,
             initial_epoch=continue_from_epoch or 0
         )
@@ -226,7 +223,7 @@ class BoxOfficeRegressionTrainingPipeline(
         Creates a BoxOfficeRegressionModelCore instance from a saved model file.
 
         :param model_path: The path to the saved Keras model file.
-        :returns: An instance of `PredictionModelCore` with the model loaded.
+        :returns: Returns the initialized model core instance.
         """
         return BoxOfficeRegressionModelCore(model_path=model_path)
 

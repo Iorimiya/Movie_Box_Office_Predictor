@@ -1,7 +1,7 @@
 # noinspection PyProtectedMember
 from argparse import ArgumentParser, Namespace, _SubParsersAction
 from pathlib import Path
-from typing import Optional
+from typing import Any, Callable, Optional
 
 from src.cli.handlers.base_model_handler import BaseModelHandler
 from src.cli.handlers.box_office_regression_model_handler import BoxOfficeRegressionModelHandler
@@ -57,6 +57,85 @@ class ArgumentParserBuilder:
 
         self._initialize_parent_parsers()
         self._initialize_handlers()
+
+    @staticmethod
+    def __build_subcommand(
+        parent_subparsers: _SubParsersAction,
+        name: str,
+        help_text: str,
+        handler_function: Callable[..., None],
+        parent_parsers: list[ArgumentParser],
+        customizer: Optional[Callable[[ArgumentParser], None]] = None
+    ) -> None:
+        """
+        A generic factory method to build a single, executable sub-command.
+
+        This is the fundamental building block for creating a leaf-node command
+        in the CLI tree. It encapsulates the common pattern of adding a parser,
+        inheriting arguments from specified parents, applying command-specific
+        customizations, and setting the default handler function to be executed.
+
+        :param parent_subparsers: The subparsers action object to which the new command will be added.
+        :param name: The name of the sub-command (e.g., 'train', 'plot').
+        :param help_text: The help message displayed for the sub-command.
+        :param handler_function: The function to be executed when this command is invoked.
+        :param parent_parsers: A list of parent parsers from which to inherit common arguments.
+        :param customizer: An optional function that takes the newly created parser
+                           as an argument to add unique, command-specific arguments.
+        """
+        parser: ArgumentParser = parent_subparsers.add_parser(
+            name, help=help_text, parents=parent_parsers
+        )
+        if customizer:
+            customizer(parser)
+        parser.set_defaults(func=handler_function)
+
+    @staticmethod
+    def __add_command_group(
+        *,
+        parent_subparsers: _SubParsersAction,
+        name: str,
+        help_text: str,
+        child_command_specs: list[dict],
+        customizer: Optional[Callable[[_SubParsersAction], None]] = None
+    ) -> None:
+        """
+        A generic factory to create a command group with its own sub-commands.
+
+        This method creates a "container" command (like 'evaluate' or 'collect')
+        that holds its own set of sub-commands, defined by a list of specs.
+        It supports creating both leaf-node commands and nested command groups.
+
+        :param parent_subparsers: The subparsers action to add the new group to.
+        :param name: The name of the command group.
+        :param help_text: The help message for the command group.
+        :param child_command_specs: A list of dictionaries, where each dict
+                                    defines a child command or a nested group.
+        :param customizer: An optional function that takes the new subparsers
+                           action and adds more custom commands to it.
+        """
+        group_parser: ArgumentParser = parent_subparsers.add_parser(name, help=help_text)
+        group_subparsers: _SubParsersAction = group_parser.add_subparsers(
+            dest=f"{name}_command", required=True
+        )
+        for spec in child_command_specs:
+            spec_type: str = spec.pop('type', 'command')  # Default to 'command'
+
+            match spec_type:
+                case 'command':
+                    ArgumentParserBuilder.__build_subcommand(
+                        parent_subparsers=group_subparsers,
+                        **spec
+                    )
+                case 'group':
+                    ArgumentParserBuilder.__add_command_group(
+                        parent_subparsers=group_subparsers,
+                        **spec
+                    )
+                case _:
+                    pass
+        if customizer:
+            customizer(group_subparsers)
 
     def _initialize_parent_parsers(self) -> None:
         """
@@ -179,16 +258,10 @@ class ArgumentParserBuilder:
             '--epochs', type=int, required=False, help='Override the number of training epochs.'
         )
         params_override_group.add_argument(
-            '--batch-size', type=int, required=False, help='Override the batch size for training.'
+            '--checkpoint-interval', type=int, required=False, help='Override the model checkpoint interval.'
         )
         params_override_group.add_argument(
-            '--vocabulary-size', type=int, required=False, help='Override the vocabulary size.'
-        )
-        params_override_group.add_argument(
-            '--embedding-dim', type=int, required=False, help='Override the embedding dimension.'
-        )
-        params_override_group.add_argument(
-            '--lstm-units', type=int, required=False, help='Override the number of LSTM units.'
+            '--training-week-len', type=int, required=False, help='Override the model training week length.'
         )
         params_override_group.add_argument(
             '--split-ratios', type=int, nargs=3, metavar=('TRAIN', 'VAL', 'TEST'),
@@ -198,9 +271,14 @@ class ArgumentParserBuilder:
             '--random-state', type=int, required=False, help='Override the random state for data splitting.'
         )
         params_override_group.add_argument(
-            '--checkpoint-interval', type=int, required=False, help='Override the model checkpoint interval.'
+            '--lstm-units', type=int, required=False, help='Override the number of LSTM units.'
         )
-
+        params_override_group.add_argument(
+            '--dropout-rate', type=float, required=False, help='Override the dropout rate.'
+        )
+        params_override_group.add_argument(
+            '--batch-size', type=int, required=False, help='Override the batch size for training.'
+        )
         params_override_group.add_argument(
             '--early-stopping-patience',
             type=int,
@@ -219,22 +297,6 @@ class ArgumentParserBuilder:
             required=False,
             help='Override the minimum delta for early stopping (e.g., 1e-5).'
         )
-        params_override_group.add_argument(
-            '--box-office-ranges',
-            type=int,
-            nargs='+',  # Allows multiple integer values
-            metavar='RANGE',
-            required=False,
-            help="Override the box office ranges for F1 score calculation (e.g., --box-office-ranges 1000000 10000000)."
-        )
-        params_override_group.add_argument(
-            '--f1-average-method',
-            type=str,
-            choices=['macro', 'micro', 'weighted', 'binary'],
-            required=False,
-            help="Override the averaging method for F1 score ('macro', 'micro', 'weighted', 'binary')."
-        )
-
         continue_group = parser.add_argument_group(
             'Continue Training (Optional)',
             description='Options to continue training from a previously saved checkpoint. '
@@ -301,21 +363,6 @@ class ArgumentParserBuilder:
             action='store_true',
             help="Display the confusion matrix from the classification report. Requires --classification-report."
         )
-        class_eval_group.add_argument(
-            '--f1-average-method',
-            type=str,
-            choices=['macro', 'micro', 'weighted', 'binary'],
-            required=False,
-            help="Override the averaging method for F1 score. Only used with --classification-report."
-        )
-        class_eval_group.add_argument(
-            '--box-office-ranges',
-            type=int,
-            nargs='+',
-            metavar='RANGE',
-            required=False,
-            help="Override box office ranges. Only used with --classification-report range."
-        )
 
         # Evaluation Context
         context_group = parser.add_argument_group(
@@ -359,35 +406,32 @@ class ArgumentParserBuilder:
             add_help=False, parents=[self.__evaluate_common_behavior_parser, self.__model_file_args_parser]
         )
 
-    def __add_evaluate_subcommands(
-        self,
-        parent_subparsers: _SubParsersAction,
-        handler: BaseModelHandler,
-        model_type_name: str
-    ) -> None:
+    def __create_evaluate_specs(self, handler: BaseModelHandler) -> list[dict[str, Any]]:
         """
-        Adds the 'evaluate' command and its sub-commands ('plot', 'get-metrics')
-        to a parent subparser.
+        Creates a list of default specifications for the 'evaluate' sub-commands.
 
-        This helper method centralizes the creation of the evaluation command
-        structure to avoid code duplication across different model types.
+        This method acts as a template provider, returning a standard configuration
+        for 'plot' and 'get-metrics' commands. The calling function is responsible
+        for further customization and for passing these specs to a group builder.
 
-        :param parent_subparsers: The subparsers action object to which the 'evaluate' command will be added.
-        :param handler: The model-specific handler instance that contains the logic for plotting and getting metrics.
-        :param model_type_name: The name of the model type (e.g., 'sentiment'), used for help messages.
+        :param handler: The model-specific handler containing the logic for the commands.
+        :returns: A list of dictionaries, where each dict defines a sub-command.
         """
-        evaluate_parser: ArgumentParser = parent_subparsers.add_parser(
-            'evaluate', help=f'Evaluate the {model_type_name} model.'
-        )
-        evaluate_subparsers: _SubParsersAction = evaluate_parser.add_subparsers(
-            dest="evaluate_command", required=True
-        )
-        evaluate_subparsers.add_parser(
-            'plot', help="Plot evaluation graphs.", parents=[self.__plot_common_behavior_parser]
-        ).set_defaults(func=handler.plot_graph)
-        evaluate_subparsers.add_parser(
-            'get-metrics', help="Get specific evaluation metrics.", parents=[self.__get_metrics_common_behavior_parser]
-        ).set_defaults(func=handler.get_metrics)
+        return [
+            {
+                "name": 'plot',
+                "help_text": "Plot evaluation graphs.",
+                "handler_function": handler.plot_graph,
+                "parent_parsers": [self.__plot_common_behavior_parser]
+
+            },
+            {
+                "name": 'get-metrics',
+                "help_text": "Get specific evaluation metrics.",
+                "handler_function": handler.get_metrics,
+                "parent_parsers": [self.__get_metrics_common_behavior_parser]
+            }
+        ]
 
     def __setup_dataset_subparser(self) -> None:
         """
@@ -398,54 +442,84 @@ class ArgumentParserBuilder:
         - `dataset collect <type>`: To collect data (box-office, ptt-review, etc.).
         - `dataset compute-sentiment`: To run sentiment analysis on a dataset.
         """
-        dataset_parser: ArgumentParser = self._subparsers_action.add_parser(
-            "dataset",
-            help="Commands for dataset creation and data collection."
-        )
-        dataset_subparsers: _SubParsersAction = dataset_parser.add_subparsers(
-            dest="dataset_command", required=True, help="Available dataset commands."
-        )
 
-        # Command: dataset index
-        index_parser: ArgumentParser = dataset_subparsers.add_parser(
-            "index",
-            help="Create an index file for a new structured dataset from a source CSV."
-        )
-        index_parser.add_argument(
-            "--structured-dataset-name", type=str, required=True, help="The name for the new structured dataset."
-        )
-        index_parser.add_argument(
-            "--source-file", type=str, required=True, help="Path to the source CSV file."
-        )
-        index_parser.set_defaults(func=self.__dataset_handler.create_index)
+        def customize_index_args(parser: ArgumentParser) -> None:
+            """
+            Adds arguments specific to the 'dataset index' command.
 
-        # Command group: dataset collect
-        collect_parser: ArgumentParser = dataset_subparsers.add_parser(
-            "collect", help="Collect data (e.g., box office, reviews) for a dataset."
-        )
-        collect_subparsers: _SubParsersAction = collect_parser.add_subparsers(
-            dest="collect_command", required=True, help="Specify the type of data to collect."
-        )
-        collect_subparsers.add_parser(
-            "box-office", help="Collect box office data.", parents=[self.__collect_common_behavior_parser]
-        ).set_defaults(func=self.__dataset_handler.collect_box_office)
-        collect_subparsers.add_parser(
-            "ptt-review", help="Collect PTT reviews.", parents=[self.__collect_common_behavior_parser]
-        ).set_defaults(func=self.__dataset_handler.collect_ptt_review)
-        collect_subparsers.add_parser(
-            "dcard-review", help="Collect Dcard reviews.", parents=[self.__collect_common_behavior_parser]
-        ).set_defaults(func=self.__dataset_handler.collect_dcard_review)
+            :param parser: The ArgumentParser instance to which arguments will be added.
+            """
+            parser.add_argument(
+                "--structured-dataset-name", type=str, required=True, help="The name for the new structured dataset."
+            )
+            parser.add_argument(
+                "--source-file", type=str, required=True, help="Path to the source CSV file."
+            )
 
-        # Command: dataset compute-sentiment
-        compute_sentiment_parser: ArgumentParser = dataset_subparsers.add_parser(
-            "compute-sentiment",
-            help="Compute sentiment scores for reviews in a dataset using a model.",
+        def customize_sentiment_args(parser: ArgumentParser) -> None:
+            """
+            Adds arguments specific to the 'dataset compute-sentiment' command.
+
+            :param parser: The ArgumentParser instance to which arguments will be added.
+            """
+            parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
+            parser.add_argument(
+                "--structured-dataset-name", type=str, required=True, help="The dataset to process."
+            )
+
+        dataset_specs: list[dict] = [
+            {
+                "type": "command",
+                "name": "index",
+                "help_text": "Create an index file for a new structured dataset from a source CSV.",
+                "handler_function": self.__dataset_handler.create_index,
+                "parent_parsers": [],
+                "customizer": customize_index_args
+            },
+            {
+                "type": "group",
+                "name": "collect",
+                "help_text": "Collect data (e.g., box office, reviews) for a dataset.",
+                "child_command_specs": [
+                    {
+                        "type": "command",
+                        "name": "box-office",
+                        "help_text": "Collect box office data.",
+                        "handler_function": self.__dataset_handler.collect_box_office,
+                        "parent_parsers": [self.__collect_common_behavior_parser]
+                    },
+                    {
+                        "type": "command",
+                        "name": "ptt-review",
+                        "help_text": "Collect PTT reviews.",
+                        "handler_function": self.__dataset_handler.collect_ptt_review,
+                        "parent_parsers": [self.__collect_common_behavior_parser]
+                    },
+                    {
+                        "type": "command",
+                        "name": "dcard-review",
+                        "help_text": "Collect Dcard reviews.",
+                        "handler_function": self.__dataset_handler.collect_dcard_review,
+                        "parent_parsers": [self.__collect_common_behavior_parser]
+                    }
+                ]
+            },
+            {
+                "type": "command",
+                "name": "compute-sentiment",
+                "help_text": "Compute sentiment scores for reviews in a dataset using a model.",
+                "handler_function": self.__dataset_handler.compute_sentiment,
+                "parent_parsers": [],
+                "customizer": customize_sentiment_args
+            }
+        ]
+
+        ArgumentParserBuilder.__add_command_group(
+            parent_subparsers=self._subparsers_action,
+            name="dataset",
+            help_text="Commands for dataset creation and data collection.",
+            child_command_specs=dataset_specs
         )
-        compute_sentiment_parser.add_argument('--model-id', **self._MODEL_ID_KWARGS)
-        compute_sentiment_parser.add_argument(
-            "--structured-dataset-name", type=str, required=True, help="The dataset to process."
-        )
-        compute_sentiment_parser.set_defaults(func=self.__dataset_handler.compute_sentiment)
 
     def __setup_box_office_regression_model_subparser(self) -> None:
         """
@@ -457,34 +531,90 @@ class ArgumentParserBuilder:
         - `box-office-regression-model evaluate plot`: To plot evaluation graphs.
         - `box-office-regression-model evaluate get-metrics`: To get specific metric values.
         """
-        box_office_regression_parser: ArgumentParser = self._subparsers_action.add_parser(
-            "box-office-regression-model", help="Commands for the Box Office Regression Model."
-        )
-        box_office_regression_subparsers: _SubParsersAction = box_office_regression_parser.add_subparsers(
-            dest="box_office_regression_subcommand", required=True,
-            help="Available Box Office Regression Model commands."
-        )
 
-        box_office_regression_subparsers.add_parser(
-            'train', help='Train a Box Office Regression Model.', parents=[self.__train_common_behavior_parser]
-        ).set_defaults(func=self.__box_office_regression_model_handler.train)
+        def add_prediction_predict_args(parser: ArgumentParser) -> None:
+            """
+            Adds arguments specific to the 'box-office-regression-model predict' command.
 
-        predict_parser: ArgumentParser = box_office_regression_subparsers.add_parser(
-            'predict', help="Test the Box Office Regression Model.", parents=[self.__model_file_args_parser]
-        )
-        source_group = predict_parser.add_mutually_exclusive_group(required=True)
-        source_group.add_argument(
-            '--movie-name', type=str, help='The name of the movie using for prediction.'
-        )
-        source_group.add_argument(
-            '--random', action='store_true', help='Use random data for the model prediction.'
-        )
-        predict_parser.set_defaults(func=self.__box_office_regression_model_handler.predict)
+            This includes a mutually exclusive group for specifying the prediction
+            source, either by movie name or by using random data.
 
-        self.__add_evaluate_subcommands(
-            parent_subparsers=box_office_regression_subparsers,
-            handler=self.__box_office_regression_model_handler,
-            model_type_name="Box Office Regression"
+            :param parser: The ArgumentParser instance to which arguments will be added.
+            """
+            source_group = parser.add_mutually_exclusive_group(required=True)
+            source_group.add_argument(
+                '--movie-name', type=str, help='The name of the movie to predict a prediction on.'
+            )
+            source_group.add_argument(
+                '--random', action='store_true', help='Use random data for the prediction predict.'
+            )
+
+        def add_f1_metrics_args(parser: ArgumentParser) -> None:
+            """
+            Adds F1-score related arguments for evaluation commands.
+
+            This customizer adds a group of arguments for fine-tuning the F1-score
+            calculation. It includes options for the classification conversion
+            method ('--f1-method'), the averaging strategy for multi-class
+            results ('--f1-average-method'), and the specific ranges to use
+            when the 'range' method is selected ('--box-office-ranges').
+
+            :param parser: The ArgumentParser instance to which arguments will be added.
+            """
+
+            parser.add_argument(
+                '--f1-average-method',
+                type=str,
+                required=False,
+                choices=['micro', 'macro', 'weighted', 'none'],
+                help='The averaging method for F1 score calculation.'
+                     'Options: "micro", "macro", "weighted", "none".'
+            )
+            parser.add_argument(
+                '--box-office-ranges',
+                type=int,
+                nargs='+',
+                metavar='RANGE',
+                required=False,
+                help='Ranges for classifying box office when using the "range" F1-method. '
+                     'Example: --box-office-ranges 1000000 5000000 10000000'
+            )
+
+        evaluate_child_specs: list[dict] = self.__create_evaluate_specs(
+            handler=self.__box_office_regression_model_handler)
+        for spec in evaluate_child_specs:
+            spec['customizer'] = add_f1_metrics_args
+
+        box_office_regression_model_specs: list[dict] = [
+            {
+                "type": "command",
+                "name": 'train',
+                "help_text": 'Train a box office regression model.',
+                "handler_function": self.__box_office_regression_model_handler.train,
+                "parent_parsers": [self.__train_common_behavior_parser],
+                "customizer": add_f1_metrics_args
+            },
+            {
+                "type": "command",
+                "name": 'predict',
+                "help_text": 'Test the regression model.',
+                "handler_function": self.__box_office_regression_model_handler.predict,
+                "parent_parsers": [self.__model_file_args_parser],
+                "customizer": add_prediction_predict_args
+            },
+            {
+                "type": "group",
+                "name": 'evaluate',
+                "help_text": 'Evaluate the regression model.',
+                "child_command_specs": evaluate_child_specs
+            }
+        ]
+
+        ArgumentParserBuilder.__add_command_group(
+            parent_subparsers=self._subparsers_action,
+            name="box-office-regression-model",
+            help_text="Commands for the box office regression model.",
+            child_command_specs=box_office_regression_model_specs
         )
 
     def build(self) -> ArgumentParser:

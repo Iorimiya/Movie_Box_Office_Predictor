@@ -27,15 +27,15 @@
     - --epochs: `str`
     - --checkpoint-interval: `int`
     - --continue-from-epoch: `int`
-    - --training_week_len: `int`
+    - --training-week-len: `int`
     - --split-ratios: `int, int, int`
     - --random-state: `int`
     - --lstm-units: `int`
-    - --dropout-rate: `int`
+    - --dropout-rate: `float`
     - --batch-size: `int`
-    - --vocabulary-size: `int`
-    - --embedding-dim: `int`
-    - --verbose: `int`
+    - --early-stopping-patience: `int`
+    - --early-stopping-monitor: `str`
+    - --early-stopping-min-delta: `double`
   - box-office-regression-model predict
     - --model-id: `str` (Required) 
     - --epoch: `int` (Required)
