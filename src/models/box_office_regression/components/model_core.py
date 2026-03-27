@@ -14,7 +14,7 @@ Sequential: TypeAlias = keras_base.models.Sequential
 Dense: TypeAlias = keras_base.layers.Dense
 # noinspection PyUnresolvedReferences
 Dropout: TypeAlias = keras_base.layers.Dropout
-# noinspection PyUnresolvedReferences
+# noinspection PyUnresolvedReferences,PyTypeHints
 Input: TypeAlias = keras_base.layers.Input
 # noinspection PyUnresolvedReferences
 LSTM: TypeAlias = keras_base.layers.LSTM

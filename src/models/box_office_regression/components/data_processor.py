@@ -20,6 +20,22 @@ class BoxOfficeRegressionConfigDict(TypedDict, total=False):
     Type definition for the Box Office Regression Model's configuration dictionary (loaded from YAML).
 
     This ensures type safety when handling the raw configuration dictionary before it is converted into specific dataclasses. It includes Optional fields to allow for partial configurations or fields that are not required in all modes (e.g., inference).
+
+    :ivar model_id: The unique identifier for the model series.
+    :ivar dataset_name: The name of the source structured dataset.
+    :ivar training_week_len: The number of past weeks used as input.
+    :ivar lstm_units: The number of units in the LSTM layer.
+    :ivar dropout_rate: The dropout rate to apply after the LSTM layer.
+    :ivar epochs: The number of epochs for training.
+    :ivar batch_size: The batch size for training.
+    :ivar checkpoint_interval: The interval at which to save model checkpoints.
+    :ivar early_stopping_patience: Number of epochs to wait for improvement.
+    :ivar early_stopping_monitor: Metric to monitor for early stopping.
+    :ivar early_stopping_min_delta: Minimum change to qualify as improvement.
+    :ivar box_office_ranges: Upper boundaries for classification ranges.
+    :ivar f1_average_method: Averaging method for F1 score calculation.
+    :ivar split_ratios: Ratios for data splitting (train, val, test).
+    :ivar random_state: Seed for the random number generator.
     """
     model_id: str
     dataset_name: str
@@ -28,7 +44,6 @@ class BoxOfficeRegressionConfigDict(TypedDict, total=False):
     dropout_rate: float
     epochs: int
     batch_size: int
-    verbose: int
     checkpoint_interval: int
     early_stopping_patience: int
     early_stopping_monitor: str
@@ -62,7 +77,6 @@ class BoxOfficeRegressionDataConfig(GradientDataConfig):
     Configuration for the Box Office Regression Model's data processing.
 
     Inherits splitting capabilities from GradientDataConfig and adds specific parameters of Box Office Regression Model.
-
     :ivar _training_week_len: The length of the training week window.
     """
     _training_week_len: int
@@ -397,7 +411,7 @@ class BoxOfficeRegressionDataProcessor(
         Converts a list of WeekData objects into a numerical sequence.
 
         Each WeekData object is transformed into a list of features:
-        [box_office, average_sentiment_score, total_reply_count].
+         [box_office, avg_sentiment, reply_count, total_positive_reply_count, total_negative_reply_count].
 
         :param weeks: A list of WeekData objects to be converted.
         :returns: A list of lists, where each inner list represents the numerical features for a week.

@@ -1,17 +1,18 @@
+from csv import Error as CsvError
 from logging import Logger
 from pathlib import Path
 from typing import cast, Iterator, Literal, Optional, Type
 
 from typing_extensions import override
 
-from src.data_handling.repositories.repository import MovieRepository
-from src.data_handling.reviews import ReviewSerializableData
 from src.core.logging_manager import LoggingManager
 from src.core.project_config import ProjectPaths
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.file_io import CsvFile, YamlFile
 from src.data_handling.movie_collections import MovieData, WeekData
+from src.data_handling.repositories.repository import MovieRepository
 from src.data_handling.reviews import ExpertReview, PublicReview, Review
+from src.data_handling.reviews import ReviewSerializableData
 
 
 class YamlMovieRepository(MovieRepository):
@@ -76,7 +77,7 @@ class YamlMovieRepository(MovieRepository):
         try:
             data = CsvFile(path=self.index_file_path).load()
             return len(data) > 0
-        except Exception:
+        except (OSError, PermissionError, UnicodeError, CsvError):
             # If file exists but can't be read, assume occupied/corrupted
             return True
 

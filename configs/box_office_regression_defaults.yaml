@@ -32,9 +32,6 @@ epochs: 1000
 # The number of samples per gradient update.
 batch_size: 32
 
-# Verbosity mode for Keras training output. 0 = silent, 1 = progress bar, 2 = one line per epoch.
-verbose: 1
-
 # The interval in epochs at which to save model checkpoints.
 # Set to null or remove the line to disable periodic checkpointing and only save the final model.
 checkpoint_interval: 20
@@ -52,4 +49,3 @@ box_office_ranges: [1000000, 10000000, 90000000]
 # The averaging method for F1 score calculation (e.g., 'binary', 'macro', 'weighted').
 # 'macro' is recommended for multi-class problems to treat all classes equally.
 f1_average_method: 'macro'
-

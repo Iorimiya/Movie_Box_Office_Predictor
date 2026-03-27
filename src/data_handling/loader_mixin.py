@@ -4,9 +4,9 @@ from typing import Generic, Literal, Optional, Type, TypeAlias, TypeVar
 
 from src.core.logging_manager import LoggingManager
 
-RawDataType = TypeVar("RawDataType", bound=dict)
-PreparedArgsType = TypeVar("PreparedArgsType", bound=dict)
-SerializableDataType = TypeVar("SerializableDataType", bound=dict)
+RawDataType = TypeVar("RawDataType")
+PreparedArgsType = TypeVar("PreparedArgsType")
+SerializableDataType = TypeVar("SerializableDataType")
 
 _Self = TypeVar("_Self", bound="MovieAuxiliaryDataMixin")
 RawDataSchema: TypeAlias = Literal['FLAT', 'NESTED']

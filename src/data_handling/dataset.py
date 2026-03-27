@@ -5,6 +5,7 @@ from pathlib import Path
 from time import sleep
 from typing import Any, Callable, cast, Final, Literal, Optional, TypedDict
 
+from openai import RateLimitError
 from tqdm import tqdm
 from typing_extensions import override
 
@@ -659,7 +660,7 @@ class BaseDataset(ABC):
                     score_val = int(response_text)
                     sentiment_score = (score_val - 1) / 4.0
                     break
-            except Exception:
+            except (AttributeError, IndexError, TypeError, ValueError, RateLimitError):
                 sleep(2)
 
         if sentiment_score is not None:

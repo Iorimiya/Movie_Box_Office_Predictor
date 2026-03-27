@@ -40,7 +40,7 @@ def plot_multi_line_graph(
     :param y_formatter: Optional formatting for the y-axis ('percent' or 'sci-notation').
     """
     logger: Logger = LoggingManager().get_logger('root')
-    logger.info(f"Plotting multi-line graph: '{title}'")
+    logger.debug(f"Plotting multi-line graph: '{title}'")
 
     plt.figure(figsize=(10, 6))
     plt.title(title)
@@ -54,15 +54,11 @@ def plot_multi_line_graph(
     if y_formatter:
         match y_formatter:
             case 'percent':
-                logger.info("Applying 'percent' formatting to y-axis.")
+                logger.debug("Applying 'percent' formatting to y-axis.")
                 plt.gca().yaxis.set_major_formatter(PercentFormatter(xmax=100))
             case 'sci-notation':
-                logger.info("Applying 'sci-notation' formatting to y-axis.")
+                logger.debug("Applying 'sci-notation' formatting to y-axis.")
                 plt.gca().ticklabel_format(style='sci', scilimits=(-2, 3), axis='y')
-            case _:
-                # This case should ideally not be hit if types are checked, but as a safeguard.
-                logger.warning(f"Unknown y_formatter '{y_formatter}'. No formatting applied.")
-
     plt.legend()
     plt.tight_layout()
 

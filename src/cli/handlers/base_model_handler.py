@@ -10,7 +10,7 @@ from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.file_io import PickleFile, YamlFile
 from src.models.base.evaluation import BaseEvaluationConfig, BaseEvaluationResult, BaseEvaluator
 
-ConfigDictType = TypeVar('ConfigDictType', bound=dict)
+ConfigDictType = TypeVar('ConfigDictType')
 
 
 class BaseModelHandler(Generic[ConfigDictType], ABC):
