@@ -8,7 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
 from src.data_handling.box_office import BoxOffice
-from src.data_handling.dataset import BaseDataset, DatabaseDataset
+from src.data_handling.dataset import BaseDataset
 from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieData, MovieSessionData, WeekData
 from src.models.base.data_splitter import SplitDataset
@@ -56,16 +56,7 @@ class BoxOfficeRegressionConfigDict(TypedDict, total=False):
     random_state: Optional[int]
 
 
-@dataclass(frozen=True)
-class BoxOfficeRegressionDataSource:
-    """
-    A data source configuration for the Box Office Regression Model.
-
-    :ivar dataset_name: The name of the structured dataset to load movie data from.
-    """
-    dataset_name: str
-
-
+BoxOfficeRegressionDataSource: TypeAlias = BaseDataset
 BoxOfficeRegressionTrainingRawData: TypeAlias = list[MovieSessionData]
 BoxOfficeRegressionTrainingProcessedData: TypeAlias = SplitDataset[NDArray[float32], NDArray[float64]]
 BoxOfficeRegressionPredictionRawData: TypeAlias = MovieData
@@ -213,27 +204,28 @@ class BoxOfficeRegressionDataProcessor(
         self, source: BoxOfficeRegressionDataSource, config: Optional[BoxOfficeRegressionDataConfig] = None
     ) -> BoxOfficeRegressionTrainingRawData:
         """
-        Loads and processes raw movie data into fixed-length sessions.
+        Loads and processes raw movie data into fixed-length sessions using a Dataset instance.
 
-        This method leverages the dataset's `load_movie_sessions` method, which
-        efficiently loads and processes data based on the underlying storage.
+        This method leverages the dataset's `get_movie_sessions` method, which
+        efficiently loads and processes data based on its underlying storage
+        (DB or YAML).
 
-        :param source: The data source object containing the dataset name.
+        :param source: The BaseDataset instance to load data from.
         :param config: The data configuration, used to determine the session length.
         :returns: A list of MovieSessionData objects.
+        :raises ValueError: If the config is not provided.
         """
         if config is None:
             raise ValueError("BoxOfficeRegressionDataConfig is required to determine session length.")
 
-        self.logger.debug(f"Loading movie sessions from dataset: '{source.dataset_name}'")
-        dataset: BaseDataset = DatabaseDataset(name=source.dataset_name)
+        self.logger.debug(f"Loading movie sessions from dataset: '{source.name}'")
 
         # The number of weeks needed is the training length + 1 for the target week
         number_of_weeks = config.training_week_len + 1
-        sessions: list[MovieSessionData] = dataset.get_movie_sessions(number_of_weeks=number_of_weeks)
+        sessions: list[MovieSessionData] = source.get_movie_sessions(number_of_weeks=number_of_weeks)
 
         if not sessions:
-            self.logger.warning(f"No movie sessions loaded from dataset: {source.dataset_name}")
+            self.logger.warning(f"No movie sessions loaded from dataset: {source.name}")
 
         return sessions
 
