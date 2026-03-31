@@ -3,8 +3,8 @@
 # Project Name: Web Service Configuration of Movie Box Office Predictor
 # Description: Compute Node, GPU version
 # Author: Iorimiya
-# Date: 2026-01-30
-# Version: 1.2.0
+# Date: 2026-03-31
+# Version: 1.2.1
 # ==============================================================================
 name: mbop
 
@@ -99,8 +99,8 @@ services:
         source: ${DB_DATA_HOST_PATH}
         target: /var/lib/mysql
     command:
-      - --character-set-server=utf8mb4
-      - --collation-server=utf8mb4_unicode_ci
+      - --character-set-server=${DB_CHARACTER_SET:-utf8mb4}
+      - --collation-server=${DB_CHARACTER_COLLATION:-utf8mb4_uca1400_ai_ci}
       - --wait_timeout=86400
       - --max_allowed_packet=1G
     healthcheck:
