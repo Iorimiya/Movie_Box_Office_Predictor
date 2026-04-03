@@ -9,13 +9,14 @@ from typing_extensions import override
 
 from src.core.logging_manager import LoggingManager
 from src.models.base.base_data_processor import (
+    BaseDataConfig,
     BaseDataProcessor,
-    RawDataSourceType,
-    RawDataType,
-    ProcessedTrainingDataType,
-    PredictionDataType,
+    DataConfigType,
+    PredictionRawDataType,
     ProcessedPredictionDataType,
-    DataConfigType, BaseDataConfig
+    ProcessedTrainingDataType,
+    RawDataSourceType,
+    TrainingRawDataType
 )
 from src.models.base.data_splitter import DatasetSplitter, SplitDataset, X_Type, Y_Type
 
@@ -45,10 +46,13 @@ class GradientDataConfig(BaseDataConfig):
     """
     _splitting: Optional[SplittingConfig]
 
-    def __init__(self, *,
-                 split_ratios: Optional[tuple[int, int, int]] = None,
-                 random_state: Optional[int] = None,
-                 **kwargs: Any):
+    def __init__(
+        self,
+        *,
+        split_ratios: Optional[tuple[int, int, int]] = None,
+        random_state: Optional[int] = None,
+        **kwargs: Any
+    ) -> None:
         """
         Initializes the GradientDataConfig.
 
@@ -59,14 +63,14 @@ class GradientDataConfig(BaseDataConfig):
         """
         super().__init__(**kwargs)
         if split_ratios is not None and random_state is not None:
-            self._splitting = SplittingConfig(
+            self._splitting: Optional[SplittingConfig] = SplittingConfig(
                 split_ratios=split_ratios,
                 random_state=random_state
             )
         elif split_ratios is not None or random_state is not None:
             raise ValueError("Both 'split_ratios' and 'random_state' must be provided together.")
         else:
-            self._splitting = None
+            self._splitting: Optional[SplittingConfig] = None
 
     @property
     def split_ratios(self) -> Optional[tuple[int, int, int]]:
@@ -87,17 +91,17 @@ GradientDataConfigType = TypeVar('GradientDataConfigType', bound=GradientDataCon
 class GradientDataProcessor(
     BaseDataProcessor[
         RawDataSourceType,
-        RawDataType,
+        TrainingRawDataType,
         ProcessedTrainingDataType,
-        PredictionDataType,
+        PredictionRawDataType,
         ProcessedPredictionDataType,
         GradientDataConfigType
     ],
     Generic[
         RawDataSourceType,
-        RawDataType,
+        TrainingRawDataType,
         ProcessedTrainingDataType,
-        PredictionDataType,
+        PredictionRawDataType,
         ProcessedPredictionDataType,
         GradientDataConfigType,
         X_Type,
@@ -114,11 +118,11 @@ class GradientDataProcessor(
     test set. It also provides a template method pattern for processing training
     data, separating pre-split, splitting, and post-split logic.
 
-    :ivar logger: A logger instance for logging processing activities.
-    :ivar splitter: A :class:`~.DatasetSplitter` instance for splitting data.
+    :ivar _logger: A logger instance for logging processing activities.
+    :ivar _splitter: A :class:`~.DatasetSplitter` instance for splitting data.
     """
-    logger: Logger
-    splitter: DatasetSplitter[X_Type, Y_Type]
+    _logger: Logger
+    _splitter: DatasetSplitter[X_Type, Y_Type]
 
     @override
     def __init__(self, model_artifacts_path: Optional[Path] = None) -> None:
@@ -131,11 +135,11 @@ class GradientDataProcessor(
                                      (like a scaler or tokenizer) are or will be stored.
         """
         super().__init__(model_artifacts_path=model_artifacts_path)
-        self.logger: Logger = LoggingManager().get_logger('machine_learning')
-        self.splitter: DatasetSplitter[X_Type, Y_Type] = DatasetSplitter[X_Type, Y_Type](logger=self.logger)
+        self._logger: Logger = LoggingManager().get_logger(name='machine_learning')
+        self._splitter: DatasetSplitter[X_Type, Y_Type] = DatasetSplitter[X_Type, Y_Type](logger=self._logger)
 
     @abstractmethod
-    def _prepare_for_split(self, raw_data: RawDataType, config: DataConfigType) -> tuple[X_Type, Y_Type]:
+    def _prepare_for_split(self, raw_data: TrainingRawDataType, config: DataConfigType) -> tuple[X_Type, Y_Type]:
         """
         Pre-processes raw data into feature (x) and label (y) arrays ready for splitting.
 
@@ -145,13 +149,14 @@ class GradientDataProcessor(
 
         :param raw_data: The raw data loaded from the source.
         :param config: The data processing configuration.
-        :returns: A tuple containing the feature array (x) and the label array (y).
+        :return: A tuple containing the feature array (x) and the label array (y).
         """
         pass
 
     @abstractmethod
-    def _post_process_splits(self, split_data: SplitDataset[X_Type, Y_Type],
-                             config: DataConfigType) -> ProcessedTrainingDataType:
+    def _post_process_splits(
+        self, split_data: SplitDataset[X_Type, Y_Type], config: DataConfigType
+    ) -> ProcessedTrainingDataType:
         """
         Performs final processing on the data after it has been split.
 
@@ -160,12 +165,14 @@ class GradientDataProcessor(
 
         :param split_data: The TypedDict containing the train, validation, and test splits.
         :param config: The data processing configuration.
-        :returns: The final, fully processed data ready for model training.
+        :return: The final, fully processed data ready for model training.
         """
         pass
 
     @override
-    def process_for_training(self, raw_data: RawDataType, config: GradientDataConfigType) -> ProcessedTrainingDataType:
+    def process_for_training(
+        self, raw_data: TrainingRawDataType, config: GradientDataConfigType
+    ) -> ProcessedTrainingDataType:
         """
         A template method that processes raw data for model training.
 
@@ -177,10 +184,10 @@ class GradientDataProcessor(
         :param raw_data: The raw data loaded by `load_raw_data`.
         :param config: A configuration object containing parameters for the training process,
                        such as split ratios and random state.
-        :returns: The processed data, ready to be fed into a model.
+        :return: The processed data, ready to be fed into a model.
         :raises ValueError: If `split_ratios` in the config is not provided.
         """
-        self.logger.debug("Starting data processing for training.")
+        self._logger.debug("Starting data processing for training.")
 
         if config.split_ratios is None:
             raise ValueError(
@@ -188,36 +195,39 @@ class GradientDataProcessor(
             )
 
         # Delegate pre-split processing to subclass
-        self.logger.debug("Preparing data for splitting...")
+        self._logger.debug("Preparing data for splitting...")
+        x_to_split: X_Type
+        y_to_split: Y_Type
         x_to_split, y_to_split = self._prepare_for_split(raw_data=raw_data, config=config)
 
         # Perform the split (common logic)
-        self.logger.debug("Splitting data into train, validation, and test sets...")
+        self._logger.debug("Splitting data into train, validation, and test sets...")
         # noinspection PyTypeChecker
-        split_data: SplitDataset[X_Type, Y_Type] = self.splitter.split(
+        split_data: SplitDataset[X_Type, Y_Type] = self._splitter.split(
             x_data=x_to_split,
             y_data=y_to_split,
             split_ratios=config.split_ratios,
             random_state=config.random_state,
-            shuffle=True  # Assuming shuffle is standard for training
+            shuffle=True
         )
 
         # Delegate post-split processing to subclass
-        self.logger.debug("Performing post-split processing (scaling/tokenizing)...")
+        self._logger.debug("Performing post-split processing (scaling/tokenizing)...")
         processed_data: ProcessedTrainingDataType = self._post_process_splits(split_data=split_data, config=config)
 
-        self.logger.debug("Data processing for training finished.")
+        self._logger.debug("Data processing for training finished.")
         return processed_data
 
     # noinspection PyTypeHints
     @abstractmethod
-    def process_for_evaluation(self, raw_data: RawDataType, config: Optional[GradientDataConfigType]) \
-        -> tuple[NDArray[any], NDArray[any]]:
+    def process_for_evaluation(
+        self, raw_data: TrainingRawDataType, config: Optional[GradientDataConfigType]
+    ) -> tuple[NDArray[Any], NDArray[Any]]:
         """
         Processes a full raw dataset for evaluation without splitting it.
 
         :param raw_data: The raw data to be processed for evaluation.
         :param config: An optional configuration object containing necessary parameters.
-        :returns: A tuple containing the full processed features (x) and labels (y).
+        :return: A tuple containing the full processed features (x) and labels (y).
         """
         pass
