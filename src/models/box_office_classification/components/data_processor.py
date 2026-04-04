@@ -121,6 +121,9 @@ class BoxOfficeClassificationDataProcessor(
 ):
     """
     Handles data processing for the Box Office Classification Model.
+
+    :ivar _calculated_thresholds: A list containing the box office PR50 and PR80 thresholds [PR50, PR80]
+                                  used to classify target box office values into labels (0, 1, 2).
     """
 
     ARTIFACT_FILE_NAME: Final[str] = "artifact.pickle"
@@ -159,14 +162,14 @@ class BoxOfficeClassificationDataProcessor(
     @override
     def load_artifacts(self) -> None:
         """
-        Loads the StandardScaler from the artifact file.
+        Loads the StandardScaler and PR thresholds from the artifact file.
         """
         if not self.model_artifacts_path:
             return
 
         artifact_path: Path = self.model_artifacts_path / self.ARTIFACT_FILE_NAME
         if artifact_path.exists():
-            self.logger.debug(f"Loading classification artifacts from: {artifact_path}")  # 修正日誌訊息
+            self.logger.debug(f"Loading classification artifacts from: {artifact_path}")
             try:
                 artifacts: dict[str, Any] = PickleFile(path=artifact_path).load()
                 self.scaler = artifacts.get('scaler')
@@ -196,17 +199,64 @@ class BoxOfficeClassificationDataProcessor(
 
     @override
     def process_for_evaluation(
-        self, raw_data: BoxOfficeTrainingRawData, config: Optional[BoxOfficeDataConfig]
-    ) -> tuple[NDArray[Any], NDArray[Any]]:
-        pass
+        self, raw_data: BoxOfficeTrainingRawData, config: BoxOfficeDataConfig
+    ) -> tuple[NDArray[float32], NDArray[int_]]:
+        """
+        Processes a full raw dataset for evaluation without splitting it.
+
+        This method follows a similar logic to the regression version, ensuring
+        consistent preprocessing before model evaluation.
+
+        :param raw_data: The raw list of `MovieSessionData` objects.
+        :param config: A configuration object.
+        :returns: A tuple containing the processed features (x) and labels (y).
+        :raises ValueError: If the configuration, scaler, or thresholds are missing.
+        """
+
+        # [Consistent with Regression] Validation of configuration
+        if config is None:
+            raise ValueError(
+                "BoxOfficeDataConfig is required for processing box office classification data."
+            )
+
+        # [Consistent with Regression] Log processing start
+        self.logger.debug("Processing full dataset for evaluation (no splitting).")
+        sessions: list[MovieSessionData] = raw_data
+
+        # [Consistent with Regression] Ensure data availability
+        if not sessions:
+            raise ValueError("No sessions data available for evaluation.")
+
+        # [Specific to Classification] Thresholds must be loaded from artifacts for consistent evaluation
+        if self._calculated_thresholds is None:
+            raise ValueError("Thresholds must be loaded (from artifacts) to process data for evaluation.")
+
+        # [Consistent with Regression] Sequence creation
+        # Logic is identical: convert sessions to (x, y) pairs based on week_limit.
+        # Classification additionally uses thresholds to determine y_class.
+        x, y = self._create_xy_from_sessions(
+            sessions=sessions,week_limit=config.training_week_len,thresholds=self._calculated_thresholds
+        )
+
+        # [Consistent with Regression] Ensure scaler availability
+        if not self.scaler:
+            raise ValueError("Scaler must be loaded to process data for evaluation.")
+
+        # [Consistent with Regression] Scale the feature sequences
+        # Note: Regression version uses MinMaxScaler, while Classification uses StandardScaler.
+        x_scaled: NDArray[float32] = self._scale_feature_in_sequences(sequences=x)
+
+        # [Specific to Classification] y labels (classes 0, 1, 2) do not require scaling,
+        # unlike the regression version which scales the box office target value.
+        return x_scaled, y
 
     @staticmethod
     def _calculate_pr_thresholds(sessions: list[MovieSessionData]) -> list[float]:
         """
-        從 Session 資料中計算去重後的全域票房 PR50 與 PR80 門檻。
+        Calculates the global PR50 and PR80 box office thresholds from deduplicated session data.
 
-        :param sessions: 原始 Session 列表。
-        :returns: 包含 [PR50, PR80] 金額的列表。
+        :param sessions: A list of MovieSessionData objects.
+        :returns: A list containing [PR50, PR80] values.
         """
 
         all_weeks_map: dict[tuple[int, Any], int] = {}
@@ -226,6 +276,14 @@ class BoxOfficeClassificationDataProcessor(
     def _create_xy_from_sessions(
         self, sessions: list[MovieSessionData], week_limit: int, thresholds: list[float]
     ) -> tuple[NDArray[float32], NDArray[int_]]:
+        """
+        Creates input sequences (x) and classification labels (y) from movie sessions.
+
+        :param sessions: A list of MovieSessionData objects.
+        :param week_limit: The number of weeks to use as input features.
+        :param thresholds: The PR50 and PR80 thresholds for labeling.
+        :returns: A tuple of (x, y) as NumPy arrays.
+        """
 
         x_list = []
         y_list = []
@@ -256,7 +314,11 @@ class BoxOfficeClassificationDataProcessor(
         self, raw_data: BoxOfficeTrainingRawData, config: BoxOfficeDataConfig
     ) -> tuple[NDArray[float32], NDArray[int_]]:
         """
-        準備訓練數據：計算門檻並生成序列。
+        Prepares raw data for splitting by calculating thresholds and generating sequences.
+
+        :param raw_data: The raw list of MovieSessionData objects.
+        :param config: The data configuration.
+        :returns: A tuple containing the feature sequences (x) and classification labels (y).
         """
         self.logger.debug("Preparing data for split: Calculating thresholds and generating sequences.")
 
@@ -281,6 +343,13 @@ class BoxOfficeClassificationDataProcessor(
     def _post_process_splits(
         self, split_data: SplitDataset[NDArray[float32], NDArray[int_]], config: BoxOfficeDataConfig
     ) -> BoxOfficeClassificationTrainingProcessedData:
+        """
+        Fits the scaler on the training data and applies it to all data splits.
+
+        :param split_data: The dataset splits containing train, val, and test sets.
+        :param config: The data configuration.
+        :returns: The scaled and processed dataset splits.
+        """
         self.scaler = StandardScaler()
 
         x_train = split_data['x_train']
