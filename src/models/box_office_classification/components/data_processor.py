@@ -2,17 +2,19 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, cast, Final, Optional, TypedDict, TypeAlias, Union
 
-from numpy import float32, percentile, int_
+from numpy import float32, int_, percentile
 from numpy.typing import NDArray
 from sklearn.preprocessing import StandardScaler
 from typing_extensions import override
 
-from data_handling.file_io import PickleFile
-from models.box_office_common import BoxOfficeFeature
+from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieSessionData, WeekData
 from src.models.base.data_splitter import SplitDataset
 from src.models.box_office_common import (
-    BoxOfficeDataConfig, BoxOfficePredictionRawData, BoxOfficeSessionDataProcessor, BoxOfficeTrainingRawData
+    BoxOfficeDataConfig,
+    BoxOfficeFeature,
+    BoxOfficeSessionDataProcessor,
+    BoxOfficeTrainingRawData
 )
 
 BoxOfficeClassificationTrainingProcessedData: TypeAlias = SplitDataset[NDArray[float32], NDArray[int_]]
@@ -20,7 +22,9 @@ BoxOfficeClassificationPredictionProcessedData: TypeAlias = NDArray[float32]
 
 
 class BoxOfficeClassificationConfigDict(TypedDict, total=False):
-    # 核心識別
+    """
+    Type definition for the Box Office Classification Model's configuration dictionary.
+    """
     model_id: str
     dataset_name: str
 
@@ -85,8 +89,8 @@ class BoxOfficeClassificationFeature(BoxOfficeFeature):
             self.total_negative_reply_count
         ]
 
-    @override
     @classmethod
+    @override
     def from_week_data(cls, week: WeekData) -> 'BoxOfficeClassificationFeature':
         """
                 Extracts raw features from a WeekData object and populates a BoxOfficeClassificationFeature container.
@@ -115,6 +119,10 @@ class BoxOfficeClassificationDataProcessor(
         StandardScaler
     ]
 ):
+    """
+    Handles data processing for the Box Office Classification Model.
+    """
+
     ARTIFACT_FILE_NAME: Final[str] = "artifact.pickle"
 
     @override
@@ -127,7 +135,6 @@ class BoxOfficeClassificationDataProcessor(
         self._calculated_thresholds: Optional[list[float]] = None
         super().__init__(model_artifacts_path=model_artifacts_path, feature_class=BoxOfficeClassificationFeature)
 
-
     @override
     def save_artifacts(self) -> None:
         """
@@ -136,9 +143,9 @@ class BoxOfficeClassificationDataProcessor(
         :raises ValueError: If `model_artifacts_path` is not set or artifacts are not available.
         """
         if not self.model_artifacts_path:
-            raise ValueError("model_artifacts_path is not set. Cannot save artifacts.")
+            raise ValueError("model_artifacts_path is not set.")
         if self.scaler is None or self._calculated_thresholds is None:
-            raise ValueError("Scaler is not available to be saved.")
+            raise ValueError("Artifacts are not available to be saved.")
 
         self.model_artifacts_path.mkdir(parents=True, exist_ok=True)
         artifact_path: Path = self.model_artifacts_path / self.ARTIFACT_FILE_NAME
@@ -147,7 +154,6 @@ class BoxOfficeClassificationDataProcessor(
             'scaler': self.scaler,
             'thresholds': self._calculated_thresholds
         }
-
         PickleFile(path=artifact_path).save(data=artifacts)
 
     @override
@@ -163,7 +169,6 @@ class BoxOfficeClassificationDataProcessor(
             self.logger.debug(f"Loading classification artifacts from: {artifact_path}")  # 修正日誌訊息
             try:
                 artifacts: dict[str, Any] = PickleFile(path=artifact_path).load()
-
                 self.scaler = artifacts.get('scaler')
                 self._calculated_thresholds = artifacts.get('thresholds')
 
@@ -185,7 +190,7 @@ class BoxOfficeClassificationDataProcessor(
                     self._calculated_thresholds = None
 
             except (TypeError, ValueError) as e:
-                self.logger.error(f"Failed to load scaler artifact from {artifact_path}: {e}", exc_info=True)
+                self.logger.error(f"Failed to load artifacts: {e}")
                 self.scaler = None
                 self._calculated_thresholds = None
 
@@ -193,14 +198,6 @@ class BoxOfficeClassificationDataProcessor(
     def process_for_evaluation(
         self, raw_data: BoxOfficeTrainingRawData, config: Optional[BoxOfficeDataConfig]
     ) -> tuple[NDArray[Any], NDArray[Any]]:
-        pass
-
-    @override
-    def process_for_prediction(
-        self,
-        single_input: BoxOfficePredictionRawData,
-        config: Optional[BoxOfficeDataConfig]
-    ) -> BoxOfficeClassificationPredictionProcessedData:
         pass
 
     @staticmethod
@@ -226,9 +223,8 @@ class BoxOfficeClassificationDataProcessor(
 
         return [p50, p80]
 
-    @staticmethod
     def _create_xy_from_sessions(
-        sessions: list[MovieSessionData], week_limit: int, thresholds: list[float]
+        self, sessions: list[MovieSessionData], week_limit: int, thresholds: list[float]
     ) -> tuple[NDArray[float32], NDArray[int_]]:
 
         x_list = []
@@ -239,19 +235,7 @@ class BoxOfficeClassificationDataProcessor(
         for session in sessions:
             if len(session.weeks_data) != week_limit + 1:
                 continue
-            feature_weeks: list[WeekData] = session.weeks_data[:week_limit]
-            numerical_features = [
-                BoxOfficeClassificationFeature(
-                    box_office=wd.box_office,
-                    avg_sentiment=wd.average_sentiment_score,
-                    reply_count=wd.total_reply_count,
-                    total_title_length=wd.total_title_length,
-                    total_content_length=wd.total_content_length,
-                    total_positive_reply_count=wd.total_positive_reply_count,
-                    total_negative_reply_count=wd.total_negative_reply_count,
-                ).as_numerical_list()
-                for wd in feature_weeks
-            ]
+            numerical_features = self._convert_weeks_to_numerical_sequence(weeks=session.weeks_data[:week_limit])
 
             target_bo = session.weeks_data[week_limit].box_office
 
@@ -299,21 +283,31 @@ class BoxOfficeClassificationDataProcessor(
     ) -> BoxOfficeClassificationTrainingProcessedData:
         self.scaler = StandardScaler()
 
-        # 獲取維度
-        n_features = split_data['x_train'].shape[2]
+        x_train = split_data['x_train']
+        if x_train.size > 0:
+            # 僅進行 Fit (需展平以符合 StandardScaler 要求)
+            n_features = x_train.shape[2]
+            self.scaler.fit(x_train.reshape(-1, n_features))
 
-        # 展平、Fit、Transform 訓練集
-        x_train_flat = split_data['x_train'].reshape(-1, n_features)
-        split_data['x_train'] = self.scaler.fit_transform(x_train_flat).reshape(split_data['x_train'].shape)
-
-        # Transform 驗證集與測試集 (不重新 Fit)
-        for key in ['x_val', 'x_test']:
-            if split_data[key].size > 0:
-                flat = split_data[key].reshape(-1, n_features)
-                split_data[key] = self.scaler.transform(flat).reshape(split_data[key].shape)
+        # 調用封裝好的縮放方法處理所有分割
+        split_data['x_train'] = self._scale_feature_in_sequences(split_data['x_train'])
+        split_data['x_val'] = self._scale_feature_in_sequences(split_data['x_val'])
+        split_data['x_test'] = self._scale_feature_in_sequences(split_data['x_test'])
 
         return split_data
 
-
+    @override
     def _scale_feature_in_sequences(self, sequences: NDArray[float32]) -> NDArray[float32]:
-        pass
+        """
+        Standardizes the input sequences using the fitted scaler.
+        """
+        if not self.scaler:
+            raise ValueError("Scaler is not fitted.")
+        if sequences.size == 0:
+            return sequences
+
+        # 展平與還原維度的邏輯封裝在此
+        n_features = sequences.shape[2]
+        flat_data = sequences.reshape(-1, n_features)
+        scaled_flat = self.scaler.transform(flat_data)
+        return scaled_flat.reshape(sequences.shape).astype(float32)

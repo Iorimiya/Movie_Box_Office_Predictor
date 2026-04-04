@@ -269,8 +269,9 @@ class BoxOfficeRegressionDataProcessor(
         y_list: list[float] = []
 
         for session in sessions:
-            numerical_movie: list[list[int | float]] = (
-                self._convert_weeks_to_numerical_sequence(weeks=session.weeks_data))
+            numerical_movie: list[list[int | float]] = self._convert_weeks_to_numerical_sequence(
+                weeks=session.weeks_data
+            )
 
             # Each session should have exactly `week_limit + 1` weeks.
             if len(numerical_movie) == week_limit + 1:
