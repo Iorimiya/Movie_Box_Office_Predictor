@@ -10,8 +10,10 @@ class ProjectModelType(Enum):
     or routing logic.
 
     :ivar BOX_OFFICE_REGRESSION: Corresponds to models focused on box office prediction using regression method.
+    :ivar BOX_OFFICE_CLASSIFICATION: Corresponds to models focused on box office prediction using classification method.
     """
     BOX_OFFICE_REGRESSION = "box_office_regression"
+    BOX_OFFICE_CLASSIFICATION = "box_office_classification"
 
 
 class ProjectDatasetType(Enum):

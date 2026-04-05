@@ -9,6 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
 from src.core.project_config import ProjectModelType, ProjectPaths
+from src.data_handling.dataset import DatabaseDataset
 from src.data_handling.movie_collections import MovieSessionData
 from src.models.base.evaluation import (
     BaseEvaluator,
@@ -17,10 +18,10 @@ from src.models.base.evaluation import (
     RegressionEvaluationResult,
 )
 from src.models.base.keras_setup import keras_base
+from src.models.box_office_common.box_office_data_processor import BoxOfficeDataSource
 from src.models.box_office_regression.components.data_processor import (
     BoxOfficeDataConfig,
     BoxOfficeRegressionDataProcessor,
-    BoxOfficeDataSource,
     BoxOfficeRegressionTrainingProcessedData,
 )
 from src.models.box_office_regression.components.model_core import (
@@ -29,8 +30,8 @@ from src.models.box_office_regression.components.model_core import (
 )
 from src.utilities.metrics import (
     ClassificationReportDict,
-    PointwiseClassificationMetricsCalculator,
     PairwiseClassificationMetricsCalculator,
+    PointwiseClassificationMetricsCalculator,
     RegressionMetricsCalculator,
     RegressionReportDict
 )
@@ -390,7 +391,7 @@ class BoxOfficeRegressionEvaluator(
         :raises ValueError: If reproducibility mode is selected but split parameters are missing.
         """
         self.logger.debug("Loading and processing evaluation dataset...")
-        data_source: BoxOfficeDataSource = BoxOfficeDataSource(dataset_name=config.dataset_name)
+        data_source: BoxOfficeDataSource = DatabaseDataset(name=config.dataset_name)
 
         processing_config: BoxOfficeDataConfig = BoxOfficeDataConfig(
             training_week_len=config.training_week_len,

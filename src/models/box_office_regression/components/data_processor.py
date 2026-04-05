@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Final, Optional, TypeAlias, TypedDict
+from typing import Any, Final, Optional, TypeAlias, TypedDict
 
 from numpy import array, float32, float64
 from numpy.typing import NDArray
@@ -10,7 +10,7 @@ from typing_extensions import override
 from src.data_handling.file_io import PickleFile
 from src.data_handling.movie_collections import MovieSessionData, WeekData
 from src.models.base.data_splitter import SplitDataset
-from src.models.box_office_common import (
+from src.models.box_office_common.box_office_data_processor import (
     BoxOfficeDataConfig, BoxOfficeFeature, BoxOfficeSessionDataProcessor, BoxOfficeTrainingRawData
 )
 
@@ -22,7 +22,8 @@ class BoxOfficeRegressionConfigDict(TypedDict, total=False):
     """
     Type definition for the Box Office Regression Model's configuration dictionary (loaded from YAML).
 
-    This ensures type safety when handling the raw configuration dictionary before it is converted into specific dataclasses. It includes Optional fields to allow for partial configurations or fields that are not required in all modes (e.g., inference).
+    This ensures type safety when handling the raw configuration dictionary
+    before it is converted into specific dataclasses.
 
     :ivar model_id: The unique identifier for the model series.
     :ivar dataset_name: The name of the source structured dataset.
@@ -53,9 +54,7 @@ class BoxOfficeRegressionConfigDict(TypedDict, total=False):
     early_stopping_min_delta: float
     box_office_ranges: list[int]
     f1_average_method: str
-    # Made Optional to align with BoxOfficeDataConfig's flexibility for inference mode
     split_ratios: Optional[tuple[int, int, int]]
-    # Made Optional as it might not be present in partial configs or inference
     random_state: Optional[int]
 
 
@@ -95,10 +94,10 @@ class BoxOfficeRegressionFeature(BoxOfficeFeature):
     @override
     def from_week_data(cls, week: WeekData) -> 'BoxOfficeRegressionFeature':
         """
-        Extracts raw features from a WeekData object and populates a BoxOfficeRegressionFeature container.
+        Extracts raw features from a WeekData object.
 
         :param week: The WeekData object to extract features from.
-        :returns: A BoxOfficeRegressionFeature object containing the extracted features.
+        :return: A BoxOfficeRegressionFeature object containing the extracted features.
         """
         return cls(
             box_office=week.box_office,
@@ -128,14 +127,13 @@ class BoxOfficeRegressionDataProcessor(
     as its primary artifact.
 
     :cvar SCALER_FILE_NAME: The constant filename for the saved scaler artifact.
-    :ivar scaler: The ``MinMaxScaler`` instance used for scaling and inverse-scaling data.
-                  It is ``None`` until it is fitted during training or loaded from an artifact.
+    :ivar _scaler: The ``MinMaxScaler`` instance used for scaling data.
     """
 
     SCALER_FILE_NAME: Final[str] = "scaler.pickle"
 
     @override
-    def __init__(self, model_artifacts_path: Optional[Path] = None):
+    def __init__(self, model_artifacts_path: Optional[Path] = None) -> None:
         """
         Initializes the BoxOfficeRegressionDataProcessor.
 
@@ -146,37 +144,37 @@ class BoxOfficeRegressionDataProcessor(
     @override
     def save_artifacts(self) -> None:
         """
-        Saves the MinMaxScaler and training parameters to a single pickle file.
+        Saves the MinMaxScaler to a single pickle file.
 
         :raises ValueError: If `model_artifacts_path` is not set or artifacts are not available.
         """
-        if not self.model_artifacts_path:
+        if not self._model_artifacts_path:
             raise ValueError("model_artifacts_path is not set. Cannot save artifacts.")
-        if self.scaler is None:
+        if self._scaler is None:
             raise ValueError("Scaler is not available to be saved.")
 
-        self.model_artifacts_path.mkdir(parents=True, exist_ok=True)
-        artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
-        self.logger.debug(f"Saving scaler and settings artifact to: {artifact_path}")
-        PickleFile(path=artifact_path).save(data=self.scaler)
+        self._model_artifacts_path.mkdir(parents=True, exist_ok=True)
+        artifact_path: Path = self._model_artifacts_path / self.SCALER_FILE_NAME
+        self._logger.debug(f"Saving scaler and settings artifact to: {artifact_path}")
+        PickleFile(path=artifact_path).save(data=self._scaler)
 
     @override
     def load_artifacts(self) -> None:
         """
         Loads the MinMaxScaler from the artifact file.
         """
-        if not self.model_artifacts_path:
+        if not self._model_artifacts_path:
             return
 
-        artifact_path: Path = self.model_artifacts_path / self.SCALER_FILE_NAME
+        artifact_path: Path = self._model_artifacts_path / self.SCALER_FILE_NAME
         if artifact_path.exists():
-            self.logger.debug(f"Loading scaler artifact from: {artifact_path}")
+            self._logger.debug(f"Loading scaler artifact from: {artifact_path}")
             try:
-                self.scaler = PickleFile(path=artifact_path).load()
-                self.logger.debug("Scaler artifact loaded successfully.")
+                self._scaler: Optional[MinMaxScaler] = PickleFile(path=artifact_path).load()
+                self._logger.debug("Scaler artifact loaded successfully.")
             except (TypeError, ValueError) as e:
-                self.logger.error(f"Failed to load scaler artifact from {artifact_path}: {e}", exc_info=True)
-                self.scaler = None
+                self._logger.error(f"Failed to load scaler artifact from {artifact_path}: {e}", exc_info=True)
+                self._scaler: Optional[MinMaxScaler] = None
 
     @override
     def process_for_evaluation(
@@ -185,36 +183,32 @@ class BoxOfficeRegressionDataProcessor(
         """
         Processes a full raw dataset for evaluation without splitting it.
 
-        This method is designed for evaluating a model on a new, unseen dataset
-        where the entire dataset should be treated as a single test set. It
-        performs all processing steps (sequencing, feature extraction, scaling)
-        except for the train/val/test split.
-
         :param raw_data: The raw list of `MovieSessionData` objects.
         :param config: A configuration object, primarily used for `training_week_len`.
-        :returns: A tuple containing the full processed features (x) and labels (y).
+        :return: A tuple containing the full processed features (x) and labels (y).
         :raises ValueError: If the scaler is not loaded or no data sessions can be created.
         """
-
         if config is None:
             raise ValueError(
                 "BoxOfficeDataConfig is required for processing box office regression data."
             )
 
-        self.logger.debug("Processing full dataset for evaluation (no splitting).")
+        self._logger.debug("Processing full dataset for evaluation (no splitting).")
         sessions: list[MovieSessionData] = raw_data
 
         if not sessions:
             raise ValueError("No sessions data available for evaluation.")
 
+        x: NDArray[float32]
+        y: NDArray[float64]
         x, y = self._create_xy_from_sessions(sessions=sessions, week_limit=config.training_week_len)
 
         # Scale the entire dataset using the preloaded scaler
-        if not self.scaler:
+        if not self._scaler:
             raise ValueError("Scaler must be loaded to process data for evaluation.")
 
         x_scaled: NDArray[float32] = self._scale_feature_in_sequences(sequences=x)
-        y_scaled: NDArray[float64] = self.scaler.transform(y.reshape(-1, 1)).flatten()
+        y_scaled: NDArray[float64] = self._scaler.transform(X=y.reshape(-1, 1)).flatten()
 
         return x_scaled, y_scaled
 
@@ -227,7 +221,7 @@ class BoxOfficeRegressionDataProcessor(
 
         :param raw_data: The raw list of ``MovieSessionData`` objects.
         :param config: The data processing configuration.
-        :returns: A tuple containing the feature sequences (x) and target values (y).
+        :return: A tuple containing the feature sequences (x) and target values (y).
         :raises ValueError: If no session data can be created from the raw data.
         """
         sessions: list[MovieSessionData] = raw_data
@@ -235,6 +229,8 @@ class BoxOfficeRegressionDataProcessor(
         if not sessions:
             raise ValueError("No sessions data available.")
 
+        x: NDArray[float32]
+        y: NDArray[float64]
         x, y = self._create_xy_from_sessions(sessions=sessions, week_limit=config.training_week_len)
         return x, y
 
@@ -247,7 +243,7 @@ class BoxOfficeRegressionDataProcessor(
 
         :param split_data: The TypedDict containing the train, validation, and test splits.
         :param config: The data processing configuration.
-        :returns: The final, fully processed and scaled data ready for model training.
+        :return: The final, fully processed and scaled data ready for model training.
         """
         return self._scale_data(unscaled_data=split_data)
 
@@ -257,13 +253,9 @@ class BoxOfficeRegressionDataProcessor(
         """
         Creates input sequences (x) and target values (y) from a list of MovieSessionData.
 
-        Each session is converted into a single (x, y) pair. The first `week_limit`
-        weeks form the input sequence (x), and the box office of the final week
-        becomes the target (y).
-
         :param sessions: A list of `MovieSessionData` objects.
         :param week_limit: The number of past weeks to use as input features.
-        :returns: A tuple of (x, y) as NumPy arrays.
+        :return: A tuple of (x, y) as NumPy arrays.
         """
         x_list: list[list[list[int | float]]] = []
         y_list: list[float] = []
@@ -276,7 +268,7 @@ class BoxOfficeRegressionDataProcessor(
             # Each session should have exactly `week_limit + 1` weeks.
             if len(numerical_movie) == week_limit + 1:
                 seq_x: list[list[int | float]] = numerical_movie[:week_limit]
-                seq_y: float = numerical_movie[week_limit][0]  # Target is the box office of the last week
+                seq_y: float = numerical_movie[week_limit][0]
                 x_list.append(seq_x)
                 y_list.append(seq_y)
 
@@ -287,14 +279,11 @@ class BoxOfficeRegressionDataProcessor(
         """
         Applies the fitted scaler to the box office feature within sequences.
 
-        This version assumes sequences are dense (no padding) and uses vectorized
-        operations for efficiency.
-
         :param sequences: A 3D array of sequences (samples, timesteps, features).
-        :returns: The sequences with the first feature scaled.
+        :return: The sequences with the first feature scaled.
         :raises ValueError: If the scaler has not been fitted.
         """
-        if not self.scaler:
+        if not self._scaler:
             raise ValueError("Scaler is not fitted.")
         if sequences.size == 0:
             return sequences
@@ -302,7 +291,7 @@ class BoxOfficeRegressionDataProcessor(
         scaled_sequences: NDArray[float32] = sequences.copy()
         # Scale only the first feature (box office) at index 0
         box_office_data: NDArray[float32] = scaled_sequences[:, :, 0].reshape(-1, 1)
-        scaled_box_office: NDArray[float32] = self.scaler.transform(box_office_data)
+        scaled_box_office: NDArray[float32] = self._scaler.transform(X=box_office_data)
         scaled_sequences[:, :, 0] = scaled_box_office.reshape(sequences.shape[0], sequences.shape[1])
 
         return scaled_sequences
@@ -313,24 +302,30 @@ class BoxOfficeRegressionDataProcessor(
         """
         Fits a scaler on the training data and applies it to all data splits.
 
-        :param unscaled_data: A TypedDict containing the unscaled train, validation, and test sets.
-        :returns: A TypedDict containing the scaled data splits.
+        :param unscaled_data: A TypedDict containing the unscaled data splits.
+        :return: A TypedDict containing the scaled data splits.
         """
-        self.logger.debug("Scaling data splits.")
-        x_train, y_train = unscaled_data['x_train'], unscaled_data['y_train']
-        x_val, y_val = unscaled_data['x_val'], unscaled_data['y_val']
-        x_test, y_test = unscaled_data['x_test'], unscaled_data['y_test']
+        self._logger.debug("Scaling data splits.")
+        x_train: NDArray[float32] = unscaled_data['x_train']
+        y_train: NDArray[float64] = unscaled_data['y_train']
+        x_val: NDArray[float32] = unscaled_data['x_val']
+        y_val: NDArray[float64] = unscaled_data['y_val']
+        x_test: NDArray[float32] = unscaled_data['x_test']
+        y_test: NDArray[float64] = unscaled_data['y_test']
 
         # Initialize and fit the scaler ONLY on the training target data
-        self.scaler = MinMaxScaler()
-        y_train_scaled = self.scaler.fit_transform(y_train.reshape(-1, 1)) if len(y_train) > 0 else array([])
-        y_val_scaled = self.scaler.transform(y_val.reshape(-1, 1)) if len(y_val) > 0 else array([])
-        y_test_scaled = self.scaler.transform(y_test.reshape(-1, 1)) if len(y_test) > 0 else array([])
+        self._scaler: Optional[MinMaxScaler] = MinMaxScaler()
+        y_train_scaled: NDArray[Any] = self._scaler.fit_transform(X=y_train.reshape(-1, 1)) \
+            if len(y_train) > 0 else array([])
+        y_val_scaled: NDArray[Any] = self._scaler.transform(X=y_val.reshape(-1, 1)) \
+            if len(y_val) > 0 else array([])
+        y_test_scaled: NDArray[Any] = self._scaler.transform(X=y_test.reshape(-1, 1)) \
+            if len(y_test) > 0 else array([])
 
         # Scale the box office feature (index 0) in x sets
-        x_train_scaled = self._scale_feature_in_sequences(sequences=x_train)
-        x_val_scaled = self._scale_feature_in_sequences(sequences=x_val)
-        x_test_scaled = self._scale_feature_in_sequences(sequences=x_test)
+        x_train_scaled: NDArray[float32] = self._scale_feature_in_sequences(sequences=x_train)
+        x_val_scaled: NDArray[float32] = self._scale_feature_in_sequences(sequences=x_val)
+        x_test_scaled: NDArray[float32] = self._scale_feature_in_sequences(sequences=x_test)
 
         return BoxOfficeRegressionTrainingProcessedData(
             x_train=x_train_scaled, y_train=y_train_scaled.flatten(),
@@ -343,12 +338,9 @@ class BoxOfficeRegressionDataProcessor(
         """
         Determines the index of the range a given value falls into.
 
-        This method is centralized here as it represents a form of data transformation
-        and is part of the public utility API of this class.
-
         :param value: The box office value to classify.
-        :param ranges: A tuple of upper boundaries defining the ranges (e.g., (1M, 10M, 90M)).
-        :returns: The integer index of the corresponding range.
+        :param ranges: A tuple of upper boundaries defining the ranges.
+        :return: The integer index of the corresponding range.
         """
         # Sort ranges to ensure correct interval checking
         sorted_ranges: list[int] = sorted(list(ranges))
