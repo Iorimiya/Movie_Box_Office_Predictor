@@ -1,29 +1,23 @@
 from dataclasses import dataclass
-from typing import Any, TypeAlias
+from typing import Any
 
 from numpy.typing import NDArray
 from typing_extensions import override
 
-from src.models.base.base_model_core import BaseModelCore, KerasEvaluateParams, KerasFitParams, KerasPredictParams
-from src.models.base.keras_setup import keras_base
-
-# noinspection PyUnresolvedReferences
-History: TypeAlias = keras_base.callbacks.History
-Sequential: TypeAlias = keras_base.models.Sequential
-# noinspection PyUnresolvedReferences
-Dense: TypeAlias = keras_base.layers.Dense
-# noinspection PyUnresolvedReferences
-Dropout: TypeAlias = keras_base.layers.Dropout
-# noinspection PyUnresolvedReferences,PyTypeHints
-Input: TypeAlias = keras_base.layers.Input
-# noinspection PyUnresolvedReferences
-LSTM: TypeAlias = keras_base.layers.LSTM
-# noinspection PyUnresolvedReferences
-Masking: TypeAlias = keras_base.layers.Masking
-# noinspection PyUnresolvedReferences
-Adam: TypeAlias = keras_base.optimizers.Adam
-# noinspection PyUnresolvedReferences
-ExponentialDecay: TypeAlias = keras_base.optimizers.schedules.ExponentialDecay
+from src.models.base.base_model_core import (
+    Adam,
+    BaseModelCore,
+    Dense,
+    Dropout,
+    ExponentialDecay,
+    History,
+    LSTM,
+    Input, Masking,
+    KerasEvaluateParams,
+    KerasFitParams,
+    KerasPredictParams,
+    Sequential
+)
 
 
 @dataclass(frozen=True)
