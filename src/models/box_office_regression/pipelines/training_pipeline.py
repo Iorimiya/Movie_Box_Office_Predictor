@@ -7,14 +7,14 @@ from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
 from src.core.project_config import ProjectModelType, ProjectPaths
+from src.data_handling.dataset import DatabaseDataset
 from src.data_handling.movie_collections import MovieSessionData
 from src.models.base.base_pipeline import BaseTrainingPipeline
 from src.models.base.callbacks import F1ScoreHistory
 from src.models.base.keras_setup import keras_base
+from src.models.box_office_common import BoxOfficeDataConfig, BoxOfficeDataSource
 from src.models.box_office_regression.components.data_processor import (
-    BoxOfficeRegressionDataConfig,
     BoxOfficeRegressionDataProcessor,
-    BoxOfficeRegressionDataSource,
     BoxOfficeRegressionTrainingProcessedData
 )
 from src.models.box_office_regression.components.model_core import (
@@ -122,14 +122,14 @@ class BoxOfficeRegressionTrainingPipeline(
         # Data Loading and Processing
         self.logger.debug("Loading and processing data...")
 
-        processing_config: BoxOfficeRegressionDataConfig = BoxOfficeRegressionDataConfig(
+        processing_config: BoxOfficeDataConfig = BoxOfficeDataConfig(
             training_week_len=master_config.training_week_len,
             split_ratios=master_config.split_ratios,
             random_state=master_config.random_state
         )
 
-        data_source: BoxOfficeRegressionDataSource = BoxOfficeRegressionDataSource(
-            dataset_name=master_config.dataset_name
+        data_source: BoxOfficeDataSource = DatabaseDataset(
+            name=master_config.dataset_name
         )
 
         raw_data: list[MovieSessionData] = self.data_processor.load_raw_data(source=data_source,

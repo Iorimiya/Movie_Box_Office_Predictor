@@ -18,9 +18,9 @@ from src.models.base.evaluation import (
 )
 from src.models.base.keras_setup import keras_base
 from src.models.box_office_regression.components.data_processor import (
-    BoxOfficeRegressionDataConfig,
+    BoxOfficeDataConfig,
     BoxOfficeRegressionDataProcessor,
-    BoxOfficeRegressionDataSource,
+    BoxOfficeDataSource,
     BoxOfficeRegressionTrainingProcessedData,
 )
 from src.models.box_office_regression.components.model_core import (
@@ -390,9 +390,9 @@ class BoxOfficeRegressionEvaluator(
         :raises ValueError: If reproducibility mode is selected but split parameters are missing.
         """
         self.logger.debug("Loading and processing evaluation dataset...")
-        data_source: BoxOfficeRegressionDataSource = BoxOfficeRegressionDataSource(dataset_name=config.dataset_name)
+        data_source: BoxOfficeDataSource = BoxOfficeDataSource(dataset_name=config.dataset_name)
 
-        processing_config: BoxOfficeRegressionDataConfig = BoxOfficeRegressionDataConfig(
+        processing_config: BoxOfficeDataConfig = BoxOfficeDataConfig(
             training_week_len=config.training_week_len,
             split_ratios=config.split_ratios,
             random_state=config.random_state

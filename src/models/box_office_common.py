@@ -132,7 +132,7 @@ class BoxOfficeSessionDataProcessor(
         :raises ValueError: If the config is not provided.
         """
         if config is None:
-            raise ValueError("BoxOfficeRegressionDataConfig is required to determine session length.")
+            raise ValueError("BoxOfficeDataConfig is required to determine session length.")
 
         self.logger.debug(f"Loading movie sessions from dataset: '{source.name}'")
 
