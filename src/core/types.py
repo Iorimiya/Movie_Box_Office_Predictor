@@ -31,3 +31,17 @@ class ProjectDatasetType(Enum):
     """
     STRUCTURED = "structured"
     FEATURE = "feature"
+
+
+class DataSourceType(Enum):
+    """
+    Enumeration for different types of data sources used across the project.
+
+    This helps in selecting between different dataset implementations like
+    Database-backed or YAML-backed storage.
+
+    :ivar DATABASE: Indicates data should be sourced from a SQL database.
+    :ivar YAML: Indicates data should be sourced from local YAML files.
+    """
+    DATABASE = "database"
+    YAML = "yaml"

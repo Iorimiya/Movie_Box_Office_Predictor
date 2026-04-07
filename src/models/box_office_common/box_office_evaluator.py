@@ -1,5 +1,4 @@
 from abc import abstractmethod
-from enum import Enum
 from pathlib import Path
 from typing import Any, Generic, TypeVar
 
@@ -7,6 +6,7 @@ from numpy.typing import NDArray
 from typing_extensions import override
 
 from src.core.project_config import ProjectModelType, ProjectPaths
+from src.core.types import DataSourceType
 from src.data_handling.dataset import DatabaseDataset, YamlDataset
 from src.data_handling.movie_collections import MovieSessionData
 from src.models.base.base_model_core import BaseModelCore
@@ -22,15 +22,6 @@ from src.models.box_office_common.box_office_data_processor import (
 )
 
 
-# Define DataSourceType Enum
-class DataSourceType(Enum):
-    """
-    Enumeration for different types of data sources.
-    """
-    DATABASE = "database"
-    YAML = "yaml"
-
-
 class BoxOfficeBaseEvaluationConfig(GradientEvaluationConfig):
     """
     A base configuration for Box Office model evaluation, extending GradientEvaluationConfig.
@@ -44,7 +35,7 @@ class BoxOfficeBaseEvaluationConfig(GradientEvaluationConfig):
         *,
         training_week_len: int,
         **kwargs: Any
-    ):
+    ) -> None:
         """
         Initializes the BoxOfficeBaseEvaluationConfig.
 
@@ -52,7 +43,7 @@ class BoxOfficeBaseEvaluationConfig(GradientEvaluationConfig):
         :param kwargs: Additional keyword arguments passed to the base class.
         """
         super().__init__(**kwargs)
-        self.training_week_len = training_week_len
+        self.training_week_len: int = training_week_len
 
 
 # Define generic types for the base evaluator
@@ -70,6 +61,8 @@ class BoxOfficeBaseEvaluator(
 
     This class provides shared logic for setting up components and preparing test data,
     allowing for flexible data source selection (Database or YAML).
+
+    :ivar _data_source_type: The type of data source to use for evaluation.
     """
     _data_source_type: DataSourceType
 
@@ -80,14 +73,15 @@ class BoxOfficeBaseEvaluator(
         :param data_source_type: The type of data source to use for evaluation (Database or YAML).
         """
         super().__init__()
-        self._data_source_type = data_source_type
+        self._data_source_type: DataSourceType = data_source_type
 
     @property
     @abstractmethod
     def _project_model_type(self) -> ProjectModelType:
         """
-        Abstract property to be implemented by subclasses, returning the specific
-        ProjectModelType (e.g., BOX_OFFICE_REGRESSION, BOX_OFFICE_CLASSIFICATION).
+        Abstract property to be implemented by subclasses.
+
+        :return: The specific ProjectModelType (e.g., BOX_OFFICE_REGRESSION).
         """
         pass
 
@@ -95,6 +89,9 @@ class BoxOfficeBaseEvaluator(
     def _create_data_processor_instance(self, model_artifacts_path: Path) -> DataProcessorType:
         """
         Abstract method to create and return an instance of the specific DataProcessor.
+
+        :param model_artifacts_path: Path to the directory for model artifacts.
+        :return: An instance of a concrete BoxOfficeSessionDataProcessor.
         """
         pass
 
@@ -102,6 +99,9 @@ class BoxOfficeBaseEvaluator(
     def _create_model_core_instance(self, model_file_path: Path) -> ModelCoreType:
         """
         Abstract method to create and return an instance of the specific ModelCore.
+
+        :param model_file_path: Path to the saved Keras model file.
+        :return: An instance of a concrete BaseModelCore.
         """
         pass
 
@@ -117,14 +117,9 @@ class BoxOfficeBaseEvaluator(
         return DatabaseDataset(name=dataset_name)
 
     @override
-    def _setup_components(
-        self, model_id: str, model_epoch: int
-    ) -> tuple[DataProcessorType, ModelCoreType, Path]:
+    def _setup_components(self, model_id: str, model_epoch: int) -> tuple[DataProcessorType, ModelCoreType, Path]:
         """
         Sets up and loads the necessary data processor and model core for evaluation.
-
-        This method is now generic and uses abstract methods to create specific
-        DataProcessor and ModelCore instances.
 
         :param model_id: The unique identifier for the model series.
         :param model_epoch: The specific training epoch of the model to load.
@@ -132,14 +127,14 @@ class BoxOfficeBaseEvaluator(
                  and the path to the model artifacts' directory.
         :raises FileNotFoundError: If required artifacts (e.g., scaler, thresholds) cannot be loaded.
         """
-        self.logger.debug("Loading model and data processor artifacts...")
+        self._logger.debug("Loading model and data processor artifacts...")
         artifacts_path: Path = ProjectPaths.get_model_root_path(
             model_id=model_id, model_type=self._project_model_type
         )
         model_file_path: Path = artifacts_path / f"{model_id}_{model_epoch:04d}.keras"
 
         data_processor: DataProcessorType = self._create_data_processor_instance(model_artifacts_path=artifacts_path)
-        data_processor.load_artifacts()  # Ensure artifacts are loaded for is_prepared check
+        data_processor.load_artifacts()
 
         if not data_processor.is_prepared:
             raise FileNotFoundError(f"Could not load required artifacts (scaler/thresholds) from: {artifacts_path}")
@@ -154,14 +149,12 @@ class BoxOfficeBaseEvaluator(
         """
         Loads and processes data to retrieve the evaluation set.
 
-        This method is now generic and uses the _get_data_source helper.
-
         :param data_processor: The initialized data processor.
         :param config: The configuration object for the evaluation run.
         :return: A tuple containing the evaluation features (x_eval) and labels (y_eval).
         :raises ValueError: If reproducibility mode is selected but split parameters are missing.
         """
-        self.logger.debug("Loading and processing evaluation dataset...")
+        self._logger.debug("Loading and processing evaluation dataset...")
 
         # Use the helper method to get the correct data source type
         data_source: BoxOfficeDataSource = self._get_data_source(dataset_name=config.dataset_name)
@@ -175,13 +168,15 @@ class BoxOfficeBaseEvaluator(
         raw_data: list[MovieSessionData] = data_processor.load_raw_data(source=data_source, config=processing_config)
 
         if config.evaluate_on_full_dataset:
-            self.logger.debug("Evaluation mode: Processing the full dataset as the test set.")
+            self._logger.debug("Evaluation mode: Processing the full dataset as the test set.")
+            x_eval: NDArray[Any]
+            y_eval: NDArray[Any]
             x_eval, y_eval = data_processor.process_for_evaluation(
                 raw_data=raw_data, config=processing_config
             )
             return x_eval, y_eval
         else:
-            self.logger.debug("Evaluation mode: Reproducing the original test split.")
+            self._logger.debug("Evaluation mode: Reproducing the original test split.")
 
             if config.split_ratios is None or config.random_state is None:
                 raise ValueError(
@@ -190,7 +185,6 @@ class BoxOfficeBaseEvaluator(
                 )
 
             # The type hint for processed_data needs to be flexible enough for both regression and classification
-            # For now, I'll use Any, but ideally, this would be a generic type from BaseDataProcessor
             processed_data: Any = data_processor.process_for_training(
                 raw_data=raw_data, config=processing_config
             )
