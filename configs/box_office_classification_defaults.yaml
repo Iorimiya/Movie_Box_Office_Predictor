@@ -1,0 +1,30 @@
+# box_office_classification_defaults.yaml
+
+# --- Project & Dataset Settings ---
+model_id: "box_office_classification_v1"
+dataset_name: "processed_movie_data"
+training_week_len: 4
+split_ratios: [7, 2, 1]
+random_state: 42
+
+# --- Model Architecture ---
+lstm_units: 64
+dense_units: 32
+dropout_rate: 0.2
+
+# --- Training Hyperparameters ---
+learning_rate: 0.001
+clipnorm: 1.0
+epochs: 100
+batch_size: 32
+checkpoint_interval: 10
+
+# --- Early Stopping Settings ---
+early_stopping_monitor: "val_loss"
+early_stopping_patience: 10
+early_stopping_min_delta: 0.0001
+
+# --- Classification Specific Settings ---
+# Percentile Rank thresholds (e.g., [50, 80] creates 3 classes: PR<50, 50<=PR<80, PR>=80)
+box_office_thresholds: [50, 80]
+f1_average_method: "macro"
