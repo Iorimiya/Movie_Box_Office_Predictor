@@ -9,10 +9,13 @@ from numpy import argmax
 from numpy.typing import NDArray
 
 from src.core.project_config import ProjectModelType, ProjectPaths
+from src.data_collection.box_office_collector import BoxOfficeCollector
+from src.data_collection.review_collector import ReviewCollector, TargetWebsite
 from src.data_handling.box_office import BoxOffice
 from src.data_handling.dataset import BaseDataset, DatabaseDataset
 from src.data_handling.file_io import YamlFile
 from src.data_handling.movie_collections import MovieData
+from src.data_handling.reviews import PublicReview
 from src.models.box_office_classification.components.data_processor import (
     BoxOfficeClassificationConfigDict,
     BoxOfficeClassificationDataProcessor,
@@ -124,14 +127,27 @@ class BoxOfficeClassificationModelHandler:
         try:
             input_data: MovieData
             if args.movie_name:
-                dataset_name: str = original_config.get('dataset_name', '')
-                dataset: BaseDataset = DatabaseDataset(name=dataset_name)
-                target_movie: Optional[MovieData] = next(
-                    (m for m in dataset.movie_data if m.name == args.movie_name), None
-                )
-                if not target_movie:
-                    raise ValueError(f"Movie '{args.movie_name}' not found in database.")
-                input_data = target_movie
+                # Use real-time search logic instead of just database retrieval
+                input_data = self._fetch_movie_data_online(movie_name=args.movie_name)
+
+                # Validation: ensure we have enough data to process
+                required_weeks: int = original_config['training_week_len']
+                if len(input_data.box_office) < required_weeks:
+                    self._logger.warning(
+                        f"Fetched data for '{args.movie_name}' only has {len(input_data.box_office)} weeks, "
+                        f"but model requires {required_weeks}. Attempting to use database as fallback."
+                    )
+                    dataset_name: str = original_config.get('dataset_name', '')
+                    dataset: BaseDataset = DatabaseDataset(name=dataset_name)
+                    target_movie: Optional[MovieData] = next(
+                        (m for m in dataset.movie_data if m.name == args.movie_name), None
+                    )
+                    if target_movie:
+                        input_data = target_movie
+                    else:
+                        raise ValueError(
+                            f"Insufficient online data and movie '{args.movie_name}' not found in database."
+                        )
             else:
                 input_data = self._generate_random_movie_data(weeks=original_config['training_week_len'] + 5)
 
@@ -183,6 +199,38 @@ class BoxOfficeClassificationModelHandler:
             config['box_office_thresholds'] = tuple(args.box_office_thresholds)
 
         return config
+
+    def _fetch_movie_data_online(self, movie_name: str) -> MovieData:
+        """
+        Fetches movie data (box office and reviews) from online sources in real-time.
+
+        :param movie_name: The name of the movie to fetch data for.
+        :return: A MovieData instance containing the fetched data.
+        """
+        self._logger.info(f"Fetching online data for movie: {movie_name}")
+
+        box_office_history: list[BoxOffice] = []
+        try:
+            with BoxOfficeCollector(download_mode='WEEK') as collector:
+                box_office_history, _ = collector.fetch_single_movie_data(movie_name=movie_name)
+        except Exception as e:
+            self._logger.warning(f"Failed to fetch box office data online for '{movie_name}': {e}")
+
+        all_public_reviews: list[PublicReview] = []
+        # Fetch PTT reviews
+        try:
+            ptt_collector: ReviewCollector = ReviewCollector(target_website=TargetWebsite.PTT)
+            all_public_reviews.extend(ptt_collector.collect_reviews_for_movie(movie_name=movie_name))
+        except Exception as e:
+            self._logger.warning(f"Failed to fetch PTT reviews online for '{movie_name}': {e}")
+
+        return MovieData(
+            id=-1,
+            name=movie_name,
+            box_office=box_office_history,
+            public_reviews=all_public_reviews,
+            expert_reviews=[]
+        )
 
     def _generate_random_movie_data(self, weeks: int) -> MovieData:
         """
