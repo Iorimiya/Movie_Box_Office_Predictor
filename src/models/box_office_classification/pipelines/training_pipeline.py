@@ -99,7 +99,12 @@ class BoxOfficeClassificationTrainingPipeline(
         :param model_core: The model core instance.
         :param data_source_type: The type of data source to use (Database or YAML).
         """
-        super().__init__(data_source_type=data_source_type, data_processor=data_processor, model_core=model_core)
+        super().__init__(
+            data_source_type=data_source_type,
+            data_processor=data_processor,
+            model_core=model_core,
+            model_type=ProjectModelType.BOX_OFFICE_CLASSIFICATION
+        )
 
 
     @override

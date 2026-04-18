@@ -36,12 +36,14 @@ class BoxOfficeTrainingPipeline(
     :ivar _data_source_type: The type of data source to use (Database or YAML).
     """
     _data_source_type: DataSourceType
+    _model_type: ProjectModelType
 
     def __init__(
         self,
         data_processor: DataProcessorType,
         model_core: ModelCoreType,
-        data_source_type: DataSourceType = DataSourceType.DATABASE
+        model_type: ProjectModelType,
+        data_source_type: DataSourceType = DataSourceType.DATABASE,
     ) -> None:
         """
         Initializes the BoxOfficeTrainingPipeline.
@@ -52,6 +54,7 @@ class BoxOfficeTrainingPipeline(
         """
         super().__init__(data_processor=data_processor, model_core=model_core)
         self._data_source_type: DataSourceType = data_source_type
+        self._model_type = model_type
 
     @override
     def run(self, config: PipelineConfigType, continue_from_epoch: Optional[int] = None) -> None:
@@ -66,7 +69,7 @@ class BoxOfficeTrainingPipeline(
 
         # 1. Setup Artifacts Folder
         artifacts_folder: Path = ProjectPaths.get_model_root_path(
-            model_id=model_id, model_type=self.model_type
+            model_id=model_id, model_type=self._model_type
         )
         artifacts_folder.mkdir(parents=True, exist_ok=True)
 

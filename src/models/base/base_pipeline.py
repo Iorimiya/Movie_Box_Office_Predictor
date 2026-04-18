@@ -54,7 +54,7 @@ class BaseTrainingPipeline(
         :param data_processor: The data processor responsible for handling artifacts and data loading.
         :param model_core: The model core responsible for the Keras model lifecycle.
         """
-        self._logger: Logger = LoggingManager().get_logger(name='machine_learning')
+        self._logger: Logger = LoggingManager().get_logger('machine_learning')
         self._data_processor: DataProcessorType = data_processor
         self._model_core: ModelCoreType = model_core
 

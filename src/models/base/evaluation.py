@@ -276,7 +276,7 @@ class BaseEvaluator(
         """
         Initializes the BaseEvaluator.
         """
-        self._logger: Logger = LoggingManager().get_logger(name='machine_learning')
+        self._logger: Logger = LoggingManager().get_logger(arg='machine_learning')
 
     @abstractmethod
     def _setup_components(self, model_id: str, model_epoch: int) -> tuple[DataProcessorType, ModelCoreType, Path]:

@@ -333,9 +333,7 @@ class BoxOfficeClassificationDataProcessor(
         return array(x_list, dtype=float32), array(y_list, dtype=int_)
 
     @override
-    def _prepare_for_split(
-        self, raw_data: BoxOfficeTrainingRawData, config: BoxOfficeDataConfig
-    ) -> tuple[NDArray[float32], NDArray[int_]]:
+    def _prepare_for_split(self, raw_data: BoxOfficeTrainingRawData, config: BoxOfficeDataConfig) -> tuple[NDArray[float32], NDArray[int_]]:
         """
         Prepares raw data for splitting by calculating thresholds and generating sequences.
 

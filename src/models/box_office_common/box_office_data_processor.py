@@ -89,6 +89,7 @@ ScalerType = TypeVar('ScalerType', bound=BaseEstimator)
 
 
 class BoxOfficeSessionDataProcessor(
+    Generic[ProcessedTrainingDataType, ProcessedPredictionDataType, X_Type, Y_Type, FeatureClassType, ScalerType],
     GradientDataProcessor[
         BoxOfficeDataSource,
         BoxOfficeTrainingRawData,
@@ -99,8 +100,7 @@ class BoxOfficeSessionDataProcessor(
         X_Type,
         Y_Type
     ],
-    ABC,
-    Generic[ProcessedTrainingDataType, ProcessedPredictionDataType, X_Type, Y_Type, FeatureClassType, ScalerType]
+    ABC
 ):
     """
     A common data processor for box office sequence data.

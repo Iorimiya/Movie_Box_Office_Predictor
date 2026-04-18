@@ -89,14 +89,6 @@ GradientDataConfigType = TypeVar('GradientDataConfigType', bound=GradientDataCon
 
 
 class GradientDataProcessor(
-    BaseDataProcessor[
-        RawDataSourceType,
-        TrainingRawDataType,
-        ProcessedTrainingDataType,
-        PredictionRawDataType,
-        ProcessedPredictionDataType,
-        GradientDataConfigType
-    ],
     Generic[
         RawDataSourceType,
         TrainingRawDataType,
@@ -106,6 +98,14 @@ class GradientDataProcessor(
         GradientDataConfigType,
         X_Type,
         Y_Type
+    ],
+    BaseDataProcessor[
+        RawDataSourceType,
+        TrainingRawDataType,
+        ProcessedTrainingDataType,
+        PredictionRawDataType,
+        ProcessedPredictionDataType,
+        GradientDataConfigType
     ]
 ):
     """
@@ -135,7 +135,7 @@ class GradientDataProcessor(
                                      (like a scaler or tokenizer) are or will be stored.
         """
         super().__init__(model_artifacts_path=model_artifacts_path)
-        self._logger: Logger = LoggingManager().get_logger(name='machine_learning')
+        self._logger: Logger = LoggingManager().get_logger('machine_learning')
         self._splitter: DatasetSplitter[X_Type, Y_Type] = DatasetSplitter[X_Type, Y_Type](logger=self._logger)
 
     @abstractmethod

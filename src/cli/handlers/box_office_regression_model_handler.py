@@ -8,6 +8,7 @@ from typing import Any, Final
 from numpy.typing import NDArray
 from typing_extensions import override
 
+from models.box_office_common.box_office_data_processor import BoxOfficeDataConfig
 from src.cli.handlers.gradient_model_handler import RegressionModelHandler
 from src.core.project_config import ProjectModelType, ProjectPaths
 from src.data_handling.box_office import BoxOffice
@@ -17,7 +18,6 @@ from src.data_handling.movie_collections import MovieData
 from src.models.base.evaluation import BaseEvaluationResult
 from src.models.box_office_regression.components.data_processor import (
     BoxOfficeRegressionConfigDict,
-    BoxOfficeRegressionDataConfig,
     BoxOfficeRegressionDataProcessor
 )
 from src.models.box_office_regression.components.evaluator import (
@@ -179,7 +179,7 @@ class BoxOfficeRegressionModelHandler(RegressionModelHandler[BoxOfficeRegression
                 self._parser.error("Either --movie-name or --random must be specified.")
 
             # Process Input and Predict
-            processing_config: BoxOfficeRegressionDataConfig = BoxOfficeRegressionDataConfig(
+            processing_config: BoxOfficeDataConfig = BoxOfficeDataConfig(
                 training_week_len=original_config_data['training_week_len']
             )
 

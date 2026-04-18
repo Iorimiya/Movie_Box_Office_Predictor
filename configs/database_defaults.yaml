@@ -1,7 +1,7 @@
 # Default database connection settings
 server:
-  address: "localhost"
-  port: 3306
+  address: "172.31.254.200"
+  port: 11102
 
 # Default application user credentials
 user:

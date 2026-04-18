@@ -2,10 +2,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Generic, Optional, TypeVar
 
-from src.utilities.decorators import frozen_after_init
 
-
-@frozen_after_init
 class BaseDataConfig:
     """
     The base class for all data processing configurations.
@@ -37,7 +34,7 @@ class BaseDataConfig:
         if self._locked:
             raise AttributeError(f"Cannot assign to attribute '{name}'. Instance is immutable.")
 
-        super().__setattr__(name=name, value=value)
+        super().__setattr__(name, value)
 
     def _lock(self) -> None:
         """

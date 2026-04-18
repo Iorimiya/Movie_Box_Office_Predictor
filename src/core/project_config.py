@@ -79,6 +79,7 @@ class ProjectPaths:
     feature_datasets_dir: Final[Path] = datasets_dir / "feature"
 
     box_office_regression_models_root: Final[Path] = models_dir / ProjectModelType.BOX_OFFICE_REGRESSION.value
+    box_office_classification_models_root: Final[Path] = models_dir / ProjectModelType.BOX_OFFICE_CLASSIFICATION.value
 
     BOX_OFFICE_SUBFOLDER_NAME: Final[str] = "box_office"
     PUBLIC_REVIEWS_SUBFOLDER_NAME: Final[str] = "public_reviews"
@@ -136,6 +137,8 @@ class ProjectPaths:
         match model_type:
             case ProjectModelType.BOX_OFFICE_REGRESSION:
                 return cls.box_office_regression_models_root / model_id
+            case ProjectModelType.BOX_OFFICE_CLASSIFICATION:
+                return cls.box_office_classification_models_root / model_id
             case _:
                 raise ValueError(f"Unknown model_type: '{model_type}'. Must be a member of ProjectModelType.")
 
