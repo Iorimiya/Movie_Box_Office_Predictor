@@ -66,4 +66,27 @@
       - --show-confusion-matrix `flag`
       - --box-office-ranges: `list[int]`
       - --dataset-name `str`
-
+- box-office-classification-model
+  - box-office-classification-model train
+    - --model-id: `str` (Required)
+    - --config-override `Path`
+    - --dataset-name: `str`
+    - --epochs: `int`
+    - --checkpoint-interval: `int`
+    - --continue-from-epoch: `int`
+    - --training-week-len: `int`
+    - --split-ratios: `int, int, int`
+    - --random-state: `int`
+    - --lstm-units: `int`
+    - --dropout-rate: `float`
+    - --batch-size: `int`
+    - --early-stopping-patience: `int`
+    - --early-stopping-monitor: `str`
+    - --early-stopping-min-delta: `double`
+    - --box-office-thresholds: `list[int]`
+  - box-office-classification-model predict
+    - --model-id: `str` (Required)
+    - --epoch: `int` (Required)
+    - *mutually_exclusive* (Required)
+      - --movie-name: `str`
+      - --random: `flag`

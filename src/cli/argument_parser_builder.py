@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any, Callable, Optional
 
 from src.cli.handlers.base_model_handler import BaseModelHandler
+from src.cli.handlers.box_office_classification_handler import BoxOfficeClassificationModelHandler
 from src.cli.handlers.box_office_regression_model_handler import BoxOfficeRegressionModelHandler
 from src.cli.handlers.dataset_handler import DatasetHandler
 
@@ -29,6 +30,7 @@ class ArgumentParserBuilder:
     :ivar __get_metrics_common_behavior_parser: A parent parser for fetching evaluation metrics.
     :ivar __dataset_handler: The handler for 'dataset' command logic.
     :ivar __box_office_regression_model_handler: The handler for 'box-office-regression-model' command logic.
+    :ivar __box_office_classification_model_handler: The handler for 'box-office-classification-model' command logic.
     """
     _MODEL_ID_KWARGS: dict[str, type | bool | str] = {
         "type": str,
@@ -169,6 +171,7 @@ class ArgumentParserBuilder:
         self.__dataset_handler: DatasetHandler = DatasetHandler(self.parser)
         self.__box_office_regression_model_handler: BoxOfficeRegressionModelHandler = BoxOfficeRegressionModelHandler(
             self.parser)
+        self.__box_office_classification_model_handler: BoxOfficeClassificationModelHandler = BoxOfficeClassificationModelHandler()
 
     @staticmethod
     def __create_model_file_args_parser() -> ArgumentParser:
@@ -617,6 +620,56 @@ class ArgumentParserBuilder:
             child_command_specs=box_office_regression_model_specs
         )
 
+    def __setup_box_office_classification_model_subparser(self) -> None:
+        """
+        Sets up the 'box-office-classification-model' command group and its sub-commands.
+        """
+
+        def add_classification_predict_args(parser: ArgumentParser) -> None:
+            source_group = parser.add_mutually_exclusive_group(required=True)
+            source_group.add_argument(
+                '--movie-name', type=str, help='The name of the movie to predict for.'
+            )
+            source_group.add_argument(
+                '--random', action='store_true', help='Use random data for the prediction.'
+            )
+
+        def add_thresholds_args(parser: ArgumentParser) -> None:
+            parser.add_argument(
+                '--box-office-thresholds',
+                type=int,
+                nargs='+',
+                metavar='THRESHOLD',
+                required=False,
+                help='Percentile Rank thresholds for classification. Example: --box-office-thresholds 50 80'
+            )
+
+        box_office_classification_model_specs: list[dict] = [
+            {
+                "type": "command",
+                "name": 'train',
+                "help_text": 'Train a box office classification model.',
+                "handler_function": self.__box_office_classification_model_handler.train,
+                "parent_parsers": [self.__train_common_behavior_parser],
+                "customizer": add_thresholds_args
+            },
+            {
+                "type": "command",
+                "name": 'predict',
+                "help_text": 'Test the classification model.',
+                "handler_function": self.__box_office_classification_model_handler.predict,
+                "parent_parsers": [self.__model_file_args_parser],
+                "customizer": add_classification_predict_args
+            }
+        ]
+
+        ArgumentParserBuilder.__add_command_group(
+            parent_subparsers=self._subparsers_action,
+            name="box-office-classification-model",
+            help_text="Commands for the box office classification model.",
+            child_command_specs=box_office_classification_model_specs
+        )
+
     def build(self) -> ArgumentParser:
         """
         Constructs and returns the complete ArgumentParser.
@@ -631,6 +684,7 @@ class ArgumentParserBuilder:
 
         self.__setup_dataset_subparser()
         self.__setup_box_office_regression_model_subparser()
+        self.__setup_box_office_classification_model_subparser()
         self._built = True
         return self.parser
 
