@@ -1,53 +1,383 @@
 <!doctype html>
 <html lang="zh-Hant">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>電影票房預測</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>CinePulse｜電影分析儀表板</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        body {
+            background: #f8fafc;
+            font-family: system-ui;
+            color: #1e293b;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+
+        .list-hover:hover {
+            background: #f1f5f9;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 
-<body>
-<div class="wrap">
-    <div class="card">
-        <div class="cardHeader">
-            <h2>🎬 電影票房預測</h2>
-            <p class="cardSubTitle">看看你的電影落點吧</p>
-        </div>
 
-        <div class="content">
-            <!-- Left -->
-            <div class="panel">
-                <label>請您輸入電影</label>
-                <div class="inputGroup">
-                    <input id="movieQuote" placeholder="例如：動物方城市"/>
-                    <button>送出</button>
+<body class="p-6">
+
+    <main class="mx-auto max-w-6xl space-y-6">
+
+        <!-- 首頁 -->
+
+        <section id="page-home">
+
+            <div class="card p-8">
+
+                <h1 class="text-2xl font-bold">社群電影網</h1>
+
+                <div class="mt-6">
+
+                    <input placeholder="搜尋電影"
+                           class="w-full px-4 py-2 border rounded-xl" />
+
                 </div>
 
-                <div class="note">
-                    <span class="badge">i</span>
-                    pr0-50：一星<br/>
-                    pr50-80：二星<br/>
-                    pr80-99：三星
-
-                    <div id="traceBox">尚未執行</div>
-                </div>
             </div>
 
-            <!-- Right -->
-            <div class="result">
-                <div class="resultHeader">
-                    <b>呈現結果</b>
-                    <div class="status">等待輸入…</div>
+
+            <div class="card overflow-hidden">
+
+                <div class="px-4 py-3 border-b flex justify-between">
+
+                    <h3 class="font-bold text-orange-500">
+                        🔥 熱度榜
+                    </h3>
+
+                    <span class="text-xs text-slate-400">
+                        回覆數 / 討論量
+                    </span>
+
                 </div>
-                <div class="imageFrame">
-                    結果圖片 / 區塊顯示位置
-                </div>
+
+                <div id="listHot" class="divide-y"></div>
+
             </div>
-        </div>
-    </div>
+
+        </section>
+
+
+
+        <!-- 電影頁 -->
+
+        <section id="page-movie" class="hidden space-y-6">
+
+            <button id="btnBack"
+                    class="px-4 py-2 border rounded-lg bg-white">
+                ← 回首頁
+            </button>
+
+
+            <!-- 海報 + 電影資訊 -->
+
+            <div class="card p-6">
+
+                <div class="grid grid-cols-12 gap-6">
+
+                    <div class="col-span-4">
+
+                        <img src="https://upload.wikimedia.org/wikipedia/en/0/0b/Princess_Mononoke_Japanese_poster.png"
+                             class="rounded-xl shadow border" />
+
+                    </div>
+
+
+                    <div class="col-span-8 space-y-3">
+
+                        <div class="text-xs text-slate-400">
+                            電影
+                        </div>
+
+                        <h2 id="movieTitle" class="text-3xl font-bold">
+                            魔法公主 Princess Mononoke
+                        </h2>
+
+
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+
+                            <div class="text-slate-500">導演：</div>
+                            <div class="text-blue-600">宮崎駿</div>
+
+                            <div class="text-slate-500">編劇：</div>
+                            <div class="text-blue-600">宮崎駿</div>
+
+                            <div class="text-slate-500">演員：</div>
+
+                            <div class="text-blue-600">
+
+                                松田洋治<br>
+                                石田百合子<br>
+                                田中裕子<br>
+                                美輪明宏<br>
+                                小林薰<br>
+                                森光子
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 熱度 + 票房 -->
+
+            <div class="grid grid-cols-2 gap-6">
+
+                <div class="card p-6 text-center">
+
+                    <div class="text-xs text-slate-400">
+                        討論熱度
+                    </div>
+
+                    <div id="detailBuzz"
+                         class="text-2xl font-bold mt-2"></div>
+
+                    <div class="text-xs text-slate-400">
+                        近7天回覆數
+                    </div>
+
+                </div>
+
+
+                <div class="card p-6 text-center">
+
+                    <div class="text-xs text-slate-400">
+                        本週票房
+                    </div>
+
+                    <div id="detailBO"
+                         class="text-2xl font-bold mt-2"></div>
+
+                    <div class="text-xs text-red-500">
+                        週變動 -22%
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI票房預測 -->
+
+            <div class="card p-6">
+
+                <div class="grid grid-cols-3 items-center gap-6">
+
+                    <div class="text-orange-400 text-lg space-y-2">
+
+                        <div>一星:普通</div>
+                        <div>二星:推薦</div>
+                        <div>三星:夯</div>
+
+                    </div>
+
+
+                    <div class="text-center">
+
+                        <div class="text-2xl font-bold">
+                            AI票房預測
+                        </div>
+
+                        <div class="text-5xl mt-6">
+                            ⭐ ⭐ ⭐
+                        </div>
+
+                    </div>
+
+
+                    <div class="h-[180px]">
+
+                        <canvas id="chartDist"></canvas>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 劇情介紹 -->
+
+            <div class="card p-6">
+
+                <h3 class="font-bold mb-3 text-slate-700">
+                    劇情介紹 :
+                </h3>
+
+                <div class="bg-slate-100 rounded-xl p-4 text-sm leading-relaxed text-slate-700">
+
+                    《魔法公主》講述受詛咒的少年阿席達卡，在尋求化解之道時，
+                    捲入「邪魔神」森林神靈與人類工業文明的殘酷戰爭。<br><br>
+
+                    透過狼神撫養長大的少女小桑，電影尖銳地探討自然棲地與人類擴張之間的矛盾，
+                    並捨棄簡單的善惡二分法，展現出「活下去」的堅韌生命意志與環保反思。
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 網友評論1 -->
+
+            <div class="card p-6">
+
+                <div class="text-sm text-slate-400 mb-2">
+                    網友評論
+                </div>
+
+                <div class="bg-slate-100 rounded-xl p-4 text-slate-700">
+
+                    網友評論1
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 網友評論2 -->
+
+            <div class="card p-6">
+
+                <div class="text-sm text-slate-400 mb-2">
+                    網友評論
+                </div>
+
+                <div class="bg-slate-100 rounded-xl p-4 text-slate-700">
+
+                    網友評論2
+
+                </div>
+
+            </div>
+
+
+
+        </section>
+
+    </main>
+
+
+
+    <script>
+
+        const MOVIE_DATA = [
+
+            { id: 101, name: "昨日的雨", buzz: "4,511", bo: "25,412,000" },
+            { id: 102, name: "光之邊界", buzz: "4,389", bo: "18,900,000" },
+            { id: 103, name: "最後一班車", buzz: "4,377", bo: "32,100,000" },
+            { id: 104, name: "無聲片段", buzz: "4,236", bo: "12,500,000" },
+            { id: 105, name: "愛的迴路", buzz: "3,760", bo: "9,800,000" },
+            { id: 108, name: "逆轉時刻", buzz: "4,712", bo: "37,347,826" }
+
+        ]
+
+        let distChart = null
+
+
+        function renderHome() {
+
+            const hotHtml = [...MOVIE_DATA]
+
+                .sort((a, b) => parseInt(b.buzz.replace(/,/g, '')) - parseInt(a.buzz.replace(/,/g, '')))
+
+                .map(m => `
+
+<div onclick="openMovie(${m.id})"
+class="list-hover px-4 py-4 flex justify-between">
+
+<div class="font-semibold">${m.name}</div>
+<div class="font-bold">${m.buzz}</div>
+
 </div>
 
-<script src="js/script.js"></script>
+`).join('')
+
+            document.getElementById('listHot').innerHTML = hotHtml
+
+        }
+
+
+        function openMovie(id) {
+
+            const m = MOVIE_DATA.find(x => x.id === id)
+
+            document.getElementById('movieTitle').textContent = m.name
+            document.getElementById('detailBuzz').textContent = m.buzz
+            document.getElementById('detailBO').textContent = "NT$ " + m.bo
+
+            document.getElementById('page-home').classList.add('hidden')
+            document.getElementById('page-movie').classList.remove('hidden')
+
+            initChart()
+
+        }
+
+
+        function initChart() {
+
+            if (distChart) distChart.destroy()
+
+            distChart = new Chart(
+                document.getElementById('chartDist'),
+                {
+                    type: 'bar',
+                    data: {
+                        labels: ['0', '0.25', '0.5', '0.75', '1'],
+                        datasets: [{
+                            data: [45, 75, 80, 45, 15],
+                            backgroundColor: '#93c5fd'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } }
+                    }
+                })
+
+        }
+
+
+        document.getElementById('btnBack').onclick = () => {
+
+            document.getElementById('page-home').classList.remove('hidden')
+            document.getElementById('page-movie').classList.add('hidden')
+
+        }
+
+        renderHome()
+
+    </script>
+
 </body>
 </html>
