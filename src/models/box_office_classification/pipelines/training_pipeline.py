@@ -3,38 +3,45 @@ from pathlib import Path
 from typing import Any, Optional
 
 from numpy.typing import NDArray
-from sklearn.preprocessing import MinMaxScaler
 from typing_extensions import override
 
 from src.core.project_config import ProjectModelType
 from src.models.base.base_pipeline import Callback
 from src.models.base.callbacks import F1ScoreHistory
+from src.models.base.keras_setup import keras_base
+from src.models.box_office_classification.components.data_processor import (
+    BoxOfficeClassificationDataProcessor,
+    BoxOfficeClassificationTrainingProcessedData,
+)
+from src.models.box_office_classification.components.model_core import (
+    BoxOfficeClassificationBuildConfig,
+    BoxOfficeClassificationModelCore,
+    BoxOfficeClassificationTrainParams,
+)
 from src.models.box_office_common.box_office_data_processor import BoxOfficeDataConfig
 from src.models.box_office_common.box_office_evaluator import DataSourceType
 from src.models.box_office_common.box_office_pipeline import BoxOfficeTrainingPipeline
-from src.models.box_office_regression.components.data_processor import (
-    BoxOfficeRegressionDataProcessor,
-    BoxOfficeRegressionTrainingProcessedData
-)
-from src.models.box_office_regression.components.model_core import (
-    BoxOfficeRegressionBuildConfig,
-    BoxOfficeRegressionFitParams,
-    BoxOfficeRegressionModelCore
-)
-from src.utilities.metrics import PointwiseClassificationMetricsCalculator
+from src.utilities.metrics import MultiClassClassificationMetricsCalculator
+
+# noinspection PyUnresolvedReferences
+to_categorical = keras_base.utils.to_categorical
 
 
 @dataclass(frozen=True)
-class BoxOfficeRegressionPipelineConfig:
+class BoxOfficeClassificationPipelineConfig:
     """
-    Represents the master configuration for a Box Office Regression Model training run.
+    Represents the master configuration for a Box Office Classification Model training run.
 
     :ivar model_id: The unique identifier for the model series.
     :ivar dataset_name: The name of the source structured dataset.
     :ivar training_week_len: The number of past weeks used as input.
     :ivar split_ratios: Ratios for data splitting (train, val, test).
     :ivar lstm_units: The number of units in the LSTM layer.
+    :ivar dense_units: The number of units in the dense layer.
     :ivar dropout_rate: The dropout rate to apply after the LSTM layer.
+    :ivar box_office_thresholds: The PR thresholds (e.g., (50, 80)) used for classification.
+    :ivar learning_rate: The learning rate for the optimizer.
+    :ivar clipnorm: The clipnorm value for gradient clipping.
     :ivar epochs: The number of epochs for training.
     :ivar batch_size: The batch size for training.
     :ivar random_state: Seed for the random number generator.
@@ -42,7 +49,6 @@ class BoxOfficeRegressionPipelineConfig:
     :ivar early_stopping_patience: Number of epochs to wait for improvement.
     :ivar early_stopping_monitor: Metric to monitor for early stopping.
     :ivar early_stopping_min_delta: Minimum change to qualify as improvement.
-    :ivar box_office_ranges: Upper boundaries for classification ranges.
     :ivar f1_average_method: Averaging method for F1 score calculation.
     """
     model_id: str
@@ -50,7 +56,11 @@ class BoxOfficeRegressionPipelineConfig:
     training_week_len: int
     split_ratios: tuple[int, int, int]
     lstm_units: int
+    dense_units: int
     dropout_rate: float
+    box_office_thresholds: tuple[int, ...]
+    learning_rate: float
+    clipnorm: float
     epochs: int
     batch_size: int
     random_state: int
@@ -58,54 +68,58 @@ class BoxOfficeRegressionPipelineConfig:
     early_stopping_patience: Optional[int] = None
     early_stopping_monitor: str = 'val_loss'
     early_stopping_min_delta: float = 0.001
-    box_office_ranges: Optional[tuple[int, ...]] = None
     f1_average_method: str = 'macro'
 
 
-class BoxOfficeRegressionTrainingPipeline(
+class BoxOfficeClassificationTrainingPipeline(
     BoxOfficeTrainingPipeline[
-        BoxOfficeRegressionDataProcessor,
-        BoxOfficeRegressionModelCore,
-        BoxOfficeRegressionPipelineConfig
+        BoxOfficeClassificationDataProcessor,
+        BoxOfficeClassificationModelCore,
+        BoxOfficeClassificationPipelineConfig
     ]
 ):
     """
-    Orchestrates the end-to-end training process for the Box Office Regression Model.
+    Orchestrates the end-to-end training process for the Box Office Classification Model.
 
-    :ivar _data_processor: The data processor for regression data.
+    :ivar _data_processor: The data processor for classification data.
     :ivar _model_core: The core model architecture.
     """
-    _data_processor: BoxOfficeRegressionDataProcessor
-    _model_core: BoxOfficeRegressionModelCore
+    _data_processor: BoxOfficeClassificationDataProcessor
+    _model_core: BoxOfficeClassificationModelCore
 
     def __init__(
         self,
-        data_processor: BoxOfficeRegressionDataProcessor,
-        model_core: BoxOfficeRegressionModelCore,
-        data_source_type: DataSourceType = DataSourceType.DATABASE
-    ) -> None:
+        data_processor: BoxOfficeClassificationDataProcessor,
+        model_core: BoxOfficeClassificationModelCore,
+        data_source_type: DataSourceType = DataSourceType.DATABASE) -> None:
         """
-        Initializes the BoxOfficeRegressionTrainingPipeline.
+        Initializes the BoxOfficeClassificationTrainingPipeline.
 
         :param data_processor: The data processor instance.
         :param model_core: The model core instance.
         :param data_source_type: The type of data source to use (Database or YAML).
         """
-        super().__init__(data_source_type=data_source_type, data_processor=data_processor, model_core=model_core)
+        super().__init__(
+            data_source_type=data_source_type,
+            data_processor=data_processor,
+            model_core=model_core,
+            model_type=ProjectModelType.BOX_OFFICE_CLASSIFICATION
+        )
+
 
     @override
     def model_type(self) -> ProjectModelType:
         """
         Returns the specific model type for this pipeline.
 
-        :return: ProjectModelType.BOX_OFFICE_REGRESSION.
+        :return: ProjectModelType.BOX_OFFICE_CLASSIFICATION.
         """
-        return ProjectModelType.BOX_OFFICE_REGRESSION
+        return ProjectModelType.BOX_OFFICE_CLASSIFICATION
 
     @override
-    def _create_data_config(self, config: BoxOfficeRegressionPipelineConfig) -> BoxOfficeDataConfig:
+    def _create_data_config(self, config: BoxOfficeClassificationPipelineConfig) -> BoxOfficeDataConfig:
         """
-        Creates a data configuration for the regression model.
+        Creates a data configuration for the classification model.
 
         :param config: The master pipeline configuration.
         :return: A BoxOfficeDataConfig instance.
@@ -119,43 +133,51 @@ class BoxOfficeRegressionTrainingPipeline(
     @override
     def _prepare_training_data(
         self,
-        processed_data: BoxOfficeRegressionTrainingProcessedData,
-        config: BoxOfficeRegressionPipelineConfig
+        processed_data: BoxOfficeClassificationTrainingProcessedData,
+        config: BoxOfficeClassificationPipelineConfig
     ) -> tuple[NDArray[Any], NDArray[Any], NDArray[Any], NDArray[Any]]:
         """
-        Prepares features and labels for regression training.
+        Prepares features and labels for classification training, converting labels to one-hot encoding.
 
         :param processed_data: The scaled and split dataset from the processor.
         :param config: The master pipeline configuration.
-        :return: A tuple of (x_train, y_train, x_val, y_val).
+        :return: A tuple of (x_train, y_train_one_hot, x_val, y_val_one_hot).
         """
-        return processed_data['x_train'], processed_data['y_train'], processed_data['x_val'], processed_data['y_val']
+        num_classes: int = len(config.box_office_thresholds) + 1
+        # Specific to Classification: Convert labels to One-hot
+        y_train_cat: NDArray[Any] = to_categorical(y=processed_data['y_train'], num_classes=num_classes)
+        y_val_cat: NDArray[Any] = to_categorical(y=processed_data['y_val'], num_classes=num_classes)
+        return processed_data['x_train'], y_train_cat, processed_data['x_val'], y_val_cat
 
     @override
     def _create_build_config(
-        self, config: BoxOfficeRegressionPipelineConfig, num_features: int
-    ) -> BoxOfficeRegressionBuildConfig:
+        self, config: BoxOfficeClassificationPipelineConfig, num_features: int
+    ) -> BoxOfficeClassificationBuildConfig:
         """
         Creates a configuration for building the Keras model.
 
         :param config: The master pipeline configuration.
         :param num_features: The number of features in the input sequence.
-        :return: A BoxOfficeRegressionBuildConfig instance.
+        :return: A BoxOfficeClassificationBuildConfig instance.
         """
-        return BoxOfficeRegressionBuildConfig(
+        return BoxOfficeClassificationBuildConfig(
             input_shape=(config.training_week_len, num_features),
             lstm_units=config.lstm_units,
-            dropout_rate=config.dropout_rate
+            dense_units=config.dense_units,
+            dropout_rate=config.dropout_rate,
+            num_classes=len(config.box_office_thresholds) + 1,
+            learning_rate=config.learning_rate,
+            clipnorm=config.clipnorm
         )
 
     @override
     def _create_fit_params(
         self,
-        config: BoxOfficeRegressionPipelineConfig,
+        config: BoxOfficeClassificationPipelineConfig,
         validation_data: tuple[NDArray[Any], NDArray[Any]],
         callbacks: list[Callback],
         initial_epoch: int
-    ) -> BoxOfficeRegressionFitParams:
+    ) -> BoxOfficeClassificationTrainParams:
         """
         Creates the parameters for the Keras fit method.
 
@@ -163,9 +185,9 @@ class BoxOfficeRegressionTrainingPipeline(
         :param validation_data: The data used for validation.
         :param callbacks: A list of Keras callbacks.
         :param initial_epoch: The starting epoch number.
-        :return: A BoxOfficeRegressionFitParams instance.
+        :return: A BoxOfficeClassificationTrainParams instance.
         """
-        return BoxOfficeRegressionFitParams(
+        return BoxOfficeClassificationTrainParams(
             epochs=config.epochs,
             batch_size=config.batch_size,
             validation_data=validation_data,
@@ -176,7 +198,7 @@ class BoxOfficeRegressionTrainingPipeline(
     @override
     def _setup_f1_score_callback(
         self,
-        config: BoxOfficeRegressionPipelineConfig,
+        config: BoxOfficeClassificationPipelineConfig,
         validation_data: tuple[NDArray[Any], NDArray[Any]]
     ) -> Optional[F1ScoreHistory]:
         """
@@ -190,23 +212,9 @@ class BoxOfficeRegressionTrainingPipeline(
             return None
 
         self._logger.debug("F1 score monitoring is enabled. Setting up F1ScoreHistory callback.")
-
-        if not self._data_processor.scaler or config.box_office_ranges is None:
-            self._logger.error("Cannot set up F1 score monitoring. Ensure scaler is loaded and ranges are configured.")
-            return None
-
-        scaler: MinMaxScaler = self._data_processor.scaler
-        ranges: tuple[int, ...] = config.box_office_ranges
-
-        def value_to_label_fn(value: float) -> int:
-            unscaled_value: float = scaler.inverse_transform(X=[[value]])[0][0]
-            return BoxOfficeRegressionDataProcessor.get_range_index(value=unscaled_value, ranges=ranges)
-
-        metrics_calculator: PointwiseClassificationMetricsCalculator = PointwiseClassificationMetricsCalculator(
-            value_to_label_fn=value_to_label_fn,
+        metrics_calculator: MultiClassClassificationMetricsCalculator = MultiClassClassificationMetricsCalculator(
             f1_average_method=config.f1_average_method
         )
-
         return F1ScoreHistory(validation_data=validation_data, metrics_calculator=metrics_calculator)
 
     @override
@@ -220,11 +228,11 @@ class BoxOfficeRegressionTrainingPipeline(
             raise FileNotFoundError("DataProcessor is not prepared for continued training.")
 
     @override
-    def _create_model_core(self, model_path: Path) -> BoxOfficeRegressionModelCore:
+    def _create_model_core(self, model_path: Path) -> BoxOfficeClassificationModelCore:
         """
         Creates a ModelCore instance with a loaded model for resuming.
 
         :param model_path: Path to the .keras model file.
-        :return: A BoxOfficeRegressionModelCore instance.
+        :return: A BoxOfficeClassificationModelCore instance.
         """
-        return BoxOfficeRegressionModelCore(model_path=model_path)
+        return BoxOfficeClassificationModelCore(model_path=model_path)

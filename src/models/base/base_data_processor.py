@@ -2,10 +2,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Generic, Optional, TypeVar
 
-from src.utilities.decorators import frozen_after_init
 
-
-@frozen_after_init
 class BaseDataConfig:
     """
     The base class for all data processing configurations.
@@ -16,13 +13,13 @@ class BaseDataConfig:
     """
     _locked: bool = False
 
-    def __init__(self, **kwargs: Any):
+    def __init__(self, **kwargs: Any) -> None:
         """
         Initializes the BaseDataConfig instance.
 
         Allows subclasses to pass unused keyword arguments up the chain.
 
-        :param kwargs: Arbitrary keyword arguments.
+        :param kwargs: Arbitrary keyword arguments to be handled by subclasses or ignored.
         """
         pass
 
@@ -47,9 +44,9 @@ class BaseDataConfig:
 
 
 RawDataSourceType = TypeVar('RawDataSourceType')
-RawDataType = TypeVar('RawDataType')
+TrainingRawDataType = TypeVar('TrainingRawDataType')
 ProcessedTrainingDataType = TypeVar('ProcessedTrainingDataType')
-PredictionDataType = TypeVar('PredictionDataType')
+PredictionRawDataType = TypeVar('PredictionRawDataType')
 ProcessedPredictionDataType = TypeVar('ProcessedPredictionDataType')
 DataConfigType = TypeVar('DataConfigType', bound=BaseDataConfig)
 
@@ -57,9 +54,9 @@ DataConfigType = TypeVar('DataConfigType', bound=BaseDataConfig)
 class BaseDataProcessor(
     Generic[
         RawDataSourceType,
-        RawDataType,
+        TrainingRawDataType,
         ProcessedTrainingDataType,
-        PredictionDataType,
+        PredictionRawDataType,
         ProcessedPredictionDataType,
         DataConfigType],
     ABC
@@ -70,7 +67,10 @@ class BaseDataProcessor(
     Defines a common interface for loading raw data and processing it for training or prediction.
     It is agnostic to the specific preprocessing tools (like scalers or tokenizers) used by subclasses.
     Subclasses are responsible for managing the lifecycle of their own artifacts.
+
+    :ivar _model_artifacts_path: Path to the directory where model artifacts are stored.
     """
+    _model_artifacts_path: Optional[Path]
 
     def __init__(self, model_artifacts_path: Optional[Path] = None) -> None:
         """
@@ -79,7 +79,7 @@ class BaseDataProcessor(
         :param model_artifacts_path: Path to the directory where model artifacts
                                      (like a scaler or tokenizer) are or will be stored.
         """
-        self.model_artifacts_path: Optional[Path] = model_artifacts_path
+        self._model_artifacts_path: Optional[Path] = model_artifacts_path
 
     @abstractmethod
     def save_artifacts(self) -> None:
@@ -104,7 +104,7 @@ class BaseDataProcessor(
         pass
 
     @abstractmethod
-    def load_raw_data(self, source: RawDataSourceType) -> RawDataType:
+    def load_raw_data(self, source: RawDataSourceType) -> TrainingRawDataType:
         """
         Loads raw data from a structured source object.
 
@@ -112,12 +112,12 @@ class BaseDataProcessor(
         such as a file path or a database connection object.
 
         :param source: The source from which to load the data.
-        :returns: The loaded raw data in its original, unprocessed format.
+        :return: The loaded raw data in its original, unprocessed format.
         """
         pass
 
     @abstractmethod
-    def process_for_training(self, raw_data: RawDataType, config: DataConfigType) -> ProcessedTrainingDataType:
+    def process_for_training(self, raw_data: TrainingRawDataType, config: DataConfigType) -> ProcessedTrainingDataType:
         """
         Processes raw data into a format suitable for model training.
 
@@ -126,13 +126,14 @@ class BaseDataProcessor(
 
         :param raw_data: The raw data loaded by `load_raw_data`.
         :param config: A configuration object containing parameters for the training process.
-        :returns: The processed data, ready to be fed into a model.
+        :return: The processed data, ready to be fed into a model.
         """
         pass
 
     @abstractmethod
-    def process_for_prediction(self, single_input: PredictionDataType,
-                               config: Optional[DataConfigType]) -> ProcessedPredictionDataType:
+    def process_for_prediction(
+        self, single_input: PredictionRawDataType, config: Optional[DataConfigType]
+    ) -> ProcessedPredictionDataType:
         """
         Processes a single input sample for prediction.
 
@@ -143,6 +144,7 @@ class BaseDataProcessor(
 
         :param single_input: A single raw input sample (e.g., a string of text or a dictionary of features).
         :param config: An optional configuration object containing necessary parameters.
-        :returns: The processed sample, ready for the model's predict method.
+        :return: The processed sample, ready for the model's predict method.
+        :raises NotImplementedError: If the method is not implemented by a subclass.
         """
         raise NotImplementedError

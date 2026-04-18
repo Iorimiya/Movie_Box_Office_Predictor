@@ -10,8 +10,10 @@ class ProjectModelType(Enum):
     or routing logic.
 
     :ivar BOX_OFFICE_REGRESSION: Corresponds to models focused on box office prediction using regression method.
+    :ivar BOX_OFFICE_CLASSIFICATION: Corresponds to models focused on box office prediction using classification method.
     """
     BOX_OFFICE_REGRESSION = "box_office_regression"
+    BOX_OFFICE_CLASSIFICATION = "box_office_classification"
 
 
 class ProjectDatasetType(Enum):
@@ -29,3 +31,17 @@ class ProjectDatasetType(Enum):
     """
     STRUCTURED = "structured"
     FEATURE = "feature"
+
+
+class DataSourceType(Enum):
+    """
+    Enumeration for different types of data sources used across the project.
+
+    This helps in selecting between different dataset implementations like
+    Database-backed or YAML-backed storage.
+
+    :ivar DATABASE: Indicates data should be sourced from a SQL database.
+    :ivar YAML: Indicates data should be sourced from local YAML files.
+    """
+    DATABASE = "database"
+    YAML = "yaml"

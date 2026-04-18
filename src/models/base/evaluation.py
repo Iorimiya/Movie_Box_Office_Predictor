@@ -48,7 +48,7 @@ class BaseEvaluationConfig:
         dataset_name: str,
         evaluate_on_full_dataset: bool,
         **kwargs: Any
-    ):
+    ) -> None:
         """
         Initializes the BaseEvaluationConfig.
 
@@ -58,10 +58,10 @@ class BaseEvaluationConfig:
         :param evaluate_on_full_dataset: If True, evaluates on the entire dataset without splitting.
         :param kwargs: Arbitrary keyword arguments passed to subclasses.
         """
-        self.model_id = model_id
-        self.model_epoch = model_epoch
-        self.dataset_name = dataset_name
-        self.evaluate_on_full_dataset = evaluate_on_full_dataset
+        self.model_id: str = model_id
+        self.model_epoch: int = model_epoch
+        self.dataset_name: str = dataset_name
+        self.evaluate_on_full_dataset: bool = evaluate_on_full_dataset
 
     def __setattr__(self, name: str, value: Any) -> None:
         """
@@ -74,7 +74,7 @@ class BaseEvaluationConfig:
         if self._locked:
             raise AttributeError(f"Cannot assign to attribute '{name}'. Instance is immutable.")
 
-        super().__setattr__(name, value)
+        super().__setattr__(name=name, value=value)
 
     def _lock(self) -> None:
         """
@@ -97,10 +97,17 @@ class GradientEvaluationConfig(BaseEvaluationConfig):
         split_ratios: Optional[tuple[int, int, int]] = None,
         random_state: Optional[int] = None,
         **kwargs: Any
-    ):
+    ) -> None:
+        """
+        Initializes the GradientEvaluationConfig.
+
+        :param split_ratios: The train/val/test split ratios.
+        :param random_state: The random seed for data splitting.
+        :param kwargs: Arbitrary keyword arguments passed to the base class.
+        """
         super().__init__(**kwargs)
-        self.split_ratios = split_ratios
-        self.random_state = random_state
+        self.split_ratios: Optional[tuple[int, int, int]] = split_ratios
+        self.random_state: Optional[int] = random_state
 
 
 class RegressionEvaluationConfig(GradientEvaluationConfig):
@@ -110,9 +117,15 @@ class RegressionEvaluationConfig(GradientEvaluationConfig):
     :ivar calculate_loss: Flag to calculate loss (e.g., MSE) on the test set.
     """
 
-    def __init__(self, *, calculate_loss: bool, **kwargs: Any):
+    def __init__(self, *, calculate_loss: bool, **kwargs: Any) -> None:
+        """
+        Initializes the RegressionEvaluationConfig.
+
+        :param calculate_loss: Flag to calculate loss on the test set.
+        :param kwargs: Arbitrary keyword arguments passed to the base class.
+        """
         super().__init__(**kwargs)
-        self.calculate_loss = calculate_loss
+        self.calculate_loss: bool = calculate_loss
 
 
 class ClassificationEvaluationConfig(GradientEvaluationConfig):
@@ -129,10 +142,17 @@ class ClassificationEvaluationConfig(GradientEvaluationConfig):
         calculate_classification_metrics: bool,
         f1_average_method: str = 'macro',
         **kwargs: Any
-    ):
+    ) -> None:
+        """
+        Initializes the ClassificationEvaluationConfig.
+
+        :param calculate_classification_metrics: Flag to enable classification-based metrics.
+        :param f1_average_method: The averaging strategy for the F1 score.
+        :param kwargs: Arbitrary keyword arguments passed to the base class.
+        """
         super().__init__(**kwargs)
-        self.calculate_classification_metrics = calculate_classification_metrics
-        self.f1_average_method = f1_average_method
+        self.calculate_classification_metrics: bool = calculate_classification_metrics
+        self.f1_average_method: str = f1_average_method
 
 
 @dataclass(frozen=True)
@@ -181,6 +201,19 @@ class RegressionEvaluationResult(GradientBasedEvaluationResult):
     """
     regression_report: Optional[RegressionReportDict]
 
+    def get_summary_string(self) -> str:
+        """
+        Returns a formatted, multi-line summary string of all key metrics.
+
+        :return: The formatted summary string.
+        """
+        lines: list[str] = [f"Evaluation Summary for Model '{self.model_id}' (Epoch {self.model_epoch}):"]
+        if self.regression_report:
+            lines.append(f"  - MSE Loss: {self.regression_report['mse']:.6f}")
+            lines.append(f"  - MAE:      {self.regression_report['mae']:.6f}")
+            lines.append(f"  - R² Score: {self.regression_report['r2_score']:.4f}")
+        return "\n".join(lines)
+
 
 @dataclass(frozen=True)
 class ClassificationEvaluationResult(GradientBasedEvaluationResult, ClassificationSummaryMixin):
@@ -198,6 +231,8 @@ class ClassificationEvaluationResult(GradientBasedEvaluationResult, Classificati
     def get_summary_string(self) -> str:
         """
         Generates a formatted summary string for the classification result.
+
+        :return: The formatted summary string.
         """
         lines: list[str] = [f"Evaluation Summary for Model '{self.model_id}' (Epoch {self.model_epoch}):"]
         if self.classification_report:
@@ -223,8 +258,7 @@ EvaluationResultType = TypeVar('EvaluationResultType', bound=BaseEvaluationResul
 
 
 class BaseEvaluator(
-    Generic[DataProcessorType, ModelCoreType, EvaluationConfigType, EvaluationResultType],
-    ABC
+    Generic[DataProcessorType, ModelCoreType, EvaluationConfigType, EvaluationResultType], ABC
 ):
     """
     An abstract base class for a model evaluator.
@@ -234,27 +268,25 @@ class BaseEvaluator(
     processing a dataset for evaluation, and computing performance metrics.
     The specific logic is delegated to subclasses.
 
-    :ivar logger: A logger instance for logging evaluation progress.
+    :ivar _logger: A logger instance for logging evaluation progress.
     """
-    logger: Logger
+    _logger: Logger
 
     def __init__(self) -> None:
         """
         Initializes the BaseEvaluator.
         """
-        self.logger = LoggingManager().get_logger('machine_learning')
+        self._logger: Logger = LoggingManager().get_logger(arg='machine_learning')
 
     @abstractmethod
-    def _setup_components(
-        self, model_id: str, model_epoch: int
-    ) -> tuple[DataProcessorType, ModelCoreType, Path]:
+    def _setup_components(self, model_id: str, model_epoch: int) -> tuple[DataProcessorType, ModelCoreType, Path]:
         """
         Sets up and loads the necessary data processor and model core.
 
         :param model_id: The unique identifier for the model series.
         :param model_epoch: The specific training epoch of the model to load.
-        :returns: A tuple containing the initialized data processor, model core,
-                  and the path to the model artifacts' directory.
+        :return: A tuple containing the initialized data processor, model core,
+                 and the path to the model artifacts' directory.
         """
         pass
 
@@ -267,7 +299,7 @@ class BaseEvaluator(
 
         :param data_processor: The initialized data processor.
         :param config: The configuration object for the evaluation run.
-        :returns: A tuple containing the evaluation features (x_eval) and labels (y_eval).
+        :return: A tuple containing the evaluation features (x_eval) and labels (y_eval).
         """
         pass
 
@@ -298,7 +330,7 @@ class BaseEvaluator(
         :param y_test: The prepared test labels.
         :param training_history: The loaded training loss history.
         :param validation_history: The loaded validation loss history.
-        :returns: The final, model-specific evaluation result object.
+        :return: The final, model-specific evaluation result object.
         """
         pass
 
@@ -310,10 +342,10 @@ class BaseEvaluator(
         from a Keras History object's `.history` attribute.
 
         :param history_file_path: The path to the history file.
-        :returns: A tuple containing the training loss list and validation loss list.
+        :return: A tuple containing the training loss list and validation loss list.
         :raises FileNotFoundError: If the history file does not exist.
         """
-        self.logger.info(f"Loading training history from '{history_file_path}'...")
+        self._logger.info(f"Loading training history from '{history_file_path}'...")
         if not history_file_path.exists():
             raise FileNotFoundError(f"Training history file not found at: {history_file_path}")
 
@@ -334,9 +366,9 @@ class BaseEvaluator(
         to the `_create_evaluation_result` method.
 
         :param config: The configuration object for the evaluation run.
-        :returns: A structured result object containing all evaluation metrics.
+        :return: A structured result object containing all evaluation metrics.
         """
-        self.logger.info(
+        self._logger.info(
             f"--- Starting evaluation for model '{config.model_id}' at epoch {config.model_epoch} ---"
         )
 
@@ -360,7 +392,7 @@ class BaseEvaluator(
         x_test, y_test = self._prepare_test_data(data_processor=data_processor, config=config)
 
         # Delegate the entire evaluation and compilation to the subclass
-        self.logger.info("Creating final evaluation result...")
+        self._logger.info("Creating final evaluation result...")
         final_result: EvaluationResultType = self._create_evaluation_result(
             config=config,
             model_core=model_core,
@@ -371,5 +403,5 @@ class BaseEvaluator(
             validation_history=validation_loss
         )
 
-        self.logger.info(f"--- Evaluation finished for model '{config.model_id}' ---")
+        self._logger.info(f"--- Evaluation finished for model '{config.model_id}' ---")
         return final_result

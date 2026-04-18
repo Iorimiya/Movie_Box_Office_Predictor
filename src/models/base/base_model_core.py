@@ -14,6 +14,22 @@ Callback: TypeAlias = keras_base.callbacks.Callback
 # noinspection PyUnresolvedReferences
 History: TypeAlias = keras_base.callbacks.History
 load_model: Callable = keras_base.models.load_model
+# noinspection PyUnresolvedReferences
+Sequential: TypeAlias = keras_base.models.Sequential
+# noinspection PyUnresolvedReferences
+Dense: TypeAlias = keras_base.layers.Dense
+# noinspection PyUnresolvedReferences
+Dropout: TypeAlias = keras_base.layers.Dropout
+# noinspection PyUnresolvedReferences,PyTypeHints
+Input: TypeAlias = keras_base.layers.Input
+# noinspection PyUnresolvedReferences
+LSTM: TypeAlias = keras_base.layers.LSTM
+# noinspection PyUnresolvedReferences
+Masking: TypeAlias = keras_base.layers.Masking
+# noinspection PyUnresolvedReferences
+Adam: TypeAlias = keras_base.optimizers.Adam
+# noinspection PyUnresolvedReferences
+ExponentialDecay: TypeAlias = keras_base.optimizers.schedules.ExponentialDecay
 
 
 @dataclass(frozen=True)
@@ -86,6 +102,7 @@ class BaseModelCore(
 
     :ivar _model: The internal Keras model instance.
     """
+    _model: Optional[Model]
 
     def __init__(self, model_path: Optional[Path] = None) -> None:
         """
@@ -123,7 +140,7 @@ class BaseModelCore(
         :param y_train: Training data (labels).
         :param params: A structured configuration object containing all necessary
                        parameters for training (e.g., epochs, batch_size, validation_data).
-        :returns: A Keras History object containing training history.
+        :return: A Keras History object containing training history.
         """
         pass
 
@@ -132,9 +149,9 @@ class BaseModelCore(
         """
         Generates predictions for the given input data based on a configuration object.
 
-        :param data: Input data for box_office_regression.
-        :param params: A structured configuration object for box_office_regression.
-        :returns: A NumPy array containing the predictions.
+        :param data: Input data for prediction.
+        :param params: A structured configuration object for prediction.
+        :return: A NumPy array containing the predictions.
         """
         pass
 
@@ -146,7 +163,7 @@ class BaseModelCore(
         :param x_test: Test data (features).
         :param y_test: Test data (labels).
         :param params: A structured configuration object for evaluation.
-        :returns: A scalar loss value, or a list of scalars (loss and metrics) for the model.
+        :return: A scalar loss value, or a list of scalars (loss and metrics) for the model.
         """
         pass
 
