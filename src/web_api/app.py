@@ -152,7 +152,7 @@ def _fetch_movie_data_online(movie_name: str) -> MovieData:
     logger.info(f"Fetching online data for movie: {movie_name}")
     box_office_history: list[BoxOffice] = []
     try:
-        with BoxOfficeCollector(download_mode='WEEK') as collector:
+        with BoxOfficeCollector(download_mode='WEEK', headless=True) as collector:
             box_office_history, _ = collector.fetch_single_movie_data(movie_name=movie_name)
     except Exception as e:
         logger.warning(f"Failed to fetch box office data online for '{movie_name}': {e}")
