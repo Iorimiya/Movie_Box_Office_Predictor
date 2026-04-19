@@ -1,0 +1,23 @@
+model_id: default_model
+dataset_name: training_data_gemini
+training_week_len: 4
+split_ratios:
+- 7
+- 2
+- 1
+random_state: 42
+lstm_units: 64
+dense_units: 32
+dropout_rate: 0.2
+learning_rate: 0.001
+clipnorm: 1.0
+epochs: 10000
+batch_size: 32
+checkpoint_interval: 10
+early_stopping_monitor: val_loss
+early_stopping_patience: 10
+early_stopping_min_delta: 0.0001
+box_office_thresholds:
+- 50
+- 80
+f1_average_method: macro
